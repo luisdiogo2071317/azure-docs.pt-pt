@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050800"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381802"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -58,9 +58,20 @@ A máquina de origem regista com o servidor de configuração quando instalar o 
 
 Este erro ocorre quando o serviço não é possível ler dados a partir da ligação de transporte, quando está a instalar o agente de mobilidade e registar com o servidor de configuração. Para resolver o problema, certifique-se de que o TLS 1.0 está ativado no seu computador de origem.
 
+## <a name="vcenter-discovery-failures"></a>falhas de deteção do vCenter
+
+Para resolver falhas de deteção do vCenter, certifique-se de que o servidor vCenter é adicionado as ignorar lista as definições de proxy. Para executar esta atividade
+
+- Transferir a ferramenta PsExec da [aqui](https://aka.ms/PsExec) para aceder a conteúdo de utilizador do sistema.
+- Abra o Internet Explorer no conteúdo de utilizador do sistema, executando a seguinte linha de comandos psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Adicionar definições de proxy no IE e reinicie o serviço de tmanssvc.
+- Para configurar as definições de proxy do DRA, execute cd C:\Program Files\Microsoft Azure Site Recovery Provider
+- Em seguida, execute DRCONFIGURATOR. EXE / configurar /AddBypassUrls [adicionar o endereço de IP/FQDN do vCenter Server fornecido durante **configurar servidor vCenter Server/vSphere ESXi** passo [implementação de servidor de configuração](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Alterar o endereço IP do servidor de configuração
 
 Recomendamos vivamente que não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os endereços IP que estão atribuídos ao servidor de configuração são endereços IP estáticos. Não utilize endereços IP de DHCP.
+>>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML token é inválido
 

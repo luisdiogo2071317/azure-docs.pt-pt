@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9f9ae8bb3aa1da51d2a9b81cf7d50d75c5229c11
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248238"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382035"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implementar o contentor de deteção de idioma para o Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ Este procedimento requer várias ferramentas que tem de estar instaladas e execu
 
 Este procedimento carrega e executa o exemplo de contentor de serviços cognitivos para deteção de idioma. O exemplo tem dois contentores, um para o aplicativo cliente e outro para o contentor de serviços cognitivos. Terá de enviar ambas estas imagens para o seu próprio registo de contentor do Azure. Assim que estão no seu próprio registo, crie um serviço de Kubernetes do Azure para aceder estas imagens e execute os contentores. Quando os contentores estão em execução, utilize o **kubectl** CLI para ver o desempenho de contentores. Aceder à aplicação de cliente com uma solicitação HTTP e ver os resultados. 
 
-
+![Idéia conceitual da execução de contentores de exemplo](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Os contentores de exemplo
 
@@ -315,8 +315,8 @@ Esta secção utiliza o **kubectl** CLI para falar com o serviço de Kubernetes 
 
     Definições de implementação de idioma-front-end|Objetivo|
     |--|--|
-    |Linha 32<br> `image` Propriedade|Localização de imagem para a imagem de front-end no seu registo de contentor<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Linha 44<br> `name` Propriedade|Segredo de registo de contentor para a imagem, conhecido como `<client-secret>` numa secção anterior.|
+    |Line 32<br> `image` Propriedade|Localização de imagem para a imagem de front-end no seu registo de contentor<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Line 44<br> `name` Propriedade|Segredo de registo de contentor para a imagem, conhecido como `<client-secret>` numa secção anterior.|
 
 1. Alterar as linhas de implementação de linguagem de `language.yml` com base na tabela seguinte para adicionar seus próprios nomes de imagens do registo de contentor, o segredo do cliente e a definições de análise de texto.
 
@@ -324,8 +324,8 @@ Esta secção utiliza o **kubectl** CLI para falar com o serviço de Kubernetes 
     |--|--|
     |Linha 78<br> `image` Propriedade|Localização de imagem para a imagem de idioma no seu registo de contentor<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |95 de linha<br> `name` Propriedade|Segredo de registo de contentor para a imagem, conhecido como `<client-secret>` numa secção anterior.|
-    |Linha 91<br> `apiKey` Propriedade|A chave de recurso de análise de texto|
-    |92 de linha<br> `billing` Propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Line 91<br> `apiKey` Propriedade|A chave de recurso de análise de texto|
+    |Line 92<br> `billing` Propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
     Uma vez que o **apiKey** e **ponto final de faturação** estão definidas como parte da definição de orquestração de Kubernetes, o contentor de Web site não precisa saber sobre estes ou passá-los como parte do pedido. O contentor de Web site refere-se para o contentor de deteção de idioma por seu nome de orchestrator `language`. 
 

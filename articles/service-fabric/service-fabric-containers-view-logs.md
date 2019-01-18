@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993797"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391238"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentor do Service Fabric
 O Azure Service Fabric é um orquestrador de contentores e oferece suporte a ambos [contentores do Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como visualizar registos de contentor de um serviço de contentor em execução ou um contentor inativo para que possa diagnosticar e resolver problemas.
@@ -44,6 +44,8 @@ Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (
 
 A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se não for especificado um valor negativo, todos os contentores com falhas serão mantidos. Quando o **ContainersRetentionCount** atributo não for especificado, não existem contentores serão retidos. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Utilize restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar esta funcionalidade para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
 
+A definição **RunInteractive** corresponde do Docker `--interactive` e `tty` [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options). Quando esta definição está definida como true no arquivo de manifesto, esses sinalizadores são usados para iniciar o contentor.  
+
 ### <a name="rest"></a>REST
 Utilize o [obter contentores implementados no nó Logs](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operação para obter os registos para um contentor falhado. Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código.  Especificar `&Previous=true`. A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
 
@@ -63,7 +65,7 @@ Corpo de resposta 200:
 {   "Content": "Exception encountered: System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).\r\n\tat System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()\r\n" } 
 ```
 
-### <a name="service-fabric-sfctl"></a>O Service Fabric (SFCTL)
+### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
 Utilize o [sfctl get-container-registos do serviço](service-fabric-sfctl-service.md) comando para obter os registos para um contentor falhado.  Especifique o nome do nó que o contentor foi a ser executado, o nome da aplicação, nome do manifesto do serviço e o nome do pacote de código. Especifique o `--previous` sinalizador.  A resposta irá conter os registos de contentor para o contentor de mensagens não da instância de pacote do código.
 
 ```

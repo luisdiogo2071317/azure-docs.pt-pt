@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855838"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390669"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registo de contentores do Azure de instâncias de contentor do Azure
 
@@ -24,7 +24,7 @@ Neste artigo, vai aprender a criar e configurar um principal de serviço do Azur
 
 Deve utilizar um principal de serviço para a autenticação do ACI em **cenários sem periféricos**, como no caso de aplicações ou serviços que criar instâncias de contentor de forma autónoma automatizada ou de outra forma.
 
-Por exemplo, se tiver um script automatizado que é executada todas as noites e cria um [instância de contentor baseado em tarefas](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode utilizar um principal de serviço com permissões de (leitor) pull-only para autenticar para o registo. Em seguida, pode alternar credenciais do principal de serviço ou revogar o acesso totalmente sem afetar outros serviços e aplicações.
+Por exemplo, se tiver um script automatizado que é executada todas as noites e cria um [instância de contentor baseado em tarefas](../container-instances/container-instances-restart-policy.md) para processar alguns dados, pode utilizar um principal de serviço com permissões pull-only para autenticar para o registo. Em seguida, pode alternar credenciais do principal de serviço ou revogar o acesso totalmente sem afetar outros serviços e aplicações.
 
 Principais de serviço também devem ser utilizado quando o Registro [utilizador de admin](container-registry-authentication.md#admin-account) está desativada.
 

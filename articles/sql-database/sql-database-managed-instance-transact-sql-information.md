@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843211"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390014"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -235,7 +235,7 @@ Nenhuma das MSDTC nem [transações elásticas](https://docs.microsoft.com/azure
 Alguns destinos específicos do Windows para XEvents não são suportados:
 
 - `etw_classic_sync target` Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [etw_classic_sync destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [event_file destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [event_file destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
@@ -264,13 +264,13 @@ Para obter mais informações, consulte [FILESTREAM](https://docs.microsoft.com/
 
 Servidores ligados na instância gerida suportam um número limitado de destinos:
 
-- Suportado destinos: SQL Server e base de dados SQL
+- Destinos suportados: SQL Server e base de dados SQL
 - Não suportado destinos: arquivos, Analysis Services e outros RDBMS.
 
 Operações
 
 - Transações de escrita de instância para várias não são suportadas.
-- `sp_dropserver` é suportada para remover um servidor ligado. Ver [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
+- `sp_dropserver` é suportada para remover um servidor ligado. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET` a função pode ser utilizada para executar consultas apenas em instâncias do SQL Server (qualquer um gerido, no local, ou em máquinas virtuais). Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` a função pode ser utilizada para executar consultas apenas em instâncias do SQL Server (qualquer um gerido, no local, ou em máquinas virtuais). Apenas `SQLNCLI`, `SQLNCLI11`, e `SQLOLEDB` valores são suportados como o fornecedor. Por exemplo: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
@@ -358,7 +358,7 @@ Não é suportado o Mediador de serviço da instância de entre:
 - `xp_cmdshell` Não é suportada. Ver [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` não são suportadas, incluindo `sp_addextendedproc`  e `sp_dropextendedproc`. Consulte [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportadas. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `sp_renamedb` Não é suportada. Ver [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
+- `sp_renamedb` Não é suportada. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
@@ -465,7 +465,7 @@ Registos de erros que estão disponíveis na instância gerida não são mantido
 
 Instância gerida coloca informações verbosas em registos de erros e muitos deles não são relevantes. A quantidade de informações nos registos de erro é reduzida no futuro.
 
-**Solução**: utilizar um procedimento personalizado para a leitura de registos de erros que algumas entradas não relevantes de filtro-out. Para obter detalhes, consulte [SQL DB instância gerida do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solução**: Utilize um procedimento personalizado para a leitura de registos de erros que algumas entradas não relevantes de filtro-out. Para obter detalhes, consulte [SQL DB instância gerida do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Âmbito de transação nas duas bases de dados dentro da instância do mesmo não é suportado
 
@@ -496,13 +496,13 @@ using (var scope = new TransactionScope())
 
 Embora esse código funciona com os dados dentro da instância do mesmo é necessária MSDTC.
 
-**Solução**: Utilize [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outro banco de dados no contexto de ligação em vez de usar duas conexões.
+**Solução**: Utilizar [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outro banco de dados no contexto de ligação em vez de usar duas conexões.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Módulos CLR e algum tempo a servidores ligados não é possível referenciar o endereço IP local
 
 Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este erro é um problema transitório.
 
-**Solução**: utilizar ligações de contexto no módulo CLR, se possível.
+**Solução**: Se for possível utilize ligações de contexto no módulo CLR.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

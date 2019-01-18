@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e910fc3c685f3ffb3e77308dafa9ec7e6ce6a950
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790263"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Active Directory do Azure com YouEarnedIt
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com YouEarnedIt, t
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar YouEarnedIt Single Sign-On](#configure-youearnedit-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste YouEarnedIt](#create-youearnedit-test-user)**  - para ter um equivalente da Eduarda Almeida na YouEarnedIt que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste YouEarnedIt](#create-youearnedit-test-user)**  - para ter um equivalente da Eduarda Almeida na YouEarnedIt que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -104,22 +104,24 @@ Para configurar o Azure AD início de sessão único com YouEarnedIt, execute os
 
     ![YouEarnedIt domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com os seguintes padrões: 
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com os seguintes padrões:
+
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `https://<company name>.youearnedit.com/users/sign_in` |
     | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Na **identificador** caixa de texto, escreva um URL com os seguintes padrões:
+
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `<company name>.youearnedit.com` |
     | Sandbox  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte o seu Gestor de YouEarnedIt ao sucesso dos clientes atribuído para obter estes valores.
 
-4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
@@ -129,7 +131,7 @@ Para configurar o Azure AD início de sessão único com YouEarnedIt, execute os
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -192,11 +194,10 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no YouEarnedIt. Trabalhe em conjunto com o seu gestor ao sucesso dos clientes YouEarnedIt atribuído para adicionar os utilizadores na plataforma YouEarnedIt.
 
->[!NOTE]
->YouEarnedIt esperam que o fornecedor de identidade para fornecer um endereço de correio eletrónico ou o nome de utilizador no atributo NameID. Autenticação irá falhar se um nome de utilizador correspondente ou o endereço de correio eletrónico não foi encontrado na base de dados ou não corresponde exatamente. Isso exigirá que as contas de ser importado para o sistema de YouEarnedIt antes da integração de SSO (normalmente, seja por meio de importação de API ou CSV).
+> [!NOTE]
+> YouEarnedIt esperam que o fornecedor de identidade para fornecer um endereço de correio eletrónico ou o nome de utilizador no atributo NameID. Autenticação irá falhar se um nome de utilizador correspondente ou o endereço de correio eletrónico não foi encontrado na base de dados ou não corresponde exatamente. Isso exigirá que as contas de ser importado para o sistema de YouEarnedIt antes da integração de SSO (normalmente, seja por meio de importação de API ou CSV).
 
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -209,4 +210,3 @@ Quando clica no mosaico YouEarnedIt no painel de acesso, deve ser automaticament
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

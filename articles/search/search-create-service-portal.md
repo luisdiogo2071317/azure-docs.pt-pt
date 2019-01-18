@@ -1,20 +1,20 @@
 ---
 title: Criar um serviço Azure Search no portal - Azure Search
-description: Aprovisione um serviço de Azure Search no portal do Azure. Escolha os grupos de recursos, regiões e SKU ou escalão de preço.
+description: Aprovisione um recurso do Azure Search no portal do Azure. Escolha os grupos de recursos, regiões e SKU ou escalão de preço.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5be958a2137fd8a9e7598b1dc92993a9ddcdb35f
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230531"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390982"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -22,9 +22,9 @@ O Azure Search é um recurso de autónomo utilizado para serem incorporados numa
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/). 
 
-![Recursos de pesquisa do Azure no portal](media/search-create-service-portal/azure-search-resource-label.png)
+![Recursos de pesquisa do Azure no portal](media/search-create-service-portal/azure-search-resource-label.png "procure este recurso no portal")
 
-Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda na introdução, consulte [gerir o Azure Search com o PowerShell](search-manage-powershell.md).
+Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda com a introdução, consulte [gerir o Azure Search com o PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 
@@ -34,10 +34,10 @@ Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.micro
 
 ## <a name="find-azure-search"></a>Localizar o Azure Search
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique no sinal de soma ("+ Criar recurso") no canto superior esquerdo.
+2. Clique no sinal ("+ Criar recurso") no canto superior esquerdo.
 3. Utilize a barra de pesquisa para encontrar "Azure Search" ou navegue para o recurso através de **Web** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search3.png)
+![Navegue para um recurso do Azure Search](./media/search-create-service-portal/find-search3.png "caminho de navegação para o Azure Search")
 
 ## <a name="name-the-service-and-url-endpoint"></a>Atribuir um nome ao serviço e ao ponto final do URL
 
@@ -53,7 +53,7 @@ Requisitos do nome do serviço:
    * Sem hífenes consecutivos ("-") em qualquer parte
 
 ## <a name="select-a-subscription"></a>Selecionar uma subscrição
-Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Search pode detetar automaticamente o armazenamento de Tabelas e Blobs do Azure, a Base de Dados SQL e o Azure Cosmos DB para indexação através de [*indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
+Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Search pode deteção automática de tabelas do Azure e BLOBs de armazenamento, base de dados SQL e do Azure Cosmos DB para indexação através de [ *indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
 
 ## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
 Um grupo de recursos é uma coleção de serviços e recursos do Azure utilizados em conjunto. Por exemplo, se estiver a utilizar o Azure Search para indexar uma base de dados SQL, ambos os serviços devem fazer parte do mesmo grupo de recursos.
@@ -64,7 +64,9 @@ Se não é a combinação de recursos num único grupo, ou se os grupos de recur
 > A eliminação de um grupo de recursos também elimina os serviços no mesmo. Para projetos de protótipo que utilizam múltiplos serviços, colocá-los a todos no mesmo grupo de recursos facilita a limpeza depois de o projeto terminar. 
 
 ## <a name="select-a-hosting-location"></a>Selecionar uma localização de alojamento 
-Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. Tenha em atenção que [os preços podem ser diferentes](https://azure.microsoft.com/pricing/details/search/) por geografia.
+Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. [Os preços podem ser diferentes](https://azure.microsoft.com/pricing/details/search/) por geografia.
+
+Se estiver a planear utilizar a pesquisa cognitiva, escolha uma [região com disponibilidade de funcionalidades](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
 [O Azure Search está disponível em vários escalões de preços](https://azure.microsoft.com/pricing/details/search/): Gratuito, básico ou Standard. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Veja [Escolher um escalão de preço ou SKU](search-sku-tier.md) para obter orientações.
@@ -77,7 +79,21 @@ Um escalão de preço não pode ser alterado após a criação do serviço. Se p
 
 Não se esqueça de afixar o serviço ao dashboard para facilitar o acesso sempre que iniciar sessão.
 
-![](./media/search-create-service-portal/new-service3.png)
+![Afixar ao dashboard](./media/search-create-service-portal/new-service3.png "afixar o recurso ao seu dashboard para acesso conveniente")
+
+## <a name="get-a-key-and-url-endpoint"></a>Obter uma chave e o ponto final do URL
+
+Com algumas exceções, a utilização de seu novo serviço requer que forneça o ponto de final do URL e uma chave de api de autorização. Inícios rápidos, tutoriais, tal como [Explore pesquisa APIs REST do Azure (Postman)](search-fiddler.md) e [como utilizar o Azure Search no .NET](search-howto-dotnet-sdk.md), exemplos e código personalizado, tudo o precisa de um ponto final e a chave para ser executado no seu recurso em particular.
+
+1. Na página de descrição geral do serviço, localize e copie o ponto final do URL no lado esquerdo da página. 
+
+   ![Página de descrição geral do serviço com o ponto final do URL](./media/search-create-service-portal/url-endpoint.png "ponto final do URL e outros detalhes de serviço")
+
+2. No painel de navegação esquerdo, selecione **chaves** e, em seguida, copie uma das chaves de administração (ambos são equivalentes). Chaves de api são necessárias para criar, atualizar e eliminar objetos no seu serviço.
+
+   ![Chaves de página que mostra a chaves de primárias e secundárias](./media/search-create-service-portal/admin-api-keys.png "chaves de api para autorização")
+
+Um ponto final e a chave não são necessários para tarefas com base no portal. O portal já está ligado ao seu recurso do Azure Search com direitos de administrador. Para um tutorial do portal, comece com [Tutorial: Importar, índice e a consulta no Azure Search](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Dimensionar o serviço
 Pode demorar alguns minutos a criar um serviço (15 minutos ou mais consoante o escalão). Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Uma vez que escolheu o escalão Standard para o seu serviço do Azure Search, pode dimensionar o serviço em duas dimensões: réplicas e partições. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
@@ -95,14 +111,14 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 2. No painel de navegação esquerdo, selecione **Definições** > **Dimensionar**.
 3. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
 
-![](./media/search-create-service-portal/settings-scale.png)
+![Adicionar capacidade](./media/search-create-service-portal/settings-scale.png "adicionar capacidade através de réplicas e partições")
 
 > [!Note] 
 > Cada escalão tem diferentes [limites](search-limits-quotas-capacity.md) para o número total de Unidades de Pesquisa permitido num único serviço (Réplicas * Partições = Total de Unidades de Pesquisa).
 
 ## <a name="when-to-add-a-second-service"></a>Quando adicionar um segundo serviço
 
-A grande maioria dos clientes utiliza apenas um serviço aprovisionado num escalão que oferece o [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Search, os pedidos só podem ser direcionados para um índice, o que minimiza a possibilidade de obtenção de dados acidental ou intencional a partir de outros índices no mesmo serviço.
+A maioria dos clientes utilize apenas um serviço aprovisionado num escalão fornecer a [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Search, os pedidos só podem ser direcionados para um índice, o que minimiza a possibilidade de obtenção de dados acidental ou intencional a partir de outros índices no mesmo serviço.
 
 Embora a maioria dos clientes utilize apenas um serviço, a redundância de serviços pode ser necessária se os requisitos operacionais incluírem o seguinte:
 

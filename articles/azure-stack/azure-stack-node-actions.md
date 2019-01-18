@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302685"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388836"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de dimensionamento no Azure Stack
 
@@ -154,4 +154,4 @@ Para executar a ação de reparação, abra uma linha de comandos elevada do Pow
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre o módulo de administrador de recursos de infraestrutura do Azure Stack, veja [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).
+Para saber mais sobre o módulo de administrador de recursos de infraestrutura do Azure Stack, veja [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

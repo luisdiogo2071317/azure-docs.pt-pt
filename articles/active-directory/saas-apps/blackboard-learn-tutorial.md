@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: bb66dca9c68535c2ab36e9a7286570d34a7ea310
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063561"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integração do Active Directory do Azure com Blackboard Saiba
 
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com Blackboard sai
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Blackboard saiba início de sessão único](#configure-blackboard-learn-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Blackboard Saiba](#create-blackboard-learn-test-user)**  - para ter um equivalente da Eduarda Almeida na Blackboard saiba que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Blackboard Saiba](#create-blackboard-learn-test-user)**  - para ter um equivalente da Eduarda Almeida na Blackboard saiba que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com Blackboard saiba, execu
     ![image](common/edit-attribute.png)
 
 6. Na **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar atributos de token SAML, conforme mostrado na imagem e execute os seguintes passos. Podemos mapeou Userprincipalname como o atributo de utilizador exclusivo aqui, mas pode mapeá-lo para o valor apropriado, o que distingue exclusivamente o utilizador na organização e que mapeia para o campo de nome de utilizador Blackboard saiba.
-    
+
     | Nome | Atributo de origem|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
@@ -140,17 +140,17 @@ Para configurar o Azure AD início de sessão único com Blackboard saiba, execu
 
     g. Clique em **Guardar**.
 
-4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-6. Sobre o **configurar Blackboard Saiba** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Sobre o **configurar Blackboard Saiba** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -226,4 +226,3 @@ Quando clica no mosaico Blackboard saiba no painel de acesso, deve ser automatic
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

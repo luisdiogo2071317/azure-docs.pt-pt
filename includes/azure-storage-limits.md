@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249628"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392740"
 ---
 A tabela seguinte descreve os limites predefinidos para o armazenamento do Azure. O *entrada* limite refere-se a todos os dados (pedidos) a ser enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
 
@@ -29,12 +29,12 @@ A tabela seguinte descreve os limites predefinidos para o armazenamento do Azure
 | Saída de máx. de contas de armazenamento para fins gerais v1 (regiões dos E.U.A..) | 20 Gbps se o RA-GRS/GRS ativado, 30 Gbps para LRS/ZRS <sup>2</sup> |
 | Saída de máx. de contas de armazenamento para fins gerais v1 (regiões de não-US) | 10 Gbps, se o RA-GRS/GRS ativado, 15 Gbps para LRS/ZRS <sup>2</sup> |
 
-<sup>1</sup> contas de armazenamento do azure suportam limites mais elevados para a entrada e de IOPS por pedido. Para pedir um aumento de limites de conta, contacte [suporte do Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> contas de armazenamento standard do azure suportam limites mais elevados para entrada por pedido. Para pedir um aumento de limites de conta para entrada, contacte [suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [replicação de armazenamento do azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) as opções incluem:
 * **RA-GRS**: Armazenamento georredundante com acesso de leitura. Se o RA-GRS for ativado, os destinos de saída para a localização secundária são idênticos para a localização principal.
 * **GRS**: Armazenamento georredundante. 
-* **O ZRS**: Armazenamento com redundância de zona.
+* **ZRS**: Armazenamento com redundância de zona.
 * **LRS**: Armazenamento localmente redundante. 
 
 > [!NOTE]

@@ -11,28 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 30c033b487fe58d017080b02c257502f82338164
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710045"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388306"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
-Este artigo descreve como configurar o número de utilizadores para o laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
+Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
 
 
-## <a name="specify-the-number-of-users-allowed-into-the-lab"></a>Especifique o número de utilizadores com permissão para o laboratório
+## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
+Se tiver o **restringir o acesso** ativado, adicione utilizadores (endereços de e-mail) à lista.
 
-1. Selecione **Política de utilização**. 
-2. Nas definições da **Política de utilização**, introduza o **número de utilizadores** que têm permissão para utilizar o laboratório.
-3. Selecione **Guardar**. 
+1. Selecione **utilizadores** no menu da esquerda.
+2. Selecione **adicionar utilizadores** na barra de ferramentas. 
+3. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
 
-    ![Política de utilização](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
+    ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 
+
+    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="send-registration-link-to-students"></a>Enviar a ligação de registo para os alunos
+O procedimento seguinte tem os passos para enviar uma ligação de registo para os utilizadores. Se o **restringir o acesso** está ativada para o laboratório, apenas os utilizadores da lista de utilizadores podem utilizar a ligação de registo se registrar para o laboratório. 
 
 1. Mude para o **usuários** vista ao selecionar **utilizadores** no menu da esquerda. 
 2. Selecione **obter a ligação de registo** mosaico.
@@ -52,9 +57,10 @@ Este artigo descreve como configurar o número de utilizadores para o laboratór
 
 Selecione **utilizadores** no menu da esquerda para ver a lista de utilizadores registados com o laboratório. 
 
-![Lista de utilizadores registados com o laboratório](../media/how-to-configure-student-usage/users-list.png)
+![Lista de utilizadores registados com o laboratório](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="set-quotas-per-user"></a>Definir quotas por utilizador
+Pode definir quotas de por utilizador, utilizando os seguintes passos: 
 
 1. Selecione **utilizadores** no menu da esquerda.
 2. Selecione **Quota por utilizador: ilimitado** na barra de ferramentas. 
@@ -62,21 +68,9 @@ Selecione **utilizadores** no menu da esquerda para ver a lista de utilizadores 
 4. Para **quantas horas que pretende dar a cada usuário**, introduza o número de horas e selecione **guardar**. 
 
     ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Ver o número de horas na barra de ferramentas agora: **Quota por utilizador: &lt;número de horas&gt;**. 
+5. Ver o número de horas na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;**. 
 
     ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
-
-## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
-Se tiver o **restringir o acesso** ativado, adicione utilizadores (endereços de e-mail) à lista.
-
-1. Selecione **utilizadores** no menu da esquerda.
-2. Selecione **adicionar utilizadores** na barra de ferramentas. 
-3. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
-
-    ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 
-
-    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar utilizadores ao carregar um ficheiro CSV
 Também pode adicionar utilizadores ao carregar um ficheiro CSV com endereços de e-mail dos utilizadores.
@@ -96,6 +90,16 @@ Pode efetuar as seguintes tarefas numa VM de estudante:
 - Ligue à VM. 
 - Elimine a VM. 
 - Ver o número de horas que os utilizadores utilizaram a máquina virtual. 
+
+## <a name="update-number-of-virtual-machines-in-lab"></a>Atualizar o número de máquinas virtuais num laboratório
+Para atualizar o número de máquinas virtuais no laboratório, siga os passos seguintes **máquinas virtuais** página:
+
+1. Selecione **máquinas virtuais** no menu da esquerda. 
+2. Selecione **capacidade de laboratório: &lt;número&gt; máquina (s)** na barra de ferramentas. 
+3. Introduza o **número** de máquinas virtuais.
+4. Selecione **Guardar**.
+
+    ![Máquinas virtuais no laboratório](../media/how-to-configure-student-usage/number-virtual-machines.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

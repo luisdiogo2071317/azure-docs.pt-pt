@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d5a8187394fba8c7718a8d056cb2063f37347832
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196622"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Active Directory do Azure com o guarda-chuva de Cisco
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com [nome da aplic
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Cisco guarda-chuva início de sessão único](#configure-cisco-umbrella-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste de síntese de Cisco](#create-cisco-umbrella-test-user)**  - para ter um equivalente da Eduarda Almeida na Cisco guarda-chuva que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de síntese de Cisco](#create-cisco-umbrella-test-user)**  - para ter um equivalente da Eduarda Almeida na Cisco guarda-chuva que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -110,7 +110,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     c. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://login.umbrella.com/sso`
 
-4. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **metadados XML**entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **metadados XML**entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
 1. Numa janela do browser diferente, início de sessão no site da sua empresa Cisco guarda-chuva como administrador.
 
-2.  Do lado esquerdo do menu, clique em **administrador** e navegue até à **autenticação** e, em seguida, clique em **SAML**.
+2. Do lado esquerdo do menu, clique em **administrador** e navegue até à **autenticação** e, em seguida, clique em **SAML**.
 
     ![O administrador](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     ![A próxima](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. Na **opção r: Carregar ficheiro XML**, carregue o **XML de metadados de Federação** ficheiro que transferiu do portal do Azure e depois de carregar metadados a valores abaixo obter automaticamente preenchido automaticamente, em seguida, clique em **seguinte**.
 
     ![O choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
 8. Clique em **GUARDAR**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
@@ -215,7 +214,7 @@ No caso de síntese da Cisco, o aprovisionamento é uma tarefa manual.
 
 1. Numa janela do browser diferente, início de sessão no site da sua empresa Cisco guarda-chuva como administrador.
 
-2.  Do lado esquerdo do menu, clique em **administrador** e navegue até à **contas**.
+2. Do lado esquerdo do menu, clique em **administrador** e navegue até à **contas**.
 
     ![A conta](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ No caso de síntese da Cisco, o aprovisionamento é uma tarefa manual.
 
     g. Clique em **criar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -250,4 +249,3 @@ Quando clica no mosaico de síntese de Cisco no painel de acesso, deve ser autom
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

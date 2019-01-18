@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1f7162e4be1392a8b5b3228a5338fd470fdcc525
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196593"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Active Directory do Azure com o Visualizador de InstaVR
 
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com o Visualizador
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar InstaVR Visualizador de início de sessão único](#configure-instavr-viewer-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste do Visualizador de InstaVR](#create-instavr-viewer-test-user)**  - para ter um equivalente da Eduarda Almeida no Visualizador de InstaVR que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do Visualizador de InstaVR](#create-instavr-viewer-test-user)**  - para ter um equivalente da Eduarda Almeida no Visualizador de InstaVR que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -105,13 +105,13 @@ Para configurar o Azure AD início de sessão único com o Visualizador de Insta
 
     ![InstaVR Visualizador de domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > Não existe nenhuma padrão fixo para o URL de início de sessão. Este é gerado quando o cliente do Visualizador de InstaVR web empacotamento. Ele é exclusivo para cada cliente e o pacote. Para obter o início de sessão exato na URL tem de iniciar sessão para o seu visualizador InstaVR de instância e a web empacotamento.
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > O valor do identificador não é real. Atualize este valor com o valor do identificador real que é explicado posteriormente neste tutorial.
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com o Visualizador de Insta
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

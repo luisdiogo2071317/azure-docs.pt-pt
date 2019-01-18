@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413494"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382924"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -29,9 +29,9 @@ Os Webhooks são uma das diversas formas de receber eventos do Azure Event Grid.
 
 Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar a propriedade do ponto final do Webhook, antes de iniciar a entrega de eventos para esse ponto final. Esse requisito impede que um utilizador mal intencionado sobrecarregar o ponto final com eventos. Quando utiliza qualquer um dos três serviços do Azure listados abaixo, a infraestrutura do Azure processa automaticamente esta validação:
 
-* Azure Logic Apps,
-* Automatização do Azure,
-* Funções do Azure para o acionador do Event Grid.
+* Aplicações lógicas do Azure com [conector de grelha de eventos](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* A automatização do Azure através de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Das funções do Azure com [acionador do Event Grid](../azure-functions/functions-bindings-event-grid.md)
 
 Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com o Event Grid. Event Grid suporta duas formas de validar a subscrição.
 

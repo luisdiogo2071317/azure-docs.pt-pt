@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338588"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382836"
 ---
-# <a name="traffic-analytics"></a>Análise de tráfego
+# <a name="traffic-analytics"></a>Análise de Tráfego
 
 Análise de tráfego é uma solução baseada na cloud que fornece visibilidade em atividades de utilizador e da aplicação em redes na cloud. Análise de tráfego analisa registos fluxo (NSG) do grupo de segurança de rede de observador de rede para fornecer informações sobre o fluxo de tráfego na cloud do Azure. Com a análise de tráfego, pode:
 
@@ -99,9 +99,6 @@ Sua conta tem de ser um membro de um do Azure seguinte [funções incorporadas](
 |                   | Contribuinte            |
 |                   | Leitor                 |
 |                   | Contribuinte de Rede    |
-|Clássica            | Administrador de conta  |
-|                   | Administrador de serviço  |
-|                   | Coadministrador       |
 
 Se a sua conta não está atribuída a uma das funções incorporadas, tem de ser atribuído a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) atribuída as seguintes ações, ao nível da subscrição:
 
@@ -317,7 +314,7 @@ Distribuição de tráfego por gateway de aplicação & Balanceador de carga, to
  - Saber qual a sub-rede é conversação para que o gateway de aplicação ou Balanceador de carga. Se observar conversas inesperadas, pode corrigir sua configuração.
  - Se a redes de adesão são conversação com um gateway de aplicação ou Balanceador de carga, é possível corrigi-lo ao configurar regras NSG para bloquear as redes de adesão. 
 
-    ![subnet-Topology-showcasing-Traffic-Distribution-to-a-Application-Gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Ver as portas e as máquinas virtuais a receber o tráfego da internet
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a3a6fee7446766973cc8fdca1129cdc2ff80d0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ae66efdf11ea17341c605dfaf2ad96d6e112e045
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974459"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integração do Active Directory do Azure com AirWatch
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com AirWatch, tem 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar AirWatch Single Sign-On](#configure-airwatch-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste da AirWatch](#create-airwatch-test-user)**  - para ter um equivalente da Eduarda Almeida na AirWatch que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste da AirWatch](#create-airwatch-test-user)**  - para ter um equivalente da Eduarda Almeida na AirWatch que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -121,7 +121,7 @@ Para configurar o Azure AD início de sessão único com AirWatch, execute os se
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD início de sessão único com AirWatch, execute os se
 
 5. Clique nas **servidor** separador.
 
-   ![Servidor](./media/airwatch-tutorial/ic791923.png "Server")
+   ![Server](./media/airwatch-tutorial/ic791923.png "Server")
 
 6. Execute os seguintes passos:
 

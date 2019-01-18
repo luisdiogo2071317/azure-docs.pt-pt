@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 3dd0605d02732f1a98f6b6516d9f04daf354a489
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332324"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382067"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -168,7 +168,7 @@ Para obter uma lista de computadores a enviar **faturados os tipos de dados** (a
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em dados dados typres são dispendiosas. 
+Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em todos os tipos de dados são dispendiosas. 
 
 Isso pode ser estendido para devolver a contagem de computadores por hora, que estão a enviar faturados os tipos de dados:
 

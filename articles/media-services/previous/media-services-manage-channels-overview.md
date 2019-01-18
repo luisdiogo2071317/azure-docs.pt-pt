@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057097"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382129"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Descrição geral da transmissão em direto através dos serviços de multimédia do Azure
 
@@ -27,6 +27,7 @@ ms.locfileid: "42057097"
 > A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
 
 ## <a name="overview"></a>Descrição geral
+
 Os seguintes componentes estão normalmente relacionados ao entregar eventos de transmissão em fluxo em direto com Media Services do Azure:
 
 * Uma câmara, que é utilizada para difundir um evento.
@@ -43,13 +44,13 @@ Os seguintes componentes estão normalmente relacionados ao entregar eventos de 
 
 Os **Media Services do Microsoft Azure** (AMS) fornecem a capacidade de inserir, codificar, pré-visualizar, armazenar e distribuir os seus conteúdos por transmissão em fluxo em direto.
 
-Quando distribui os seus conteúdos aos seus clientes, o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para conseguir isso, utilize codificadores em direto para codificar a sua transmissão em fluxo para um fluxo de vídeo do múltipla (velocidade de transmissão adaptável).  Para realizar a transmissão em fluxo para dispositivos diferentes, utilize o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Media Services para empacotar novamente e de forma dinâmica a sua transmissão em fluxo para protocolos diferentes. Os Serviços de Multimédia suportam a distribuição das seguintes tecnologias de transmissão em fluxo de velocidade de transmissão adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Quando distribui os seus conteúdos aos seus clientes, o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para conseguir isso, utilize codificadores em direto para codificar a sua transmissão em fluxo para um fluxo de vídeo do múltipla (velocidade de transmissão adaptável).  Para realizar a transmissão em fluxo para dispositivos diferentes, utilize o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Media Services para empacotar novamente e de forma dinâmica a sua transmissão em fluxo para protocolos diferentes. Serviços de multimédia suportam a distribuição das seguinte velocidade de transmissão adaptável tecnologias de transmissão em fluxo: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 Nos Media Services do Azure, os **Canais**, **Programas** e **Pontos Finais de Transmissão em Fluxo** lidam com todas as funcionalidades de transmissão em fluxo em direto, incluindo inserção, formatação, DVR, segurança, escalabilidade e redundância.
 
 Um **Canal** representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. Um Canal pode receber transmissões em fluxo de entrada em direto das seguintes formas:
 
-* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through**. A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through**. A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > A utilização de um método pass-through é a forma mais económica de realizar uma transmissão em fluxo em direto quando estiver a realizar vários eventos durante um longo período de tempo e já investiu em codificadores no local. Consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/media-services/).
@@ -63,6 +64,7 @@ Começando com o lançamento de 2.10 de serviços de multimédia, quando cria um
 * **Padrão** – escolha esse valor, se planeja usar serviços de multimédia para codificar a transmissão em direto de velocidade de transmissão única para o fluxo de velocidade de transmissão. Esse método é mais econômico para aumentar verticalmente rapidamente para eventos pouco frequentes. Lembre-se de que há um impacto de faturação para live encoding e deve se lembrar de que a sair de um canal de codificação em direto no estado "Em execução" irá incorrer em custos de faturas.  Recomenda-se que parar imediatamente os seus canais em execução depois do evento de transmissão em fluxo em direto foi concluído para evitar custos adicionais por hora.
 
 ## <a name="comparison-of-channel-types"></a>Comparação de tipos de canais
+
 A tabela seguinte fornece um guia para a comparação entre os dois tipos de canal suportados nos serviços de multimédia
 
 | Funcionalidade | Canal pass-through | Canais Standard |
@@ -80,6 +82,7 @@ A tabela seguinte fornece um guia para a comparação entre os dois tipos de can
 | Auto-shutoff canais quando a introdução de feed é perdido |Não |Após 12 horas, se não houver nenhum programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com Canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
+
 O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas no fluxo de trabalho de **pass-through**.
 
 ![Fluxo de trabalho em direto](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,6 +90,7 @@ O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas 
 Para obter mais informações, consulte [Trabalhar com Canais que recebem transmissões em Fluxo em Direto de Múltipla Velocidade de Transmissão a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Trabalhar com Canais ativados para realizar live encoding com Media Services do Azure
+
 O diagrama seguinte mostra as partes principais da plataforma do AMS envolvidas no fluxo de trabalho de Transmissão em Fluxo em Direto onde um Canal é ativado para realizar live encoding comMedia Services.
 
 ![Fluxo de trabalho em direto](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -94,12 +98,16 @@ O diagrama seguinte mostra as partes principais da plataforma do AMS envolvidas 
 Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrição de um canal e seus componentes relacionados
+
 ### <a name="channel"></a>Canal
+
 Nos serviços de multimédia [canal](https://docs.microsoft.com/rest/api/media/operations/channel)s são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um canal fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um transcodificador ao vivo. O canal recebe transmissões em direto de entrada do transcodificador em direto e disponibiliza-o para transmissão em fluxo através de pontos finais de um ou mais. Canais também fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas.
 
 Pode obter o URL de inserção e o URL de pré-visualização ao criar o canal. Para obter estes URLs, o canal não tem de estar no estado iniciado. Quando estiver pronto para começar a enviar dados a partir de um transcodificador ao vivo dentro do canal, o canal tem de ser iniciado. Assim que for iniciada a transcodificador ao vivo a ingestão de dados, pode visualizar a sua transmissão em fluxo.
 
 Cada conta de Media Services pode conter vários canais, vários programas e pontos finais vários. Consoante as necessidades de largura de banda e de segurança, StreamingEndpoint serviços podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode extrair a partir de qualquer canal.
+
+Ao criar um canal, pode especificar endereços IP permitidos em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
 
 ### <a name="program"></a>Programa
 R [programa](https://docs.microsoft.com/rest/api/media/operations/program) permite-lhe controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Canais gerem Programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190600"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382502"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -58,7 +58,8 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - A funcionalidade só está disponível para redes virtuais implementadas através do modelo de implementação Azure Resource Manager.
 - Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos finais não podem ser utilizados para tráfego dos serviços no local para os serviços do Azure. Para obter mais informações, veja [Proteger o acesso do serviço do Azure no local](#securing-azure-services-to-virtual-networks)
-- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Armazenamento do Azure e ADLS Gen 1, para suportar o RA-GRS e tráfego GRS, pontos de extremidade também estendem para incluir regiões emparelhadas em que a rede virtual é implementada. Saiba mais sobre as [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. No Armazenamento do Azure, para suportar tráfego RA-GRS e GRS, os pontos finais também se expandem para incluir regiões emparelhadas nas quais a rede virtual está implementada. Saiba mais sobre as [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para ADLS Gen 1, a capacidade de integração VNet apenas está disponível para redes virtuais na mesma região.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Proteger serviços do Azure para redes virtuais
 

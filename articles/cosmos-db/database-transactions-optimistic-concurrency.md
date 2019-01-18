@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038841"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389109"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Transações de base de dados e o controlo de simultaneidade otimista
 
@@ -49,7 +49,7 @@ A capacidade de execução do JavaScript diretamente dentro do motor de base de 
 
 ## <a name="optimistic-concurrency-control"></a>Controlo de simultaneidade otimista 
 
-Controlo de simultaneidade otimista, pode impedir que as atualizações perdidas e eliminações. Operações simultâneas em conflito estão sujeitos ao bloqueio pessimista regulares do mecanismo de banco de dados hospedado pela partição lógica que é proprietário do item. Quando duas operações em simultâneo a tentar atualizar a versão mais recente de um item dentro de uma partição lógica, uma delas vencem e o outro falhará. No entanto, se uma ou duas operações de tentar atualizar simultaneamente no mesmo item anteriormente tinham lido um valor mais antigo do item, a base de dados não sabe se o valor de leitura anteriormente por uma ou ambas as operações em conflito foi, de fato, o valor mais recente do item. Felizmente, esta situação pode ser detetada com o controle de simultaneidade otimista (OCC) antes de permitir que as duas operações, introduza o limite de transação dentro do motor de base de dados. OCC protege os dados a substituição acidental as alterações efetuadas por outras pessoas. Ele também impede que outras pessoas a substituição acidental as suas próprias alterações.
+Controlo de simultaneidade otimista, pode impedir que as atualizações perdidas e eliminações. Operações simultâneas em conflito estão sujeitos ao bloqueio pessimista regulares do mecanismo de banco de dados hospedado pela partição lógica que é proprietário do item. Quando duas operações simultâneas tentam atualizar a versão mais recente de um item dentro de uma partição lógica, uma delas vencem e o outro falhará. No entanto, se uma ou duas operações de tentar atualizar simultaneamente no mesmo item anteriormente tinham lido um valor mais antigo do item, a base de dados não sabe se o valor de leitura anteriormente por uma ou ambas as operações em conflito foi, de fato, o valor mais recente do item. Felizmente, esta situação pode ser detetada com o controle de simultaneidade otimista (OCC) antes de permitir que as duas operações, introduza o limite de transação dentro do motor de base de dados. OCC protege os dados a substituição acidental as alterações efetuadas por outras pessoas. Ele também impede que outras pessoas a substituição acidental as suas próprias alterações.
 
 As atualizações em simultâneo de um item estão sujeitos ao OCC pela camada de protocolo de comunicação do Azure Cosmos DB. Base de dados do Cosmos do Azure garante que a versão do lado do cliente do item que está a atualizar (ou a eliminar) é o mesmo que a versão do item no contentor do Cosmos do Azure. Isso garante que as escritas são protegidas contra a ser substituídas acidentalmente pelas gravações de outras pessoas e vice-versa. Num ambiente de vários utilizador, o controle de simultaneidade otimista protege contra o acidentalmente a eliminar ou atualizar a versão incorreta de um item. Como tal, os itens estão protegidos contra a infame "atualização perdida" ou "eliminar perdido" problemas.
 

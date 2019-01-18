@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 6f7c6c2265fe13eb50aa900e9a51e11edfd90201
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354183"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382085"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -50,7 +50,8 @@ Para obter mais informações, consulte um [tutorial de transmissão em fluxo em
 
 Para entregar transmissões em fluxo a pedido ou em direto com Media Services, tem de ter, pelo menos, um [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando a sua conta de serviços de multimédia é criada um **predefinição** StreamingEndpoint é adicionado à sua conta no **parado** estado. Tem de iniciar o StreamingEndpoint a partir do qual pretende transmitir o seu conteúdo para os seus utilizadores. Pode utilizar a predefinição **StreamingEndpoint**, ou criar outro personalizados **StreamingEndpoint** com a sua configuração desejada e definições da CDN. Pode optar por ativar pontos finais de vários, cada uma segmentação de uma CDN diferente e fornecer um nome de anfitrião exclusivo para a entrega de conteúdos. 
 
-Nos serviços de multimédia [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um LiveEvent, um ponto de final de entrada é criado a que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocol (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [recomendado codificadores de transmissão em direto](recommended-on-premises-live-encoders.md).
+Nos serviços de multimédia [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um LiveEvent, um ponto de final de entrada é criado a que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocol (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. Para obter mais informações, consulte [recomendado codificadores de transmissão em direto](recommended-on-premises-live-encoders.md).<br/>
+Ao criar um **LiveEvent**, pode especificar endereços IP permitidos em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
 
 Uma vez a **LiveEvent** começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização (URL de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes da publicação ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o LiveEvent para disponibilizar a transmissão em direto para uma entrega por meio de um ou mais (previamente criado) **pontos finais**. Para tal, crie um novo [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) sobre o **LiveEvent**. 
 

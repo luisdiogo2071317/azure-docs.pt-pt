@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845801"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388598"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores lógicos e bases de dados individuais na base de dados do Azure SQL
 
@@ -57,7 +57,7 @@ Para gerir uma base de dados existente, navegue para o **bases de dados SQL** p�
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Gerir servidores lógicos e bases de dados
 
-Para criar e gerir servidores lógicos de SQL do Azure, bases de dados únicos e em pool e as firewalls do servidor lógico com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para criar e gerir servidores lógicos de SQL do Azure, bases de dados únicos e em pool e as firewalls do servidor lógico com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [utilize o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall do servidor lógico](scripts/sql-database-create-and-configure-database-powershell.md) e [monitorizar e dimensionar um único SQL da base de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -93,28 +93,28 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com [CLI 
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Apresenta uma lista de todas as bases de dados e armazéns de dados num servidor, ou todas as bases de dados num conjunto elástico|
 |[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Os objetivos de serviço disponível de listas e os limites de armazenamento|
 |[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Devolve utilizações de base de dados|
-|[show do AZ sql db](/cli/azure/sql/db#az-sql-db-show)|Obtém um armazém de dados ou base de dados|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Obtém um armazém de dados ou base de dados|
 |[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Atualiza uma base de dados|
 |[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Remove uma base de dados|
 |[az group create](/cli/azure/group#az-group-create)|Cria um grupo de recursos|
 |[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Cria um servidor|
 |[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Listas de servidores|
 |[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Devolve as utilizações de servidor|
-|[show do AZ sql server](/cli/azure/sql/server#az-sql-server-show)|Obtém um servidor|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Obtém um servidor|
 |[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Um servidor de atualizações|
-|[eliminação do AZ sql server](/cli/azure/sql/server#az-sql-server-delete)|Elimina um servidor|
-|[Criar AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Cria uma regra de firewall do servidor|
-|[lista do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lista as regras de firewall num servidor|
-|[show do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Mostra os detalhes de uma regra de firewall|
-|[atualização do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Atualiza uma regra de firewall|
-|[eliminação do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina uma regra de firewall|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Elimina um servidor|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Cria uma regra de firewall do servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lista as regras de firewall num servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Mostra os detalhes de uma regra de firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Atualiza uma regra de firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina uma regra de firewall|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>O Transact-SQL: Gerir servidores lógicos e bases de dados
+## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Gerir servidores lógicos e bases de dados
 
 Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com Transact-SQL, utilize os seguintes comandos T-SQL. Pode emitir estes comandos no portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), ou qualquer outro programa que pode ligar a um servidor de base de dados do Azure SQL e passar o Transact-SQL comandos. Para gerir conjuntos elásticos, veja [conjuntos elásticos](sql-database-elastic-pool.md).
 
 > [!TIP]
-> Para um início rápido com o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilize o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido com o Visual Studio Code no macOS, Linux ou Windows, consulte [base de dados do Azure SQL: utilizar Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
+> Para um início rápido com o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilizar o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido com o Visual Studio Code no macOS, Linux ou Windows, consulte [SQL Database do Azure: Utilizar o Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
 > [!IMPORTANT]
 > Não é possível criar ou eliminar um servidor com o Transact-SQL.
 
@@ -122,7 +122,7 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com Trans
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Alterar base de dados (banco de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica uma base de dados SQL do Azure. |
-|[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se a sessão iniciada no banco de dados mestra num servidor de base de dados do Azure SQL, retorna informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 |[dm db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devolve o consumo de CPU, IO e memória para uma base de dados de base de dados do Azure SQL. Não existe uma linha para cada 15 segundos, mesmo que não existe nenhuma atividade na base de dados.|
 |[resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Devolve os dados de armazenamento e utilização de CPU para uma base de dados do SQL do Azure. Os dados são recolhidos e agregados em intervalos de cinco minutos.|

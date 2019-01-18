@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o lembrete de expiração | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o lembrete de expiração | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o lembrete de expiração.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76860fa1e98bfcef180c4a50452739dd26de18d5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019093"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390623"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integração do Azure Active Directory com o lembrete de expiração
+# <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integração do Active Directory do Azure com o lembrete de expiração
 
 Neste tutorial, saiba como integrar o lembrete de expiração no Azure Active Directory (Azure AD).
 Integrar o lembrete de expiração no Azure AD fornece as seguintes vantagens:
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com o lembrete de 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar a expiração do lembrete de início de sessão único](#configure-expiration-reminder-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste do lembrete de expiração](#create-expiration-reminder-test-user)**  - para ter um equivalente da Eduarda Almeida na lembrete de expiração que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do lembrete de expiração](#create-expiration-reminder-test-user)**  - para ter um equivalente da Eduarda Almeida na lembrete de expiração que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -104,7 +104,7 @@ Para configurar o Azure AD início de sessão único com o lembrete de expiraç�
 
     ![Domínio de lembrete de expiração e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL: `https://app.expirationreminder.net/account/sso`.
+    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://app.expirationreminder.net/account/sso`
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (bruto)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com o lembrete de expiraç�
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

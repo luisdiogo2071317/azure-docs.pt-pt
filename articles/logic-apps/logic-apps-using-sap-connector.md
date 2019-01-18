@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231343"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391286"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar a sistemas SAP a partir do Azure Logic Apps
 
@@ -23,9 +23,9 @@ Este artigo mostra como pode aceder os recursos SAP no local de dentro de uma ap
 
 O conector de SAP ECC utiliza a <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net biblioteca de conectores (NCo)</a> e fornece essas operações ou ações:
 
-- **Enviar para o SAP**: enviar IDoc ou chamada de funções BAPI sobre tRFC em sistemas SAP.
-- **Receber do SAP**: receber IDoc ou BAPI chamadas de função através de tRFC de sistemas SAP.
-- **Gerar esquemas**: gerar esquemas para os artefactos SAP para IDoc ou BAPI ou RFC.
+- **Enviar para o SAP**: Enviar IDoc ou chamar funções BAPI sobre tRFC em sistemas SAP.
+- **Receber do SAP**: Receba chamadas de função de IDoc ou BAPI pela tRFC de sistemas SAP.
+- **Gerar esquemas**: Gere esquemas para os artefactos SAP para IDoc ou BAPI ou RFC.
 
 O conector SAP integra-se com os sistemas SAP no local através da [gateway de dados no local](https://www.microsoft.com/download/details.aspx?id=53127). Em cenários de envio, por exemplo, ao enviar uma mensagem a partir das aplicações lógicas a um sistema SAP, o gateway de dados age como um cliente RFC e encaminha os pedidos recebidos de aplicações lógicas para SAP.
 Da mesma forma, em cenários de receção, o gateway de dados age como um servidor RFC que recebe pedidos do SAP e a encaminha para a aplicação lógica. 
@@ -38,7 +38,7 @@ Para seguir este artigo, precisa destes itens:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
 
-* A aplicação de lógica de onde deseja acessar seu sistema SAP e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A aplicação de lógica de onde deseja acessar seu sistema SAP e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Sua <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">servidor de aplicações SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">servidor de mensagens do SAP</a>
 
@@ -71,7 +71,7 @@ Neste exemplo, vai criar uma aplicação lógica com um ponto de extremidade no 
 
 1. Na [portal do Azure](https://portal.azure.com), criar uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. 
 
-2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **pedido - pedido de HTTP de quando é recebido**
+2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **Pedido - quando é recebido um pedido HTTP**
 
    ![Adicionar acionador de pedido de HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Adicionar uma ação](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de ações, selecione a ação: **enviar mensagem para SAP**
+2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de ações, selecione a ação: **Enviar mensagem para SAP**
   
    ![Selecione a ação de envio do SAP](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ Agora, adicione uma ação de resposta para o fluxo de trabalho da sua aplicaç�
 
 1. No Estruturador da aplicação lógica, sob a ação de SAP, escolha **novo passo** > **adicionar uma ação**.
 
-2. Na caixa de pesquisa, introduza "resposta" como o filtro. Na lista de ações, selecione a ação: **pedido - resposta**
+2. Na caixa de pesquisa, introduza "resposta" como o filtro. Na lista de ações, selecione a ação: **Pedido - resposta**
 
 3. Clique no interior da **corpo** caixa para que a lista de conteúdo dinâmico apareça. Nessa lista, sob **enviar para o SAP**, selecione a **corpo** campo. 
 
@@ -201,7 +201,7 @@ Este exemplo utiliza uma aplicação lógica que aciona quando receber uma mensa
 
 1. No portal do Azure, crie uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. 
 
-2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de disparadores, selecione este acionador: **quando uma mensagem é recebida do SAP**
+2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de disparadores, selecione este acionador: **Quando uma mensagem é recebida do SAP**
 
    ![Adicionar o acionador do SAP](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ Este exemplo utiliza uma aplicação lógica que pode acionar com um pedido HTTP
 
 1. No portal do Azure, crie uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. 
 
-2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **pedido - pedido de HTTP de quando é recebido**
+2. Na caixa de pesquisa, introduza "pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **Pedido - quando é recebido um pedido HTTP**
 
    ![Adicionar acionador de pedido de HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -286,7 +286,7 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 
    ![Adicionar uma ação](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de ações, selecione a ação: **gerar esquemas**
+2. Na caixa de pesquisa, introduza "sap" como o filtro. Na lista de ações, selecione a ação: **Gerar esquemas**
   
    ![Selecione a ação de envio do SAP](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -343,7 +343,7 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 
 Opcionalmente, pode transferir ou armazenar os esquemas gerados no repositório, como um blob, o armazenamento ou a conta de integração. Contas de integração de proporcionam uma experiência de primeira classe com outras ações de XML, para que este exemplo mostra como carregar esquemas para uma conta de integração para a mesma aplicação lógica com o conector do Azure Resource Manager.
 
-1. No Estruturador da aplicação lógica, no acionador, escolha **novo passo** > **adicionar uma ação**. Na caixa de pesquisa, introduza "resource manager" como o filtro. Selecione a ação: **criar ou atualizar um recurso**
+1. No Estruturador da aplicação lógica, no acionador, escolha **novo passo** > **adicionar uma ação**. Na caixa de pesquisa, introduza "resource manager" como o filtro. Selecione a ação: **Criar ou atualizar um recurso**
 
    ![Selecione a ação do Azure Resource Manager](media/logic-apps-using-sap-connector/select-arm-action.png) 
 
@@ -379,7 +379,7 @@ Opcionalmente, pode transferir ou armazenar os esquemas gerados no repositório,
 
 Seguem-se a problemas atualmente conhecidos e limitações para o conector SAP:
 
-* O does't de Acionador SAP suporta receber IDOCs de batch do SAP. Esta ação poderá resultar numa falha de ligação de RFC entre seu sistema SAP e o gateway de dados.
+* O acionador SAP não suporta a receber de batch IDOCs da SAP. Esta ação poderá resultar numa falha de ligação de RFC entre seu sistema SAP e o gateway de dados.
 
 * O acionador SAP não suporta clusters de gateway de dados. Em alguns casos de ativação pós-falha, o nó de gateway de dados que se comunique com o sistema SAP pode diferir a partir do nó ativo, resultando num comportamento inesperado. Para cenários de envio, são suportados clusters de gateway de dados.
 

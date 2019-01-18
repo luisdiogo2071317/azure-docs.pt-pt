@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 10e277618e9741cec4b4fbe88262b29c4f25e3c2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359413"
+ms.locfileid: "54383094"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -192,7 +192,9 @@ Para obter mais informações, aceda a [Data Box security features](data-box-sec
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Concluí a preparação para envio e encerrei o dispositivo. Ainda posso adicionar mais dados ao Data Box?
 R. Sim. Pode ligar o dispositivo e adicionar mais dados. Quando concluir a cópia dos dados, tem de **Preparar o Envio** outra vez.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi o meu dispositivo e não esteja conseguindo cópia de segurança? Como posso enviar o dispositivo novamente?
+R. Se o seu dispositivo não esteja conseguindo, vá para a sua encomenda no portal do Azure. Transfira uma etiqueta de envio e affix que no dispositivo. Para obter mais informações, aceda a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Transferir a guia de remessa).
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 

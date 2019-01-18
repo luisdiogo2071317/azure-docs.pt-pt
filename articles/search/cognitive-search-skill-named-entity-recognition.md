@@ -8,26 +8,27 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55244544ff50dbaf6c22fe0f4d55257eb887eaba
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313994"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389654"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade de cognitiva reconhecimento de entidades nomeada
 
 O **reconhecimento de entidades com o nome** habilidade extrai entidades nomeadas de texto. Entidades disponíveis incluem os tipos `person`, `location` e `organization`.
 
+> [!IMPORTANT]
+> Habilidade de reconhecimento de entidades nomeadas foi preterida, substituídos pelos [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Suporta termina em 15 de Fevereiro, 2019. Siga as recomendações nas [preterido capacidades de pesquisa cognitivas](cognitive-search-skill-deprecated.md) para migrar para uma habilidade suportada.
+
 > [!NOTE]
-> <ul>
-> <li>
-> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.>
-> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).</li>
-> <li> Habilidade de reconhecimento de entidades nomeadas é considerada "preterido" e não será oficialmente suportada a partir de 15 de Fevereiro, 2019. Siga as recomendações listadas na <a href="cognitive-search-skill-deprecated.md">preterido capacidades de pesquisa cognitivas</a> página para migrar para uma habilidade suportada</li>
+> A partir de 21 de Dezembro de 2018, pode [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) com um conjunto de capacidades do Azure Search. Isso permite que iniciemos a cobrança de consumo para a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
+>
+> Execução de habilidades incorporadas é um custo de serviços cognitivos, cobrada de acordo com o existente [pay as you preço acedo](https://azure.microsoft.com/pricing/details/cognitive-services/) . O preço de extração de imagem é um valor de Azure Search, atualmente faturado aos preços de pré-visualização, conforme descrito no [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

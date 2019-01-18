@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd874e6918528d340bca69ebdd91aa060158073
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969340"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383048"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream em direto com serviços de multimédia v3 com APIs
 
@@ -100,6 +100,8 @@ Algumas outras coisas que pode querer especificar ao criar o evento em direto s�
 * Restrições de IP na ingestão e na pré-visualização. Pode definir os endereços IP que estão autorizados a ingerir um vídeo neste LiveEvent. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').
     
     Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
+    
+    Os endereços IP tem de estar em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
 
 Ao criar o evento, poderá especificar o início automático do mesmo. 
 

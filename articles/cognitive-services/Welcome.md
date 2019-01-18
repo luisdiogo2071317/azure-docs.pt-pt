@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4a398342382d21d9261c8f693b78f184876bfed3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025400"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381941"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
 
@@ -26,7 +26,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 |:-----------|:------------------|
 |[Imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "de imagem digitalizada")|O serviço de visão do computador fornece acesso a algoritmos avançados para processar imagens e retornar informações.|
 |[Serviço de visão personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "serviço de visão personalizada") (pré-visualização)|O serviço de visão personalizada permite-lhe criar classificadores de imagem personalizada.|
-|[Do Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "do Content Moderator")|O Content Moderator fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e risco.|
+|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e risco.|
 |[Face API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face API")|Face API fornece acesso a algoritmos de rosto avançadas, ativar a deteção de atributo de rostos e reconhecimento.|
 |[API de emoções](https://docs.microsoft.com/azure/cognitive-services/emotion/home "API de emoções") (pré-visualização)|API de emoções utiliza uma imagem como entrada e devolve a confiança entre um conjunto de emoções para cada rosto na imagem.|
 | [O Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "indexador de vídeos")|O Video Indexer permite-lhe extrair informações do seu vídeo.|
@@ -89,6 +89,14 @@ Todas as APIs de ter um plano de avaliação gratuito.  À medida ofertas pagas 
 As APIs nos serviços cognitivos estão alojadas numa rede em expansão de datacenters geridos pela Microsoft. Pode encontrar a disponibilidade regional para cada API no [lista de região do Azure](https://azure.microsoft.com/regions).
 
 Está à procura de uma região, não suportamos ainda? Queremos saber ao preencher um pedido de funcionalidade no nosso [fórum do UserVoice](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Culturais idiomas suportados
+
+ Os serviços cognitivos suporta uma vasta gama de linguagens culturais no nível de serviço. Pode encontrar a disponibilidade de idioma para cada API na [suportada a lista de idiomas](language-support.md).
+
+ ## <a name="container-support"></a>Suporte de contentor
+
+ Os serviços cognitivos fornece contentores para implementação na cloud do Azure ou no local. Saiba mais sobre [contentores de serviços cognitivos](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Suporte
 

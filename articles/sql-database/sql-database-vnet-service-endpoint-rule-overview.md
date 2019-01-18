@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359855"
+ms.locfileid: "54390371"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
 
@@ -173,7 +173,7 @@ O armazenamento do Azure implementou a mesma funcionalidade que permite limitar 
 Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse a partir de contas de armazenamento do Azure. Se a conta de armazenamento do Azure que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Para ativar as duas PolyBase importar e exportar cenários com o Azure SQL Data Warehouse ao ligar ao armazenamento do Azure que está protegida a VNet, siga os passos indicados abaixo:
 
 #### <a name="prerequisites"></a>Pré-requisitos
-1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem de atualizar primeiro para fins gerais v2 através desta [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Tem de ter **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** ativada na conta de armazenamento do Azure **Firewalls e redes virtuais** menu definições. Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
  

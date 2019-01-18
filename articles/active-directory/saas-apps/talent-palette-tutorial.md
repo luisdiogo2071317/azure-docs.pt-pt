@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a paleta de talento | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a paleta de talento | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o talento paleta.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7362b3279afc365db2a303de1b450c4e35e48874
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 332531ab882b5087a706eed7f12b3468a533fe22
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884174"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390888"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutorial: Integração do Azure Active Directory com o talento paleta
+# <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutorial: Integração do Active Directory do Azure com o talento paleta
 
 Neste tutorial, saiba como integrar a paleta de talento com o Azure Active Directory (Azure AD).
 Paleta de talento a integração com o Azure AD fornece as seguintes vantagens:
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com uma paleta de 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o talento paleta de início de sessão único](#configure-talent-palette-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste de paleta de talento](#create-talent-palette-test-user)**  - para ter um equivalente da Eduarda Almeida na paleta de talentos que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de paleta de talento](#create-talent-palette-test-user)**  - para ter um equivalente da Eduarda Almeida na paleta de talentos que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -105,13 +105,13 @@ Para configurar o Azure AD início de sessão único com uma paleta de talento, 
 
     ![Domínio de paleta de talento e URLs únicas início de sessão em informações](common/both_replyurl.png)
 
-    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://talent-p.net/saml/acs/<tenantID>`.
+    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Domínio de paleta de talento e URLs únicas início de sessão em informações](common/both_signonurl.png)
-   
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://talent-p.net/saml/sso/<tenantID>`.
+
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://talent-p.net/saml/sso/<tenantID>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente de paleta de talento](mailto:talent-support@pa-consul.co.jp) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com uma paleta de talento, 
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

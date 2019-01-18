@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438528"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382772"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -219,7 +219,8 @@ Propriedade |  Descrição | Valor Predefinido
 `iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos), que demora de uma iteração específica. Se uma iteração exceder o período especificado, obtém cancelada iteração. Se não for definida, em seguida, a iteração continua a ser executado até ser concluído. |   Nenhuma
 `n_cross_validations`   |Número de divisões de validação cruzada| Nenhuma
 `validation_size`   |Tamanho da validação definida como percentagem de todos os exemplo de treinamento.|  Nenhuma
-`preprocess` | Verdadeiro/Falso <br/>Experimente verdadeiro ativa para realizar o processamento prévio de entrada. Segue-se um subconjunto de pré-processamento<li>Dados em falta: Imputes a dados-numérico, com média, texto com a maioria dos ocorrência em falta </li><li>Valores categóricos: Se o tipo de dados é numérico e o número de valores exclusivos é menos de 5 por cento, converte num-hot codificação </li><li>Etc. para verificação da lista completa [o repositório do GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se os dados estão dispersos não é possível utilizar pré-processar = true |  Falso | 
+`preprocess` | Verdadeiro/Falso <br/>Experimente verdadeiro ativa para realizar o processamento prévio de entrada. Segue-se um subconjunto de pré-processamento<li>Dados em falta: Imputes a dados-numérico, com média, texto com a maioria dos ocorrência em falta </li><li>Valores categóricos: Se o tipo de dados é numérico e o número de valores exclusivos é menos de 5 por cento, converte num-hot codificação </li><li>Etc. para verificação da lista completa [o repositório do GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se os dados estão dispersos não é possível utilizar pré-processar = true |  Falso |
+`enable_cache`  | Verdadeiro/Falso <br/>Definição esta opção para verdadeiro ativa pré-processar feito uma vez e reutilizar os mesmos dados preprocessed para todas as iterações. | Verdadeiro |
 `blacklist_models`  | Automatizada experimentação do machine learning tem muitos algoritmos diferentes que tentar. Configure a excluir determinados algoritmos da experimentação. Útil se estiver ciente de que algorithm(s) não funcionam bem para o conjunto de dados. Excluir algoritmos pode lhe poupar recursos de computação e o tempo de treinamento.<br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nenhuma
 `whitelist_models`  | Automatizada experimentação do machine learning tem muitos algoritmos diferentes que tentar. Configure a incluir determinados algoritmos para a experimentação. Útil se estiver ciente de que algorithm(s) funcionam bem para o conjunto de dados. <br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nenhuma
 `verbosity` |Controla o nível de registo com informações de que está a ser o mais verboso e crítico a ser menos. Nível de verbosidade leva os mesmos valores, conforme definido no pacote de registo de python. Valores permitidos são:<br/><li>logging.INFO</li><li>o registo. AVISO</li><li>o registo. ERRO</li><li>o registo. CRÍTICO</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Ver 
 As métricas seguintes são salvas em cada iteração de uma tarefa de classificação.
 
 |Métrica primária|Descrição|Cálculo|Parâmetros adicionais
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC é a área sob a curva de característica do Recetor operacional. Macro é a média aritmética de AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "macro"|
 AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. Micro é computada globably ao combinar os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
 AUC_Weighted  | AUC é a área sob a curva de característica do Recetor operacional. Ponderada é a média aritmética de classificação para cada classe, ponderada pelo número de instâncias verdadeiros em cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média = "ponderado"
@@ -298,7 +299,7 @@ weighted_accuracy|Precisão ponderada é precisão em que o peso para cada exemp
 As métricas seguintes são salvas em cada iteração para uma regressão ou a tarefa de previsão.
 
 |Métrica primária|Descrição|Cálculo|Parâmetros adicionais
---|--|--|--|--|
+--|--|--|--|
 explained_variance|Variância explicada é a proporção ao qual um modelo matemático contas para a variação de um determinado conjunto de dados. É que a percentagem de diminuir a variação dos dados originais para a variância dos erros. Quando a média dos erros for 0, é igual a variância explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhuma|
 r2_score|R2 é o coeficiente de determinação ou a redução de percentagem de erros ao quadrado, em comparação comparada um modelo de linha de base que produz a média. Quando a média dos erros for 0, é igual a variância explicada.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhuma|
 spearman_correlation|Correlação de Spearman é uma medida nonparametric de monotonicidade da relação entre dois conjuntos de dados. Ao contrário de correlação Pearson, a correlação de Spearman não partem do princípio de que ambos os conjuntos de dados normalmente são distribuídos. Como outros coeficientes de correlação, isso varia entre -1 e + 1 com 0 indicando sem correlação. Correlações de -1 ou + 1 implicam uma relação de monotónica exata. Correlações positivas implicam que como x aumenta, assim como o y. Correlações negativas implicam que como x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhuma|

@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359073"
+ms.locfileid: "54390401"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Utilizar a API do Azure Cosmos DB para suporte do MongoDB para funcionalidades e sintaxe
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>API do Azure Cosmos DB para o MongoDB: suporte de funcionalidades e sintaxe
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API do Azure Cosmos DB para o MongoDB a utilizar o cliente do MongoDB de código-fonte aberto [drivers](https://docs.mongodb.org/ecosystem/drivers). API do Azure Cosmos DB do MongoDB permite a utilização de controladores existentes do cliente através do respetivo do MongoDB [conectar protocolo](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 

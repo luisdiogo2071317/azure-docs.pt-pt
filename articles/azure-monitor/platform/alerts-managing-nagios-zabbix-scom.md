@@ -1,6 +1,6 @@
 ---
-title: Gerir alertas a partir de outros serviços de monitorização no Azure Monitor
-description: Gestão de alertas do Nagios, Zabbix e do SCOM no Azure Monitor
+title: Gerir alertas do SCOM, Nagios no Azure Monitor e do Zabbix
+description: Gerir alertas do SCOM, Nagios no Azure Monitor e do Zabbix
 author: anantr
 services: monitoring
 ms.service: azure-monitor
@@ -8,24 +8,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f45774d8afc8760d0a02cb0c863c9ef100ef1365
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346305"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381870"
 ---
-# <a name="manage-alerts-from-other-monitoring-services"></a>Gerir alertas a partir de outros serviços de monitorização
+# <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Gerir alertas do SCOM, Nagios no Azure Monitor e do Zabbix
 
-Agora, pode ver os alertas do Nagios e do System Center Operations Manager no Zabbix a [experiência de alertas unificada](https://aka.ms/azure-alerts-overview). Estes alertas provenientes de integrações com servidores da Nagios/Zabbix ou System Center Operations Manager para o Log Analytics. 
+Agora, pode ver os alertas do Nagios e do System Center Operations Manager no Zabbix [do Azure Monitor](https://aka.ms/azure-alerts-overview). Estes alertas provenientes de integrações com servidores da Nagios/Zabbix ou System Center Operations Manager para o Log Analytics. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Quaisquer registos no repositório do Log Analytics com o tipo de alerta serão importados para a experiência de alertas unificada, pelo que tem de efetuar a configuração necessária para recolher estes registos.
-1. Para **Nagios** e **Zabbix** alertas, [configurar esses servidores](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) para enviar alertas para o Log Analytics.
-1. Para **System Center Operations Manager** alertas, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.
+Quaisquer registos no repositório do Log Analytics com o tipo de alerta serão importados para o Azure Monitor, portanto, é necessário executar a configuração que é necessário para recolher estes registos.
+1. Para **Nagios** e **Zabbix** alertas, [configurar esses servidores](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) para [enviar alertas](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) ao Log Analytics.
+1. Para **System Center Operations Manager** alertas, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Ao seguir esta, implementar o [gestão de alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) solução no mercado de soluções do Azure. Quando tiver terminado, todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.
 
 ## <a name="view-your-alert-instances"></a>Ver as suas instâncias de alerta
-Assim que tiver configurado a importação para o Log Analytics, pode começar a ver alerta instâncias de um estes serviços de monitorização a [experiência de alertas unificada](https://aka.ms/azure-alerts-overview). Assim que estiverem presentes na experiência de alertas unificada, pode [gerir instâncias de alerta](https://aka.ms/managing-alert-instances), [gerir smart grupos criados nestes alertas](https://aka.ms/managing-smart-groups) e [alterar o estado dos seus alertas e inteligente grupos](https://aka.ms/managing-alert-smart-group-states).
+Assim que tiver configurado a importação para o Log Analytics, pode começar a ver alerta instâncias de um estes serviços de monitorização [do Azure Monitor](https://aka.ms/azure-alerts-overview). Assim que estiverem presentes no Azure Monitor, pode [gerir instâncias de alerta](https://aka.ms/managing-alert-instances), [gerir smart grupos criados nestes alertas](https://aka.ms/managing-smart-groups) e [alterar o estado dos alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
->  Alertas do Nagios na experiência unificada de alertas não têm monitorização de estado – por exemplo, o [monitorizar a condição](https://aka.ms/azure-alerts-overview) de um alerta não vai de "Fired" como "Resolvido". Em vez disso, o "Fired" e "Resolvido" são apresentadas como instâncias separadas de alerta. 
+>  1. Esta solução apenas permite-lhe ver as instâncias de alerta do SCOM/Zabbix/Nagios disparado no Azure Monitor. Configuração de regra de alerta só pode ser visualizado/editado em ferramentas de monitorização correspondentes. 
+>  1. Todas as instâncias de alertas acionadas vão estar disponíveis no Azure Monitor e o Azure Log Analytics. Atualmente, não é possível escolher entre os dois ou ingestão só específicas acionados alertas.
+>  1. Todos os alertas do SCOM, Nagios e do Zabbix tem o tipo de sinal "Desconhecido", uma vez que o tipo de telemetria subjacente não está disponível.
+>  1. Alertas do Nagios não têm monitorização de estado – por exemplo, o [monitorizar a condição](https://aka.ms/azure-alerts-overview) de um alerta não vai de "Fired" como "Resolvido". Em vez disso, o "Fired" e "Resolvido" são apresentadas como instâncias separadas de alerta. 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865884"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388583"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -39,7 +39,7 @@ Aqui pode fazer qualquer combinação das seguintes alterações e guardá-los t
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerir conjuntos elásticos e bases de dados agrupadas
 
-Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps). Para criar e gerir os servidores lógicos de um conjunto elástico, consulte [servidores lógicos, criar e gerida](sql-database-logical-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir os servidores lógicos de um conjunto elástico, consulte [servidores lógicos, criar e gerida](sql-database-logical-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [criar conjuntos elásticos e mover bases de dados entre conjuntos e para fora de um conjunto com o PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [utilize o PowerShell para monitorizar e dimensionar um conjunto de elástico de SQL na base de dados do Azure SQL](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -77,7 +77,7 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um conjunto elástico.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina o conjunto elástico.|
 
-## <a name="transact-sql-manage-pooled-databases"></a>O Transact-SQL: Gerir bases de dados agrupadas
+## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gerir bases de dados agrupadas
 
 Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou para devolver informações sobre um conjunto elástico da base de dados SQL com o Transact-SQL, utilize os seguintes comandos do T-SQL. Pode emitir estes comandos no portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), ou qualquer outro programa que pode ligar a um servidor de base de dados do Azure SQL e passar o Transact-SQL comandos. Para criar e gerir regras de firewall com o T-SQL, consulte [gerir regras de firewall com o Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
 
@@ -89,7 +89,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 | --- | --- |
 |[Criar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Alterar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
-|[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas num servidor lógico. Para cada conjunto de bases de dados elásticas, há uma linha para cada segundo 15 relatórios janela (quatro linhas por minuto). Isto inclui a utilização da CPU, e/s, registo, o consumo de armazenamento e pedido/sessões em simultâneo por todas as bases de dados no conjunto.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se a sessão iniciada no banco de dados mestra num servidor de base de dados do Azure SQL, retorna informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 

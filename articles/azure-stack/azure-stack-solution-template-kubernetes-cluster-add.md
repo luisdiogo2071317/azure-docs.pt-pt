@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352687"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388476"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar o Kubernetes para o mercado do Azure Stack
 
@@ -60,11 +60,11 @@ Crie um plano, uma oferta e uma subscrição para o item do Marketplace de Kuber
 
     e. Selecione **oferecem**. Selecione o nome da oferta que criou. Tome nota do ID de subscrição.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Criar um principal de serviço e as credenciais no AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Criar um principal de serviço e as credenciais no AD FS
 
-Se usar o Active Directory Federated Services (AD FS) para o seu serviço de gestão de identidade, terá de criar um principal de serviço para os utilizadores a implementar um cluster de Kubernetes.
+Se usar o Active Directory Federated Services (AD FS) para o seu serviço de gestão de identidade, terá de criar um serviço principal para os utilizadores a implementar um cluster de Kubernetes.
 
-1. Criar e exportar um certificado para ser utilizado para criar o principal de serviço. O seguinte trecho de código abaixo mostra como criar um certificado autoassinado. 
+1. Criar e exportar um certificado para ser utilizado para criar o serviço principal. O seguinte trecho de código abaixo mostra como criar um certificado autoassinado. 
 
     - Terá das seguintes partes de informações:
 
@@ -104,7 +104,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Crie principal de serviço com o certificado.
+2. Crie principal de utilizar o certificado de serviço.
 
     - Terá das seguintes partes de informações:
 
@@ -117,7 +117,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
     - Abra o PowerShell com uma linha de comandos elevada. Execute o seguinte script com os parâmetros atualizados para seus valores:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
         $ServicePrincipal
         ```
 
-    - Os detalhes do princípio de serviço, veja como o fragmento abaixo
+    - Os detalhes de principal de serviço, veja como o fragmento abaixo
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

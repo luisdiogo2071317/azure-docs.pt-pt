@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856322"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382440"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para o negócio continuidade e recuperação após desastre no Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Um cluster do AKS é implementado numa única região. Para se proteger contra a
 * [Regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Para sua área geográfica, escolha duas regiões que estão emparelhados entre si. Nestas regiões coordenar atualizações de plataforma e priorizar os esforços de recuperação onde necessário.
 * Nível de disponibilidade do serviço (frequente/frequente, acesso frequente/Semiativa, quentes/frias)
-  * Deseja executar ambas as regiões ao mesmo tempo, com uma região *pronto* para iniciar o serviço de tráfego ou uma região que tem de tempo de preparar-se para servir de tráfego.
+  * Deseja executar ambas as regiões ao mesmo tempo, com uma região *pronto* para iniciar a entrega de tráfego ou uma região que tem de tempo para se preparar servir de tráfego.
 
 Disponibilidade de região do AKS e regiões emparelhadas são considerados conjunto. Implemente os clusters do AKS em regiões emparelhadas que foram concebidos para gerir a recuperação de desastres da região em conjunto. Por exemplo, está disponível no AKS *E.U.A. Leste* e *E.U.A. oeste*. Estas regiões também estão a ser emparelhadas. Estas duas regiões seriam recomendadas durante a criação de uma estratégia de AKS BC/DR.
 

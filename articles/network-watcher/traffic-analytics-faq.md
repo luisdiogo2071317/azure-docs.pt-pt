@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582501"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383006"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -35,7 +35,6 @@ Análise de tráfego requer os seguintes pré-requisitos:
 
 Sua conta tem de cumprir um dos seguintes procedimentos para ativar a análise de tráfego:
 
-- Sua conta tem de ser atribuída a uma das seguintes funções ao nível da subscrição: administrador de conta, administrador de serviços ou coadministrador.
 - Sua conta tem de ter qualquer uma das seguintes funções de controlo (RBAC) de acesso baseado em funções no âmbito da subscrição: proprietário, Contribuidor, leitor ou contribuinte de rede.
 - Se a sua conta não está atribuída a uma das funções listadas anteriormente, tem de ser atribuído a uma função personalizada que é atribuída as seguintes ações, ao nível da subscrição.
             
@@ -61,7 +60,7 @@ Para verificar as funções atribuídas a um utilizador para uma subscrição:
 Se não está a ver quaisquer dados, contacte o administrador de subscrição relevante para obter acesso para executar os comandos. Para obter mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Na qual regiões estão a análise de tráfego disponíveis?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em que regiões do Azure é a análise de tráfego disponível?
 
 Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões suportadas:
 - Canadá Central
@@ -133,7 +132,7 @@ O fornecedor de Microsoft. insights tem de estar registado para o flow logging f
 
 O dashboard pode demorar até 30 minutos a aparecer na primeira vez. A solução deve primeiro agregar dados suficientes para o mesmo derivar informações significativas. Em seguida, ela gera relatórios. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se receber esta mensagem: "não foi possível encontrar quaisquer dados nesta área de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione uma área de trabalho diferente. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>E se receber esta mensagem: "Não foi possível encontrar quaisquer dados nesta área de trabalho para o intervalo de tempo selecionado. Tente alterar o intervalo de tempo ou selecione uma área de trabalho diferente. "?
 
 Experimente as seguintes opções:
 - Altere o intervalo de tempo na barra superior.
@@ -142,7 +141,7 @@ Experimente as seguintes opções:
     
 Se os problemas persistirem, criar problemas na [fórum do uservoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se receber esta mensagem: "analisar seu NSG registos de fluxo pela primeira vez. Este processo pode demorar 20-30 minutos a concluir. Verifique novamente após algum tempo. 2) se o passo acima não funciona e sua área de trabalho está sob o SKU gratuito, em seguida, verifique a utilização da área de trabalho aqui para validar através de quota, ou consulte a FAQ para obter mais informações. "?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>E se receber esta mensagem: "A analisar os registos de fluxo do NSG pela primeira vez. Este processo pode demorar 20-30 minutos a concluir. Verifique novamente após algum tempo. 2) se o passo acima não funciona e sua área de trabalho está sob o SKU gratuito, em seguida, verifique a utilização da área de trabalho aqui para validar através de quota, ou consulte a FAQ para obter mais informações. "?
 
 Poderá ver esta mensagem porque:
 - Análise de tráfego tiver sido recentemente ativada e poderá não ainda ter agregados dados suficientes para o mesmo derivar informações significativas.
@@ -150,7 +149,7 @@ Poderá ver esta mensagem porque:
     
 Se os problemas persistirem, criar problemas na [fórum do uservoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>E se receber esta mensagem: "parece que temos dados de recursos (topologia) e nenhuma informação de fluxos. Enquanto isso, clique aqui para ver dados de recursos e consulte FAQ para obter mais informações. "?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>E se receber esta mensagem: "Parece que temos dados de recursos (topologia) e nenhuma informação de fluxos. Enquanto isso, clique aqui para ver dados de recursos e consulte FAQ para obter mais informações. "?
 
 Está a ver as informações de recursos no dashboard; No entanto, não há estatística relacionados com o fluxo está presente. Dados não podem ser apresentados devido a não existem fluxos de comunicação entre os recursos. Aguarde durante 60 minutos e verificar o estado. Se o problema persistir, e tem a certeza de que existem fluxos de comunicação entre os recursos, criar problemas na [fórum do uservoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -234,7 +233,7 @@ Por exemplo, como pela [plano de preços](https://azure.microsoft.com/pricing/de
 A página de mapa de geográfico contém duas secções principais:
     
 - **Faixa**: A faixa na parte superior do mapa geográfico fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, implementação, o tráfego de países e maliciosos). Quando seleciona um botão, o respetivo filtro é aplicado no mapa. Por exemplo, se selecionar o botão de Active Directory, o mapa realça os datacenters do Active Directory na sua implementação.
-- **Mapa**: abaixo da faixa, a seção de mapa mostra a distribuição de tráfego entre os datacenters do Azure e países.
+- **Mapa**: Abaixo da faixa, a seção de mapa mostra a distribuição de tráfego entre os datacenters do Azure e países.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado na faixa
     
@@ -264,7 +263,7 @@ A página de mapa de geográfico contém duas secções principais:
 A página de topologia de redes virtuais contém duas secções principais:
     
 - **Faixa**: A faixa na parte superior da topologia de redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, redes virtuais ligadas, redes virtuais desligados e IPs públicos). Quando seleciona um botão, o respetivo filtro é aplicado a topologia. Por exemplo, se selecionar o botão de Active Directory, a topologia destaca as redes virtuais Active Directory na sua implementação.
-- **Topologia**: abaixo da faixa, a secção de topologia mostra a distribuição de tráfego entre redes virtuais.
+- **Topologia**: Abaixo da faixa, a secção de topologia mostra a distribuição de tráfego entre redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado na faixa
     
@@ -286,7 +285,7 @@ A página de topologia de redes virtuais contém duas secções principais:
 A página de topologia de sub-redes virtuais contém duas secções principais:
     
 - **Faixa**: A faixa na parte superior da topologia de sub-redes virtuais fornece botões para selecionar filtros de distribuição de tráfego (por exemplo, sub-redes de Active Directory, médio e Gateway). Quando seleciona um botão, o respetivo filtro é aplicado a topologia. Por exemplo, se selecionar o botão de Active Directory, a topologia realça a sub-rede virtual Active Directory na sua implementação.
-- **Topologia**: abaixo da faixa, a secção de topologia mostra a distribuição de tráfego entre sub-redes virtuais.
+- **Topologia**: Abaixo da faixa, a secção de topologia mostra a distribuição de tráfego entre sub-redes virtuais.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado na faixa
     

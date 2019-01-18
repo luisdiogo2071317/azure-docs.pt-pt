@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9aab33eb4ba6a49d96bcacfc2151c3554fbebfaf
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246471"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382870"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -114,10 +114,26 @@ Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de
 
 Para obter mais informações sobre esta funcionalidade de pré-visualização pública, consulte [cabeçalhos HTTP reescrever](rewrite-http-headers.md).
 
+## <a name="sizing"></a>Dimensionamento
+
+Gateway de aplicação é atualmente oferecido em três tamanhos: **Pequenas**, **médio**, e **grandes**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+
+Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+A tabela seguinte mostra um débito de desempenho médio para cada instância de gateway de aplicação com descarga de SSL ativada:
+
+| Tamanho de resposta médio da página back-end | Pequeno | Médio | Grande |
+| --- | --- | --- | --- |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Consoante os seus requisitos e o ambiente, pode criar um Gateway de Aplicação de teste com o portal do Azure, o Azure PowerShell ou a CLI do Azure:
 
-- [Início rápido: Direcionar o tráfego da web com o Gateway de aplicação do Azure - portal do Azure](quick-create-portal.md).
-- [Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell](quick-create-powershell.md)
-- [Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - CLI do Azure](quick-create-cli.md)
+- [Quickstart: Direcionar o tráfego da web com o Gateway de aplicação do Azure - portal do Azure](quick-create-portal.md).
+- [Quickstart: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell](quick-create-powershell.md)
+- [Quickstart: Tráfego da web direto com o Gateway de aplicação do Azure - CLI do Azure](quick-create-cli.md)

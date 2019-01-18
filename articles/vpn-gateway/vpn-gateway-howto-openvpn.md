@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 07dae60d1d4ab43194f88f44bde498d9fa19ce81
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54357832"
+ms.locfileid: "54388108"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configurar OpenVPN para o Gateway de VPN do Azure ponto a site (pré-visualização)
 
@@ -47,7 +47,10 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Criar uma VPN ponto a site
 
-Se ainda não tiver um ambiente de ponto a site está a funcionar, siga as instruções para criar um. Ver [criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificados nativa do Azure. Tenha em atenção que o SKU básico não é suportado para ligações IKEv2 ponto a site.
+Se ainda não tiver um ambiente de ponto a site está a funcionar, siga as instruções para criar um. Ver [criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificados nativa do Azure. 
+
+> [!IMPORTANT]
+> O SKU básico não é suportado para OpenVPN.
 
 ## <a name="cmdlets"></a>2. Instalar cmdlets do PowerShell
 

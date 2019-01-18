@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311733"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387924"
 ---
-#    <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preterido
+# <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preterido
 
 Este documento descreve as capacidades cognitivas que são consideradas preteridas. Utilize o guia seguinte para o conteúdo:
 
@@ -43,7 +43,7 @@ Uso [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity
 
 Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), terá de realizar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando o [atualizar o conjunto de capacidades API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Tenha em atenção_: Atualmente, a pontuação de confiança, como um conceito não é suportada. Este irá ser suportado em breve. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para utilização futura e para efeitos compatibilidade.
+_Nota_: Atualmente, a pontuação de confiança, como um conceito não é suportada. Este irá ser suportado em breve. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para utilização futura e para efeitos compatibilidade.
 
 1. *(Obrigatório)*  Alteração a `@odata.type` partir `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

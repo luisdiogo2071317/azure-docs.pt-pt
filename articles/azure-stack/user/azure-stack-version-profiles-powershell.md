@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 890ca3abf08e280dcf0a48355ab1dea87331805b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f6fd560d6ecb9feaa3df14b288cee5d98ce55aee
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063464"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391085"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Utilizar perfis de versão de API para o PowerShell no Azure Stack
 
@@ -42,6 +42,7 @@ A tabela seguinte lista a versão de perfil de API necessária e o moniker de m�
 
 | Versão não. | Perfil da versão de API | PS moniker de módulo de administração |
 | --- | --- | --- |
+| 1811 ou posterior | 2018-03-01-híbrida | 1.6.0 |
 | 1808 ou posterior | 2018-03-01-híbrida | 1.5.0 |
 | 1804 ou posterior | perfil-de-03-09-2017 | 1.4.0 |
 | Versões anteriores 1804 | perfil-de-03-09-2017 | 1.2.11 |

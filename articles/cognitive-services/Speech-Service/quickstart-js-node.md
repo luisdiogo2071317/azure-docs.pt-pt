@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz em JavaScript no node. js utilizando o SDK do serviço de voz'
+title: 'Início rápido: Reconhecer a conversão de voz, node. js - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Aprender a reconhecer a conversão de voz em JavaScript no node. js utilizando o SDK do serviço de voz
+description: Utilize este guia para criar uma aplicação de consola de voz em texto com o SDK de voz para node. js. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724439"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382175"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Início rápido: Reconhecer a conversão de voz em JavaScript no node. js utilizando o SDK do serviço de voz
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para node. js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ A aplicação baseia-se no Microsoft [SDK de voz dos serviços cognitivos](https
 * Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
 * Uma versão atual do [node. js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Crie uma nova pasta de projeto
+## <a name="create-a-new-project"></a>Criar um novo projeto
 
-Crie uma pasta nova e vazia e inicializá-la como um novo projeto de JavaScript e node. js.
+Criar uma nova pasta e inicializar o projeto.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 Isto irá init os arquivos de Package. JSON com valores predefinidos. Provavelmente desejará editar este ficheiro mais tarde.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Instale o SDK de voz para JavaScript dentro dessa pasta
+## <a name="install-the-speech-sdk"></a>Instalar o SDK de voz
 
-Adicionar o SDK de voz por meio de `npm install microsoft-cognitiveservices-speech-sdk` ao seu projeto de node. js.
+Adicione o SDK de voz ao seu projeto de node. js.
 
-Isto irá transferir e instalar a versão mais recente do SDK de voz e os pré-requisitos necessários de npmjs. O SDK será instalado no `node_modules` diretório dentro da pasta do projeto.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>Utilizando o SDK de voz
+Isto transfere e instala a versão mais recente do SDK de voz e os pré-requisitos necessários de npmjs. O SDK será instalado no `node_modules` diretório dentro da pasta do projeto.
+
+## <a name="use-the-speech-sdk"></a>Utilizar o SDK de voz
 
 Crie um novo ficheiro na pasta, com o nome `index.js`, e abra este ficheiro com um editor de texto.
 
@@ -58,7 +62,7 @@ Adicione o seguinte código JavaScript:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Execução do exemplo de linha de comandos
+## <a name="run-the-sample"></a>Executar o exemplo
 
 Para iniciar a aplicação, adaptar `YourSubscriptionKey`, `YourServiceRegion`, e `YourAudioFile.wav` à sua configuração. Em seguida, pode executá-lo ao chamar o seguinte comando:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Execução do exemplo do Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e utilizar o SDK de voz com o Visual Studio Code
 
 Também pode executar o exemplo do Visual Studio Code. Siga estes passos para instalar, abra e execute o início rápido:
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791324"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391166"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligue-se para o Azure Data Box
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de que:
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
 6. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
 7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
-    - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DATA 1, DATA 2)
+    - Dois 10 GbE SFP + Twinax cobre cabos (utilização com dados 1, interfaces de rede DATA 2). Data Box tem adaptadores Mellanox ConnectX®-3 Pro EN porta dupla 10GBASE-T c / 3.0 Express do PCI de interface de rede, para que os cabos que são compatíveis com essa interface devem funcionar. Por exemplo, um SFP do CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX + 3 M cabo foi utilizado para fins de teste inhouse.
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 

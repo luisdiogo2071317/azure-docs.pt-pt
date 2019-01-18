@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: e8d6d48461e41353057bd554b9e898d118e68ab0
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/17/2019
+ms.openlocfilehash: 9133f7f4dde080700b2b11a4c09df6d0610869f6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545302"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388027"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local
 
@@ -28,7 +28,7 @@ Este início rápido demonstra como ligar a uma instância gerida da base de dad
 Este guia de início rápido:
 
 - Utiliza os recursos criados [criar uma instância gerida](sql-database-managed-instance-get-started.md) como ponto de partida.
-- Requer o PowerShell 5.1 e o Azure PowerShell 5.4.2 ou superior no seu computador de cliente no local. Se necessário, veja as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Requer o PowerShell 5.1 e o Azure PowerShell 5.4.2 ou superior no seu computador de cliente no local. Se necessário, veja as instruções para [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
 - Requer a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) no seu computador de cliente no local.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Anexar um gateway de VPN à sua rede virtual de instância gerida

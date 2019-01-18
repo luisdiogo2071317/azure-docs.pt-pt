@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351463"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389566"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivos com um conjunto de capacidades no Azure Search 
 
@@ -23,7 +23,7 @@ Os algoritmos de IA dirigir [pipelines de pesquisa cognitiva](cognitive-search-c
 
 Pode enriquecer um número limitado de documentos gratuitamente ou anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante [indexação de pesquisa do Azure](search-what-is-an-index.md).
 
-Se o seu pipeline consiste exclusivamente [competências personalizadas](cognitive-search-create-custom-skill-example.md), não é necessário anexar um recurso dos serviços cognitivos.
+Se o seu pipeline consiste em habilidades não relacionado com APIs serviços cognitivos, ainda deve anexar um recurso dos serviços cognitivos, mas não ser cobrada essas habilidades. Não relacionado com habilidades incluem: [competências personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), e [Modelador](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, pode associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isto permite-nos ser cobrada a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
@@ -52,7 +52,9 @@ Continuar para a próxima etapa **adicionar possível**. Para obter uma descriç
 
 ## <a name="use-billable-resources"></a>Utilizar recursos faturáveis
 
-Para cargas de trabalho mais de 20 documentos de numeração diariamente, precisa de um recurso dos serviços cognitivos faturável.
+Para cargas de trabalho mais de 20 possível de numeração diariamente, terá de anexar um recurso dos serviços cognitivos faturável. 
+
+É cobrado apenas para as competências que chamam as APIs serviços cognitivos. Gostam de habilidades não API baseada [competências personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), e [Modelador](cognitive-search-skill-shaper.md) habilidades não são faturadas.
 
 1. Na **importar dados** assistente no **anexar serviços cognitivos**, selecione um recurso existente ou clique em **criar novo recurso de serviços cognitivos**.
 

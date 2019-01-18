@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.date: 01/17/2019
+ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246522"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389944"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência da API gerida para instâncias geridas da base de dados SQL do Azure
 
@@ -29,21 +29,21 @@ Para um início rápido mostra-lhe como criar uma instância de gerida de base d
 
 ## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Criar e gerir uma instância gerida
 
-Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [script de início rápido: Criar instância de gerida de SQL em Azure usando a biblioteca do PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[Novo AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Cria uma instância gerida de base de dados SQL do Azure |
+|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Cria uma instância gerida de base de dados SQL do Azure |
 |[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Devolve informações sobre a instância gerida do SQL do Azure|
-|[Conjunto AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Define as propriedades para uma instância de gerida de base de dados do Azure SQL|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Define as propriedades para uma instância de gerida de base de dados do Azure SQL|
 |[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Remove uma instância de base de dados SQL do Azure|
-|[Novo AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Cria uma base de dados de instância gerida da base de dados SQL do Azure|
+|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Cria uma base de dados de instância gerida da base de dados SQL do Azure|
 |[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Devolve informações sobre a base de dados de instância gerida do SQL do Azure|
 |[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Remove uma base de dados de instância de base de dados gerida do Azure SQL|
-|[Restauro-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura uma base de dados de instância de base de dados gerida do Azure SQL|
+|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura uma base de dados de instância de base de dados gerida do Azure SQL|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>CLI do Azure: Gerir servidores lógicos e bases de dados
 
@@ -54,15 +54,15 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com [CLI 
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[Criar AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Cria uma instância gerida|
-|[lista de mi AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Listas de instâncias de geridas disponíveis|
-|[show de mi AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtenha os detalhes para uma instância gerida|
-|[atualização de mi AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualizações de uma instância gerida|
-|[eliminação de mi AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove uma instância gerida|
-|[Criar AZ sql midb](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida|
-|[lista de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Bases de dados geridas de listas disponíveis|
-|[restauro de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaurar uma base de dados gerida|
-|[eliminação de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida|
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Cria uma instância gerida|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Listas de instâncias de geridas disponíveis|
+|[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtenha os detalhes para uma instância gerida|
+|[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualizações de uma instância gerida|
+|[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove uma instância gerida|
+|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida|
+|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Bases de dados geridas de listas disponíveis|
+|[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaurar uma base de dados gerida|
+|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Gerir servidores lógicos e bases de dados
 

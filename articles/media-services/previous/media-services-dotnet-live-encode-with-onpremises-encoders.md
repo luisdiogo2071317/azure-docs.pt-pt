@@ -1,6 +1,6 @@
 ---
-title: Como realizar uma transmissão em fluxo em direto com codificadores no local através do .NET | Microsoft Docs
-description: Este tópico mostra como utilizar o .NET para realizar live encoding com codificadores no local.
+title: Como realizar a transmissão em fluxo em direto com codificadores no local com o .NET | Documentos da Microsoft
+description: Este tópico mostra como utilizar o .NET para realizar a codificação em direto com codificadores no local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 32d456aee83c6f7c6d5d242a1ce039e7e370c0fd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 493383583513f94689b30b5eca615005137da4a9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788656"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382690"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como realizar uma transmissão em fluxo em direto com codificadores no local através do .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como realizar a transmissão em fluxo em direto com codificadores no local com o .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,7 +29,7 @@ ms.locfileid: "33788656"
 > 
 > 
 
-Este tutorial explica os passos para utilizar o SDK .NET da Azure Media Services para criar um **canal** que está configurado para uma entrega pass-through. 
+Este tutorial explica-lhe os passos para utilizar o SDK de .NET de serviços de multimédia do Azure para criar uma **canal** que está configurado para uma entrega pass-through. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 O seguinte é necessário para concluir o tutorial:
@@ -39,7 +39,7 @@ O seguinte é necessário para concluir o tutorial:
 * Configure o ambiente de desenvolvimento. Para obter mais informações, consulte [configurar o ambiente](media-services-set-up-computer.md).
 * Uma câmara Web. Por exemplo, [codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
-Recomendamos que reveja os artigos seguintes:
+Recomendado para rever os artigos seguintes:
 
 * [Azure Media Services RTMP Support and Live Encoders (Suporte RTMP dos Serviços de Multimédia do Azure e Codificadores em Direto)](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Transmissão em fluxo em direto com codificadores no local que criam transmissões com velocidade de transmissão múltipla](media-services-live-streaming-with-onprem-encoders.md)
@@ -49,18 +49,18 @@ Recomendamos que reveja os artigos seguintes:
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
 ## <a name="example"></a>Exemplo
-Exemplo de código seguinte demonstra como atingir as seguintes tarefas:
+O exemplo de código seguinte demonstra como atingir as seguintes tarefas:
 
 * Ligar aos Media Services
 * Criar um canal
 * Atualizar o canal
-* Obter o ponto final de entrada do canal. O ponto final de entrada deve ser fornecido ao codificador em direto no local. Sinais de converte codificador em direto da câmara para fluxos que são enviados para a entrada de canal (inserção) endpoint.
+* Obter o ponto final de entrada do canal. O ponto final de entrada deve ser fornecido ao codificador em direto no local. Os codificador em direto converte sinais da câmara fluxos que são enviados para a entrada do canal (ingerir) ponto final.
 * Obter o ponto final de pré-visualização do canal
 * Criar e iniciar um programa
-* Criar um localizador necessário para aceder ao programa
+* Criar um localizador necessário para acessar o programa
 * Crie e inicie um StreamingEndpoint
 * Atualizar o ponto final de transmissão em fluxo
-* Encerre a recursos
+* Encerrar a recursos
 
 >[!IMPORTANT]
 >Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
@@ -68,7 +68,7 @@ Exemplo de código seguinte demonstra como atingir as seguintes tarefas:
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
-Para obter informações sobre como configurar um codificador em direto, consulte [suporte de RTMP de serviços de suporte de dados do Azure e codificadores em direto](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Para obter informações sobre como configurar um codificador em direto, consulte [suporte RTMP dos serviços de multimédia do Azure e codificadores em direto](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 ```csharp
 using System;
@@ -149,6 +149,7 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+        // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -171,6 +172,7 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+         // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
@@ -391,7 +393,7 @@ namespace AMSLiveTest
 ```
 
 ## <a name="next-step"></a>Passo seguinte
-Reveja os caminhos de aprendizagem dos Media Services
+Rever os percursos de aprendizagem dos serviços de multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

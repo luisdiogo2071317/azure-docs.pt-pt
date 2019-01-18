@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: c3392c3fd169ceed84368ed9e8b8d81cab7baea4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8d3dcd501fd0c4a9cc9f6cb5f7b27fa2e12004ad
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212938"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382603"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Início rápido: Criar uma tarefa do Stream Analytics com o Azure PowerShell
 
@@ -111,7 +111,7 @@ O seguinte bloco de código da CLI do Azure faz muitos comandos para preparar os
 
 O seguinte bloco de código do Azure PowerShell utiliza comandos para criar o armazenamento de BLOBs que é utilizado para a saída da tarefa. Reveja as secções para compreender o código.
 
-1. Crie uma conta de armazenamento para fins gerais padrão com o cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount)  Este exemplo cria uma conta de armazenamento denominada **myasaquickstartstorage** com localmente redundante (lrs) e encriptação de BLOBs (ativada por predefinição.  
+1. Crie uma conta de armazenamento para fins gerais padrão com o cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount)  Este exemplo cria uma conta de armazenamento denominada **myasaquickstartstorage** com localmente redundante (lrs) e encriptação de BLOBs (ativada por predefinição).  
    
 2. Obtenha o contexto da conta de armazenamento `$storageAccount.Context` que define a conta de armazenamento a ser utilizada. Ao trabalhar com contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788400"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382748"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer cópias de segurança de um servidor ou cliente Windows para o Azure com o modelo de implementação Resource Manager
 Este artigo explica como fazer cópias de segurança do Windows Server (ou cliente Windows) ficheiros e pastas no Azure com o Backup do Azure utilizando o modelo de implementação do Resource Manager.
@@ -48,9 +48,9 @@ Um cofre dos serviços de recuperação é uma entidade que armazena todas as c�
 
 6. Na secção **Grupo de recursos**:
 
-    * selecione **Criar novo** se pretender criar um novo Grupo de recursos.
+    * Clique no **selecionar existente....**  menu pendente para ver a lista de grupos de recursos disponíveis.
     Ou
-    * selecione **Utilizar existente** e clique no menu pendente para ver a lista de Grupos de recursos disponíveis.
+    * selecione **Criar novo** se pretender criar um novo Grupo de recursos.
 
   Para mais informações mais completas sobre os grupos de Recursos, veja a [Azure Resource Manager overview (Descrição geral do Azure Resource Manager)](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Quando cria pela primeira vez um cofre dos Serviços de Recuperação, determina
 
 1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre.
 
-    ![Selecione o novo cofre da lista de cofres dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Selecione o novo cofre da lista de cofres dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Ao selecionar o cofre, o painel **cofre dos Serviços de Recuperação** estreita e o painel Definições (*que tem o nome do cofre na parte superior*), e o painel de detalhes do cofre abre.
+    Quando selecionar o cofre, os serviços de recuperação cofre estreita do painel e o **descrição geral** painel (*que tem o nome do cofre na parte superior*) no cofre fornece detalhes sobre o painel aberto.
 
-    ![Ver a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Ver a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. No painel de Definições do novo cofre, utilize o diapositivo vertical para deslocar para baixo para a secção Gerir e clique em **Infraestrutura de Cópia de Segurança**.
+2. No novo cofre sob o **definições** secção, aceda ao **propriedades**.
 
-  É aberto o painel Infraestrutura de Cópia de Segurança.
+  O **propriedades** é aberto o painel.
 
-3. No painel Infraestrutura de Cópia de Segurança, clique em **Configuração de Cópia de Segurança** para abrir o painel **Configuração de Cópia de Segurança**.
+3. Na **propriedades** painel, clique em **Update** sob **configuração de cópia de segurança** painel. O **configuração de cópia de segurança** é aberto o painel.
 
-  ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Escolha a opção de replicação de armazenamento adequada para o cofre.
+4. Escolha a opção de replicação de armazenamento adequado para o Cofre e clique em **guardar**.
 
   ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ A política de cópia de segurança é a agenda quando os pontos de recuperaçã
 
 ### <a name="to-create-a-backup-schedule"></a>Para criar uma agenda de cópia de segurança
 
-Defina a agenda de cópia de segurança na máquina que pretende criar cópias de segurança. Tenha em atenção que o tempo definido para a cópia de segurança pode variar desde o momento de computador local, porque a cópia de segurança do Azure não tem a hora de Verão (horário de Verão) em conta. 
+Defina a agenda de cópia de segurança na máquina que pretende criar cópias de segurança. Tenha em atenção que o tempo definido para a cópia de segurança pode variar desde o momento de computador local, porque a cópia de segurança do Azure não tem a hora de Verão (horário de Verão) em conta.
 1. Abra o Microsoft Azure Backup agent. Pode encontrá-lo ao pesquisar na máquina por **Cópia de Segurança do Microsoft Azure**.
 
     ![Iniciar o agente de cópia de segurança do Azure](./media/backup-configure-vault/snap-in-search.png)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351514"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381524"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utilizar o Azure Key Vault para transmitir o valor do parâmetro segura durante a implementação
 
@@ -93,7 +93,7 @@ Para utilizar o modelo do Resource Manager: Consulte [Tutorial: Integrar o Azure
 
 Diferente de definição `enabledForTemplateDeployment` para `true`, o utilizador a implementar o modelo tem de ter o `Microsoft.KeyVault/vaults/deploy/action` permissão de âmbito que contém o Cofre de chaves, incluindo o grupo de recursos e Cofre de chaves. O [proprietário](../role-based-access-control/built-in-roles.md#owner) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) ambas as funções de concedem o acesso. Se criar o Cofre de chaves, é o proprietário para que tenha a permissão. Se o Cofre de chaves numa subscrição diferente, o proprietário do Cofre de chaves tem de conceder o acesso.
 
-O procedimento seguinte mostra como criar uma função com o mínimo permssion e como atribuir o utilizador
+O procedimento seguinte mostra como criar uma função com a permissão mínima e como atribuir o utilizador
 1. Crie um ficheiro JSON da definição de função personalizada:
 
     ```json

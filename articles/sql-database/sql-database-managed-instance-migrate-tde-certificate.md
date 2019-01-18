@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 08/09/2018
-ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/17/2019
+ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161782"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388790"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado de base de dados do TDE protegido para a instância gerida da base de dados SQL do Azure
 
@@ -39,7 +39,7 @@ Para executar os passos descritos neste artigo, os seguintes requisitos são nec
 
 - Ferramenta de linha de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) instalada no servidor no local ou noutro computador com acesso ao certificado exportado como um ficheiro. A ferramenta Pvk2Pfx faz parte do [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), um ambiente de linha de comandos autónomo.
 - Versão 5.0 ou posterior do [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) instalada.
-- Módulo do AzureRM PowerShell [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- Módulo do AzureRM PowerShell [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Versão 4.10.0 ou superior do [módulo do AzureRM.Sql](https://www.powershellgallery.com/packages/AzureRM.Sql).
   Execute os seguintes comandos no PowerShell para instalar/atualizar o módulo do PowerShell:
 

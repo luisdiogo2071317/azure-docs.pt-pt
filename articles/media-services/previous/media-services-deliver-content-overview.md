@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240142"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388144"
 ---
 # <a name="deliver-content-to-customers"></a>Fornecer conteúdo aos clientes
 Quando a disponibilizar o conteúdo de transmissão em fluxo ou de vídeo a pedido aos clientes, seu objetivo é fornecer o vídeo de alta qualidade para vários dispositivos em condições de rede diferentes.
@@ -61,7 +61,7 @@ Para fornecer ao utilizador um URL que pode ser utilizado para transmitir ou tra
 * Localizadores OnDemandOrigin. Estes são utilizados para transmitir multimédia (por exemplo, MPEG-DASH, HLS ou Smooth Streaming) ou transferir progressivamente os ficheiros.
 * Localizadores de URL do acesso partilhado (SAS) de assinatura. Estes são utilizados para transferir ficheiros de suporte de dados para o seu computador local.
 
-Uma *política de acesso* é usada para definir as permissões (por exemplo, leitura, escrita e lista) e a duração para a qual um cliente tem acesso de um determinado ativo. Tenha em atenção que a permissão de lista (AccessPermissions.List) não deve ser usada na criação de um localizador de OrDemandOrigin.
+Uma *política de acesso* é usada para definir as permissões (por exemplo, leitura, escrita e lista) e a duração para a qual um cliente tem acesso de um determinado ativo. Tenha em atenção que a permissão de lista (AccessPermissions.List) não deve ser usada na criação de um localizador de OnDemandOrigin.
 
 Os localizadores têm data de validade. O portal do Azure define uma data de expiração de 100 anos no futuro para os localizadores.
 

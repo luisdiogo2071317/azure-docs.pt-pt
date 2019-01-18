@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
-ms.translationtype: HT
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841633"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382803"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementação Azure Resource Manager vs. implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos.
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Gestor de recursos do Azure vs. de implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos
 
 > [!NOTE]
 > As informações fornecidas neste artigo destinam-se a ser utilizadas apenas quando migra da implementação clássica para a implementação do Azure Resource Manager.
@@ -89,7 +89,7 @@ Repare nas seguintes relações entre os recursos:
 
 * Todos os recursos existem dentro de um grupo de recursos.
 * A máquina virtual depende de uma conta de armazenamento específica definida no Fornecedor de recursos de armazenamento para armazenar os respetivos discos no armazenamento de blobs (obrigatório).
-* A máquina virtual referencia uma NIC específica definida no Fornecedor de recursos de rede (obrigatório) e a um conjunto de disponibilidade definido no Fornecedor de recursos de computação (opcional).
+* A máquina virtual referencia a uma NIC específica definida no Fornecedor de recursos de rede (obrigatório) e a um conjunto de disponibilidade definido no Fornecedor de recursos de computação (opcional).
 * A NIC referencia o endereço IP atribuído da máquina virtual (obrigatório), a sub-rede da rede virtual da máquina virtual (obrigatório) e um Grupo de Segurança de Rede (opcional).
 * A sub-rede dentro de uma rede virtual referencia um Grupo de Segurança de Rede (opcional).
 * A instância do balanceador de carga referencia o conjunto de back-end de endereços IP que incluem a NIC de uma máquina virtual (opcional) e um endereço IP público ou privado do balanceador de carga (opcional).
@@ -108,17 +108,17 @@ A tabela seguinte descreve as alterações na forma como os fornecedores de Comp
 
 | Item | Clássica | Resource Manager |
 | --- | --- | --- |
-| Serviço Cloud para Máquinas Virtuais |O Serviço Cloud era um contentor para manter máquinas virtuais que exigiam Disponibilidade a partir de plataforma e o Balanceamento de Carga. |O Serviço Cloud já não é um objeto necessário para criar uma Máquina Virtual com o novo modelo. |
+| Serviço em Nuvem para Máquinas Virtuais |O Serviço em Nuvem era um contentor para manter máquinas virtuais que exigiam Disponibilidade a partir de plataforma e o Balanceamento de Carga. |O Serviço em Nuvem já não é um objeto necessário para criar uma Máquina Virtual com o novo modelo. |
 | Redes Virtuais |Uma rede virtual é opcional para a máquina virtual. Se for incluída, não pode ser implementada com o Resource Manager. |A máquina virtual requer uma rede virtual que tenha sido implementada com o Resource Manager. |
 | Contas de Armazenamento |A máquina virtual requer uma conta de armazenamento que armazene os VHDs dos discos do sistema operativo, dos discos temporários e dos discos de dados. |A máquina virtual requer uma conta de armazenamento para armazenar os respetivos discos no armazenamento de blobs. |
 | Conjuntos de Disponibilidade |A Disponibilidade para a plataforma era indicada configurando o mesmo “AvailabilitySetName” nas Máquinas Virtuais. A contagem máxima de domínios de falhas era 2. |O Conjunto de Disponibilidade é um recurso exposto pelo Fornecedor Microsoft.Compute. As Máquinas Virtuais que requerem elevada disponibilidade têm de ser incluídas no Conjunto de Disponibilidade. A contagem máxima de domínios de falhas é agora 3. |
 | Grupos de Afinidade |Os Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução das Redes Virtuais Regionais, deixaram de ser necessários. |Para simplificar, o conceito de Grupos de Afinidade não existe nas APIs expostas através do Azure Resource Manager. |
-| Balanceamento de Carga |A criação de um Serviço Cloud fornece um balanceador de carga implícito para as Máquinas Virtuais implementadas. |O Balanceador de Carga é um recurso exposto pelo fornecedor Microsoft.Network. A interface de rede primária das Máquinas Virtuais que precisam de balanceamento de carga deve mencionar o balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância do balanceador de carga referencia o conjunto de back-end de endereços IP que incluem a NIC de uma máquina virtual (opcional) e um endereço IP público ou privado do balanceador de carga (opcional). |
+| Balanceamento de Carga |A criação de um Serviço em Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implementadas. |O Balanceador de Carga é um recurso exposto pelo fornecedor Microsoft.Network. A interface de rede primária das Máquinas Virtuais que precisam de balanceamento de carga deve mencionar o balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância do balanceador de carga referencia o conjunto de back-end de endereços IP que incluem a NIC de uma máquina virtual (opcional) e um endereço IP público ou privado do balanceador de carga (opcional). |
 | Endereço IP Virtual |Os Serviços Cloud obtêm um VIP (Endereço IP Virtual) predefinido quando uma VM é adicionada a um serviço cloud. O Endereço IP Virtual é o endereço associado ao balanceador de carga implícito. |O endereço IP público é um recurso exposto pelo fornecedor Microsoft.Network. O endereço IP público pode ser estático (reservado) ou dinâmico. Os IPs públicos dinâmicos podem ser atribuídos a um Balanceador de Carga. Os IPs Públicos podem ser protegidos utilizando Grupos de Segurança. |
-| Endereço IP Reservado |Pode reservar um Endereço IP no Azure e associá-lo a um Serviço Cloud para garantir que o Endereço IP é temporário. |O Endereços IP Público pode ser criado no modo estático e oferece a mesma capacidade dos endereços IP reservados. |
+| Endereço IP Reservado |Pode reservar um Endereço IP no Azure e associá-lo a um Serviço em Nuvem para garantir que o Endereço IP é temporário. |O Endereços IP Público pode ser criado no modo estático e oferece a mesma capacidade dos endereços IP reservados. |
 | Endereço IP Público (PIP) por VM |O Endereço IP Público também pode ser associado diretamente a uma VM. |O endereço IP público é um recurso exposto pelo fornecedor Microsoft.Network. O Endereço IP Público pode ser estático (reservado) ou dinâmico. |
 | Pontos Finais |Os Pontos Finais de Entrada tinham de ser configurados numa Máquina Virtual para estarem abertos à conectividade para determinadas portas. Um dos modos comuns de ligar a máquinas virtuais era configurando pontos finais de entrada. |As Regras NAT de Entrada podem ser configuradas em Balanceadores de Carga para obter a mesma capacidade de ativação de pontos finais em portas específicas para estabelecer ligação às VMs. |
-| Nome DNS |Um serviço cloud teria de obter um nome DNS implícito globalmente exclusivo. Por exemplo: `mycoffeeshop.cloudapp.net`. |Os Nomes DNS são parâmetros opcionais que podem ser especificados num recurso de Endereço IP Público. O FQDN está no formato `<domainlabel>.<region>.cloudapp.azure.com`. |
+| Nome DNS |Um serviço em nuvem teria de obter um nome DNS implícito globalmente exclusivo. Por exemplo: `mycoffeeshop.cloudapp.net`. |Os Nomes DNS são parâmetros opcionais que podem ser especificados num recurso de Endereço IP Público. O FQDN está no formato `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Interfaces de Rede |As Interfaces de Rede Primária e Secundária e as respetivas propriedades eram definidas como configuração de rede de uma Máquina Virtual. |A Interface de Rede é um recurso exposto pelo Fornecedor Microsoft.Network. O ciclo de vida da Interface de Rede não está associado a uma Máquina Virtual. Referencia o endereço IP atribuído da máquina virtual (obrigatório), a sub-rede da rede virtual da máquina virtual (obrigatório) e um Grupo de Segurança de Rede (opcional). |
 
 Para saber mais sobre como ligar redes virtuais a partir de modelos de implementação diferentes, veja [Connect virtual networks from different deployment models in the portal](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) (Ligar redes virtuais a partir de modelos de implementação diferentes no portal).
@@ -132,7 +132,7 @@ Se estiver pronto para migrar os seus recursos da implementação clássica para
 4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) (Migrar recursos IaaS de clássica para Azure Resource Manager com a CLI do Azure)
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-**Posso criar uma máquina virtual com o Resource Manager para implementar numa rede virtual criada com a implementação clássica?**
+**Poss criar uma máquina virtual com o Resource Manager para implementar numa rede virtual criada com a implementação clássica?**
 
 Esta configuração não é suportada. Não pode utilizar o Resource Manager para implementar uma máquina virtual numa rede virtual que tenha sido criada com a implementação clássica.
 
@@ -152,7 +152,8 @@ Toda a automatização e os scripts que criou vão continuar a funcionar nas má
 
 Pode encontrar um conjunto abrangente de modelos iniciais em [Modelos de Início Rápido do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 * Para obter orientações para a criação de um modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, veja [Orientações para modelos do Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver os comandos para implementar um modelo, veja [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md) (Implementar uma aplicação com um modelo do Azure Resource Manager).
 

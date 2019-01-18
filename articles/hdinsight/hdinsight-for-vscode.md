@@ -4,18 +4,18 @@ description: Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.date: 12/15/2018
+ms.openlocfilehash: cd9f2df7987f033b4d4c234109cf712b8291d1b7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076795"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382851"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -72,7 +72,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 
 1. Crie uma nova pasta de trabalho e um novo ficheiro de script, se ainda não tivê-los.
 
-2. O editor de scripts com o botão direito e, em seguida, no menu de contexto, selecione **HDInsight: Início de sessão**. Também pode introduzir **Ctrl + Shift + P**e, em seguida, introduza **HDInsight: Início de sessão**.
+2. O editor de scripts com o botão direito e, em seguida, no menu de contexto, selecione **HDInsight: Login**. Também pode introduzir **Ctrl + Shift + P**e, em seguida, introduza **HDInsight: Login**.
 
     ![Ferramentas do HDInsight para início de sessão do Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -345,7 +345,7 @@ Observe que a pasta de .vscode também pode submeter um ficheiro, é adicionado 
     | ID | O id de sessão | int | 
     | appId | O id de aplicação desta sessão |  Cadeia |
     | appInfo | As informações detalhadas de aplicação | Mapa de chave = valor |
-    | registo | As linhas de registo | lista de cadeias de caracteres |
+    | log | As linhas de registo | lista de cadeias de caracteres |
     | state |   O estado de batch | cadeia |
 
 >[!NOTE]

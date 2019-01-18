@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Firstbird | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Firstbird | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Firstbird.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 355d5a00c9a2d8bb6930113b35b2ed68c4b970ae
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884149"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391301"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutorial: Integração do Azure Active Directory com Firstbird
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutorial: Integração do Active Directory do Azure com Firstbird
 
 Neste tutorial, saiba como integrar Firstbird com o Azure Active Directory (Azure AD).
 Integrar Firstbird no Azure AD fornece as seguintes vantagens:
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com [nome da aplic
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Firstbird Single Sign-On](#configure-firstbird-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Firstbird](#create-firstbird-test-user)**  - para ter um equivalente da Eduarda Almeida na Firstbird que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Firstbird](#create-firstbird-test-user)**  - para ter um equivalente da Eduarda Almeida na Firstbird que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -105,16 +105,16 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     ![Firstbird domínio e URLs únicas início de sessão em informações](common/idp_intiated.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/sp`.
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Firstbird domínio e URLs únicas início de sessão em informações](common/metadata_upload_additional_signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-domain>.1brd.com/login`.
-    
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente Firstbird](mailto:support@firstbird.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754208"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390929"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação de registo de contentor do Azure com os principais de serviço
 
@@ -47,9 +47,7 @@ Pode encontrar os scripts de exemplo anterior para a CLI do Azure no GitHub, com
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que tiver um principal de serviço que tenha concedido acesso ao seu registo de contentor, pode utilizar as respetivas credenciais em seus aplicativos e serviços para interação de registo.
-
-Embora configurar aplicativos individuais para utilizar credenciais do principal de serviço está fora do escopo deste artigo, pode encontrar instruções para alguns serviços específicos e plataformas aqui:
+Assim que tiver um principal de serviço que tenha concedido acesso ao seu registo de contentor, pode utilizar as respetivas credenciais em seus aplicativos e serviços para interação de registo sem periféricos. Pode usar as credenciais do principal de serviço a partir de qualquer serviço do Azure que podem autenticar com um Azure container registry. Os exemplos incluem:
 
 * [Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
 * [Autenticar com o registo de contentores do Azure de Azure Container Instances (ACI)](container-registry-auth-aci.md)

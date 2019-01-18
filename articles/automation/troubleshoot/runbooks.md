@@ -4,16 +4,16 @@ description: Saiba como resolver problemas com os runbooks de automatização do
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 231dd3789a20b649efd99a6b88f6e429e2626bd3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199124"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391329"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -128,6 +128,46 @@ Se tiver de autenticação multifator na sua conta do Azure, não é possível u
 Para utilizar um certificado com os cmdlets do modelo de implementação clássica do Azure, veja [criação e adição de um certificado para gerir serviços do Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para utilizar um principal de serviço com os cmdlets do Azure Resource Manager, veja [criar através do portal do Azure principal de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticar um principal de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
+
+###<a name="child-runbook-object"></a>Runbook subordinado devolve um erro quando o fluxo de saída contém objetos em vez de tipos de dados simples
+
+#### <a name="issue"></a>Problema
+
+Receber o seguinte erro ao invocar uma childrunbook com o `-Wait` comutador e o fluxo de saída contém e de objeto:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### <a name="cause"></a>Causa
+
+Existe um problema conhecido em que o [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) não manipula o fluxo de saída corretamente se contiver objetos.
+
+#### <a name="resolution"></a>Resolução
+
+Para resolver esta situação, é recomendável que, em vez disso, implementa uma lógica de consulta e utilize o [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet para obter o resultado. Um exemplo essa lógica é definido no exemplo a seguir.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
 
 ### <a name="task-was-cancelled"></a>Cenário: O runbook falhar com o erro: Uma tarefa foi cancelada
 

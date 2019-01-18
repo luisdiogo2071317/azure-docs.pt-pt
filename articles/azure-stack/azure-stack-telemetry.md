@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265622"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389384"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetria de pilha do Azure
 
@@ -40,7 +40,7 @@ Telemetria de pilha do Azure baseia-se o componente telemetria e experiência do
 
 ## <a name="privacy-considerations"></a>Considerações de privacidade
 
-O serviço ETW encaminha dados de telemetria de volta para o armazenamento de nuvem protegida. O princípio do menor privilégio orienta o acesso aos dados de telemetria. Apenas as equipas da Microsoft com uma necessidade de negócio válida recebem acesso aos dados de telemetria. A Microsoft não partilha dados de pessoal de cliente com terceiros, exceto a critério do cliente ou para os fins de limitado descritos na [declaração de privacidade do Microsoft](https://privacy.microsoft.com/PrivacyStatement). Os relatórios de negócio que são partilhados com os OEMs e parceiros incluem dados agregados, anónimos. Decisões de partilha de dados são feitos por uma equipe interna do Microsoft, incluindo partes interessadas de gestão de dados, legais e privacidade.
+O serviço ETW encaminha dados de telemetria de volta para o armazenamento de nuvem protegida. O princípio de privilégio mínimo orienta o acesso aos dados de telemetria. Apenas as equipas da Microsoft com uma necessidade de negócio válida recebem acesso aos dados de telemetria. A Microsoft não partilha dados de pessoal de cliente com terceiros, exceto a critério do cliente ou para os fins de limitado descritos na [declaração de privacidade do Microsoft](https://privacy.microsoft.com/PrivacyStatement). Os relatórios de negócio que são partilhados com os OEMs e parceiros incluem dados agregados, anónimos. Decisões de partilha de dados são feitos por uma equipe interna do Microsoft, incluindo partes interessadas de gestão de dados, legais e privacidade.
 
 A Microsoft acredita no e práticas minimização de informações. Esforçamo-nos reunir apenas as informações que não é necessário e armazená-lo para apenas tempo necessário para fornecer um serviço ou para análise. Muitas das informações sobre como o sistema do Azure Stack e serviços do Azure estão a funcionar é eliminada dentro de seis meses. Resumidos ou dados agregados serão mantidos para um período mais longo.
 

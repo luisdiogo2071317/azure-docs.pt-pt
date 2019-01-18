@@ -9,33 +9,35 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 88f7135cea00b3e8c6cf30a1abd2b94297681c4c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075826"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391115"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
+Habilidade de reconhecimento ótico de carateres (OCR) reconhece texto impresso e manuscrito nos arquivos de imagem. Essa habilidade usa os modelos de machine learning fornecidos pela [de imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos serviços cognitivos. O **OCR** habilidade é mapeado para a seguinte funcionalidade:
+
++ Quando textExtractionAlgorithm está definida para "manuscritas", o ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funcionalidade é utilizada.
++ Quando textExtractionAlgorithm está definida para "impressa", o ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funcionalidade é utilizada para idiomas diferentes do inglês. Para inglês, a nova ["Reconhecer Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) é utilizada a funcionalidade para texto impresso.
+
 O **OCR** habilidade extrai o texto de arquivos de imagem. Formatos de ficheiro suportados incluem:
 
-+ . JPEG
-+ . JPG
-+ . PNG
-+ . BMP
-+ . GIF
++ .JPEG
++ .JPG
++ .PNG
++ .BMP
++ .GIF
 
 > [!NOTE]
-> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+> A partir de 21 de Dezembro de 2018, pode [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) com um conjunto de capacidades do Azure Search. Isso permite que iniciemos a cobrança de consumo para a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
 >
-> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
->
->  A habilidade de OCR mapeia para a seguinte funcionalidade de serviços cognitivos: Quando textExtractionAlgorithm está definida para "manuscritas", o ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funcionalidade é utilizada.
->  Quando textExtractionAlgorithm está definida para "impressa", o ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funcionalidade é utilizada para idiomas diferentes do inglês. Para inglês, a nova ["Reconhecer Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) é utilizada a funcionalidade para texto impresso.
+> Execução de habilidades incorporadas é um custo de serviços cognitivos, cobrada de acordo com o existente [pay as you preço acedo](https://azure.microsoft.com/pricing/details/cognitive-services/) . O preço de extração de imagem é um valor de Azure Search, atualmente faturado aos preços de pré-visualização, conforme descrito no [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
@@ -58,7 +60,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | texto          | Texto sem formatação extraído a partir da imagem.   |
-| layoutText    | Tipo complexo que descreve o texto extraído, bem como a localização onde o texto foi encontrado.|
+| layoutText    | Tipo complexo que descreve o texto extraído e a localização onde o texto foi encontrado.|
 
 
 ## <a name="sample-definition"></a>Definição de exemplo
@@ -136,7 +138,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 Um caso de utilização comuns para fusão de texto é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade de OCR, ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O conjunto de capacidades de exemplo seguinte cria um *merged_text* incorporado de campo para conter o conteúdo textual do seu documento, bem como o texto de OCRed de cada uma das imagens contidas nesse documento. 
+O conjunto de capacidades de exemplo seguinte cria um *merged_text* campo. Este campo contém o conteúdo textual do seu documento e o texto de OCRed de cada uma das imagens incorporadas contidas nesse documento. 
 
 #### <a name="request-body-syntax"></a>Sintaxe do Corpo do Pedido
 ```json

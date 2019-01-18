@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cc0b97eb794389989071fc4dec1d81e909d53a54
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794078"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Tutorial: Integração do Active Directory do Azure com Innoverse
 
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com Innoverse, tem
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Innoverse Single Sign-On](#configure-innoverse-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Innoverse](#create-innoverse-test-user)**  - para ter um equivalente da Eduarda Almeida na Innoverse que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Innoverse](#create-innoverse-test-user)**  - para ter um equivalente da Eduarda Almeida na Innoverse que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -114,7 +114,7 @@ Para configurar o Azure AD início de sessão único com Innoverse, execute os s
     ![Innoverse domínio e URLs únicas início de sessão em informações](common/metadata_upload_additional_signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<domainname>.innover.se/auth/saml2/login`
-    
+
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente Innoverse](mailto:support@readify.net) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 

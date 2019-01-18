@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: configurar a filtragem | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Configurar a filtragem | Documentos da Microsoft'
 description: Explica como configurar a filtragem de sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312285"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391046"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos são apresentados no Azure Active Directory (Azure AD) do seu diretório no local. A configuração predefinida leva todos os objetos em todos os domínios nas florestas configurados. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam a cargas de trabalho do Office 365, como o Exchange Online e Skype para empresas, beneficiam de uma lista completa de endereço Global para que possam enviar e-mail e chamar todos os utilizadores. Com a configuração predefinida, que é preciso a mesma experiência que eles teriam com uma implementação no local do Exchange ou o Lync.
 
 Em alguns casos, no entanto, é necessário fazer algumas alterações à configuração padrão. Eis alguns exemplos:
@@ -77,10 +77,10 @@ Depois de concluir todas as alterações de filtragem, não se esqueça de volta
 ## <a name="filtering-options"></a>Opções de filtragem
 Pode aplicar os seguintes tipos de configuração de filtragem para a ferramenta de sincronização de diretórios:
 
-* [**Com base em grupo**](#group-based-filtering): filtragem com base num único grupo só pode ser configurada na instalação inicial, utilizando o Assistente de instalação.
-* [**Com base em domínio**](#domain-based-filtering): ao utilizar esta opção, pode selecionar quais os domínios que sincronizar com o Azure AD. Também pode adicionar e remover domínios da configuração do motor de sincronização quando fizer alterações à sua infraestrutura no local depois de instalar a sincronização do Azure AD Connect.
-* [**Unidade organizacional (UO) – com base**](#organizational-unitbased-filtering): ao utilizar esta opção, pode selecionar qual UOs sincronizar com o Azure AD. Esta opção destina-se a todos os tipos de objetos na UO selecionado.
-* [**Baseadas em atributos**](#attribute-based-filtering): ao utilizar esta opção, pode filtrar os objetos com base nos valores de atributo nos objetos. Também pode ter diferentes filtros para diferentes tipos de objeto.
+* [**Com base em grupo**](#group-based-filtering): Filtragem com base num único grupo só pode ser configurada na instalação inicial, utilizando o Assistente de instalação.
+* [**Com base em domínio**](#domain-based-filtering): Ao utilizar esta opção, pode selecionar quais os domínios que sincronizar com o Azure AD. Também pode adicionar e remover domínios da configuração do motor de sincronização quando fizer alterações à sua infraestrutura no local depois de instalar a sincronização do Azure AD Connect.
+* [**Unidade organizacional (UO) – com base**](#organizational-unitbased-filtering): Ao utilizar esta opção, pode selecionar qual UOs sincronizar com o Azure AD. Esta opção destina-se a todos os tipos de objetos na UO selecionado.
+* [**Baseadas em atributos**](#attribute-based-filtering): Ao utilizar esta opção, pode filtrar os objetos com base nos valores de atributo nos objetos. Também pode ter diferentes filtros para diferentes tipos de objeto.
 
 Pode utilizar várias opções de filtragem ao mesmo tempo. Por exemplo, pode utilizar a filtragem baseada em UO para incluir apenas os objetos numa unidade Organizacional. Ao mesmo tempo, pode utilizar a filtragem baseada em atributo para filtrar ainda mais os objetos. Quando usa vários métodos de filtragem, os filtros de usar um "e" lógico entre os filtros.
 
@@ -185,6 +185,9 @@ Com esta configuração, uma nova UO que foi criada sob ManagedObjects não est�
 
 ## <a name="attribute-based-filtering"></a>Filtragem baseada em atributo
 Certifique-se de que está a utilizar a Novembro de 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) ou criar mais tarde para estes passos para trabalhar.
+
+> [!IMPORTANT]
+>A Microsoft recomenda para não modificar as regras predefinidas criadas pelo **do Azure AD Connect**. Se pretender modificar a regra, em seguida, clone-o e desativar a regra original. Efetue as alterações para a regra clonada. Tenha em atenção que ao fazer isso (a desativar a regra original) irá perder quaisquer correções de erros ou recursos habilitados por meio dessa regra.
 
 Filtragem baseada em atributo é a maneira mais flexível de objetos de filtro. Pode utilizar o poder da [aprovisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning.md) para controlar quase todos os aspectos do quando um objeto está sincronizado com o Azure AD.
 

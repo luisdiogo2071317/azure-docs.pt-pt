@@ -1,17 +1,17 @@
 ---
-title: NET # redes Neurais titleSuffix: Descrição do Azure Machine Learning Studio: Sintaxe para o Net # neural redes linguagem de especificação, juntamente com os exemplos de como criar um modelo de rede neural personalizada usando Net # com o Azure Machine Learning Studio.
+title: Crie redes neuronais personalizadas com Net # titleSuffix: Descrição do Azure Machine Learning Studio: Guia de sintaxe para a linguagem de especificação de redes neurais Net #. Saiba como criar modelos de rede neural personalizada no Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação Net # rede neural para o Azure Machine Learning Studio
 
-NET # é uma linguagem desenvolvida pela Microsoft, que é utilizada para definir arquiteturas de rede neural. Usando o Net # para definir a estrutura de uma rede neural torna possível definir estruturas complexas, como redes neurais profundas ou convolutions de dimensões arbitrárias, o que são conhecidas para melhorar o aprendizado nos dados, como imagens, áudio ou vídeo.
+NET # é uma linguagem desenvolvida pela Microsoft, que é utilizada para definir arquiteturas de rede neural complexas, como redes neurais profundas ou convolutions de dimensões arbitrárias. Pode usar as estruturas complexas para melhorar o aprendizado nos dados, como a imagem, vídeo ou áudio.
 
 Pode usar uma especificação de arquitetura do Net # desses contextos:
 
 + Todos os módulos de redes neuronais no Microsoft Azure Machine Learning Studio: [Várias classes rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede Neural de classe dois](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), e [regressão de rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funções de rede neural em MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R, e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Funções de rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R, e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net #: 
@@ -26,17 +26,17 @@ Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvol
 
 Uma estrutura de rede neural é composta por nós que estão organizados em camadas e ligações ponderadas (ou bordas) entre os nós. As ligações são direcionais e cada ligação tem um nó de origem e um nó de destino.  
 
-Cada camada trainable (um oculta ou uma camada de saída) tem um ou mais **pacotes de conexão**. Um pacote de ligação é constituída por uma camada de origem e de uma especificação das ligações a partir dessa camada de origem. Todas as conexões num determinado pacote partilham a mesma camada de origem e a mesma camada de destino. Em Net #, um pacote de ligação é considerado como pertencendo à camada de destino do pacote.
+Cada camada trainable (um oculta ou uma camada de saída) tem um ou mais **pacotes de conexão**. Um pacote de ligação é constituída por uma camada de origem e de uma especificação das ligações a partir dessa camada de origem. Todas as conexões num determinado pacote compartilham camadas de origem e de destino. Em Net #, um pacote de ligação é considerado como pertencendo à camada de destino do pacote.
 
-NET # oferece suporte a vários tipos de ligação de pacotes, que permite personalizar as entradas de forma são mapeados para camadas ocultas e mapeados para as saídas.
+NET # oferece suporte a vários tipos de ligação de pacotes, o que lhe permite personalizar as entradas de forma são mapeados para camadas ocultas e mapeados para as saídas.
 
 O padrão ou o pacote padrão é uma **pacote completo**, em que cada nó na camada de origem que está ligado a todos os nós na camada de destino.
 
 Além disso, Net # suporta os seguintes quatro tipos de pacotes de ligação avançada:
 
-+ **Filtrado pacotes**. O utilizador pode definir um predicado utilizando as localizações de nó de camada de origem e o nó de camada de destino. Nós estão conectados sempre que o predicado é True.
++ **Filtrado pacotes**. Pode definir um predicado utilizando as localizações de nó de camada de origem e o nó de camada de destino. Nós estão conectados sempre que o predicado é True.
 
-+ **Os pacotes de convolucionais**. O utilizador pode definir vizinhanças pequeno de nós na camada de origem. Cada nó na camada de destino está ligado a um ambiente de nós na camada de origem.
++ **Os pacotes de convolucionais**. Pode definir vizinhanças pequeno de nós na camada de origem. Cada nó na camada de destino está ligado a um ambiente de nós na camada de origem.
 
 + **Agrupamento de pacotes** e **pacotes de normalização de resposta**. Estes são semelhantes aos pacotes convolucionais em que o utilizador define vizinhanças pequeno de nós na camada de origem. A diferença é que os pesos das bordas nesses pacotes não são trainable. Em vez disso, uma função predefinida é aplicada para os valores de nó de origem para determinar o valor do nó de destino.
 

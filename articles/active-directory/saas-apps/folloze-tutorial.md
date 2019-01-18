@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Folloze | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Folloze | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Folloze.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e9adb084da818f96eb892864d2f27a90fe62a646
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884186"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390074"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutorial: Integração do Azure Active Directory com Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutorial: Integração do Active Directory do Azure com Folloze
 
 Neste tutorial, saiba como integrar Folloze com o Azure Active Directory (Azure AD).
 Integrar Folloze no Azure AD fornece as seguintes vantagens:
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD início de sessão único com Folloze, tem d
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar Folloze Single Sign-On](#configure-folloze-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste Folloze](#create-folloze-test-user)**  - para ter um equivalente da Eduarda Almeida na Folloze que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Folloze](#create-folloze-test-user)**  - para ter um equivalente da Eduarda Almeida na Folloze que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -113,7 +113,7 @@ Para configurar o Azure AD início de sessão único com Folloze, execute os seg
 
     | Nome |  Atributo de origem|
     | ---------------| --------- |
-    | Email | User.othermail |
+    | Email | user.othermail |
     | Nameasemail | user.userprincipalname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -144,7 +144,7 @@ Para configurar o Azure AD início de sessão único com Folloze, execute os seg
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352585"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382564"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
@@ -213,7 +213,7 @@ Balanceadores de carga Standard estão disponíveis com um SLA de 99,99%.  Revej
 
 Utilização de Balanceador de carga Standard é cobrada.
 
-- Regras de regras de número configurado balanceamento de carga e de saída (regras NAT de entrada não contam para o número total de regras)
+- Número de configurado regras de balanceamento de carga e de saída (regras NAT de entrada não contam para o número total de regras)
 - Quantidade de dados processados entrada e saída irrespective de regra. 
 
 Para obter as informações de preços do Balanceador de Carga Standard, aceda à página [Preços de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

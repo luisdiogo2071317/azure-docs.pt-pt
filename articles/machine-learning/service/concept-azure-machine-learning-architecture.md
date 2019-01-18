@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e5f569d5561050c9993ec48b096f60595d44b1b1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808099"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391182"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
@@ -28,7 +28,7 @@ O fluxo de trabalho em geral, segue essa seqüência:
 
 1. Desenvolver a aprendizagem, treinamento scripts no **Python**.
 1. Criar e configurar uma **destino de computação**.
-1. **Submeter os scripts** para o destino de computação configurada para ser executado nesse ambiente. Durante o treinamento, o destino de computação armazena registos de execução para um **arquivo de dados**. Existem os registos são salvas num **experimentar**.
+1. **Submeter os scripts** para o destino de computação configurada para ser executado nesse ambiente. Durante o treinamento, os scripts podem ler ou escrever **arquivo de dados**. E os registos de execução estão a guardar como **executa** no **área de trabalho**, que está particionado sobre **experimentar**.
 1. **Consultar a experimentação** para as métricas registadas de execuções a atuais e anteriores. Se as métricas não indicam um resultado desejado, fazer um loop novamente para o passo 1 e iterar em seus scripts.
 1. Após encontra uma execução satisfatória, registe o modelo persistente na **registo de modelo**.
 1. Desenvolva um script de classificação.
@@ -228,5 +228,5 @@ Atividades podem fornecer notificações através do SDK ou a IU da web, de modo
 Para começar a utilizar com o serviço Azure Machine Learning, veja:
 
 * [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Início rápido: Criar uma área de trabalho com Python](quickstart-get-started.md)
+* [Quickstart: Criar uma área de trabalho com Python](quickstart-get-started.md)
 * [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)

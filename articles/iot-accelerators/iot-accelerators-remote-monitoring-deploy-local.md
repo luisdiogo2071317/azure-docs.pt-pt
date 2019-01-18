@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604776"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382257"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio
 
@@ -48,16 +48,9 @@ Para concluir a implementação de local, terá das seguintes ferramentas instal
 
 Nesta secção, vai executar os microsserviços de monitorização remota. Executar a IU da web nativamente, o serviço de simulação do dispositivo no Docker e os microsserviços no Visual Studio.
 
-### <a name="run-the-web-ui"></a>Executar a IU da web
-
-Neste passo, começa a IU da web. Navegue para o **serem** copiar do repositório de pasta no seu local e execute os seguintes comandos:
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>Executar o serviço de simulação do dispositivo
+
+Abra uma nova janela de linha de comandos para ter certeza de que tem acesso para as variáveis de ambiente definidas pelos **start.cmd** script na secção anterior.
 
 Execute o seguinte comando para iniciar o contentor do Docker para o serviço de simulação do dispositivo. O serviço simula os dispositivos para a solução de monitorização remota.
 
@@ -74,11 +67,11 @@ Os passos seguintes mostram como executar os microsserviços de monitorização 
 1. Na **Explorador de soluções**, clique com botão direito a solução e um simples clique **propriedades**.
 1. Selecione **propriedades comuns > projeto de arranque**.
 1. Selecione **vários projetos de arranque** e defina **ação** para **iniciar** para os seguintes projetos:
-    * Serviço Web (asa manager\WebService)
+    * WebService (asa-manager\WebService)
     * Serviço Web (auth\WebService)
-    * Serviço Web (config\WebService)
+    * WebService (config\WebService)
     * Serviço Web (telemetry\WebService de dispositivo)
-    * Serviço Web (iothub-manager\WebService)
+    * WebService (iothub-manager\WebService)
     * Serviço Web (adapter\WebService de armazenamento)
 1. Clique em **OK** para guardar as suas opções.
 1. Clique em **depurar > Iniciar depuração** para compilar e executar os serviços web no computador local.
@@ -94,11 +87,22 @@ Siga estes passos para iniciar a tarefa de Stream Analytics:
 1. Clique nas **tarefa do Stream Analytics** na lista de recursos.
 1. Na tarefa de Stream Analytics **descrição geral** página, clique nas **iniciar** botão. Em seguida, clique em **iniciar** para iniciar a tarefa agora.
 
+### <a name="run-the-web-ui"></a>Executar a IU da web
+
+Neste passo, começa a IU da web. Abra uma nova janela de linha de comandos para ter certeza de que tem acesso para as variáveis de ambiente definidas pelos **start.cmd** script. Navegue para o **serem** copiar do repositório de pasta no seu local e execute os seguintes comandos:
+
+```cmd
+npm install
+npm start
+```
+
+Quando o início for concluído, o browser apresenta a página **http://localhost:3000/dashboard**. Espera-se os erros nesta página. Para ver a aplicação sem erros, conclua o passo seguinte.
+
 ### <a name="configure-and-run-nginx"></a>Configurar e executar o NGINX
 
 Configure um servidor de proxy inverso para ligar a aplicação web e os microsserviços em execução no seu computador local:
 
-* Cópia a **nginx.conf** ficheiro a partir do **webui\scripts\localhost** pasta para o **nginx\conf** diretório de instalação.
+* Cópia a **nginx.conf** ficheiro a partir do **webui\scripts\localhost** pasta na sua cópia local do repositório para o **nginx\conf** diretório de instalação.
 * Execute **nginx**.
 
 Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](https://nginx.org/en/docs/windows.html).

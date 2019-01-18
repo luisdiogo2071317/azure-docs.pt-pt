@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3065a003dfe318aeffaee2ecd052fce97105f52a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437151"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390573"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -32,6 +32,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
    * [Máquina associados ao Azure AD](../device-management-azure-portal.md) ou
    * [Azure AD híbrido associou máquina](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
+* Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall, tráfego HTTPS (443) para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` deve ser permitido.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 
@@ -126,8 +127,6 @@ As seguintes definições de política são conhecidas por interferir com a capa
    * Explorer.exe é substituído por um shell personalizado
 
 Esta funcionalidade não funciona para redes com rede autenticação 802.1x implementada e a opção "Executar imediatamente antes do início de sessão do utilizador". Para redes com rede autenticação 802.1x implementado é recomendado para utilizar a autenticação de computador para ativar esta funcionalidade.
-
-Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deve ser permitido.
 
 Para cenários híbridos associados a um domínio, um cenário existe em que o fluxo de trabalho SSPR será concluída sem a necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessário para utilizar a nova palavra-passe pela primeira vez.
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 38b630b14a7425b4f8854ea88d6ba7e7a4335bea
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 48b9408a092b0e3a0fa6eb1b29822085ad8f8302
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54069878"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363948"
 ---
 | Categoria | Arquivo de dados |
 |:--- |:--- |
 | **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Cosmos DB (MongoDB API)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
+| &nbsp; |[API do Azure Cosmos DB para o MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Geração 2 Lake armazenamento de dados do Azure](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Base de dados do Azure para MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |

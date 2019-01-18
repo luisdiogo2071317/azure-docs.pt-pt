@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313841"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391006"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
 
 O **Modelador** habilidade cria um tipo complexo para oferecer suporte a campos compostos (também conhecido como campos com várias partes). Um campo de tipo complexo tem várias partes, mas é tratado como um único item de um índice da Azure Search. Exemplos de campos consolidados útil em cenários de pesquisa incluem a combinação de um nome próprio e apelido num único campo, cidade e estado num único campo, ou o nome e data de nascimento num único campo para estabelecer a identidade exclusiva.
 
-A habilidade de Modelador permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro.
+O **Modelador** habilidade permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro.
 
-Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para obter objetos mais complexos, pode encadear vários passos Modelador.
+Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para obter objetos mais complexos, pode encadear vários **Modelador** passos.
 
-Em resposta, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos abaixo de "saída", mas o Modelador habilidade em si devolve "output" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
+Em resposta, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos abaixo de "saída", mas a **Modelador** habilidade em si devolve "resultado" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
+
+> [!NOTE]
+> Essa habilidade não está vinculada a uma API dos serviços cognitivos e existem sem taxas associadas com essa habilidade. Contudo, deve [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) de qualquer forma, para substituir a opção de recurso gratuito que limita a um pequeno número de diário possível.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Exemplo 1: tipos complexos
 
-Considere um cenário onde pretende criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. No Azure Search, é chamado de um campo pesquisável com várias parte um *tipo complexo*, e ainda não é suportado de imediato. Esta pré-visualização, uma habilidade Modelador pode ser utilizada para gerar campos de um tipo complexo no seu índice. 
+Considere um cenário onde pretende criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. No Azure Search, é chamado de um campo pesquisável com várias parte um *tipo complexo*, e ainda não é suportado de imediato. Nesta pré-visualização, uma **Modelador** habilidade pode ser utilizada para gerar os campos de um tipo complexo no seu índice. 
 
 O exemplo a seguir fornece o membro nomes como entrada. A estrutura de saída (o campo complexa no Azure Search) é especificada através de *targetName*. 
 
@@ -62,7 +65,7 @@ O exemplo a seguir fornece o membro nomes como entrada. A estrutura de saída (o
 ```
 
 ### <a name="sample-input"></a>Entrada de exemplo
-Um documento JSON fornecer a entrada de utilizável por essa habilidade Modelador pode ser:
+Um documento JSON fornecer entrada utilizável para isso **Modelador** habilidade poderia ser:
 
 ```json
 {
@@ -80,7 +83,7 @@ Um documento JSON fornecer a entrada de utilizável por essa habilidade Modelado
 
 
 ### <a name="sample-output"></a>Resultado da amostra
-A habilidade de Modelador gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimentos*. 
+O **Modelador** habilidade gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e *sentimentos*. 
 
 ```json
 {

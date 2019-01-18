@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607086"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382776"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Ativar o ajuste automático monitorar as consultas e melhorar o desempenho da carga de trabalho
 
@@ -87,6 +87,10 @@ Para configurar opções de otimização automática individuais através de T-S
    ```
    
 Definir a opção de otimização individual on, irá substituir qualquer definição de base de dados herdada e ativar a opção de otimização. Defini-la como OFF, também substituir qualquer definição de base de dados herdada e desativar a opção de otimização. Opção de otimização automática, para que a predefinição é especificada, irá herdar a configuração do nível da base de dados, a definição de otimização automática.  
+
+> [!IMPORTANT]
+> No caso de [georreplicação ativa](sql-database-auto-failover-group.md), precisa de ser configurada na base de dados primária só de otimização automática. Automaticamente aplicadas ações de otimização, como, por exemplo são para criar o índice de exemplo ou eliminação será replicada automaticamente para o secundário só de leitura. Tentativa de habilitar a otimização automática através de T-SQL no secundário só de leitura irá resultar numa falha, como ter uma configuração de otimização diferente secundário só de leitura não é suportado.
+>
 
 Localizar nossa mais sobre as opções de T-SQL para configurar a otimização automática, consulte [alterar base de dados definir opções (Transact-SQL) para o servidor lógico de base de dados SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
