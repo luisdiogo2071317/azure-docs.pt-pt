@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319465"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382622"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -230,7 +230,7 @@ Quando uma nova política é aplicada, agenda e a retenção da nova política �
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
 
-Sim. Dados são encriptados na máquina no local utilizando AES256. Os dados são enviados através de uma ligação HTTPS segura.
+Sim. Dados são encriptados na máquina no local utilizando AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados são transmitidos na cloud está protegido pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. protocolo iSCSI protege os dados transmitidos entre a máquina de utilizador e serviço de recuperação. Túnel seguro é utilizado para proteger o canal de iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
