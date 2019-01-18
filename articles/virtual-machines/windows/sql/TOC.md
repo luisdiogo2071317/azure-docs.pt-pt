@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 050eb5e51ec4f589d160ac20322ffc02f77efc61
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358614"
+---
 # Descrição geral
 ## [Sobre as VMs do SQL Server do Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Notas de versão](virtual-machines-windows-sql-server-iaas-release-notes.md) 
@@ -11,6 +19,12 @@
 ### [Melhores práticas de desempenho](virtual-machines-windows-sql-performance.md)
 ### [Considerações de segurança](virtual-machines-windows-sql-security.md)
 ### [Padrões de aplicação](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## Continuidade do Negócio
+### [Opções de elevada disponibilidade](virtual-machines-windows-sql-high-availability-dr.md) 
+### [Grupo de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Backup e restauro](virtual-machines-windows-sql-backup-recovery.md)
+### [Cópia de segurança automatizada para SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Cópia de segurança automatizada para SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ## Gestão
 ### [Ligar a uma VM](virtual-machines-windows-sql-connect.md)
 ### [Configurar o armazenamento](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -18,30 +32,27 @@
 #### [Utilizar a Extensão do Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md)
 #### [Aplicação de Patches Automatizada](virtual-machines-windows-sql-automated-patching.md)
 #### [Configurar a Integração do Cofre de Chaves do Azure](virtual-machines-windows-ps-sql-keyvault.md)
-## Cópia de segurança e restauro
-### [Backup e restauro](virtual-machines-windows-sql-backup-recovery.md)
-### [Cópia de segurança automatizada para SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-### [Cópia de segurança automatizada para SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
-### [Utilizar o Armazenamento do Azure para o restauro e a cópia de segurança](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Guias de procedimentos
 ## Criar uma VM de SQL
 ### [Utilizar o portal](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Utilizar o Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+## [Alterar o modelo de licenciamento da VM do SQL](virtual-machines-windows-sql-ahb.md)
 ## Migrar
 ### [Migrar uma bases de dados SQL Server](virtual-machines-windows-migrate-sql.md)
 ## Configurar uma Elevada Disponibilidade
-### [Opções de elevada disponibilidade](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Grupo de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Automático - com o modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Manual - pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+### [Utilizar o Armazenamento do Azure para o restauro e a cópia de segurança](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### Grupo de disponibilidade Always On
+#### [Utilizar o modelo do portal do Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Utilizar modelos de início rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
+#### [Manualmente - pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Manualmente - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Balanceador de carga - portal do Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Balanceador de carga - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Várias regiões](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instância de Cluster de Ativação Pós-falha
 #### [Configurar](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [Alterar o modelo de licenciamento da VM do SQL](virtual-machines-windows-sql-ahb.md)
+
 
 # Referência
 ## [Azure PowerShell](/powershell/azure/overview)
