@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526332"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413622"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Recuperação de diagnósticos e erros para tarefas de importação/exportação do Azure
 Para cada unidade de processamento, o serviço importar/exportar do Azure cria um registo de erros na conta de armazenamento associados. Também pode ativar o registo verboso, definindo a `LogLevel` propriedade para `Verbose` ao chamar os [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operações.
 
  Por predefinição, os registos são escritos para um contentor com o nome `waimportexport`. Pode especificar um nome diferente, definindo a `DiagnosticsPath` propriedade ao chamar o `Put Job` ou `Update Job Properties` operações. Os registos são armazenados como blobs de blocos com a seguinte convenção de nomenclatura: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- Pode obter o URI dos registos de uma tarefa ao chamar o [Get Job de](/rest/api/storageimportexport/jobs#Jobs_Get) operação. O URI para o registo verboso que é devolvido na `VerboseLogUri` propriedade para cada unidade, enquanto o URI para o log de erro é retornado no `ErrorLogUri` propriedade.
+ Pode obter o URI dos registos de uma tarefa ao chamar o [Get Job de](/rest/api/storageimportexport/jobs) operação. O URI para o registo verboso que é devolvido na `VerboseLogUri` propriedade para cada unidade, enquanto o URI para o log de erro é retornado no `ErrorLogUri` propriedade.
 
 Pode utilizar os dados de registo para identificar os seguintes problemas.
 

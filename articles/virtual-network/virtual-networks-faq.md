@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021038"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412874"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -52,7 +52,12 @@ Pode utilizar as seguintes ferramentas para criar ou configurar uma VNet:
 * Um ficheiro de configuração de rede (netcfg - para VNets clássicas apenas). Consulte a [configurar uma VNet com um ficheiro de configuração de rede](virtual-networks-using-network-configuration-file.md) artigo.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Os intervalos de endereços pode usar nas minhas VNets?
-Qualquer intervalo de endereços IP definidos na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16.
+Qualquer intervalo de endereços IP definidos na [RFC 1918](http://tools.ietf.org/html/rfc1918). Por exemplo, 10.0.0.0/16. Não é possível adicionar os seguintes intervalos de endereços:
+* 224.0.0.0/4 (Multicast)
+* 255.255.255.255/32 (difusão)
+* 127.0.0.0/8 (Loopback)
+* 169.254.0.0/16 (Link-local)
+* 168.63.129.16/32 (DNS interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Pode ter endereços IP públicos nas minhas VNets?
 Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
@@ -140,7 +145,7 @@ Sim. Todas as interfaces de rede (NIC) ligadas a uma VM implementada através do
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir às VMs?
 * **Privada:** Atribuído a cada NIC dentro de cada VM. O endereço é atribuído através do método estático ou dinâmico. Endereços IP privados são atribuídos a partir do intervalo que especificou nas definições de sub-rede da VNet. Recursos implementados através do modelo de implementação clássica são atribuídos endereços IP privados, mesmo que eles não estiverem conectados a uma VNet. O comportamento do método de alocação é diferente dependendo de um recurso foi implementado com o Resource Manager ou o modelo de implementação clássica: 
 
-  - **Gestor de recursos**: Endereços IP privados atribuídos com o método dinâmico ou estático permanecerá atribuído a uma máquina virtual (Resource Manager) até que o recurso seja eliminado. A diferença é que selecionar o endereço a atribuir ao utilizar estático e escolhe o Azure ao utilizar dinâmico. 
+  - **Resource Manager**: Endereços IP privados atribuídos com o método dinâmico ou estático permanecerá atribuído a uma máquina virtual (Resource Manager) até que o recurso seja eliminado. A diferença é que selecionar o endereço a atribuir ao utilizar estático e escolhe o Azure ao utilizar dinâmico. 
   - **Clássico**: Endereços IP privados atribuídos com o método dinâmico podem ser alterados quando uma máquina virtual (clássico) VM é reiniciada após ter sido no estado parado (desalocada). Se precisa garantir que o endereço IP privado de um recurso implementado através do modelo de implementação clássica nunca mudará, atribua um endereço IP privado com o método estático.
 
 * **Público:** Opcionalmente, é atribuído a NIC anexada às VMs implementadas por meio do modelo de implementação Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estático ou dinâmico. Instâncias de função de todas as VMs e serviços Cloud implementadas através do modelo de implementação clássica existem no serviço cloud, que é atribuído um *dinâmica*, pública endereço IP virtual (VIP). Uma pública *estático* endereço IP, chamado um [endereço IP reservado](virtual-networks-reserved-public-ip.md), opcionalmente, pode ser atribuído como um VIP. Pode atribuir endereços IP públicos individuais instâncias de função VMs ou serviços Cloud implementados através do modelo de implementação clássica. Estes endereços são denominados [IP público de nível de instância (ILPIP](virtual-networks-instance-level-public-ip.md) endereços e pode ser atribuído dinamicamente.
@@ -367,11 +372,11 @@ Não existe nenhum limite no número total de pontos finais de serviço de VNet 
 |Storage do Azure| 100|
 |SQL do Azure| 128|
 |Azure SQL Data Warehouse|  128|
-|Cofre de chaves do Azure|    127|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
 |Service Bus do Azure| 128|
-|V1 do Azure Data Lake Store|  100|
+|Azure Data Lake Store V1|  100|
  
 >[!NOTE]
 > Os limites estão sujeitos a alterações a critério do serviço do Azure. Consulte a documentação do respetivo serviço para obter detalhes de serviços. 

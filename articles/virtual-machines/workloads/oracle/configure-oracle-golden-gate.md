@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494298"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413826"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Oracle Golden Gate numa VM do Linux do Azure 
 
@@ -42,8 +42,8 @@ Segue-se um resumo da configuração do ambiente:
 > | --- | --- | --- |
 > | **Versão Oracle** |Oracle 12C versão 2 – (12.1.0.2) |Oracle 12C versão 2 – (12.1.0.2)|
 > | **Nome da máquina** |myVM1 |myVM2 |
-> | **Sistema operativo** |Oracle Linux 6. x |Oracle Linux 6. x |
-> | **SID do Oracle** |CDB1 |CDB1 |
+> | **Sistema operativo** |Oracle Linux 6.x |Oracle Linux 6.x |
+> | **Oracle SID** |CDB1 |CDB1 |
 > | **Esquema de replicação** |TESTE|TESTE |
 > | **Golden Gate proprietário/replicar** |C##GGADMIN |REPUSER |
 > | **Processo de Golden Gate** |EXTORA |REPORA|
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico para os recursos do Azure são implementados e de que pode ser gerenciadas. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico para os recursos do Azure são implementados e de que pode ser gerenciadas. 
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`.
 

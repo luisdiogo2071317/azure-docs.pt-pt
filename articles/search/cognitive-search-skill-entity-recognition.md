@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4d37d8b3bb52853885ab406a49154f8e70f54b56
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a2bf61c167211e1ff62abe1453ac62227a137d53
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388189"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411378"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
 
@@ -25,7 +25,7 @@ O **reconhecimento de entidades** habilidade extrai entidades de diferentes tipo
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, pode [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) com um conjunto de capacidades do Azure Search. Isso permite que iniciemos a cobrança de consumo para a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
 >
-> Execução de habilidades incorporadas é um custo de serviços cognitivos, cobrada de acordo com o existente [pay as you preço acedo](https://azure.microsoft.com/pricing/details/cognitive-services/) . O preço de extração de imagem é um valor de Azure Search, atualmente faturado aos preços de pré-visualização, conforme descrito no [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). 
+> [Competências cognitivas incorporada](cognitive-search-predefined-skills.md) execução é cobrada a [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services), em para classificar o mesmo como se realizados diretamente a tarefa. Extração de imagem é um valor de Azure Search, atualmente oferecido a preços de pré-visualização. Para obter detalhes, consulte a [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) ou [como funciona a faturação](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,7 @@ Parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 | categories    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para utilização futura. |
-|includeTypelessEntites | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, serão devolvidas como parte do `"entities"` campo de saída complexa. A predefinição é `false` |
+|includeTypelessEntites | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. A predefinição é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -67,8 +67,8 @@ Apenas _en_, _es_ suporta a extração de `"Quantity"`, `"Datetime"`, `"URL"`, `
 | dateTimes  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um DateTime (tal como aparece no texto) valor. |
 | urls | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um URL |
 | e-mails | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma mensagem de e-mail |
-| namedEntities | Uma matriz de tipos complexos, que contêm os seguintes campos: <ul><li>categoria</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (não utilizados por agora. Será definido como um valor de -1)</li></ul> |
-| entidades | Uma matriz de tipos complexos, que contém informações detalhadas sobre as entidades extraídos de texto, com os seguintes campos <ul><li> nome (o nome de entidade real. Isso representa um formulário de "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (uma ligação para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>Subtipo (disponível apenas para determinadas categorias, isso dá uma vista mais granular do tipo de entidade)</li><li> corresponde a (uma coleção complexa que contém)<ul><li>texto (o texto não processado para a entidade)</li><li>deslocamento (localização onde foi encontrado)</li><li>comprimento (o comprimento do texto de entidade não processados)</li></ul></li></ul> |
+| namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>categoria</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (não utilizados por agora. Será definido como um valor de -1)</li></ul> |
+| entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídos de texto, com os seguintes campos <ul><li> nome (o nome de entidade real. Isso representa um formulário de "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (uma ligação para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>Subtipo (disponível apenas para determinadas categorias, isso dá uma vista mais granular do tipo de entidade)</li><li> corresponde a (uma coleção complexa que contém)<ul><li>texto (o texto não processado para a entidade)</li><li>deslocamento (localização onde foi encontrado)</li><li>comprimento (o comprimento do texto de entidade não processados)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

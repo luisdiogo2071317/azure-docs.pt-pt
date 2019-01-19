@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405619"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412053"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -84,7 +84,7 @@ Quando cria uma função personalizada, ele aparece no portal do Azure com um í
 
     Assim que tiver a função personalizada, precisa testá-lo para verificar se funciona conforme o esperado. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: criar uma função personalizada com a CLI do Azure](tutorial-custom-role-cli.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: Criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: Criar uma função personalizada com a CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades de função personalizada
 
@@ -96,11 +96,11 @@ Uma função personalizada tem as seguintes propriedades.
 | `Id` | Sim | Cadeia | O ID exclusivo da função personalizada. Para o Azure PowerShell e CLI do Azure, este ID é gerado automaticamente quando cria uma nova função. |
 | `IsCustom` | Sim | Cadeia | Indica se se trata de uma função personalizada. Definido como `true` para funções personalizadas. |
 | `Description` | Sim | Cadeia | A descrição da função personalizada. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é de 1024. |
-| `Actions` | Sim | String] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que permite que a função a ser executada. Para obter mais informações, consulte [ações](role-definitions.md#actions). |
-| `NotActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que são excluídas da permitidos `Actions`. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
-| `DataActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de dados que permite que a função a ser executada aos seus dados dentro desse objeto. Para obter mais informações, consulte [DataActions (pré-visualização)](role-definitions.md#dataactions-preview). |
-| `NotDataActions` | Não | String] | Uma matriz de cadeias de caracteres que especifica as operações de dados que são excluídas da permitidos `DataActions`. Para obter mais informações, consulte [NotDataActions (pré-visualização)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Sim | String] | Uma matriz de cadeias de caracteres que especifica os âmbitos que a função personalizada está disponível para atribuição. Atualmente, não é possível definir o âmbito de raiz (`"/"`) ou um âmbito de grupo de gestão. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
+| `Actions` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que permite que a função a ser executada. Para obter mais informações, consulte [ações](role-definitions.md#actions). |
+| `NotActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que são excluídas da permitidos `Actions`. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
+| `DataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados que permite que a função a ser executada aos seus dados dentro desse objeto. Para obter mais informações, consulte [DataActions (pré-visualização)](role-definitions.md#dataactions-preview). |
+| `NotDataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados que são excluídas da permitidos `DataActions`. Para obter mais informações, consulte [NotDataActions (pré-visualização)](role-definitions.md#notdataactions-preview). |
+| `AssignableScopes` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica os âmbitos que a função personalizada está disponível para atribuição. Atualmente, não é possível definir o âmbito de raiz (`"/"`) ou um âmbito de grupo de gestão. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, eliminar, atualizar ou ver uma função personalizada
 
@@ -113,6 +113,7 @@ Tal como funções incorporadas, o `AssignableScopes` propriedade especifica os 
 | Ver uma função personalizada | `Microsoft.Authorization/ roleDefinition/read` | Os utilizadores que são concedidos esta operação com um âmbito podem ver as funções personalizadas que estão disponíveis para atribuição nesse âmbito. Todas as funções incorporadas que funções personalizadas estar disponível para atribuição. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Criar funções personalizadas com o Azure PowerShell](custom-roles-powershell.md)
+- [Create custom roles using Azure PowerShell](custom-roles-powershell.md) (Criar funções personalizadas com o Azure PowerShell)
 - [Criar funções personalizadas com a CLI do Azure](custom-roles-cli.md)
 - [Compreender as definições de função](role-definitions.md)
+- [Resolver problemas relacionados com o RBAC no Azure](troubleshooting.md)

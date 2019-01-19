@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/18/2019
 ms.author: ramamill
-ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063683"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411480"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação de VMs de VMware e servidores físicos
 
@@ -109,12 +109,17 @@ As seguintes lista mostra formas como pode verificar o servidor de processos:
 
 Quando tenta selecionar a máquina de origem para ativar a replicação utilizando a recuperação de Site, a máquina pode não estar disponível para um dos seguintes motivos:
 
-*  Se duas máquinas virtuais sob o vCenter tiver a mesma instância UUID, a primeira máquina virtual detetada pelo servidor de configuração é apresentada no portal do Azure. Para resolver este problema, certifique-se de que não existem duas máquinas virtuais têm a mesma instância UUID.
-*  Certifique-se de que adicionou as credenciais do vCenter correto quando configurou o servidor de configuração com o modelo OVF ou a configuração unificada. Para verificar as credenciais que foi adicionado durante a configuração, consulte [modificar as credenciais para a deteção automática](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-*  Se as permissões fornecidas para aceder ao vCenter não tem as permissões necessárias, pode ocorrer Falha ao detetar máquinas virtuais. Certifique-se de que as permissões descritas [preparar uma conta para a deteção automática](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) são adicionados para a conta de utilizador do vCenter.
-*  Se a máquina virtual já está protegida por meio do Site Recovery, a máquina virtual não está disponível para selecionar para a proteção no portal. Certifique-se de que a máquina virtual que está procurando no portal do já não está protegida por qualquer outro utilizador ou numa subscrição diferente.
+* **Duas máquinas virtuais com o mesmo UUID da instância**: Se duas máquinas virtuais sob o vCenter tiver a mesma instância UUID, a primeira máquina virtual detetada pelo servidor de configuração é apresentada no portal do Azure. Para resolver este problema, certifique-se de que não existem duas máquinas virtuais têm a mesma instância UUID. Este cenário é comum visto em casos em que uma VM de cópia de segurança é ativada e está registada na nossa registos de deteção. Consulte [do Azure Site Recovery VMware para o Azure: Como limpar entradas duplicadas ou obsoletas](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) para resolver.
+* **As credenciais de utilizador do vCenter incorreto**: Certifique-se de que adicionou as credenciais do vCenter correto quando configurou o servidor de configuração com o modelo OVF ou a configuração unificada. Para verificar as credenciais que foi adicionado durante a configuração, consulte [modificar as credenciais para a deteção automática](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* **privilégios insuficientes do vCenter**: Se as permissões fornecidas para aceder ao vCenter não tem as permissões necessárias, pode ocorrer Falha ao detetar máquinas virtuais. Certifique-se de que as permissões descritas [preparar uma conta para a deteção automática](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) são adicionados para a conta de utilizador do vCenter.
+* **Servidores de gestão do Azure Site Recovery**: Se a máquina virtual for utilizada como servidor de gestão numa ou mais das seguintes funções - configuração /scale-out de servidor servidor de processos / principal do servidor de destino, em seguida, não poderá escolher a máquina virtual a partir do portal. Servidores de gestão não podem ser replicadas.
+* **Já protegidos/ativação pós-falha através dos serviços do Azure Site Recovery**: Se a máquina virtual já está protegida ou a ativação pós-falha através do Site Recovery, a máquina virtual não está disponível para selecionar para a proteção no portal. Certifique-se de que a máquina virtual que está procurando no portal do já não está protegida por qualquer outro utilizador ou numa subscrição diferente.
+* **vCenter não ligado**: Verifique se o vCenter está no estado ligado. Para verificar, aceda ao Cofre dos Recovery Services > infraestrutura do Site Recovery > servidores de configuração > clique no servidor de configuração respetivos > é aberto um painel de diretamente com os detalhes de servidores associados. Verifique se o vCenter está ligado. Se no estado "Não ligado", resolver o problema e, em seguida [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) no portal. Depois disso, máquina virtual será listada no portal.
+* **ESXi está desligada**: Se o anfitrião ESXi em que reside a máquina virtual está num Estado, desligado, em seguida, máquina virtual não será apresentada ou não podem ser selecionada no portal do Azure. Ligar o anfitrião ESXi, [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) no portal. Depois disso, máquina virtual será listada no portal.
+* **Reinício pendente**: Se existir um reinício pendente na máquina virtual, em seguida, não será possível selecionar a máquina no portal do Azure. Certifique-se para concluir as atividades de reinício pendente [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Depois disso, máquina virtual será listada no portal.
+* **IP não foi encontrado**: Se a máquina virtual não tiver um endereço IP válido associado ao mesmo, em seguida, não será possível selecionar a máquina no portal do Azure. Certifique-se de atribuir um endereço IP válido para a máquina virtual, [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Depois disso, máquina virtual será listada no portal.
 
-## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Máquinas virtuais protegidas não estão disponíveis no portal
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Máquinas virtuais protegidas são cinzento out no portal
 
 Máquinas virtuais que são replicadas na recuperação de sites não estão disponíveis no portal do Azure se existirem entradas duplicadas no sistema. Para saber como eliminar entradas obsoletas e resolver o problema, consulte [Azure Site Recovery VMware para o Azure: Como limpar entradas duplicadas ou obsoletas](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 

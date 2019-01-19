@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7b27dbbf34f1c19efa0fc21af71339ce6cacd9d8
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621076"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410823"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Utilizadores sinalizados no relatório de risco no portal do Azure
 
@@ -55,19 +55,16 @@ Os utilizadores sinalizados no relatório de risco no Azure AD gratuito e as edi
 
 ![Inícios de Sessão de Risco](./media/concept-user-at-risk/03.png)
 
-Selecionar um utilizador abre o painel de dados do utilizador relacionado. Para os utilizadores que estão em risco, pode rever o histórico de início de sessão do utilizador e repor a palavra-passe, se necessário.
-
-![Inícios de Sessão de Risco](./media/concept-user-at-risk/46.png)
-
+Seleção de um utilizador fornece informações de início de sessão. Para os utilizadores que estão em risco, pode rever o histórico de início de sessão do utilizador e repor a palavra-passe, se necessário.
 
 Esta caixa de diálogo disponibiliza uma opção para:
 
 - Transferir o relatório
-
 - Procurar utilizadores
 
-![Inícios de Sessão de Risco](./media/concept-user-at-risk/16.png)
+    ![Inícios de Sessão de Risco](./media/concept-user-at-risk/16.png)
 
+Para obter informações mais detalhadas, precisa de uma licença premium.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Utilizadores no relatório de risco para as edições premium do Azure AD
 

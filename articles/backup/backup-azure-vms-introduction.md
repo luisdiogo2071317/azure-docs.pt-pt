@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265418"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402366"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
 
@@ -69,11 +69,11 @@ Para tirar instantâneos enquanto aplicações estão em execução, o Azure Bac
 
 A tabela seguinte explica os diferentes tipos de consistência.
 
-**instantâneo** | **VSS-based** | **Detalhes** | **Recuperação**
+**instantâneo** | **Detalhes** | **Recuperação** | **Consideração**
 --- | --- | --- | ---
-**Application-consistent** | Sim (apenas Windows) | As cópias de segurança consistente com a aplicação capturam a memória conteúda e operações de e/s pendentes. Instantâneos consistentes com a aplicação utilizam o escritor VSS (ou script prévio/posterior para Linux) que assegurar a consistência dos dados da aplicação antes de ocorre uma cópia de segurança. | Ao recuperar com um instantâneo consistente com a aplicação, a VM arranca. Não existe danos em dados ou perda. Os aplicativos começam num estado consistente.
-**Consistente do sistema de ficheiros** | Sim (apenas Windows) |  Cópias de segurança de ficheiros fornecem cópias de segurança de ficheiros de disco através de um instantâneo de todos os ficheiros ao mesmo tempo.<br/><br/> Pontos de recuperação de cópia de segurança do Azure são ficheiros consistente para:<br/><br/> -Linux VMs cópias de segurança que não tenham scripts pré/pós ou que tem o script que falhou.<br/><br/> -Cópias de segurança de VM do Windows onde o VSS falhou. | Ao recuperar com um instantâneo consistente com ficheiros, a VM arranca. Não existe danos em dados ou perda. As aplicações necessitam implementar seu próprio mecanismo de "correção de segurança" para se certificar de que os dados restaurados são consistentes.
-**Crash-consistent** | Não | Consistência de falhas sempre acontece quando uma VM do Azure é desligado no momento da cópia de segurança.  Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança.<br/><br/> Um ponto de recuperação consistentes com falhas não garante a consistência de dados para o sistema operativo ou a aplicação. | Há garantias de nenhum, mas normalmente as inicializações VM e forma com um disco de verificação para corrigir erros de danos. Quaisquer dados na memória ou de escrita que não foram transferida para o disco são perdidos. Aplicações implementam a verificação de seus próprios dados. Por exemplo, para uma aplicação de base de dados, se um registo de transações tem entradas que não estão na base de dados, o software de base de dados agrega até que os dados são consistentes.
+**Application-consistent** | As cópias de segurança consistente com a aplicação capturam a memória conteúda e operações de e/s pendentes. Instantâneos consistentes com a aplicação utilizam o escritor VSS (ou script prévio/posterior para Linux) que assegurar a consistência dos dados da aplicação antes de ocorre uma cópia de segurança. | Ao recuperar com um instantâneo consistente com a aplicação, a VM arranca. Não existe danos em dados ou perda. Os aplicativos começam num estado consistente. | Windows: Todos os escritores VSS foi concluída com êxito<br/><br/> Linux: Pré/pós scripts são configurados e foi concluída com êxito
+**Consistente do sistema de ficheiros** | Cópias de segurança de ficheiros fornecem cópias de segurança de ficheiros de disco através de um instantâneo de todos os ficheiros ao mesmo tempo.<br/><br/> | Ao recuperar com um instantâneo consistente com ficheiros, a VM arranca. Não existe danos em dados ou perda. As aplicações necessitam implementar seu próprio mecanismo de "correção de segurança" para se certificar de que os dados restaurados são consistentes. | Windows: Alguns dos escritores VSS falhou <br/><br/> Linux: A predefinição (se os scripts de pré/pós não são configurados ou falha)
+**Crash-consistent** | Consistência de falhas sempre acontece quando uma VM do Azure é desligado no momento da cópia de segurança.  Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança.<br/><br/> Um ponto de recuperação consistentes com falhas não garante a consistência de dados para o sistema operativo ou a aplicação. | Há garantias de nenhum, mas normalmente as inicializações VM e forma com um disco de verificação para corrigir erros de danos. Quaisquer dados na memória ou de escrita que não foram transferida para o disco são perdidos. Aplicações implementam a verificação de seus próprios dados. Por exemplo, para uma aplicação de base de dados, se um registo de transações tem entradas que não estão na base de dados, o software de base de dados agrega até que os dados são consistentes. | VM está num Estado de encerramento
 
 
 ## <a name="service-and-subscription-limits"></a>Limites de serviço e subscrição

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 82e574663cec1bc3f97cbdb967f701faa57d7820
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247831"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413112"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -42,7 +42,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
         - 224.0.0.0/4 (Multicast)
         - 255.255.255.255/32 (difusão)
         - 127.0.0.0/8 (Loopback)
-        - 169.254.0.0/16 (vínculo local)
+        - 169.254.0.0/16 (Link-local)
         - 168.63.129.16/32 (DNS interno)
 
       Embora pode definir o intervalo de endereços apenas um ao criar a rede virtual, pode adicionar mais intervalos de endereços ao espaço de endereços, depois de criar a rede virtual. Para saber como adicionar um intervalo de endereços para uma rede virtual existente, veja [adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
@@ -110,7 +110,7 @@ Não é possível adicionar os seguintes intervalos de endereços:
 - 224.0.0.0/4 (Multicast)
 - 255.255.255.255/32 (difusão)
 - 127.0.0.0/8 (Loopback)
-- 169.254.0.0/16 (vínculo local)
+- 169.254.0.0/16 (Link-local)
 - 168.63.129.16/32 (DNS interno)
 
 Para adicionar ou remover um intervalo de endereços:
@@ -125,7 +125,7 @@ Para adicionar ou remover um intervalo de endereços:
 
 **Comandos**
 
-- CLI do Azure: [atualização de vnet de rede de az](/cli/azure/network/vnet#az_network_vnet_update)
+- CLI do Azure: [atualização de vnet de rede de az](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>Servidores DNS de alteração
@@ -147,7 +147,7 @@ Todas as VMs que estão ligadas para o registro de rede virtual com os servidore
 
 **Comandos**
 
-- CLI do Azure: [atualização de vnet de rede de az](/cli/azure/network/vnet#az_network_vnet_update)
+- CLI do Azure: [atualização de vnet de rede de az](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>Eliminar uma rede virtual

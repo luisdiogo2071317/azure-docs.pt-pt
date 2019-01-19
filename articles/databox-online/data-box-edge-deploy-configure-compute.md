@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c0901f22e4941fdfaa21138153a06e97c2d6095f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c52c311f1e1cd1335ea5797eadacd0bc89e1b36c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630381"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402120"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: Transformar dados com o Edge de caixa de dados do Azure (pré-visualização)
 
@@ -232,7 +232,7 @@ Para verificar que o módulo está em execução, faça o seguinte:
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-6.png)  
 
-    Os dados, em seguida, são emitidos da partilha na cloud para a conta de armazenamento. Para ver os dados, vá para o Explorador de armazenamento para ver os dados.
+    Os dados, em seguida, são emitidos da partilha na cloud para a conta de armazenamento. Para ver os dados, vá para o Explorador de armazenamento.
 
     ![Verificar a transformação dos dados](./media/data-box-edge-deploy-configure-compute/verify-data-transform-7.png) 
  

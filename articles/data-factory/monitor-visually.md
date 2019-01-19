@@ -10,31 +10,31 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: c2967de97e9cc3b6f59eb742ecbfef9acbe64d20
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019780"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54409967"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
-Neste início rápido, irá aprender a monitorizar visualmente pipelines do data factory v2 sem ter de escrever uma única linha de código.
+
+Neste início rápido, irá aprender a monitorizar visualmente pipelines da fábrica de dados sem ter de escrever uma única linha de código.
+
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="monitor-data-factory-pipelines"></a>Monitorizar pipelines do Data Factory
+
+Monitorizar o pipeline e execuções de atividades com uma interface do modo de exibição de lista simples. Todas as execuções são apresentadas no fuso horário local do browser. Pode alterar o fuso horário e todos os campos de hora de data ajustar para o fuso horário selecionado.  
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 2. Inicie sessão para o [portal do Azure](https://portal.azure.com/).
 3. Navegue para o painel de fábrica de dados criada no portal do Azure e clique no mosaico "Monitorizar e gerir" para iniciar a experiência de monitorização visual do Data Factory.
 
-## <a name="list-view-monitoring"></a>Monitorização de vista de lista
-
-Monitorizar o pipeline e execuções de atividades com uma interface do modo de exibição de lista simples. Todas as execuções são apresentadas no fuso horário local do browser. Pode alterar o fuso horário e todos os campos de hora de data ajustar para o fuso horário selecionado.  
-
-### <a name="monitoring-pipeline-runs"></a>Monitorizar execuções de Pipeline
+## <a name="monitor-pipeline-runs"></a>Monitorizar execuções de pipeline
 Vista de lista que mostra cada execução de pipeline dos seus pipelines da fábrica de dados v2. Colunas incluídas:
 
 | **Nome da coluna** | **Descrição** |
@@ -51,7 +51,7 @@ Vista de lista que mostra cada execução de pipeline dos seus pipelines da fáb
 
 ![Monitorizar execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
-### <a name="monitoring-activity-runs"></a>Execuções de atividades de monitorização
+## <a name="monitor-activity-runs"></a>Monitorização de execuções de atividade
 Vista de lista que mostra as execuções de atividades que correspondem a cada execução de pipeline. Clique em **atividade executa** ícone sob a **'Actions'** coluna para ver a atividade é executada para cada execução de pipeline. Colunas incluídas:
 
 | **Nome da coluna** | **Descrição** |
@@ -69,18 +69,17 @@ Vista de lista que mostra as execuções de atividades que correspondem a cada e
 
 > [!IMPORTANT]
 > Tem de clicar **'Atualizar'** ícone na parte superior para atualizar a lista de pipeline e execuções de atividades. A atualização automática não é suportada atualmente.
->
 
 ![Atualizar](media/monitor-visually/refresh.png)
 
-## <a name="monitoring-features"></a>Funcionalidades de monitorização
-
-### <a name="select-a-data-factory-to-monitor"></a>Selecione uma fábrica de dados para monitorizar
+## <a name="select-a-data-factory-to-monitor"></a>Selecione uma fábrica de dados para monitorizar
 Paire o rato sobre o **fábrica de dados** ícone no canto superior esquerdo. Clique no ícone de seta "para" para ver uma lista de fábricas de dados e de subscrições do azure que pode monitorizar.
 
 ![Selecionar fábrica de dados](media/monitor-visually/select-datafactory.png)
 
-### <a name="rich-ordering-and-filtering"></a>Ordenação e filtragem avançadas
+## <a name="configure-the-list-view"></a>Configurar a vista de lista
+
+### <a name="apply-rich-ordering-and-filtering"></a>Aplicar filtragem e ordenação avançado
 
 Execuções de pipelines de encomenda ordem descendente/ascendente por início da execução e filtre execuções por colunas seguintes:
 
@@ -92,15 +91,15 @@ Execuções de pipelines de encomenda ordem descendente/ascendente por início d
 
 ![Filtro](media/monitor-visually/filter.png)
 
-### <a name="addremove-columns-in-list-view"></a>Adicionar/remover colunas na vista de lista
+### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
 Faça duplo clique no cabeçalho de vista de lista e escolha as colunas que pretende apresentar na vista de lista
 
 ![Colunas](media/monitor-visually/columns.png)
 
-### <a name="reorder-column-widths-in-list-view"></a>Reordenar a largura das colunas na vista de lista
+### <a name="adjust-column-widths"></a>Ajustar a largura das colunas
 Aumentar e diminuir a largura das colunas na vista de lista ao pairar o rato sobre o cabeçalho de coluna
 
-### <a name="user-properties"></a>Propriedades do utilizador
+## <a name="promote-user-properties-to-monitor"></a>Promover as propriedades do utilizador para monitorizar
 
 Pode promover qualquer propriedade de atividade do pipeline como uma propriedade de utilizador para que o torna-se uma entidade de monitorização. Por exemplo, pode promover a **origem** e **destino** propriedades da atividade de cópia no seu pipeline como propriedades de utilizador. Também pode selecionar **de geração automática** para gerar o **origem** e **destino** propriedades de utilizador para uma atividade de cópia.
 
@@ -117,21 +116,43 @@ Depois de criar as propriedades de utilizador, em seguida, pode monitorizá-las 
 
 ![Lista de execuções de atividades com colunas para as propriedades do utilizador](media/monitor-visually/monitor-user-properties-image4.png)
 
-### <a name="guided-tours"></a>Tours guiados
+## <a name="rerun-activities-inside-a-pipeline"></a>Volte a executar atividades dentro de um pipeline
+
+Pode agora voltar a executar atividades dentro de um pipeline. Clique em **ver execuções de atividades** e selecione a atividade no seu pipeline de altura em que pretende voltar a executar o pipeline.
+
+![Ver execuções de atividades](media/monitor-visually/rerun-activities-image1.png)
+
+![Selecione uma execução de atividade](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="view-rerun-history"></a>Vista de voltar a executar o histórico
+
+Pode ver o histórico de executar novamente para todas as execuções do pipeline na vista de lista.
+
+![Ver histórico](media/monitor-visually/rerun-history-image1.png)
+
+Também pode ver que volte a executar o histórico para uma determinada execução de pipeline.
+
+![Ver histórico para uma execução de pipeline](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="guided-tours"></a>Tours guiados
 Clique no "ícone de informações" no canto inferior esquerdo e clique em "Tours guiados" para obter instruções passo a passo sobre como monitorizar as pipeline e execuções de atividades.
 
 ![Tours guiados](media/monitor-visually/guided-tours.png)
 
-### <a name="feedback"></a>Comentários
+## <a name="feedback"></a>Comentários
 Clique no ícone de "Comentários", para nos dar comentários sobre vários recursos ou de quaisquer problemas que talvez esteja enfrentando.
 
 ![Comentários](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>Alertas
 
-Pode emitir alertas em métricas suportadas no Data Factory. Selecione o Monitor -> alertas e as métricas sobre o Monitor de fábrica de dados de página para começar a utilizar.
+Pode emitir alertas em métricas suportadas no Data Factory. Selecione **Monitor -> alertas e métricas** na página de Monitor de fábrica de dados para começar a utilizar.
 
 ![](media/monitor-visually/alerts01.png)
+
+Para obter uma introdução de sete minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### <a name="create-alerts"></a>Criar Alertas
 

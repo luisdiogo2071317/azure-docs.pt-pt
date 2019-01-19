@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246468"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402290"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar registos de sites com o Data Lake Analytics, especialmente em descobrir que Referenciadores encontrou erros quando tentou visitar o Web site.
@@ -165,7 +165,7 @@ Pode adicionar operadores definidos pelo utilizador de adição para o aplicativ
 
 1. No **Explorador de Servidores**, expanda **Azure**, expanda **Data Lake Analytics**, expanda a sua conta do Data Lake Analytics, expanda **Contas de Armazenamento**, faça duplo clique na conta de Armazenamento do Data Lake predefinida e, em seguida, clique em **Explorador**.
 2. Faça duplo clique em **amostras** para abrir a pasta e, em seguida, faça duplo clique em **saídas**.
-3. Faça duplo clique em **UnsuccessfulResponsees.log**.
+3. Faça duplo clique em **UnsuccessfulResponses.log**.
 4. Pode também clicar duas vezes no ficheiro de saída dentro da exibição de gráfico da tarefa para navegar diretamente para a saída.
 
 ## <a name="see-also"></a>Consulte também

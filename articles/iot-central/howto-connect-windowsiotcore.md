@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309455"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412573"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de Windows IoT Core à sua aplicação do Azure IoT Central
 
@@ -57,7 +57,7 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir da *
 
 ### <a name="what-youll-need"></a>O que necessita
 
-Para configurar um dispositivo físico do Windows 10 IoT Core, precisará primeiro ter um dispositivo com Windows 10 IoT Core. Saiba como configurar um dispositivo Windows 10 IoT Core [aqui](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+Para configurar um dispositivo Windows 10 IoT Core real, precisará primeiro ter um dispositivo com Windows 10 IoT Core. Saiba como configurar um dispositivo Windows 10 IoT Core [aqui](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 Também terá uma aplicação de cliente que possa comunicar com o Azure IoT Central. Pode criar a sua aplicação personalizada com o SDK do Azure e implementá-la para o seu dispositivo com o Visual Studio ou pode transferir uma [exemplo precompilados](https://developer.microsoft.com/windows/iot/samples) e simplesmente implementar e executá-la no dispositivo. 
 
@@ -105,7 +105,7 @@ Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplic
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidade       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40,Year),temperature     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Definições

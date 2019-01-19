@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904323"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413078"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Experiências de compreender o consentimento de aplicação do Azure AD
 
@@ -84,4 +84,4 @@ Aqui estão as experiências de consentimento que um utilizador poderá ver nos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Obtenha uma visão geral passo a passo dos [como o framework de consentimento do Azure AD implementa consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.
+- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.

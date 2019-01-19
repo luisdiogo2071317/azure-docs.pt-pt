@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 45c7a07231cbdcdc64ec348ed425a62b63bd822a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d50e1b0f5d9c965ba9562eae1f06dd51341731ad
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016567"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412245"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
@@ -80,7 +80,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *tabelas de rotas* n
 **Comandos**
 
 - CLI do Azure: [atualização de tabela de rotas de rede de az](/cli/azure/network/route-table/route#az_network_route_table_update)
-- PowerShell: [Conjunto AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
@@ -144,7 +144,7 @@ Existe um limite para quantas rotas por tabela de rotas podem criar por subscri�
 **Comandos**
 
 - CLI do Azure: [criar rota de tabela de rotas de rede de az](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [Novo AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Rotas de vista
 
@@ -156,7 +156,7 @@ Uma tabela de rotas contém rotas de zero ou vários. Para saber mais sobre as i
 
 **Comandos**
 
-- CLI do Azure: [lista de rota da tabela de rotas de rede de az](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- CLI do Azure: [lista de rota da tabela de rotas de rede de az](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Ver detalhes de uma rota
@@ -182,7 +182,7 @@ Uma tabela de rotas contém rotas de zero ou vários. Para saber mais sobre as i
 **Comandos**
 
 - CLI do Azure: [atualização de rota de tabela de rotas de rede de az](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
-- PowerShell: [Conjunto AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## <a name="delete-a-route"></a>Eliminar uma rota
 

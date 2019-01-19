@@ -1,5 +1,5 @@
 ---
-title: 'O Azure AD Connect: Ativar a repetição de escrita do dispositivo | Documentos da Microsoft'
+title: 'Azure AD Connect: Ativar a repetição de escrita do dispositivo | Documentos da Microsoft'
 description: Este documento fornece detalhes sobre como ativar a repetição de escrita do dispositivo com o Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361074"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412823"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>O Azure AD Connect: Ativar a repetição de escrita do dispositivo
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
 > Uma subscrição do Azure AD Premium é necessária para repetição de escrita do dispositivo.
 > 
@@ -41,7 +41,7 @@ Esta opção fornece segurança adicional e o controle de acesso a aplicações 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalar o Azure AD Connect
 Instalar o Azure AD Connect com personalizado ou definições rápidas. A Microsoft recomenda começar com todos os utilizadores e grupos sincronizados com êxito antes de ativar a repetição de escrita do dispositivo.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: Repetição de escrita ativar dispositivo no Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: Ativar a repetição de escrita do dispositivo no Azure AD Connect
 1. Execute novamente o Assistente de instalação. Selecione **configurar opções do dispositivo** página de tarefas adicionais e clique em **próxima**. 
 
     ![Configurar opções do dispositivo](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -57,10 +57,10 @@ Instalar o Azure AD Connect com personalizado ou definições rápidas. A Micros
 
 4. **Contentor de dispositivo** página fornece a opção de preparação do active directory, utilizando uma das duas opções disponíveis:
 
-    a. **Fornecer credenciais de administrador de empresa**: se as credenciais de administrador de empresa são fornecidas para a floresta em que dispositivos têm de repetição de escrita, o Azure AD Connect irá preparar a floresta automaticamente durante a configuração do repetição de escrita do dispositivo.
+    a. **Fornecer credenciais de administrador de empresa**: Se as credenciais de administrador de empresa são fornecidas para a floresta em que dispositivos têm de repetição de escrita, o Azure AD Connect irá preparar a floresta automaticamente durante a configuração da repetição de escrita do dispositivo.
 
-    b. **Transferir o script do PowerShell**: o Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o active directory para repetição de escrita do dispositivo. No caso de não não possível fornecer as credenciais de administrador de empresa no Azure AD Connect, recomenda-se para transferir o script do PowerShell. Fornecer o script do PowerShell transferido **CreateDeviceContainer.psq** para o administrador de empresa da floresta em que dispositivos serão repetição de escrita.
-    ![Preparar a floresta de active diretory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **Transferir o script do PowerShell**: O Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o active directory para repetição de escrita do dispositivo. No caso de não não possível fornecer as credenciais de administrador de empresa no Azure AD Connect, recomenda-se para transferir o script do PowerShell. Fornecer o script do PowerShell transferido **CreateDeviceContainer.psq** para o administrador de empresa da floresta em que dispositivos serão repetição de escrita.
+    ![Preparar a floresta do Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     As seguintes operações são executadas para preparar a floresta do active directory:
     * Se não existirem já, cria e configura os novos contentores e objetos em CN = Configuration de registo do dispositivo, CN = Services, CN = Configuration, [floresta-dn].
@@ -123,7 +123,7 @@ Verificar a configuração no Active Directory:
 
 ![Resolver problemas, verifique as permissões no Configuration de registo do dispositivo](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informação Adicional
 * [Gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

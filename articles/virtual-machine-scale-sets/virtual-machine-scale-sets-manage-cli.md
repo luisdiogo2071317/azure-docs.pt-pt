@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465664"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410664"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de dimensionamento com a CLI do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos da CLI do Azure comuns que permitem-lhe realizar estas tarefas.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
-Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [az vmss-instâncias de lista](/cli/azure/vmss#list-instances). O exemplo seguinte lista todas as instâncias VM no conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Fornece seus próprios valores para estes nomes:
+Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [az vmss-instâncias de lista](/cli/azure/vmss). O exemplo seguinte lista todas as instâncias VM no conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Fornece seus próprios valores para estes nomes:
 
 ```azurecli
 az vmss list-instances \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Iniciar VMs num conjunto de dimensionamento
-Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss iniciar](/cli/azure/vmss#az_vmss_start). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser iniciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. Para começar a várias VMs, separe cada ID de instância com um espaço.
+Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [az vmss iniciar](/cli/azure/vmss). O parâmetro `--instance-ids` permite-lhe especificar uma ou mais VMs que deverão ser iniciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. Para começar a várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo seguinte inicia a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 

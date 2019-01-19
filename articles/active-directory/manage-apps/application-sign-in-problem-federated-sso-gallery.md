@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2794f45bf9d9d8d60f9be286fdf0e4d288a969fa
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357803"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412296"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para início de sessão único federado
 
@@ -34,7 +34,7 @@ Para resolver seu problema, terá de verificar a configuração de aplicação n
 
 ## <a name="application-not-found-in-directory"></a>Não foi encontrada no diretório de aplicação
 
-*Erro AADSTS70001: Aplicação com o identificador 'https://contoso.com"não foi encontrado no diretório*.
+*Error AADSTS70001: Aplicação com o identificador 'https://contoso.com"não foi encontrado no diretório*.
 
 **Causa possível**
 
@@ -99,7 +99,7 @@ Depois de atualizar o valor de URL de resposta no Azure AD e ele correspondênci
 
 ## <a name="user-not-assigned-a-role"></a>Não atribuído uma função de utilizador
 
-*AADSTS50105 de erro: O utilizador com sessão iniciada "brian@contoso.com" não está atribuído a uma função para a aplicação*.
+*Error AADSTS50105: O utilizador com sessão iniciada "brian@contoso.com" não está atribuído a uma função para a aplicação*.
 
 **Causa possível**
 
@@ -133,7 +133,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do usuário ou a logótipo para adicionar o utilizador para o **selecionados** lista.
 
-12. **Opcional:** se quiser **adicionar mais do que um utilizador**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
+12. **Opcional:** Se quiser **adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 
@@ -145,7 +145,7 @@ Após um curto período de tempo, os utilizadores que selecionou ser capaz de in
 
 ## <a name="not-a-valid-saml-request"></a>Não um pedido de SAML válida
 
-*AADSTS75005 de erro: O pedido não é uma mensagem de protocolo Saml2 válida.*
+*Error AADSTS75005: O pedido não é uma mensagem de protocolo Saml2 válida.*
 
 **Causa possível**
 
@@ -228,7 +228,7 @@ Se a opção 1 acima não funcionava para, tente remover a aplicação a partir 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado ou chave não configurado
 
-*Erro AADSTS50003: Nenhuma chave de assinatura configurado.*
+*Error AADSTS50003: Nenhuma chave de assinatura configurado.*
 
 **Causa possível**
 
@@ -261,6 +261,19 @@ Para eliminar e criar um novo certificado, siga os passos abaixo:
 10. Verifique **ativar o novo certificado** para substituir o certificado do Active Directory. Em seguida, clique em **guardar** na parte superior do painel e aceite para ativar o certificado de rollover.
 
 11. Sob o **certificado de assinatura SAML** secção, clique em **remover** para remover o **não utilizados** certificado.
+
+## <a name="saml-request-not-present-in-the-request"></a>Pedido de SAML não está presente no pedido
+
+*Error AADSTS750054: SAMLRequest ou SAMLResponse tem de estar presente como parâmetros de cadeia de caracteres no pedido HTTP para redirecionamento de SAML enlace de consulta.*
+
+**Causa possível**
+
+O Azure AD não foi possível identificar o pedido SAML dentro dos parâmetros de URL na solicitação HTTP. Isto pode acontecer se a aplicação não está a utilizar redirecionar enlace HTTP para enviar o pedido SAML para o Azure AD.
+
+**Resolução**
+
+O aplicativo precisa enviar o pedido SAML codificado no cabeçalho de localização usando a ligação de redirecionamento de HTTP. Para obter mais informações sobre como implementá-la, leia a secção de redirecionamento de enlace HTTP na [documento de especificação de protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as afirmações SAML enviadas para uma aplicação
 

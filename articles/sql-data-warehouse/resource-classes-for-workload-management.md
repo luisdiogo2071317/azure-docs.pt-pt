@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287477"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402256"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão da carga de trabalho com classes de recursos no Azure SQL Data Warehouse
 Orientações sobre o uso de classes de recursos para gerir a memória e simultaneidade para consultas no seu armazém de dados SQL do Azure.  
@@ -83,14 +83,14 @@ No **geração 2 apenas**, classes de recursos dinâmicos são verdadeiramente d
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3%                | 32                     |
 | mediumrc       | 10%               | 10                     |
-| largerc        | % de 22               | 4                      |
+| largerc        | 22%               | 4                      |
 | xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Classe de recursos padrão
 Por predefinição, cada utilizador é membro da classe de recursos dinâmicos **smallrc**. 
 
-A classe de recursos do administrador do serviço é fixo e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de aprovisionamento.
+A classe de recursos do administrador do serviço é fixa em smallrc e não pode ser alterada.  O administrador de serviço é o utilizador criado durante o processo de aprovisionamento.  O administrador de serviço neste contexto é o início de sessão especificado ao início de sessão"administrador de servidor" Criar uma nova instância de armazém de dados SQL com um novo servidor.
 
 > [!NOTE]
 > Os utilizadores ou grupos definidos como administrador do Active Directory também são administradores de serviço.
@@ -132,7 +132,7 @@ As seguintes instruções são excluídas da classes de recursos e são sempre e
 * CREATE, UPDATE ou DROP STATISTICS
 * TRUNCAR A TABELA
 * ALTERAR A AUTORIZAÇÃO
-* CRIAR INÍCIO DE SESSÃO
+* CREATE LOGIN
 * CRIAR, alterar ou remover utilizador
 * CRIAR, alterar ou remover o procedimento
 * Criar ou remover vista

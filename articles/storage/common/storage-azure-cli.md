@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984394"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413639"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizar a CLI do Azure com o Storage do Azure
 
@@ -30,8 +30,8 @@ Os exemplos do guia assumem a utilização do shell do Bash no Ubuntu, mas outra
 Este guia assume que compreende os conceitos básicos do armazenamento do Azure. Também parte do princípio que pode satisfazer os requisitos de criação de conta especificadas abaixo para o Azure e o serviço de armazenamento.
 
 ### <a name="accounts"></a>Contas
-* **Conta do Azure**: Se ainda não tiver uma subscrição do Azure, [crie uma conta do Azure gratuita](https://azure.microsoft.com/free/).
-* **Conta de Armazenamento**: veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md) em [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md).
+* **Conta do Azure**: Se ainda não tiver uma subscrição do Azure, [criar uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* **Conta de armazenamento**: Ver [criar uma conta de armazenamento](storage-quickstart-create-account.md) na [sobre as contas de armazenamento](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
@@ -183,10 +183,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Necessário]: localização. Por exemplo, "E.U.A. Oeste".
+* `--location` [Necessário]: Localização. Por exemplo, "E.U.A. Oeste".
 * `--name` [Necessário]: O nome da conta de armazenamento. O nome tem de ter 3 a 24 carateres de comprimento e utilizar apenas carateres alfanuméricos em minúsculas.
-* `--resource-group` [Necessário]: nome do grupo de recursos.
-* `--sku` [Necessário]: O SKU da conta de armazenamento. Valores permitidos:
+* `--resource-group` [Necessário]: Nome do grupo de recursos.
+* `--sku` [Necessário]: A conta de armazenamento SKU. Valores permitidos:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 Pode ter várias contas de armazenamento na sua subscrição do Azure. Para selecionar um para utilizar para todos os comandos de armazenamento subsequentes, pode definir estas variáveis de ambiente:
 
-Em primeiro lugar, apresente as chaves da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#list):
+Em primeiro lugar, apresente as chaves da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys):
 
 ```azurecli-interactive
 az storage account keys list \
@@ -242,7 +242,7 @@ az storage container create --name <container_name>
 
 Pode definir um dos três níveis de acesso de leitura para um novo contentor, especificando o opcional `--public-access` argumento:
 
-* `off` (predefinição): os dados de contentor são privados para o proprietário da conta.
+* `off` (predefinição): Dados de contentor são privados para o proprietário da conta.
 * `blob`: Acesso de leitura público para blobs.
 * `container`: Leitura e a lista de acesso público para o contentor inteiro.
 

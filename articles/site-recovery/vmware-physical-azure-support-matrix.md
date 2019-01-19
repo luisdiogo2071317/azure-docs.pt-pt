@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107503"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413418"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -86,33 +86,34 @@ Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.
 
 **Versão suportada** | **Versão do serviço de mobilidade de recuperação de sites do Azure** | **Versão de kernel** |
 --- | --- | --- |
-Debian 7 | [9.18][9.18 UR],[9.19][9.19 UR],[9.20][9.20 UR],[9.21][9.21 UR] | 3.2.0-4-AMD64 para 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.18][9.18 UR],[9.19][9.19 UR],[9.20][9.20 UR],[9.21][9.21 UR] | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR] | 3.16.0-4-AMD64 para 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.8-amd64 |
-Debian 8 | [9.19][9.19 UR] | 3.16.0-4-AMD64 para 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.7-amd64 |
-Debian 8 | [9.18][9.18 UR] | 3.16.0-4-AMD64 para 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 para 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR] | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.19][9.19 UR] | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
+Debian 8 | [9.18][9.18 UR] | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>Versões de kernel de suporte de 12 do SUSE Linux Enterprise Server
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.72-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.64-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.19][9.19 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.18][9.18 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.64-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.19][9.19 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.18][9.18 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.85-default</br></br>4.4.73-5-default SP3 para 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Armazenamento de convidado/sistemas de ficheiros do Linux
 
 **Componente** | **Suportado**
 --- | ---
-Sistemas de ficheiros | ext3 ext4, XFS
+Sistemas de ficheiros | ext3, ext4, XFS
 Gestor de volumes | Antes de [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 é suportada. <br/> 2. LVM é suportada para discos de dados apenas. <br/> 3. As VMs do Azure têm apenas um único disco de SO.<br/><br/>Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e posteriores, LVM e LVM2 são suportados.
 Dispositivos de armazenamento Paravirtualizados | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos de e/s de fila multi bloco | Não suportado.
 Servidores físicos com o controlador de armazenamento de HP CCISS | Não suportado.
 Convenção de nomenclatura de ponto de montagem/dispositivo | Nome do dispositivo ou nome do ponto de montagem deve ser exclusivo. Certifique-se de que não existem dois pontos de montagem/dispositivos têm nomes maiúsculas de minúsculas. </br> Exemplo: Dois dispositivos da mesma máquina virtual como de nomenclatura *device1* e *Device1* não é permitida.
-Diretórios | Antes de [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Os seguintes diretórios (se definido como separados partições /-sistemas de ficheiros) todos têm de estar no mesmo disco de SO no servidor de origem: / (raiz), /boot, /usr, /usr/local., /var, /etc.</br>2. /boot deve estar numa partição de disco e não ser um volume LVM.<br/><br/> Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e posteriores, acima restrições não se aplicam.
+Diretórios | Antes de [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Os seguintes diretórios (se definido como separados partições /-sistemas de ficheiros) todos têm de estar no mesmo disco de SO no servidor de origem: / (raiz), /boot, /usr, /usr/local., /var, /etc.</br>2. /boot deve estar numa partição de disco e não ser um volume LVM.<br/><br/> Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e posteriores, acima restrições não se aplicam. Não é suportada a /Boot no volume LVM entre discos mais do que um.
+Diretório de arranque | Vários discos de arranque numa máquina virtual não é suportada <br/><br/> Não é possível proteger uma máquina sem disco de arranque
 
 Libertar os requisitos de espaço | 2 GB na partição /root <br/><br/> 250 MB na pasta de instalação XFSv5 | Funcionalidades de XFSv5 em sistemas de ficheiros XFS, por exemplo, soma de verificação de metadados, são suportadas a partir do serviço de mobilidade versão 9.10 ou superior. Utilize o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype é definido como 1, em seguida, XFSv5 funcionalidades estão em utilização.
 
@@ -157,9 +158,10 @@ Redes Aceleradas | Não
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Suportado**
 --- | ---
-Anfitrião NFS | Sim para VMware<br/><br/> Não para os servidores físicos
-SAN (iSCSI/FC) do anfitrião | Sim
-Anfitrião de vSAN | Sim para VMware<br/><br/> N/d para servidores físicos
+Disco dinâmico | Disco do sistema de operação tem de ser um disco básico. <br/><br/>Discos de dados podem ter discos dinâmicos
+Host NFS | Sim para VMware<br/><br/> Não para os servidores físicos
+Host SAN (iSCSI/FC) | Sim
+Host vSAN | Sim para VMware<br/><br/> N/d para servidores físicos
 Multipath i de anfitrião (MPIO) | Sim, testado com o Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes virtuais do anfitrião (VVols) | Sim para VMware<br/><br/> N/d para servidores físicos
 VMDK/servidor convidado | Sim

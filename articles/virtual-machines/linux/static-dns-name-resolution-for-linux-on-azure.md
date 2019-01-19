@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961506"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411113"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar cartões de interface de rede virtual e utilizar o DNS interno para resolução de nomes VM no Azure
 
@@ -70,7 +70,7 @@ Nomes DNS internos são apenas puder ser resolvidos dentro de uma rede virtual d
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem `myResourceGroup`, `myNic`, e `myVM`.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
-Primeiro, crie o grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `westus` localização:
+Primeiro, crie o grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 A próxima etapa é criar uma rede virtual para iniciar as VMs em. A rede virtual contém uma sub-rede para este passo a passo. Para obter mais informações sobre redes virtuais do Azure, consulte [criar uma rede virtual](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Criar a rede virtual com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada `myVnet` e a sub-rede com o nome `mySubnet`:
+Criar a rede virtual com [vnet de rede de az criar](/cli/azure/network/vnet). O exemplo seguinte cria uma rede virtual denominada `myVnet` e a sub-rede com o nome `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Adicionar uma regra de entrada para permitir que o SSH
-Adicionar uma regra de entrada para o grupo de segurança de rede com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo seguinte cria uma regra com o nome `myRuleAllowSSH`:
+Adicionar uma regra de entrada para o grupo de segurança de rede com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule). O exemplo seguinte cria uma regra com o nome `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \

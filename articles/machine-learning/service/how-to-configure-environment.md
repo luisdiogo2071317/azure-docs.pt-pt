@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353231"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413129"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -68,13 +68,15 @@ Para começar a desenvolver com blocos de notas do Azure, veja [introdução ao 
 
 A DSVM é uma imagem personalizada de máquina virtual (VM). Foi concebido para o trabalho de ciência de dados que está pré-configurada com:
 
-  - Como o TensorFlow, PyTorch, Scikit-saiba, XGBoost e o Azure Machine Learning SDK pacotes.
-  - Ferramentas de ciência de dados populares, tais como Spark autónomo e exploração.
-  - Ferramentas do Azure, como a CLI do Azure, o AzCopy e o Explorador de armazenamento.
-  - Ambientes de desenvolvimento integrado (IDEs), como o Visual Studio Code, PyCharm e RStudio.
-  - Servidor de bloco de notas do Jupyter. 
+  - Como o TensorFlow, PyTorch, Scikit-saiba, XGBoost e o Azure Machine Learning SDK pacotes
+  - Ferramentas de ciência de dados populares, tais como Spark autónomo e exploração de
+  - Ferramentas do Azure, como a CLI do Azure, o AzCopy e o Explorador de armazenamento
+  - Ambientes de desenvolvimento integrado (IDEs), como o Visual Studio Code e PyCharm
+  - Servidor de bloco de notas do Jupyter
 
-O SDK do Azure Machine Learning funciona na versão o Ubuntu ou o Windows da DSVM. Para utilizar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
+O SDK do Azure Machine Learning funciona na versão o Ubuntu ou o Windows da DSVM. Mas se planeja usar a DSVM como destino de computação, Ubuntu apenas é suportada.
+
+Para utilizar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
 
 1. Crie uma DSVM em qualquer um dos seguintes ambientes:
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045301"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402324"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação para U-SQL
 
@@ -426,7 +426,7 @@ O ficheiro de saída é o seguinte:
 
 Este exemplo demonstra um cenário de casos de utilização mais complicado na qual usamos uma variável global dentro de uma seção de código-behind que é aplicada ao conjunto de linhas de memória completo.
 
-## <a name="use-user-defined-types-udt"></a>Usar tipos definidos pelo utilizador: UDT
+## <a name="use-user-defined-types-udt"></a>Utilize os tipos definidos pelo utilizador: UDT
 Tipos definidos pelo utilizador, ou UDT, é outro recurso de programação do U-SQL. U-SQL UDT funciona como um c# definidas pelo utilizador tipo regular. C# é uma linguagem com rigidez de tipos que permite o uso de tipos definidos pelo utilizador incorporados e personalizados.
 
 U-SQL implicitamente não é possível serializar ou anular a serialização UDTs arbitrários, quando o UDT é passada entre vértices em conjuntos de linhas. Isso significa que o utilizador tem de fornecer um formatador explícita utilizando a interface do IFormatter. Isto fornece U-SQL com o serializar e anular a serialização de métodos para o UDT.
@@ -504,7 +504,7 @@ O construtor da classe:
 
 * SqlUserDefinedTypeAttribute (formatador de tipo)
 
-* Escreva o formatador: parâmetro para definir um formatador UDT – mais especificamente, o tipo de necessário a `IFormatter` interface têm de ser transmitida aqui.
+* Formatador de tipo: Parâmetro para definir um formatador UDT – mais especificamente, o tipo de necessário a `IFormatter` interface têm de ser transmitida aqui.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -529,13 +529,13 @@ O `IFormatter` interface serializa e anula a serialização um gráfico de objet
 
 \<nome de typeparam = "T" > o tipo de raiz para o gráfico do objeto para serializar e anular a serialização.
 
-* **Anular a serialização**: os dados no fluxo fornecido anula a serialização e reconstitutes o gráfico de objetos.
+* **Deserialize**: Anula a serialização de dados no fluxo fornecido e reconstitutes o gráfico de objetos.
 
 * **Serializar**: Serializa um objeto ou o gráfico de objetos com o raiz indicado no fluxo fornecido.
 
-`MyType` instância: instância do tipo.  
+`MyType` Instância: Instância do tipo.  
 `IColumnWriter` escritor / `IColumnReader` leitor: O fluxo subjacente de coluna.  
-`ISerializationContext` contexto: Enum que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
+`ISerializationContext` Contexto: Enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
 
 * **Intermediários**: Especifica que o contexto de origem ou de destino não é um armazenamento persistente.
 
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>Utilizar agregações definidas pelo utilizador: UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>Utilize agregações definidas pelo utilizador: UDAGG
 Agregações definidas pelo utilizador são quaisquer funções relacionadas a agregação, que são fornecidas não out-of-the-box com U-SQL. O exemplo pode ser uma agregação para realizar cálculos personalizados de matemática, concatenações de cadeia de caracteres, manipulações de cadeias de caracteres e assim por diante.
 
 Segue-se a definição de classe base agregado definido pelo utilizador:
@@ -947,7 +947,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 
 * T1: Primeiro parâmetro para acumular
 * T2: Primeiro parâmetro para acumular
-* TResult: Tipo de terminar de retorno
+* TResult: Tipo de retorno de encerramento
 
 Por exemplo:
 
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 Neste cenário de casos de utilização, concatenamos os GUIDs de classe para os utilizadores específicos.
 
-## <a name="use-user-defined-objects-udo"></a>Usar os objetos definidos pelo utilizador: UDO
+## <a name="use-user-defined-objects-udo"></a>Utilize objetos definidos pelo utilizador: UDO
 U-SQL permite-lhe definir os objetos de programação personalizada, que são chamados de objetos definidos pelo utilizador ou UDO.
 
 Segue-se uma lista de UDO em U-SQL:
@@ -1067,11 +1067,11 @@ UDO é normalmente chamada explicitamente no script de U-SQL como parte das decl
 ## <a name="use-user-defined-extractors"></a>Utilizar extractors definidas pelo utilizador
 U-SQL permite-lhe importar dados externos através de uma instrução de EXTRAÇÃO. Uma instrução de EXTRAÇÃO pode utilizar extratores UDO incorporadas:  
 
-* *Extractors.Text()*: fornece a extração dos ficheiros de texto delimitado de codificações diferentes.
+* *Extractors.Text()*: Fornece a extração dos ficheiros de texto delimitado de codificações diferentes.
 
-* *Extractors.Csv()*: fornece extração do valor separado por vírgulas de ficheiros (CSV) de codificações diferentes.
+* *Extractors.Csv()*: Fornece a extração de valores separados por vírgulas ficheiros (CSV) de codificações diferentes.
 
-* *. Tsv ()*: fornece a extração do valor separado por tabulações (TSV) ficheiros. o das codificações diferentes.
+* *Extractors.Tsv()*: Fornece a extração do valor separado por tabulações (TSV) ficheiros. o das codificações diferentes.
 
 Pode ser útil desenvolver um extrator. Isto pode ser útil durante a importação de dados para efetuar qualquer uma das seguintes tarefas:
 
@@ -1097,7 +1097,7 @@ O **SqlUserDefinedExtractor** atributo indica que o tipo deve ser registado como
 
 SqlUserDefinedExtractor é um atributo opcional para a definição de UIR. Ele é usado para definir a propriedade AtomicFileProcessing para o objeto de UIR.
 
-* bool AtomicFileProcessing   
+* bool     AtomicFileProcessing   
 
 * **Verdadeiro** = indica que este extrator requer ficheiros de entrada atômicos (JSON, XML,...)
 * **FALSO** = indica que este extrator pode lidar com arquivos de dividir / distribuídos (CSV, SEQ,...)
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Utilize operadores definidos pelo utilizador
 Definido pelo utilizador outputter é outro UDO de U-SQL permite-lhe expandir a funcionalidade de U-SQL incorporada. Assim como o extrator, existem vários operadores incorporadas.
 
-* *Outputters.Text()*: escreve dados para ficheiros de texto delimitado de codificações diferentes.
-* *Outputters*: escreve dados para ficheiros de valores separados por vírgulas (CSV) de codificações diferentes.
-* *Dispositivos*: escreve dados para ficheiros de valor separado por tabulações (TSV) de codificações diferentes.
+* *Outputters.Text()*: Escreve dados para ficheiros de texto delimitado de codificações diferentes.
+* *Outputters.Csv()*: Escreve dados para ficheiros de valores separados por vírgulas (CSV) de codificações diferentes.
+* *Outputters.Tsv()*: Escreve dados para ficheiros de valor separado por tabulações (TSV) de codificações diferentes.
 
 Outputter personalizado permite-lhe escrever dados num formato personalizado definido. Isso pode ser útil para as seguintes tarefas:
 
@@ -1275,7 +1275,7 @@ public class MyOutputter : IOutputter
 
 SqlUserDefinedOutputter é um atributo opcional para obter uma definição de outputter definidas pelo utilizador. Ele é usado para definir a propriedade AtomicFileProcessing.
 
-* bool AtomicFileProcessing   
+* bool     AtomicFileProcessing   
 
 * **Verdadeiro** = indica que este outputter requer ficheiros de saída atômica (JSON, XML,...)
 * **FALSO** = indica que este outputter pode lidar com arquivos de dividir / distribuídos (CSV, SEQ,...)
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Esta abordagem permite-lhe criar um outputter flexível para qualquer esquema de metadados.
 
-Os dados de saída são escritos no ficheiro ao utilizar `System.IO.StreamWriter`. O parâmetro de fluxo é definido como `output.BaseStrea` como parte da `IUnstructuredWriter output`.
+Os dados de saída são escritos no ficheiro ao utilizar `System.IO.StreamWriter`. O parâmetro de fluxo é definido como `output.BaseStream` como parte da `IUnstructuredWriter output`.
 
 Tenha em atenção que é importante liberar o buffer de dados para o ficheiro após cada iteração de linha. Além disso, o `StreamWriter` objeto tem de ser utilizado com o atributo descartável ativada (predefinição) e com o **usando** palavra-chave:
 
@@ -1775,7 +1775,7 @@ Neste cenário de casos de utilização, definido pelo utilizador applier atua c
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
@@ -2110,7 +2110,7 @@ public class EmptyUserReducer : IReducer
 O **SqlUserDefinedReducer** atributo indica que o tipo deve ser registado como um reducer definidas pelo utilizador. Esta classe não pode ser herdada.
 **SqlUserDefinedReducer** é um atributo opcional para obter uma definição de reducer definidas pelo utilizador. Ele é usado para definir a propriedade IsRecursive.
 
-* bool IsRecursive    
+* bool     IsRecursive    
 * **Verdadeiro** = indica se esta Reducer é associativo e comutativa
 
 Os objetos de programação principais são **entrada** e **saída**. O objeto de entrada é utilizado para enumerar as linhas de entrada. Saída é utilizada para definir as linhas de saída como resultado de reduzir a atividade.

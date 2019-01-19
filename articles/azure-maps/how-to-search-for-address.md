@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387434"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413554"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço com o serviço de pesquisa do Azure Maps
 
@@ -42,7 +42,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
+    | URL do Pedido | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Autorização | Sem autenticação |
 
     O **json** atributo no caminho do URL determina o formato de resposta. Está a utilizar o json ao longo deste artigo para facilidade de uso e legibilidade. Pode encontrar os formatos de resposta disponível na **obter pesquisa difusa** definição da [referência da API de mapas funcional](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
@@ -54,7 +54,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | \<a chave do Azure Maps\> |
+    | subscription-key | \<a chave do Azure Maps\> |
     | consulta | pizza |
 
 4. Clique em **enviar** e rever o corpo da resposta.
@@ -94,7 +94,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
+    | URL do Pedido | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
     | Autorização | Sem autenticação |
 
 3. Clique em **Params**e introduza a seguinte chave / valor pares para utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -104,7 +104,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | \<a chave do Azure Maps\> |
+    | subscription-key | \<a chave do Azure Maps\> |
     | consulta | 400 amplo St, Seattle, WA 98109 |
   
 4. Clique em **enviar** e rever o corpo da resposta.
@@ -135,7 +135,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
+    | URL do Pedido | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Autorização | Sem autenticação |
   
 3. Clique em **Params**e introduza a seguinte chave / valor pares para utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -145,7 +145,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | \<a chave do Azure Maps\> |
+    | subscription-key | \<a chave do Azure Maps\> |
     | consulta | 47.591180,-122.332700 |
   
 4. Clique em **enviar** e rever o corpo da resposta.
@@ -158,7 +158,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     |-----|------------|
     | número | true |
 
-    Se o [número](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta é enviado com o pedido, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição de deslocamento para o número.
+    Se o [número](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) parâmetro de consulta é enviado com o pedido, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição de deslocamento para o número.
   
 6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
@@ -166,7 +166,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     |-----|------------|
     | returnSpeedLimit | true |
   
-    Quando o [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definir o parâmetro de consulta, a resposta de retorno do limite de velocidade postado.
+    Quando o [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é definir o parâmetro de consulta, a resposta de retorno do limite de velocidade postado.
 
 7. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
@@ -174,7 +174,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     |-----|------------|
     | returnRoadUse | true |
 
-    Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta retorna a matriz de utilização de estrada para geocodes inversas no nível de rua.
+    Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) parâmetro de consulta está definido, a resposta retorna a matriz de utilização de estrada para geocodes inversas no nível de rua.
 
 8. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
@@ -182,7 +182,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     |-----|------------|
     | roadUse | true |
 
-    Pode restringir a consulta de geocódigo inverso para um tipo específico de estrada utilização com o [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta.
+    Pode restringir a consulta de geocódigo inverso para um tipo específico de estrada utilização com o [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) parâmetro de consulta.
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Procure a rua cruzada com pesquisa Rua em vários endereços inverso
 
@@ -195,7 +195,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
+    | URL do Pedido | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Autorização | Sem autenticação |
   
 3. Clique em **Params**e introduza a seguinte chave / valor pares para utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -203,7 +203,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | \<a chave do Azure Maps\> |
+    | subscription-key | \<a chave do Azure Maps\> |
     | consulta | 47.591180,-122.332700 |
   
 4. Clique em **enviar** e rever o corpo da resposta.

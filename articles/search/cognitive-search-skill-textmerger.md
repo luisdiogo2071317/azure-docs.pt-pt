@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 2ef5d285c19900fd2896279edde8841581d7e947
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f5e29f29a02509775347b491b8a11816cbbacd05
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388170"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413786"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Habilidade de cognitiva de intercalação de texto
 
 O **intercalar texto** habilidade consolida texto de uma coleção de campos num único campo. 
 
 > [!NOTE]
-> Essa habilidade não está vinculada a uma API dos serviços cognitivos e existem sem taxas associadas com essa habilidade. Contudo, deve [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) de qualquer forma, para substituir a opção de recurso gratuito que limita a um pequeno número de diário possível.
+> Essa habilidade não está vinculada a uma API dos serviços cognitivos e não lhe é cobrados usá-lo. Deve ainda [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md), no entanto, para substituir o **gratuito** opção de recursos que limita a um pequeno número de diário possível por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

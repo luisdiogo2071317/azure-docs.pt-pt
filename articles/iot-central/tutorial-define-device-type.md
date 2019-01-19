@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199974"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412908"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central
 
@@ -75,7 +75,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
 ## <a name="create-a-new-custom-device-template"></a>Criar um novo modelo de dispositivo personalizado
 
-Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria que lhe permite testar o comportamento da aplicação antes de ligar um dispositivo físico.
+Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria, que permite que teste o comportamento do seu aplicativo antes de ligar um dispositivo real.
 
 Para adicionar um novo modelo de dispositivo à sua aplicação, visite a página **Construtor da Aplicação**. Para tal, selecione o **Construtor da aplicação** no menu de navegação à esquerda.
 
@@ -155,7 +155,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
 ## <a name="define-event-measurement"></a>Definir medição de Eventos
 
-Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados pelo dispositivo para indicar algo importante, como um erro ou uma falha de componente. Como os valores de telemetria, o Azure IoT Central pode simular eventos do dispositivo simulado para que possa testar o comportamento da aplicação antes de ligar um dispositivo físico. O utilizador define as medições dos eventos para o tipo de dispositivo na vista **Medidas**.
+Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados pelo dispositivo para indicar algo importante, como um erro ou uma falha de componente. Medições de telemetria, como o Azure IoT Central pode simular eventos de dispositivos para permitir que teste o comportamento do seu aplicativo antes de ligar um dispositivo real. O utilizador define as medições dos eventos para o tipo de dispositivo na vista **Medidas**.
 
 1. Para adicionar a medição do evento **Erro de Motor da Ventoinha**, escolha **Nova Medição**. Em seguida, escolha **Evento** como o tipo de medição:
 
@@ -191,7 +191,7 @@ Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados
 
 ## <a name="define-state-measurement"></a>Definir medição de Estado
 
-Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o respetivo componente durante um período de tempo. Como os valores de telemetria, o Azure IoT Central pode simular o estado do dispositivo simulado para que possa testar o comportamento da aplicação antes de ligar um dispositivo físico. O utilizador define as medições do estado para o tipo de dispositivo na vista **Medidas**.
+Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o respetivo componente durante um período de tempo. Medições de telemetria, como o Azure IoT Central pode simular o estado do dispositivo para permitir que teste o comportamento do seu aplicativo antes de ligar um dispositivo real. O utilizador define as medições do estado para o tipo de dispositivo na vista **Medidas**.
 
 1. Para adicionar a medição **Modo de Ventoinha**, escolha **Nova Medição**. Em seguida, escolha **Estado** como o tipo de medição:
 

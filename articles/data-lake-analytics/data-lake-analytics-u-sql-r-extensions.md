@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: b7e6c4911081d3b83ed99ab7316cb6fd810a0d60
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048730"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401220"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Expandir scripts U-SQL com o código de R no Azure Data Lake Analytics
 
@@ -173,7 +173,7 @@ Em primeiro lugar, crie um módulo personalizado de R e zip-lo e, em seguida, ca
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
 
     DECLARE @IrisData string =  @"/usqlext/samples/R/iris.csv";
-    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomePackages.txt";
+    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomPackages.txt";
 
     // R script to run
     DECLARE @myRScript = @"

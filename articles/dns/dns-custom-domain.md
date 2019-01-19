@@ -1,23 +1,18 @@
 ---
-title: Integrar o DNS do Azure com os seus recursos do Azure | Documentos da Microsoft
+title: Integrar o DNS do Azure com os seus recursos do Azure
 description: Saiba como utilizar o DNS do Azure ao longo para fornecer o DNS para os seus recursos do Azure.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727153"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401423"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilizar o DNS do Azure para fornecer definições de domínio personalizado para um serviço do Azure
 
@@ -33,7 +28,7 @@ Pode configurar um personalizado ou o domínio personalizado para [aplicações 
 
 Para configurar um domínio personalizado para aplicações de função do Azure, um registo CNAME é criado, bem como a configuração da aplicação de função em si.
  
-Navegue para **outras** > **Function App** e selecione a aplicação de função. Clique em **funcionalidades de plataforma** e, em **redes** clique **domínios personalizados**.
+Navegue para **aplicação de funções** e selecione a aplicação de função. Clique em **funcionalidades de plataforma** e, em **redes** clique **domínios personalizados**.
 
 ![Painel de aplicação de função](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as segu
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS adatumfunction.azurewebsites.net fornecido por predefinição para a aplicação de funções.        |
 
-Navegue de volta para a sua aplicação function app, clique em **funcionalidades de plataforma**e, em **redes** clique em **domínios personalizados**, em seguida em **nomes de anfitrião**clique em **+ Adicionar nome de anfitrião**.
+Navegue de volta para a sua aplicação function app, clique em **funcionalidades de plataforma**e, em **redes** clique em **domínios personalizados**, em seguida em **nomes de anfitrião personalizado** clique em **+ Adicionar nome de anfitrião**.
 
-Na **Adicionar nome de anfitrião** painel, introduza o registo CNAME no **nome do anfitrião** campo de texto e clique em **validar**. Se o registo foi capaz de encontrar, o **Adicionar nome de anfitrião** botão aparece. Clique em **Adicionar nome de anfitrião** para adicionar o alias.
+Na **Adicionar nome de anfitrião** painel, introduza o registo CNAME no **nome do anfitrião** campo de texto e clique em **validar**. Se o registo for encontrado, o **Adicionar nome de anfitrião** botão aparece. Clique em **Adicionar nome de anfitrião** para adicionar o alias.
 
 ![Painel de nome de anfitrião de adicionar aplicações de funções](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -86,7 +81,7 @@ Depois de criar o registo, execute `nslookup` para validar o registo resolve o o
 
 As seguintes etapas guiarão por meio de configurar um domínio personalizado para uma aplicação de web do serviço de aplicações.
 
-Navegue para **Web e móvel** > **serviço de aplicações** e selecione o recurso que está a configurar um nome de domínio personalizado e clique em **domínios personalizados**.
+Navegue para **serviço de aplicações** e selecione o recurso que está a configurar um nome de domínio personalizado e clique em **domínios personalizados**.
 
 Tenha em atenção o atual url no **domínios personalizados** painel, este endereço é utilizado como o alias para o registo DNS criado.
 
@@ -149,7 +144,7 @@ Para saber mais sobre o mapeamento de um domínio personalizado para um ponto de
 
 As seguintes etapas guiarão por meio de configurar um registo CNAME para um ponto final da CDN através do método cdnverify. Esse método garante que não existe nenhum tempo de inatividade.
 
-Navegue para **Networking** > **perfis da CDN**, selecione o perfil de CDN e clique em **pontos finais** sob **geral**.
+Navegue para **Networking** > **perfis da CDN**, selecione o perfil de CDN.
 
 Selecione o ponto final que está a trabalhar e clique em **+ domínio personalizado**. Tenha em atenção a **nome de anfitrião do ponto de extremidade** como este valor é o registo que o registo CNAME aponta para.
 

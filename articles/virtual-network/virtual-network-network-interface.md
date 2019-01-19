@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1916144ab2c8d5b5f0ae8f5ec87bfbf03cf4629d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023758"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413894"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -112,7 +112,7 @@ O servidor DNS é atribuído pelo servidor DHCP do Azure para a interface de red
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de nic de rede de AZ](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Ativar ou desativar o reencaminhamento de IP
@@ -133,7 +133,7 @@ A definição tem de estar ativada para cada interface de rede que está ligado 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de nic de rede de AZ](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Alterar a atribuição de sub-rede
@@ -153,7 +153,7 @@ Pode alterar a sub-rede, mas não a rede virtual, atribuída a uma interface de 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de configuração de ip de nic de rede de AZ](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adicionar ou remover grupos de segurança de aplicação
@@ -167,7 +167,7 @@ Apenas pode adicionar uma interface de rede, ou remover uma interface de rede de
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[atualização de nic de rede de AZ](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Associar ou desassociar um grupo de segurança de rede
@@ -199,7 +199,7 @@ Quando elimina uma interface de rede, são lançados a qualquer endereços IP ou
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[eliminação de nic de rede de AZ](/cli/azure/network/nic#az_network_nic_delete)|
+|CLI|[az network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Resolver problemas de conectividade

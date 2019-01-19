@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 4483d71ba745cc5cbb49d22420d83c3b2ceae0ad
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bdbaa9154f12c8b66a4c1d801671e7b21756e0f7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157025"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412738"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento externo com a CLI do Azure
 
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Adicionar um serviço de escuta e a regra de encaminhamento
 
-Um serviço de escuta é necessário para ativar o gateway de aplicação encaminhar o tráfego de forma adequada. Criar o serviço de escuta usando [criar gateway de aplicação de rede az http-listener](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) com a porta de front-end criada com [az rede application-gateway frontend-port criar](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). Uma regra é necessária para o serviço de escuta de saber para onde enviar o tráfego de entrada. Crie uma regra básica com o nome *redirectRule* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Um serviço de escuta é necessário para ativar o gateway de aplicação encaminhar o tráfego de forma adequada. Criar o serviço de escuta usando [criar gateway de aplicação de rede az http-listener](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) com a porta de front-end criada com [az rede application-gateway frontend-port criar](/cli/azure/network/application-gateway). Uma regra é necessária para o serviço de escuta de saber para onde enviar o tráfego de entrada. Crie uma regra básica com o nome *redirectRule* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

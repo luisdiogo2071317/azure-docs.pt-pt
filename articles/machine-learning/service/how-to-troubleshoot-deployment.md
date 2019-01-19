@@ -1,5 +1,6 @@
 ---
-title: Guia para o serviço Azure Machine Learning de resolução de problemas de implementação
+title: Guia de resolução de problemas de implementação
+titleSuffix: Azure Machine Learning service
 description: Saiba como a solução, resolver e resolver problemas relacionados com os erros de implementação comuns do Docker com o AKS e ACI com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: ed6fed58aac236f143345a9504ece21aceae09d2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865374"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401321"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Resolver problemas de implementações de AKS e ACI de serviço do Azure Machine Learning
 
@@ -91,10 +93,10 @@ Se o sistema não consegue criar a imagem do Docker, o `image.wait_for_creation(
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 O uri de registo de imagem é um URL de SAS que aponta para um ficheiro de registo armazenado no armazenamento de Blobs do Azure. Basta copiar e colar o uri numa janela do browser e podem transferir e ver o ficheiro de registo.
@@ -113,7 +115,7 @@ Pode imprimir mensagens de registo do Docker motor detalhadas do objeto de servi
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Depurar a imagem do Docker localmente
@@ -216,16 +218,12 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Tenha em atenção**: a devolver mensagens de erro do `run(input_data)` chamada deve ser feita para apenas a fins de depuração. Não pode ser uma boa idéia fazer isso num ambiente de produção por motivos de segurança.
+**Nota**: Devolver mensagens de erro do `run(input_data)` chamada deve ser feita para apenas a fins de depuração. Não pode ser uma boa idéia fazer isso num ambiente de produção por motivos de segurança.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a implementação: 
-* [Como implementar no ACI](how-to-deploy-to-aci.md)
+* [Como implementar e, em que](how-to-deploy-and-where.md)
 
-* [Como implementar no AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial, parte 1: preparar modelo](tutorial-train-models-with-aml.md)
-
-* [Tutorial, parte 2: implementar o modelo](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Preparar e implementar modelos](tutorial-train-models-with-aml.md)

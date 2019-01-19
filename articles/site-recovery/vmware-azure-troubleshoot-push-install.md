@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789912"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411752"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 
@@ -141,6 +141,14 @@ Para ver a lista de sistemas operativos e versões de kernel suportadas pelo Azu
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Partições de arranque e de sistema / volumes não são o mesmo disco (ErrorID: 95309)
 
 Antes de 9.20 partições de versão, de arranque e de sistema / volumes em discos diferentes foi uma configuração não suportada. Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), esta configuração é suportada. Utilize a versão mais recente para esse suporte.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Não foi encontrado um disco de inicialização (ErrorID: 95310)
+
+Não é possível proteger uma máquina virtual sem um disco de arranque. Isso é para garantir uma recuperação sem problemas de máquina virtual durante a operação de ativação pós-falha. Ausência de disco de arranque resulta no caso de falha para arrancar o computador após a ativação pós-falha. Certifique-se de que a máquina virtual contém o disco de arranque e repita a operação. Além disso, tenha em atenção de que vários discos de arranque na mesma máquina não é suportado.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Foram encontrados vários discos de arranque (ErrorID: 95311)
+
+Uma máquina virtual com vários discos de arranque não é um [suportado configuração](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partição do sistema em vários discos (ErrorID: 95313)
 

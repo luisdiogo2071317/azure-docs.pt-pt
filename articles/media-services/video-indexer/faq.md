@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307011"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402052"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -28,18 +28,17 @@ Indexador de vídeos é um serviço de inteligência artificial que faz parte do
 
 ### <a name="what-can-i-do-with-video-indexer"></a>O que posso fazer com o indexador de vídeo?
 
-O Video Indexer pode efetuar os seguintes tipos de operações nos ficheiros de multimédia:
+Algumas das operações que o indexador de vídeo pode executar nos arquivos de suporte de dados incluem:
 
-* Identifique e extrair a conversão de voz e identificar oradores.
-* Identificar e extrair no ecrã texto num vídeo.
-* Identificar e etiquetar objetos num arquivo de vídeo.
-* Identifica marcas, como a Microsoft a partir de faixas de áudio e no ecrã texto num vídeo.
+* Identificar e a extração de voz e identificar oradores.
+* Identificar e a extração no ecrã texto num vídeo.
+* A detetar objetos num arquivo de vídeo.
+* Identificar marcas (por exemplo: Texto da Microsoft) a partir de faixas de áudio e na tela num vídeo.
 * Detetar e reconhecer rostos de uma base de dados de celebridades e uma base de dados definidas pelo utilizador de faces.
-* Extrair palavras-chave de conteúdo de áudio e vídeo com base em texto falado e visual.
-* Extraia os tópicos abordados, mas não necessariamente explicitamente mencionado no conteúdo de áudio e vídeo com base no texto falado e visual.
-* Crie legendas ou textos da faixa de áudio.
+* Extrair os tópicos abordados, mas não necessariamente mencionado no conteúdo de áudio e vídeo.
+* A criar legendas ou textos da faixa de áudio.
 
-Para obter mais informações, veja [Descrição geral](video-indexer-overview.md).
+Para obter mais informações e mais funcionalidades do indexador de vídeo, consulte [descrição geral](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Como posso começar a utilizar com o indexador de vídeo?
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262137"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412408"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções recebidas e tempos de execução do método em aplicações web Java
 
@@ -96,6 +96,23 @@ Por predefinição, `reportExecutionTime` é verdadeiro e `reportCaughtException
 
 > [!NOTE]
 > IA Agent.xml e o ficheiro jar do agente devem estar na mesma pasta. Eles, muitas vezes, são colocados em conjunto no `/resources` pasta do projeto. 
+
+### <a name="spring-rest-template"></a>Modelo de Rest de Spring
+
+Na ordem do Application Insights instrumentar com êxito a chamadas HTTP feitas com o modelo de Rest do Spring, o uso do cliente HTTP Apache é necessário. Por predefinição o modelo de Rest do Spring não está configurado para utilizar o cliente de HTTP do Apache. Ao especificar [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) no construtor de um modelo de Rest de Spring, este irá utilizar o Apache HTTP.
+
+Eis um exemplo de como fazê-lo com o Spring Beans. Este é um exemplo muito simples que utiliza as predefinições da classe de fábrica.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>Ativar o rastreio distribuído do W3C
 

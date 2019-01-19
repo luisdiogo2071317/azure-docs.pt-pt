@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794359"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410766"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -67,13 +67,16 @@ A licença fornecida com o modelo de OVA é uma licença de avaliação válida 
 3. Na **selecionar origem**, introduza a localização do OVF transferido.
 4. Na **rever detalhes**, selecione **próxima**.
 5. Na **selecione o nome e a pasta** e **selecionar configuração**, aceite as predefinições.
-6. Em **Selecionar armazenamento**, para obter o melhor desempenho, selecione **Aprovisionamento Intenso Diligente Posto a Zero** em **Selecionar formato de disco virtual**.
+6. Em **Selecionar armazenamento**, para obter o melhor desempenho, selecione **Aprovisionamento Intenso Diligente Posto a Zero** em **Selecionar formato de disco virtual**. Utilização da opção de aprovisionamento dinâmico pode afetar o desempenho do servidor de configuração.
 7. No resto das páginas do assistente, aceite as predefinições.
 8. Em **Pronto para concluir**:
 
     * Para configurar a VM com as predefinições, selecione **Ligar após a implementação** > **Concluir**.
 
     * Para adicionar outra interface de rede, desmarque **ligar após a implementação**e, em seguida, selecione **concluir**. Por predefinição, o modelo do servidor de configuração é implementado com um único NIC. Pode adicionar mais NICs após a implementação.
+
+> [!IMPORTANT]
+> Não altere configurações de recursos (memória/núcleos/CPU restrição), serviços de modificar/eliminar instalado ou ficheiros no servidor de configuração após a implementação. Isto irá afetar o desempenho do servidor de configuração e de registo do servidor de configuração com serviços do Azure.
 
 ## <a name="add-an-additional-adapter"></a>Adicionar outro adaptador
 
@@ -119,7 +122,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
-Para atualizar o servidor de configuração para a versão mais recente, siga estes [passos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Para atualizar o servidor de configuração para a versão mais recente, siga estes [passos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, clique em [aqui](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
 
@@ -141,20 +144,26 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
     Consulte a [arquitetura de replicação do Azure de VMware para](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e as funcionalidades do mesmo.
 5. Onde posso encontrar a versão mais recente do servidor de configuração?
 
-    Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pode baixá-lo de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pode baixá-lo de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, consulte [aqui](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 6. Onde posso transferir a frase de acesso para o servidor de configuração?
 
     Consulte a [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para transferir a frase de acesso.
-7. Onde posso transferir as chaves de registo do Cofre?
+7. Pode alterar a frase de acesso?
+
+    **Não**, é **-se vivamente não alterar a frase de acesso** do servidor de configuração. Alteração na frase de acesso divide os replicação das máquinas protegidas e leva ao estado de funcionamento crítico.
+8. Onde posso transferir as chaves de registo do Cofre?
 
     Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Nos servidores, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
-8. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
+9. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
 
     **Não**, utilização de um componente de servidor de configuração clonado não é suportada.
 
-9. Pode alterar o IP do servidor de configuração?
+10. Pode alterar o IP do servidor de configuração?
 
     **Não**, é vivamente recomendado para não alterar o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs ESTÁTICOS e não os IPs de DHCP.
+11. Posso configurar o servidor de configuração no Azure?
+
+    Recomenda-se para configurar o servidor de configuração no ambiente no local com direto linha de visão com o Centro de v e para minimizar a latências de transferência de dados. Pode efetuar cópias de segurança agendadas do servidor de configuração para [fins de reativação pós-falha](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

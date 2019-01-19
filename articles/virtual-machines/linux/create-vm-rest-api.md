@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433485"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412194"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que utiliza autenticação SSH com a API REST
 
@@ -35,7 +35,7 @@ Este artigo mostra-lhe como utilizar a API REST para criar uma VM do Linux com o
 Antes de criar e submeter o pedido, terá de:
 
 * O `{subscription-id}` para a sua subscrição
-  * Se tiver várias subscrições, veja [trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * Se tiver várias subscrições, veja [trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * A `{resourceGroupName}` que criou antes do tempo
 * R [interface de rede virtual](../../virtual-network/virtual-network-network-interface.md) no mesmo grupo de recursos
 * Um par de chaves SSH (pode [gerar um novo](mac-create-ssh-keys.md) se não tiver um)
@@ -54,7 +54,7 @@ Os seguintes cabeçalhos são necessários:
 
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Necessário. Definido como `application/json`. |
+| *Content-Type:*  | Necessário. Definido como `application/json`. |
 | *Autorização:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Para obter informações gerais sobre como trabalhar com pedidos de REST API, consulte [componentes de uma REST API de solicitação/resposta](/rest/api/azure/#components-of-a-rest-api-requestresponse).

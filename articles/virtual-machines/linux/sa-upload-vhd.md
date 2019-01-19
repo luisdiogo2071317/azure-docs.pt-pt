@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966508"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412347"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carregar e criar uma VM do Linux a partir de discos personalizados com a CLI do Azure
 
@@ -35,13 +35,13 @@ Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/instal
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `WestUs` localização:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Criar uma conta de armazenamento para armazenar os discos virtuais com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create). O exemplo seguinte cria uma conta de armazenamento com o nome `mystorageaccount`:
+Criar uma conta de armazenamento para armazenar os discos virtuais com [criar conta de armazenamento az](/cli/azure/storage/account). O exemplo seguinte cria uma conta de armazenamento com o nome `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -124,7 +124,7 @@ Consulte também os **[observações de instalação de Linux](create-upload-gen
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Grupos de recursos logicamente reunir todos os recursos do Azure para suportar as suas máquinas virtuais, como o sistema de rede virtual e o armazenamento. Para obter mais grupos de recursos de informações, consulte [descrição geral de grupos de recursos](../../azure-resource-manager/resource-group-overview.md). Antes de carregar o seu disco personalizado e criação de VMs, tem primeiro de criar um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create).
 
-O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `westus` localização:
+O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento para o seu disco personalizada e as VMs com [criar conta de armazenamento az](/cli/azure/storage/account#az_storage_account_create). Todas as VMs com discos não geridos que criar a partir de sua necessidade de disco personalizada para estar na mesma conta de armazenamento desse disco. 
+Criar uma conta de armazenamento para o seu disco personalizada e as VMs com [criar conta de armazenamento az](/cli/azure/storage/account). Todas as VMs com discos não geridos que criar a partir de sua necessidade de disco personalizada para estar na mesma conta de armazenamento desse disco. 
 
 O exemplo seguinte cria uma conta de armazenamento com o nome `mystorageaccount` no grupo de recursos criado anteriormente:
 

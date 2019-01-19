@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cede896e9a2a4c92a495a502fb6cf69805d755ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160051"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402137"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
@@ -127,9 +127,9 @@ Acelerador de escrita do Azure é uma funcionalidade que é obter implementada p
 
 As configurações recomendadas ter o seguinte aspeto:
 
-| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | / hana/dados | / hana/do registo | / hana/partilhado | volume de /Root | / usr/sap | cópia de segurança/Hana |
+| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | /hana/data | / hana/do registo | /hana/shared | volume de /Root | /usr/sap | cópia de segurança/Hana |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 giB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
@@ -159,14 +159,14 @@ A tabela seguinte mostra uma configuração de tipos VM que os clientes normalme
 > Para cenários de produção, verifique se um determinado tipo VM é suportado para o SAP HANA pela SAP no [documentação de SAP para o IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 
-| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | / hana/dados e/hana/do registo<br /> repartidos com LVM ou MDADM | / hana/partilhado | volume de /Root | / usr/sap | cópia de segurança/Hana |
+| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | / hana/dados e/hana/do registo<br /> repartidos com LVM ou MDADM | /hana/shared | volume de /Root | /usr/sap | cópia de segurança/Hana |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M32ts | 192 giB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 |1 x S30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
@@ -271,7 +271,7 @@ A configuração básica de um nó VM para horizontal do SAP HANA é semelhante 
 
 Os volumes para os nós de tamanho é igual de aumentar verticalmente, exceto **/hana/partilhado**. Para o SKU de VM M128s, os tamanhos de sugeridos e os tipos de ter o seguinte aspeto:
 
-| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | / hana/dados | / hana/do registo | volume de /Root | / usr/sap | cópia de segurança/Hana |
+| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | /hana/data | / hana/do registo | volume de /Root | /usr/sap | cópia de segurança/Hana |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
@@ -403,8 +403,8 @@ Ver informações adicionais sobre as redes aceleradas do Azure [aqui](https://d
 
 De acordo com diretrizes de práticas recomendadas DT 2.0, o débito de e/s do disco deve ser a 50 MB/seg mínima por núcleo físico. Olhando para a especificação para os dois tipos de VM do Azure, que são suportadas para 2.0 DT um Verão o limite de taxa de transferência de e/s para a VM de disco máximo:
 
-- E32sv3:   768 MB/seg (não colocado em cache) que significa que um rácio de 48 MB/s por núcleo físico
-- M64-32MS:  1000 MB/seg (não colocado em cache) que significa que um rácio de 62.5 MB/s por núcleo físico
+- E32sv3    :   768 MB/seg (não colocado em cache) que significa que um rácio de 48 MB/s por núcleo físico
+- M64-32ms  :  1000 MB/seg (não colocado em cache) que significa que um rácio de 62.5 MB/s por núcleo físico
 
 É necessário para anexar vários discos do Azure para a VM de 2.0 DT e criar um raid de software (repartição) no nível do SO para atingir o limite máximo de débito de disco por VM. Um único disco do Azure não é possível fornecer o débito para atingir o limite máximo de VM nesse aspecto. Armazenamento Premium do Azure é obrigatório para executar DT 2.0. 
 
@@ -418,8 +418,8 @@ Que a VM de M64 32ms tem tanta memória, a carga de e/s não atinja o limite, es
 
 | SKU DE VM | Configuração de disco 1 | Configuração de disco 2 | Configuração de disco 3 | Configuração de disco 4 | Configuração de disco 5 | 
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 P20 de x -> 3,5 TB | 8 x P15 -> 2 TB | 
-| E32sv3 | 3 P50 de x -> 12 TB | 3 P40 de x -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 P15 de x -> 1,5 TB | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
 
 
 Especialmente no caso da carga de trabalho com uso intenso de leitura pode aumentar o desempenho de e/s para ativar a cache do anfitrião do Azure "só de leitura" tal como recomendado para os volumes de dados do software de base de dados. Enquanto que para a transação registo cache de disco do anfitrião do Azure tem de ser "none". 
@@ -431,8 +431,8 @@ Aqui estão alguns exemplos, sobre o volume de registo de dimensionamento:
 
 | tipo de disco e o tamanho do volume de dados | iniciar a configuração de tipo de disco e volume 1 | iniciar a configuração de tipo de disco e volume 2 |
 | --- | --- | --- |
-| 4 x P50 -> 16 TB | 5 x P20 -> 2,5 TB | 3 P30 de x -> 3 TB |
-| 6 P15 de x -> 1,5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
 Como para SAP HANA Escalamento horizontal, o diretório de /hana/shared tem de ser compartilhados entre a VM do SAP HANA e a VM de 2.0 DT. A mesma arquitetura quanto ao uso de escalamento horizontal do SAP HANA dedicada VMs, que atuam como um servidor NFS elevada disponibilidade é recomendável. Para fornecer um volume partilhado de cópia de segurança, pode ser utilizado o design idêntico. Mas é responsabilidade do cliente se HA seria necessária ou se é suficiente usar simplesmente uma VM dedicada com capacidade de armazenamento suficiente para atuar como um servidor de cópia de segurança.

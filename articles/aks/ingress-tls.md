@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 7a7acb7da2e5999fc844fe6c6c2e191783df9190
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fd2d18ea2d129729c5c3835e39a94df7166c3f11
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093966"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402035"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entradas HTTPS no Azure Kubernetes Service (AKS)
 
@@ -172,6 +172,19 @@ $ kubectl apply -f certificates.yaml
 certificate.certmanager.k8s.io/tls-secret created
 ```
 
+Para verificar se o certificado foi criado com êxito, utilize o `kubectl describe certificate tls-secret` comando.
+
+Se o certificado foi emitido, verá um resultado semelhante ao seguinte:
+```
+Type    Reason          Age   From          Message
+----    ------          ----  ----          -------
+  Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
+  Normal  DomainVerified  10m   cert-manager  Domain "demo-aks-ingress.eastus.cloudapp.azure.com" verified with "http-01" validation
+  Normal  IssueCert       10m   cert-manager  Issuing certificate...
+  Normal  CertObtained    10m   cert-manager  Obtained certificate from ACME server
+  Normal  CertIssued      10m   cert-manager  Certificate issued successfully
+```
+
 ## <a name="run-demo-applications"></a>Executar aplicações de demonstração
 
 Um controlador de entrada e de uma solução de gestão de certificado foram configuradas. Agora vamos executadas dois demonstrar aplicativos no seu cluster do AKS. Neste exemplo, o Helm é utilizada para implementar duas instâncias de um aplicativo "Hello world" simples.
@@ -308,7 +321,7 @@ Este artigo inclui alguns componentes externos ao AKS. Para saber mais sobre est
 
 - [Helm CLI][helm-cli]
 - [Controlador de entradas do NGINX][nginx-ingress]
-- [Gestor de certificado][cert-manager]
+- [cert-manager][cert-manager]
 
 Também pode:
 

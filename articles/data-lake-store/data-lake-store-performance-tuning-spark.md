@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127674"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401712"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guia para o Spark no HDInsight e Azure Data Lake Storage Gen1 de sintonização de desempenho
 
@@ -47,7 +47,7 @@ Quando executar tarefas de Spark, seguem-se as definições mais importantes que
 
 **Núcleos de executor** Isto define a quantidade de núcleos utilizado por executor, que determina o número de threads paralelos que podem ser executadas por executor.  Por exemplo, se núcleos de executor = 2, em seguida cada executor pode executar tarefas paralelas 2 no executor.  Os núcleos de executor necessitam será dependentes da tarefa.  Tarefas pesadas de e/s não necessitam de uma grande quantidade de memória por tarefas, para que cada executor pode processar mais tarefas paralelas.
 
-Por predefinição, os dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Este número fornece um bom equilíbrio de concurrecy e a quantidade de alternância de vários threads de contexto.  
+Por predefinição, os dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Este número fornece um bom equilíbrio de simultaneidade e a quantidade de alternância de vários threads de contexto.  
 
 ## <a name="guidance"></a>Orientação
 
@@ -59,7 +59,7 @@ Existem algumas formas gerais para aumentar a simultaneidade para tarefas intens
 
 **Passo 2: Definir a memória de executor** – a primeira coisa que definir é a memória de executor.  A memória será dependente da tarefa que pretende executar.  Pode aumentar a simultaneidade ao alocar menos memória por executor.  Se vir exceções de memória insuficiente quando executar o seu trabalho, em seguida, deve aumentar o valor para este parâmetro.  Uma alternativa é obter mais memória ao utilizar um cluster com a maior quantidade de memória ou aumentar o tamanho do cluster.  Mais memória irá permitir executores mais a ser usado, o que significa mais simultaneidade.
 
-**Passo 3: Configurar o executor núcleos** – e/s para cargas de trabalho intensivas que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor.  Definição de 4 núcleos de executor é um bom começo.   
+**Passo 3: Definir o executor núcleos** – e/s para cargas de trabalho intensivas que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor.  Definição de 4 núcleos de executor é um bom começo.   
 
     executor-cores = 4
 Aumentar o número de núcleos de executor lhe dará mais paralelismo para que pode experimentar com diferentes de núcleos de executor.  Para as tarefas que têm operações mais complexas, deve reduzir o número de núcleos por executor.  Se executor núcleos é definido como superior a 4, em seguida, coleta de lixo pode tornar-se ineficiente e degradar o desempenho.
@@ -91,14 +91,14 @@ Digamos que tenha atualmente um composto por 8 D4v2 nós de cluster que executa 
 **Passo 2: Definir a memória de executor** – neste exemplo, podemos determinar que 6 GB de memória de executor será suficiente para a tarefa de e/s intensiva.  
 
     executor-memory = 6GB
-**Passo 3: Configurar o executor núcleos** – uma vez que esse é um trabalho intensivo de e/s, podemos definir o número de núcleos para cada executor para 4.  Na definição de núcleos por executor maiores do que 4 pode causar problemas de coleta de lixo.  
+**Passo 3: Definir o executor núcleos** – uma vez que esse é um trabalho intensivo de e/s, podemos definir o número de núcleos para cada executor para 4.  Na definição de núcleos por executor maiores do que 4 pode causar problemas de coleta de lixo.  
 
     executor-cores = 4
 **Passo 4: Determinar a quantidade de memória YARN em cluster** –, navegar para Ambari para descobrir o que cada D4v2 tem 25 GB de memória YARN.  Uma vez que existem 8 nós, a memória YARN disponível é multiplicada por 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Passo 5: Calcular num executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU dividido pelo número de aplicações em execução no Spark.    
+**Passo 5: Calcular o núm executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU dividido pelo número de aplicações em execução no Spark.    
 
 **Calcular a restrição de memória** – a restrição de memória é calculada como a memória total do YARN, dividida pela memória por executor.
 

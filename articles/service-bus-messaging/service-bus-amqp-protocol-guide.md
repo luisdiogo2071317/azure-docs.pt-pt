@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542514"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413912"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -146,61 +146,61 @@ As setas na tabela a seguir mostram a direção do fluxo performative.
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**recetor**,<br/>origem = {nome da entidade,}<br/>destino = {ID de ligação de cliente}<br/>) |Cliente anexa a entidade recetor |
-| A anexar o respetivo final de ligação de respostas de Service Bus |<-anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**remetente**,<br/>origem = {nome da entidade,}<br/>destino = {ID de ligação de cliente}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>destino = {ID de ligação de cliente}<br/>) |Cliente anexa a entidade recetor |
+| A anexar o respetivo final de ligação de respostas de Service Bus |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>destino = {ID de ligação de cliente}<br/>) |
 
 #### <a name="create-message-sender"></a>Criar o remetente da mensagem
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**remetente**,<br/>origem = {ID de ligação de cliente,}<br/>destino = {nome da entidade}<br/>) |Nenhuma acção |
-| Nenhuma acção |<-anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**recetor**,<br/>origem = {ID de ligação de cliente,}<br/>destino = {nome da entidade}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma acção |
+| Nenhuma acção |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Criar o remetente da mensagem (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**remetente**,<br/>origem = {ID de ligação de cliente,}<br/>destino = {nome da entidade}<br/>) |Nenhuma acção |
-| Nenhuma acção |<-anexar (<br/>nome = {nome da ligação,}<br/>lidar com = {identificador numérico,}<br/>função =**recetor**,<br/>origem = null,<br/>destino = null<br/>)<br/><br/>< – desligar (<br/>lidar com = {identificador numérico,}<br/>fechado =**true**,<br/>Erro = {informações do erro}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma acção |
+| Nenhuma acção |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Recetor/remetente da mensagem fechar
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> desanexar (<br/>lidar com = {identificador numérico,}<br/>fechado =**verdadeiro**<br/>) |Nenhuma acção |
-| Nenhuma acção |< – desligar (<br/>lidar com = {identificador numérico,}<br/>fechado =**verdadeiro**<br/>) |
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma acção |
+| Nenhuma acção |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Enviar (êxito)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> (de transferência<br/>entrega-id = {identificador numérico,}<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**, mais =**falso**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |Nenhuma acção |
-| Nenhuma acção |<-disposition (<br/>função = receptor,<br/>em primeiro lugar = {ID de entrega}<br/>última = {ID de entrega}<br/>liquidada =**true**,<br/>estado =**aceites**<br/>) |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma acção |
+| Nenhuma acção |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> (de transferência<br/>entrega-id = {identificador numérico,}<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**, mais =**falso**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |Nenhuma acção |
-| Nenhuma acção |<-disposition (<br/>função = receptor,<br/>em primeiro lugar = {ID de entrega}<br/>última = {ID de entrega}<br/>liquidada =**true**,<br/>estado =**rejeitado**(<br/>Erro = {informações do erro}<br/>)<br/>) |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma acção |
+| Nenhuma acção |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> (de fluxo<br/>crédito de ligação = 1<br/>) |Nenhuma acção |
-| Nenhuma acção |< a transferir (<br/>entrega-id = {identificador numérico,}<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**,<br/>mais =**false**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |
-| --> (de disposição<br/>função =**recetor**,<br/>em primeiro lugar = {ID de entrega}<br/>última = {ID de entrega}<br/>liquidada =**true**,<br/>estado =**aceites**<br/>) |Nenhuma acção |
+| --> flow(<br/>link-credit=1<br/>) |Nenhuma acção |
+| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma acção |
 
 #### <a name="multi-message-receive"></a>Receber mensagem multi
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> (de fluxo<br/>crédito de ligação = 3<br/>) |Nenhuma acção |
-| Nenhuma acção |< a transferir (<br/>entrega-id = {identificador numérico,}<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**,<br/>mais =**false**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |
-| Nenhuma acção |< a transferir (<br/>entrega-id = {identificador numérico + 1},<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**,<br/>mais =**false**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |
-| Nenhuma acção |< a transferir (<br/>entrega-id = {identificador numérico + 2},<br/>etiqueta de entrega = {identificador binário,}<br/>liquidada =**false**,<br/>mais =**false**,<br/>estado =**nulo**,<br/>retomar =**FALSO**<br/>) |
-| --> (de disposição<br/>função = receptor,<br/>em primeiro lugar = {ID de entrega}<br/>última = {ID de entrega + 2},<br/>liquidada =**true**,<br/>estado =**aceites**<br/>) |Nenhuma acção |
+| --> flow(<br/>link-credit=3<br/>) |Nenhuma acção |
+| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma acção |
 
 ### <a name="messages"></a>Mensagens
 
@@ -226,15 +226,15 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | id de utilizador |Identificador de utilizador definida pelo aplicativo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
 | para |Identificador de destino definido pelo aplicativo, não interpretado pelo Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| responder a |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| id de correlação |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[correlationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| tipo de conteúdo |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| reply-to |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |Definido pelo aplicativo codificação de conteúdo indicador para o corpo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
-| hora de expiração absoluto |Declara em qual absoluto instantâneas a mensagem expira. Ignorada na entrada (cabeçalho TTL é observada), autoritativa de saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Declara em qual absoluto instantâneas a mensagem expira. Ignorada na entrada (cabeçalho TTL é observada), autoritativa de saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | hora de criação |Declara nesse momento a mensagem foi criada. Não é utilizada pelo barramento de serviço |Não está acessível através da API do barramento de serviço. |
-| id de grupo |Identificador para um conjunto relacionado de mensagens definidas pelo aplicativo. Utilizado para sessões de barramento de serviço. |[sessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
-| grupo de sequência |Identificar o número de sequência relativo da mensagem dentro de uma sessão de contador. Ignorados pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
-| resposta-para--id de grupo |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| group-id |Identificador para um conjunto relacionado de mensagens definidas pelo aplicativo. Utilizado para sessões de barramento de serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-sequence |Identificar o número de sequência relativo da mensagem dentro de uma sessão de contador. Ignorados pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
 #### <a name="message-annotations"></a>Anotações de mensagem
 
@@ -242,14 +242,14 @@ Existem alguns outras service bus propriedades da mensagem, que não fazem parte
 
 | Chave de mapa de anotação | Utilização | Nome da API |
 | --- | --- | --- |
-| x-optar ativamente por não-agendados-colocar em fila-time | Declara nesse momento, a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-optar ativamente por não-chave de partição | Chave definida pelo aplicativo, que determina qual partição a mensagem deve apresentar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-optar ativamente por não-por-chave de partição | Definido pelo aplicativo chave de partição valor quando uma transação está a ser utilizado para enviar mensagens através de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-optar ativamente por não-colocados em fila-time | Definidas pelo serviço fuso horário UTC que representa o tempo em questão de enfileiramento de mensagens. Ignorada na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-optar ativamente por não--número de sequência | Definidas pelo serviço número único atribuído a uma mensagem. | [sequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| deslocamento x optar ativamente por participar | Número de sequência de definidas pelo serviço colocados em fila da mensagem. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Declara nesse momento, a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | Chave definida pelo aplicativo, que determina qual partição a mensagem deve apresentar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | Definido pelo aplicativo chave de partição valor quando uma transação está a ser utilizado para enviar mensagens através de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | Definidas pelo serviço fuso horário UTC que representa o tempo em questão de enfileiramento de mensagens. Ignorada na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | Definidas pelo serviço número único atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | Número de sequência de definidas pelo serviço colocados em fila da mensagem. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
 | x-optar ativamente por não-bloqueado-até | Definidas pelo serviço. A data e hora até que a mensagem será bloqueada na fila/subscrição. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-optar ativamente por não-mensagens não entregues-source | Definidas pelo serviço. Se a mensagem é recebida da fila de entregues, a origem da mensagem original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-deadletter-source | Definidas pelo serviço. Se a mensagem é recebida da fila de entregues, a origem da mensagem original. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
 
 ### <a name="transaction-capability"></a>Capacidade de transação
 
@@ -268,10 +268,10 @@ Para iniciar o trabalho transacional. o controlador tem de obter um `txn-id` do 
 
 | Cliente (controlador) | | O Service Bus (coordenador) |
 | --- | --- | --- |
-| anexar (<br/>nome = {nome da ligação,}<br/>... ,<br/>função =**remetente**,<br/>destino =**coordenador**<br/>) | ------> |  |
-|  | <------ | anexar (<br/>nome = {nome da ligação,}<br/>... ,<br/>Target=Coordinator()<br/>) |
-| (transferência<br/>id de entrega = 0,...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | (de disposição <br/> em primeiro lugar, = 0, pela última vez = 0, <br/>estado =**Declared**(<br/>**transações-id**= {ID da transação}<br/>))|
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>destino =**coordenador**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**transações-id**= {ID da transação}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Discharging uma transação
 
@@ -281,11 +281,11 @@ O controlador conclui o trabalho transacional, enviando um `discharge` mensagem 
 
 | Cliente (controlador) | | O Service Bus (coordenador) |
 | --- | --- | --- |
-| (transferência<br/>id de entrega = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | (de disposição <br/> em primeiro lugar, = 0, pela última vez = 0, <br/>Estado = (declarado<br/>transações-id = {ID da transação}<br/>))|
+| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outras ligações<br/> . . . |
-| (transferência<br/>id de entrega = 57,...)<br/>{AmqpValue (<br/>**Proprietários (txn-id = 0,<br/>falhar = false)**)}| ------> |  |
-| | <------ | (de disposição <br/> em primeiro lugar = 57, pela última vez = 57, <br/>estado =**Accepted()**)|
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Proprietários (txn-id = 0,<br/>falhar = false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Enviar uma mensagem numa transação
 
@@ -293,10 +293,10 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 
 | Cliente (controlador) | | O Service Bus (coordenador) |
 | --- | --- | --- |
-| (transferência<br/>id de entrega = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | (de disposição <br/> em primeiro lugar, = 0, pela última vez = 0, <br/>Estado = (declarado<br/>transações-id = {ID da transação}<br/>))|
-| (transferência<br/>lidar com = 1,<br/>entrega-id = 1, <br/>**estado =<br/>TransactionalState (<br/>txn-id = 0)**)<br/>{payload}| ------> |  |
-| | <------ | (de disposição <br/> primeiro = 1, a última = 1, <br/>estado =**TransactionalState (<br/>txn-id = 0,<br/>outcome=Accepted()**))|
+| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{payload}| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Como descartar uma mensagem numa transação
 
@@ -304,10 +304,10 @@ Disposição de mensagem inclui operações como `Complete`  /  `Abandon`  /  `D
 
 | Cliente (controlador) | | O Service Bus (coordenador) |
 | --- | --- | --- |
-| (transferência<br/>id de entrega = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
-|  | <------ | (de disposição <br/> em primeiro lugar, = 0, pela última vez = 0, <br/>Estado = (declarado<br/>transações-id = {ID da transação}<br/>))|
-| | <------ |(transferência<br/>lidar com = 2,<br/>id de entrega = 11, <br/>Estado = null)<br/>{payload}|  
-| (de disposição <br/> em primeiro lugar = 11, pela última vez = 11, <br/>estado =**TransactionalState (<br/>txn-id = 0,<br/>outcome=Accepted()**))| ------> |
+| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{payload}|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Recursos avançados do Service Bus
@@ -327,10 +327,10 @@ Todos os esses gestos exigem uma interação de solicitação/resposta entre o c
 
 | Operação lógica | Cliente | Service Bus |
 | --- | --- | --- |
-| Criar o caminho de resposta do pedido |--> anexar (<br/>nome = {*nome da hiperligação*},<br/>lidar com = {*identificador numérico*},<br/>função =**remetente**,<br/>origem =**nulo**,<br/>target = "gerenciamento de myentity / $"<br/>) |Nenhuma acção |
-| Criar o caminho de resposta do pedido |Nenhuma acção |\<– anexar (<br/>nome = {*nome da hiperligação*},<br/>lidar com = {*identificador numérico*},<br/>função =**recetor**,<br/>origem = null,<br/>target = "myentity"<br/>) |
-| Criar o caminho de resposta do pedido |--> anexar (<br/>nome = {*nome da hiperligação*},<br/>lidar com = {*identificador numérico*},<br/>função =**recetor**,<br/>origem = "gerenciamento de myentity / $",<br/>target = "id de $myclient"<br/>) | |
-| Criar o caminho de resposta do pedido |Nenhuma acção |\<– anexar (<br/>nome = {*nome da hiperligação*},<br/>lidar com = {*identificador numérico*},<br/>função =**remetente**,<br/>origem = "myentity",<br/>target = "id de $myclient"<br/>) |
+| Criar o caminho de resposta do pedido |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma acção |
+| Criar o caminho de resposta do pedido |Nenhuma acção |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| Criar o caminho de resposta do pedido |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
+| Criar o caminho de resposta do pedido |Nenhuma acção |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 Ter esse par de ligações no local, a implementação de solicitação/resposta é simples: um pedido é uma mensagem enviada para uma entidade dentro da infraestrutura de mensagens que compreende este padrão. Nessa mensagem de solicitação, o *responder a* campo na *propriedades* secção está definida como o *destino* identificador para a ligação em que fornecer a resposta. A entidade de processamento processa a solicitação e, em seguida, fornece a resposta através da ligação cujo *destino* identificador corresponde a indicado *responder a* identificador.
 
@@ -361,7 +361,7 @@ A mensagem de solicitação tem as seguintes propriedades da aplicação:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |cadeia |**token de PUT** |
+| operação |Não |cadeia |**put-token** |
 | tipo |Não |cadeia |O tipo de token colocá-lo. |
 | nome |Não |cadeia |O "público" às quais se aplica o token. |
 | expiração |Sim |carimbo de data/hora |A hora de expiração do token. |
@@ -372,7 +372,7 @@ O *nome* propriedade identifica a entidade com a qual o token deve ser associado
 | --- | --- | --- | --- |
 | amqp:jwt |JSON Web Token (JWT) |Valor de AMQP (cadeia) |Ainda não está disponível. |
 | amqp:swt |Simple Web tokens (SWT) |Valor de AMQP (cadeia) |Só é suportado para tokens SWT emitidos pelo AAD/ACS |
-| servicebus.Windows.NET:sastoken |Token SAS do Service Bus |Valor de AMQP (cadeia) |- |
+| servicebus.windows.net:sastoken |Token SAS do Service Bus |Valor de AMQP (cadeia) |- |
 
 Tokens a concessão de direitos. Do Service Bus tem conhecimento três direitos fundamentais: "Enviar" permite enviar, permite "Escutar" receber e permite manipular entidades de "Gerir". Tokens SWT vystavitel AAD/ACS explicitamente incluem esses direitos como afirmações. Tokens SAS de barramento de serviço Consulte regras configuradas no espaço de nomes ou entidade, e essas regras estão configuradas com direitos. O token de assinatura com a chave associada essa regra, portanto, faz com que o token express os respetivos direitos. O token associado à utilização uma entidade *token de put* permite que o cliente conectado para interagir com a entidade pelos direitos de token. Uma ligação em que o cliente assume a *remetente* a função requer "Enviar" diretamente; utilizando o *recetor* a função requer "Listen" à direita.
 
@@ -380,8 +380,8 @@ A mensagem de resposta tem segue *propriedades da aplicação* valores
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| Descrição do Estado |Sim |cadeia |Descrição do Estado. |
+| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| status-description |Sim |cadeia |Descrição do Estado. |
 
 O cliente pode chamar *token de put* para qualquer entidade na infraestrutura de mensagens e repetidamente. Os tokens são um âmbito para o cliente atual e ancorados na ligação atual, que significa que o servidor remove quaisquer tokens retidos quando a conexão caiu.
 
@@ -403,8 +403,8 @@ Com esta funcionalidade, criar um remetente e estabelecer a ligação para o `vi
 
 | Cliente | | Service Bus |
 | --- | --- | --- |
-| anexar (<br/>nome = {nome da ligação,}<br/>função = remetente,<br/>origem = {ID de ligação de cliente,}<br/>destino =**{via entity}**,<br/>**Propriedades do mapa de = [(<br/>endereço de destino com.microsoft:transfer =<br/>{entidade de destino})]** ) | ------> | |
-| | <------ | anexar (<br/>nome = {nome da ligação,}<br/>função = receptor,<br/>origem = {ID de ligação de cliente,}<br/>destino = {via-entidade},<br/>Propriedades = [(do mapa<br/>endereço de destino com.Microsoft:Transfer =<br/>{entidade de destino})] ) |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>Propriedades = [(do mapa<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino})] ) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

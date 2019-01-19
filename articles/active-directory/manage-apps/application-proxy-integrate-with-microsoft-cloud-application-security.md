@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8de052175d93abdb82390d12d601c29bf0d4d462
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215104"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411871"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurar a monitorização de acesso de aplicações em tempo real com o Microsoft Cloud App Security e Azure Active Directory
 Configure uma aplicação no local no Azure Active Directory (Azure AD) para utilizar a segurança de aplicação na Cloud da Microsoft (MCAS) para a monitorização em tempo real. MCAS utiliza o controlo de aplicação de acesso condicional para monitorizar e sessões de controlo em tempo real com base nas políticas de acesso condicional. Pode aplicar estas políticas para aplicações no local que utilizam o Proxy de aplicações no Azure Active Directory (Azure AD).
@@ -48,7 +48,7 @@ Configure o Proxy de aplicações:
 
 Adicione uma aplicação no local para o Azure AD. Para um guia de introdução, consulte [adicionar uma aplicação no local ao Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). Ao adicionar a aplicação, certifique-se de que defina as duas definições seguintes no **adicionar a sua aplicação no local** painel:
 
-- **Pré-autenticação**: Introduza **do Azure Active Directory**.
+- **Pré-autenticação**: Enter **Azure Active Directory**.
 - **Traduzir URLs no corpo do aplicativo**: Escolher **Sim**.
 
 Essas duas definições são necessárias para a aplicação funcione com MCAS.
@@ -64,7 +64,7 @@ Para configurar a sua aplicação com o controlo de aplicação de acesso condic
 
 ## <a name="test-conditional-access-app-control"></a>Controlo de aplicação de acesso condicional de teste
 
-Para testar a implementação de aplicações do Azure AD com o controlo de aplicação de acesso condicional, siga as instruções em [testar a implementação para aplicações do Azure AD](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+Para testar a implementação de aplicações do Azure AD com o controlo de aplicação de acesso condicional, siga as instruções em [testar a implementação para aplicações do Azure AD](/cloud-app-security/proxy-deployment-aad).
 
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932399"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413231"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como utilizar o Packer para criar imagens de máquinas virtuais do Linux no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição de Linux e versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. O Azure Marketplace proporciona muitas imagens que o primeiro e de terceiros para distribuições mais comuns e ambientes de aplicativos, ou pode criar suas próprias imagens personalizadas ajustadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código-fonte aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -201,7 +201,7 @@ Demora alguns minutos para que Packer criar a VM, execute os provisioners e limp
 
 
 ## <a name="create-vm-from-azure-image"></a>Criar VM a partir da imagem do Azure
-Agora pode criar uma VM a partir da sua imagem com [az vm criar](/cli/azure/vm#az_vm_create). Especifique a imagem criada com o `--image` parâmetro. O exemplo seguinte cria uma VM com o nome *myVM* partir *myPackerImage* e gera chaves SSH caso estas ainda não existam:
+Agora pode criar uma VM a partir da sua imagem com [az vm criar](/cli/azure/vm). Especifique a imagem criada com o `--image` parâmetro. O exemplo seguinte cria uma VM com o nome *myVM* partir *myPackerImage* e gera chaves SSH caso estas ainda não existam:
 
 ```azurecli
 az vm create \

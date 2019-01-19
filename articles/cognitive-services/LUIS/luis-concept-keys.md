@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 6816fa3705348d07eced92c64e0c7020a08d01d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6196364f5983d443519429363bb94bfd6a1203c5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132386"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411735"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Criação e a consulta a chaves do ponto final de predição em LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -33,7 +33,7 @@ LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key)
 
 Uma chave de criação, também conhecido como uma chave de arranque, é criada automaticamente quando cria uma conta de LUIS e é gratuito. Tem uma chave de criação em todas as suas aplicações de LUIS para cada tipo de criação [região](luis-reference-regions.md). A chave de criação é fornecida para criar a sua aplicação LUIS ou para testar as consultas de ponto final. 
 
-Para localizar a chave de criação, inicie sessão [LUIS](luis-reference-regions.md#luis-website) e clique no nome da conta na barra de navegação do canto superior direito para abrir **definições de conta**.
+Para localizar a chave de criação, inicie sessão na [LUIS](luis-reference-regions.md#luis-website) e clique no nome da conta na barra de navegação do canto superior direito para abrir **definições de conta**.
 
 ![Chave de criação](./media/luis-concept-keys/programatic-key.png)
 
@@ -43,15 +43,17 @@ Quando quiser tornar **consultas de ponto final de produção**, criar do Azure 
 > Para sua comodidade, muitos dos exemplos utilizam a chave de criação de conteúdos, uma vez que ele fornece algumas chamadas de ponto final no respetivo [quota](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Chave de ponto final
- Quando precisar **consultas de ponto final de produção**, criar um [chave de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) no portal do Azure. Lembre-se o nome utilizado para criar a chave, irá precisar dele quando adicionar a chave para a aplicação.
+Quando precisar **consultas de ponto final de produção**, crie um recurso do Azure, em seguida, atribuí-la para a aplicação do LUIS. 
 
-Quando o processo de subscrição de LUIS estiver concluído, [atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) para a aplicação. 
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-A chave de ponto final permite uma quota de acertos de ponto final com base no plano de utilização que especificou ao criar a chave. Ver [preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para informações sobre preços.
+Quando o processo de criação de recursos do Azure estiver concluído, [atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) para a aplicação. 
 
-A chave de ponto final pode ser utilizada para todas as aplicações do LUIS ou para aplicações específicas do LUIS. 
+    * A chave de ponto final permite uma quota de acertos de ponto final com base no plano de utilização que especificou ao criar a chave. Ver [preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para informações sobre preços.
 
-Não utilize a chave de ponto final para a criação de aplicações do LUIS. 
+    * A chave de ponto final pode ser utilizada para todas as aplicações do LUIS ou para aplicações específicas do LUIS. 
+
+    * Não utilize a chave de ponto final para a criação de aplicações do LUIS. 
 
 ## <a name="use-endpoint-key-in-query"></a>Chave de ponto final de utilização na consulta
 O ponto de extremidade do LUIS aceita dois estilos de consulta, ambos utilizam mas de chave, o ponto final em locais diferentes:
@@ -76,9 +78,10 @@ Regiões de publicação são diferentes das regiões de criação. Certifique-s
 ## <a name="key-limit-errors"></a>Erros de chave de limite
 Se ultrapassar os seus por segundo quota, receberá um erro de HTTP 429. Se ultrapassar os seus por quota do mês, receberá um erro HTTP 403. Corrija estes erros obtendo um LUIS [ponto final](#endpoint-key) chave, [atribuir](luis-how-to-manage-keys.md#assign-endpoint-key) a chave para a aplicação no **publicar** página do [LUIS](luis-reference-regions.md#luis-website) Web site.
 
-## <a name="automating-assignment-of-the-endpoint-key"></a>Automatizar a atribuição de chave do ponto final
+## <a name="assignment-of-the-endpoint-key"></a>Atribuição de chave do ponto final
 
-Para atribuir a chave de ponto final a uma aplicação do LUIS, tem de utilizar o site do LUIS para o correto de criação e publicação [regiões](luis-reference-regions.md). Há **nenhuma** automatizada de método de fazer isso, independentemente do mecanismo como um recurso do Azure manager script, CLI do Azure, SDK programática, ou com as APIs.
+Pode [atribuir](luis-how-to-manage-keys.md) a chave de ponto final no [portal de LUIS](https://www.luis.ai) ou por meio das APIs correspondentes. 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

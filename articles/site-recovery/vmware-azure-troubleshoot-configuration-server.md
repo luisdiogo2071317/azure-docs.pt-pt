@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb965313fda90da3fb0ec0cd418f87795a4e2722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381802"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413469"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -71,7 +71,6 @@ Para resolver falhas de deteção do vCenter, certifique-se de que o servidor vC
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Alterar o endereço IP do servidor de configuração
 
 Recomendamos vivamente que não altere o endereço IP de um servidor de configuração. Certifique-se de que todos os endereços IP que estão atribuídos ao servidor de configuração são endereços IP estáticos. Não utilize endereços IP de DHCP.
->>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML token é inválido
 

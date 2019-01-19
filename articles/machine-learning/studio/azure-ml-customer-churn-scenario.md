@@ -10,14 +10,14 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260606"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401976"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de alterações a dados de cliente que baseia-se com o Azure Machine Learning. Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975243"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401763"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Otimização de geração 2 de armazenamento do Azure Data Lake para o desempenho
 
@@ -133,9 +133,9 @@ Além das Diretrizes gerais acima, cada aplicativo tem parâmetros diferentes di
 
 | Carga de trabalho               | Parâmetro para definir as tarefas                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [O Spark no Hdinsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Núm. executores</li><li>Memória de executor</li><li>Núcleos de executor</li></ul> |
-| [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>Hive.tez.Container.size</li></ul>         |
-| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [O Spark no HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Memória de executor</li><li>Núcleos de executor</li></ul> |
+| [Hive no HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
+| [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor de spout</li><li>Número de instâncias de executor de bolt </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
 ## <a name="see-also"></a>Consulte também

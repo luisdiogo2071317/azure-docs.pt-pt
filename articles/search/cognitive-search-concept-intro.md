@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d30a6446f40105985388d3c2ee077b36af32f208
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633798"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412211"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
-Pesquisa cognitiva cria pesquisáveis informações fora de conteúdo não pesquisável anexando algoritmos de ia para um pipeline de indexação. Integração de IA é através de *capacidades cognitivas*, aprimorando documentos de origem caminho para um índice de pesquisa. 
+Pesquisa cognitiva é uma funcionalidade de IA no Azure Search, utilizado para extrair texto de imagens, blobs e outras origens de dados não estruturados - aprimorando o conteúdo para torná-lo mais pesquisáveis no índice da Azure Search. Extração e enriquecimento estão implementadas através de *capacidades cognitivas* anexados a um pipeline de indexação. Possível de IA é suportadas das seguintes formas: 
 
-**Processamento de linguagem natural** habilidades incluem [reconhecimento de entidades](cognitive-search-skill-named-entity-recognition.md), deteção de idioma [extração de expressões da chave](cognitive-search-skill-keyphrases.md), manipulação de texto e a deteção de sentimentos. Com essas habilidades, torna-se estruturados textos não estruturados, mapeado para os campos filtráveis e pesquisáveis num índice.
++ **Processamento de linguagem natural** habilidades incluem [reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), [deteção de idioma](cognitive-search-skill-language-detection.md), [extração de expressões da chave](cognitive-search-skill-keyphrases.md), manipulação de texto e o [deteção de sentimentos](cognitive-search-skill-sentiment.md). Com essas habilidades, o texto não estruturado pode assumir novas formas, mapeadas como campos filtráveis e pesquisáveis num índice.
 
-**Processamento de imagens** inclui [OCR](cognitive-search-skill-ocr.md) e a identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), tais como deteção facial, interpretação de imagens, a imagem de reconhecimento (pessoas famosas e pontos de referência) ou atributos como cores ou orientação da imagem. Pode criar representações de texto do conteúdo da imagem, pesquisável com todos os recursos de consulta do Azure Search.
++ **Processamento de imagens** habilidades incluem [reconhecimento Ótico de carateres (OCR)](cognitive-search-skill-ocr.md) e a identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), tais como deteção facial, interpretação de imagem, (de reconhecimento de imagem pessoas famosas e pontos de referência) ou atributos como a orientação de cores ou imagem. Pode criar representações de texto do conteúdo da imagem, pesquisável com todos os recursos de consulta do Azure Search.
 
 ![Diagrama de pipeline de pesquisa cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "descrição geral do pipeline de pesquisa cognitiva")
 
-As capacidades cognitivas no Azure Search baseiam-se os mesmos algoritmos de IA utilizados em APIs serviços cognitivos: [API de reconhecimento de entidades com o nome](cognitive-search-skill-named-entity-recognition.md), [API de extração de frase chave](cognitive-search-skill-keyphrases.md), e [OCR API](cognitive-search-skill-ocr.md) são apenas alguns. 
+Capacidades cognitivas no Azure Search baseiam-se a modelos de aprendizagem automática em APIs serviços cognitivos: [Imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Linguagem natural e processamento de imagens é aplicada durante a fase de ingestão de dados, com resultados se tornar parte de composição de um documento num índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação com o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que precisa. A arquitetura é extensível, de modo a se as habilidades internas não forem suficientes, pode criar e anexar [competências personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um classificador de módulo ou o documento de entidade personalizada destinado um domínio específico, como Finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+> A partir de 21 de Dezembro de 2018, pode [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) com um conjunto de capacidades do Azure Search. Isso permite que iniciemos a cobrança de consumo para a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
 >
-> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
+> Execução de habilidades incorporadas é um custo de serviços cognitivos, cobrada de acordo com o existente [pay as you preço acedo](https://azure.microsoft.com/pricing/details/cognitive-services/) . O preço de extração de imagem é um valor de Azure Search, atualmente faturado aos preços de pré-visualização, conforme descrito no [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 
-Pesquisa cognitiva é uma funcionalidade de pré-visualização do [Azure Search](search-what-is-azure-search.md), disponível em todas as camadas numa Centro-Sul e Europa Ocidental. 
+Pesquisa cognitiva é uma funcionalidade de pré-visualização do [Azure Search](search-what-is-azure-search.md)suporte na [nestas regiões](#where-do-i-start). 
 
 O pipeline de pesquisa cognitiva baseia [Azure Search *indexadores* ](search-indexer-overview.md) que pesquisam origens de dados e fornecer o processamento de índice de ponto-a-ponto. Habilidades estão agora ligadas ao indexadores, interceptando e enriquecer os documentos de acordo com o conjunto de capacidades que definir. Depois de indexada, pode aceder a conteúdo através de pedidos de pesquisa através de todos os [consultar os tipos suportados pelo Azure Search](search-query-overview.md).  Se estiver familiarizado com indexadores, esta secção descreve os passos.
 
-### <a name="source-data-and-document-cracking-phase"></a>Origem de dados e a fase de abertura do documento
+### <a name="step-1-connection-and-document-cracking-phase"></a>Passo 1: Ligação e a fase de abertura do documento
 
 No início do pipeline, que tem texto não estruturado ou conteúdo que não sejam de texto (como imagens e documentos digitalizados JPEG ficheiros). Dados tem de existir um serviço de armazenamento de dados do Azure que pode ser acedido por um indexador. Indexadores podem "violar" documentos de origem para extrair texto de origem de dados.
 
@@ -50,7 +50,7 @@ No início do pipeline, que tem texto não estruturado ou conteúdo que não sej
 
  Fontes suportadas incluem armazenamento de Blobs do Azure, armazenamento de tabelas do Azure, base de dados do Azure SQL e do Azure Cosmos DB. Conteúdo baseado em texto pode ser extraído dos seguintes tipos de ficheiro: PDFs, Word, PowerPoint, ficheiros CSV. Para a lista completa, consulte [formatos suportados](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>Capacidades cognitivas e a fase de melhoria
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passo 2: Capacidades cognitivas e a fase de melhoria
 
 Melhoria é através de *capacidades cognitivas* efetuar operações atómicas. Por exemplo, quando tiver conteúdo de texto de PDF, pode aplicar deteção de idioma de reconhecimento de entidades ou extração de expressões-chave para produzir novos campos no seu índice que não estão disponíveis nativamente na origem. Em conjunto, a recolha de suas habilidades utilizadas no seu pipeline é chamada um *conjunto de capacidades*.  
 
@@ -60,7 +60,7 @@ Um conjunto de capacidades baseia [predefinidos capacidades cognitivas](cognitiv
 
 Internamente, o pipeline gera uma coleção de documentos plena. Pode decidir que partes dos documentos plena devem ser mapeados para indexáveis campos no seu índice de pesquisa. Por exemplo, se aplicado a extração de expressões-chave e as competências de reconhecimento de entidades, em seguida, esses novos campos seriam tornar-se parte do documento plena e podem ser mapeados para os campos no seu índice. Ver [anotações](cognitive-search-concept-annotations-syntax.md) para saber mais sobre formações de entrada/saída.
 
-### <a name="search-index-and-query-based-access"></a>Índice de pesquisa e acesso com base na consulta
+### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso com base na consulta
 
 Quando o processamento é concluído, tem um corpo consistindo em plena documentos, texto integral no Azure Search. [Consultar o índice](search-query-overview.md) é como desenvolvedores e usuários acessar o conteúdo plena gerado pelo pipeline. 
 
@@ -88,10 +88,11 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 | Origem de Dados  | Um objeto utilizado por um indexador para ligar a uma origem de dados externas dos tipos suportados no Azure. | Consulte [indexadores](search-indexer-overview.md) |
 | Índice | Um corpo persistente no Azure Search, criados a partir de um esquema de índice que define a estrutura de campo e a utilização. | [Índices no Azure Search](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Passo 1: Criar um serviço de pesquisa numa região fornecendo as APIs** 
+**Passo 1: [Criar um recurso do Azure Search](search-create-service-portal.md) numa região fornecendo as APIs** 
 
 + EUA Centro-Oeste
 + EUA Centro-Sul
@@ -149,5 +150,5 @@ Para obter mais informações sobre problemas ou perguntas específicas, consult
 ## <a name="next-steps"></a>Passos Seguintes
 
 + [Documentação de pesquisa cognitiva](cognitive-search-resources-documentation.md)
-+ [Início rápido: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba a APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)

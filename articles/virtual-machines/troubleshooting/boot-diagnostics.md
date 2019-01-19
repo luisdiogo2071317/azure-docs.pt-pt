@@ -10,20 +10,18 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 55feef336ade461d4e3936d2f76122e5b4b4c00e
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419559"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401304"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como utilizar o diagnóstico de arranque para resolver problemas relacionados com máquinas virtuais no Azure
 
-O suporte de duas funcionalidades de depuração está agora disponível no Azure: saída da consola e captura de ecrã de suporte para o modelo de implementação do Gestor de recursos de máquinas virtuais do Azure. 
+Podem existir muitos motivos que uma máquina virtual entra num Estado de não arranque. Para resolver problemas com as máquinas virtuais criadas com o modelo de implementação do Resource Manager pode utilizar os seguintes recursos de depuração: Saída da consola e captura de ecrã de suporte para máquinas virtuais do Azure. 
 
-Quando colocar a sua própria imagem para o Azure ou mesmo arrancar uma das imagens da plataforma, podem existir muitos motivos por que uma máquina virtual entra num Estado de não arranque. Estas funcionalidades permitem-lhe facilmente diagnosticar e recuperar suas máquinas virtuais de falhas de arranque.
-
-Para máquinas virtuais do Linux, pode visualizar facilmente a saída de registo da consola a partir do Portal. Para máquinas virtuais Windows e Linux, o Azure também permite-lhe ver uma captura de ecrã da VM do hipervisor. Esses dois recursos são suportadas para máquinas virtuais do Azure em todas as regiões. Tenha em atenção que as capturas de ecrã e a saída podem demorar até 10 minutos a aparecer na sua conta de armazenamento.
+Para máquinas virtuais do Linux, pode ver a saída de registo da consola a partir do Portal. Para máquinas virtuais Windows e Linux, o Azure permite-lhe ver uma captura de ecrã da VM do hipervisor. Os dois recursos são suportados para máquinas virtuais do Azure em todas as regiões. Tenha em atenção que as capturas de ecrã e a saída podem demorar até 10 minutos a aparecer na sua conta de armazenamento.
 
 Pode selecionar o **diagnósticos de arranque** opção para ver o registo e a captura de ecrã.
 
@@ -45,54 +43,58 @@ Pode selecionar o **diagnósticos de arranque** opção para ver o registo e a c
 - [Não foi encontrado nenhum sistema operativo](https://support.microsoft.com/help/4010142)
 - [Falha de arranque ou INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
-## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Ativar o diagnóstico numa máquina virtual nova
-1. Ao criar uma nova máquina virtual a partir do Portal do Azure, selecione o **do Azure Resource Manager** na lista pendente de modelo de implementação:
+## <a name="enable-diagnostics-on-a-virtual-machine-created-using-the-azure-portal"></a>Ativar o diagnóstico numa máquina virtual criada através do Portal do Azure
+
+O procedimento seguinte é para uma máquina virtual criada com o modelo de implementação do Resource Manager.
+
+Sobre o **gestão** separador **monitorização** secção, certifique-se de que **diagnósticos de arranque** está ativada. Do **conta de armazenamento de diagnóstico** pendente, selecione uma conta de armazenamento onde colocar os ficheiros de diagnóstico.
  
-    ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+![Criar VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
-2. Na **configurações**, ativar a **diagnósticos de arranque**e, em seguida, selecione uma conta de armazenamento que pretende colocar esses ficheiros de diagnóstico.
- 
-    ![Criar VM](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
+> [!NOTE]
+> A funcionalidade de diagnóstico de arranque não suporta a conta de armazenamento premium. Se utilizar a conta de armazenamento premium para o diagnóstico de arranque, poderá receber o erro StorageAccountTypeNotSupported quando iniciar a VM.
+>
 
-    > [!NOTE]
-    > A funcionalidade de diagnóstico de arranque não suporta a conta de armazenamento premium. Se utilizar a conta de armazenamento premium para o diagnóstico de arranque, poderá receber o erro StorageAccountTypeNotSupported quando iniciar a VM.
-    >
-    > 
+### <a name="deploying-from-an-azure-resource-manager-template"></a>Implementar a partir de um modelo Azure Resource Manager
 
-3. Se estiver a implementar a partir de um modelo Azure Resource Manager, navegue para o recurso de máquina virtual e acrescente a secção de perfil de diagnóstico. Não se esqueça de utilizar o cabeçalho da versão da API "2015-06-15".
+Se estiver a implementar a partir de um modelo Azure Resource Manager, navegue para o recurso de máquina virtual e acrescente a secção de perfil de diagnóstico. Defina o cabeçalho de versão de API para "2015-06-15" ou posterior. A versão mais recente é "2018-10-01".
 
-    ```json
-    {
-          "apiVersion": "2015-06-15",
-          "type": "Microsoft.Compute/virtualMachines",
-          … 
-    ```
+```json
+{
+  "apiVersion": "2018-10-01",
+  "type": "Microsoft.Compute/virtualMachines",
+  … 
+```
 
-4. O perfil de diagnóstico permite-lhe selecionar a conta de armazenamento onde quer colocar estes registos.
+O perfil de diagnóstico permite-lhe selecionar a conta de armazenamento onde quer colocar estes registos.
 
-    ```json
-            "diagnosticsProfile": {
-                "bootDiagnostics": {
-                "enabled": true,
-                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
-                }
-            }
-            }
-        }
-    ```
+```json
+    "diagnosticsProfile": {
+    "bootDiagnostics": {
+    "enabled": true,
+    "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+    }
+    }
+    }
+}
+```
 
-Para implementar uma máquina virtual de exemplo com o diagnóstico de arranque ativado, consulte nosso repositório aqui.
+Para obter mais informações sobre como implementar recursos com modelos, consulte [início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Ativar o diagnóstico de arranque numa máquina virtual existente 
 
 Para ativar o diagnóstico de arranque numa máquina virtual existente, siga estes passos:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, selecione a máquina virtual.
-2. Na **suporte + resolução de problemas**, selecione **diagnósticos de arranque** > **definições**, altere o estado para **em**e, em seguida, Selecione uma conta de armazenamento. 
-4. Certifique-se de que a opção de diagnóstico de arranque está selecionada e, em seguida, guarde a alteração.
+2. Na **suporte + resolução de problemas** secção, selecione **diagnósticos de arranque**, em seguida, selecione o **definições** separador.
+3. Na **diagnósticos de arranque** as definições, altere o estado para **no**e para o **conta de armazenamento** na lista pendente, selecione uma conta de armazenamento. 
+4. Guarde a alteração.
 
     ![Atualizar VM Existente](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
 
-3. Reinicie a VM para entrar em vigor.
+Tem de reiniciar a máquina virtual para que a alteração tenha efeito.
 
+### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Ativar diagnósticos de arranque com a CLI do Azure
 
+Pode utilizar a CLI do Azure para ativar o diagnóstico de arranque numa máquina virtual do Azure existente. Para obter mais informações, consulte [az vm boot-diagnostics](
+https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

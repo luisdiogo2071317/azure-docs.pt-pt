@@ -17,12 +17,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424957"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401882"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -63,7 +63,7 @@ Selecione a origem pretendida para o `NameIdentifier` (ou NameID) de afirmação
 | Email | O endereço de e-mail do utilizador |
 | userprincipalName | O nome principal de utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local |
-| ObjectID | O objectID do utilizador no Azure AD |
+| objectID | O objectID do utilizador no Azure AD |
 | employeeID | O campo IDdeEmpregado do utilizador |
 | Extensões de diretórios | Extensões de diretório [sincronizados a partir do Active Directory no local com o Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensão 1-15 | Atributos de extensão usados para estender o esquema do Azure AD no local |
@@ -75,13 +75,13 @@ Também pode utilizar as funções de transformações de afirmações especial.
 | Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de e-mail, nome de conta SAM ou o nome principal de utilizador. Extrai apenas a primeira parte do nome de utilizador que está sendo passada por meio de (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
-| **JOIN()** | Associa um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tem um domínio, ele irá extrair o nome de utilizador para acrescentar o domínio verificado selecionado. Por exemplo, se selecionar a mensagem de e-mail (joe_smith@contoso.com) como o valor do identificador de utilizador e selecione contoso.onmicrosoft.com como o domínio verificado, tal resultará em joe_smith@contoso.onmicrosoft.com. |
+| **join()** | Associa um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tem um domínio, ele irá extrair o nome de utilizador para acrescentar o domínio verificado selecionado. Por exemplo, se selecionar a mensagem de e-mail (joe_smith@contoso.com) como o valor do identificador de utilizador e selecione contoso.onmicrosoft.com como o domínio verificado, tal resultará em joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte os caracteres do atributo selecionado em carateres em minúsculas. |
 | **ToUpper()** | Converte os caracteres do atributo selecionado em carateres maiúsculos. |
 
 ## <a name="adding-claims"></a>Adicionar afirmações
 
-Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório.
+Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório ou utilize um valor de contant como uma entrada de estática para todos os utilizadores na sua organização.
 
 ![Adicionar o atributo de utilizador][7]
 

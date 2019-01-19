@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389566"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413248"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivos com um conjunto de capacidades no Azure Search 
 
-Os algoritmos de IA dirigir [pipelines de pesquisa cognitiva](cognitive-search-concept-intro.md) para processar dados não estruturados são baseiam [ **recursos dos serviços cognitivos**](https://azure.microsoft.com/services/cognitive-services/). Recursos, como [ **de imagem digitalizada** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) fornecer análise de imagem e reconhecimento ótico de carateres (OCR) para extrair texto e a estrutura de arquivos de imagem, enquanto [ **texto Análise** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) fornece processamento, como o reconhecimento e a chave frase extração de entidades, para mencionar alguns linguagem natural.
+Unidade de algoritmos de IA da [pipelines de pesquisa cognitiva](cognitive-search-concept-intro.md) utilizada para processar dados não estruturados numa operação de indexação do Azure Search. Esses algoritmos são baseiam [recursos dos serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/), incluindo [de imagem digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e reconhecimento ótico de carateres (OCR), e [de análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/)para o reconhecimento de entidades, extração de expressões-chave e outros possível.
 
 Pode enriquecer um número limitado de documentos gratuitamente ou anexar um recurso dos serviços cognitivos cobrar para cargas de trabalho maiores e mais freqüentes. Neste artigo, saiba como associar um recurso dos serviços cognitivos com o conjunto de capacidades cognitivo para enriquecer os dados durante [indexação de pesquisa do Azure](search-what-is-an-index.md).
 
-Se o seu pipeline consiste em habilidades não relacionado com APIs serviços cognitivos, ainda deve anexar um recurso dos serviços cognitivos, mas não ser cobrada essas habilidades. Não relacionado com habilidades incluem: [competências personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), e [Modelador](cognitive-search-skill-shaper.md).
+Se o seu pipeline consiste em habilidades não relacionado com APIs serviços cognitivos, ainda deve anexar um recurso dos serviços cognitivos. Fazer substituições por isso, o **gratuito** recursos que limita a uma pequena quantidade de possível por dia. Não existe nenhum custo associado de habilidades que não estão vinculados às APIs serviços cognitivos. Estas capacidades incluem: [competências personalizadas](cognitive-search-create-custom-skill-example.md), [fusão de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), e [Modelador](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, pode associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isto permite-nos ser cobrada a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
 >
-> A execução de [capacidades cognitivas incorporadas](cognitive-search-predefined-skills.md) é cobrada a [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services), em para classificar o mesmo como se realizados diretamente a tarefa. Extração de imagem é um evento de sujeito a faturação do Azure Search, atualmente oferecido a preços de pré-visualização. Para obter detalhes, consulte a [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) ou [como funciona a faturação](search-sku-tier.md#how-billing-works).
+> [Competências cognitivas incorporada](cognitive-search-predefined-skills.md) execução é cobrada a [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services), em para classificar o mesmo como se realizados diretamente a tarefa. Extração de imagem é um valor de Azure Search, atualmente oferecido a preços de pré-visualização. Para obter detalhes, consulte a [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) ou [como funciona a faturação](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Utilizar recursos gratuitos

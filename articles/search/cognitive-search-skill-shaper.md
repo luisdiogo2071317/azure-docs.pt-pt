@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391006"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410120"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
 
@@ -29,7 +29,7 @@ Por padrão, essa técnica oferece suporte a objetos que estão um nível de pro
 Em resposta, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" nos exemplos abaixo de "saída", mas a **Modelador** habilidade em si devolve "resultado" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
 
 > [!NOTE]
-> Essa habilidade não está vinculada a uma API dos serviços cognitivos e existem sem taxas associadas com essa habilidade. Contudo, deve [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) de qualquer forma, para substituir a opção de recurso gratuito que limita a um pequeno número de diário possível.
+> Essa habilidade não está vinculada a uma API dos serviços cognitivos e não lhe é cobrados usá-lo. Deve ainda [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md), no entanto, para substituir o **gratuito** opção de recursos que limita a um pequeno número de diário possível por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

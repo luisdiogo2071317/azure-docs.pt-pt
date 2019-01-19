@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634868"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412313"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerir o acesso através do RBAC e portal do Azure
 
@@ -55,7 +55,7 @@ Uma definição de função é uma coleção de permissões que é utilizada par
 
    ![Atribuições de funções](./media/role-assignments-portal/role-assignments.png)
 
-## <a name="view-role-assignments"></a>Atribuições de funções da vista
+## <a name="view-role-assignments"></a>Ver atribuições de funções
 
 Ao gerir o acesso, pretende saber quem tem acesso, quais são as suas permissões e em qual nível. Para o acesso de lista para um utilizador, grupo, principal de serviço ou uma identidade gerida, visualizar as atribuições de funções.
 
@@ -166,6 +166,6 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Siga estes 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
-* [Tutorial: Conceder acesso a um utilizador com o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Funções incorporadas](built-in-roles.md)
+* [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Resolver problemas relacionados com o RBAC no Azure](troubleshooting.md)
 * [Organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md)

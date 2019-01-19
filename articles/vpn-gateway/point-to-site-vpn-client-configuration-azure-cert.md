@@ -1,30 +1,30 @@
 ---
-title: 'Criar e instalar ficheiros de configuração de cliente de P2S VPN para autenticação de certificados do Azure: Azure | Documentos da Microsoft'
+title: 'Criar e instalar ficheiros de configuração de cliente de P2S VPN para autenticação de certificados do Azure: Azure | Microsoft Docs'
 description: Criar e instalar o Windows, Linux, o Linux (strongSwan) e a VPN do Mac OS X arquivos de configuração de cliente para autenticação de certificados P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636650"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412070"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração de cliente VPN para configurações P2S da autenticação de certificados nativa do Azure
 
-Ficheiros de configuração de cliente VPN estão contidos num arquivo zip. Ficheiros de configuração fornecem as definições necessárias para um clientes nativos do Windows, a VPN IKEv2 do Mac ou Linux ligar a uma VNet através de ligações de ponto a Site que utilizam a autenticação de certificados nativa do Azure. Para obter mais informações sobre ligações Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
+Ficheiros de configuração de cliente VPN estão contidos num arquivo zip. Ficheiros de configuração fornecem as definições necessárias para um clientes nativos do Windows, a VPN IKEv2 do Mac ou Linux ligar a uma VNet através de ligações de ponto a Site que utilizam a autenticação de certificados nativa do Azure.
+
+Ficheiros de configuração de cliente são específicos para a configuração de VPN para a VNet. Se existirem quaisquer alterações à configuração de VPN ponto a Site depois de gerar os ficheiros de configuração de cliente VPN, como o tipo de protocolo VPN ou o tipo de autenticação, certifique-se de que gerar novos ficheiros de configuração de cliente VPN para os seus dispositivos de utilizador. 
+
+* Para obter mais informações sobre ligações Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
+* Para obter instruções de OpenVPN, consulte [OpenVPN configurar para P2S](vpn-gateway-howto-openvpn.md) e [OpenVPN configurar clientes](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->Ficheiros de configuração de cliente são específicos para a configuração de VPN para a VNet. Se existirem quaisquer alterações à configuração de VPN ponto a Site depois de gerar os ficheiros de configuração de cliente VPN, como o tipo de protocolo VPN ou o tipo de autenticação, certifique-se de que gerar novos ficheiros de configuração de cliente VPN para os seus dispositivos de utilizador.
->
 >
 
 ## <a name="generate"></a>Gerar ficheiros de configuração de cliente VPN
@@ -70,7 +70,7 @@ Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo p
 3. No computador cliente, navegue para **Definições de Rede** e clique em **VPN**. A ligação VPN mostra o nome da rede virtual à qual se liga. 
 4. Antes de tentar ligar, certifique-se de que instalou um certificado de cliente no computador cliente. Se utilizar o tipo de autenticação de certificados nativa do Azure, é preciso um certificado de cliente para a autenticação. Para obter mais informações sobre como gerar certificados, consulte [gerar certificados](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Para obter informações sobre como instalar um certificado de cliente, consulte [instale um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>MAC (SO X)
+## <a name="installmac"></a>Mac (OS X)
 
  Tem de configurar manualmente o cliente VPN IKEv2 nativo em cada Mac que irá ligar ao Azure. O Azure não fornece o ficheiro mobileconfig para a autenticação de certificados nativa do Azure. O **genérico** contém todas as informações que precisa para a configuração. Se não vir a pasta Generic na sua transferência, é provável que o IKEv2 não tenha sido selecionado como um tipo de túnel. Depois de selecionar IKEv2, gere novamente o ficheiro zip para obter a pasta Generic.<br>A pasta Generic contém os seguintes ficheiros:
 

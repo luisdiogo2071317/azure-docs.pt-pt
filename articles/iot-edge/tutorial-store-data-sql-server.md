@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 01/18/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 426e4fe05890f1669859545db3d731943a12428a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260180"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412228"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Store dados na periferia com bancos de dados do SQL Server
 
@@ -36,7 +36,10 @@ Neste tutorial, ficará a saber como:
 
 Um dispositivo Azure IoT Edge:
 
-* Pode seguir os passos no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge. 
+* Pode seguir os passos no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+
+  > [!NOTE]
+  > SQL Server só suporta contentores do Linux. Se pretender testar este tutorial com um dispositivo de Windows como o seu dispositivo Edge, tem de o configurar para que ele utilize contentores do Linux. Ver [runtime de instalar o Azure IoT Edge no Windows](how-to-install-iot-edge-windows-with-linux.md) para a pré-requisitos e passos de instalação para configurar o runtime do IoT Edge para contentores do Linux no Windows.
 
 Recursos da cloud:
 
@@ -227,15 +230,9 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 1. No explorador do Visual Studio Code, abra o ficheiro **deployment.template.json**. 
 
-2. Encontrar o **módulos** secção. Devem existir dois módulos listados: **tempSensor**, que gera dados simulados, e o módulo **sqlFunction**.
+1. Encontrar o **módulos** secção. Devem existir dois módulos listados: **tempSensor**, que gera dados simulados, e o módulo **sqlFunction**.
 
-3. Se estiver a utilizar contentores do Windows, modifique a secção **sqlFunction.settings.image**.
-
-   ```json
-   "image": "${MODULES.sqlFunction.windows-amd64}"
-   ```
-
-4. Adicione o código seguinte para declarar um terceiro módulo. Adicione uma vírgula depois da secção sqlFunction e insira:
+1. Adicione o código seguinte para declarar um terceiro módulo. Adicione uma vírgula depois da secção sqlFunction e insira:
 
    ```json
    "sql": {
@@ -253,29 +250,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
    ![Adicionar módulo do SQL server se manifeste](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Dependendo do tipo de contentores do Docker no seu dispositivo IoT Edge, atualize o **sql** parâmetros de módulo com o código a seguir:
-   * Contentores do Windows:
-
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "microsoft/mssql-server-windows-developer",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "C:\\mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
-
-   * Contentores do Linux:
-
+1. Atualização do **sql** parâmetros de módulo com o código a seguir:
       ```json
       "env": {
         "ACCEPT_EULA": {"value": "Y"},
@@ -295,9 +270,9 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
       ```
 
    >[!Tip]
-   >Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
+   >Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-6. Guarde o ficheiro **deployment.template.json**.
+1. Guarde o ficheiro **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
@@ -353,42 +328,16 @@ Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módu
 Execute os seguintes comandos no seu dispositivo IoT Edge. Estes comandos ligar para o **sql** módulo em execução no seu dispositivo e criar uma base de dados e uma tabela para conter os dados de temperatura que está a ser enviados para o mesmo. 
 
 1. Uma ferramenta da linha de comandos no seu dispositivo IoT Edge, ligar à base de dados. 
-   * Contentor do Windows:
-   
-      ```cmd
-      docker exec -it sql cmd
-      ```
-    
-   * Contentor do Linux: 
-
       ```bash
       sudo docker exec -it sql bash
       ```
 
 2. Abra a ferramenta de comandos SQL.
-   * Contentor do Windows:
-
-      ```cmd
-      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
-      ```
-
-   * Contentor do Linux: 
-
       ```bash
       /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Criar a base de dados: 
-
-   * Contentor do Windows
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
-      GO
-      ```
-
-   * Contentor do Linux
       ```sql
       CREATE DATABASE MeasurementsDB
       ON

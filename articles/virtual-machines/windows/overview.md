@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0db867b31776f19aa3fef28f1e8b5c8798ff958a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720259"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410564"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure
 
@@ -49,7 +49,7 @@ Existem sempre inúmeras [considerações de design](/azure/architecture/referen
 * Os recursos relacionados que a VM precisa
 
 ### <a name="naming"></a>Atribuição de nomes
-Uma máquina virtual tem um [nome](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) atribuído e tem um nome do computador configurado como parte do sistema operativo. O nome de uma VM pode ter até 15 carateres.
+Uma máquina virtual tem um [nome](/azure/architecture/best-practices/naming-conventions) atribuído e tem um nome do computador configurado como parte do sistema operativo. O nome de uma VM pode ter até 15 carateres.
 
 Se utilizar o Azure para criar o disco do sistema operativo, o nome do computador e da máquina virtual é o mesmo. Se [carregar e utilizar a sua própria imagem](upload-generalized-managed.md) que contém um sistema operativo configurado anteriormente e utilizá-lo para criar uma máquina virtual, os nomes podem ser diferentes. Recomendamos que, ao carregar o seu próprio ficheiro de imagem, o nome do computador no sistema operativo e o da máquina virtual seja o mesmo.
 

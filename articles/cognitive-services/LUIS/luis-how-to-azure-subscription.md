@@ -9,16 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e69d03e2c45ee34723bd6aace3a2a26cead63e96
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082990"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411616"
 ---
-# <a name="manage-azure-endpoint-subscription-keys"></a>Gerir chaves de subscrição de ponto final do Azure
+# <a name="manage-azure-resource-keys-for-prediction-endpoint-queries"></a>Gerir chaves de recursos do Azure para consultas de ponto final de previsão
+
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
 Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os sistemas de produção, utilize um [pago](https://aka.ms/luis-price-tier) escalão. 
 
@@ -57,7 +59,7 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
 5. Não se esqueça de [atribuir esta chave de ponto final](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **publicar** página e utilizá-lo em todas as consultas de ponto final. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Ter mais de utilização do escalão de preço
-Cada escalão permite pedidos de ponto final à sua conta do LUIS a uma taxa específica. Se a taxa de pedidos é maior do que a taxa de permitidos da sua conta com tráfego limitado por minuto ou por mês, pedidos de recebem um erro HTTP de "429: demasiados pedidos."
+Cada escalão permite pedidos de ponto final à sua conta do LUIS a uma taxa específica. Se a taxa de pedidos é maior do que a taxa de permitidos da sua conta com tráfego limitado por minuto ou por mês, pedidos de recebem um erro HTTP de "429: Demasiados pedidos."
 
 Cada escalão permite acumulativos pedidos por mês. Se o total de pedidos é maiores que a taxa de permitidas, os pedidos de recebem um erro HTTP de "403: proibido".  
 

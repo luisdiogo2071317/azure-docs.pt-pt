@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 37ecb314c5f09a51d9ce9d28534a4664b75069af
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495068"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412755"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a proteção de dados Oracle numa máquina virtual Linux do Azure 
 
@@ -48,9 +48,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos são implementados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos são implementados e geridos. 
 
-O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `westus` localização:
+O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
