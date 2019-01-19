@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: ba46ba6429640cf29d9abc75055563fb1578d2e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 87dacdfa6df4021607953efd61fe9b4f49b30383
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129595"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402273"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Otimização de geração 1 de armazenamento do Azure Data Lake para o desempenho
 
@@ -136,9 +136,9 @@ Além das Diretrizes gerais acima, cada aplicativo tem parâmetros diferentes di
 
 | Carga de trabalho               | Parâmetro para definir as tarefas                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [O Spark no Hdinsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Núm. executores</li><li>Memória de executor</li><li>Núcleos de executor</li></ul> |
-| [Hive no HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>Hive.tez.Container.size</li></ul>         |
-| [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [O Spark no HDInsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Memória de executor</li><li>Núcleos de executor</li></ul> |
+| [Hive no HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
+| [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor de spout</li><li>Número de instâncias de executor de bolt </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
 ## <a name="see-also"></a>Consulte também

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632623"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413379"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -63,6 +63,9 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
 ## <a name="text-to-speech"></a>Conversão de texto em voz
 
 A API REST do texto para discurso dá suporte essas vozes, cada um deles suporta um idioma específico e dialect, identificado por localidade.
+
+> [!IMPORTANT]
+> Os preços variam de vozes neurais, padrão e personalizados. Visite o [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) página para obter informações adicionais.
 
 ### <a name="neural-voices-preview"></a>Vozes neurais (pré-visualização)
 

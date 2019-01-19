@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190848"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411684"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -107,7 +107,7 @@ Para o SSMS, SSDT e cadeias de ligação no PowerShell, aplicações de função
 
 **Problema:** Os utilizadores obtêm o erro **não é possível localizar o servidor '\<nome do servidor > "instância no modo de ligação"Só de leitura".**
 
-**Solução:** Ao selecionar o **separar o servidor de processamento do conjunto consulta** opção, as ligações de cliente utilizando a cadeia de ligação padrão (sem: rw) são redirecionadas para réplicas de conjunto de consulta. Se as réplicas no agrupamento de consulta são ainda online porque a sincronização não tem ainda não foi concluídas, as ligações de cliente redirecionada podem falhar. Para impedir ligações falhadas, optar por não separar o servidor de processamento do conjunto consulta até que uma operação de aumento horizontal e a sincronização estejam concluídas. Pode utilizar as métricas de memória e QPU para monitorizar o estado de sincronização.
+**Solução:** Ao selecionar o **separar o servidor de processamento do conjunto consulta** opção, as ligações de cliente utilizando a cadeia de ligação padrão (sem: rw) são redirecionadas para réplicas de conjunto de consulta. Se as réplicas no agrupamento de consulta são ainda online porque a sincronização não tem ainda não foi concluídas, as ligações de cliente redirecionada podem falhar. Para impedir ligações falhadas, deve haver pelo menos dois servidores no agrupamento de consulta quando efetuar uma sincronização. Cada servidor está sincronizado individualmente, enquanto outros permanecem online. Se optar por não ter o servidor de processamento do conjunto de consulta durante o processamento, é possível removê-lo a partir do agrupamento para processamento, e, em seguida, adicioná-lo após a conclusão do processamento, mas antes da sincronização para o pool. Utilize métricas de memória e QPU para monitorizar o estado de sincronização.
 
 ## <a name="related-information"></a>Informações relacionadas
 

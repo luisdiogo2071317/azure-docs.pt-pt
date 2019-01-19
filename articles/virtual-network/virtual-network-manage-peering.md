@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 39cb9f606e6829fe8265a40216de5312c3e7e60b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4278ec65dd21e998fa2f498435d7df143ea07d0a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075197"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412891"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -87,7 +87,7 @@ Antes de alterar um peering, familiarize-se com o [requisitos e restrições](#r
 
 **Comandos**
 
-- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as definições de peering. |
+- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as definições de peering. |
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) para obter as definições de peering do modo de exibição e [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) para alterar as definições.
 
 ## <a name="delete-a-peering"></a>Eliminar um peering

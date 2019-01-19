@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: c267fc8a3a40d5e1a4f34b607762e1f79e5940b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383438"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401491"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, terá de descobrir como pretende manter os dados protegidos e aplicações/cargas de trabalho em execução quando planeada e falhas não planeadas ocorrerem. O Azure Site Recovery contribui para a sua estratégia BCDR ao manter as suas aplicações em execução em VMs e servidores físicos disponíveis se um site ficar inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que permaneçam disponíveis num local secundário, se o site primário não estiver disponível. Recupera as cargas de trabalho para o site primário quando estiver novamente operacional.
@@ -48,7 +48,7 @@ O Azure Site Recovery publica atualizações de serviço regularmente - incluind
 2. Consulte nossos [atualizações de serviço](https://azure.microsoft.com/updates/?product=site-recovery) para descobrir qual versão do Site Recovery componentes suportam a versionn específico que pretende atualizar para o.
 3. Em primeiro lugar, atualize para a versão mais recente de recuperar o Site.
 4. Agora, atualize o sistema operacional/Kernel para as versões pretendidas.
-5. Efetuar um reinício.
+5. Realize uma reinicialização.
 6. Isto irá garantir que a versão de Kernel do sistema operacional nas suas máquinas são atualizados para a versão mais recente e também que as alterações mais recentes da recuperação de sites que são necessários para suportar a nova versão também são carregadas na máquina de origem.
 
 

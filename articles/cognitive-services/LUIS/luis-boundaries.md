@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b71b62d50f209c033597799dd26f579fcb200cc9
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133524"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413382"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo do LUIS e chaves
 LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-boundaries), que controla o intenções, entidades e recursos do LUIS. É a segunda área [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área dos limites da [combinação de teclado](#keyboard-controls) para controlar o Web site do LUIS. É uma área de quarta a [mapeamento de região do mundo](luis-reference-regions.md) entre o LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -60,14 +60,21 @@ Não utilize os seguintes carateres em nomes de intenção e entidade:
 |`]`|Reto|
 |`\`|Barra invertida|
 
+## <a name="key-usage"></a>Utilização de chaves
+
+Compreender de linguagem tem chaves separadas, um tipo para a criação e um tipo para consultar o ponto de extremidade de predição. Para saber mais sobre as diferenças entre tipos de chaves, consulte [criação e a consulta a chaves do ponto final de predição em LUIS](luis-concept-keys.md).
+
 ## <a name="key-limits"></a>Limites de chaves
+
 A chave de criação tem limites diferentes para a criação e o ponto final. A chave de ponto final de serviço do LUIS só é válida para consultas de ponto final.
+
 
 |Chave|Criação de conteúdos|Ponto Final|Objetivo|
 |--|--|--|--|
-|Criação/Starter|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criação da sua aplicação LUIS|
-|[Subscrição] [ pricing] escalão gratuito de - F0 - |inválido|10 mil/mês, 5/segundo|Consultar o ponto de final do LUIS|
-|[Subscrição] [ pricing] - S0 - de escalão básico|inválido|50/segundo|Consultar o ponto de final do LUIS|
+|Compreensão de linguagem de criação/Starter|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criação da sua aplicação LUIS|
+|Compreensão de idiomas [subscrição] [ pricing] escalão gratuito de - F0 - |inválido|10 mil/mês, 5/segundo|Consultar o ponto de final do LUIS|
+|Compreensão de idiomas [subscrição] [ pricing] - S0 - de escalão básico|inválido|50/segundo|Consultar o ponto de final do LUIS|
+|Serviço cognitivo [subscrição] [ pricing] - S0 - o escalão Standard|inválido|50/segundo|Consultar o ponto de final do LUIS|
 |[Integração de análise de sentimentos](luis-how-to-publish-app.md#enable-sentiment-analysis)|inválido|sem custos|Adicionar informações de sentimentos, incluindo a extração de dados de expressões-chave |
 |Integração de voz|inválido|Pedidos de ponto final de 5.50 US $/ 1 mil|Converter a expressão falada em expressão de texto e devolvem os resultados de LUIS|
 

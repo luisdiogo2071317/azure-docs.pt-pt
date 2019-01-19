@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091031"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402341"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Descrição geral dos Hubs de eventos dedicados
 
@@ -32,7 +32,7 @@ A tabela seguinte compara os escalões de serviço disponível dos Hubs de event
 | --- |:---:|:---:|:---:|
 | Eventos de entrada | Pagar por milhão de eventos | Incluída |
 | Unidade de débito (entrada de 1 MB/s, saída 2 MB/seg) | Pagar por hora | Incluída |
-| Tamanho da Mensagem | 256 KB | 1 MB |
+| Tamanho da Mensagem | 1 MB | 1 MB |
 | Políticas do publicador | Sim | Sim |   
 | Grupos de consumidores | 20 | 20 |
 | Repetição de mensagens | Sim | Sim |
@@ -47,11 +47,10 @@ A tabela seguinte compara os escalões de serviço disponível dos Hubs de event
 Os seguintes benefícios estão disponíveis ao utilizar os Hubs de eventos dedicados:
 
 * Inquilino único, hospedagem de com não ruído de outros inquilinos.
-* Tamanho da mensagem aumenta para 1 MB em comparação com a 256 KB para Standard.
 * Desempenho repetível cada vez.
 * A garantia de capacidade de atender às suas necessidades de rajada.
 * Inclui a [capturar](event-hubs-capture-overview.md) funcionalidade dos Hubs de eventos, para fornecer integração com retenção a longo prazo e de micro-lotes.
-* Manutenção de zero: O serviço gere o balanceamento de carga, OS atualizações, patches de segurança e criação de partições.
+* Sem necessidade de manutenção: O serviço gere o balanceamento de carga, OS atualizações, patches de segurança e criação de partições.
 * Corrigido preços por hora.
 * Retenção de mensagens de cópia de segurança a 7 dias sem encargos extra.
 

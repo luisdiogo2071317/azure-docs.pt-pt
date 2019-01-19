@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275674"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413027"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -71,7 +71,7 @@ Ao executar o seguinte comando do PowerShell, terá de fornecer o ponto final co
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Parâmetros de script de GET-AzureStackRootCert.ps1
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Parâmetro | Obrigatório ou opcional | Valor predefinido | Descrição |
 | --- | --- | --- | --- |
@@ -327,7 +327,7 @@ Os administradores tem de configurar SSO para:
 Siga estes passos.
 
 1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
-2. Vá para a localização dos scripts que transferiu e extraiu no [passo dos pré-requisitos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vá para a localização dos scripts que transferiu e extraiu no [passo dos pré-requisitos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Executar o **AADIdentityApp.ps1 criar** script. Quando lhe for pedido, introduza o ID de inquilino do Azure AD que está a utilizar para a sua implementação do Azure Stack. Por exemplo, introduza **myazurestack.onmicrosoft.com**.
 5. Na **credencial** janela, introduza a sua conta de administrador de serviço do Azure AD e a palavra-passe. Selecione **OK**.
@@ -371,7 +371,7 @@ Os administradores tem de configurar SSO para:
 Siga estes passos.
 
 1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
-2. Vá para a localização dos scripts que transferiu e extraiu no [passo dos pré-requisitos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vá para a localização dos scripts que transferiu e extraiu no [passo dos pré-requisitos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 4. Executar o **ADFSIdentityApp.ps1 criar** script.
 5. Na **credencial** janela, introduza a sua conta de administrador do AD FS na cloud e a palavra-passe. Selecione **OK**.

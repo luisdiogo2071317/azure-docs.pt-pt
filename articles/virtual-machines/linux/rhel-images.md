@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229579"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402154"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens de Red Hat Enterprise Linux no Azure
 Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomenclatura e retenção.
 
 Podem encontrar informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL no [ciclo de vida do Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) página.
+
+>[!Important]
+> Imagens RHEL atualmente disponíveis no Azure marketplace suportam traga-Your-Own-subscrição (BYOS) ou pay as you go (PAYG) a modelos de licenciamento. O [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) e mudança dinâmica entre BYOS e PAYG não é suportada. Modo de licenciamento de comutação requer a reimplementação da VM a partir da imagem correspondente.
+
+>[!Note]
+> Para qualquer problema relacionado com RHEL imagens na galeria do marketplace do Azure, submeta um pedido de suporte com a Microsoft.
 
 ## <a name="images-available-in-the-ui"></a>Imagens disponíveis na interface de Usuário
 Ao procurar "Red Hat" no Marketplace ou quando cria um recurso no portal do Azure da interface do Usuário, verá um subconjunto das imagens disponíveis do RHEL e produtos relacionados do Red Hat. Sempre pode obter o conjunto completo de imagens VM disponíveis com a CLI/PowerShell/API do Azure.
@@ -70,23 +76,23 @@ A limitação é o fato de que quando um não-seletiva `yum update` é executada
 As seguintes ofertas são que SKUs estão atualmente disponíveis para utilização geral:
 Oferta| SKU | Criação de partições | Aprovisionamento | Notas
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-BRUTO | NÃO PROCESSADOS | Agente Linux | Família do RHEL 7 de imagens
+RHEL | 7-RAW | RAW | Agente Linux | Família do RHEL 7 de imagens
 | | 7-LVM | LVM | Agente Linux | Família do RHEL 7 de imagens
-| | 7-RAW-CI | NÃO PROCESSADOS CI | Inicialização da cloud | Família do RHEL 7 de imagens
-| | 6.7 | NÃO PROCESSADOS | Agente Linux | Imagens RHEL 6.7, convenção de nomenclatura antiga
-| | 6.8 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 6.8
-| | 6.9 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 6.9
-| | 6.10 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 6.10
-| | 7.2 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 7.2
-| | 7.3 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 7.3
-| | 7.4 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 7.4
-| | 7.5 | NÃO PROCESSADOS | Agente Linux | Mesmo como anteriormente para RHEL 7.5
+| | 7-RAW-CI | RAW-CI | Inicialização da cloud | Família do RHEL 7 de imagens
+| | 6.7 | RAW | Agente Linux | Imagens RHEL 6.7, convenção de nomenclatura antiga
+| | 6.8 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 6.8
+| | 6.9 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 6.9
+| | 6.10 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 6.10
+| | 7.2 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 7.2
+| | 7.3 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 7.3
+| | 7.4 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 7.4
+| | 7.5 | RAW | Agente Linux | Mesmo como anteriormente para RHEL 7.5
 RHEL SAP | 7.4 | LVM | Agente Linux | RHEL 7.4 para SAP HANA e aplicações empresariais
 | | 7.5 | LVM | Agente Linux | RHEL 7.5 para o SAP HANA e aplicações empresariais
-RHEL-SAP-HANA | 6.7 | NÃO PROCESSADOS | Agente Linux | RHEL 6.7 para o SAP HANA
+RHEL-SAP-HANA | 6.7 | RAW | Agente Linux | RHEL 6.7 para o SAP HANA
 | | 7.2 | LVM | Agente Linux | 7.2 de RHEL for SAP HANA
 | | 7.3 | LVM | Agente Linux | 7.3 de RHEL for SAP HANA
-APLICAÇÕES DE SAP RHEL | 6.8 | NÃO PROCESSADOS | Agente Linux | 6.8 de RHEL for SAP Business Applications
+APLICAÇÕES DE SAP RHEL | 6.8 | RAW | Agente Linux | 6.8 de RHEL for SAP Business Applications
 | | 7.3 | LVM | Agente Linux | 7.3 de RHEL for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Convenção de nomenclatura antiga

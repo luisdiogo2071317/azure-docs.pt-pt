@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 05134ff59f87aaac71588057f1ac50015a769672
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d5a8fa61307c278a77b33868a711970850a06f3e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389828"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410052"
 ---
 #   <a name="text-split-cognitive-skill"></a>Texto a dividir competências cognitivas
 
 O **divisão de texto** habilidade quebra o texto em segmentos de texto. Pode especificar se pretende dividem o texto em frases ou em páginas de um comprimento específico. Essa habilidade é especialmente útil se existirem texto máximo requisitos de comprimento de outras habilidades downstream. 
 
 > [!NOTE]
-> Essa habilidade não está vinculada a uma API dos serviços cognitivos e existem sem taxas associadas com essa habilidade. Contudo, deve [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) de qualquer forma, para substituir a opção de recurso gratuito que limita a um pequeno número de diário possível.
+> Essa habilidade não está vinculada a uma API dos serviços cognitivos e não lhe é cobrados usá-lo. Deve ainda [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md), no entanto, para substituir o **gratuito** opção de recursos que limita a um pequeno número de diário possível por dia.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 

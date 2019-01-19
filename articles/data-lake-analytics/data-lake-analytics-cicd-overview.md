@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 68691430621c0055b3465b9428a8206c6a544a97
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969844"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412534"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline CI/CD para o Azure Data Lake Analytics  
 
@@ -81,7 +81,7 @@ A definição de argumentos e valores são os seguintes:
 * **USQLTargetType = intercalação ou SyntaxCheck**:
     * **Intercalar**. Modo de intercalação compila arquivos code-behind. Os exemplos são **. cs**, **. PY**, e **. r** ficheiros. Ele linhas internas da biblioteca de código definido pelo utilizador resultante para o script de U-SQL. Os exemplos são um binário de dll, Python ou R código.
     * **SyntaxCheck**. Modo de SyntaxCheck mescla primeiro arquivos code-behind para o script de U-SQL. Em seguida, ele compila o script de U-SQL para validar o seu código.
-* **DataRoot =<DataRoot path>**. DataRoot é necessário apenas para o modo de SyntaxCheck. Quando ele cria o script com o modo de SyntaxCheck, MSBuild verifica as referências a objetos de banco de dados no script. Antes de criar, configure um ambiente local correspondente que contém os objetos referenciados da base de dados U-SQL na pasta DataRoot de máquina de compilação. Também pode gerir estas dependências de base de dados por [referenciar um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild verifica apenas referências de objeto de base de dados, não os ficheiros.
+* **DataRoot=<DataRoot path>**. DataRoot é necessário apenas para o modo de SyntaxCheck. Quando ele cria o script com o modo de SyntaxCheck, MSBuild verifica as referências a objetos de banco de dados no script. Antes de criar, configure um ambiente local correspondente que contém os objetos referenciados da base de dados U-SQL na pasta DataRoot de máquina de compilação. Também pode gerir estas dependências de base de dados por [referenciar um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild verifica apenas referências de objeto de base de dados, não os ficheiros.
 * **EnableDeployment = true** ou **false**. EnableDeployment indica se é permitido para implementar bases de dados de U-SQL referenciados durante o processo de compilação. Se referenciar um projeto de banco de dados U-SQL e consumir os objetos de base de dados no seu script de U-SQL, defina este parâmetro como **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integração contínua através de Pipelines do Azure
@@ -246,7 +246,7 @@ Utilize o [tarefas de Azure PowerShell](https://docs.microsoft.com/azure/devops/
 param(
     [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
     [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DesitinationFolder = "USQLScriptSource" # Desitination folder in ADLS
+    [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
 )
 
 Function UploadResources()
@@ -261,7 +261,7 @@ Function UploadResources()
     foreach($file in $files)
     {
         Write-Host "Uploading file: $($file.Name)"
-        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DesitinationFolder $file)" -Force
+        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
     }
 }
 
@@ -454,31 +454,31 @@ Siga os passos seguintes para configurar uma tarefa de implementação de base d
 
 | Parâmetro | Descrição | Valor Predefinido | Necessário |
 |---------|-----------|-------------|--------|
-|Pacote|O caminho do pacote de implementação do U-SQL da base de dados a serem implantados.|Nulo|true|
+|Pacote|O caminho do pacote de implementação do U-SQL da base de dados a serem implantados.|nulo|true|
 |Base de Dados|O nome de base de dados a ser implementado ou criado.|master|false|
-|Ficheiro de registo|O caminho do ficheiro de registo. Padrão standard out (consola).|Nulo|false|
-|LogLevel|Nível de registo: verboso, Normal, aviso ou erro.|LogLevel.Normal|false|
+|LogFile|O caminho do ficheiro de registo. Padrão standard out (consola).|nulo|false|
+|LogLevel|Nível de registo: Verboso, Normal, aviso ou erro.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parâmetro de implementação de local
 
 |Parâmetro|Descrição|Valor Predefinido|Necessário|
 |---------|-----------|-------------|--------|
-|DataRoot|O caminho da pasta de raiz de dados local.|Nulo|true|
+|DataRoot|O caminho da pasta de raiz de dados local.|nulo|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parâmetros para a implementação do Azure Data Lake Analytics
 
 |Parâmetro|Descrição|Valor Predefinido|Necessário|
 |---------|-----------|-------------|--------|
-|Conta|Especifica a conta do Azure Data Lake Analytics para implementar em, pelo nome da conta.|Nulo|true|
-|ResourceGroup|O nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics.|Nulo|true|
-|SubscriptionId|O ID de subscrição do Azure para a conta do Azure Data Lake Analytics.|Nulo|true|
-|Inquilino|O nome do inquilino é o nome de domínio do Azure Active Directory (Azure AD). Encontrá-lo na página de gestão da subscrição no portal do Azure.|Nulo|true|
-|AzureSDKPath|O caminho para pesquisar os conjuntos de módulos dependentes no SDK do Azure.|Nulo|true|
+|Conta|Especifica a conta do Azure Data Lake Analytics para implementar em, pelo nome da conta.|nulo|true|
+|ResourceGroup|O nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics.|nulo|true|
+|SubscriptionId|O ID de subscrição do Azure para a conta do Azure Data Lake Analytics.|nulo|true|
+|Inquilino|O nome do inquilino é o nome de domínio do Azure Active Directory (Azure AD). Encontrá-lo na página de gestão da subscrição no portal do Azure.|nulo|true|
+|AzureSDKPath|O caminho para pesquisar os conjuntos de módulos dependentes no SDK do Azure.|nulo|true|
 |Interativo|Se deve ou não a utilizar o modo interativo para autenticação.|false|false|
-|ClientId|O ID da aplicação do Azure AD necessários para a autenticação não interativa.|Nulo|Necessário para a autenticação não interativa.|
-|Secrete|O secrete ou a palavra-passe para a autenticação não interativa. Ele deve ser usado apenas num ambiente seguro e fiável.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize SecreteFile.|
-|SecreteFile|O ficheiro salva o secrete ou a palavra-passe para a autenticação não interativa. Certifique-se de mantê-lo legíveis apenas pelo utilizador atual.|Nulo|É necessário para a autenticação não interativa, caso contrário, utilize Secrete.|
-|CertFile|O ficheiro guarda a certificação X.509 para a autenticação não interativa. A predefinição é utilizar o cliente secrete autenticação.|Nulo|false|
+|ClientId|O ID da aplicação do Azure AD necessários para a autenticação não interativa.|nulo|Necessário para a autenticação não interativa.|
+|Secrete|O secrete ou a palavra-passe para a autenticação não interativa. Ele deve ser usado apenas num ambiente seguro e fiável.|nulo|É necessário para a autenticação não interativa, caso contrário, utilize SecreteFile.|
+|SecreteFile|O ficheiro salva o secrete ou a palavra-passe para a autenticação não interativa. Certifique-se de mantê-lo legíveis apenas pelo utilizador atual.|nulo|É necessário para a autenticação não interativa, caso contrário, utilize Secrete.|
+|CertFile|O ficheiro guarda a certificação X.509 para a autenticação não interativa. A predefinição é utilizar o cliente secrete autenticação.|nulo|false|
 | JobPrefix | O prefixo para a implementação de base de dados de uma tarefa de DDL do U-SQL. | Deploy_ + DateTime. Now | false |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: b7a43135ef0aa0ecfe80000d2d0d73c57e138102
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8be8fa68b48257a8d94d3ba6364d47c522bbf3de
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975026"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402001"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Spark no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 
@@ -22,7 +22,7 @@ Quando o ajuste de desempenho no Spark, precisa considerar o número de aplicaç
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
+* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
 * **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Certifique-se de que ativar o ambiente de trabalho remoto para o cluster. 
 * **A executar o cluster do Spark no ger2 de armazenamento do Data Lake**.  Para obter mais informações, consulte [cluster utilizar o Spark do HDInsight para analisar dados de geração 2 de armazenamento do Data Lake](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
 * **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md) 
@@ -43,7 +43,7 @@ Quando executar tarefas de Spark, seguem-se as definições mais importantes que
 
 **Núcleos de executor** isso define o número de núcleos utilizado por executor, que determina o número de threads paralelos que podem ser executadas por executor.  Por exemplo, se núcleos de executor = 2, em seguida cada executor pode executar tarefas paralelas 2 no executor.  Os núcleos de executor necessitam será dependentes da tarefa.  Tarefas pesadas de e/s não necessitam de uma grande quantidade de memória por tarefas, para que cada executor pode processar mais tarefas paralelas.
 
-Por predefinição, os dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Este número fornece um bom equilíbrio de concurrecy e a quantidade de alternância de vários threads de contexto.  
+Por predefinição, os dois núcleos YARN virtuais são definidos para cada núcleo físico ao executar o Spark no HDInsight.  Este número fornece um bom equilíbrio de simultaneidade e a quantidade de alternância de vários threads de contexto.  
 
 ## <a name="guidance"></a>Orientação
 
@@ -55,7 +55,7 @@ Existem algumas formas gerais para aumentar a simultaneidade para tarefas intens
 
 **Passo 2: Definir a memória de executor** – a primeira coisa que definir é a memória de executor.  A memória será dependente da tarefa que pretende executar.  Pode aumentar a simultaneidade ao alocar menos memória por executor.  Se vir exceções de memória insuficiente quando executar o seu trabalho, em seguida, deve aumentar o valor para este parâmetro.  Uma alternativa é obter mais memória ao utilizar um cluster com a maior quantidade de memória ou aumentar o tamanho do cluster.  Mais memória irá permitir executores mais a ser usado, o que significa mais simultaneidade.
 
-**Passo 3: Configurar o executor núcleos** – e/s para cargas de trabalho intensivas que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor.  Definição de 4 núcleos de executor é um bom começo.   
+**Passo 3: Definir o executor núcleos** – e/s para cargas de trabalho intensivas que não têm operações complexas, é bom começar com um elevado número de núcleos executor para aumentar o número de tarefas paralelas por executor.  Definição de 4 núcleos de executor é um bom começo.   
 
     executor-cores = 4
 Aumentar o número de núcleos de executor lhe dará mais paralelismo para que pode experimentar com diferentes de núcleos de executor.  Para as tarefas que têm operações mais complexas, deve reduzir o número de núcleos por executor.  Se executor núcleos é definido como superior a 4, em seguida, coleta de lixo pode tornar-se ineficiente e degradar o desempenho.
@@ -87,14 +87,14 @@ Digamos que tenha atualmente um composto por 8 D4v2 nós de cluster que executa 
 **Passo 2: Definir a memória de executor** – neste exemplo, podemos determinar que 6 GB de memória de executor será suficiente para a tarefa de e/s intensiva.  
 
     executor-memory = 6GB
-**Passo 3: Configurar o executor núcleos** – uma vez que esse é um trabalho intensivo de e/s, podemos definir o número de núcleos para cada executor para 4.  Na definição de núcleos por executor maiores do que 4 pode causar problemas de coleta de lixo.  
+**Passo 3: Definir o executor núcleos** – uma vez que esse é um trabalho intensivo de e/s, podemos definir o número de núcleos para cada executor para 4.  Na definição de núcleos por executor maiores do que 4 pode causar problemas de coleta de lixo.  
 
     executor-cores = 4
 **Passo 4: Determinar a quantidade de memória YARN em cluster** –, navegar para Ambari para descobrir o que cada D4v2 tem 25 GB de memória YARN.  Uma vez que existem 8 nós, a memória YARN disponível é multiplicada por 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Passo 5: Calcular num executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU dividido pelo número de aplicações em execução no Spark.    
+**Passo 5: Calcular o núm executores** – o parâmetro num executores é determinado ao tirar o mínimo da restrição de memória e a restrição de CPU dividido pelo número de aplicações em execução no Spark.    
 
 **Calcular a restrição de memória** – a restrição de memória é calculada como a memória total do YARN, dividida pela memória por executor.
 
