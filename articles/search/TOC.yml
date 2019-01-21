@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Sobre o Azure Search
+  - name: O que é o Azure Search
     href: search-what-is-azure-search.md
+  - name: O que é a pesquisa cognitiva
+    href: cognitive-search-concept-intro.md
 - name: Inícios rápidos
   items:
   - name: Criar um serviço
@@ -52,8 +54,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Conceitos
   items:
-  - name: Pesquisa cognitiva (Pré-visualização)
-    href: cognitive-search-concept-intro.md
   - name: Pesquisa em texto completo
     href: search-lucene-query-architecture.md
 - name: Guias de procedimentos
@@ -289,9 +289,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 04dddfa9cdf5688ca3b821cbfd8350fcb496933b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: fe70b70005de7f70d00c505adbce4665e41981dd
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390637"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412153"
