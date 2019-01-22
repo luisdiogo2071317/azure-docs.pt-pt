@@ -8,23 +8,23 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1474bf13a6d364fcbd90adee09a1a60bcafc2ccb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985282"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438563"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obter suporte para colaboração B2B
 
 Já leu a documentação, fez o certo, mas ainda não é possível obter algo funcionar? Abra um pedido de suporte (requer um plano de suporte):
 
 1. Na [do portal do Azure](https://portal.azure.com), navegue para o painel de ajuda e suporte e selecione o novo pedido de suporte:
-  - Tipo de problema: técnicos
-  - Subscrição: Escolha afetados da subscrição
-    - Serviço: Do Active Directory
+  - Tipo de problema: Técnico
+  - Subscrição: Escolha a subscrição afetada
+    - Serviço: Active Directory
     - Plano de suporte: Escolha o plano de suporte relevantes
 
   ![Novo pedido de suporte](media/get-support/new-support-request.png)
