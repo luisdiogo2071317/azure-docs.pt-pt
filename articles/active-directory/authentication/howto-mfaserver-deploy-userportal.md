@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161558"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431542"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 
@@ -88,7 +88,7 @@ Se a sua organização utiliza a aplicação Microsoft Authenticator como um dos
 
 Instalar o portal de utilizador num servidor diferente do Servidor Multi-Factor Authentication do Azure requer os seguintes passos:
 
-1. **No servidor MFA**, navegue para o caminho de instalação (Exemplo: C:\Ficheiros de Programas\Servidor Multi-Factor Authentication), e copie o ficheiro **MultiFactorAuthenticationUserPortalSetup64** para uma localização acessível ao servidor com acesso à Internet onde será instalado.
+1. **No servidor MFA**, navegue para o caminho de instalação (exemplo: C:\Programas\Microsoft files\servidor multi-Factor Authentication Server) e copie o ficheiro **MultiFactorAuthenticationUserPortalSetup64** num local acessível para o servidor de acesso à internet, onde irá instalá-lo.
 2. **No servidor Web com acesso à Internet**, execute o ficheiro de instalação MultiFactorAuthenticationUserPortalSetup64 como administrador, altere o Site e o diretório Virtual para um nome abreviado, se o pretender.
 3. Vincule um Certificado SSL ao site no IIS.
 
@@ -138,7 +138,7 @@ O Servidor Multi-Factor Authentication do Azure fornece várias opções para o 
 | Utilizar perguntas de segurança para contingência | Permitir perguntas de segurança no caso de falha da verificação em dois passos. Pode especificar o número de perguntas de segurança que têm de ser respondidas com êxito. |
 | Permitir aos utilizadores associar token OATH de terceiros | Permitir aos utilizadores especificar um token OATH de terceiros. |
 | Utilizar token OATH para contingência | Permitir a utilização de um token OATH caso a verificação de dois passos falhe. Também pode especificar o tempo limite de sessão em minutos. |
-| Ativar registo | Ativar o registo no portal de utilizador. Os ficheiros de registo estão localizados em: C:\Programas\Microsoft Files\Servidor Multi-Factor Authentication\Registos. |
+| Ativar registo | Ativar o registo no portal de utilizador. Os ficheiros de registo estão localizados em: C:\Programas\Microsoft files\servidor multi-Factor authentication\registos. |
 
 Estas definições ficam visíveis para o utilizador no portal assim que forem ativadas e iniciarem sessão no portal de utilizador.
 

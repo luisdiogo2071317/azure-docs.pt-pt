@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022993"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434245"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar Runtime de integração Azure-SSIS no Azure Data Factory
 Este artigo fornece passos para o aprovisionamento do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF). Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) para implementar e executar pacotes do SQL Server Integration Services (SSIS) neste runtime de integração no Azure. 
@@ -50,7 +50,7 @@ Quando aprovisionar o IR Azure-SSIS, o pacote de funcionalidades do Azure para S
     - Está a alojar SSISDB no servidor de base de dados do Azure SQL com pontos finais de serviço de rede virtual ou na instância gerida está numa rede virtual. 
     - Se pretende ligar a dados no local arquivos de pacotes do SSIS em execução no seu ir Azure-SSIS. 
 
-- **Azure PowerShell**. Siga as instruções [como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps), se quiser executar um script do PowerShell para aprovisionar o ir Azure-SSIS. 
+- **Azure PowerShell**. Siga as instruções [como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), se quiser executar um script do PowerShell para aprovisionar o ir Azure-SSIS. 
 
 ### <a name="region-support"></a>Suporte de região
 Para obter uma lista de regiões do Azure, no qual o ADF e IR Azure-SSIS estão atualmente disponíveis, consulte [ADF + IR do SSIS disponibilidade por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

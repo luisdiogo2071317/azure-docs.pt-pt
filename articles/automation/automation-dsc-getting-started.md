@@ -3,24 +3,24 @@ title: Introdução à configuração de estado de automatização do Azure
 description: Explicação e exemplos, das tarefas mais comuns na configuração de estado de automatização do Azure (DSC)
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634365"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432450"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à configuração de estado de automatização do Azure
 
 Este artigo explica como fazer as tarefas mais comuns com a configuração de estado de automatização do Azure, como criar, importar e compilar configurações, integrar computadores para gerir e visualizar relatórios. Para uma visão geral do que configuração de estado de automatização do Azure é, consulte [descrição geral do configuração de estado de automatização do Azure](automation-dsc-overview.md). Para obter documentação de Desired State Configuration (DSC), consulte [Windows PowerShell Desired State Configuration descrição geral](/powershell/dsc/overview).
 
-Este artigo fornece um guia passo a passo para usar a configuração de estado de automatização do Azure. Se pretender que um ambiente de exemplo que já está configurado sem seguir os passos descritos neste artigo, pode utilizar o modelo do Resource Manager seguinte: [modelo de nó de geridos de automatização do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Este modelo define um ambiente de configuração de estado de automatização do Azure completo, incluindo uma VM do Azure que é gerida pela configuração de estado de automatização do Azure.
+Este artigo fornece um guia passo a passo para usar a configuração de estado de automatização do Azure. Se pretender que um ambiente de exemplo que já está configurado sem seguir os passos descritos neste artigo, pode utilizar o modelo do Resource Manager seguinte: [Modelo de nó gerido de automatização do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Este modelo define um ambiente de configuração de estado de automatização do Azure completo, incluindo uma VM do Azure que é gerida pela configuração de estado de automatização do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -3,7 +3,7 @@ title: Manual de Início Rápido do Azure - Configurar uma VM com DSC | Microsof
 description: Configurar uma Pilha LAMP numa Máquina Virtual Linux com a Configuração do Estado Pretendido
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, configuração, automatização
 author: KrisBash
 ms.author: krbash
@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243697"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431593"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com a Configuração do Estado Pretendido
 
@@ -108,7 +108,7 @@ Para importar a configuração:
 
 ## <a name="compile-a-configuration"></a>Compilar uma configuração
 
-As Configurações de DSC devem ser compiladas para uma Configuração de Nó (documento MOF) antes de serem atribuídas a um nó. A compilação valida a configuração e permite a entrada de valores de parâmetros. Para obter mais informações sobre como compilar uma configuração, veja: [Compiling Configurations in Azure Automation DSC (Compilar Configurações no DSC de Automatização do Azure)](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+As Configurações de DSC devem ser compiladas para uma Configuração de Nó (documento MOF) antes de serem atribuídas a um nó. A compilação valida a configuração e permite a entrada de valores de parâmetros. Para obter mais informações sobre como compilar uma configuração, consulte: [Compilar configurações no DSC de automatização do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Para compilar a configuração:
 
@@ -135,7 +135,7 @@ O estado de todos os nós geridos pode ser encontrado em **Configuração de Est
 
 ![Estado do Nó DSC](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia rápido integrou uma VM com Linux no DSC, criou uma configuração para uma pilha LAMP e implementou-a na VM. Para saber como pode utilizar o Automation DSC para ativar a implementação contínua, avance para o artigo:
 
@@ -145,3 +145,4 @@ Neste guia rápido integrou uma VM com Linux no DSC, criou uma configuração pa
 * Para saber mais sobre a Configuração de Estado Pretendido do PowerShell, veja [PowerShell Desired State Configuration Overview (Descrição Geral da Configuração de Estado Pretendido do PowerShell)](https://docs.microsoft.com/powershell/dsc/overview).
 * Para saber mais sobre a gestão do Automation DSC do PowerShell, veja [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
 * Para saber como reencaminhar relatórios de DSC para o Log Analytics para comunicação e alerta, veja [Forwarding DSC Reporting to Log Analytics (Reencaminhamento dos Relatórios de DSC para o Log Analytics)](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+

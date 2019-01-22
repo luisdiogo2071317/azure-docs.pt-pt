@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1b380bc20c9f80710ca62672b99649ce3498a8e8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dd12acb1212e52eb413dfbf35945cd17902d8db7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223767"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433888"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de utilizador multi-factor Authentication do Azure
 
@@ -85,7 +85,7 @@ Blocos (utilizado para determinar o estado de bloqueado e por comunicarem as):
 - Bloquear Timestamp
 - Bloco por nome de utilizador
 - Nome de utilizador
-- Indicativo do País
+- Código do País
 - Número de Telefone
 - Número de telefone formatado
 - Extensão
@@ -105,7 +105,7 @@ Omissões (utilizadas para os relatórios):
 - Segundos de Omissão
 - Ignorar por nome de utilizador
 - Nome de utilizador
-- Indicativo do País
+- Código do País
 - Número de Telefone
 - Número de telefone formatado
 - Extensão

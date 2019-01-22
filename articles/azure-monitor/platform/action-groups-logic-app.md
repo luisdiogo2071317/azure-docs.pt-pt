@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342991"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432035"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -298,3 +298,4 @@ O Logic Apps tem uma série de conectores diferentes que permitem-lhe realizar a
 * Obter um [descrição geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas quando for lançada uma notificação do Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
+

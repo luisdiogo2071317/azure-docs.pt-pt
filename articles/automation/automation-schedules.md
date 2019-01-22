@@ -3,22 +3,22 @@ title: Agendas na automatização do Azure
 description: As agendas da automatização são utilizadas para agendar runbooks na automatização do Azure para iniciar automaticamente. Descreve como criar e gerir uma agenda em para que pode iniciar automaticamente um runbook num determinado momento ou numa agenda periódica.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294769"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437221"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendar um runbook na Automatização do Azure
 
-Para agendar um runbook na automatização do Azure para iniciar a uma hora especificada, ligue-o a uma ou mais agendas. Uma agenda pode ser configurada para a agenda de execução de uma vez ou de a ocorrer por hora ou diariamente para runbooks no portal do Azure. Também pode agendá-los para semanal, mensal, dias específicos da semana ou dias do mês ou um determinado dia do mês. Um runbook pode ser associado a várias agendas e uma agenda pode ter vários runbooks ligados ao mesmo.
+Para agendar um runbook na automatização do Azure para iniciar a uma hora especificada, ligue-o a uma ou mais agendas. Uma agenda pode ser configurada para a agenda de execução de uma vez ou de a ocorrer por hora ou diariamente para runbooks no portal do Azure. Também pode agendá-los para semanal, mensal, dias específicos da semana ou dias do mês ou um determinado dia do mês. Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados.
 
 > [!NOTE]
 > Agendas não suportam atualmente as configurações de DSC de automatização do Azure.
@@ -71,7 +71,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 
 ## <a name="linking-a-schedule-to-a-runbook"></a>Ligar uma agenda a um runbook
 
-Um runbook pode ser associado a várias agendas e uma agenda pode ter vários runbooks ligados ao mesmo. Se um runbook tiver parâmetros, pode fornecer valores para os mesmos. Tem de fornecer valores para todos os parâmetros obrigatórios e pode fornecer valores para quaisquer parâmetros opcionais. Estes valores são utilizados sempre que o runbook é iniciado por esta agenda. Pode anexar o mesmo runbook ao agendamento outro e especifique os valores de parâmetro diferentes.
+Um runbook pode ser ligado a várias agendas e uma agenda pode ter vários runbooks a si ligados. Se um runbook tiver parâmetros, pode fornecer valores para os mesmos. Tem de fornecer valores para todos os parâmetros obrigatórios e pode fornecer valores para quaisquer parâmetros opcionais. Estes valores são utilizados sempre que o runbook é iniciado por esta agenda. Pode anexar o mesmo runbook ao agendamento outro e especifique os valores de parâmetro diferentes.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Para ligar uma agenda a um runbook com o portal do Azure
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para começar com runbooks na automatização do Azure, veja [iniciar um Runbook na automatização do Azure](automation-starting-a-runbook.md)
+

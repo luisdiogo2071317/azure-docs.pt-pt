@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: cffc3ac8808992f7884839329e5bf152d318820c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: alerts
+ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789369"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429451"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 
@@ -33,7 +33,7 @@ Eis algumas razões comuns um configurado [regra de alerta de registo no Azure M
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
 
-Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../platform/data-ingestion-time.md).
+Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, veja [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tempo da ingestão de dados no Log Analytics).
 
 Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
@@ -84,7 +84,7 @@ Próxima detalhada são algumas razões comuns, por que um configurado [regra de
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
 
-Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../platform/data-ingestion-time.md).
+Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, veja [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tempo da ingestão de dados no Log Analytics).
 
 Dependendo de como a regra de alerta é configurada, pode haver enganássemos firing se não existir nenhuma ou apenas dados parciais nos registos no momento da execução de alerta. Nesses casos, Aconselhamo-lo para alterar a configuração ou de consulta de alerta. 
 

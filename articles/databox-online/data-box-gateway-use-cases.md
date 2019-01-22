@@ -7,12 +7,12 @@ ms.service: databox
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b4966d03e44591f01bee945c743ea83f57e6da93
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392274"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438597"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de utilização para o Gateway de caixa de dados do Azure
 
@@ -41,7 +41,7 @@ Como o dispositivo é preenchida com dados, este começa a limitação da taxa d
 
 Utilize o Gateway de caixa de dados quando pretende manter os seus dados de longo prazo na cloud. Pode utilizar o **arquivo** camada de armazenamento para retenção a longo prazo.
 
-Camada de arquivo está otimizada para armazenar raramente são acedido dados durante, pelo menos, 180 dias. O **arquivo** camada oferece os custos de armazenamento mais baixos, mas tem os mais altos custos de acesso. Para obter mais informações, aceda a [camada de acesso de arquivo](/azure/storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+Camada de arquivo está otimizada para armazenar raramente são acedido dados durante, pelo menos, 180 dias. O **arquivo** camada oferece os custos de armazenamento mais baixos, mas tem os mais altos custos de acesso. Para obter mais informações, aceda a [camada de acesso de arquivo](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
 ### <a name="move-data-to-archive-tier"></a>Mover dados para a camada de arquivo
 
@@ -49,14 +49,14 @@ Antes de começar, certifique-se de que tem um dispositivo de Gateway de caixa d
 
 - Utilizar o dispositivo de Gateway de caixa de dados para carregar dados para o Azure através do procedimento de transferência normal, conforme descrito em [transferir dados através do Gateway de dados de caixa](data-box-gateway-deploy-add-shares.md).
 - Depois dos dados serem carregados, será necessário movê-lo para a camada de arquivo. Pode definir a camada de blob de duas formas: Script do Azure PowerShell ou uma política de gestão de ciclo de vida de armazenamento do Azure.  
-    - Se utilizar o Azure PowerShell, siga estes [passos](/azure/databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo.
+    - Se utilizar o Azure PowerShell, siga estes [passos](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo.
     - Se utilizar a gestão de ciclo de vida do Azure, siga estes passos para mover os dados para a camada de arquivo.
-        - [Registar](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) na pré-visualização do serviço de gestão do ciclo de vida do Blob para utilizar o arquivo do escalão.
-        - Utilize a seguinte política para [ingerir dados de arquivo no](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
+        - [Registar](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) na pré-visualização do serviço de gestão do ciclo de vida do Blob para utilizar o arquivo do escalão.
+        - Utilize a seguinte política para [ingerir dados de arquivo no](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Assim que os blobs são marcados como arquivo, eles já não podem ser modificados pelo gateway, a menos que são movidas para a camada frequente ou esporádica. Se o ficheiro estiver no armazenamento local, qualquer alteração feita a cópia local (incluindo eliminações) não é carregadas para o escalão de arquivo.
 - Para ler dados no armazenamento de arquivo, tem de ser reativado ao alterar o escalão de blob para frequente ou esporádica. [Atualizar a partilha](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidratação de Blobs.
 
-Para obter mais informações, saiba mais sobre como [gerir vida de armazenamento de Blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts.md).
+Para obter mais informações, saiba mais sobre como [gerir vida de armazenamento de Blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferência em massa inicial, seguida de transferência incremental
 
@@ -66,10 +66,10 @@ Utilize o Data Box e o Gateway de caixa de dados em conjunto quando deseja fazer
 
 Siga estes passos para copiar os dados para Data Box e carregar para o armazenamento do Azure.
 
-1. [Encomendar o Data Box](/azure/databox/data-box-deploy-ordered.md).
-2. [Configurar o Data Box](/azure/databox/data-box-deploy-set-up.md).
-3. [Copiar dados para o Data Box através do SMB](/azure/databox/data-box-deploy-copy-data.md).
-4. [Devolver o Data Box, verifique se o carregamento de dados para o Azure](/azure/databox/data-box-deploy-picked-up.md).
+1. [Encomendar o Data Box](/azure/databox/data-box-deploy-ordered).
+2. [Configurar o Data Box](/azure/databox/data-box-deploy-set-up).
+3. [Copiar dados para o Data Box através do SMB](/azure/databox/data-box-deploy-copy-data).
+4. [Devolver o Data Box, verifique se o carregamento de dados para o Azure](/azure/databox/data-box-deploy-picked-up).
 5. Quando o carregamento de dados para o Azure estiver concluído, todos os dados devem ser em contentores de armazenamento do Azure. Na conta de armazenamento para o Data Box, vá para o contentor de BLOBs (e ficheiro) para se certificar de que todos os dados são copiados. Tome nota do nome do contentor, porque irá utilizar este nome mais tarde. Por exemplo, na seguinte captura de ecrã, `databox` contentor será utilizado para a transferência incremental.
 
     ![Contentor com os dados no Data Box](media/data-box-gateway-use-cases/data-container1.png)

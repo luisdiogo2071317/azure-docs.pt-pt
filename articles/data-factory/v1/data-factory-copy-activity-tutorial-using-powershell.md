@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12c4241da2f4a65205d128d72f86ce2bc91a853c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015344"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435588"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move os dados com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Conclua os pré-requisitos listados no artigo [pré-requisitos do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- Instale o **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+- Instale o **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="steps"></a>Passos
 Veja a seguir os passos que deve executar como parte deste tutorial:

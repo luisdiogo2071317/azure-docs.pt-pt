@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028606"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437797"
 ---
-# <a name="test-your-app-in-azure"></a>Teste a sua aplicação no Azure 
+# <a name="test-your-app-in-azure"></a>Testar a aplicação no Azure 
 Este artigo fornece passos para testar a sua aplicação no Azure com o DevTest Labs. Comece por configurar uma partilha de ficheiros num laboratório e montá-la como uma unidade na sua máquina de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, utilizar o Visual Studio 2017 para implementar a sua aplicação para a partilha de ficheiros, para que pode executar a aplicação na VM no laboratório.  
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -56,7 +56,7 @@ Este artigo fornece passos para testar a sua aplicação no Azure com o DevTest 
 
     ![Selecione a VM de laboratório](media/test-app-in-azure/select-lab-vm.png)
 2. Selecione **Connect** na barra de ferramentas para ligar à VM. 
-3. [Instalar o Azure PowerShell](https://azure.microsoft.com/downloads/) utilizando o **instalar o Windows** ligação na **ferramentas da linha de comandos** secção. Para outras formas de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Instalar o Azure PowerShell](https://azure.microsoft.com/downloads/) utilizando o **instalar o Windows** ligação na **ferramentas da linha de comandos** secção. Para outras formas de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 4. Siga as instruções no [montar a partilha de ficheiros](#mount-the-file-share) secção. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publique a sua aplicação a partir do Visual Studio

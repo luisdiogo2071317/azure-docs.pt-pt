@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185023"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439107"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -208,6 +208,7 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
 - O intervalo do configurável saído tempo limite de inatividade é 4 para 66 minutos (240 para 4000 segundos).
 - Balanceador de carga não suporta o ICMP para NAT de saída.
 - Não é possível utilizar o portal para configurar ou ver regras de saída.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
+- Regras de saída só podem ser aplicadas para o NIC primário e a configuração de IP primária.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238153"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436574"
 ---
 # <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Para modificar a saída, iniciar um segundo contentor com o `--environment-variables` argumento adicionado, especificar valores para o *NumWords* e *MinLength* variáveis:
+Para modificar a saída, iniciar um segundo contentor com o `--environment-variables` argumento adicionado, especificar valores para o *NumWords* e *MinLength* variáveis. (Neste exemplo partem do princípio de estiver a executar a CLI num shell de Bash ou o Azure Cloud Shell. Se utilizar a linha de comandos do Windows, especifique as variáveis com aspas duplas, como `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -255,6 +255,6 @@ Cenários de baseado em tarefas, como um grande conjunto de dados com vários co
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

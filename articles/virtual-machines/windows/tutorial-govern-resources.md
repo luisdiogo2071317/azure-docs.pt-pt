@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311393"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438665"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Saber mais acerca da governação de máquinas virtuais do Windows com o Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Saiba mais sobre a governação de máquina virtual do Windows com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se estiver a executar o PowerShell localmente e não tiver a versão 6.0 ou posterior, [atualize a sua versão](/powershell/azure/install-azurerm-ps). Também precisa de executar `Connect-AzureRmAccount` para criar uma ligação ao Azure. Para instalações locais, tem também de [transferir o módulo do PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
+Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se estiver a executar o PowerShell localmente e não tiver a versão 6.0 ou posterior, [atualize a sua versão](/powershell/azure/azurerm/install-azurerm-ps). Também precisa de executar `Connect-AzureRmAccount` para criar uma ligação ao Azure. Para instalações locais, tem também de [transferir o módulo do PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 

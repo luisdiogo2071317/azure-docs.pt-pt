@@ -3,18 +3,18 @@ title: Ativos de credencial na automatização do Azure
 description: Ativos de credencial na automatização do Azure contêm as credenciais de segurança que podem ser utilizadas para autenticar em recursos acedidos pelo runbook ou configuração DSC. Este artigo descreve como criar recursos de credencial e usá-los num runbook ou configuração DSC.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233444"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439192"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credencial na automatização do Azure
 
@@ -33,8 +33,8 @@ Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de cre
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Obtém informação sobre um recurso de credencial. Só é possível obter a credencial em si partir **Get-AutomationPSCredential** atividade. |
 | [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Cria uma nova credencial da automatização. |
-| [Remove - AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Remove uma credencial da automatização. |
-| [Set - AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Define as propriedades de uma credencial da automatização existente. |
+| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Remove uma credencial da automatização. |
+| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Define as propriedades de uma credencial da automatização existente. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
 
@@ -142,4 +142,5 @@ print cred["password"]
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 * Para começar com runbooks do Python2, veja [meu primeiro runbook Python2](automation-first-runbook-textual-python2.md) 
+
 

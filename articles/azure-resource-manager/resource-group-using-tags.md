@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260602"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438412"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -31,7 +31,7 @@ Para aplicar etiquetas a recursos, o utilizador tem de ter acesso de escrita par
 
 ## <a name="powershell"></a>PowerShell
 
-Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver a versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/install-azurerm-ps).
+Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver a versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/azurerm/install-azurerm-ps).
 
 Para ver as etiquetas existentes de um *grupo de recursos*, utilize:
 

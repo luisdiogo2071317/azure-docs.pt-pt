@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303892"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437424"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos
 
@@ -74,7 +74,7 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
    a. Numa janela do PowerShell, introduza o ```Install-Module Azure``` comando. Conclua os passos de instalação.    
    b. Introduza o ```Install-Module AzureRM``` comando. Conclua os passos de instalação.
 
-   Para obter mais informações, consulte [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
+   Para obter mais informações, consulte [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Criar elementos de infraestrutura com suporte

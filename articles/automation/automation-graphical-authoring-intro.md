@@ -3,18 +3,18 @@ title: Gráfico de criação na automatização do Azure
 description: Criação de gráficos permite-lhe criar runbooks de automatização do Azure sem trabalhando com código. Este artigo fornece uma introdução à criação de gráficos e todos os detalhes necessários para começar a criar um runbook gráfico.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233682"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427241"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 
@@ -34,7 +34,7 @@ Todos os runbooks na automatização do Azure são fluxos de trabalho do Windows
 
 As secções seguintes descrevem os controles no editor gráfico.
 
-### <a name="canvas"></a>Baseadas em telas
+### <a name="canvas"></a>Canvas
 
 A tela é onde criar o runbook. Adicionar atividades a partir de nós no controlo da biblioteca para o runbook e ligá-los com ligações para definir a lógica do runbook.
 
@@ -111,7 +111,7 @@ Quando especificar um valor para um parâmetro, selecione uma origem de dados pa
 
 | Origem de Dados | Descrição |
 |:--- |:--- |
-| Valor Constante |Escreva um valor para o parâmetro. Isso só está disponível para os seguintes tipos de dados: Int32, Int64, cadeia, booleano, DateTime, comutador. |
+| Valor Constante |Escreva um valor para o parâmetro. Isso só está disponível para os seguintes tipos de dados: Int32, Int64, String,Boolean,DateTime,Switch. |
 | Saída da atividade |Saída de uma atividade que precede a atividade atual no fluxo de trabalho. São listadas todas as atividades válidas. Selecione apenas a atividade para utilizar o respetivo resultado para o valor do parâmetro. Se a atividade produz um objeto com várias propriedades, em seguida, pode digitar o nome da propriedade depois de selecionar a atividade. |
 | Entrada do Runbook |Selecione um parâmetro de entrada do runbook como entrada para o parâmetro de atividade. |
 | Recurso de variável |Selecione uma variável de automatização como entrada. |
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 Pode definir [pontos de verificação](automation-powershell-workflow.md#checkpoints) de um runbook de fluxo de trabalho de PowerShell gráfico selecionando *runbook do ponto de verificação* qualquer atividade de início. Isso faz com que um ponto de verificação ser definida depois da atividade é executada.
 
-![Ponto de verificação](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Pontos de verificação só estão ativados em runbooks do fluxo de trabalho de PowerShell gráfico, não está disponível em runbooks gráficos. Se o runbook utiliza cmdlets do Azure, deve seguir qualquer atividade foi efetuada a verificação com um Connect-AzureRmAccount no caso do runbook está suspenso e reinicia partir deste ponto de verificação numa função de trabalho diferente.
 

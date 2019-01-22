@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
-ms.translationtype: HT
+ms.openlocfilehash: 1d07990abcceace81f718bcbac28ff372a784172
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427717"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Windows com o Azure PowerShell
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas de virtuais do Windows com o Azure PowerShell
 
 As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de rede interna e externa. Este tutorial mostra a implementação de duas máquinas virtuais e a configuração da rede do Azure para essas VMs Os exemplos neste tutorial partem do princípio de que as VMs alojam uma aplicação Web com um back-end de base de dados. No entanto, não é implementada nenhuma aplicação no tutorial. Neste tutorial, ficará a saber como:
 
@@ -36,7 +36,7 @@ As máquinas virtuais do Azure utilizam a rede do Azure para a comunicação de 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="vm-networking-overview"></a>Descrição geral do funcionamento em rede de VMs
 
@@ -273,7 +273,7 @@ New-AzureRmVM `
 
 A imagem utilizada tem o SQL Server instalado, mas não é utilizado neste tutorial. Está incluído para lhe mostrar como pode configurar uma VM para processar o tráfego Web e uma VM na gestão de bases de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou e protegeu redes do Azure relacionadas com máquinas virtuais. 
 

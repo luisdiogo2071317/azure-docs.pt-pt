@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245094"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436727"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -161,7 +161,7 @@ Se necessita de mais flexibilidade, pode utilizar a solução de script. Clicar 
 
 Se quiser executar o script num **Windows 10** máquina, precisa executar algumas etapas adicionais primeiro. 
 
-1. Instalar o [módulo do AzureRM](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Instalar o [módulo do AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Importe o módulo ao abrir uma linha de comandos do PowerShell e executar o comando **Import-Module AzureRM**.
 3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para todos**. 
 4. Agora pode executar o script do PowerShell transferido no modo de administrador para gerar o ficheiro CSV.

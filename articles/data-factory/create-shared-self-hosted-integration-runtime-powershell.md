@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2f132bc14e62636a3ddd269323497733de1007b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429383"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure com o PowerShell
 
@@ -32,7 +32,7 @@ Este guia passo a passo mostra-lhe como criar um runtime de integração autoalo
 
 - **Subscrição do Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Utilizar o PowerShell para executar um script para criar um runtime de integração autoalojado que pode ser partilhado com outras fábricas de dados. 
+- **Azure PowerShell**. Siga as instruções em [instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0). Utilizar o PowerShell para executar um script para criar um runtime de integração autoalojado que pode ser partilhado com outras fábricas de dados. 
 
 > [!NOTE]  
 > Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que interessam a no [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).

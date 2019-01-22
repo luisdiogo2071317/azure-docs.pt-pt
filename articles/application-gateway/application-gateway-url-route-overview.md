@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188764"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435300"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -23,7 +23,7 @@ No exemplo a seguir, o Gateway de aplicação está a enviar tráfego para conto
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Os pedidos para http://contoso.com/video/* são encaminhados para VideoServerPool e os pedidos para http://contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+Pedidos de http\://contoso.com/video/* são encaminhados para VideoServerPool e http\://contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
 > As regras são processadas pela ordem em que são apresentadas no portal. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.
@@ -67,7 +67,7 @@ PathPattern é uma lista de padrões de caminho corresponder. Cada um deles tem 
 
 Os padrões suportados dependem se implementar o Gateway de aplicação v1 ou v2:
 
-#### <a name="v1"></a>V1
+#### <a name="v1"></a>v1
 
 As regras de caminho diferenciam maiúsculas de minúsculas.
 

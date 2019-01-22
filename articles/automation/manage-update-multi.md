@@ -3,18 +3,18 @@ title: Gerir atualizações para várias máquinas virtuais do Azure
 description: Este artigo descreve como gerir atualizações para máquinas virtuais do Azure.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214033"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427428"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -38,7 +38,7 @@ Gestão de atualizações é suportada nos seguintes sistemas operativos:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Versão do Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior     |É necessário o Windows PowerShell 4.0 ou posterior. ([Transferir WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 é recomendada para maior confiabilidade. ([Transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -198,3 +198,4 @@ Para ver informações detalhadas sobre os erros da implementação, selecione *
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre o gerenciamento de atualizações, incluindo registos, saída e erros, veja [solução de gestão de atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
+

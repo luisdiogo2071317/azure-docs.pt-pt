@@ -11,15 +11,15 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 6196364f5983d443519429363bb94bfd6a1203c5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ff7f25a9c1ac73c53587bb320ef3889a5bfa9dc5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411735"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439124"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Criação e a consulta a chaves do ponto final de predição em LUIS
-LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
+LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
 
 |Chave|Objetivo|
 |--|--|
@@ -47,7 +47,7 @@ Quando precisar **consultas de ponto final de produção**, crie um recurso do A
 
 [!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-Quando o processo de criação de recursos do Azure estiver concluído, [atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) para a aplicação. 
+Quando o processo de criação de recursos do Azure estiver concluído, [atribuir a chave](luis-how-to-azure-subscription.md) para a aplicação. 
 
     * A chave de ponto final permite uma quota de acertos de ponto final com base no plano de utilização que especificou ao criar a chave. Ver [preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para informações sobre preços.
 
@@ -76,13 +76,13 @@ Ver [limites de chaves](luis-boundaries.md#key-limits) e [regiões do Azure](lui
 Regiões de publicação são diferentes das regiões de criação. Certifique-se de que criar uma aplicação na região criação correspondente para a região de publicação que pretende.
 
 ## <a name="key-limit-errors"></a>Erros de chave de limite
-Se ultrapassar os seus por segundo quota, receberá um erro de HTTP 429. Se ultrapassar os seus por quota do mês, receberá um erro HTTP 403. Corrija estes erros obtendo um LUIS [ponto final](#endpoint-key) chave, [atribuir](luis-how-to-manage-keys.md#assign-endpoint-key) a chave para a aplicação no **publicar** página do [LUIS](luis-reference-regions.md#luis-website) Web site.
+Se ultrapassar os seus por segundo quota, receberá um erro de HTTP 429. Se ultrapassar os seus por quota do mês, receberá um erro HTTP 403. Corrija estes erros obtendo um LUIS [ponto final](#endpoint-key) chave, [atribuir](luis-how-to-azure-subscription.md) a chave para a aplicação no **publicar** página do [LUIS](luis-reference-regions.md#luis-website) Web site.
 
 ## <a name="assignment-of-the-endpoint-key"></a>Atribuição de chave do ponto final
 
-Pode [atribuir](luis-how-to-manage-keys.md) a chave de ponto final no [portal de LUIS](https://www.luis.ai) ou por meio das APIs correspondentes. 
+Pode [atribuir](luis-how-to-azure-subscription.md) a chave de ponto final no [portal de LUIS](https://www.luis.ai) ou por meio das APIs correspondentes. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais [conceitos](luis-how-to-manage-keys.md#assign-endpoint-key) sobre chaves de criação e o ponto final.
+* Saiba mais [conceitos](luis-how-to-azure-subscription.md) sobre chaves de criação e o ponto final.

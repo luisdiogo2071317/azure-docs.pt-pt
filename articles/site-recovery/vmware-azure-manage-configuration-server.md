@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0d45d460b56f956a97779b46a72d0e4cd97a6b41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 81f775d8deccb9fb8b23e811a6ca89886576f55f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849705"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431644"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
@@ -65,7 +65,7 @@ Se não adicionar credenciais durante a implementação de OVF do servidor de co
 
 1. Após [início de sessão](#access-configuration-server), selecione **gerir as credenciais da máquina virtual**.
 2. Clique em **adicionar credenciais de máquina virtual**.
-    ![Adicionar-mobilidade-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Introduza as credenciais de novo e clique em **adicionar**.
 
 Também pode adicionar as credenciais através da CSPSConfigtool.exe.
@@ -174,7 +174,7 @@ Atualize o servidor da seguinte forma:
 
 Opcionalmente, pode eliminar o servidor de configuração com o PowerShell.
 
-1. [Instalar](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell.
+1. [Instalar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) o módulo Azure PowerShell.
 2. Inicie sessão sua conta do Azure, utilizando este comando:
 
     `Connect-AzureRmAccount`

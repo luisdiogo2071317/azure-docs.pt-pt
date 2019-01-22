@@ -3,18 +3,18 @@ title: Função de Trabalho de Runbook Híbrida do Windows da Automatização do
 description: Este artigo fornece informações sobre como instalar um Azure Automation Runbook Worker híbrido que pode utilizar para executar runbooks nos computadores baseados em Windows no seu local datacenter ou o ambiente na cloud.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993909"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432330"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -57,8 +57,8 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
    * *AAResourceGroupName* (obrigatório): O nome do grupo de recursos que está associada à sua conta de automatização.
    * *OMSResourceGroupName* (opcional): O nome do grupo de recursos para a área de trabalho do Log Analytics. Se este grupo de recursos não for especificado, *AAResourceGroupName* é utilizado.
    * *HybridGroupName* (obrigatório): O nome de um grupo de trabalho de Runbook híbrida que especificar como um destino para os runbooks que suportar este cenário.
-   * *SubscriptionID* (obrigatório): ID de subscrição do Azure que pertença a sua conta de automatização.
-   * *WorkspaceName* (opcional): nome de área de trabalho do Log Analytics. Se não tiver uma área de trabalho do Log Analytics, o script cria e configura uma.
+   * *SubscriptionID* (obrigatório): O ID de subscrição do Azure que pertença a sua conta de automatização.
+   * *WorkspaceName* (opcional): O nome de área de trabalho do Log Analytics. Se não tiver uma área de trabalho do Log Analytics, o script cria e configura uma.
 
      > [!NOTE]
      > Atualmente, são as regiões de automatização apenas suportadas para a integração com o Log Analytics **Sudeste da Austrália**, **E.U.A. Leste 2**, **Sudeste asiático**, e  **Europa Ocidental**. Se a sua conta de automatização não estiver em uma dessas regiões, o script cria uma área de trabalho do Log Analytics, mas avisa-o de que ele não é possível vinculá-las em conjunto.
@@ -146,3 +146,4 @@ Para obter passos adicionais sobre como resolver problemas de gerenciamento de a
 
 * Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Runbook Workers híbridos, consulte [remover Azure Automation os Runbook Workers híbridos](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 278c31f3f1880a3df561038d2710a2b5cc3d68e6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996630"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437846"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração do Azure Active Directory B2B
 
@@ -57,7 +57,7 @@ Para os utilizadores convidados no estado 2, o **origem** é **Account Microsoft
 Para os utilizadores convidados no Estado 3 e 4 de estado, o **origem** estiver definida como **Azure Active Directory** ou **Windows Server Active Directory**, conforme descrito na secção seguinte.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Principais propriedades de utilizador de colaboração B2B do Azure AD
-### <a name="usertype"></a>userType
+### <a name="usertype"></a>UserType
 Esta propriedade indica a relação do utilizador para os inquilinos do anfitrião. Esta propriedade pode ter dois valores:
 - Membro: Este valor indica um funcionário da organização anfitrião e um utilizador na folha de pagamento da organização. Por exemplo, este utilizador espera que tenham acesso aos sites de apenas internos. Este utilizador não é considerado um funcionário externo.
 
@@ -69,15 +69,15 @@ Esta propriedade indica a relação do utilizador para os inquilinos do anfitri�
 ### <a name="source"></a>Origem
 Esta propriedade indica como o utilizador inicia sessão.
 
-- Convidado utilizador: Este utilizador foi convidado mas ainda não tiver resgatado um convite.
+- Utilizador convidado: Este utilizador foi convidado, mas ainda não tiver resgatado um convite.
 
 - Externo do Active Directory: Este utilizador está hospedado numa organização externa e autentica utilizando uma conta do Azure AD que pertence a outra organização. Este tipo de início de sessão corresponde a 1 de estado.
 
-- Conta Microsoft: este utilizador está hospedado numa conta Microsoft e é autenticado ao utilizar uma conta Microsoft. Este tipo de início de sessão corresponde a estado 2.
+- Conta da Microsoft: Este utilizador está hospedado numa conta Microsoft e é autenticado ao utilizar uma conta Microsoft. Este tipo de início de sessão corresponde a estado 2.
 
 - Windows Server Active Directory: Este utilizador é iniciou sessão a partir do Active Directory no local e que pertence a esta organização. Este tipo de início de sessão corresponde a 3 de estado.
 
-- O Azure Active Directory: Este utilizador é autenticado com uma conta do Azure AD que pertence a esta organização. Este tipo de início de sessão corresponde a 4 de estado.
+- Azure Active Directory: Este utilizador é autenticado com uma conta do Azure AD que pertence a esta organização. Este tipo de início de sessão corresponde a 4 de estado.
   > [!NOTE]
   > Origem e UserType são propriedades independentes. Um valor de origem não implica um valor específico para UserType.
 

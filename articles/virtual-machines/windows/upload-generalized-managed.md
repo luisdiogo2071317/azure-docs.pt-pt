@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234617"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429264"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-lo para criar novas VMs no Azure
 
@@ -32,7 +32,7 @@ Para um script de exemplo, consulte [exemplo de script para carregar um VHD para
 
 - Antes de carregar qualquer VHD para o Azure, deve seguir [preparar um VHD do Windows ou o VHDX para carregar para o Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Revisão [planear a migração para os Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para o [Managed Disks](managed-disks-overview.md).
-- Este artigo requer o módulo AzureRM, versão 5.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM.Compute` para encontrar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+- Este artigo requer o módulo AzureRM, versão 5.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM.Compute` para encontrar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizar a VM de origem utilizando o Sysprep

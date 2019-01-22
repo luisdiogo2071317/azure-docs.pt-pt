@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9a5a20ffd5065f155fff6342937e1c17a1905797
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430488"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres do servidor físico
 
@@ -37,7 +37,7 @@ A tabela resume os pré-requisitos para implementar a máquina no local do servi
 | IIS | -Sem Web site predefinido do já existente <br> -Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br> -Sem pré-existente/aplicação do Web site escute na porta 443<br>|
 | Tipo NIC | VMXNET3 (quando implementado como uma VM VMware) |
 | Tipo de endereço IP | Estático |
-| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não necessário para os servidores de processos de escalamento horizontal) <br> - time.nist.gov <br> - time.windows.com |
+| Acesso à Internet | O servidor precisa de acesso a estes URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não necessário para os servidores de processos de escalamento horizontal) <br> - time.nist.gov <br> - time.windows.com |
 | Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados)|
 
 ## <a name="download-the-latest-installation-file"></a>Transferir o ficheiro de instalação mais recente
@@ -264,7 +264,7 @@ Atualize o servidor da seguinte forma:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminar ou anular o registo de um servidor de configuração (PowerShell)
 
-1. [Instalar](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) módulo Azure PowerShell
+1. [Instalar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) módulo Azure PowerShell
 2. Início de sessão na sua conta do Azure com o comando
     
     `Connect-AzureRmAccount`

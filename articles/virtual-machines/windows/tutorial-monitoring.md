@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408647"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428890"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 > * Monitorizar alterações e inventário
 > * Configurar a monitorização avançada
 
-Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
@@ -280,7 +280,7 @@ Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytic
 
 ![Painel do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou e reviu as VMs com o Centro de Segurança do Azure. Aprendeu a:
 

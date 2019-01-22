@@ -1,128 +1,131 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Adobe Sign | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Adobe Sign | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Adobe Sign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/26/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 59f46be8b0b8663bad12e63ad21b3b2c26862620
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054003"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427054"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory com o Adobe Sign
+# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Active Directory do Azure com início de sessão do Adobe
 
 Neste tutorial, saiba como integrar o Adobe Sign com o Azure Active Directory (Azure AD).
-
 Integrar o Adobe Sign no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Adobe Sign.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o Adobe Sign (início de sessão único) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central, o portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Adobe Sign.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para o Adobe Sign (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Adobe Sign, terá de:
+Para configurar a integração do Azure AD com o Adobe Sign, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um início de sessão do Adobe logon único habilitado subscrição
-
-Para testar os passos neste tutorial, siga as seguintes recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Início de sessão do Adobe único início de sessão na subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o Adobe Sign da galeria.
-2. Configuração e teste do Azure AD início de sessão único.
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-## <a name="add-adobe-sign-from-the-gallery"></a>Adicionar início de sessão do Adobe a partir da Galeria
+* Suporta o início de sessão do Adobe **SP** iniciada SSO
+
+## <a name="adding-adobe-sign-from-the-gallery"></a>Adicionando o Adobe Sign da Galeria
+
 Para configurar a integração do Adobe Sign para o Azure AD, terá de adicionar o Adobe Sign partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone. 
+**Para adicionar o Adobe Sign partir da galeria, execute os seguintes passos:**
 
-    ![Captura de ecrã do ícone do Azure Active Directory][1]
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-2. Navegue até **aplicações empresariais** > **todas as aplicações**.
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-    ![Menus de captura de ecrã do Azure Active Directory, com aplicações empresariais e todas as aplicações destacadas][2]
-    
-3. Para adicionar uma nova aplicação, selecione **nova aplicação** na parte superior da caixa de diálogo.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Captura de ecrã da nova opção de aplicativo na parte superior da caixa de diálogo][3]
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-4. Na caixa de pesquisa, escreva **Adobe Sign**.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![Captura de ecrã da caixa de pesquisa](./media/adobe-echosign-tutorial/tutorial_adobesign_search.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-5. No painel de resultados, selecione **Adobe Sign**e, em seguida, selecione **Add**.
+4. Na caixa de pesquisa, escreva **Adobe Sign**, selecione **Adobe Sign** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Captura de ecrã do painel de resultados](./media/adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
+     ![Início de sessão do Adobe na lista de resultados](common/search-new-app.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
-Nesta secção, configurar e testar o Azure AD início de sessão único com o Adobe Sign, com base num utilizador de teste chamado "Eduarda Almeida."
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Para início de sessão único funcione, o Azure AD precisa reconhecer uma relação ligada entre um utilizador do Azure AD e o utilizador relacionado no Adobe Sign.
+Nesta secção, configure e teste do Azure AD início de sessão único com o Adobe Sign, com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Adobe Sign deve ser estabelecido.
 
-Para estabelecer a relação de ligado, no início de sessão do Adobe, atribua o valor do **nome de utilizador** no Azure AD como o valor da **Username**.
+Para configurar e testar o Azure AD início de sessão único com o Adobe Sign, tem de concluir os seguintes blocos de construção:
 
-Para configurar e testar o Azure AD início de sessão único com o Adobe Sign, conclua os seguintes blocos de construção:
-
-1. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-2. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. [Criar um utilizador de teste de início de sessão do Adobe](#creating-an-adobe-sign-test-user) para ter um equivalente da Eduarda Almeida no início de sessão do Adobe que está ligada à representação de utilizador do Azure AD.
-4. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. [Testar início de sessão único](#testing-single-sign-on) para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar o Adobe Sign início de sessão único](#configure-adobe-sign-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de início de sessão do Adobe](#create-adobe-sign-test-user)**  - para ter um equivalente da Eduarda Almeida no início de sessão do Adobe que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua aplicação do Adobe Sign.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-1. No portal do Azure, sobre o **Adobe Sign** página de integração de aplicações, selecione **início de sessão único**.
+Para configurar o Azure AD início de sessão único com o Adobe Sign, execute os seguintes passos:
 
-    ![Página de integração de aplicativo de captura de ecrã do Adobe Sign, com início de sessão único realçado][4]
+1. Na [portal do Azure](https://portal.azure.com/), na **Adobe Sign** página de integração de aplicações, selecione **início de sessão único**.
 
-2. Sobre o **início de sessão único** caixa de diálogo, para **modo**, selecione **baseado em SAML início de sessão** para ativar o início de sessão único.
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-    ![Captura de ecrã do única caixa de diálogo de início de sessão, com a caixa de modo realçada](./media/adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-3. Na **domínio de início de sessão do Adobe e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Secção de captura de ecrã do Adobe Sign domínio e URLs](./media/adobe-echosign-tutorial/tutorial_adobesign_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL que utiliza o seguinte padrão: `https://<companyname>.echosign.com/`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **identificador** caixa de texto, escreva um URL que utiliza o seguinte padrão: `https://<companyname>.echosign.com`
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) obter esses valores.
+    ![Domínio de início de sessão do Adobe e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-4. Na **certificado de assinatura SAML** secção, selecione **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.echosign.com/`
 
-    ![Secção de captura de ecrã do certificado de assinatura SAML](./media/adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.echosign.com`
 
-5. Selecione **Guardar**.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Botão de captura de ecrã de guardar](./media/adobe-echosign-tutorial/tutorial_general_400.png)
+4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-6. Na **configuração de início de sessão do Adobe** secção, selecione **configurar o Adobe Sign** para abrir o **configurar início de sessão** janela. Copiar o **URL de fim de sessão**, **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** do **referência rápida** secção.
+    ![O link de download de certificado](common/certificatebase64.png)
 
-    ![Secção de captura de ecrã de configuração de início de sessão Adobe, com a configurar o Adobe Sign realçado](./media/adobe-echosign-tutorial/tutorial_adobesign_configure.png)
+6. Sobre o **configurar o Adobe Sign** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-adobe-sign-single-sign-on"></a>Configurar o Adobe Sign início de sessão único
 
 7. Antes de configuração, entre em contato com o [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) à lista de permissões seu domínio no Adobe Sign. Eis como adicionar o domínio:
 
@@ -153,52 +156,76 @@ Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e
   
     ![Captura de ecrã das definições de SAML](./media/adobe-echosign-tutorial/ic789521.png "definições de SAML")
    
+    ![Captura de ecrã das definições de SAML](./media/adobe-echosign-tutorial/ic789522.png "definições de SAML")
+
     a. Sob **modo de SAML**, selecione **SAML obrigatório**.
    
     b. Selecione **permitir Echosign aos administradores de conta para iniciar sessão com as respetivas credenciais de Echosign**.
    
     c. Sob **criação do utilizador**, selecione **adicionar automaticamente utilizadores autenticados através de SAML**.
 
-    d. Colar **ID de entidade de SAML**, que copiou do portal do Azure para o **URL de emissor/ID de entidade** caixa de texto.
+    d. Colar **identificador do Azure Ad**, que copiou do portal do Azure para o **ID de entidade do Idp** caixa de texto.
     
-    e. Colar **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure para o **ponto final do URL/SSO de início de sessão** caixa de texto.
+    e. Colar **URL de início de sessão**, que copiou do portal do Azure para o **URL de início de sessão do Idp** caixa de texto.
    
-    f. Colar **URL de fim de sessão**, que copiou do portal do Azure para o **ponto final do URL/SLO de fim de sessão** caixa de texto.
+    f. Colar **URL de fim de sessão**, que copiou do portal do Azure para o **URL de fim de sessão do Idp** caixa de texto.
 
     g. Abra sua transferido **Certificate(Base64)** ficheiro no bloco de notas. Copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **IdP certificado** caixa de texto.
 
     h. Selecione **guardar alterações**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção é criar um utilizador de teste, com o nome Eduarda Almeida, no portal do Azure.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-![Captura de ecrã do nome de utilizador de teste no portal do Azure][100]
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. Na **portal do Azure**, no painel esquerdo, selecione a **Azure Active Directory** ícone.
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-    ![Captura de ecrã do ícone do Azure AD](./media/adobe-echosign-tutorial/create_aaduser_01.png) 
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e selecione **todos os utilizadores**.
-    
-    ![Menus de captura de ecrã do Azure AD, com os utilizadores e grupos e todos os utilizadores realçados](./media/adobe-echosign-tutorial/create_aaduser_02.png) 
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-3. Para abrir o **usuário** caixa de diálogo, selecione **Add**.
- 
-    ![Captura de ecrã da parte superior da caixa de diálogo utilizadores todos os, com a opção de adicionar realçada](./media/adobe-echosign-tutorial/create_aaduser_03.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-4. Sobre o **utilizador** diálogo caixa, execute os seguintes passos:
- 
-    ![Caixa de diálogo de captura de ecrã de utilizador](./media/adobe-echosign-tutorial/create_aaduser_04.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    a. Na **Name** caixa de texto, escreva **BrittaSimon**.
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    b. Na **nome de utilizador** texto, escreva o endereço de e-mail do BrittaSimon.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **mostrar palavra-passe**, indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-    d. Selecione **Criar**.
- 
-### <a name="create-an-adobe-sign-test-user"></a>Criar um utilizador de teste de início de sessão do Adobe
+    d. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para o Adobe Sign.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Adobe Sign**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicativos, escreva e selecione **Adobe Sign**.
+
+    ![A ligação de início de sessão do Adobe na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-adobe-sign-test-user"></a>Criar utilizador de teste de início de sessão do Adobe
 
 Para ativar a utilizadores do Azure AD iniciar sessão no Adobe Sign, tem de ser aprovisionados no Adobe Sign. Esta é uma tarefa manual.
 
@@ -222,53 +249,17 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Adobe Sign, tem de ser
 >[!NOTE]
 >O titular da conta do Azure Active Directory recebe uma mensagem de e-mail que inclui uma ligação para confirmar a conta até se tornar Active Directory. 
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, ao conceder acesso para o Adobe Sign.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-![Captura de ecrã do Azure portal início de sessão único][200] 
+Quando clica no mosaico de início de sessão do Adobe no painel de acesso, deve ser automaticamente conectado para o Adobe Sign para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-1. No portal do Azure, abra a vista de aplicações. Em seguida, navegue para a vista de diretório, aceda a **aplicações empresariais**e selecione **todos os aplicativos**.
+## <a name="additional-resources"></a>Recursos Adicionais
 
-    ![Vista de aplicações do portal de captura de ecrã do Azure, com aplicações empresariais e todas as aplicações destacadas][201] 
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-2. Na lista de aplicações, selecione **Adobe Sign**.
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-    ![Captura de ecrã da lista de aplicações, com o Adobe Sign realçado](./media/adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![Captura de ecrã do menu, com utilizadores e grupos realçados][202] 
-
-4. Selecione **Adicionar**. Em seguida, na **adicionar atribuição** secção, selecione **utilizadores e grupos**.
-
-    ![Captura de ecrã dos utilizadores e grupos de página e adicione a secção de atribuição][203]
-
-5. Na **utilizadores e grupos** caixa de diálogo, na lista de utilizadores, selecione **Eduarda Almeida**.
-
-6. Na **utilizadores e grupos** caixa de diálogo, clique em **selecione**.
-
-7. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
-    
-### <a name="test-single-sign-on"></a>Testar início de sessão único
-
-Ao selecionar o mosaico de início de sessão do Adobe no painel de acesso, deve obter automaticamente a sessão iniciada sua aplicação do Adobe Sign. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## <a name="additional-resources"></a>Recursos adicionais
-
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/adobe-echosign-tutorial/tutorial_general_01.png
-[2]: ./media/adobe-echosign-tutorial/tutorial_general_02.png
-[3]: ./media/adobe-echosign-tutorial/tutorial_general_03.png
-[4]: ./media/adobe-echosign-tutorial/tutorial_general_04.png
-
-[100]: ./media/adobe-echosign-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobe-echosign-tutorial/tutorial_general_200.png
-[201]: ./media/adobe-echosign-tutorial/tutorial_general_201.png
-[202]: ./media/adobe-echosign-tutorial/tutorial_general_202.png
-[203]: ./media/adobe-echosign-tutorial/tutorial_general_203.png

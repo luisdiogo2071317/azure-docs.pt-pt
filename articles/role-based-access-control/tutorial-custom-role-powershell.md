@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300614"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427292"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada com o Azure PowerShell
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instalado localmente
 
 ## <a name="sign-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
 
@@ -290,7 +290,7 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 
 1. Quando lhe for pedido para confirmar, escreva **Y**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Criar funções personalizadas com o PowerShell](custom-roles-powershell.md)

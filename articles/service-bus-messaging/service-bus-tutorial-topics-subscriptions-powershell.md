@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430012"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar inventário através do PowerShell e tópicos/subscrições
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o PowerShell e tópicos/subscrições
 
 O Microsoft Azure Service Bus é um serviço de mensagens na cloud multi-inquilino que envia informações entre aplicações e serviços. As operações assíncronas permitem o envio flexível de mensagens, juntamente com mensagens FIFO (first in, first out) e funcionalidades de publicação/subscrição. 
 
@@ -267,7 +267,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprovisionou recursos com o Azure PowerShell e enviou e recebeu mensagens de um tópico do Service Bus e respetivas subscrições. Aprendeu a:
 
@@ -286,4 +286,4 @@ Avance para o próximo tutorial para saber mais sobre a utilização de capacida
 > [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalar e Configurar o Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Instalar e Configurar o Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

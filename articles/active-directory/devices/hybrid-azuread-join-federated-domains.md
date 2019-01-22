@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: baf38b2bb82be06963828e6ad80d958592ac6e99
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107570"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435775"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios federados
 
@@ -73,11 +73,11 @@ Os passos de configuração neste artigo baseiam-se neste assistente. Se tiver u
 
 A associação do Azure AD híbrido requer que os dispositivos tenham acesso aos seguintes recursos da Microsoft a partir da rede da sua organização:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - O STS da sua organização (domínios federados)
-- https://autologon.microsoftazuread-sso.com (Se estiver a utilizar ou planear utilizar o SSO totalmente integrado)
+- https\://autologon.microsoftazuread-sso.com (se estiver a utilizar ou planear utilizar o SSO totalmente integrado)
 
 A partir do Windows 10 1803, se a associação instantânea ao Microsoft Azure AD Híbrido falhar num domínio federado como o AD FS, estaremos dependentes do Azure AD Connect para sincronizar o objeto de computador no Microsoft Azure AD que, em seguida, é utilizado para concluir o registo de dispositivos para a associação ao Microsoft Azure AD Híbrido.
 

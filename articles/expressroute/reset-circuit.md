@@ -1,5 +1,5 @@
 ---
-title: 'Repor um circuito com falhas - ExpressRoute: PowerShell: Azure | Documentos da Microsoft'
+title: 'Repor um circuito com falhas - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este artigo ajuda-o a repor um circuito do ExpressRoute que está no estado de falha.
 services: expressroute
 author: anzaman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e94ba2f7f6981355f4736683b891fbdced001d03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093680"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425344"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Repor um circuito do ExpressRoute com falhas
 
@@ -21,7 +21,7 @@ Quando uma operação de um circuito do ExpressRoute não for concluída com êx
 
 ## <a name="reset-a-circuit"></a>Repor um circuito
 
-1. Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+1. Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 2. Abra a consola do PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 

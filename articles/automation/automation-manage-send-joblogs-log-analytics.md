@@ -3,28 +3,28 @@ title: Reencaminhar dados de tarefa da Automatização do Azure para o Log Analy
 description: Este artigo demonstra como enviar estado da tarefa e o runbook fluxos de trabalho para o Azure Log Analytics para fornecer informações adicionais e gestão.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269571"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432970"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics
 
 Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho para a área de trabalho do Log Analytics. Este processo não envolve a ligação de área de trabalho e é completamente independente. Registos de trabalhos e fluxos de trabalho são visíveis no portal do Azure ou com o PowerShell, para tarefas individuais e Isto permite-lhe realizar investigações simples. Agora com o Log Analytics, pode:
 
-* Obtenha informações sobre as tarefas de automatização.
+* Obter informações sobre as suas tarefas de Automatização.
 * Acionador de um e-mail ou o alerta com base no seu estado de tarefa de runbook (por exemplo, falha ou suspenso).
-* Escreva consultas avançadas nos seus fluxos de trabalho.
-* Tarefas de correlacionar entre contas de automatização.
-* Visualize o histórico de tarefas ao longo do tempo.
+* Escrever consultas avançadas nos fluxos de tarefas.
+* Correlacionar tarefas em contas de Automatização.
+* Visualizar o seu histórico de tarefas ao longo do tempo.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Pré-requisitos e considerações de implementação
 
@@ -91,7 +91,7 @@ Diagnóstico da automatização do Azure cria dois tipos de registos no Log Anal
 | Caller_s |Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
-| resultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
+| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
@@ -114,7 +114,7 @@ Diagnóstico da automatização do Azure cria dois tipos de registos no Log Anal
 | StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
-| resultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Em curso |
+| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Em curso |
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
@@ -183,3 +183,4 @@ O log Analytics fornece maior visibilidade operacional para as tarefas de automa
 * Para compreender como criar e recuperar mensagens de erro e de saída a partir de runbooks, veja [Runbook de saída e mensagens](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
 * Para saber mais sobre o Log Analytics e origens de recolha de dados, veja [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

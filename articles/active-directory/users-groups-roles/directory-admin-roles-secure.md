@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387085"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438155"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
-A segurança da maioria ou todos os ativos empresariais numa organização moderna depende da integridade das contas com privilégios que administram e gerem os sistemas de TI. Atores maliciosos, incluindo os ciberatacantes, muitas vezes, direcionar contas de administrador e outros elementos de acesso privilegiado à tentativa de forma a obter acesso a dados confidenciais e sistemas com ataques de roubo de credenciais. Para a cloud services, a prevenção e resposta são as responsabilidades conjuntas do fornecedor de serviços cloud e o cliente. Para obter mais informações sobre as ameaças mais recentes para os pontos finais e a nuvem, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). Este artigo pode ajudá-lo a desenvolver um plano para fechar as lacunas entre seus planos atuais e as orientações descritas aqui.
+A segurança da maioria ou todos os ativos empresariais numa organização moderna depende da integridade das contas com privilégios que administram e gerem os sistemas de TI. Atores maliciosos, incluindo os ciberatacantes, muitas vezes, direcionar contas de administrador e outros elementos de acesso privilegiado à tentativa de forma a obter acesso a dados confidenciais e sistemas com ataques de roubo de credenciais. Para a cloud services, a prevenção e resposta são as responsabilidades conjuntas do fornecedor de serviços cloud e o cliente. Para obter mais informações sobre as ameaças mais recentes para os pontos finais e a nuvem, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). Este artigo pode ajudá-lo a desenvolver um plano para fechar as lacunas entre seus planos atuais e as orientações descritas aqui.
 
 > [!NOTE] 
 > A Microsoft está comprometida com os mais altos níveis de confiança, transparência, conformidade com as normas e a conformidade a normas. Saiba mais sobre como a equipe de resposta a incidentes globais da Microsoft atenua os efeitos dos ataques lançados contra a serviços cloud e como a segurança é criada em produtos comerciais da Microsoft e serviços em nuvem da [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security)e os objetivos de conformidade da Microsoft na [Microsoft Trust Center - conformidade](https://www.microsoft.com/trustcenter/compliance).

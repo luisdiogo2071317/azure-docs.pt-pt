@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188985"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427105"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Pré-visualização: O Azure AD monitorização de proteção de palavra-passe, relatórios e resolução de problemas
 
@@ -38,9 +38,9 @@ Os eventos são registados pelos vários componentes do agente DC usando os segu
 
 |Componente |Intervalo de ID de evento|
 | --- | --- |
-|Dll de filtro de palavras-passe do agente de DC| 10000 19999|
-|Processo de hospedagem do serviço de agente do controlador de domínio| 20000 29999|
-|Lógica de validação de política de serviço de agente de DC| 30000 39999|
+|Dll de filtro de palavras-passe do agente de DC| 10000-19999|
+|Processo de hospedagem do serviço de agente do controlador de domínio| 20000-29999|
+|Lógica de validação de política de serviço de agente de DC| 30000-39999|
 
 Para uma operação de validação da palavra-passe com êxito, geralmente não há um evento registado a partir da dll de filtro de palavra-passe do controlador de domínio agente. Para uma ativação operação de validação da palavra-passe, há geralmente dois eventos registados, um do serviço de agente do controlador de domínio e um a partir da dll de filtro de palavra-passe do agente de controlador de domínio.
 
@@ -153,7 +153,7 @@ Registo de rastreio está desativado por predefinição.
 
 O serviço de agente do controlador de domínio pode ser configurado para escrever para um registo de texto ao definir o valor de registo seguinte:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = 1 (valor REG_DWORD)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 O registo de texto é desativado por predefinição. Reiniciar o serviço de agente do controlador de domínio é necessário para que as alterações a este valor para entrar em vigor. Quando o controlador de domínio de ativado o serviço de agente irá escrever num arquivo de log, localizado em:
 
@@ -188,7 +188,7 @@ Registo de rastreio está desativado por predefinição.
 
 O serviço de Proxy pode ser configurado para escrever para um registo de texto ao definir o valor de registo seguinte:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (valor REG_DWORD)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 O registo de texto é desativado por predefinição. Reiniciar o serviço de Proxy é necessário para que as alterações a este valor para entrar em vigor. Quando ativar o Proxy de serviço irá escrever num arquivo de log, localizado em:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Adicionar utilizadores convidados no portal do Azure'
+title: 'Início rápido: Adicionar utilizadores convidados no portal do Azure'
 description: Utilize este guia de início rápido para saber como os administradores do Azure Active Directory podem adicionar utilizadores convidados B2B no portal do Azure e ler as instruções do fluxo de trabalho de convite B2B.
 services: active-directory
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986550"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431695"
 ---
-# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guia de Início Rápido: Adicionar utilizadores convidados ao seu diretório no portal do Azure
+# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início rápido: Adicionar utilizadores convidados para o seu diretório no portal do Azure
 
 Pode convidar qualquer pessoa a colaborar com a sua organização ao adicioná-la ao seu diretório como um utilizador convidado. Em seguida, pode enviar um e-mail de convite que contenha uma ligação de resgate ou enviar uma ligação direta para uma aplicação que pretende partilhar. Os utilizadores convidados podem iniciar sessão com as respetivas identidades das redes sociais, da escola ou do trabalho.
 
@@ -88,5 +88,5 @@ Quando já não forem necessários, elimine o utilizador convidado de teste e a 
 6.  Em **Gerir**, selecione **Utilizadores**.
 7.  Selecione o utilizador de teste e, em seguida, selecione **Eliminar utilizador**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um utilizador convidado no portal do Azure e enviou um convite para partilhar aplicações. Em seguida, viu o processo de resgate na perspetiva do utilizador convidado e verificou que a aplicação era apresentada no Painel de Acesso do utilizador convidado. Para saber mais sobre como adicionar utilizadores convidados para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).

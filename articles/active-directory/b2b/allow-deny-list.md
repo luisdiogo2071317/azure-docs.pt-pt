@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 563b2d6393533a86305213b6cdec6ca901e53257
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985384"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429075"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites aos utilizadores B2B de organizações específicas
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicos
 
 Pode utilizar uma lista de permissões ou uma lista de negações para permitir ou bloquear convites aos utilizadores B2B de organizações específicas. Por exemplo, se deseja bloquear domínios de endereço de e-mail pessoal, pode configurar uma lista de negações, que contém domínios, como o Gmail.com e Outlook.com. Ou, se sua empresa tem uma parceria com outras empresas, como Contoso.com e Fabrikam.com e Litware.com, e quiser restringir convites para apenas essas organizações, pode adicionar Contoso.com e Fabrikam.com e Litware.com à sua lista de permissões.
   

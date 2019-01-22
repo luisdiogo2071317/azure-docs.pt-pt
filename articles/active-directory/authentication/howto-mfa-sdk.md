@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 565c35b296e2734df264942b9eab0a067626c368
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77709ab9ffd86e599046ddf332213582505f625d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427187"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433242"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Criando o multi-factor Authentication nas aplicações personalizadas (SDK)
 
@@ -40,7 +40,7 @@ Baixar o SDK do multi-factor do Azure requer uma [Azure multi-factor Auth Provid
 ## <a name="whats-in-the-sdk"></a>O que está no SDK
 O SDK inclui os seguintes itens:
 
-* **LEIA-ME**. Explica como utilizar as APIs de autenticação do multi-factor de uma aplicação nova ou existente.
+* **README**. Explica como utilizar as APIs de autenticação do multi-factor de uma aplicação nova ou existente.
 * **Arquivos de origem** para multi-factor Authentication
 * **Certificado de cliente** que utilizar para comunicar com o serviço de multi-factor Authentication
 * **Chave privada** para o certificado

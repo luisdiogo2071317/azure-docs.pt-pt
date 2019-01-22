@@ -4,18 +4,18 @@ description: Uma descrição geral do Azure automatização Estado Configuration
 keywords: PowerShell dsc, configuração de estado pretendido, azure dsc de powershell
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f28f642d1a5fc30055c73a4b7d60c076c83d204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250106"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427071"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -56,7 +56,7 @@ Se tiver uma conta de automatização que está definida para uma região espec�
 
 | **Região** | **Registo de DNS** |
 | --- | --- |
-| EUA Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus agentservice-prod-1.azure-Azure-Automation.NET |
+| EUA Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | EUA Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | EUA Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
@@ -66,7 +66,7 @@ Se tiver uma conta de automatização que está definida para uma região espec�
 | Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks agentservice-prod-1.azure-Azure-Automation.NET |
+| Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | Gov (US) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obter uma lista de endereços IP da região em vez de nomes de região, transfira o [endereço IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) arquivo XML do Microsoft Download Center.

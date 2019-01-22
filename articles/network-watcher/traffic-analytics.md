@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382836"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429094"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -173,7 +173,7 @@ Selecione as opções seguintes, conforme mostrado na imagem:
 
 Repita os passos anteriores para quaisquer outros NSGs para o qual pretende ativar a análise de tráfego para. Dados dos registos de fluxo são enviados para a área de trabalho, por isso, certifique-se de que as leis e regulamentações locais no seu país permitem o armazenamento de dados na região onde a área de trabalho existe.
 
-Também pode configurar a análise de tráfego com o [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) cmdlet do PowerShell no AzureRm PowerShell versão do módulo 6.2.1 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Também pode configurar a análise de tráfego com o [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) cmdlet do PowerShell no AzureRm PowerShell versão do módulo 6.2.1 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Ver análise de tráfego
 

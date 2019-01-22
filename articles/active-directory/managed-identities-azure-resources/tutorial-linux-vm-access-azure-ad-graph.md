@@ -4,7 +4,7 @@ description: Um tutorial que explica o processo de utilização de uma identidad
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427460"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432647"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Graph API do Azure AD
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Graph API do Azure AD
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
@@ -64,9 +64,9 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 Neste tutorial, vai conceder à identidade da VM a capacidade de consultar associações a grupos com a permissão de aplicação `Directory.Read.All`. Para conceder esta permissão, irá precisar de uma conta de utilizador que tenha atribuída a função de Administrador Global do Azure AD. Normalmente, concederia uma permissão de aplicação ao visitar o registo da sua aplicação no portal do Azure e adicionaria aí a permissão. No entanto, as identidades geridas de recursos do Azure não registam os objetos da aplicação no Azure AD, só são registados os principais de serviço. Para registar a permissão de aplicação vai utilizar a ferramenta de linha de comandos do Azure AD PowerShell. 
 
 Azure AD Graph:
-- AppId do Principal de Serviço (utilizado ao conceder a permissão de aplicação): 00000002-0000-0000-c000-000000000000
+- AppId de Principal de serviço (utilizado quando a concessão de permissão da aplicação): 00000002-0000-0000-c000-000000000000
 - ID do recurso (utilizado ao pedir o token de acesso de identidades geridas dos recursos do Azure): https://graph.windows.net
-- Referência de âmbito de permissão: [Referência de Permissões do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referência de âmbito de permissão: [Referência de permissões do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-curl"></a>Conceder permissões de aplicação com o CURL
 

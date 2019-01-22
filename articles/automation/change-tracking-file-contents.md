@@ -3,18 +3,18 @@ title: Ver alterações de conteúdo do ficheiro com a automatização do Azure
 description: Utilize a funcionalidade de alteração de conteúdo do ficheiro de controlo de alterações para ver o conteúdo de um ficheiro que foi alterado.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872263"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438006"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
 
@@ -42,7 +42,7 @@ Controlo de conteúdo de ficheiros permite-lhe ver os conteúdos de um ficheiro 
 
 5. Uma vez ativada, a conta de armazenamento e os Uris de SAS são mostrados. Os Uris de SAS expire após a 365 dias e pode ser recriada clicando a **regenerar** botão.
 
-   ![listar chaves de conta](./media/change-tracking-file-contents/account-keys.png)
+   ![Listar chaves de conta](./media/change-tracking-file-contents/account-keys.png)
 
 ## <a name="add-a-file"></a>Adicione um ficheiro
 
@@ -62,7 +62,7 @@ Os seguintes passos guiá-lo por meio de ativar o controlo de alterações para 
 
 1. Sobre o **alterar detalhes** página, verá o padrão antes e depois do ficheiro informações, no canto superior esquerdo, clique em **alterações de conteúdo do ficheiro de vista de** para ver o conteúdo do ficheiro.
 
-  ![alterar detalhes](./media/change-tracking-file-contents/change-details.png)
+  ![Detalhes de alteração](./media/change-tracking-file-contents/change-details.png)
 
 1. A nova página mostra o conteúdo do arquivo numa exibição lado a lado. Também pode selecionar **Inline** para ver uma vista de inline das alterações.
 
@@ -76,3 +76,4 @@ Visite o tutorial para saber mais sobre como utilizar a solução de controlo de
 > [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
 * Uso [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+

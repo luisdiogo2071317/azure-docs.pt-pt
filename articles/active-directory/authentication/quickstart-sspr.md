@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f91178b1db3d35ae99e694f626e04bb54b9e10de
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311563"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426374"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185340"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432767"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola de série de máquina virtual para Windows
 
@@ -53,6 +53,9 @@ A consola de série para máquinas virtuais é acessível apenas através do por
   1. Desloque para baixo para o **suporte + resolução de problemas** secção e selecione **consola de série**. Um novo painel com a consola de série abre e começa a ligação.
 
 ## <a name="enable-serial-console-functionality"></a>Ativar a funcionalidade de consola de série
+
+> [!NOTE]
+> Se não vir nenhuma ação na consola de série, certifique-se de que o diagnóstico de arranque está ativado na sua VM.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar a consola de série em imagens personalizadas ou mais antigas
 As imagens mais recente do Windows Server no Azure têm [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
@@ -237,6 +240,7 @@ Não é possível escreva na linha SAC perguntar se a depuração de kernel est�
 Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere repetido. | Para obter uma solução, executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual. Esta ação não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, **[R**, **[3 ~**). | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
+Consola de série não funciona com um firewall de conta de armazenamento. | Consola de série por design não consegue trabalhar com firewalls de conta de armazenamento ativadas nesta conta de armazenamento do diagnóstico de arranque.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes

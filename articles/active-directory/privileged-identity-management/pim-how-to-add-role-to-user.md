@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 69bc2bb5fa06f4edc0283961063d2302c7905b4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724949"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439005"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
 
 Com o Azure Active Directory (Azure AD), pode tornar um Administrador Global **permanente** atribuições de funções de diretório. Estas atribuições de função podem ser criadas com o [portal do Azure](../users-groups-roles/directory-assign-admin-roles.md) ou a utilizar [comandos do PowerShell](/powershell/module/azuread#directory_roles).
 
-O serviço do Azure AD Privileged Identity Management (PIM) também permite que os administradores de função com privilégios tornar as atribuições de funções de diretório permanente. Além disso, os administradores de função com privilégios podem tornar os usuários **elegíveis** para funções de diretório. Um administrador elegível pode ativar a função quando surge a necessidade e, em seguida, as respetivas permissões expirarem assim que estiverem concluídos. Para obter informações sobre as funções que pode gerir com o PIM, consulte [funções de diretório do Azure AD pode gerir no PIM](pim-roles.md).
+O serviço do Azure AD Privileged Identity Management (PIM) também permite que os administradores de função com privilégios tornar as atribuições de funções de diretório permanente. Além disso, os administradores de função com privilégios podem tornar os usuários **elegíveis** para funções de diretório. Um administrador elegível pode ativar a função quando surge a necessidade e, em seguida, as respetivas permissões expirarem assim que estiverem concluídos.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Tornar um utilizador elegível para uma função
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 82e574663cec1bc3f97cbdb967f701faa57d7820
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413112"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426170"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -29,7 +29,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.31 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 - A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
 
@@ -43,7 +43,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
         - 255.255.255.255/32 (difusão)
         - 127.0.0.0/8 (Loopback)
         - 169.254.0.0/16 (Link-local)
-        - 168.63.129.16/32 (DNS interno)
+        - 168.63.129.16/32 (Balanceador de carga do Azure, DHCP e DNS interno [sonda de estado de funcionamento](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
       Embora pode definir o intervalo de endereços apenas um ao criar a rede virtual, pode adicionar mais intervalos de endereços ao espaço de endereços, depois de criar a rede virtual. Para saber como adicionar um intervalo de endereços para uma rede virtual existente, veja [adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
 
@@ -111,7 +111,7 @@ Não é possível adicionar os seguintes intervalos de endereços:
 - 255.255.255.255/32 (difusão)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (DNS interno)
+- 168.63.129.16/32 (Balanceador de carga do Azure, DHCP e DNS interno [sonda de estado de funcionamento](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
 Para adicionar ou remover um intervalo de endereços:
 

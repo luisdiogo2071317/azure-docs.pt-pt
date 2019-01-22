@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852644"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433616"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure com o Azure PowerShell
 
@@ -23,7 +23,7 @@ Crie rapidamente um armazém de dados SQL do Azure com o Azure PowerShell.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão que tem atualmente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell). 
+Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão que tem atualmente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps)(Instalar o módulo do Azure PowerShell). 
 
 
 > [!NOTE]
@@ -125,13 +125,13 @@ Os parâmetros necessários são:
 * **RequestedServiceObjectiveName**: A quantidade de [unidades de armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md) que está a solicitar. Aumentar esse valor aumenta o custo de computação. Para obter uma lista de valores suportados, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
 * **DatabaseName**: O nome do SQL Data Warehouse que está a criar.
 * **ServerName**: O nome do servidor que está a utilizar para a criação.
-* **ResourceGroupName**: grupo de recursos que está a utilizar. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.
-* **Edição**: tem de ser "DataWarehouse", para criar um SQL Data Warehouse.
+* **ResourceGroupName**: Grupo de recursos que está a utilizar. Para localizar grupos de recursos disponíveis na sua subscrição, utilize Get-AzureResource.
+* **Edição**: Tem de ser "DataWarehouse" para criar um SQL Data Warehouse.
 
 Os parâmetros opcionais são:
 
-- **CollationName**: o agrupamento predefinido quando não é especificado é SQL_Latin1_General_CP1_CI_AS. Não é possível alterar o agrupamento numa base de dados.
-- **MaxSizeBytes**: o tamanho máximo predefinido das bases de dados é 10 GB.
+- **CollationName**: O agrupamento predefinido se não for especificado é SQL_Latin1_General_CP1_CI_AS. Não é possível alterar o agrupamento numa base de dados.
+- **MaxSizeBytes**: O tamanho máximo predefinido de uma base de dados é de 10 GB.
 
 Para obter mais informações sobre as opções de parâmetros, consulte [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 

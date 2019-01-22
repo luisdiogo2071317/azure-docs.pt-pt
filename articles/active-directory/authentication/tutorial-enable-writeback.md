@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295126"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437186"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavras-passe
+# <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavra-passe
 
 Neste tutorial, irá ativar a repetição de escrita de palavras-passe para o seu ambiente híbrido. A repetição de escrita de palavras-passe é utilizada para sincronizar alterações de palavra-passe no Azure Active Directory (Azure AD) para o seu ambiente de Serviços de Domínio do Active Directory (AD DS) no local. A repetição de escrita de palavras-passe está ativada como parte do Azure AD Connect, para oferecer um mecanismo seguro para enviar as alterações de palavra-passe para um diretório local existente do Azure AD. Pode encontrar mais detalhes sobre os funcionamentos internos da repetição de escrita de palavras-passe no artigo [O que é a repetição de escrita de palavras-passe](concept-sspr-writeback.md).
 
@@ -55,7 +55,7 @@ Ativar a funcionalidade de repetição de escrita de palavras-passe no Azure AD 
 4. Defina a opção **Permitir que os utilizadores desbloqueiem as contas sem repor a palavra-passe** para **Sim**.
 5. Clicar em **Guardar**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ativou a repetição de escrita de palavras-passe para a reposição personalizada de palavra-passe. Deixe a janela do portal do Azure aberta e avance para o próximo tutorial para configurar definições adicionais relacionadas com a reposição personalizada de palavra-passe antes de implementar a solução num piloto.
 

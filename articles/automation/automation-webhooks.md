@@ -3,18 +3,18 @@ title: Iniciar um runbook da automatização do Azure com um webhook
 description: Um webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016696"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438852"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -61,7 +61,7 @@ Por exemplo, se estiver a iniciar o runbook abaixo do portal do Azure e pretende
 Para o runbook seguinte, se tiver as propriedades seguintes para o parâmetro WebhookData:
 
 * WebhookName: *MyWebhook*
-* RequestBody: *[{"ResourceGroup": "myResourceGroup", "Name": "vm01"}, {"ResourceGroup": "myResourceGroup", "Name": "vm02"}]*
+* RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 Em seguida, passa o seguinte valor JSON na interface de Usuário para o parâmetro WebhookData. O exemplo seguinte com o símbolo devolve e carateres de nova linha corresponde ao formato que é transmitido a partir de um webhook.
 
@@ -226,3 +226,4 @@ A imagem seguinte mostra a solicitação a ser enviada pelo Windows PowerShell e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber como utilizar a automatização do Azure para tomar medidas em alertas do Azure, veja [utilize um alerta para acionar um runbook da automatização do Azure](automation-create-alert-triggered-runbook.md).
+

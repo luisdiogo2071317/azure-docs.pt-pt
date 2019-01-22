@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b0fdfa52d194dfa111c7bacf648c45f6e64fca13
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062072"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430926"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
 Neste início rápido, vai criar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus do tipo **Messaging** com um **padrão** SKU. O artigo também define os parâmetros que são especificados para a execução da implantação. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager). Para o modelo completo, consulte a [modelo de espaço de nomes do Service Bus] [ Service Bus namespace template] no GitHub.
@@ -44,7 +44,7 @@ Para criar e implementar o modelo manualmente, percorra as secções seguintes n
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se quiser usar **do Azure PowerShell** para implementar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Se quiser usar **do Azure PowerShell** para implementar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 Se quiser usar **CLI do Azure** para implementar o modelo do Resource Manager [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 

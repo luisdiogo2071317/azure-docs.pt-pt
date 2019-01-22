@@ -3,18 +3,18 @@ title: Configurar servidores para um estado pretendido e gerir desvios com a Aut
 description: Tutorial - Gerir configurações de servidor com a configuração de estado de automatização do Azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 000875e4e591bcfe94ec99f8b16c8ec40bf52cf4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cb070b57b6d84f87e467b53369420bdc463e0bd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629887"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434961"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado pretendido e gerir desvios
 
@@ -33,7 +33,7 @@ Para concluir este tutorial, irá precisar de:
 
 - Uma conta de Automatização do Azure. Para obter instruções sobre como criar uma conta Run As de Automatização do Azure, veja [Conta Run As do Azure](automation-sec-configure-azure-runas-account.md).
 - Uma VM do Azure Resource Manager (não clássica) com o Windows Server 2008 R2 ou posterior. Para obter instruções sobre como criar uma VM, veja [Criar a sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- O Azure PowerShell versão 3.6 ou posterior do módulo. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+- O Azure PowerShell versão 3.6 ou posterior do módulo. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 - Familiaridade com a Desired State Configuration (DSC). Para obter informações sobre o DSC, consulte [Windows PowerShell Desired State Configuration descrição geral](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure

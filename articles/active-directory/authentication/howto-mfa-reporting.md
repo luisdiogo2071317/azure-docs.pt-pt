@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628839"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431729"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 
@@ -58,9 +58,9 @@ Estes dados estão disponíveis através da [portal do Azure](https://portal.azu
 
 Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso às informações seguintes:
 
-**MFA necessária:** se a MFA é necessária para o início de sessão ou não. A MFA pode ser necessário devido à MFA por utilizador, o acesso condicional ou outros motivos. Os valores possíveis são **Sim** ou **não**.
+**MFA necessária:** Se MFA é necessária para o início de sessão ou não. A MFA pode ser necessário devido à MFA por utilizador, o acesso condicional ou outros motivos. Os valores possíveis são **Sim** ou **não**.
 
-**Resultado da MFA:** obter mais informações sobre se a MFA foi cumprida ou recusada:
+**Resultado da MFA:** Obter mais informações sobre se o MFA foi cumprida ou negado:
 
 - Se a MFA for cumprida, esta coluna disponibiliza mais informações sobre como foi cumprida.
    - Multi-Factor Authentication do Azure
@@ -103,7 +103,7 @@ Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso à
       - o utilizador não foi encontrado
       - o código de verificação já foi utilizado uma vez
 
-**Método de autenticação da MFA:** o método de autenticação que o utilizador utilizou para concluir a MFA. Os valores possíveis incluem:
+**Método de autenticação de MFA:** O método de autenticação, o utilizador utilizado para concluir a MFA. Os valores possíveis incluem:
 
 - Mensagem de texto
 - Notificação de aplicação móvel
@@ -112,7 +112,7 @@ Os relatórios de atividades de início de sessão para a MFA dão-lhe acesso à
 - Chamada telefónica (telefone do escritório)
 - Chamada telefónica (telefone de autenticação alternativo)
 
-**Detalhe de autenticação da MFA:** versão limpa do número de telefone, por exemplo, + X XXXXXXXX64.
+**Detalhe de autenticação de MFA:** Limpa a versão do número de telefone, por exemplo: + X XXXXXXXX64.
 
 **Acesso condicional** encontrar informações sobre as políticas de acesso condicional que afetados a tentativa de início de sessão, incluindo:
 

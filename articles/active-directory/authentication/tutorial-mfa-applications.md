@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163391"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427615"
 ---
-# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir a implementação de um piloto do Multi-Factor Authentication do Azure
+# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma implementação piloto do Azure multi-factor Authentication
 
 Neste tutorial, iremos explicar como configurar uma política de acesso condicional ao ativar o Multi-Factor Authentication do Azure (MFA do Azure) ao iniciar sessão no portal do Azure. A política é implementada e testada num grupo específico de utilizadores piloto. A implementação do MFA do Azure através do acesso condicional proporciona uma flexibilidade significativa para as organizações e os administradores em comparação com o método tradicional imposto.
 
@@ -29,7 +29,7 @@ Neste tutorial, iremos explicar como configurar uma política de acesso condicio
 
 * Um inquilino do Azure AD em funcionamento com, pelo menos, uma licença de avaliação ativada.
 * Uma conta com privilégios de Administrador Global.
-* Um utilizador de teste não administrador com uma palavra-passe que conheça para testar. Se precisar de criar um utilizador, veja o artigo [Início Rápido: Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md).
+* Um utilizador de teste não-administrador com uma palavra-passe saber para teste, se precisar de criar um utilizador, consulte o artigo [início rápido: Adicionar novos utilizadores ao Azure Active Directory](../add-users-azure-active-directory.md).
 * Um grupo piloto para testar do qual o utilizador não administrador seja membro. Se precisar de criar um grupo, veja o artigo [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication do Azure
@@ -73,7 +73,7 @@ Se decidir que já não quer utilizar a funcionalidade que configurou como parte
 1. Selecione a política de acesso condicional que criou.
 1. Clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ativou o Multi-Factor Authentication do Azure. Avance para o próximo tutorial para ver como o Azure Identity Protection pode ser integrado na reposição personalizada de palavra-passe e nas experiências de Multi-Factor Authentication.
 

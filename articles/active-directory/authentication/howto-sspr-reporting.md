@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025010"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425915"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -63,10 +63,10 @@ Se estão a participar na pré-visualização pública do Registro convergida, i
 
 A lista a seguir explica cada uma das colunas de relatório no portal do Azure em detalhe:
 
-* **Utilizador**: operação de registo de reposição do utilizador que tentou uma palavra-passe.
-* **Função**: A função de utilizador no diretório.
+* **Utilizador**: Operação de registo de reposição do utilizador que tentou uma palavra-passe.
+* **Função**: A função do utilizador no diretório.
 * **Data e hora**: A data e hora da tentativa.
-* **Data registada**: os dados de autenticação que o utilizador fornecido durante a palavra-passe de registo de reposição.
+* **Dados registados**: Registo de reposição de dados de autenticação que o utilizador fornecido durante a palavra-passe.
 
 ## <a name="description-of-the-report-values-in-the-azure-portal"></a>Descrição dos valores de relatório no portal do Azure
 
@@ -74,41 +74,41 @@ A tabela seguinte descreve os valores de diferentes que são que pode definir pa
 
 | Coluna | Valores permitidos e seus significados |
 | --- | --- |
-| Dados registados |**E-mail alternativo**: O utilizador utilizou um correio eletrónico alternativo ou e-mail de autenticação para autenticar.<p><p>**Telefone do escritório**: O utilizador utilizou um telefone do escritório para autenticar.<p>**Número de telemóvel**: O utilizador utilizou um telemóvel ou telefone de autenticação para autenticar.<p>**Perguntas de segurança**: O utilizador utilizou perguntas de segurança para autenticar.<p>**Qualquer combinação dos métodos anteriores, por exemplo, se alternam e-mail + o número de telemóvel**: ocorre quando uma política de porta de dois for especificada e mostra os dois métodos, o utilizador utilizado para autenticação de pedido de reposição de palavra-passe. |
+| Dados registados |**E-mail alternativo**: O utilizador utilizou um correio eletrónico alternativo ou e-mail de autenticação para autenticar.<p><p>**Telefone do escritório**: O utilizador utilizou um telefone do escritório para autenticar.<p>**Número de telemóvel**: O utilizador utilizou um telemóvel ou telefone de autenticação para autenticar.<p>**Perguntas de segurança**: O utilizador utilizou perguntas de segurança para autenticar.<p>**Qualquer combinação dos métodos anteriores, por exemplo, se alternam e-mail + o número de telemóvel**: Ocorre quando uma política de porta de dois for especificada e mostra os dois métodos, o utilizador utilizado para autenticação de pedido de reposição de palavra-passe. |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipos de atividades de gestão de palavra-passe Self-Service
 
 Os seguintes tipos de atividade são apresentados no **gestão de palavras-passe Self-Service** categoria de eventos de auditoria:
 
-* [Bloqueado de reposição de palavra-passe self-service](#activity-type-blocked-from-self-service-password-reset): indica que um utilizador tentou repor uma palavra-passe, utilize uma porta específica ou validar um número de telefone mais do que cinco vezes total em 24 horas.
-* [Alterar palavra-passe (personalizada)](#activity-type-change-password-self-service): indica que um utilizador efetuar um voluntário ou forçado (devido à expiração) alteração de palavra-passe.
-* [Repor palavra-passe (por administrador)](#activity-type-reset-password-by-admin): indica que um administrador efetuado uma palavra-passe de reposição de nome de um utilizador do portal do Azure.
-* [Repor palavra-passe (personalizada)](#activity-type-reset-password-self-service): indica que um utilizador com êxito de repor a palavra-passe do [portal da reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com).
-* [Progresso da atividade de fluxo de reposição de palavra-passe self-service](#activity-type-self-serve-password-reset-flow-activity-progress): indica a cada passo um usuário avança nos, como passar uma palavra-passe específica de reposição de porta de autenticação, como o processo de reposição da parte da palavra-passe.
-* [Desbloquear conta de utilizador (personalizado)](#activity-type-unlock-user-account-self-service): indica que um utilizador com êxito conseguiu desbloquear a conta do Active Directory sem repor a palavra-passe do [portal da reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com) utilizando o Active Directory Funcionalidade de diretório da conta de desbloquear sem repor.
-* [Utilizador registado na reposição de palavra-passe self-service](#activity-type-user-registered-for-self-service-password-reset): indica que um utilizador registou todas as informações necessárias para repor a palavra-passe em conformidade com a política de reposição de palavra-passe do inquilino atualmente especificado.
+* [Bloqueado de reposição de palavra-passe self-service](#activity-type-blocked-from-self-service-password-reset): Indica que um utilizador tentou repor uma palavra-passe, utilize uma porta específica ou validar um número de telefone mais do que cinco vezes total em 24 horas.
+* [Alterar palavra-passe (personalizada)](#activity-type-change-password-self-service): Indica que um utilizador efetuar um voluntário ou forçado (devido à expiração) alteração de palavra-passe.
+* [Repor palavra-passe (por administrador)](#activity-type-reset-password-by-admin): Indica que um administrador efetuar uma reposição em nome de um utilizador a partir do portal do Azure de palavra-passe.
+* [Repor palavra-passe (personalizada)](#activity-type-reset-password-self-service): Indica que um utilizador com êxito de repor a palavra-passe do [portal de reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com).
+* [Progresso da atividade de fluxo de reposição de palavra-passe self-service](#activity-type-self-serve-password-reset-flow-activity-progress): Indica a cada passo que um usuário avança nos, como passar uma palavra-passe específica de reposição de porta de autenticação, como o processo de reposição da parte da palavra-passe.
+* [Desbloquear conta de utilizador (personalizado)](#activity-type-unlock-user-account-self-service): Indica que um utilizador com êxito conseguiu desbloquear a conta do Active Directory sem repor a palavra-passe do [portal de reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com) ao utilizar a funcionalidade do Active Directory da conta de desbloquear sem repor.
+* [Utilizador registado na reposição de palavra-passe self-service](#activity-type-user-registered-for-self-service-password-reset): Indica que um utilizador registou todas as informações necessárias para repor a palavra-passe em conformidade com a política de reposição de palavra-passe do inquilino atualmente especificado.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: impedidos de reposição de palavra-passe self-service
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo de atividade: Bloqueado da reposição de palavras-passe personalizada
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um utilizador tentou repor uma palavra-passe, utilize uma porta específica ou validar um número de telefone mais do que cinco vezes total em 24 horas.
-* **Ator atividade**: operações de reposição do utilizador que foi limitado de executar adicionais. O utilizador pode ser um utilizador final ou um administrador.
-* **Destino de atividade**: operações de reposição do utilizador que foi limitado de executar adicionais. O utilizador pode ser um utilizador final ou um administrador.
+* **Descrição de atividade**: Indica que um utilizador tentou repor uma palavra-passe, utilize uma porta específica ou validar um número de telefone mais do que cinco vezes total em 24 horas.
+* **Ator atividade**: O utilizador que foi limitado de executar adicionais a operações de reposição. O utilizador pode ser um utilizador final ou um administrador.
+* **Destino de atividade**: O utilizador que foi limitado de executar adicionais a operações de reposição. O utilizador pode ser um utilizador final ou um administrador.
 * **Estado da atividade**:
-  * _Êxito_: indica que um utilizador foi limitado de executar qualquer reposições adicionais, tentar qualquer método de autenticação adicional ou validar qualquer números de telefone adicionais para as próximas 24 horas.
-* **Razão de falha do Estado de atividade**: não aplicável.
+  * _Êxito_: Indica que um utilizador foi limitado de executar qualquer reposições adicionais, tentar qualquer método de autenticação adicional ou validar qualquer números de telefone adicionais para as próximas 24 horas.
+* **Razão de falha do Estado de atividade**: Não aplicável.
 
 ### <a name="activity-type-change-password-self-service"></a>Tipo de atividade: Alterar palavra-passe (personalizada)
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um utilizador efetuar um voluntário ou forçado (devido à expiração) alteração de palavra-passe.
+* **Descrição de atividade**: Indica que um utilizador efetuar um voluntário ou forçado (devido à expiração) alteração de palavra-passe.
 * **Ator atividade**: O utilizador que foi alterado a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Destino de atividade**: O utilizador que foi alterado a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Estados de atividade**:
-  * _Êxito_: indica que um utilizador alterada com êxito a palavra-passe.
-  * _Falha de_: indica que um utilizador não foi possível alterar a palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
+  * _Êxito_: Indica que um utilizador alterado com êxito a palavra-passe.
+  * _Falha de_: Indica que um utilizador não foi possível alterar a palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
 * **Razão de falha do Estado de atividade**: 
   * _FuzzyPolicyViolationInvalidPassword_: O utilizador selecionou uma palavra-passe que foi banida automaticamente porque as capacidades de deteção de palavra-passe banidas da Microsoft não encontrado-lo para ser demasiado comum ou especialmente fraco.
 
@@ -116,59 +116,59 @@ A lista a seguir explica esta atividade detalhadamente:
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um administrador efetuado uma palavra-passe de reposição de nome de um utilizador do portal do Azure.
+* **Descrição de atividade**: Indica que um administrador efetuar uma reposição em nome de um utilizador a partir do portal do Azure de palavra-passe.
 * **Ator atividade**: O administrador que efetuou a reposição em nome de outro utilizador final ou administrador de palavra-passe. Tem de ser seja um administrador global, administrador de palavras-passe, utilizador administrador ou administrador de suporte técnico.
 * **Destino de atividade**: O utilizador cuja palavras-passe foi reposta. O utilizador pode ser um utilizador final ou um administrador diferente.
 * **Estados de atividade**:
-  * _Êxito_: indica que um administrador com êxito de reposição da palavra-passe de um utilizador.
-  * _Falha de_: indica que um administrador não conseguiu alterar a palavra-passe de um utilizador. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
+  * _Êxito_: Indica que um administrador com êxito de reposição da palavra-passe de um utilizador.
+  * _Falha de_: Indica a falha de um administrador alterar a palavra-passe de um utilizador. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
 
 ### <a name="activity-type-reset-password-self-service"></a>Tipo de atividade: Repor palavra-passe (personalizada)
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um utilizador com êxito de repor a palavra-passe do [portal da reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com).
+* **Descrição de atividade**: Indica que um utilizador com êxito de repor a palavra-passe do [portal de reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com).
 * **Ator atividade**: O utilizador que reponha a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Destino de atividade**: O utilizador que reponha a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Estados de atividade**:
-  * _Êxito_: indica que um utilizador com êxito de repor a própria palavra-passe.
-  * _Falha de_: indica que um utilizador falha ao repor a sua própria palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
+  * _Êxito_: Indica que um utilizador reposta com êxito a sua própria palavra-passe.
+  * _Falha de_: Indica que um utilizador falha ao repor a sua própria palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
 * **Razão de falha do Estado de atividade**: 
   * _FuzzyPolicyViolationInvalidPassword_: O administrador selecionado uma palavra-passe que foi banida automaticamente porque as capacidades de deteção de palavra-passe banidas da Microsoft não encontrado-lo para ser demasiado comum ou especialmente fraco.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de atividade: auto-servir o progresso de atividade de fluxo de reposição de palavra-passe
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Tipo de atividade: Progresso da atividade de fluxo de reposição de palavra-passe de personalizada
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica cada passo um usuário avança nos (por exemplo, passar uma palavra-passe específica de reposição de porta de autenticação), como o processo de reposição da parte da palavra-passe.
-* **Ator atividade**: fluxo de reposição do utilizador que efetuou a parte da palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
-* **Destino de atividade**: fluxo de reposição do utilizador que efetuou a parte da palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
+* **Descrição de atividade**: Indica a cada passo que um usuário avança nos (por exemplo, passar uma palavra-passe específica de reposição de porta de autenticação) como o processo de reposição da parte da palavra-passe.
+* **Ator atividade**: Fluxo de reposição de utilizador que efetuou a parte da palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
+* **Destino de atividade**: Fluxo de reposição de utilizador que efetuou a parte da palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Estados de atividade**:
-  * _Êxito_: indica que um utilizador concluída com êxito um passo específico do fluxo de reposição de palavra-passe.
-  * _Falha de_: indica que um passo específico da palavra-passe reposta fluxo falhou. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
-* **Motivos de estado de atividade**: consulte a tabela seguinte para [todos os reposição permitido atividade Estado motivos](#allowed-values-for-details-column).
+  * _Êxito_: Indica que um utilizador concluída com êxito um passo específico do fluxo de reposição de palavra-passe.
+  * _Falha de_: Indica que um passo específico da palavra-passe reposta fluxo falhou. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
+* **Motivos de estado de atividade**:   Consulte a tabela seguinte para [todos os reposição permitido atividade Estado motivos](#allowed-values-for-details-column).
 
-### <a name="activity-type-unlock-a-user-account-self-service"></a>Tipo de atividade: desbloquear uma conta de utilizador (personalizado)
+### <a name="activity-type-unlock-a-user-account-self-service"></a>Tipo de atividade: Desbloquear uma conta de utilizador (personalizado)
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um utilizador com êxito conseguiu desbloquear a conta do Active Directory sem repor a palavra-passe do [portal da reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com) ao utilizar a funcionalidade do Active Directory de desbloqueio de conta sem reposição.
+* **Descrição de atividade**: Indica que um utilizador com êxito conseguiu desbloquear a conta do Active Directory sem repor a palavra-passe do [portal de reposição de palavras-passe do Azure AD](https://passwordreset.microsoftonline.com) ao utilizar a funcionalidade do Active Directory da conta de desbloquear sem repor.
 * **Ator atividade**: O utilizador que conseguiu desbloquear a sua conta sem repor a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Destino de atividade**: O utilizador que conseguiu desbloquear a sua conta sem repor a palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Permitido Estados de atividade**:
-  * _Êxito_: indica que um utilizador desbloqueado com êxito a sua própria conta.
-  * _Falha de_: indica que um utilizador não conseguiu desbloquear a conta. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
+  * _Êxito_: Indica que um utilizador desbloqueado com êxito a sua própria conta.
+  * _Falha de_: Indica que um utilizador não conseguiu desbloquear a conta. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu.
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo de atividade: utilizador registado na reposição de palavra-passe self-service
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Tipo de atividade: Utilizador registado na reposição de palavra-passe personalizada
 
 A lista a seguir explica esta atividade detalhadamente:
 
-* **Descrição de atividade**: indica que um utilizador registou todas as informações necessárias para repor a palavra-passe em conformidade com a política de reposição de palavra-passe do inquilino atualmente especificado. 
+* **Descrição de atividade**: Indica que um utilizador registou todas as informações necessárias para repor a palavra-passe em conformidade com a política de reposição de palavra-passe do inquilino atualmente especificado. 
 * **Ator atividade**: O utilizador que registado na reposição de palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Destino de atividade**: O utilizador que registado na reposição de palavra-passe. O utilizador pode ser um utilizador final ou um administrador.
 * **Permitido Estados de atividade**:
-  * _Êxito_: indica que um utilizador registado com êxito para a palavra-passe de reposição de acordo com a política atual. 
-  * _Falha de_: indica que um utilizador não conseguiu registar na reposição de palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu. 
+  * _Êxito_: Indica que um utilizador registado com êxito para a palavra-passe de reposição de acordo com a política atual. 
+  * _Falha de_: Indica que um utilizador não conseguiu registar na reposição de palavra-passe. Pode selecionar a linha para ver os **razão do Estado de atividade** categoria para saber mais sobre por que motivo a falha ocorreu. 
 
      >[!NOTE]
      >Falha não significa que um utilizador for não é possível repor a sua própria palavra-passe. Isso significa que eles não concluir o processo de registo. Se houver dados não verificados na sua conta está correta, por exemplo, um número de telefone que não é validado, mesmo que eles não têm a verificar este número de telefone, ainda pode utilizá-lo para repor a palavra-passe. Para obter mais informações, consulte [o que acontece quando um utilizador se regista?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).

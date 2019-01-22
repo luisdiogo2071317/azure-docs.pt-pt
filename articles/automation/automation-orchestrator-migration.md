@@ -3,18 +3,18 @@ title: Migrar do Orchestrator a automatização do Azure
 description: Descreve como migrar pacotes de runbooks e a integração do System Center Orchestrator para automatização do Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275287"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432902"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator a automatização do Azure (Beta)
 Os Runbooks do [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseiam-se nas atividades dos pacotes de integração que são escritas especificamente para o Orchestrator, enquanto os runbooks na automatização do Azure são baseados no Windows PowerShell.  [Os runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na automatização do Azure têm uma aparência semelhante para os runbooks do Orchestrator com suas atividades que representa os cmdlets do PowerShell, os runbooks subordinados e ativos.
@@ -99,7 +99,7 @@ O conversor de Runbook criará os seguintes ficheiros de registo na mesma locali
 | Ficheiro | Conteúdos |
 |:--- |:--- |
 | Conversor de Runbook - Progress.log |Passos detalhados da conversão, incluindo informações para cada atividade convertida com êxito e de aviso para cada atividade não convertido. |
-| Conversor de Runbook - Summary.log |Resumo da conversão última inclusive possíveis avisos e acompanhamento de tarefas que precisa para executar como a criação de uma variável necessária para o runbook convertido. |
+| Runbook Converter - Summary.log |Resumo da conversão última inclusive possíveis avisos e acompanhamento de tarefas que precisa para executar como a criação de uma variável necessária para o runbook convertido. |
 
 ### <a name="exporting-runbooks-from-orchestrator"></a>Exportar runbooks do Orchestrator
 O conversor de Runbook funciona com um ficheiro de exportação do Orchestrator que contém um ou mais runbooks.  Ele criará um runbook de automatização do Azure correspondente para cada runbook do Orchestrator no ficheiro de exportação.  
@@ -134,3 +134,4 @@ Os Runbooks do Orchestrator iniciar outros runbooks com o **invocar Runbook** at
 * [A função de trabalho de Runbook híbrida](automation-hybrid-runbook-worker.md)
 * [Atividades padrão do Orchestrator](https://technet.microsoft.com/library/hh403832.aspx)
 * [Toolkit de migração do Baixe o System Center Orchestrator](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

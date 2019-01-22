@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429111"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para multi-factor Authentication
 
@@ -47,7 +47,7 @@ Para configurar umalista aprovada de IP, aceda a `HKLM\SOFTWARE\Microsoft\AzureM
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | cadeia | Vazio | Forneça uma lista de ponto e vírgula separada de endereços IP. Inclua os endereços IP das máquinas onde os pedidos de serviço têm origem, como o servidor NAS/VPN. Intervalos de IP são sub-redes não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Quando chegar uma solicitação de um endereço IP que existe na lista de permissões, verificação de dois passos é ignorada. A lista aprovada de IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o aviso seguinte é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
+Quando chegar uma solicitação de um endereço IP que existe na lista de permissões, verificação de dois passos é ignorada. A lista aprovada de IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o seguinte aviso é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
 
 ## <a name="next-steps"></a>Passos Seguintes
 

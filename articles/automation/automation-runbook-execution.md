@@ -3,18 +3,18 @@ title: Execução de Runbooks na automatização do Azure
 description: Descreve os detalhes de como um runbook na automatização do Azure é processado.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 859ef4c28b858b00fcc9c7c73a3a706a11225113
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247355"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430726"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -34,17 +34,17 @@ As tarefas têm acesso aos recursos do Azure por estabelecer a conexão com a su
 
 ## <a name="job-statuses"></a>Estados das tarefas
 
-A tabela seguinte descreve os diferentes Estados possíveis para uma tarefa. PowerShell tem dois tipos de erros, erros de terminação e de não terminação. Erros de terminação de definir o estado de runbook como **falhada** caso estas ocorram. Erros de não terminação permitem que o script continuar, mesmo depois que eles ocorrem. Um exemplo de um erro de não terminação está a utilizar o `Get-ChildItem` cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, emite um erro e continua para a pasta seguinte. Este erro não definir o estado de runbook como **falhada** e pode ser marcado como **concluído**. Para forçar um runbook para parar num erro de não terminação, pode usar `-ErrorAction Stop` sobre o cmdlet.
+A tabela seguinte descreve os diferentes estados possíveis das tarefas. PowerShell tem dois tipos de erros, erros de terminação e de não terminação. Erros de terminação de definir o estado de runbook como **falhada** caso estas ocorram. Erros de não terminação permitem que o script continuar, mesmo depois que eles ocorrem. Um exemplo de um erro de não terminação está a utilizar o `Get-ChildItem` cmdlet com um caminho que não existe. PowerShell vê que o caminho não existe, emite um erro e continua para a pasta seguinte. Este erro não definir o estado de runbook como **falhada** e pode ser marcado como **concluído**. Para forçar um runbook para parar num erro de não terminação, pode usar `-ErrorAction Stop` sobre o cmdlet.
 
 | Estado | Descrição |
 |:--- |:--- |
-| Concluído |A tarefa foi concluída com êxito. |
+| Concluída |A tarefa foi concluída com êxito. |
 | Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa ter uma exceção. |
 | Falha ao aguardar que recursos |A tarefa falhou porque atingiu o [justa](#fair-share) limitar três vezes e iniciado a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
-| Em Fila |A tarefa está a aguardar para recursos num trabalho de automatização fique disponível para que ele pode ser iniciado. |
+| Em Fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
 | A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
-| A executar |A tarefa está em execução. |
+| A executar |A tarefa está a ser executada. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
 | A parar |O sistema está a parar a tarefa. |
@@ -79,7 +79,7 @@ Em alternativa, pode ver os detalhes de resumo de tarefa para um runbook especí
 
 Pode ver uma lista de todas as tarefas que foram criadas para um determinado runbook e o respetivo estado mais recente. Pode filtrar esta lista por Estado da tarefa e o intervalo de datas da última alteração efetuada à tarefa. Para ver os informações detalhadas e o resultado, clique no nome de uma tarefa. A vista detalhada da tarefa inclui os valores dos parâmetros do runbook fornecidos para essa tarefa.
 
-Pode utilizar os seguintes passos para ver as tarefas de um runbook.
+Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 
 1. No portal do Azure, selecione **automatização** e, em seguida, selecione o nome de uma conta de automatização.
 2. A partir do hub, selecione **Runbooks** e, em seguida, no **Runbooks** página selecione um runbook a partir da lista.
@@ -144,3 +144,4 @@ Outra opção é otimizar o runbook utilizando runbooks subordinados. Se o seu r
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre os diferentes métodos que podem ser utilizados para iniciar um runbook na automatização do Azure, veja [iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)
+

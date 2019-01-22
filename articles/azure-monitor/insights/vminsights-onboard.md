@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0610116967a483c811746327c35632951741b201
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332001"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439175"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos. 
@@ -407,7 +407,7 @@ As VMs com base nos resultados das políticas incluídos com a iniciativa, são 
 ### <a name="enable-with-powershell"></a>Ativar com o PowerShell
 Para ativar o Azure Monitor para as VMs para várias VMs ou conjuntos de dimensionamento de máquina virtual, pode utilizar o script do PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), disponível a partir da galeria do PowerShell do Azure. Este script itera em cada virtual máquina e a máquina virtual conjunto de dimensionamento na sua subscrição, no grupo de recursos de âmbito especificado pelo *ResourceGroup*, ou para um conjunto de dimensionamento VM ou numa máquina virtual único que é especificado por *Nome*. Para cada conjunto de dimensionamento VM ou numa máquina virtual, o script verifica se a extensão da VM já está instalada. Se a extensão de VM não estiver instalada, o script tenta reinstalá-lo. Se a extensão da VM estiver instalada, o script instala as extensões VM de agente do Log Analytics e de dependência.
 
-Este script requer o Azure PowerShell 5.7.0 de versão do módulo ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Se estiver executando o PowerShell localmente, terá também de executar `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Este script requer o Azure PowerShell 5.7.0 de versão do módulo ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Se estiver executando o PowerShell localmente, terá também de executar `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 Para obter uma lista de detalhes do argumento e a utilização de exemplo do script, execute `Get-Help`.
 

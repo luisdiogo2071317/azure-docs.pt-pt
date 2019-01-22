@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 00fc04afd26da2ef5741eec308835bb8c897c26b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dc48194f4740216089f3daa869576596899e272b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077346"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439056"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
@@ -95,7 +95,7 @@ O Azure Resource Manager Deteta que este comando é uma atualização de um recu
 
 ## <a name="deploy-log-analytics-with-azure-powershell"></a>Implementar o Log Analytics com o Azure PowerShell
 
-Também pode implementar o seu recurso do Log Analytics através do PowerShell ao utilizar o `New-AzureRmOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma nova área de trabalho do Log Analytics e adicionar a solução de Service Fabric para o mesmo: 
+Também pode implementar o seu recurso do Log Analytics através do PowerShell ao utilizar o `New-AzureRmOperationalInsightsWorkspace` comando. Para utilizar este método, certifique-se de que instalou [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1). Utilize este script para criar uma nova área de trabalho do Log Analytics e adicionar a solução de Service Fabric para o mesmo: 
 
 ```PowerShell
 

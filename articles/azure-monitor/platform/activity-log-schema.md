@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.subservice: logs
+ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353061"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438240"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
@@ -795,3 +795,4 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](../../azure-monitor/platform/activity-logs-overview.md)
 * [O registo de atividades do Azure para os Hubs de eventos do Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

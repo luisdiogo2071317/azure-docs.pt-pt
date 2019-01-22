@@ -7,14 +7,14 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582563"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432993"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Windows na gestão de atualizações
 
@@ -51,7 +51,7 @@ A verificação do sistema operacional verifica se a função de trabalho de Run
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2008 R2 RTM, o Windows Server 2008 | Suporta apenas avaliações de atualização.         |
+|Windows Server 2008 R2 RTM, Windows Server 2008 | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior |.NET framework 4.5.1 ou posterior é necessária. ([Transferir o .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> É necessário o Windows PowerShell 4.0 ou posterior. ([Transferir Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 é recomendada para maior confiabilidade.  ([Transferir Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-451"></a>.NET 4.5.1
@@ -201,3 +201,4 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para resolver mais problemas com as funções de trabalho de Runbook híbridas, consulte [resolver problemas relacionados com os Runbook Workers híbridos](hybrid-runbook-worker.md).
+

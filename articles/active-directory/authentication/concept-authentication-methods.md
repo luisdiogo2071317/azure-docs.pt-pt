@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90eb9177ec679fdf8007b734848a5bc3c72e5974
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249698"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430335"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -59,41 +59,41 @@ Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com
 
 ### <a name="predefined-questions"></a>Perguntas predefinidas
 
-* Em que cidade conheceu o seu primeiro namorado/a ou /companheiro/a?
-* Em que cidade os seus pais se conheceram?
-* Em que cidade vive o/a seu/sua irmão/irmã que está mais próximo/a?
-* Em que cidade nasceu o seu pai?
-* Em que cidade teve o seu primeiro emprego?
-* Em que cidade nasceu a sua mãe?
-* Em que cidade estava na passagem para 2000?
-* Qual é o último nome do/a seu/sua professor/a preferido/a na escola secundária?
-* Qual é o nome da instituição de ensino superior a que candidatou mas não frequentou?
-* Qual é o nome do lugar onde organizou a sua primeira festa de casamento?
+* Em que localidade conheceu o seu primeiro cônjuge/companheiro(a)?
+* Em que localidade se conheceram os seus pais?
+* Em que localidade mora o seu irmão/irmã mais próximo?
+* Em que localidade nasceu o seu pai?
+* Em que localidade teve o seu primeiro emprego?
+* Em que localidade nasceu a sua mãe?
+* Onde estava (localidade) na Passagem de Ano de 2000?
+* Qual é o apelido do seu professor/professora preferido na secundária?
+* Qual é o nome de uma universidade a que se candidatou, mas que não frequentou?
+* Qual é o nome do local onde organizou a sua primeira festa de casamento?
 * Qual é o segundo nome do seu pai?
-* Qual é o seu prato favorito?
-* Quais são o primeiro e último nome da sua avó materna?
+* Qual é o seu prato preferido?
+* Qual é o primeiro e último nome da sua avó materna?
 * Qual é o segundo nome da sua mãe?
 * O que é o mês de nascimento e ano de seu irmão mais antigo? (por exemplo, de Novembro de 1985)
-* Qual é o segundo nome do/a seu/sua irmão/irmã mais velho/a?
-* Quais são o primeiro e último nome do seu avô paterno?
-* Qual é o nome do meio do/a seu/sua irmão/irmã mais novo/a?
-* Em que escola andou quando estava no 6º ano?
-* Quais eram o primeiro e último nome do seu/sua melhor amigo/a de infância?
-* Quais eram o primeiro e último nome do/a seu/sua companheiro/a?
-* Qual era o último nome do/a seu/sua professor/a da escola primária preferido/a?
-* Qual era a marca e o modelo do seu primeiro carro ou da sua motocicleta?
-* Qual é o nome da primeira escola que frequentou?
-* Qual é o nome do hospital em que nasceu?
-* Qual é o nome da rua da primeira casa onde viveu em criança?
-* Qual é o nome do/a seu/sua herói/heroína preferido/a quando era criança?
-* Qual era o nome do seu animal de peluche preferido?
+* Qual é o segundo nome do seu irmão/irmã mais velho?
+* Qual é o primeiro e último nome do seu avô paterno?
+* Qual é o segundo nome do seu irmão/irmã mais novo?
+* Qual foi a escola que frequentou durante o sexto ano?
+* Qual era o primeiro e último nome do seu melhor amigo de infância?
+* Qual era o primeiro e último nome do seu primeiro amor?
+* Qual era o apelido do seu professor/professora preferido da primária?
+* Qual era a marca e modelo do seu primeiro carro ou motociclo?
+* Como se chamava a primeira escola que frequentou?
+* Qual era o nome do hospital em que nasceu?
+* Qual era o nome da rua da sua primeira casa de infância?
+* Qual era o nome do seu herói de infância?
+* Qual era o nome do seu peluche preferido?
 * Qual era o nome do seu primeiro animal de estimação?
-* Qual era a sua alcunha em criança?
-* Qual era o seu desporto favorito na escola secundária?
+* Qual era a sua alcunha de infância?
+* Qual era o seu desporto preferido na secundária?
 * Qual foi o seu primeiro emprego?
-* Quais eram os últimos quatro dígitos do seu número telefone de infância?
-* Quando era mais novo/a, onde queria estar quando fosse adulto/a?
-* Quem é a pessoa mais famosa que já conheceu?
+* Quais eram os quatro últimos algarismos do seu número de telefone de infância?
+* Quando era criança, o que queria ser quando crescesse?
+* Como se chama a maior celebridade que já conheceu?
 
 Todas as perguntas de segurança predefinidas são traduzidas e localizadas para o conjunto completo de idiomas do Office 365 com base na localidade do navegador do usuário.
 
@@ -193,7 +193,7 @@ Um SMS é enviado para o número de telemóvel contendo um código de verificaç
 
 Uma chamada de voz automatizada é feita para fornecer o número de telefone. Responder a chamada e prima # no teclado do telefone para autenticar
 
-## <a name="office-phone"></a>Telefone do emprego
+## <a name="office-phone"></a>Telefone do escritório
 
 Uma chamada de voz automatizada é feita para fornecer o número de telefone. Responder a chamada e prime # no teclado do telefone para autenticar.
 

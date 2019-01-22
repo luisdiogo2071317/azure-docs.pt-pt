@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296249"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426204"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem a necessidade de registo do utilizador final de reposição de palavra-passe
 
@@ -36,7 +36,7 @@ Se utilizar as predefinições no Azure AD Connect, os seguintes mapeamentos sã
 
 | Active Directory no local | Azure AD |
 | --- | --- |
-| telephoneNumber | Telefone do emprego |
+| telephoneNumber | Telefone do escritório |
 | móvel | Número de telemóvel |
 
 Quando o utilizador verifica o número de telemóvel, no campo de telefone em informações de contacto de autenticação no Azure AD também será preenchido com esse número.
@@ -75,7 +75,7 @@ Os seguintes campos podem ser definidos através do PowerShell:
 
 * **Correio eletrónico alternativo**
 * **Número de telemóvel**
-* **Telefone do escritório**: só pode ser definida se não estiver sincronizando com um diretório no local
+* **Telefone do escritório**: Só pode ser definida se não estiver sincronizando com um diretório no local
 
 ### <a name="use-powershell-version-1"></a>Utilizar o PowerShell versão 1
 

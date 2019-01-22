@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014740"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438816"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -65,7 +65,7 @@ Azure inclui várias soluções de IaaS, incluindo máquinas virtuais, os conjun
 
 Os conjuntos de dimensionamento de máquinas virtuais são criados por cima das máquinas de virtuais do Azure e fornecem uma forma fácil de implementar clusters de VMs idênticas. Conjuntos de dimensionamento de máquina virtual também suportam o dimensionamento automático, para que as novas VMs podem ser implementadas automaticamente, quando necessário. Desta forma, os conjuntos de dimensionamento de máquinas virtuais numa plataforma ideal para o nível mais alto microsserviços computação clusters de anfitriões, como o Azure Service Fabric e o Azure Container Service.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Plataforma como um serviço
+#### <a name="paas-platform-as-a-service"></a>PaaS: Plataforma como serviço
 
 Com PaaS, vai implementar a aplicação num ambiente que fornece o fornecedor de serviço cloud. O fornecedor faz todo o gerenciamento de infraestrutura para que possa se concentrar na programação de aplicações e gestão de dados.
 
@@ -169,7 +169,7 @@ Além de criar, gerir e eliminar a recursos com o portal do Azure, pode automati
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-O Azure PowerShell é um conjunto de módulos que fornecem cmdlets para gerir o Azure. Pode utilizar os cmdlets para criar, gerir e remover serviços do Azure. Os cmdlets podem ajudá-lo pode obter implementações consistentes, econômicas e automáticas. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+O Azure PowerShell é um conjunto de módulos que fornecem cmdlets para gerir o Azure. Pode utilizar os cmdlets para criar, gerir e remover serviços do Azure. Os cmdlets podem ajudá-lo pode obter implementações consistentes, econômicas e automáticas. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 #### <a name="azure-command-line-interface"></a>Interface de linha de comandos do Azure
 
@@ -197,11 +197,11 @@ Antes de pode trabalhar com serviços do Azure, precisa de uma subscrição. Vá
 
 Se ultrapassar o montante do crédito, seu serviço estão desativadas até que inicia o mês seguinte. Pode desativar o limite de gastos e adicionar um cartão de crédito a ser utilizado para os custos adicionais. Alguns desses custos são com desconto para contas do MSDN. Por exemplo, paga o preço do Linux para VMs com o Windows Server, e não implica custos adicionais para os servidores da Microsoft como o Microsoft SQL Server. Isso torna ideal para cenários de desenvolvimento e teste as contas do MSDN.
 
-**Contas do BizSpark**: O Microsoft BizSpark programa oferece muitos benefícios para startups. Uma dessas vantagens é o acesso a todo o software da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Obtenha us $150 em créditos do Azure para cada uma dessas cinco contas do MSDN e pagam tarifas reduzidas para várias dos serviços do Azure, como as máquinas virtuais.
+**Contas do BizSpark**: O programa Microsoft BizSpark muitas vantagens para startups. Uma dessas vantagens é o acesso a todo o software da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Obtenha us $150 em créditos do Azure para cada uma dessas cinco contas do MSDN e pagam tarifas reduzidas para várias dos serviços do Azure, como as máquinas virtuais.
 
-**Pay as you go**: com esta subscrição, paga o que utiliza ao anexar um cartão de crédito ou débito para a conta. Se uma organização, também pode ser aprovada para a faturação.
+**Pay as you go**: Com esta subscrição, paga o que utiliza ao anexar um cartão de crédito ou débito para a conta. Se uma organização, também pode ser aprovada para a faturação.
 
-**Contratos Enterprise**: com um enterprise agreement, consolidar com um determinado número de serviços no Azure, o próximo ano, e paga essa quantidade antes do tempo. O compromisso que fizer é consumido ao longo do ano. Se ultrapassar o montante de alocação, pode pagar o excedente após o consumo Efetivo. Dependendo da quantidade do compromisso, receberá um desconto sobre os serviços no Azure.
+**Contratos Enterprise**: Com um enterprise agreement, consolide a utilizar um determinado número de serviços no Azure durante o próximo ano e paga essa quantidade antes do tempo. O compromisso que fizer é consumido ao longo do ano. Se ultrapassar o montante de alocação, pode pagar o excedente após o consumo Efetivo. Dependendo da quantidade do compromisso, receberá um desconto sobre os serviços no Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo para uma subscrição do Azure
 
@@ -273,21 +273,21 @@ Modelos do Resource Manager declarativamente definem os recursos e configuraçõ
 
 Um modelo do Resource Manager consiste em quatro seções:
 
-- **Parâmetros**: estes são entradas para a implementação. Valores de parâmetros podem ser fornecidos por uma pessoa ou um processo automatizado. Um parâmetro de exemplo pode ser um nome de utilizador administrador e a palavra-passe para uma VM do Windows. Os valores de parâmetro são usados na implantação quando eles estão especificados.
+- **Parâmetros**: Essas são entradas para a implementação. Valores de parâmetros podem ser fornecidos por uma pessoa ou um processo automatizado. Um parâmetro de exemplo pode ser um nome de utilizador administrador e a palavra-passe para uma VM do Windows. Os valores de parâmetro são usados na implantação quando eles estão especificados.
 
-- **Variáveis**: estes são utilizados para armazenar os valores que são utilizados em toda a implementação. Ao contrário de parâmetros, um valor da variável não é fornecido no momento da implementação. Em vez disso, é difícil codificado ou gerado dinamicamente.
+- **Variáveis**: Estes são utilizados para armazenar os valores que são utilizados em toda a implementação. Ao contrário de parâmetros, um valor da variável não é fornecido no momento da implementação. Em vez disso, é difícil codificado ou gerado dinamicamente.
 
-- **Recursos**: Esta secção do modelo define os recursos a serem implantados, como máquinas virtuais, contas de armazenamento e redes virtuais.
+- **recursos**: Esta secção do modelo define os recursos a serem implantados, como máquinas virtuais, contas de armazenamento e redes virtuais.
 
-- **Saída**: depois de concluir uma implementação, o Resource Manager pode retornar dados como cadeias de ligação geradas dinamicamente.
+- **Saída**: Depois de concluir uma implementação, o Gestor de recursos pode retornar dados como cadeias de ligação geradas dinamicamente.
 
 Os mecanismos seguintes estão disponíveis para a automatização de implementação:
 
-- **As funções**: pode usar várias funções em modelos do Resource Manager. Estes incluem operações como converter uma cadeia em minúsculas, implementação de várias instâncias de um recurso definido e retornando dinamicamente o grupo de recursos de destino. As funções do Gestor de recursos ajudam a criar implementações dinâmicas.
+- **Funções**: Pode usar várias funções em modelos do Resource Manager. Estes incluem operações como converter uma cadeia em minúsculas, implementação de várias instâncias de um recurso definido e retornando dinamicamente o grupo de recursos de destino. As funções do Gestor de recursos ajudam a criar implementações dinâmicas.
 
-- **Dependências de recursos**: quando estiver a implementar vários recursos, alguns recursos vai ter uma dependência em outras pessoas. Para facilitar a implementação, pode utilizar uma declaração de dependência para que os recursos dependentes são implementados antes de outros.
+- **Dependências de recursos**: Quando estiver a implementar vários recursos, alguns recursos terão uma dependência em outras pessoas. Para facilitar a implementação, pode utilizar uma declaração de dependência para que os recursos dependentes são implementados antes de outros.
 
-- **Modelo de ligação**: de dentro de um modelo do Resource Manager, pode ligar a outro modelo. Isso permite que a decomposição de implantação num conjunto de modelos direcionados e com uma finalidade específica.
+- **Modelo de ligação**: De dentro de um modelo do Resource Manager, pode ligar a outro modelo. Isso permite que a decomposição de implantação num conjunto de modelos direcionados e com uma finalidade específica.
 
 Pode criar modelos do Resource Manager em qualquer editor de texto. No entanto, o Azure SDK para Visual Studio inclui ferramentas para ajudá-lo. Usando o Visual Studio, pode adicionar recursos para o modelo num assistente, em seguida, implementar e depurar o modelo diretamente a partir do Visual Studio. Para obter mais informações, consulte [modelos Authoring Azure Resource Manager](../../resource-group-authoring-templates.md).
 
@@ -301,17 +301,17 @@ Para conceder acesso, atribuir uma função ao utilizador ou grupo de utilizador
 
 Aqui estão alguns de exemplo [funções incorporadas no Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Proprietário**: um utilizador com esta função pode gerir tudo, incluindo o acesso.
+- **Proprietário**: Um utilizador com esta função pode gerir tudo, incluindo o acesso.
 
-- **Leitor**: um utilizador com esta função pode ler os recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
+- **Leitor**: Um utilizador com esta função pode ler os recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
 
-- **Contribuinte de máquina virtual**: um utilizador com esta função podem gerir máquinas virtuais, mas não é possível gerir a rede virtual a que estão ligados ou a conta de armazenamento onde reside o ficheiro VHD.
+- **Contribuinte de máquina virtual**: Um utilizador com esta função podem gerir máquinas virtuais, mas não é possível gerir a rede virtual a que estão ligados ou a conta de armazenamento onde reside o ficheiro VHD.
 
-- **Contribuinte da BD SQL**: um utilizador com esta função pode gerir bases de dados SQL, mas não as políticas relacionadas com segurança.
+- **Contribuinte da BD SQL**: Um utilizador com esta função pode gerir bases de dados SQL, mas não as políticas relacionadas com segurança.
 
-- **Gestor de segurança de SQL**: um utilizador com esta função pode gerir as políticas relacionadas com a segurança dos servidores SQL e bancos de dados.
+- **Gestor de segurança SQL**: Um utilizador com esta função pode gerir as políticas relacionadas com a segurança dos servidores SQL e bancos de dados.
 
-- **Contribuinte de conta de armazenamento**: um utilizador com esta função podem gerir contas de armazenamento, mas não é possível gerir o acesso às contas de armazenamento.
+- **Contribuinte de conta de armazenamento**: Um utilizador com esta função pode gerir contas de armazenamento, mas não é possível gerir o acesso às contas de armazenamento.
 
 Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -359,7 +359,7 @@ Por fim, assim como acontece com a gestão de qualquer sistema de computador, de
 
 ## <a name="azure-storage"></a>Storage do Azure
 
-Armazenamento do Azure é um serviço gerido pela Microsoft que oferece armazenamento durável, dimensionável e redundante. Pode adicionar uma conta de armazenamento do Azure como um recurso para qualquer grupo de recursos utilizando um método de implementação de recursos. Azure inclui quatro tipos de armazenamento: BLOBs de armazenamento, o armazenamento de ficheiros, o armazenamento de tabelas e o armazenamento de filas. Ao implementar uma conta de armazenamento, dois tipos de conta são disponível, para fins gerais e armazenamento de Blobs. Uma conta de armazenamento para fins gerais dá-lhe acesso a todos os quatro tipos de armazenamento. Contas de armazenamento de BLOBs são semelhantes às contas para fins gerais, mas contém blobs especializadas que incluem escalões de acesso frequente e esporádica. Para obter mais informações sobre o armazenamento de BLOBs, veja [armazenamento de Blobs do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
+Armazenamento do Azure é um serviço gerido pela Microsoft que oferece armazenamento durável, dimensionável e redundante. Pode adicionar uma conta de armazenamento do Azure como um recurso para qualquer grupo de recursos utilizando um método de implementação de recursos. Azure inclui quatro tipos de armazenamento: Armazenamento de BLOBs, armazenamento de ficheiros, armazenamento de tabelas e armazenamento de filas. Ao implementar uma conta de armazenamento, dois tipos de conta são disponível, para fins gerais e armazenamento de Blobs. Uma conta de armazenamento para fins gerais dá-lhe acesso a todos os quatro tipos de armazenamento. Contas de armazenamento de BLOBs são semelhantes às contas para fins gerais, mas contém blobs especializadas que incluem escalões de acesso frequente e esporádica. Para obter mais informações sobre o armazenamento de BLOBs, veja [armazenamento de Blobs do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Contas de armazenamento do Azure podem ser configuradas com diferentes níveis de redundância:
 
@@ -481,9 +481,9 @@ Existem várias opções para implementar uma rede virtual.
 
 - Modelos Azure Resource Manager
 
->**Quando utilizar**: sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas.
+>**Quando utilizar**: Sempre que estiver a trabalhar com VMs no Azure, irá trabalhar com redes virtuais. Assim, para segmentar as suas VMs em datacenters no local semelhante do sub-redes públicas e privadas.
 
->**Introdução ao**: implementar uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
+>**Introdução ao**: A implementação de uma rede virtual do Azure com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova rede virtual para um grupo de recursos novo ou existente. Quando estiver a criar uma nova máquina virtual do portal, pode selecionar uma rede virtual existente ou crie um novo. Começar a utilizar e [criar uma rede virtual com o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981767"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432052"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 
@@ -76,7 +76,7 @@ Se a Contoso tiver a política MFA ativada para App1, mas não App2, em seguida,
 
 * Dia 1: Um utilizador tiver a MFA na Contoso e está a aceder ao App1, em seguida, sem MFA adicional prompt é mostrado na Fabrikam.
 
-* Dia 2: O utilizador acedeu aplicação 2 na Contoso, portanto, agora ao aceder a Fabrikam, tem de se registar para MFA lá.
+* Dia 2: O usuário acessa aplicação 2 na Contoso, portanto, agora ao aceder a Fabrikam, tem de se registar para MFA lá.
 
 Este processo pode ser confuso e poderia levar a remover o início de sessão conclusões.
 
@@ -84,7 +84,7 @@ Além disso, mesmo que a Contoso tem capacidade MFA, nem sempre é que o caso, a
 
 Por fim, o inquilino de recursos MFA também funciona para MSAs e identidades sociais e para organizações de parceiros que não têm MFA que configurar.
 
-Portanto, a recomendação para a MFA para utilizadores B2B é sempre exigir a MFA no inquilino do convite. Este requisito pode levar a MFA duplo em alguns casos, mas sempre que aceder ao inquilino de convite, a experiência de usuários finais é previsível: Sally tem de se registar para MFA ao inquilino de convite.
+Portanto, a recomendação para a MFA para utilizadores B2B é sempre exigir a MFA no inquilino do convite. Este requisito pode levar a MFA duplo em alguns casos, mas sempre que aceder ao inquilino de convite, a experiência de usuários finais é previsível: Sally tem de registar para MFA ao inquilino de convite.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional com base no dispositivo, com base na localização e com base no risco para utilizadores B2B
 
@@ -105,5 +105,5 @@ Atualmente, não não possível aplicar políticas baseadas no risco de início 
 Veja os artigos seguintes na colaboração B2B do Azure AD:
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-* [Licenciamento de colaboração B2B do AD do Azure](licensing-guidance.md)
-* [A colaboração do Azure Active Directory B2B perguntas mais frequentes (FAQ)](faq.md)
+* [Licenciamento de colaboração B2B do Azure AD](licensing-guidance.md)
+* [Perguntas mais frequentes (FAQ) sobre a colaboração B2B do Azure Active Directory](faq.md)

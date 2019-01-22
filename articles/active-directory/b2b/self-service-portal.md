@@ -1,6 +1,6 @@
 ---
 title: Portal de inscrição autónoma para a colaboração B2B com o Azure Active Directory | Microsoft Docs
-description: A colaboração B2B do Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
+description: A colaboração do B2B Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -8,14 +8,14 @@ ms.topic: sample
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cb88645530f904bc35c70dfa12b09b76fcd1eb7c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 67ddcb977fc61e48ab06ccf732874208236664c9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985265"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430946"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de inscrição autónoma para a colaboração B2B com o Azure AD
 
@@ -29,7 +29,7 @@ O projeto do GitHub mostra como as organizações podem utilizar as APIs para fo
 
 Este código é disponibilizado como uma amostra para demonstrar a utilização da API de convite para B2B do Azure Active Directory. Deve ser personalizado pela sua equipa de programação ou por um parceiro e deve ser revisto antes de o implementar num cenário de produção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Licenciamento de colaboração B2B do Azure AD](licensing-guidance.md)

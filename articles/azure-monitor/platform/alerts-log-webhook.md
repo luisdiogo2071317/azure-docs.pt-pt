@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 26c98a87b736132eb50cddffd06c1173d205c34d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: alerts
+ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265435"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433174"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alerts-log.md), tem a opção de [configurar a utilização de grupos de ação](action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -202,3 +202,4 @@ Segue-se um payload de exemplo para uma ação personalizada de webhook para qua
 - Criar e gerir [grupos de ação no Azure](action-groups.md)
 - Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md)
 - Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+

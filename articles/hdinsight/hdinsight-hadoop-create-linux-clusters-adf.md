@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975462"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425987"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Para obter instruções, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 - Um principal de serviço do Azure Active Directory. Depois de criar o principal de serviço, certifique-se obter o **ID da aplicação** e **chave de autenticação** com as instruções no artigo ligado. Vai precisar destes valores mais tarde neste tutorial. Além disso, certifique-se de que o principal de serviço é um membro do *contribuinte* função da subscrição ou o grupo de recursos no qual o cluster é criado. Para obter instruções obter os valores necessários e atribua as funções certas, consulte [criar um Azure Active Directory, principal de serviço](../active-directory/develop/howto-create-service-principal-portal.md).
 

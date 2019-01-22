@@ -3,19 +3,19 @@ title: Gerir uma máquina virtual do Azure com a recolha de inventário | Micros
 description: Gerir uma máquina virtual com a recolha de inventário
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventário, automatização,alteração, controlo
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426051"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -126,3 +126,4 @@ Para remover a máquina virtual da gestão de inventário:
 
 * Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
 * Para saber mais sobre a gestão do Windows e atualizações de pacote em suas máquinas virtuais, veja [solução de gestão de atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).
+

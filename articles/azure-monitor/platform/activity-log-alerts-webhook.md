@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582308"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438971"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar o estas notificações para outros sistemas para ações de pós-processamento ou personalizados. Este artigo mostra o payload para o HTTP POST para um webhook como fica.
@@ -168,7 +168,7 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 | Nome do elemento | Descrição |
 | --- | --- |
 | status |Utilizado para alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
-| Contexto |Contexto do evento. |
+| context |Contexto do evento. |
 | resourceProviderName |O fornecedor de recursos do recurso afetado. |
 | conditionType |Sempre "Event". |
 | nome |Nome da regra de alerta. |
@@ -201,3 +201,4 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 * [Utilizar uma aplicação lógica para enviar um SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Neste exemplo é para alertas de métricas, mas pode ser modificado para funcionar com um alerta de registo de atividades.
 * [Utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Neste exemplo é para alertas de métricas, mas pode ser modificado para funcionar com um alerta de registo de atividades.
 * [Utilizar uma aplicação lógica para enviar uma mensagem numa fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Neste exemplo é para alertas de métricas, mas pode ser modificado para funcionar com um alerta de registo de atividades.
+

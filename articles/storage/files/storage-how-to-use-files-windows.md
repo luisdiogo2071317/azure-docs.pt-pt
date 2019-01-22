@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 5e36a41c1678ac38c7ebee5b47fd88076fa3fb70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b068744f7dac1cc4cdd6fd41b35c6131e1b00903
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629701"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430813"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -47,7 +47,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 * **Chave da conta de armazenamento**: Para montar uma partilha de ficheiros do Azure, terá da chave de armazenamento primária (ou secundário). Atualmente, não são suportadas chaves SAS para a montagem.
 
-* **Certifique-se de que a porta 445 está aberta**: Porta TCP 445 estar abertas; requer que o protocolo SMB ligações irão falhar se a porta 445 estiver bloqueada. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. O seguinte código do PowerShell pressupõe que tem o módulo do PowerShell AzureRM instalado; veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
+* **Certifique-se de que a porta 445 está aberta**: Porta TCP 445 estar abertas; requer que o protocolo SMB ligações irão falhar se a porta 445 estiver bloqueada. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. O seguinte código do PowerShell pressupõe que tem o módulo do PowerShell AzureRM instalado; veja [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 26ddc1df8353a8a8b0e0c54a0c906c8d8b6b45b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495329"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435605"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não geridos para managed disks
 
 Se tiver existentes máquinas de virtuais de Windows (VMs) que utilizam discos não geridos, pode converter as VMs para utilizar discos geridos através da [Managed Disks do Azure](managed-disks-overview.md) serviço. Este processo converte o disco do SO e qualquer discos de dados anexados.
 
-Este artigo mostra-lhe como converter VMs com o Azure PowerShell. Se precisar de instalar ou atualizá-lo, veja [instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este artigo mostra-lhe como converter VMs com o Azure PowerShell. Se precisar de instalar ou atualizá-lo, veja [instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

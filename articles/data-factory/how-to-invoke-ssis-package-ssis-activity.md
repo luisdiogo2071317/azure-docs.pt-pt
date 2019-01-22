@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 73d14ebf8ed365659ec547469cd903d5db22c561
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092462"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428618"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade para executar o pacote de SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote do SSIS num pipeline do Azure Data Factory com uma atividade de executar o pacote do SSIS. 
@@ -28,7 +28,7 @@ Este artigo descreve como executar um pacote do SSIS num pipeline do Azure Data 
 **Base de Dados SQL do Azure**. As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o catálogo do SSIS. Também pode utilizar uma instância de gerida de base de dados do Azure SQL.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
-Criar um runtime de integração Azure-SSIS se não tiver uma ao seguir as instruções passo a passo na [Tutorial: pacotes do SSIS implementar](tutorial-create-azure-ssis-runtime-portal.md).
+Criar um runtime de integração Azure-SSIS se não tiver uma ao seguir as instruções passo a passo no [Tutorial: Implementar pacotes do SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Executar um pacote no portal do Azure
 Nesta secção, vai utilizar IU do Data Factory para criar um pipeline do Data Factory com uma atividade de executar o pacote do SSIS que executa um pacote do SSIS.
@@ -59,7 +59,7 @@ Primeiro passo é criar uma fábrica de dados com o portal do Azure.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que o Data Factory suporta. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras localizações.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -137,7 +137,7 @@ Também pode criar um acionador agendado para o seu pipeline, para que o pipelin
 ## <a name="run-a-package-with-powershell"></a>Executar um pacote com o PowerShell
 Nesta secção, utilizar o Azure PowerShell para criar um pipeline do Data Factory com uma atividade de executar o pacote do SSIS que executa um pacote do SSIS. 
 
-Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps). 
+Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Pode utilizar a fábrica de dados mesmo que tenha o IR Azure-SSIS ou criar uma fábrica de dados separado. O procedimento seguinte fornece passos para criar uma fábrica de dados. Criar um pipeline com uma atividade de executar o pacote do SSIS nesta fábrica de dados. A atividade de executar o pacote do SSIS é executado o pacote do SSIS. 
@@ -180,7 +180,7 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Criar um pipeline com uma atividade de executar o pacote do SSIS 
 Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSIS. A atividade executa seu pacote do SSIS. 

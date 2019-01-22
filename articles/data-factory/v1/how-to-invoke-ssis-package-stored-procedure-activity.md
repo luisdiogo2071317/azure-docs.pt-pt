@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275586"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427564"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote do SSIS com a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote do SSIS de um pipeline do Azure Data Factory através de uma atividade de procedimento armazenado. 
@@ -32,7 +32,7 @@ Este artigo descreve como invocar um pacote do SSIS de um pipeline do Azure Data
 As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o catálogo do SSIS. Também pode utilizar uma instância de gerida de base de dados do Azure SQL.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
-Criar um runtime de integração Azure-SSIS se não tiver uma ao seguir as instruções passo a passo na [Tutorial: pacotes do SSIS implementar](../tutorial-create-azure-ssis-runtime-portal.md). Não é possível utilizar a versão 1 do Data Factory para criar um runtime de integração Azure-SSIS. 
+Criar um runtime de integração Azure-SSIS se não tiver uma ao seguir as instruções passo a passo no [Tutorial: Implementar pacotes do SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Não é possível utilizar a versão 1 do Data Factory para criar um runtime de integração Azure-SSIS. 
 
 ## <a name="azure-portal"></a>Portal do Azure
 Esta secção utiliza o portal do Azure para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote do SSIS.
@@ -62,7 +62,7 @@ Primeiro passo é criar uma fábrica de dados com o portal do Azure.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que o Data Factory suporta. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras localizações.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.
-8. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
+8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -115,7 +115,7 @@ Este conjunto de dados de saída é um conjunto de dados fictício que pauta a a
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Criar um pipeline com atividade de procedimento armazenado 
 Neste passo, vai criar um pipeline com uma atividade de procedimento armazenado. A atividade invoca o procedimento de sp_executesql armazenados para executar o seu pacote do SSIS. 
 
-1. No painel esquerdo, clique em **... Mais** e clique em **Novo pipeline.
+1. No painel esquerdo, clique em **... Mais** e clique em **Novo pipeline**.
 2. Copie o seguinte fragmento JSON para o editor de JSON: 
 
     > [!IMPORTANT]
@@ -165,7 +165,7 @@ Para obter mais informações sobre a monitorização de pipelines, consulte [mo
 ## <a name="azure-powershell"></a>Azure PowerShell
 Nesta secção utilizar o Azure PowerShell para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote do SSIS.
 
-Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 O procedimento seguinte fornece passos para criar uma fábrica de dados. Criar um pipeline com uma atividade de procedimento armazenado nesta fábrica de dados. A atividade de procedimento armazenado executa um procedimento armazenado na base de dados SSISDB para executar o seu pacote do SSIS.

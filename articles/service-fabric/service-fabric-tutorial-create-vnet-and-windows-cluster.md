@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632896"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435384"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric do Windows numa rede virtual do Azure
 
@@ -51,7 +51,7 @@ Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instalar o [módulo de PowerShell e SDK do Service Fabric](service-fabric-get-started.md)
-* Instalar o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* Instalar o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 
 Os procedimentos seguintes criam um cluster do Service Fabric com cinco nós. Para calcular o custo incorrido pela execução de um cluster do Service Fabric no Azure, utilize a [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/).
 
@@ -92,21 +92,21 @@ No recurso **Microsoft.ServiceFabric/clusters**, é configurado um cluster Windo
 
 * um tipo de nó único
 * cinco nós no tipo de nó primário (configurável nos parâmetros do modelo)
-* SO: Windows Server 2016 Datacenter com Contentores (configurável nos parâmetros do modelo)
+* SO: Windows Server 2016 Datacenter com contentores (configuráveis nos parâmetros do modelo)
 * protegido por certificado (configurável nos parâmetros do modelo)
 * O [proxy inverso](service-fabric-reverseproxy.md) está ativado
 * O [serviço DNS](service-fabric-dnsservice.md) está ativado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros do modelo)
 * [Nível de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros do modelo)
 * ponto final de ligação de cliente: 19000 (configurável nos parâmetros do modelo)
-* ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo)
+* Ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo)
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
 No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
 * ponto final de ligação de cliente: 19000
-* ponto final de gateway HTTP: 19080
+* Ponto final de gateway HTTP: 19080
 * porta da aplicação: 80
 * porta da aplicação: 443
 * Proxy inverso do Service Fabric: 19081
@@ -118,7 +118,7 @@ Se forem necessárias quaisquer outras portas da aplicação, terá de ajustar o
 Os nomes da rede virtual, da sub-rede e do grupo de segurança de rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * espaço de endereços de rede virtual: 172.16.0.0/20
-* espaço de endereços de sub-rede do Service Fabric: 172.16.2.0/23
+* Espaço de endereços de sub-rede do Service Fabric: 172.16.2.0/23
 
 As seguintes regras de tráfego de entrada estão ativadas no recurso **Microsoft.Network/networkSecurityGroups**. Pode alterar os valores das portas, alterando as variáveis no modelo.
 

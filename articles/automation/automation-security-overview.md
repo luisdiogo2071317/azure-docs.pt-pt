@@ -4,19 +4,19 @@ description: Este artigo fornece uma descrição geral da segurança de Automati
 keywords: segurança de automatização, automatização segura; autenticação de automatização
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 327bb15ab8536dca85b4cbb07216080b135c769a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 60175a5b9309c08d5fdab997469a9d0526afaefe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194908"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437968"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à Autenticação na Automatização do Azure  
 A Automatização do Azure permite-lhe automatizar tarefas relativamente aos recursos no Azure, no local e outros fornecedores de serviços em nuvem, tais como os Amazon Web Services (AWS).  Para um runbook efetuar as ações necessárias, tem de ter permissões para aceder de forma segura aos recursos com os direitos mínimos necessários dentro da subscrição.
@@ -49,3 +49,4 @@ A tabela seguinte resume os métodos de autenticação diferentes para cada ambi
 | Conta Run As Clássica do Azure |Azure clássico |[Autenticar Runbooks com a conta Run As do Azure](automation-sec-configure-azure-runas-account.md) |
 | Autenticação do Windows |Datacenter No Local |[Autenticar Runbooks para Funções de Trabalho de Runbook Híbridas](automation-hybrid-runbook-worker.md) |
 | Credenciais AWS |Amazon Web Services |[Autenticar Runbooks com os Amazon Web Services (AWS)](automation-config-aws-account.md) |
+

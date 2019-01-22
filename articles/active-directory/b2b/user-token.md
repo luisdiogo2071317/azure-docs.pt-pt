@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: df6250da5f7f989ccb2082c448786cce68abe22b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5d6bcabdf35559ec887dc530b1829fffc6b6eaa7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981801"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430983"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreender os tokens de utilizador em colaboração B2B do Azure AD
 
@@ -34,6 +34,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-* [Propriedades de utilizador de colaboração B2B](user-properties.md)
+* [Propriedades do utilizador de colaboração B2B](user-properties.md)
 * [Mapeamento de afirmações de utilizador de colaboração de B2B](claims-mapping.md)
 

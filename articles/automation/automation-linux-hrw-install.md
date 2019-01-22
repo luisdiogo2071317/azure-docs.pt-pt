@@ -3,18 +3,18 @@ title: Função de Trabalho de Runbook Híbrida do Linux da Automatização do A
 description: Este artigo fornece informações sobre como instalar uma função de trabalho de Runbook de híbrida de automatização do Azure, para que possa executar runbooks em computadores baseados em Linux no seu local datacenter ou o ambiente na cloud.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f32574dc0a3fd61c21e8c9a7c1ec93c7d366d384
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408851"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436115"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -119,3 +119,4 @@ Para saber como resolver problemas de suas funções de trabalho de Runbook híb
 
 * Para saber como configurar os seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud, veja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md).
 * Para obter instruções sobre como remover os Runbook Workers híbridos, consulte [remover Azure Automation os Runbook Workers híbridos](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

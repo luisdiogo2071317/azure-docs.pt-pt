@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354557"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427479"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
@@ -63,7 +63,7 @@ A maioria dos clientes trazer apenas uma parte da capacidade total online, que c
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Faturação de extração de imagem na pesquisa cognitiva
 
-Se está a extrair imagens de ficheiros num pipeline de indexação de pesquisa cognitiva, é-lhe cobrada essa operação na sua fatura do Azure Search. O parâmetro que aciona a extração de imagem é **imageAction** num [a configuração do indexador](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Se **imageAction** está definida como none (predefinição), não existem custos para extração de imagem.
+Se está a extrair imagens de ficheiros num pipeline de indexação de pesquisa cognitiva, é-lhe cobrada essa operação na sua fatura do Azure Search. O parâmetro que aciona a extração de imagem é **imageAction** num [a configuração do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Se **imageAction** está definida como none (predefinição), não existem custos para extração de imagem.
 
 Preços estão sujeitas a alterações, mas sempre está documentado no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) página para o Azure Search. 
 

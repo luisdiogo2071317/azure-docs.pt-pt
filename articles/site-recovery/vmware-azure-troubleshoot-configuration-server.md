@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: cb965313fda90da3fb0ec0cd418f87795a4e2722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413469"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435979"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -80,7 +80,7 @@ Para evitar este erro, certifique-se de que a hora no relógio do sistema não �
 
 Não é possível criar um certificado necessário para autenticar o Site Recovery. Execute novamente a configuração depois de assegurar que está a executar o programa de configuração como administrador local.
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>Registre-se a máquina de origem com o servidor de configuração
+## <a name="register-source-machine-with-configuration-server"></a>Registar a máquina de origem com o servidor de configuração
 
 ### <a name="if-the-source-machine-runs-windows"></a>Se a máquina de origem executar o Windows
 

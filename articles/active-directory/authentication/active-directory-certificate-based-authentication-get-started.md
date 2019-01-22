@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242420"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427173"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificados no Azure Active Directory
 
@@ -43,7 +43,7 @@ Para configurar a autenticação baseada em certificados, as seguintes instruç�
 - O dispositivo de cliente tem de ter acesso à autoridade de certificação, pelo menos, um que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente tem de ter sido emitido para o seu cliente.
 
-## <a name="step-1-select-your-device-platform"></a>Passo 1: Selecionar a plataforma de dispositivo
+## <a name="step-1-select-your-device-platform"></a>Passo 1: Selecione a plataforma de dispositivo
 
 Como primeiro passo, para a plataforma de dispositivo que mais lhe interessa, terá de rever o seguinte:
 

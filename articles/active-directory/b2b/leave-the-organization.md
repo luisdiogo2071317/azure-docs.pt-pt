@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cea882bd1ba2ba12d34690fb47ec1afd6edf5c4c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 423de49faa20289a7c5663ae621f890b63a5752c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428516"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Sair de uma organização como um utilizador convidado
 
@@ -44,7 +44,7 @@ Quando um utilizador sai de uma organização, a conta de utilizador é "soft"el
 Se assim o desejar, um administrador inquilino pode eliminar permanentemente a conta em qualquer altura durante o período de 30 dias. Para efetuar este procedimento:
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
-2. Sob **Manage**, selecione **utilizadores**.
+2. Em **Gerir**, selecione **Utilizadores**.
 3. Selecione **utilizadores eliminados**.
 4. Selecione a caixa de verificação junto a um utilizador eliminado e, em seguida, selecione **eliminar permanentemente**.
 

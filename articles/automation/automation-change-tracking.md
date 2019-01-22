@@ -3,19 +3,19 @@ title: Registar alterações com a automatização do Azure
 description: A solução de controlo de alterações ajuda-o a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213217"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433021"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -241,10 +241,10 @@ Os seguintes endereços são obrigatórios especificamente para controlo de alte
 
 |Público do Azure  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Utilizar o controlo de alterações
 
@@ -279,3 +279,4 @@ Visite o tutorial para saber mais sobre como utilizar a solução de controlo de
 > [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
 * Uso [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+

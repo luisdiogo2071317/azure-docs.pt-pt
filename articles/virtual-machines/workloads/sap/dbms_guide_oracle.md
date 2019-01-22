@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435689"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436421"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação de DBMS de máquinas virtuais do Azure do Oracle para a carga de trabalho do SAP
 
@@ -235,7 +235,7 @@ ms.locfileid: "53435689"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -380,7 +380,7 @@ Configuração de desempenho:
 | \oracle\<SID > \mirrlogAB | Premium | Nenhuma | Pode ser utilizado |
 | \oracle\<SID > \mirrlogBA | Premium | Nenhuma | Pode ser utilizado |
 | \oracle\<SID > \sapdata1...n | Premium | Só de leitura | Recomendado  |
-| \oracle\SID\sapdata(n+1) * | Premium | Nenhuma | Pode ser utilizado |
+| \oracle\SID\sapdata(n+1)* | Premium | Nenhuma | Pode ser utilizado |
 | \oracle\<SID > \oraarch* | Premium | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não é preciso |
 
@@ -452,7 +452,7 @@ Configuração mínima:
 | --- | ---| --- | --- |
 | /Oracle/<SID>/origlogaA & mirrlogB | Premium | Nenhuma | Não é preciso |
 | /Oracle/<SID>/origlogaB & mirrlogA | Premium | Nenhuma | Não é preciso |
-| /Oracle/<SID>/sapdata1...n | Premium | Só de leitura | Pode ser utilizado |
+| /oracle/<SID>/sapdata1...n | Premium | Só de leitura | Pode ser utilizado |
 | /Oracle/<SID>/oraarch | Standard | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não é preciso |
 
@@ -464,12 +464,12 @@ Configuração de desempenho:
 | Componente | Disco | Colocação em cache | Remoção * |
 | --- | ---| --- | --- |
 | /Oracle/<SID>/origlogaA | Premium | Nenhuma | Pode ser utilizado  |
-| /Oracle/<SID>/origlogaB | Premium | Nenhuma | Pode ser utilizado |
-| /Oracle/<SID>/mirrlogAB | Premium | Nenhuma | Pode ser utilizado |
-| /Oracle/<SID>/mirrlogBA | Premium | Nenhuma | Pode ser utilizado |
-| /Oracle/<SID>/sapdata1...n | Premium | Só de leitura | Recomendado  |
-| /Oracle/SID/sapdata(n+1)* | Premium | Nenhuma | Pode ser utilizado |
-| /Oracle/<SID>/oraarch* | Premium | Nenhuma | Não é preciso |
+| /oracle/<SID>/origlogaB | Premium | Nenhuma | Pode ser utilizado |
+| /oracle/<SID>/mirrlogAB | Premium | Nenhuma | Pode ser utilizado |
+| /oracle/<SID>/mirrlogBA | Premium | Nenhuma | Pode ser utilizado |
+| /oracle/<SID>/sapdata1...n | Premium | Só de leitura | Recomendado  |
+| /oracle/SID/sapdata(n+1)* | Premium | Nenhuma | Pode ser utilizado |
+| /oracle/<SID>/oraarch* | Premium | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não é preciso |
 
 * Remoção: O stripe LVM ou MDADM usando RAID0 *(n+1) - tablespaces de sistema, TEMP e DESFAZER de alojamento. padrão de he e/s de sistema e desfazer tablespaces são diferentes dos outros tablespaces que aloja os dados de aplicação. Sem colocação em cache é a melhor opção para o desempenho das tablespaces sistema e desfazer.

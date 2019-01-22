@@ -3,17 +3,18 @@ title: Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 description: Este artigo descreve como implementar a lógica de processamento de erros em runbooks gráficos da Automatização do Azure.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436693"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 
@@ -25,11 +26,11 @@ Muitas vezes, se ocorrer um erro de não terminação numa atividade de runbook,
 
 Os tipos de erros do PowerShell que podem ocorrer durante a execução são de terminação ou não terminação. As diferenças entre os erros de não terminação e os erros de terminação são os seguintes:
 
-* **Erro de terminação**: um erro grave durante a execução que para completamente o comando (ou a execução do script). Alguns exemplos incluem cmdlets não existentes, erros de sintaxe que impedem a execução de cmdlets ou outros erros fatais.
+* **Erro de terminação**: Um erro grave durante a execução que para completamente o comando (ou a execução do script). Alguns exemplos incluem cmdlets não existentes, erros de sintaxe que impedem a execução de cmdlets ou outros erros fatais.
 
-* **Erro de não terminação**: um erro não grave que permite a continuação da execução apesar da falha. Alguns exemplos incluem erros operacionais, como ficheiros não encontrados e problemas de permissões.
+* **Erro de não terminação**: Erro não grave que permite a execução continuar, apesar da falha. Alguns exemplos incluem erros operacionais, como ficheiros não encontrados e problemas de permissões.
 
-Os runbooks gráficos da Automatização do Azure foram melhorados com a capacidade de incluir o processamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. Este processo permite ao autor de um runbook detetar erros e gerir condições verificadas ou inesperadas.  
+Runbooks gráficos da automatização do Azure foram melhorados com a capacidade de incluir o tratamento de erros. Agora, pode converter exceções em erros de não terminação e criar ligações de erros entre atividades. Este processo permite ao autor de um runbook detetar erros e gerir condições verificadas ou inesperadas.  
 
 ## <a name="when-to-use-error-handling"></a>Quando utilizar o processamento de erros
 
@@ -68,3 +69,4 @@ As ligações de erro são enviadas destas atividades para uma única atividade 
 * Para saber mais sobre ligações e tipos de ligações em runbooks gráficos, veja [Criação de runbooks gráficos na Automatização do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
+

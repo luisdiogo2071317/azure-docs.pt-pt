@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: b59157b0f17380dbe4386fbd9ac75776e22f749e
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: f5ddc4a85148cee3e8c8b4d2bf1955f233ebdbc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713980"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426527"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Criar uma máquina virtual com um endereço IP público estático através do PowerShell
 
@@ -28,7 +28,7 @@ Pode criar uma máquina virtual com um endereço IP público estático. Um ender
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Pode concluir as etapas a seguir do computador local ou com o Azure Cloud Shell. Para utilizar o seu computador local, certifique-se de que tem o [Azure PowerShell instalada](/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Para utilizar o Azure Cloud Shell, selecione **experimentar** no canto superior direito da caixa qualquer comando que se segue. O Cloud Shell iniciada para o Azure.
+Pode concluir as etapas a seguir do computador local ou com o Azure Cloud Shell. Para utilizar o seu computador local, certifique-se de que tem o [Azure PowerShell instalada](/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Para utilizar o Azure Cloud Shell, selecione **experimentar** no canto superior direito da caixa qualquer comando que se segue. O Cloud Shell iniciada para o Azure.
 
 1. Se utilizar o Cloud Shell, avance para o passo 2. Abra uma sessão de comandos e o início de sessão para o Azure `Connect-AzureRmAccount`.
 2. Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos na região Leste e.u.a. centro-Azure:

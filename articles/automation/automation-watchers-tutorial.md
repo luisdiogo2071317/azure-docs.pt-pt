@@ -3,17 +3,17 @@ title: Criar uma tarefa de observador na conta de automatização do Azure
 description: Saiba como criar uma tarefa de observador na conta de automatização do Azure para ver a existência de novos ficheiros criados numa pasta.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282777"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436761"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas para controlar alterações de arquivo numa máquina local de um observador de automatização do Azure
 
@@ -90,7 +90,7 @@ A tarefa de observador contém duas partes. O observador e ação. O observador 
 1. Introduza os seguintes valores para parâmetros:
 
    ***EVENTDATA** -deixe em branco. Dados são passados do runbook de observador.  
-   ***Definições de execução** ** -deixe como o Azure como este runbook é executado no serviço de automatização.
+   ***Definições de execução** -deixe como o Azure como este runbook é executado no serviço de automatização.
 
 1. Clique em **OK**e, em seguida, selecione para voltar à página de observador.
 1. Clique em **OK** para criar a tarefa de observador.
@@ -153,3 +153,4 @@ Siga esta ligação para saber mais sobre a criação de seu próprio runbook.
 
 > [!div class="nextstepaction"]
 > [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
+

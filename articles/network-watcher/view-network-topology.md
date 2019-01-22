@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992207"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428175"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de rede virtual do Azure
 
@@ -46,7 +46,7 @@ Pode utilizar o [portal do Azure](#azure-portal), o [CLI do Azure](#azure-cli), 
 
 6. Selecione **transferir topologia** para transferir a imagem como um arquivo editável, no formato de svg.
 
-Os recursos mostrados no diagrama são um subconjunto dos componentes do sistema de rede na rede virtual. Por exemplo, embora um grupo de segurança de rede é mostrado, as regras de segurança dentro da mesma não são apresentadas no diagrama. Embora não diferenciados no diagrama, as linhas representam uma das duas relações: *contenção* ou *associados*. Para ver a lista completa de recursos na rede virtual e o tipo de relação entre os recursos, gerar a topologia com [PowerShell](#powershell) ou o [CLI do Azure](#azure-cli).
+Os recursos mostrados no diagrama são um subconjunto dos componentes do sistema de rede na rede virtual. Por exemplo, embora um grupo de segurança de rede é mostrado, as regras de segurança dentro da mesma não são apresentadas no diagrama. Embora não diferenciados no diagrama, as linhas representam uma das duas relações: *Contenção* ou *associados*. Para ver a lista completa de recursos na rede virtual e o tipo de relação entre os recursos, gerar a topologia com [PowerShell](#powershell) ou o [CLI do Azure](#azure-cli).
 
 ## <a name = "azure-cli"></a>Ver a topologia - CLI do Azure
 
@@ -85,7 +85,7 @@ A conta que utilizar tem de ter as informações necessárias [permissões](requ
 
 Pode executar os comandos nos passos que se seguem:
 - No Azure Cloud Shell, selecionando **experimentar** na parte superior direita do qualquer comando. O Azure Cloud Shell é um shell interativo gratuito que tenha ferramentas comuns do Azure pré-instaladas e configuradas para utilizar com a sua conta.
-- Ao executar o PowerShell do seu computador. Se executar o PowerShell a partir do seu computador, os passos neste artigo requerem a versão 5.7.0 ou posterior do módulo AzureRm. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Ao executar o PowerShell do seu computador. Se executar o PowerShell a partir do seu computador, os passos neste artigo requerem a versão 5.7.0 ou posterior do módulo AzureRm. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 A conta que utilizar tem de ter as informações necessárias [permissões](required-rbac-permissions.md).
 
@@ -132,17 +132,17 @@ Todos os recursos retornados numa topologia de tem um dos seguintes tipos de rel
 | Tipo de relação | Exemplo                                                                                                |
 | ---               | ---                                                                                                    |
 | Contenção       | Uma rede virtual contém uma sub-rede. Uma sub-rede contém uma interface de rede.                            |
-| Associados        | Uma interface de rede está associada uma VM. Um endereço IP público é associado a uma interface de rede. |
+| Associado        | Uma interface de rede está associada uma VM. Um endereço IP público é associado a uma interface de rede. |
 
 ## <a name="properties"></a>Propriedades
 
 Todos os recursos retornados numa topologia de tem as seguintes propriedades:
 
 - **Nome**: O nome do recurso
-- **ID**: O URI do recurso.
+- **Id**: O URI do recurso.
 - **Localização**: A região do Azure que o recurso existe.
-- **As associações**: uma lista de associações para o objeto referenciado. Cada associação tem as seguintes propriedades:
-    - **O AssociationType**: faz referência a relação entre o objeto filho e pai. Os valores válidos são *Contains* ou *associados*.
+- **As associações**: Uma lista de associações para o objeto referenciado. Cada associação tem as seguintes propriedades:
+    - **AssociationType**: Faz referência a relação entre o objeto filho e pai. Os valores válidos são *Contains* ou *associados*.
     - **Nome**: O nome do recurso referenciado.
     - **ResourceId**:-o URI do recurso referenciado na associação.
 

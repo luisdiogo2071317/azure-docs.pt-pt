@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 55feef336ade461d4e3936d2f76122e5b4b4c00e
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401304"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425582"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como utilizar o diagnóstico de arranque para resolver problemas relacionados com máquinas virtuais no Azure
 
@@ -79,7 +79,7 @@ O perfil de diagnóstico permite-lhe selecionar a conta de armazenamento onde qu
 }
 ```
 
-Para obter mais informações sobre como implementar recursos com modelos, consulte [início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Para obter mais informações sobre como implementar recursos com modelos, consulte [início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Ativar o diagnóstico de arranque numa máquina virtual existente 
 

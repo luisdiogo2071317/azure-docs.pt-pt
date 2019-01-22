@@ -3,18 +3,18 @@ title: Ativos de ligação na automatização do Azure
 description: Ativos de ligação na automatização do Azure contêm as informações necessárias para ligar a uma aplicação ou serviço externo a partir de um runbook ou configuração DSC. Este artigo explica os detalhes de ligações e como trabalhar com os mesmos na criação de texto e gráficos.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358835"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439022"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
@@ -164,3 +164,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - Revisão [Links na criação de gráficos](automation-graphical-authoring-intro.md#links-and-workflow) para compreender como direcionar e controlar o fluxo de lógica nos runbooks.  
 
 - Para saber mais sobre a utilização da automatização do Azure de módulos do PowerShell e práticas recomendadas para a criação de seus próprios módulos do PowerShell para trabalhar como módulos de integração na automatização do Azure, veja [módulos de integração](automation-integration-modules.md).  
+

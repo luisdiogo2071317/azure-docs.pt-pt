@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190749"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426787"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início rápido: Criar um servidor - PowerShell
 
@@ -22,8 +22,8 @@ Este início rápido descreve a utilização do PowerShell a partir da linha de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Subscrição do Azure**: Visite [avaliação gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-- **O Azure Active Directory**: A sua subscrição tem de ser associada a um inquilino do Azure Active Directory e tem de ter uma conta nesse diretório. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
-- **Versão 4.0 ou posterior do módulo do Azure PowerShell**. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM`. Para instalar ou atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure Active Directory**: A sua subscrição tem de ser associada a um inquilino do Azure Active Directory e tem de ter uma conta nesse diretório. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+- **Versão 4.0 ou posterior do módulo do Azure PowerShell**. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM`. Para instalar ou atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="import-azurermanalysisservices-module"></a>Importar o módulo AzureRm.AnalysisServices
 
@@ -71,6 +71,6 @@ Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myReso
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure com o PowerShell. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)      
+> [Quickstart: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um modelo de exemplo ao seu servidor](analysis-services-create-sample-model.md)

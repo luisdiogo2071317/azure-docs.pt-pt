@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382907"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426731"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -98,7 +98,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
-* O Cofre dos serviços de recuperação - tem de estar inscritos numa [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Serviços de recuperação cofre - registar a sua subscrição [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
@@ -305,7 +305,7 @@ A operação pode ser executada durante vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações de serviços de recuperação
 
-Para mover um cofre dos serviços de recuperação, tem de se inscrever no [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Para mover um cofre dos serviços de recuperação, registar a sua subscrição [pré-visualização pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS.
 

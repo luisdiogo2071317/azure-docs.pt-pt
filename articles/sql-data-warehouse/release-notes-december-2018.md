@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411048"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431746"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>O que há de novo no Azure SQL Data Warehouse? Dezembro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Dezembro de 2018.
@@ -53,6 +53,9 @@ Para obter mais informações sobre Store de consulta no Azure SQL Data Warehous
 Azure SQL Data Warehouse Gen2 suporta agora as camadas inferiores de computação. Os clientes poderão experimentar o do Azure SQL Data Warehouse desempenho líder, flexibilidade e recursos de segurança a partir do 100 cDWU ([unidades do Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) e o dimensionamento para 30 000 cDWU em minutos. A partir de meados de Dezembro de 2018, os clientes podem beneficiar do desempenho de geração 2 e camadas de computação de flexibilidade com menor [regiões](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), com o restante das regiões disponíveis durante 2019.
 
 Ao remover o ponto de entrada para armazenamento de dados de próxima geração, Microsoft abre as portas para os clientes baseadas no valor que pretendem avaliar todas as vantagens de um armazém de dados segura de alto desempenho sem adivinhar qual ambiente de avaliação é melhor para eles. Os clientes podem começar como tão baixos como 100 cDWU, para baixo do ponto de entrada de 500 cDWU atual. SQL Data Warehouse Gen2 continua a suportar a colocação em pausa e retomar as operações e vai para além de apenas a flexibilidade na computação. Geração 2 também suporta a capacidade de armazenamento de arquivo de colunas ilimitado, juntamente com mais de 2,5 vezes mais memória por consulta, até a 128 consultas em simultâneo e [colocação em cache adaptável](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) funcionalidades. Esses recursos em média, colocar mais de cinco vezes desempenho em comparação comparada a mesma unidade do armazém de dados na geração 1 ao mesmo preço. As cópias de segurança georredundante são padrão para Gen2 com proteção de dados garantida incorporada. Azure SQL Data Warehouse Gen2 está pronto para ser dimensionado quando estiver.
+
+## <a name="columnstore-background-merge"></a>Intercalação de plano de fundo de Columnstore
+Por predefinição, Azure SQL Data Warehouse (Azure SQL DW) armazena dados no formato colunar, com chamada de partições de micro [grupos de linhas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Às vezes, devido a memória restringe no índice de compilação ou dados de tempo de carga, os grupos de linhas podem ser comprimidos com menos do que o tamanho ideal de um milhão de linhas. Grupos de linhas também podem se tornar fragmentados devido a elimina. Grupos de linhas de pequenos ou fragmentados resultam em maior consumo de memória, bem como a execução da consulta ineficiente. Com esta versão do Azure SQL DW, a tarefa de manutenção do plano de fundo de columnstore mescla pequenos grupos de linhas comprimidos para criar grupos de linhas maiores melhor utilizar memória e acelerar a execução da consulta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como rapidamente [criar um SQL Data Warehouse][create a SQL Data Warehouse]. Se estiver familiarizado com o Azure, pode achar a [Glossário do Azure] [ Azure glossary] útil medida que aprende a terminologia nova. Em alternativa, veja alguns destes outros Recursos do SQL Data Warehouse.  

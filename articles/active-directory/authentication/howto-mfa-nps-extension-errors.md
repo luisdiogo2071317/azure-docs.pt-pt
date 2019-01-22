@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 861dfacb556b646a288ce7cf7c749cec858f8bd5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634231"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432664"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para multi-factor Authentication do Azure
 
@@ -41,8 +41,8 @@ Se encontrar erros com a extensão NPS para multi-factor Authentication do Azure
 | Código de erro | Mensagem de erro | Passos de resolução de problemas |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erro: Falha na pesquisa de userObjectSid | Certifique-se de que o utilizador existe na sua instância do Active Directory no local. Se estiver a utilizar relações de confiança entre florestas, [contacte o suporte](#contact-microsoft-support) para obter ajuda. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Erro: Falha na pesquisa de LoginId alternativo | Certifique-se de que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está definida para um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG está definido como True ou LDAP_LOOKUP_FORESTS está configurado com um valor não vazio, certifique-se de que configurou um Catálogo Global e que o atributo AlternateLoginId é adicionado a ele. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado com um valor não vazio, certifique-se de que o valor está correto. Se houver mais de um nome de floresta, os nomes têm de estar separados por ponto e vírgula, não espaços. <br><br> Se estes passos não corrigir o problema, [contacte o suporte](#contact-microsoft-support) para obter mais ajuda. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Erro: O valor de LoginId alternativa está vazio | Certifique-se de que o atributo AlternateLoginId está configurado para o utilizador. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Erro: Falha na pesquisa LoginId alternativo | Certifique-se de que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está definida para um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG está definido como True ou LDAP_LOOKUP_FORESTS está configurado com um valor não vazio, certifique-se de que configurou um Catálogo Global e que o atributo AlternateLoginId é adicionado a ele. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado com um valor não vazio, certifique-se de que o valor está correto. Se houver mais de um nome de floresta, os nomes têm de estar separados por ponto e vírgula, não espaços. <br><br> Se estes passos não corrigir o problema, [contacte o suporte](#contact-microsoft-support) para obter mais ajuda. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Erro: Valor de LoginId alternativa está vazio | Certifique-se de que o atributo AlternateLoginId está configurado para o utilizador. |
 
 ## <a name="errors-your-users-may-encounter"></a>Erros que os utilizadores podem ser encontrados
 

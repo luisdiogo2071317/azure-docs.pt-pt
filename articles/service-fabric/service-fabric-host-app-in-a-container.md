@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299644"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436982"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -164,7 +164,7 @@ Ao criar o cluster,
 
     a. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a subscrição e a localização que pretende utilizar. Tome nota do nome do seu grupo de recursos do cluster.
 
-    b. Opcional: pode modificar o número de nós. Por predefinição, tem três nós, o mínimo exigido para testar cenários do Service Fabric.
+    b. Opcional: Pode modificar o número de nós. Por predefinição, tem três nós, o mínimo exigido para testar cenários do Service Fabric.
 
     c. Selecione o separador **Certificado**. Neste separador, escreva uma palavra-passe a utilizar para proteger o certificado do seu cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
 
@@ -237,7 +237,7 @@ Siga o progresso da implementação na janela de saída.  Quando a aplicação f
 ![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurar a Integração e a Implementação Contínua (CI/CD) com um cluster do Service Fabric
-Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
+Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD para um cluster do Service Fabric, veja [Tutorial: Implementar uma aplicação com CI/CD para um cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar, lembre-se de remover todos os recursos que criou.  A forma mais simples de fazê-lo consiste em remover os grupos de recursos que contêm o cluster do Service Fabric, a BD SQL do Azure e o Azure Container Registry.
@@ -269,7 +269,7 @@ Neste tutorial, ficou a saber como:
 Na parte seguinte do tutorial, saiba como [Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

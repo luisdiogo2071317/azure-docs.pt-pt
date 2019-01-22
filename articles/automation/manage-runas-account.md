@@ -3,18 +3,18 @@ title: Gerir contas Run As de automatização
 description: Este artigo descreve como gerir as contas Run As com o PowerShell ou a partir do portal.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726173"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431202"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -44,8 +44,8 @@ Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e
 |---|---------|---------|
 |Criar aplicação do Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Função de programador da aplicação        |
 |Adicione uma credencial para a aplicação.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação         |
-|Criar e obter um principal de serviço do Azure AD|[Novo AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação        |
-|Atribuir ou obter a função RBAC para a entidade de segurança especificada|[Novo-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administrador de acesso de utilizador ou proprietário        |
+|Criar e obter um principal de serviço do Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação        |
+|Atribuir ou obter a função RBAC para a entidade de segurança especificada|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administrador de acesso de utilizador ou proprietário        |
 |Criar ou remover um certificado da automatização|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contribuinte no grupo de recursos         |
 |Criar ou remover uma ligação da automatização|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contribuinte no grupo de recursos |
 
@@ -389,3 +389,4 @@ Pode resolver rapidamente estes problemas da conta Run As, ao eliminar e recriar
 
 * Para obter mais informações sobre principais de serviço, consulte [objectos da aplicação e objetos de Principal de serviço](../active-directory/develop/app-objects-and-service-principals.md).
 * Para obter mais informações sobre certificados e serviços do Azure, consulte [descrição geral de certificados para serviços Cloud do Azure](../cloud-services/cloud-services-certs-create.md).
+

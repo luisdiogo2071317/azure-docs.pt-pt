@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1df0d637b8e45cc59ddd9c04e501d88d0e6de6de
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 29ebf91801478ab3d4790fafa0dfb099201e1595
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981784"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431032"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
@@ -27,7 +27,7 @@ Aqui estão algumas soluções para problemas comuns com a colaboração B2B do 
 Em casos em que os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive 
- 
+ 
 A capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
 
 Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.

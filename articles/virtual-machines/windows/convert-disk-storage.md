@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ebb0279ec61bf6e3a77cd40b8e82ca5bd72f0abe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093821"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435758"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerido
 
-Managed Disks do Azure oferece três opções de tipo de armazenamento: [Premium SSD](../windows/premium-storage.md), [SSD padrão](../windows/disks-standard-ssd.md), e [Standard HDD](../windows/standard-storage.md). Pode optar por um disco gerido entre tipos de armazenamento com o tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Alternar entre tipos de armazenamento não é suportada para um disco não gerido; No entanto, pode facilmente [converter um disco não gerido para um disco gerido](convert-unmanaged-to-managed-disks.md).
+Managed Disks do Azure oferece três opções de tipo de armazenamento: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), e [HDD padrão](../windows/standard-storage.md). Pode optar por um disco gerido entre tipos de armazenamento com o tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Alternar entre tipos de armazenamento não é suportada para um disco não gerido; No entanto, pode facilmente [converter um disco não gerido para um disco gerido](convert-unmanaged-to-managed-disks.md).
 
-Este artigo mostra como converter um disco gerido de standard para premium e vice-versa, com o Azure PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+Este artigo mostra como converter um disco gerido de standard para premium e vice-versa, com o Azure PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma vez que a conversão necessita de um reinício da máquina virtual (VM), deve agendar a migração do armazenamento de discos durante uma janela de manutenção pré-existente. 
 * Se estiver a utilizar um disco não gerido, comece [convertê-lo para um disco gerido](convert-unmanaged-to-managed-disks.md) para que possa alterá-la entre os tipos de armazenamento. 
-* Os exemplos neste artigo requerem o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Execute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para criar uma ligação com o Azure.
+* Os exemplos neste artigo requerem o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Execute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para criar uma ligação com o Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Converter todos os discos geridos de uma VM de standard para premium

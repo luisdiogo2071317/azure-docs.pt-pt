@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801272"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438750"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
 
@@ -30,7 +30,7 @@ Para publicar uma aplicação gerida no catálogo de serviços, tem de:
 
 Para este artigo, a aplicação gerida tem apenas uma conta de armazenamento. Destina-se a ilustrar os passos para publicar uma aplicação gerida. Para obter exemplos completos, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
 
-Os exemplos do PowerShell neste artigo requerem o Azure PowerShell 6.2 ou posterior. Se necessário, [atualize a versão](/powershell/azure/install-azurerm-ps).
+Os exemplos do PowerShell neste artigo requerem o Azure PowerShell 6.2 ou posterior. Se necessário, [atualize a versão](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>Criar o modelo de recurso
 
@@ -214,7 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, veja [Utilizar o Controlo de Acesso Baseado em Função para gerir o acesso aos recursos da subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](publish-marketplace-app.md).
 * Para implementar uma instância da aplicação gerida, veja [Implementar aplicação de serviço de catálogo através do portal do Azure](deploy-service-catalog-quickstart.md).

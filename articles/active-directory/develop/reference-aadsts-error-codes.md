@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620402"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434109"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -143,7 +143,7 @@ ms.locfileid: "52620402"
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - falha na autenticação. O token de atualização não é válido. Erro pode ser devido ao seguinte:<ul><li>Cabeçalho de associação de token está vazio</li><li>Não corresponde ao hash de token de enlace</li></ul> |
 | AADSTS70001 | UnauthorizedClient - a aplicação está desativada. |
-| ERROR":"INVALID_GRANT","ERROR_DESCRIPTION":"AADSTS70002 | InvalidClient - erro ao validar as credenciais. O client_secret especificado não corresponde ao valor esperado para este cliente. Corrija o client_secret e tente novamente. Para mais informações, veja [utilizar o código de autorização para pedir um token de acesso](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient - erro ao validar as credenciais. O client_secret especificado não corresponde ao valor esperado para este cliente. Corrija o client_secret e tente novamente. Para mais informações, veja [utilizar o código de autorização para pedir um token de acesso](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType - a aplicação devolveu um tipo de concessão não suportado. |
 | AADSTS70004 | InvalidRedirectUri - a aplicação devolveu um URI de redirecionamento inválida. O endereço de redirecionamento especificado pelo cliente não corresponde a nenhum dos endereços configurados ou a nenhum dos endereços na lista de aprovações OIDC. |
 | AADSTS70005 | UnsupportedResponseType - a aplicação devolveu um tipo de resposta não suportado devido ao seguinte:<ul><li>tipo de resposta "token" não está ativado para a aplicação</li><li>o tipo de resposta “id_token” requer o âmbito “OpenID”; contém um valor de parâmetro de OAuth não suportado no wctx codificado</li></ul> |
@@ -254,6 +254,7 @@ ms.locfileid: "52620402"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - o recurso não está configurado para aceitar tokens de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - o utilizador não está autorizado a registar dispositivos no Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - não é possível utilizar o id_token como `urn:ietf:params:oauth:grant-type:jwt-bearer` conceder.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - a aplicação não foi encontrada no diretório/inquilino. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou permitida por qualquer utilizador no inquilino. Poderá ter configurado incorretamente o valor do identificador para a aplicação ou enviado o pedido de autenticação para o inquilino errado. |
 | AADSTS700020 | InteractionRequired - a concessão de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope - o valor fornecido para o âmbito de parâmetro de entrada não é válido porque contém mais do que um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - o valor fornecido para o âmbito de parâmetro de entrada não é válido quando solicitar um token de acesso. |

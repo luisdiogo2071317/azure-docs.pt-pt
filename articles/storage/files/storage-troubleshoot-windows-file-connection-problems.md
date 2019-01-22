@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c99ee1f520496148e22e540fa1f41f9bd74ae6a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023106"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436217"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -61,7 +61,7 @@ Erro de sistema 53 ou erro 67 do sistema pode ocorrer se a porta 445 comunicaç�
 
 Para verificar se a firewall ou um ISP está a bloquear a porta 445, utilize o [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ferramenta ou `Test-NetConnection` cmdlet. 
 
-Para utilizar o `Test-NetConnection` cmdlet, o AzureRM PowerShell módulo tem de estar instalado, consulte [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
+Para utilizar o `Test-NetConnection` cmdlet, o AzureRM PowerShell módulo tem de estar instalado, consulte [módulo de instalar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resoure-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -237,10 +237,10 @@ Para copiar um ficheiro através da rede, tem de desencriptá-lo primeiro. Utili
 
 - Utilize o **copiar /d** comando. Ele permite que os ficheiros encriptados para serem guardados como ficheiros desencriptados no destino.
 - Defina a seguinte chave de registo:
-  - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor DWORD de =
   - Name = CopyFileAllowDecryptedRemoteDestination
-  - Valor = 1
+  - Value = 1
 
 Lembre-se de que definir a chave do registo afeta todas as operações de cópia que são feitas a compartilhamentos de rede.
 

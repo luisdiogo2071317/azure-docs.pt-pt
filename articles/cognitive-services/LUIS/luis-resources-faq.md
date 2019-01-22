@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246556"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429366"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -75,7 +75,7 @@ Reveja os [melhores práticas](luis-concept-best-practices.md) para outras suges
 LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como criar e atribuir um LUIS chave de ponto final?
-[Criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **[chaves e os pontos finais](luis-how-to-manage-keys.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
+[Criar a chave de ponto final](luis-how-to-azure-subscription.md) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-azure-subscription.md) sobre o **[chaves e os pontos finais](luis-how-to-azure-subscription.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS?
 O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Para disponibilizar formação mais dados podem ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais prováveis.

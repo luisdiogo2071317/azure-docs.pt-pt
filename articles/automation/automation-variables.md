@@ -3,18 +3,18 @@ title: Recursos de variável na automatização do Azure
 description: Recursos de variável são valores que estão disponíveis para todos os runbooks e configurações de DSC na automatização do Azure.  Este artigo explica os detalhes de variáveis e como trabalhar com os mesmos na criação de texto e gráficos.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aaf8671ec4bfc4bcf6fecaa357f6ae983eb04499
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e60c5eee20caafc1c5ad41e3ccf568f4bd944745
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330523"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434432"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 
@@ -201,3 +201,4 @@ A imagem seguinte mostra as atividades de exemplo para atualizar uma variável c
 
 * Para saber mais sobre como ligar atividades em conjunto na criação de gráficos, veja [Links na criação de gráficos](automation-graphical-authoring-intro.md#links-and-workflow)
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md) 
+
