@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 519b9e73e63285f167fca76061f84752ff676916
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359158"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431508"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
 
@@ -81,7 +81,7 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
     
     ![Configurar tarefas de imagens do módulo de compilação](./media/how-to-ci-cd/build-and-push.png)
 
-1. Na segunda **do Azure IoT Edge** de tarefas, atualize o **nome a apresentar** para **Azure IoT Edge - imagens de módulo de Push**e, no **ação** pendente lista, selecione **enviar imagens de módulo**. Escolha o tipo de registo de contentor, certifique-se de configurar e selecionar o mesmo registo no seu code(module.json). Na **. ficheiro Template JSON** controlo, selecione a **deployment.template.json** arquivo, que descreve a sua solução de IoT Edge. Em seguida, escolha **plataforma padrão**, certifique-se de selecionar a mesma plataforma para as imagens de módulo criados. Esta tarefa será enviar todas as imagens de módulo para o registo de contentor que selecionou. E também adicionar credenciais de registo de contentor no **deployment.json** ficheiro, pode encontrar o caminho do ficheiro em variáveis de saída. Defina o alias para `edge` desta variável. Se tiver vários registos de contentores para alojar as suas imagens de módulo, precisa duplicar esta tarefa, selecione o registo de contentor diferente e utilizar **ignorar módulos** nas definições avançadas para ignorar as imagens que não são para isso Registro específicos.
+1. Na segunda **do Azure IoT Edge** de tarefas, atualize o **nome a apresentar** para **Azure IoT Edge - imagens de módulo de Push**e, no **ação** pendente lista, selecione **enviar imagens de módulo**. Escolha o tipo de registo de contentor, certifique-se de configurar e selecionar o mesmo registo no seu code(module.json). Na **. ficheiro Template JSON** controlo, selecione a **deployment.template.json** arquivo, que descreve a sua solução de IoT Edge. Em seguida, escolha **plataforma padrão**, certifique-se de selecionar a mesma plataforma para as imagens de módulo criados. Esta tarefa será enviar todas as imagens de módulo para o registo de contentor que selecionou. E também adicionar credenciais de registo de contentor no **deployment.json** ficheiro. Se tiver vários registos de contentores para alojar as suas imagens de módulo, precisa duplicar esta tarefa, selecione o registo de contentor diferente e utilizar **ignorar módulos** nas definições avançadas para ignorar as imagens que não são para isso Registro específicos.
 
     ![Configurar tarefas de imagens do módulo de push](./media/how-to-ci-cd/push.png)
 

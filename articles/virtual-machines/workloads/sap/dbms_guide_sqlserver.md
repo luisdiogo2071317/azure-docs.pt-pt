@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425886"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do SQL Server do Azure para SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430175"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,7 +328,7 @@ Nas seções a seguir, as partes das partes da documentação, sob a ligação a
 
 Há alguns do SQL Server em IaaS informações específicas, que deve saber antes de continuar:
 
-* **Suporte para a versão SQL**: clientes para SAP, SQL Server 2008 R2 e superior é suportada na máquina Virtual do Microsoft Azure. Edições anteriores não são suportadas. Rever esta gerais [declaração de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Em geral, o SQL Server 2008 também é suportado pela Microsoft. No entanto, devido à funcionalidade significativa para SAP, que foi introduzida com o SQL Server 2008 R2, SQL Server 2008 R2 é a versão mínima para o SAP. Em geral, deve considerar a usando o SQL Server mais recentes versões para executar a carga de trabalho do SAP no Azure IaaS. As versões mais recentes do SQL Server oferecem uma melhor integração em alguns dos serviços do Azure e funcionalidade. Ou tem alterações que otimizar as operações numa infraestrutura de IaaS do Azure. Portanto, o documento é restrito a SQL Server 2016 e o SQL Server 2017.
+* **Suporte para a versão SQL**: Para os clientes SAP, SQL Server 2008 R2 e superior é suportada na máquina Virtual do Microsoft Azure. Edições anteriores não são suportadas. Rever esta gerais [declaração de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Em geral, o SQL Server 2008 também é suportado pela Microsoft. No entanto, devido à funcionalidade significativa para SAP, que foi introduzida com o SQL Server 2008 R2, SQL Server 2008 R2 é a versão mínima para o SAP. Em geral, deve considerar a usando o SQL Server mais recentes versões para executar a carga de trabalho do SAP no Azure IaaS. As versões mais recentes do SQL Server oferecem uma melhor integração em alguns dos serviços do Azure e funcionalidade. Ou tem alterações que otimizar as operações numa infraestrutura de IaaS do Azure. Portanto, o documento é restrito a SQL Server 2016 e o SQL Server 2017.
 * **Desempenho de SQL**: Microsoft Azure máquinas virtuais alojadas execute bem em comparação com outras ofertas de Virtualização de nuvem pública, mas os resultados individuais podem variar. Consulte o artigo [melhores práticas de desempenho para o SQL Server em máquinas de virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 * **Utilização de imagens do Azure Marketplace**: A forma mais rápida de implementar uma nova VM do Azure da Microsoft é usar uma imagem do Azure Marketplace. Existem imagens no Azure Marketplace, que contêm as mais recentes versões do SQL Server. As imagens em que o SQL Server já está instalado não podem ser utilizadas imediatamente para aplicações SAP NetWeaver. O motivo é que o agrupamento do SQL Server padrão for instalado dentro dessas imagens e não o agrupamento exigido pela SAP NetWeaver sistemas. Para usar essas imagens, verifique os passos documentados no capítulo [utilizando uma imagem do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
@@ -422,8 +422,8 @@ Cópia de segurança automatizada fornece um serviço de cópia de segurança au
 
 Podem encontrar mais detalhes sobre as capacidades deste método nestes artigos:
 
-- SQL Server 2014: [cópia de segurança automatizada para máquinas de virtuais do SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
-- SQL Server 2016/2017: [automatizada v2 de cópia de segurança para máquinas virtuais do Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
+- SQL Server 2014: [Cópia de segurança automatizada para máquinas de virtuais do SQL Server 2014 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2016/2017: [V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 Examinar a documentação, pode ver que a funcionalidade com as versões mais recentes do SQL Server melhorada. Mais detalhes sobre o SQL Server, cópias de segurança automáticas são lançadas no artigo [SQL Server cópia de segurança gerida para o Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). O limite de tamanho de cópia de segurança teórico é 12 TB.  As cópias de segurança automatizadas podem ser um método boa para tamanhos de cópia de segurança de atingir 12 TB. Uma vez que vários blobs são escritos em paralelo, pode esperar um débito de maior do que 100 MB/seg. 
  
@@ -450,7 +450,7 @@ Uma vez que as imagens do SQL Server no Azure Marketplace não são configuradas
 
 * Abra uma janela de comando do Windows, como administrador.
 * Altere o diretório para C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* Execute o comando: /ACTION /QUIET de Setup.exe = REBUILDDATABASE /InstanceName. = MSSQLSERVER /SQLSYSADMINACCOUNTS =`<local_admin_account_name`> /SQLCOLLATION = SQL_Latin1_General_Cp850_BIN2   
+* Execute o comando: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> é a conta, que foi definida como a conta de administrador ao implementar a VM pela primeira vez a partir da galeria.
 
 O processo deverá demorar apenas alguns minutos. Para verificar se se o passo ficou com o resultado correto, execute os seguintes passos:
@@ -491,7 +491,7 @@ Se um domínio não for possível, é possível usar certificados para a base de
 
 Um tutorial para configurar o espelhamento de banco de dados no Azure pode ser encontrado aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
-### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
+### <a name="sql-server-always-on"></a>SQL Server Always On
 Como Always On é suportada para o SAP no local (consulte a nota SAP [1772688]), é suportado em combinação com o SAP no Azure. Existem algumas considerações especiais sobre a implantação de escuta do grupo disponibilidade do SQL Server (não deve ser confundido com o conjunto de disponibilidade do Azure), uma vez que o Azure no momento não permite a criação de um objeto do AD/DNS, pois é possível no local. Portanto, alguns passos de instalação diferentes são necessários para superar o comportamento específico do Azure.
 
 Algumas considerações usando um serviço de escuta do grupo de disponibilidade são:

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae090a8cd812868f63c9805b2f5b59769a715090
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427205"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreender o que são expressões com boa para a sua aplicação LUIS
 
@@ -88,7 +88,7 @@ O treinamento é geralmente não determinística: a predição de expressão pod
 
 ## <a name="testing-utterances"></a>Teste de expressões 
 
-Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com o [ponto final de predição](luis-how-to-manage-keys.md) URL. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](luis-how-to-review-endoint-utt.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
+Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com o [ponto final de predição](luis-how-to-azure-subscription.md) URL. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](luis-how-to-review-endoint-utt.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
 
 ## <a name="review-utterances"></a>Expressões de revisão
 

@@ -4,17 +4,17 @@ description: Este artigo apresenta uma descrição geral de como utilizar a Gest
 services: automation
 author: zjalexander
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434619"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -94,8 +94,8 @@ Clique em **adicionar condição** para selecionar o sinal de que é adequado pa
 
 |Nome do sinal|Dimensões|Descrição|
 |---|---|---|
-|**Execuções da implementação de atualização total**|-Atualizar o nome da implementação</br>-Estado|Este sinal é utilizado para o alerta sobre o estado geral de uma implementação de atualização.|
-|**Execuções do computador de implementação de atualização total**|-Atualizar o nome da implementação</br>-Estado</br>-Computador de destino</br>-Atualizar o Id de execução de implementação|Este sinal é utilizado para o alerta sobre o status de uma implementação de atualização direcionada para máquinas específicas|
+|**Execuções da implementação de atualização total**|-Atualizar o nome da implementação</br>- Status|Este sinal é utilizado para o alerta sobre o estado geral de uma implementação de atualização.|
+|**Execuções do computador de implementação de atualização total**|-Atualizar o nome da implementação</br>- Status</br>-Computador de destino</br>-Atualizar o Id de execução de implementação|Este sinal é utilizado para o alerta sobre o status de uma implementação de atualização direcionada para máquinas específicas|
 
 Para os valores de dimensão, selecione um valor válido na lista. Se o valor que está procurando não estiver na lista, clique nas **\+** início de sessão ao lado da dimensão e escreva o nome personalizado. Em seguida, pode selecionar o valor que pretende procurar. Se pretender selecionar todos os valores de uma dimensão, clique nas **selecionar \***  botão. Se não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
 
@@ -215,3 +215,4 @@ Avance para a descrição geral da solução de Gestão de Atualizações.
 
 > [!div class="nextstepaction"]
 > [Solução de Gestão de Atualizações](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+

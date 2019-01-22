@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431662"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -24,7 +24,7 @@ Para garantir uma suave implementação da funcionalidade de reposição persona
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Conclua uma implementação piloto com um pequeno subconjunto de sua organização.
-   * Informações sobre como conduzir o piloto podem ser encontradas no [Tutorial: concluído um piloto de reposição de palavra-passe self-service do Azure AD distribuam](tutorial-sspr-pilot.md).
+   * Informações sobre como conduzir o piloto podem ser encontradas no [Tutorial: Concluído um piloto de reposição de palavra-passe self-service do Azure AD distribuam](tutorial-sspr-pilot.md).
 1. Informe o suporte técnico.
    * Como é que eles ajudará os usuários?
    * Irá forçar os utilizadores para utilizar o SSPR e não permitir que o suporte técnico para ajudar os utilizadores?
@@ -41,12 +41,12 @@ Para garantir uma suave implementação da funcionalidade de reposição persona
 
 Muitos clientes consideram que a forma mais fácil de pôr os utilizadores a utilizar a SSPR é criar uma campanha de e-mail que inclua instruções de utilização simples. [Criámos e-mails simples e outros materiais que pode utilizar como modelos para ajudar na sua implementação](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Brevemente**: modelo de e-mail que pode utilizar nas semanas ou dias anteriores à implementação, para dizer aos utilizadores que precisam de fazer uma determinada coisa.
-* **Disponível agora**: modelo de e-mail que pode utilizar no dia do lançamento do programa, de modo a levar os utilizadores a registarem-se e confirmarem os respetivos dados de autenticação. Se os utilizadores se registarem nesse momento, a SSPR estará à disposição deles quando precisarem.
-* **Lembrete de inscrição**: modelo de e-mail para ser utilizado uns dias ou semanas após a implementação, para relembrar aos utilizadores para se registarem e confirmarem os respetivos dados de autenticação.
-* **Cartazes de SSPR**: cartazes pode personalizar e apresentar em torno de sua organização nos dias e semanas que leva até e depois da sua implementação.
-* **Tents de tabela de SSPR**: cartões podem ser colocados na sala do almoço, salas de conferência, ou em escrivaninhas encorajar os utilizadores para concluir o registo de tabela.
-* **Autocolantes de SSPR**: modelos autocolante pode personalizar e imprimir para colocar os computadores portáteis, monitores, teclados ou celulares de lembrar como aceder à SSPR.
+* **Em breve**: Um modelo de e-mail que utilizar nas semanas ou dias anteriores à implementação para permitir que os utilizadores que precisam de fazer algo.
+* **Já estão disponíveis**: Inicie um modelo de e-mail que utiliza o dia do programa para levar os utilizadores para se registarem e confirmarem os respetivos dados de autenticação. Se os utilizadores se registarem nesse momento, a SSPR estará à disposição deles quando precisarem.
+* **Lembrete de inscrição**: Um modelo de e-mail por alguns dias a algumas semanas após a implementação, para relembrar aos utilizadores registarem e confirmarem os respetivos dados de autenticação.
+* **Cartazes SSPR**: Cartazes pode personalizar e apresentar em torno de sua organização nos dias e semanas que leva até e depois da sua implementação.
+* **Tents de tabela de SSPR**: Cartões de tabela é possível colocar na sala do almoço, salas de conferência, ou em escrivaninhas encorajar os utilizadores para concluir o registo.
+* **Autocolantes SSPR**: Modelos de autocolante pode personalizar e imprimir para colocar os computadores portáteis, monitores, teclados ou celulares de lembrar como aceder à SSPR.
 
 ![Exemplos de E-Mail SSPR][Email]
 

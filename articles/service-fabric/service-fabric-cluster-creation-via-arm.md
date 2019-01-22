@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06e0509f05352a023651d7121aa89e18e375ef32
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043792"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428330"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ O modelo que é utilizado está disponível na [exemplos de modelos do Azure Ser
 O comando seguinte, pode criar qualquer um dos Windows ou clusters do Linux, tem de especificar o sistema operacional em conformidade. Os comandos do PowerShell/CLI de saída também o certificado especificado *CertificateOutputFolder*; no entanto, certifique-se de pasta de certificados que já criou. O comando recebe os outros parâmetros, bem como o SKU de VM.
 
 > [!NOTE]
-> O seguinte comando do PowerShell só funciona com o Azure Resource Manager PowerShell versão > 6.1. Para verificar a versão atual do Azure Resource Manager PowerShell versão, execute o seguinte comando do PowerShell "Get-Module AzureRM". Siga [esta ligação](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0) para atualizar a sua versão do PowerShell do Azure Resource Manager. 
+> O seguinte comando do PowerShell só funciona com o Azure Resource Manager PowerShell versão > 6.1. Para verificar a versão atual do Azure Resource Manager PowerShell versão, execute o seguinte comando do PowerShell "Get-Module AzureRM". Siga [esta ligação](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) para atualizar a sua versão do PowerShell do Azure Resource Manager. 
 >
 >
 
@@ -292,7 +292,7 @@ Neste ponto, tem um cluster seguro em execução no Azure. Em seguida, [ligar ao
 Para a sintaxe JSON e propriedades para utilizar um modelo, consulte [referência de modelo Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template

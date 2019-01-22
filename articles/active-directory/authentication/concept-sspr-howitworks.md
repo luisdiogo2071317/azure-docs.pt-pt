@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435724"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento de AD do Azure
 
 Como a palavra-passe self-service reposição trabalho (SSPR)? O que significa essa opção na interface do? Continue a ler para obter mais informações sobre a SSPR do Azure Active Directory (Azure AD).
 
@@ -64,7 +64,7 @@ Se estiver ativada a SSPR, tem de selecionar pelo menos uma das seguintes opçõ
 * Código da aplicação móvel (pré-visualização)
 * Email
 * Número de telemóvel
-* Telefone do emprego
+* Telefone do escritório
 * Perguntas de segurança
 
 Os utilizadores só podem repor a palavra-passe, se tiverem dados presentes nos métodos de autenticação que o administrador tiver ativado.
@@ -185,9 +185,9 @@ Esse controle designa se os usuários que visitam o portal de reposição de pal
 
 Alteração e reposição de palavra-passe são totalmente suportadas em todas as configurações do empresa-empresa (B2B). Reposição de palavra-passe de utilizador B2B é suportada nos seguintes três casos:
 
-   * **Os utilizadores de uma organização de parceiro com um inquilino do Azure AD existente**: se a organização que nossa parceria com a tiver um inquilino do Azure AD existente, podemos *respeitar quaisquer políticas de reposição de palavra-passe estão ativadas nesse inquilino*. Palavra-passe reposta para trabalhar, a organização de parceiro precisa apenas Certifique-se de que o Azure AD SSPR está ativado. Não incorre em encargos adicionais para os clientes do Office 365 e pode ser ativada ao seguir os passos no nosso [introdução à gestão de palavra-passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guia.
-   * **Os utilizadores que se inscrevam através de** inscrição Self-Service: se a organização nossa parceria com a utilizado o [inscrição Self-Service](../users-groups-roles/directory-self-service-signup.md) de recursos para obter um inquilino, nós deixamos que eles repor a palavra-passe com a mensagem de e-mail que registado.
-   * **Utilizadores B2B**: quaisquer novos utilizadores B2B criados com a nova [capacidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão repor as palavras-passe com a mensagem de e-mail que registado durante o processo de convite.
+   * **Os utilizadores de uma organização de parceiro com um inquilino do Azure AD existente**: Se nossa parceria com a organização tiver um inquilino do Azure AD existente, podemos *respeitar quaisquer políticas de reposição de palavra-passe estão ativadas nesse inquilino*. Palavra-passe reposta para trabalhar, a organização de parceiro precisa apenas Certifique-se de que o Azure AD SSPR está ativado. Não incorre em encargos adicionais para os clientes do Office 365 e pode ser ativada ao seguir os passos no nosso [introdução à gestão de palavra-passe](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guia.
+   * **Os utilizadores que se inscrevam através de** inscrição Self-Service: Utilizado se a organização nossa parceria com o [inscrição Self-Service](../users-groups-roles/directory-self-service-signup.md) de recursos para obter um inquilino, nós deixamos que eles repor a palavra-passe com a mensagem de e-mail que registado.
+   * **Utilizadores B2B**: Quaisquer novos utilizadores B2B criados com a nova [capacidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão repor as palavras-passe com a mensagem de e-mail que registado durante o processo de convite.
 
 Para testar este cenário, aceda a https://passwordreset.microsoftonline.com com um destes utilizadores de parceiro. Se tiverem um correio eletrónico alternativo ou e-mail de autenticação definidos, a palavra-passe reposição funciona conforme esperado.
 

@@ -3,18 +3,18 @@ title: Galerias de módulos e Runbooks de automatização do Azure
 description: Runbooks e módulos da Microsoft e da Comunidade estão disponíveis para instalar e utilizar no seu ambiente de automatização do Azure.  Este artigo descreve como pode aceder a estes recursos e para contribuir com os runbooks na galeria.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7330d826cb196a664f06198a0e83f73bd7763ef9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428113"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de módulos e Runbooks de automatização do Azure
 Em vez de criar seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já foram criadas pela Microsoft e pela Comunidade.  Pode utilizar estes cenários sem modificações ou pode usá-los como um ponto de partida e editá-los às suas necessidades específicas.
@@ -98,7 +98,7 @@ Módulos do PowerShell contêm cmdlets que podem ser utilizados nos runbooks e m
 > [!NOTE]
 > Módulos que só suportam o PowerShell core não são suportados na automatização do Azure e não conseguem ser importados no portal do Azure ou implementado diretamente a partir da galeria do PowerShell.
 
-## <a name="python-runbooks"></a>Runbooks de Python
+## <a name="python-runbooks"></a>Python Runbooks
 
 Runbooks de Python estão disponíveis no [Galeria de centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Pode contribuir com runbooks de Python para a galeria do Script Center. Quando, certifique-se de que adicionar a marca **Python** ao carregar a sua contribuição.
 
@@ -108,4 +108,5 @@ Pode enviar pedidos para [User Voice](https://feedback.azure.com/forums/246290-a
 ## <a name="next-steps"></a>Próximos Passos
 * Para começar com runbooks, consulte [criar ou importar um runbook na automatização do Azure](automation-creating-importing-runbook.md)
 * Para compreender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell com os runbooks, consulte [fluxo de trabalho do PowerShell de aprendizagem](automation-powershell-workflow.md)
+
 

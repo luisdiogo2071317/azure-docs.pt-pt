@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: e0f3ec3ffa541e028835b0415201521c67eb7efa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: df0fd6258836bcd5053e5c526310e629b59b7880
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613822"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426765"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação de multi-factor do Azure mais recente
 
@@ -102,7 +102,7 @@ Estas instruções aplicam-se apenas se executar o servidor multi-factor Authent
 5. Executar o script Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell para registar o adaptador AD FS novo. Isto aplica-se a todos os servidores no mesmo cluster do AD FS, uma vez que existe uma configuração central.
 6. Reinicie o serviço do AD FS em cada servidor removido do farm do AD FS.
 7. Adicionar os servidores atualizados para o farm do AD FS e remova os outros servidores do farm.
-8. Aceda a **do AD FS** > **políticas de autenticação** > **Editar política de autenticação Multifator Global**. Verifique **AzureMfaServerAuthentication**.
+8. Aceda a **do AD FS** > **políticas de autenticação** > **Editar política de autenticação Multifator Global**. Check **AzureMfaServerAuthentication**.
 9. Repita o passo 2 para atualizar os servidores foi removidos do farm do AD FS e reinicie o serviço do AD FS nesses servidores.
 10. Adicione esses servidores no farm do AD FS.
 

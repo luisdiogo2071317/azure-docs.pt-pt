@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470868"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422903"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Aceder a um laboratório no Azure DevTest Labs
-Neste tutorial, vai utilizar o laboratório criado no [Tutorial: Criar um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md).
+Neste tutorial, vai utilizar o laboratório que foi criado no [Tutorial: Criar um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md) .
 
 Neste tutorial, irá realizar as seguintes ações:
 
@@ -68,14 +68,16 @@ Depois de concluir a utilização da VM, anule a reclamação dela ao seguir est
 1. Na página da máquina virtual, selecione **Anular reclamação** na barra de ferramentas. 
 
     ![Anular reclamação da VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. A VM é encerrada antes de anular a reclamação dela. 
-
-    ![Estado Anular reclamação](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Depois de terminar a operação de anulação da reclamação, veja a VM na lista de **Máquinas virtuais reclamáveis** na parte inferior. 
+1. A VM é encerrada antes de anular a reclamação dela. Pode ver o estado desta operação nas notificações.  
+3. Navegue de volta para a página do laboratório Dev/Test, clicando em seu nome de laboratório no menu de trilho na parte superior. 
     
-## <a name="next-steps"></a>Passos seguintes
+    ![Navegue de volta para o laboratório](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Confirme que vê a VM na lista de **Reclamáveis máquinas de virtuais** lista na parte inferior.
+
+    
+## <a name="next-steps"></a>Passos Seguintes
 Este tutorial mostrou como aceder e utilizar um laboratório criado com o Azure DevTest Labs. Para obter mais informações sobre como aceder e utilizar VMs num laboratório, veja 
 
 > [!div class="nextstepaction"]
-> [Procedimento: Utilizar VMs num laboratório](devtest-lab-add-vm.md)
+> [How to: Utilizar VMs num laboratório](devtest-lab-add-vm.md)
 

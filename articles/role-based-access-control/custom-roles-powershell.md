@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437023"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428125"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Criar funções personalizadas com o Azure PowerShell
 
-Se o [funções incorporadas](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com o Azure PowerShell.
+Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com o Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar funções personalizadas, terá de:
 
-- Permissões para criar funções personalizadas, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator)
-- [O Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
+- Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instalado localmente
 
-## <a name="list-custom-roles"></a>Lista de funções personalizadas
+## <a name="list-custom-roles"></a>Listar funções personalizadas
 
 Para listar as funções que estão disponíveis para atribuição a um âmbito, utilize o [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) comando. O exemplo seguinte lista todas as funções que estão disponíveis para atribuição na subscrição selecionada.
 
@@ -297,5 +297,5 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Funções personalizadas no Azure](custom-roles.md)
+- [Custom roles in Azure](custom-roles.md) (Funções personalizadas no Azure)
 - [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

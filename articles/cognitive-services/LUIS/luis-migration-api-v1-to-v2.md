@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138828"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427513"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 para o guia de migração da v2 para aplicações de LUIS
 A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs foram preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -112,7 +112,7 @@ A chave de ponto final de subscrição APIs são preteridas, retornando 410 já 
 |1|/Luis/v1.0/Prog/subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [chaves de ponto final](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação do LUIS sobre o **[Publish](luis-how-to-manage-keys.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para fazer a atribuição. 
+Azure [chaves de ponto final](luis-how-to-azure-subscription.md) são gerados no portal do Azure. Atribuir a chave para uma aplicação do LUIS sobre o **[Publish](luis-how-to-azure-subscription.md)** página. Não é necessário saber o valor da chave real. LUIS utiliza o nome da subscrição para fazer a atribuição. 
 
 ## <a name="new-versioning-route"></a>Nova rota de controle de versão
 O modelo v2 agora está contido num [versão](luis-how-to-manage-versions.md). Um nome de versão tenha 10 carateres na rota. A versão predefinida é "0.1".
