@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: danlep
-ms.openlocfilehash: 5934e955d2a18d111c625670bced134df37ef045
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ff4ccdf28be9d28798fff0e9f66bbb2c860166b7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409599"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424545"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontrar imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -28,23 +28,23 @@ Este artigo descreve como utilizar o Azure PowerShell para localizar imagens da 
 
 Também pode procurar imagens disponíveis e as ofertas com o [do Azure Marketplace](https://azuremarketplace.microsoft.com/) loja, o [portal do Azure](https://portal.azure.com), ou o [da CLI do Azure](../linux/cli-ps-findimage.md). 
 
-Certifique-se de que instalou e configurou a versão mais recente [módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Certifique-se de que instalou e configurou a versão mais recente [módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabela de usadas imagens do Windows
 | Publicador | Oferta | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016 Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
-| MicrosoftWindowsServer |WindowsServer |2016 Datacenter com contentores |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |UTILIZAR O WS2016-SQL2017 |Enterprise |
-| MicrosoftRServer |Utilizar o WS2016-RServer |Enterprise |
+| MicrosoftSQLServer |SQL2017-WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
 
@@ -164,7 +164,7 @@ Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku
 
 Agora pode combinar o selecionado do publicador, oferta, SKU e versão para um URN (valores separados por:). Passar este URN com o `--image` parâmetro ao criar uma VM com o [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. Opcionalmente, pode substituir o número de versão a URN por "mais recente" para obter a versão mais recente da imagem.
 
-Se implementar uma VM com um modelo do Resource Manager, em seguida, defina os parâmetros de imagem individualmente no `imageReference` propriedades. Consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
+Se implementar uma VM com um modelo do Resource Manager, em seguida, defina os parâmetros de imagem individualmente no `imageReference` propriedades. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 

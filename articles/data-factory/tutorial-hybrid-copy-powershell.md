@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 48d36d56804bafc04f7253438cb71bd72ede1a51
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015666"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424817"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -120,7 +120,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 
 1. Para instalar o Azure PowerShell, execute o ficheiro MSI. 
 
-Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Iniciar sessão no PowerShell
 

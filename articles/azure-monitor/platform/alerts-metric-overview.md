@@ -6,13 +6,13 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
-ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 40cf37c08705384fb664402c3d40efa229cbbcdf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580047"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422801"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
@@ -52,7 +52,7 @@ Suponhamos que tem um plano do serviço de aplicações para o seu site. Pretend
 - Recurso de destino: myAppServicePlan
 - Métrica: Percentagem da CPU
 - Dimensões
-  - Instância = InstanceName1, InstanceName2
+  - Instance = InstanceName1, InstanceName2
 - Agregação de tempo: Média
 - Período de: Durante os últimos 5 minutos
 - Frequência de: 1 min
@@ -127,8 +127,8 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 |Microsoft.TimeSeriesInsights/environments | Sim|
 |Microsoft. Web/serverfarms | Sim |
 |Microsoft. / Sites da Web (excluindo as funções) | Sim|
-|Microsoft. HostingEnvironments/Web/multiRolePools | Não|
-|Microsoft. HostingEnvironments/Web/workerPools| Não
+|Microsoft. Web/hostingEnvironments/multiRolePools | Não|
+|Microsoft. Web/hostingEnvironments/workerPools| Não
 |Microsoft.SQL/Servers | Não|
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -136,3 +136,4 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 - [Saiba como criar, ver e gerir alertas de métricas no Azure](alerts-metric.md)
 - [Saiba como implementar utilizando modelos Azure Resource Manager de alertas de métricas](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Saiba mais sobre os grupos de ação](action-groups.md)
+

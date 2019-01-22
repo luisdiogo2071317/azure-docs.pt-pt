@@ -3,18 +3,18 @@ title: Automatizando a implantação de uma VM nos Amazon Web Services
 description: Este artigo demonstra como utilizar a automatização do Azure para automatizar a criação de uma VM do Amazon Web Service
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290897"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425225"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automatização do Azure – aprovisionar uma máquina virtual do AWS
 Neste artigo, saiba como pode aproveitar a automatização do Azure para Aprovisionar uma máquina virtual na sua subscrição do serviço de Web da Amazon (AWS) e dê um nome específico – que AWS se refere a como "marcação" a VM a essa VM.
@@ -105,4 +105,5 @@ Antes de continuar a testar o runbook, tem de verificar algumas coisas. Especifi
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)
 * Para mais informações sobre a funcionalidade de suporte de scripts do PowerShell, consulte o artigo [Suporte de scripts do PowerShell Nativo na Automatização do Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+
 

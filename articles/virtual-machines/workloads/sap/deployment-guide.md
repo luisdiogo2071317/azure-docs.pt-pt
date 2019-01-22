@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 1332a06cf955be3fe2a77194f455c9315993998c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159915"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424907"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -95,7 +95,7 @@ ms.locfileid: "54159915"
 [dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Configuração de armazenamento)
 [dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Cópia de segurança e restauro)
 [dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Considerações de desempenho para a cópia de segurança e restauro)
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Outros)
+[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Other)
 [dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
@@ -120,7 +120,7 @@ ms.locfileid: "54159915"
 [deployment-guide-4.3]:deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Associar uma VM a um domínio no local - apenas Windows)
 [deployment-guide-4.4.2]:deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
 [deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Transferir, instalar e ativar o agente da VM do Azure)
-[deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (O Azure PowerShell)
+[deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (CLI do Azure)
 [deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configurar a extensão de monitorização avançada do Azure para SAP)
 [deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Verificação de disponibilidade para avançada monitorização do Azure para SAP)
@@ -207,7 +207,7 @@ ms.locfileid: "54159915"
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Conceitos de implementação apenas na Cloud de instâncias do SAP)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Solução de monitorização para SAP do Azure)
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Armazenamento Premium do Azure)
-[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Discos geridos)
+[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -234,7 +234,7 @@ ms.locfileid: "54159915"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Sistema de rede do Microsoft Azure)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Armazenamento: Discos de dados e de armazenamento do Microsoft Azure)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -492,7 +492,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte estes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
       * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
   * **Nome de utilizador administrador** e **palavra-passe de administrador**: Um nome de utilizador e palavra-passe.
     É criado um novo utilizador, para iniciar sessão para a máquina virtual.
@@ -628,7 +628,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte os seguintes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
       * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
   * **URI de VHD da imagem de utilizador** (disco não gerido imagem modelo): O URI do sistema operacional privado de imagem VHD, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
   * **Conta de armazenamento de imagem do utilizador** (disco não gerido imagem modelo): O nome da conta de armazenamento onde está armazenada a imagem de SO privada, por exemplo, &lt;accountname > em https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
@@ -720,7 +720,7 @@ No portal do Azure, introduza os seguintes parâmetros para o modelo:
     Para sistemas maiores, é altamente recomendável utilizar o armazenamento Premium do Azure. Para obter mais informações sobre os tipos de armazenamento, consulte os seguintes recursos:
       * [Utilização do armazenamento SSD Premium do Azure para a instância do SAP DBMS][2367194]
       * [Estrutura de armazenamento de uma VM para implementações de RDBMS](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
-      * [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
+      * [Premium Storage: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
       * [Introdução ao armazenamento do Microsoft Azure][storage-introduction]
   * **URI de VHD de disco do SO** (apenas modelo de disco não gerido): O URI do disco de SO privado, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Id do disco gerido disco do SO** (apenas modelo de disco gerido): O Id do disco do SO de discos geridos, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN

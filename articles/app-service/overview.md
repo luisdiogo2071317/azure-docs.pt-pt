@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f3fed9255b86696b0e71c70adcd7ff23c0573d9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352449"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423685"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
-*Serviço de aplicações do Azure* é um serviço para alojar aplicações web, REST APIs e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Aplicativos executam e dimensionam com facilidade em ambientes baseados em Linux e Windows. Para ambientes baseados em Linux, consulte o serviço de aplicações no [serviço de aplicações no Linux](containers/app-service-linux-intro.md). 
+*Serviço de aplicações do Azure* é um serviço para alojar aplicações web, REST APIs e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Aplicativos executam e dimensionam com facilidade em ambientes baseados em Linux e Windows. Para ambientes baseados em Linux, veja [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md). 
 
 Serviço de aplicações não só adiciona o poder do Microsoft Azure à sua aplicação, como segurança, balanceamento de carga, dimensionamento automático e gestão automatizada. Também pode tirar partido das respetivas capacidades do DevOps, como a implementação contínua do Azure DevOps, do GitHub, do Docker Hub e de outras origens, gestão de pacotes, ambientes de teste, domínio personalizado e certificados SSL. 
 

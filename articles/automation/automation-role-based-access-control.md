@@ -4,18 +4,18 @@ description: O controlo de acesso baseado em funções (RBAC) permite uma gestã
 keywords: rbac de automatização, controlo de acesso baseado em funções , rbac do azure
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727907"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424324"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -73,7 +73,7 @@ Um leitor pode ver todos os recursos numa conta de automatização, mas não é 
 
 ### <a name="automation-operator"></a>Operador de Automatização
 
-Um operador de automatização é capaz de criar e gerir tarefas e leia os nomes de runbook e as propriedades de todos os runbooks numa conta de automatização.  Nota: Se pretender controlar o acesso de operador individuais para runbooks, em seguida, não defina esta função e em vez disso, utilize as funções de "Operador de tarefas de automatização" e "Operador de Runbook de automatização" em combinação. A tabela seguinte mostra as permissões concedidas para a função:
+Um operador de automatização é capaz de criar e gerir tarefas e leia os nomes de runbook e as propriedades de todos os runbooks numa conta de automatização.  Nota: Se pretender controlar o acesso de operador individuais para runbooks, em seguida, não defina esta função em vez disso, as funções de "Operador de tarefas de automatização" e "Operador de Runbook de automatização" em combinação. A tabela seguinte mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
@@ -334,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) apresenta uma lista de atribuições de funções de RBAC do Azure AD no âmbito especificado. Sem quaisquer parâmetros, este comando devolve todas as atribuições de funções efetuadas sob a subscrição. Utilize o parâmetro **ExpandPrincipalGroups** para listar atribuições de acesso para o utilizador especificado, bem como para os grupos dos quais o utilizador é membro.
-    **Exemplo:** utilize o seguinte comando para listar todos os utilizadores e as respetivas funções dentro de uma conta de automatização.
+    **Exemplo:** Utilize o seguinte comando para listar todos os utilizadores e as respetivas funções dentro de uma conta de automatização.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -355,7 +355,7 @@ ObjectType         : User
 ```
 
 [Novo-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) atribuir acesso a utilizadores, grupos e aplicações num determinado âmbito.
-    **Exemplo:** utilize o seguinte comando para atribuir a função "Operador de automatização" para um utilizador no âmbito da conta de automatização.
+    **Exemplo:** Utilize o seguinte comando para atribuir a função "Operador de automatização" para um utilizador no âmbito da conta de automatização.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -376,7 +376,7 @@ ObjectType         : User
 ```
 
 Uso [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) para remover o acesso de um utilizador especificado, grupo ou aplicação de um âmbito específico.
-    **Exemplo:** utilize o seguinte comando para remover o utilizador da função "Operador de automatização" no âmbito da conta de automatização.
+    **Exemplo:** Utilize o seguinte comando para remover o utilizador da função "Operador de automatização" no âmbito da conta de automatização.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -428,3 +428,4 @@ Quando um utilizador, o que é atribuído a função de operador de automatizaç
 * Para obter informações sobre diferentes maneiras de configurar o RBAC para a Automatização do Azure, veja [Gerir o RBAC com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter detalhes sobre diferentes formas de iniciar um runbook, consulte o artigo [Iniciar um runbook](automation-starting-a-runbook.md)
 * Para obter informações sobre os vários tipos de runbook, veja [Tipos de runbook de Automatização do Azure](automation-runbook-types.md)
+

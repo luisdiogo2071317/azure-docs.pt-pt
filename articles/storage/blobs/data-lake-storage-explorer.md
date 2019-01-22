@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Explorador de armazenamento do Azure de utilização para criar um blob no armazenamento de objetos com geração 2 de armazenamento do Azure Data Lake ativada'
+title: 'Início rápido: Utilize o Explorador de armazenamento do Azure para gerir dados na geração 2 de armazenamento do Azure Data Lake '
 description: Neste início rápido, irá aprender a utilizar o Explorador de armazenamento do Azure para criar um sistema de ficheiros numa conta de geração 2 de armazenamento do Azure Data Lake, bem como um diretório e um ficheiro. Em seguida, saiba como transferir o ficheiro para o computador local e como visualizar todos os ficheiros num diretório.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385623"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423601"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início rápido: Utilize o Explorador de armazenamento do Azure para criar um blob no armazenamento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Início rápido: Utilize o Explorador de armazenamento do Azure para gerir dados numa conta de geração 2 de armazenamento do Azure Data Lake
 
 Neste início rápido, irá aprender a utilizar [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um diretório e um blob. Em seguida, saiba como transferir o blob para o computador local e como visualizar todos os blobs num diretório. Também irá aprender a criar um instantâneo de um blob, gerir políticas de acesso de diretório e criar uma assinatura de acesso partilhado.
 

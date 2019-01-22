@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846671"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424159"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -39,7 +39,7 @@ Ao replicar máquinas virtuais VMware:
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
-1. Clique em **Passo 2: Replicar aplicação** > **Origem**. Depois de ativar a replicação pela primeira vez, clique em **+Replicar**, no cofre, para ativar a replicação em máquinas adicionais.
+1. Clique em **passo 2: Replicar aplicação** > **origem**. Depois de ativar a replicação pela primeira vez, clique em **+Replicar**, no cofre, para ativar a replicação em máquinas adicionais.
 2. Na **origem** página > **origem**, selecione o servidor de configuração.
 3. Na **tipo de máquina**, selecione **máquinas virtuais** ou **máquinas físicas**.
 4. Em **vCenter/vSphere Hypervisor**, selecione o servidor vCenter que gere o anfitrião vSphere ou selecione o anfitrião. Esta definição não é relevante se estiver a replicar máquinas físicas.
@@ -59,7 +59,7 @@ Ao replicar máquinas virtuais VMware:
 8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure estabelecerão uma ligação quando se puserem em marcha após a ativação pós-falha. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. Se não tiver uma rede, terá [criá-lo](#set-up-an-azure-network). Para criar uma rede utilizando o Gestor de recursos, clique em **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
 
     ![Ativar a definição de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**.
+9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**. Se não é possível ver/selecionar qualquer máquina virtual específica, clique em [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
 
     ![Ativar replicação selecione máquinas de virtuais](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. Na **propriedades** > **configurar propriedades**, selecione a conta utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina.  

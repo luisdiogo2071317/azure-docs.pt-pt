@@ -1,6 +1,6 @@
 ---
-title: Requisitos de subscrição para utilizar o PIM - Azure | Documentos da Microsoft
-description: Descreve a subscrição e os requisitos de licenciamento para utilizar o Azure AD Privileged Identity Management (PIM).
+title: Licenciar os requisitos para utilizar o PIM - Azure | Documentos da Microsoft
+description: Descreve os requisitos de licenciamento para utilizar o Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,53 +13,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 06/01/2017
+ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: dd4fa72b3e0b57ab227146eae6e2c7d20d0ce47a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424222"
 ---
-# <a name="subscription-requirements-to-use-pim"></a>Requisitos de subscrição para utilizar o PIM
+# <a name="license-requirements-to-use-pim"></a>Requisitos de licença para utilizar o PIM
 
-O Azure AD Privileged Identity Management está disponível como parte da edição Premium P2 do Azure AD. Para obter mais informações sobre os outros recursos de P2 e o compara ao Premium P1, consulte [edições do Azure Active Directory](../active-directory-editions.md).
+Para utilizar o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), um diretório tem de ter uma licença válida. Além disso, tem de atribuir licenças para os administradores e utilizadores relevantes. Este artigo descreve os requisitos de licença para utilizar o PIM.
 
->[!NOTE]
-Quando o Azure Active Directory (Azure AD) Privileged Identity Management foi em pré-visualização, não havia nenhum verificações de licença para um inquilino experimentar o serviço.  Agora que o Azure AD Privileged Identity Management atingiu a disponibilidade geral, uma subscrição de avaliação ou paga tem de estar presente para o inquilino continuar a utilizar o Privileged Identity Management depois de Dezembro de 2016.
-  
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="confirm-your-trial-or-paid-subscription"></a>Confirmar a sua subscrição de avaliação ou paga
+Para utilizar o PIM, o diretório tem de ter um dos seguintes pagos ou licenças de avaliação:
 
-Se não tiver a certeza se a sua organização tem uma versão de avaliação ou adquirido a subscrição, em seguida, pode verificar se existe uma subscrição no seu inquilino, utilizando os comandos incluídos no Azure Active Directory módulo para o Windows PowerShell V1. 
-1. Abra uma janela do PowerShell.
-2. Introduza `Connect-MsolService` para se autenticar como um utilizador no seu inquilino.
-3. Introduza `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5
 
-Este comando obtém uma lista das subscrições no seu inquilino. Se não existirem não existem linhas devolvidas, terá de obter uma Azure AD Premium P2, avaliação, compra uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição para utilizar o Azure AD Privileged Identity Management.  Para obter uma versão de avaliação e começar a utilizar o Azure AD Privileged Identity Management, leia [introdução ao Azure AD Privileged Identity Management](pim-getting-started.md).
+Para obter mais informações, consulte [What is Azure Active Directory? (O que é o Azure Active Directory?)](../fundamentals/active-directory-whatis.md).
 
-Se este comando devolve uma linha na qual SkuPartNumber é "AAD_PREMIUM_P2" ou "EMSPREMIUM" e IsTrial for "True", isto indica que uma versão de avaliação do Azure AD Premium P2 está presente no inquilino.  Se o estado da subscrição não está ativado e não tiver uma subscrição P2 do Azure AD Premium ou EMS E5, comprar, em seguida, tem de comprar uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição para continuar a utilizar o Azure AD Privileged Identity Management.
+## <a name="which-users-must-have-licenses"></a>Os utilizadores que tem de ter licenças?
 
-O Azure AD Premium P2 está disponível por meio de um [contrato Enterprise da Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), o [programa de licenciamento em Volume Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)e o [programa de fornecedores de soluções Cloud](https://partner.microsoft.com/cloud-solution-provider). Subscritores do Azure e do Office 365 também podem comprar o Azure AD Premium P2 online.  Obter mais informações sobre preços do Azure AD Premium e como encomendar online podem ser encontradas em [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Cada administrador ou utilizador que interage com ou recebe um benefício do PIM tem de ter uma licença. Os exemplos incluem:
 
-## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>O Azure AD Privileged Identity Management não está disponível no inquilino
+- Os administradores com funções do Azure AD geridos através do PIM
+- Administradores com funções de recursos do Azure geridos com o PIM
+- Administradores atribuídos à função de administrador com função privilegiada
+- Utilizadores atribuídos como elegíveis para funções de diretório geridas com o PIM
+- Utilizadores podem aprovar/rejeitar pedidos no PIM
+- Utilizadores atribuídos a uma função de recursos do Azure com just-in-time ou diretas atribuições (baseados no tempo)  
+- Utilizadores atribuídos a uma revisão de acesso
+- Utilizadores que realizam as revisões de acesso
 
-O Azure AD Privileged Identity Management já não estará disponível no seu inquilino se:
-- Sua organização foi utilizar o Azure AD Privileged Identity Management quando ele foi em pré-visualização e não compra a subscrição do Azure AD Premium P2 ou subscrição do EMS E5.
-- Sua organização tinha uma P2 do Azure AD Premium ou EMS E5 avaliação que expirou.
-- Sua organização tinha uma subscrição adquirida que expirou.
+Para obter informações sobre como atribuir licenças aos seus usos, consulte [atribuir ou remover licenças através do portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 
-Quando uma subscrição P2 do Azure AD Premium ou EMS E5 subscrição expira, ou uma organização que estava a utilizar o Azure AD Privileged Identity Management em pré-visualização não obter a subscrição do Azure AD Premium P2 ou EMS E5:
+## <a name="what-happens-when-a-license-expires"></a>O que acontece quando uma licença expira?
+
+Se um Azure AD Premium P2, EMS E5 ou licença de avaliação expirar, as funcionalidades PIM já não estarão disponíveis no seu diretório:
 
 - Atribuições de função permanente para funções do Azure AD não serão afetadas.
-- A extensão do Azure AD Privileged Identity Management no portal do Azure, como os cmdlets do Graph API e as interfaces de PowerShell do Azure AD Privileged Identity Management, deixará de estar disponível para os utilizadores ativarem funções com privilégios, gerir com privilégios aceder ou executar revisões de acesso de funções com privilégios.
+- O serviço PIM no portal do Azure, bem como os cmdlets do Graph API e as interfaces de PowerShell do PIM, deixará de estar disponível para os utilizadores ativarem funções com privilégios, gerir o acesso privilegiado ou realizar revisões de acesso de funções com privilégios.
 - Serão removidas as atribuições de função elegível de funções do Azure AD, como os utilizadores já não poderão ativar as funções com privilégios.
-- Quaisquer revisões de acesso contínuo de funções do Azure AD irão terminar e as definições de configuração do Azure AD Privileged Identity Management serão removidas.
-- O Azure AD Privileged Identity Management já não irá enviar e-mails sobre as alterações de atribuição de função.
+- Quaisquer revisões de acesso contínuo de funções do Azure AD irão terminar e as definições de configuração do PIM serão removidas.
+- PIM já não irá enviar e-mails sobre as alterações de atribuição de função.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Começar a utilizar o PIM](pim-getting-started.md)
-- [Funções de diretório do Azure AD que pode gerir no PIM](pim-roles.md)
+- [Comece a utilizar o PIM](pim-getting-started.md)
+- [Funções não é possível gerir no PIM](pim-roles.md)

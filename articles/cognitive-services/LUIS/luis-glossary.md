@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8cddea1757b37ca462611874af7ace1af70c9646
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603502"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425186"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão de linguagem de vocabulário comum e conceitos
 A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.
@@ -74,7 +74,7 @@ No contexto do LUIS, um **domínio** é uma área de dados de conhecimento. O do
 
 ## <a name="endpoint"></a>Ponto final
 
-O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[chaves e os pontos finais](luis-how-to-manage-keys.md)** página da sua aplicação, ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[chaves e os pontos finais](luis-how-to-azure-subscription.md)** página da sua aplicação, ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Um ponto de extremidade de exemplo é semelhante a:
 
@@ -177,7 +177,7 @@ Mesmo que [chave programática](#programmatic-key), nome mudado para a chave de 
 
 ## <a name="subscription-key"></a>Chave de subscrição
 
-A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS [que criou no Azure](luis-how-to-azure-subscription.md). Esta chave não é o [chave de criação](#programmatic-key). Se tiver uma chave de ponto de extremidade, ele deve ser usado para todos os pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual dentro do URL do ponto final na parte inferior [ **as chaves e os pontos finais** página](luis-how-to-manage-keys.md) na [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** par de nome/valor.
+A chave de subscrição é o **ponto final** chave associado ao serviço de LUIS [que criou no Azure](luis-how-to-azure-subscription.md). Esta chave não é o [chave de criação](#programmatic-key). Se tiver uma chave de ponto de extremidade, ele deve ser usado para todos os pedidos de ponto final em vez da chave de criação. Pode ver a sua chave de ponto final atual dentro do URL do ponto final na parte inferior [ **as chaves e os pontos finais** página](luis-how-to-azure-subscription.md) na [LUIS](luis-reference-regions.md) Web site. É o valor de **chave de subscrição** par de nome/valor.
 
 ## <a name="test"></a>Teste
 

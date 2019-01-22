@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199532"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424528"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilizar o PowerShell para criar cópias de segurança e restaurar máquinas virtuais
 
@@ -41,7 +41,7 @@ Para ver a referência de cmdlets do PowerShell Recoveryservices, consulte a [c�
 
 Para começar:
 
-1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
+1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
 
 2. Encontre os cmdlets do PowerShell de cópia de segurança do Azure disponíveis, escrevendo o seguinte comando:
 
@@ -55,7 +55,7 @@ Para começar:
 3. Iniciar sessão no seu Azure conta utilizando **Connect-AzureRmAccount**. Este cmdlet é exibida uma página da web pede-lhe as credenciais da conta:
 
     * Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Connect-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
-    * Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especifica o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou o inquilino. Por exemplo: **Connect-AzureRmAccount-inquilino "fabrikam.com"**
+    * Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especifica o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou o inquilino. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 
 4. Associe a subscrição que pretende utilizar com a conta, uma vez que uma conta pode ter várias subscrições:
 

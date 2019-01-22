@@ -3,18 +3,18 @@ title: Compilar configurações na configuração de estado de automatização d
 description: Este artigo descreve como compilar configurações de Desired State Configuration (DSC) para a automatização do Azure.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257161"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423413"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações de DSC na configuração de estado de automatização do Azure
 
@@ -130,7 +130,7 @@ Para obter informações sobre passando PSCredentials como parâmetros, consulte
 
 ## <a name="composite-resources"></a>Recursos compostos
 
-**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração. Isto permite-lhe aplicar várias configurações para um único recurso. Ver [recursos compostos: utilizar uma configuração de DSC como um recurso](/powershell/dsc/authoringresourcecomposite) para saber mais sobre **recursos compostos**.
+**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração. Isto permite-lhe aplicar várias configurações para um único recurso. Consulte [recursos compostos: Utilizar uma configuração de DSC como um recurso](/powershell/dsc/authoringresourcecomposite) para saber mais sobre **recursos compostos**.
 
 > [!NOTE]
 > Para que **recursos compostos** para compilar corretamente, tem primeiro de garantir que quaisquer recursos de DSC que depende da composição primeiro estão instalados no repositório de módulos de conta de automatização do Azure ou não importar corretamente.
@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> Quando a compilação for concluída poderá receber um erro a indicar: **o módulo "Management" não foi importado porque o snap-in "Management" já foi importado.** Este aviso pode ser ignorado com segurança.
+> Quando a compilação for concluída poderá receber um erro a indicar: **O módulo "Management" não foi importado porque o snap-in "Management" já foi importado.** Este aviso pode ser ignorado com segurança.
 
 ## <a name="importing-node-configurations"></a>Importação de configurações de nó
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 47c9c66f9dd837da3343f1cfd602a5b51aefc76d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389348"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423821"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
@@ -727,7 +727,7 @@ Aqui está um modelo de implementação de exemplo que pode ser importado em Pip
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exemplo de script para parar e reiniciar acionadores e limpar
 
-Eis um script de exemplo para acionadores antes da implantação de parar e reiniciar acionadores posteriormente. O script também inclui código para eliminar os recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Eis um script de exemplo para acionadores antes da implantação de parar e reiniciar acionadores posteriormente. O script também inclui código para eliminar os recursos que foram removidos. Para instalar a versão mais recente do Azure PowerShell, consulte [instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

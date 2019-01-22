@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9edfa85105bbc20cf7f149d4c31b60d9e570a7ad
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 35af6a6113fd61c7faee7eb371f416fa7f2507dd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243734"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423362"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar o Azure PowerShell localmente, este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell.
 
-1. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). 
+1. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). 
 2. Para criar uma ligação com o Azure, execute `Login-AzureRmAccount`.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos

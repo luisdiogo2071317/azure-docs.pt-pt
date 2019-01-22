@@ -11,19 +11,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
+ms.date: 01/18/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 3d0f24331243c22fa356de7778a89185df2cde4e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003215"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421917"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: configurar os seus dispositivos a partir de um serviço de back-end
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutorial: Configurar os seus dispositivos através de um serviço de back-end
 
 Para além de receber dados telemétricos dos seus dispositivos, poderá ter de os configurar a partir do seu serviço de back-end. Quando enviar uma configuração pretendida para os seus dispositivos, também poderá querer receber atualizações de conformidade e de estado desses dispositivos. Por exemplo, poderá definir um intervalo pretendido para a temperatura de um dispositivo ou recolher informações sobre a versão do firmware dos seus dispositivos.
 
@@ -258,7 +258,7 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a sincronizar informações de estado entre os seus dispositivos e o seu hub do IoT. Avance para o próximo tutorial para saber como utilizar dispositivos duplos para implementar um processo de atualização de firmware.
 

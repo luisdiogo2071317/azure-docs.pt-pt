@@ -3,18 +3,18 @@ title: Runbooks subordinados na automatização do Azure
 description: Descreve os diferentes métodos para iniciar um runbook na automatização do Azure a partir de outro runbook e partilhar informações entre eles.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc9e9cbf3e385a43eee8ce63d2f2fa6b863e95cc
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391342"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422973"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 
@@ -122,3 +122,4 @@ A tabela seguinte resume as diferenças entre os dois métodos para chamar um ru
 
 * [Iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)
 * [Resultado do Runbook e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
+

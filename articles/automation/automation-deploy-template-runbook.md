@@ -3,19 +3,19 @@ title: Implementar um modelo Azure Resource Manager num runbook da automatizaç�
 description: Como implementar um modelo do Azure Resource Manager armazenado no armazenamento do Azure a partir de um runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-keywords: json do runbook do PowerShell, a automatização do azure
-ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+keywords: powershell,  runbook, json, azure automation
+ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918611"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421816"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
 
@@ -32,7 +32,7 @@ Para concluir este tutorial, precisa do seguinte:
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automatização](automation-sec-configure-azure-runas-account.md) para manter o runbook e autenticar-se nos recursos do Azure.  Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
 * [Conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md) para armazenar o modelo do Resource Manager
-* O Azure Powershell instalado numa máquina local. Ver [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) para obter informações sobre como obter o Azure PowerShell.
+* O Azure Powershell instalado numa máquina local. Ver [instalar e configurar o Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) para obter informações sobre como obter o Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 
@@ -248,4 +248,5 @@ Já está! Agora, pode utilizar modelos de automatização do Azure e o armazena
 * Para começar a utilizar com o armazenamento do Azure, veja [introdução ao armazenamento do Azure](../storage/common/storage-introduction.md).
 * Para obter outros útil runbooks de automatização do Azure, veja [galerias de módulos e Runbooks de automatização do Azure](automation-runbook-gallery.md).
 * Para localizar outros modelos úteis do Resource Manager, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/)
+
 

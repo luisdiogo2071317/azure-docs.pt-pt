@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: alerts
+ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120998"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423280"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 A funcionalidade de alertas no Log Analytics do Azure está a ser substituída através de alertas do Azure. Como parte desta transição, os alertas que configurou originalmente no Log Analytics irão ser expandidas para o Azure. Se não quiser esperar que elas sejam movidas automaticamente para o Azure, pode iniciar o processo:
@@ -37,7 +37,7 @@ Os passos seguintes descrevem como ampliar alertas para a área de trabalho a pa
 ![Captura de ecrã do Operations Management Suite definições de alerta página do portal, com expandir para Azure realçado](media/alerts-extend-tool/ExtendInto.png)
 6. Um Assistente de três etapas é apresentado na **alertas** painel. Leia a visão geral e selecione **seguinte**.
 ![Captura de ecrã do passo 1 do Assistente](media/alerts-extend-tool/ExtendStep1.png)  
-7. Na segunda etapa, é apresentado um resumo das alterações propostas, listagem apropriado [grupos de ação](../../azure-monitor/platform/action-groups.md) para os alertas. Se a ações semelhantes são vistas em mais do que um alerta, o assistente propõe associar um grupo de ação única todos eles.  A Convenção de nomenclatura é o seguinte: *WorkspaceName_AG_ #Number*. Para continuar, selecione **seguinte**.
+7. Na segunda etapa, é apresentado um resumo das alterações propostas, listagem apropriado [grupos de ação](../../azure-monitor/platform/action-groups.md) para os alertas. Se a ações semelhantes são vistas em mais do que um alerta, o assistente propõe associar um grupo de ação única todos eles.  A Convenção de nomenclatura é o seguinte: *WorkspaceName_AG_#Number*. Para continuar, selecione **seguinte**.
 ![Captura de ecrã do passo 2 do Assistente](media/alerts-extend-tool/ExtendStep2.png)  
 8. No último passo do assistente, selecione **concluir**e confirmar quando lhe for pedido para iniciar o processo. Opcionalmente, pode fornecer um endereço de e-mail, para que será notificado quando o processo for concluído e todos os alertas foram movidos com êxito para alertas do Azure.
 ![Captura de ecrã do passo 3 do Assistente](media/alerts-extend-tool/ExtendStep3.png)
@@ -52,7 +52,7 @@ Alertas continuam a ser listados no portal do Operations Management Suite, mesmo
 ## <a name="option-2-use-the-alertsversion-api"></a>Opção 2: Utilizar a API AlertsVersion
 Pode utilizar a API AlertsVersion do Log Analytics para expandir alertas do Log Analytics para alertas do Azure de qualquer cliente que pode chamar uma API REST. Pode aceder à API do PowerShell, utilizando [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto. O utilizador pode apresentar os resultados em JSON.  
 
-Para utilizar a API, primeiro crie um pedido GET. Esta é avaliada e devolve um resumo das alterações propostas, antes de tentar, na verdade, expandir para o Azure através de um pedido POST. Os resultados listam os alertas e uma lista de propostas de [grupos de ação](../../azure-monitor/platform/action-groups.md), no formato JSON. Se a ações semelhantes são vistas em mais do que um alerta, o serviço propõe associar todos eles com um grupo de ação única. A Convenção de nomenclatura é o seguinte: *WorkspaceName_AG_ #Number*.
+Para utilizar a API, primeiro crie um pedido GET. Esta é avaliada e devolve um resumo das alterações propostas, antes de tentar, na verdade, expandir para o Azure através de um pedido POST. Os resultados listam os alertas e uma lista de propostas de [grupos de ação](../../azure-monitor/platform/action-groups.md), no formato JSON. Se a ações semelhantes são vistas em mais do que um alerta, o serviço propõe associar todos eles com um grupo de ação única. A Convenção de nomenclatura é o seguinte: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -481,3 +481,4 @@ Eis os passos de remediação para cada erro:
 
 * Saiba mais sobre a nova [experiência de alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Saiba mais sobre [alertas de registo nos alertas do Azure](alerts-unified-log.md).
+

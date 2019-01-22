@@ -3,24 +3,24 @@ title: Resolução de problemas com o controlo de alterações do Azure
 description: Este artigo fornece informações sobre resolução de problemas de controlo de alterações
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 686a2c0ef0766176658d42d5ca53ea1ce6d3241c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722943"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421341"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver problemas de controlo de alterações e inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário: Registos de controlo de alterações não apresentarem no portal do Azure
+### <a name="records-not-showing-windows"></a>Cenário: Registos do controlo de alteração não apresentarem no portal do Azure
 
 #### <a name="issue"></a>Problema
 

@@ -1,6 +1,6 @@
 ---
 title: Configurar aplicações de SaaS para colaboração B2B no Azure Active Directory | Documentos da Microsoft
-description: Exemplos de código e o PowerShell para a colaboração do Azure Active Directory B2B
+description: Exemplos do PowerShell e de código para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 78f34183b30f8ea9fe44ddaf2b57b237cbb09749
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985767"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423634"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicações de SaaS para colaboração B2B
 
@@ -30,7 +30,7 @@ Antes de examinar instruções específicas da aplicação, aqui estão algumas 
 * Nos atributos de utilizador, para atenuar problemas com o disco do perfil de utilizador mangled (UDP) em utilizadores convidados, sempre definido **identificador de utilizador** ao **user.mail**.
 
 
-## <a name="dropbox-business"></a>Business do Dropbox
+## <a name="dropbox-business"></a>Dropbox Business
 
 Para permitir que os utilizadores iniciem sessão com a respetiva conta de organização, tem de configurar manualmente o negócio do Dropbox para utilizar o Azure AD como fornecedor de identidade de Security Assertion Markup Language (SAML). Se não tiver sido configurado comercial do Dropbox para fazer isso, não é possível solicitar ou caso contrário, permitir que os utilizadores iniciem sessão com o Azure AD.
 

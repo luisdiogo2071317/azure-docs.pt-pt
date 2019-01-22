@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: b8252e6575ec7acb46fb69563720cc38796964ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584314"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425073"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas através do Azure Monitor
 
@@ -117,13 +117,13 @@ As secções anteriores descreveram como criar, ver e gerir regras de alerta de 
 6. Pode desativar uma regra de alerta de métrica utilizando o seguinte comando.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. Pode eliminar uma regra de alerta de métrica utilizando o seguinte comando.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -131,3 +131,4 @@ As secções anteriores descreveram como criar, ver e gerir regras de alerta de 
 - [Criar alertas de métricas utilizando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Compreender a forma como o trabalho de alertas de métrica](alerts-metric-overview.md).
 - [Compreender o esquema de hook de web para alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

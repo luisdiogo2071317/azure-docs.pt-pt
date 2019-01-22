@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 48d23f9d6d79e89e24c808a59b73854952c93240
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715924"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425446"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL.  
@@ -144,7 +144,7 @@ Agora, está pronto para implementar o projeto. Quando implementa um projeto do 
 5. Escolha o botão **Implementar** para implementar o projeto no Azure. É aberta uma consola do PowerShell fora da instância do Visual Studio. Introduza a palavra-passe de administrador do SQL Server na consola do PowerShell quando lhe for pedido. **A consola do PowerShell poderá estar oculta atrás de outros itens ou minimizada na barra de tarefas.** Procure esta consola e selecione-a para fornecer a palavra-passe.
    
    > [!NOTE]
-   > O Visual Studio poderá pedir-lhe que instale os cmdlets do Azure PowerShell. Precisa de cmdlets do Azure PowerShell para implementar grupos de recursos com êxito. Se lhe for solicitado, instale-os. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+   > O Visual Studio poderá pedir-lhe que instale os cmdlets do Azure PowerShell. Precisa de cmdlets do Azure PowerShell para implementar grupos de recursos com êxito. Se lhe for solicitado, instale-os. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. A implementação pode demorar alguns minutos. O estado da implementação é apresentado nas janelas **Saída**. Após concluir a implementação, a última mensagem indicará uma implementação bem sucedida com algo semelhante a:

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5424448207bca3e6db253245ce7197feae5fba21
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582382"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424987"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -105,7 +105,7 @@ Este passo pode já estar concluído no seu inquilino, mas é bom verificar que 
 2. Selecione **do Azure Active Directory** > **do Azure AD Connect**
 3. Verifique se o estado de sincronização **ativado** e que foi de sua última sincronização há menos de uma hora.
 
-Se precisar de iniciar uma nova rodada de sincronização,-nas instruções em [do Azure AD Connect: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Se precisar de iniciar uma nova rodada de sincronização,-nas instruções no [do Azure AD Connect: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Determinar quais métodos de autenticação, podem utilizar os seus utilizadores
 

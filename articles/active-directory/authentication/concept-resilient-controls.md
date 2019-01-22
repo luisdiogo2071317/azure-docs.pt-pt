@@ -3,19 +3,19 @@ title: Criar uma estratégia de gestão de controlo de acesso resilientes no Azu
 description: Este documento fornece orientação sobre estratégias de uma organização deve adotar para fornecer resiliência para reduzir o risco de bloqueio durante as interrupções imprevistas
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 34d60d82ff70ecf683b955b8b796b5d3269df53c
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401916"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424046"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
