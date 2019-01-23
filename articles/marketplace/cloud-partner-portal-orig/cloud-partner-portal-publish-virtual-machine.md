@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a2512c488ac368205da11d79de479a888735729
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078121"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448708"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicar uma máquina virtual no Azure Marketplace
 
@@ -244,7 +244,7 @@ Introduza o [URI de assinatura de acesso partilhado](../cloud-partner-portal/vir
 
 Se existirem discos de dados associados este SKU, pode optar por adicionar estes discos, selecionando o **+ novo disco de dados** ligação. Esta ação apresenta os campos adicionais para que possa preencher.
 
-#### <a name="lun-vhd-url"></a>URL DE VHD LUN
+#### <a name="lun-vhd-url"></a>LUN VHD URL
 
 Introduza o [URI de assinatura de acesso partilhado](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) para o seu disco de dados.
 

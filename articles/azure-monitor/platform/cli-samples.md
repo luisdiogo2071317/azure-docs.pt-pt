@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 5fb4e4f754fdac9e72fc9317c7e1ccfa6a08feb2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: ''
+ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326368"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471011"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Exemplos de início rápido do Azure CLI de Monitor
 Este artigo mostra-lhe exemplo comandos de interface de linha de comandos (CLI) para o ajudar a aceder aos recursos do Azure Monitor. O Azure Monitor permite-lhe para serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web e para enviar notificações de alerta ou chamar URLs da web com base nos valores de dados de telemetria configurado.
@@ -208,3 +208,4 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
+

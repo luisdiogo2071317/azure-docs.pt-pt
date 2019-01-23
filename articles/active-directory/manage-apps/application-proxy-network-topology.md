@@ -4,7 +4,7 @@ description: Aborda considerações de topologia de rede ao utilizar o Proxy de 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e7cfb9dffdebfc5abaaf5840a6c81af6a7e9d556
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474678"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory
 
@@ -85,11 +85,11 @@ Coloca o conector perto do aplicativo de destino na rede de cliente. Esta config
 
 Se o conector tem de uma linha Visual para o controlador de domínio, este padrão é vantajoso. A maioria dos nossos clientes usa esse padrão, pois funciona bem para a maioria dos cenários. Este padrão também pode ser combinado com o padrão de 2 para otimizar o tráfego entre o serviço e o conector.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Padrão de 2: Tirar partido do ExpressRoute com peering da Microsoft
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Padrão de 2: Tire partido do ExpressRoute com peering da Microsoft
 
 Se tiver o ExpressRoute configurados com peering da Microsoft, pode utilizar a ligação de ExpressRoute mais rápida para o tráfego entre o Proxy de aplicações e o conector. O conector é ainda na sua rede, próximo a aplicação.
 
-### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão de 3: Tirar partido do ExpressRoute com peering privado
+### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão de 3: Tire partido do ExpressRoute com peering privado
 
 Se tiver uma dedicado VPN ou ExpressRoute integrados com o peering privado entre o Azure e a sua rede empresarial, tem outra opção. Nesta configuração, a rede virtual no Azure, normalmente, é considerada como uma extensão da rede empresarial. Portanto, pode instalar o conector no datacenter do Azure e, ainda satisfazer os requisitos de baixa latência da ligação do conector para o aplicativo.
 
@@ -111,15 +111,15 @@ Nesta secção, vamos analisar alguns cenários comuns. Partem do princípio de 
 
 Nestes cenários, chamamos um "salto" de cada ligação e numbê-los para discussão mais fácil:
 
-- **Salto 1**: utilizador para o serviço de Proxy de aplicações
-- **Salto 2**: serviço de Proxy de aplicações para o conector do Proxy de aplicações
-- **Salto 3**: conector do Proxy de aplicações para o aplicativo de destino 
+- **Salto 1**: Utilizador para o serviço de Proxy de aplicações
+- **Salto 2**: Serviço de Proxy de aplicações para o conector do Proxy de aplicações
+- **Salto 3**: Conector de Proxy de aplicações para o aplicativo de destino 
 
 ### <a name="use-case-1"></a>Caso de utilização 1
 
-**Cenário:** a aplicação está na rede da organização nos E.U.A., com utilizadores na mesma região. Nenhuma VPN ou ExpressRoute existe entre o datacenter do Azure e da rede empresarial.
+**Cenário:** A aplicação está na rede da organização nos E.U.A., com utilizadores na mesma região. Nenhuma VPN ou ExpressRoute existe entre o datacenter do Azure e da rede empresarial.
 
-**Recomendação:** siga padrão 1, explicado na seção anterior. Para melhor latência, considere utilizar o ExpressRoute, se necessário.
+**Recomendação:** Siga o padrão de 1, explicado na seção anterior. Para melhor latência, considere utilizar o ExpressRoute, se necessário.
 
 Este é um padrão simple. Otimizar o salto 3 ao colocar o conector de perto a aplicação. Isso também é a escolha natural, porque o conector, normalmente, é instalado com a linha de visão para a aplicação e para o Centro de dados para realizar operações de KCD.
 
@@ -127,9 +127,9 @@ Este é um padrão simple. Otimizar o salto 3 ao colocar o conector de perto a a
 
 ### <a name="use-case-2"></a>Caso 2 de uso
 
-**Cenário:** a aplicação está na rede da organização nos E.U.A., com utilizadores distribuídos globalmente. Nenhuma VPN ou ExpressRoute existe entre o datacenter do Azure e da rede empresarial.
+**Cenário:** A aplicação está na rede da organização nos E.U.A., com utilizadores distribuídos globalmente. Nenhuma VPN ou ExpressRoute existe entre o datacenter do Azure e da rede empresarial.
 
-**Recomendação:** siga padrão 1, explicado na seção anterior. 
+**Recomendação:** Siga o padrão de 1, explicado na seção anterior. 
 
 Novamente, o padrão comum é otimizar o salto 3, onde colocar o conector de perto a aplicação. Salto 3 não é normalmente Caro, se tudo está dentro da mesma região. No entanto, salto 1 pode ser mais dispendioso, dependendo de onde está o utilizador, uma vez que os utilizadores por todo o mundo tem de aceder a instância de Proxy de aplicações nos E.U.A. Vale a pena observar que qualquer solução de proxy tem características semelhantes em relação a usuários que está a ser distribuídos globalmente.
 
@@ -137,9 +137,9 @@ Novamente, o padrão comum é otimizar o salto 3, onde colocar o conector de per
 
 ### <a name="use-case-3"></a>Caso de utilização 3
 
-**Cenário:** a aplicação estiver numa rede de uma organização nos E.U.A. ExpressRoute com peering da Microsoft existe entre o Azure e da rede empresarial.
+**Cenário:** A aplicação está na rede da organização nos EUA. ExpressRoute com peering da Microsoft existe entre o Azure e da rede empresarial.
 
-**Recomendação:** siga os padrões de 1 e 2, explicado na seção anterior.
+**Recomendação:** Siga os padrões de 1 e 2, explicado na seção anterior.
 
 Em primeiro lugar, coloca o conector mais próximo possível para a aplicação. Em seguida, o sistema utilizará automaticamente o ExpressRoute para o salto 2. 
 
@@ -149,9 +149,9 @@ Se a ligação do ExpressRoute estiver a utilizar o peering da Microsoft, o trá
 
 ### <a name="use-case-4"></a>Caso de utilização 4
 
-**Cenário:** a aplicação estiver numa rede de uma organização nos E.U.A. ExpressRoute com peering privado existe entre o Azure e da rede empresarial.
+**Cenário:** A aplicação está na rede da organização nos EUA. ExpressRoute com peering privado existe entre o Azure e da rede empresarial.
 
-**Recomendação:** siga padrão 3, explicado na seção anterior.
+**Recomendação:** Siga o padrão de 3, explicado na seção anterior.
 
 Coloca o conector no datacenter do Azure que está ligado à rede empresarial através do peering privado do ExpressRoute. 
 
@@ -161,9 +161,9 @@ O conector pode ser colocado no datacenter do Azure. Uma vez que o conector aind
 
 ### <a name="use-case-5"></a>Caso de utilização 5
 
-**Cenário:** a aplicação estiver numa rede de uma organização no EU, com a instância de Proxy de aplicações e a maioria dos utilizadores nos E.U.A.
+**Cenário:** A aplicação está na rede de uma organização diz respeito à UE, com a instância do Proxy de aplicações e a maioria dos usuários nos EUA.
 
-**Recomendação:** colocar o conector de perto a aplicação. Porque os utilizadores dos EUA estão a aceder a uma instância do Proxy de aplicações que estivesse na mesma região, salto 1 não é demasiado caro. Salto 3 está otimizado. Considere utilizar o ExpressRoute para otimizar o salto 2. 
+**Recomendação:** Coloca o conector de perto a aplicação. Porque os utilizadores dos EUA estão a aceder a uma instância do Proxy de aplicações que estivesse na mesma região, salto 1 não é demasiado caro. Salto 3 está otimizado. Considere utilizar o ExpressRoute para otimizar o salto 2. 
 
 ![Diagrama que mostra os utilizadores e o proxy nos E.U.A., com o conector e a aplicação na UE](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 

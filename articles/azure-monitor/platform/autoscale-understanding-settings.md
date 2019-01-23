@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: af7e280c7dcd82c18e91ded759756c3826342cd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474834"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 Definições de dimensionamento automático ajudam a garantir que tenha a quantidade certa de recursos em execução para processar a carga flutuantes da sua aplicação. Pode configurar definições de dimensionamento automático para ser acionado com base nas métricas que indicam a carga e de desempenho ou acionadas numa data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma definição de dimensionamento automático. O artigo começa com o esquema e propriedades de uma configuração e, em seguida, percorre os tipos de perfis diferentes que podem ser configurados. Por fim, o artigo discute como a funcionalidade de dimensionamento automático no Azure avalia que perfil de executar um determinado momento.
@@ -104,7 +104,7 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | regra | metricTrigger | Define as condições de métricas da regra. |
 | metricTrigger | MetricName | O nome da métrica. |
 | metricTrigger |  metricResourceUri | O ID de recurso do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso a ser dimensionado. Em alguns casos, podem ser diferente. Por exemplo, pode dimensionar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens numa fila de armazenamento. |
-| metricTrigger | intervalo de agregação | A duração de amostragem da métrica. Por exemplo, **TimeGrain = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, ao utilizar o método de agregação especificado no elemento estatística. |
+| metricTrigger | timeGrain | A duração de amostragem da métrica. Por exemplo, **TimeGrain = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, ao utilizar o método de agregação especificado no elemento estatística. |
 | metricTrigger | estatística | O método de agregação dentro do período de timeGrain. Por exemplo, **estatística = "Average"** e **timeGrain = "PT1M"** significa que as métricas devem ser agregadas cada 1 minuto pela média. Esta propriedade determina a forma como é objeto de amostragem da métrica. |
 | metricTrigger | timeWindow | A quantidade de tempo para procurar novamente por métricas. Por exemplo, **timeWindow = "PT10M"** significa que sempre que o dimensionamento automático for executado, ele consulta métricas durante os últimos 10 minutos. A janela de tempo permite às métricas ser normalizados e evita a reação a picos transitórios. |
 | metricTrigger | timeAggregation | O método de agregação utilizado para agregar as métricas de amostragem. Por exemplo, **TimeAggregation = "Average"** devem se agregar as métricas de amostragem pela média. No caso anterior, pegar os dez exemplos de 1 minuto e, média-los. |
@@ -310,3 +310,4 @@ Saiba mais sobre dimensionamento automático ao referir-se ao seguinte:
 * [Melhores práticas do dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
+

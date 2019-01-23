@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462039"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de dimensionamento com a CLI do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos da CLI do Azure comuns que permitem-lhe realizar estas tarefas.
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Para ver informações adicionais sobre uma instância VM específica, adicione a `--instance-id` parâmetro [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) e especifique uma instância para ver. O exemplo seguinte mostra informações sobre a instância de VM *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
+Para ver informações adicionais sobre uma instância VM específica, adicione a `--instance-id` parâmetro [az vmss get-instance-view](/cli/azure/vmss) e especifique uma instância para ver. O exemplo seguinte mostra informações sobre a instância de VM *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
 
 ```azurecli
 az vmss get-instance-view \

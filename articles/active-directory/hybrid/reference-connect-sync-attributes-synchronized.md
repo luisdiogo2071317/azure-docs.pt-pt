@@ -4,7 +4,7 @@ description: Apresenta uma lista de atributos que são sincronizados para o Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251803"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468630"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
 Os atributos são agrupados por do Azure relacionado aplicação AD.
 
@@ -142,7 +142,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
-| msOrg IsOrganizational | | |X | |
+| msOrg-IsOrganizational | | |X | |
 | objectSID |X | |X |propriedade mecânica. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
@@ -304,7 +304,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 | wWWHomePage |X |X | | |
 
-## <a name="azure-rms"></a>O Azure RMS
+## <a name="azure-rms"></a>Azure RMS
 | Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
@@ -431,8 +431,8 @@ Esses atributos são repetidos do AD do Azure Active Directory no local quando o
 | msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtragem: Grava de volta na filtragem de dados local e online remetente seguro e bloqueados de clientes. |
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtragem: Grava de volta na filtragem de dados local e online remetente seguro e bloqueados de clientes. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtragem: Grava de volta na filtragem de dados local e online remetente seguro e bloqueados de clientes. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Ativar a unificação de mensagens (UM) - correio de voz Online: utilizada pelo Microsoft Lync Server integração para indicar ao Lync Server no local que o utilizador tem o correio de voz nos serviços online. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Espera litígio: Permite que serviços de cloud para determinar quais os utilizadores que estão sob o litígio manter. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Ative a unificação de mensagens (UM) - correio de voz Online: Utilizada pelo Microsoft Lync Server integração para indicar ao Lync Server no local que o utilizador tem o correio de voz nos serviços online. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Espera litígio: Serviços para determinar quais os utilizadores que estão sob o litígio manter em nuvem ativa. |
 | proxyAddresses| proxyAddresses |X |X |X |Apenas o x500 endereço do Exchange Online é inserido. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite que uma caixa de correio do Exchange Online ser concedida SendOnBehalfTo direitos para os utilizadores com a caixa de correio do Exchange no local. Requer o Azure AD Connect compilação 1.1.552.0 ou depois. |
 
@@ -455,7 +455,7 @@ Objetos de dispositivo são criados no Active Directory. Estes objetos podem ser
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
-| DN |X | |
+| dn |X | |
 | msDS-CloudAnchor |X | |
 | msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |

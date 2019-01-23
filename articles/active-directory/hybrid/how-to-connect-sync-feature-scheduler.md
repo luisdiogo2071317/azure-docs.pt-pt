@@ -4,7 +4,7 @@ description: Este tópico descreve a funcionalidade de agendador interno do Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311025"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462322"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como motor de sincronização).
@@ -123,7 +123,7 @@ Se o scheduler está a ser executado um ciclo de sincronização, poderá ter in
 Quando um ciclo de sincronização está em execução, não é possível efetuar alterações de configuração. Poderia esperar até que o programador concluiu o processo, mas também pode impedi-lo para que possa tomar as suas alterações imediatamente. Interromper o ciclo atual não é perigoso e as alterações pendentes são processados com a próxima execução.
 
 1. Comece por indicar o seu ciclo de atual com o cmdlet do PowerShell de paragem do programador `Stop-ADSyncSyncCycle`.
-2. Se usar uma compilação antes 1.1.281, parar, em seguida, o agendador não impede que o conector atual da sua tarefa atual. Para forçar o conector para parar, efetuar as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se usar uma compilação antes 1.1.281, parar, em seguida, o agendador não impede que o conector atual da sua tarefa atual. Para forçar o conector para parar, efetue as seguintes ações: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Inicie **serviço de sincronização** do menu Iniciar. Aceda a **conectores**, realce o conector com o estado **em execução**e selecione **parar** das ações.
 
 O agendador ainda está ativo e começa novamente na próxima oportunidade.

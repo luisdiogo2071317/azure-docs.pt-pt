@@ -4,7 +4,7 @@ description: Obtenha uma visão geral das definições suportadas em políticas 
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408583"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452144"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -159,7 +159,7 @@ Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 |Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Nome | 1 |
 |Tipo | REG_SZ (String) |
-|Dados | {"padrão": "https://device.login.microsoftonline.comfilter","": {"Emissor": {"CN": "Acesso da organização MS"}}}|
+|Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Esses navegadores suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificados e validadas em relação uma política. A verificação de dispositivo falha se o browser está em execução no modo privado. 
 
@@ -212,9 +212,9 @@ Na sua política de acesso condicional, pode exigir que um acesso tentar as apli
 Esta definição aplica-se para as seguintes aplicações de cliente:
 
 
-- Browser gerido do Microsoft Intune
+- Microsoft Intune Managed Browser
 - Microsoft PowerBI
-- Faturação da Microsoft
+- Microsoft Invoicing
 - Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
@@ -225,7 +225,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 - Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Microsoft Skype para empresas
+- Microsoft Skype para Empresas
 - Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio

@@ -4,7 +4,7 @@ description: Como saber quando um usuário extremamente importante ser capaz de 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8b5ca25cb4f1e2bd6bff32e816dabeb27a707f91
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e5e3fb107e15800d00bd179b36a0eb9a67894953
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356897"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474698"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Saber quando um utilizador específico poderá aceder a uma aplicação
 Ao utilizar o aprovisionamento automático de utilizadores com uma aplicação, do Azure AD automaticamente contas de utilizador de aprovisionamento e a atualização num aplicativo com base em coisas como [atribuição de utilizador e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) regularmente agendada no tempo de intervalo, normalmente cada dez minutos.

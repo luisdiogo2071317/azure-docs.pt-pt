@@ -4,7 +4,7 @@ description: Abrange as noções básicas sobre os conectores de Proxy de aplica
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b3a009ec3ed85bb1bacc089a0fa12f1aa9ecce
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135496"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474579"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -66,8 +66,8 @@ Depois de configurar RDS e o Proxy de aplicações do Azure AD para o seu ambien
 1. [Publicar uma nova aplicação de Proxy de aplicações](application-proxy-add-on-premises-application.md) com os seguintes valores:
    - URL interno: `https://\<rdhost\>.com/`, onde `\<rdhost\>` é a raiz comuns que partilham Web de RD e Gateway de RD.
    - URL externo: Este campo é preenchido automaticamente com base no nome do aplicativo, mas pode modificá-la. Os utilizadores passa a este URL quando acede a RDS.
-   - Método de pré-autenticação: o Azure Active Directory
-   - Traduzir os cabeçalhos de URL: não
+   - Método de pré-autenticação: Azure Active Directory
+   - Traduza os cabeçalhos de URL: Não
 2. Atribua utilizadores para a aplicação publicada de área de trabalho remota. Certifique-se de que todos eles têm acesso ao RDS, demasiado.
 3. Deixe o método único início de sessão para a aplicação como **do Azure AD início de sessão único desativado**. Os utilizadores são-lhe pedidos para autenticar uma vez para o Azure AD e outra para a Web da área de trabalho remota, mas tem início de sessão único para o Gateway de RD.
 4. Aceda a **do Azure Active Directory** > **registos das aplicações** > *seu aplicativo* > **definições**.

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: d6d5a8500435a540f091a082e7dc0e0d6d455716
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6c6fec968efdd85eaf6249459f8e1a0384f2ea11
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540848"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462186"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL
 PostgreSQL fornece a capacidade de estender a funcionalidade da sua base de dados a utilizar extensões. As extensões permitem para agrupar vários objetos relacionados do SQL em conjunto num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Após a ser carregado no banco de dados, as extensões podem funcionar tal como as funcionalidades incorporadas. Para obter mais informações sobre as extensões do PostgreSQL, consulte [empacotamento objetos relacionados numa extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -84,9 +84,9 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Fornece um meio para controlar as estatísticas de execução de todas as instruções SQL executadas por um servidor. (Veja abaixo para uma observação sobre esta extensão). |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Fornece um meio para mostrar informações de bloqueios ao nível da linha. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fornece um meio para que mostra estatísticas de nível de cadeias de identificação. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externo utilizado para aceder aos dados armazenados em servidores de PostgreSQL externos. |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externo utilizado para aceder aos dados armazenados em servidores de PostgreSQL externos. (Veja abaixo para uma observação sobre esta extensão).|
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fornece um meio de criação de índices hipotéticos que não de custos da CPU ou disco. |
-| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Um módulo que suporta ligações a outros bancos de dados PostgreSQL de dentro de uma sessão de banco de dados. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | Um módulo que suporta ligações a outros bancos de dados PostgreSQL de dentro de uma sessão de banco de dados. (Veja abaixo para uma observação sobre esta extensão). |
 
 
 ### <a name="postgis-extensions"></a>Extensões de PostGIS
@@ -94,7 +94,7 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 > [!div class="mx-tableFixed"]
 | **Extensão** | **Descrição** |
 |---|---|
-| [PostGIS](http://www.postgis.net/), postgis\_topologia, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
+| [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
 | endereço\_standardizer, endereço\_standardizer\_dados\_-nos | Utilizado para analisar um endereço em elementos que constituem. Utilizados para suportar o passo de normalização de endereço de geocodificação. |
 | [pgrouting](https://pgrouting.org/) | Estende os PostGIS / funcionalidade de encaminhamento de base de dados do PostgreSQL geoespacial para fornecer dados geoespaciais. |
 
@@ -104,6 +104,9 @@ O [pg\_stat\_extensão instruções](https://www.postgresql.org/docs/9.6/static/
 A definição `pg_stat_statements.track`, que controla quais declarações são contabilizadas por extensão, a predefinição é `top`, que significa que todas as declarações emitidas diretamente por clientes são controladas. Os dois outros controle se níveis são `none` e `all`. Esta definição pode ser configurada como um parâmetro de servidor através da [portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou o [CLI do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Há uma compensação entre as informações de execução de consulta fornece pg_stat_statements e o impacto no desempenho do servidor como registos de cada instrução de SQL. Se não estiver ativamente a utilizar a extensão de pg_stat_statements, recomendamos que defina `pg_stat_statements.track` para `none`. Tenha em atenção que alguns terceiros monitorizar os serviços podem contar com pg_stat_statements para fornecer informações de desempenho de consulta, por isso, confirme se for este o caso para ou não.
+
+### <a name="using-dblink-and-postgresfdw"></a>Usando dblink e postgres_fdw
+dblink e postgres_fdw permitem-lhe ligar a partir de um servidor PostgreSQL para outro, ou para outra base de dados no mesmo servidor. O servidor de recebimento tem de permitir ligações de servidor de envio através da sua firewall. Ao usar essas extensões para estabelecer ligação entre a base de dados do Azure para servidores PostgreSQL, isso pode ser feito através da definição "Permitir acesso aos serviços do Azure" on. Ele também é necessário se pretender utilizar as extensões para voltar ao mesmo servidor. A definição "Permitir acesso aos serviços do Azure" pode ser encontrada na página do portal do Azure para o servidor Postgres, em segurança de ligação. Ativar "Permitir acesso aos serviços do Azure" nas listas de permissões de todos os IPs do Azure.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

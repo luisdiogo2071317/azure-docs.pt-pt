@@ -4,7 +4,7 @@ description: Ativar o Proxy de aplicações no portal do Azure e instalar os con
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d370f9fb7fc67c9df5e08a06de38db8e97c6fb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471910"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik Sense 
 O Azure Active Directory para o Proxy de aplicações e Qlik Sense estabeleceram uma parceria em conjunto para garantir que facilmente pode utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik Sense.  
@@ -41,8 +41,8 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 3. Selecione **adicionar** na parte superior do painel. 
 4. Selecione **aplicação no local**. 
 5.       Preencha os campos obrigatórios com informações sobre a sua nova aplicação. Utilize as seguintes orientações para as definições: 
-    - **URL interno**: esta aplicação deve ter um URL interno que é o URL de QlikSense em si. Por exemplo, **https&#58;//demo.qlikemm.com:4244** 
-    - **Método de pré-autenticação**: Azure Active Directory (recomendado mas não obrigatório) 
+    - **URL interno**: Esta aplicação deve ter um URL interno que é o URL de QlikSense em si. Por exemplo, **https&#58;//demo.qlikemm.com:4244** 
+    - **Método de pré-autenticação**: O Azure Active Directory (recomendado mas não obrigatório) 
 1.       Selecione **adicionar** na parte inferior do painel. Seu aplicativo é adicionado e abre o menu de início rápido. 
 2.       No menu de início rápido, selecione **atribuir um utilizador para fins de teste**, e adicionar pelo menos um utilizador à aplicação. Certifique-se de que esta conta de teste tenha acesso à aplicação no local. 
 3.       Selecione **atribuir** para guardar a atribuição de utilizador de teste. 
@@ -51,15 +51,15 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 ### <a name="application-2"></a>Aplicação #2: 
 Siga os passos como para a aplicação de n. º 1, com as seguintes exceções: 
 
-**Passo 5 de #**: O URL interno agora deve ser o URL de QlikSense com a porta de autenticação utilizada pela aplicação. A predefinição é **4244** para HTTPS e 4248 para HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br>**Passo #10:** não configurar o SSO e deixe o **início de sessão único desativado** 
-
+**Passo 5 de #**: O URL interno agora deve ser o URL de QlikSense com a porta de autenticação utilizada pela aplicação. A predefinição é **4244** para HTTPS e 4248 para HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Passo #10:** Não configurar o SSO e deixe o **início de sessão único desativado**
  
  
 ## <a name="testing"></a>Testes 
 Está agora pronto para testar seu aplicativo. O URL externo que utilizou para publicar QlikSense na aplicação de n. º 1 e o início de sessão como um utilizador atribuído a ambas as aplicações de acesso.  
 
 ## <a name="additional-references"></a>Referências adicionais
-Para obter mais informações sobre a publicação Qlik Sense proxy de aplicações, consulte o artigo de Comunidade Qlik: [do Azure AD com a autenticação integrada do Windows com uma delegação restrita de Kerberos com Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+Para obter mais informações sobre a publicação Qlik Sense proxy de aplicações, consulte o artigo de Comunidade Qlik: [Azure AD com a autenticação integrada do Windows com uma delegação restrita de Kerberos com Qlik Sense](https://community.qlik.com/docs/DOC-20183).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

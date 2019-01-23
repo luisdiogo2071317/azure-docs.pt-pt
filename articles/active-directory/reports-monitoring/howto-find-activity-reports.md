@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 623bf009a8d638073ea85e772f737e2ce220a4f8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624917"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477979"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
 
@@ -112,6 +112,89 @@ Pode aceder a relatórios sobre eventos de risco detetados no **segurança** sec
 - [Inícios de sessão de risco](concept-risky-sign-ins.md)
 
     ![Relatórios de segurança](./media/howto-find-activity-reports/04.png "relatórios de segurança")
+
+## <a name="troubleshoot-issues-with-activity-reports"></a>Resolver problemas com relatórios de atividade
+
+### <a name="missing-data-in-the-downloaded-activity-logs"></a>Dados em falta nos registos de atividades transferidos
+
+#### <a name="symptoms"></a>Sintomas 
+
+Transferi os registos de atividades (auditorias ou inícios de sessão) e não vejo todos os registos para o período de tempo que escolhi. Porquê? 
+
+ ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
+ 
+#### <a name="cause"></a>Causa
+
+Quando transfere registos de atividades no portal do Azure, limitamos o dimensionamento para 5000 registos, ordenados pelos mais recente primeiro. 
+
+#### <a name="resolution"></a>Resolução
+
+Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.md) para obter até um milhão de registos num determinado período. Nossa abordagem recomendada é [executar um script de forma agendada](tutorial-signin-logs-download-script.md) que chama às APIs de relatórios para obter registos de uma forma incremental durante um período de tempo (por exemplo, diária ou semanal). 
+
+### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dados de auditoria para ações recentes no portal do Azure em falta
+
+#### <a name="symptoms"></a>Sintomas
+
+Efetuei algumas ações no portal do Azure e esperava ver os registos de auditoria dessas ações no painel `Activity logs > Audit Logs`, mas não consegui encontrá-los.
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ 
+#### <a name="cause"></a>Causa
+
+As ações não aparecem de imediato nos registos de atividade. A tabela abaixo enumera os nossos números de latência para registos de atividades. 
+
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+|--------|--------|---------------|---------------|
+| Auditoria de diretórios | &nbsp; | 2 mins | 5 mins |
+| Atividade de início de sessão | &nbsp; | 2 mins | 5 mins | 
+
+#### <a name="resolution"></a>Resolução
+
+Aguarde entre 15 minutos a duas horas e veja se as ações aparecem no registo. Se não vir os registos após duas horas, [envie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) e nós analisamos o problema.
+
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Registar registos em falta para recentes utilizador inícios de sessão na atividade de inícios de sessão do Azure AD
+
+#### <a name="symptoms"></a>Sintomas
+
+Iniciei sessão recentemente no portal do Azure e esperava ver os registos de início de sessão dessas ações no painel `Activity logs > Sign-ins`, mas não consigo encontrá-los.
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
+ 
+#### <a name="cause"></a>Causa
+
+As ações não aparecem de imediato nos registos de atividade. A tabela abaixo enumera os nossos números de latência para registos de atividades. 
+
+| Relatório | &nbsp; | Latência (P95) | Latência (P99) |
+|--------|--------|---------------|---------------|
+| Auditoria de diretórios | &nbsp; | 2 mins | 5 mins |
+| Atividade de início de sessão | &nbsp; | 2 mins | 5 mins | 
+
+#### <a name="resolution"></a>Resolução
+
+Aguarde entre 15 minutos a duas horas e veja se as ações aparecem no registo. Se não vir os registos após duas horas, [envie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) e nós analisamos o problema.
+
+### <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>Não consigo ver mais de 30 dias de dados de relatório no portal do Azure
+
+#### <a name="symptoms"></a>Sintomas
+
+Não consigo ver mais de 30 dias de dados de início de sessão e auditoria no portal do Azure. Porquê? 
+
+ ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
+
+#### <a name="cause"></a>Causa
+
+Dependendo da sua licença, as Ações do Azure Active Directory armazena relatórios de atividades para as durações seguintes:
+
+| Relatório           | &nbsp; |  Azure AD Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ----   |  ---           | ---                 | ---                 |
+| Auditoria de Diretórios  | &nbsp; |   7 dias     | 30 dias             | 30 dias             |
+| Atividade de Início de Sessão | &nbsp; | Não disponível. Pode aceder aos seus próprios inícios de sessão por 7 dias a partir do painel de perfil de utilizador individual | 30 dias | 30 dias             |
+
+Para obter mais informações, veja [Políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
+
+#### <a name="resolution"></a>Resolução
+
+Tem duas opções para manter os dados durante mais de 30 dias. Pode utilizar as [APIs de Relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio programático e armazená-los numa base de dados. Em alternativa, pode integrar registos de auditoria num sistema SIEM de terceiros, como o Splunk ou o SumoLogic.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

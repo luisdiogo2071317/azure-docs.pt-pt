@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3f893318c3f39f6faa4806cd7c1736710e032ca9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470885"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474715"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Fazer o balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do balanceador de carga do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
 
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Agora, pode criar as VMs com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria três VMs e gera chaves SSH, caso não existam:
+Agora, pode criar as VMs com [az vm create](/cli/azure/vm). O exemplo seguinte cria três VMs e gera chaves SSH, caso não existam:
 
 ```bash
 for i in `seq 1 3`; do
@@ -314,7 +314,7 @@ az network nic ip-config address-pool add \
 Para verificar se a NIC virtual está ligada ao conjunto de endereços de back-end, utilize novamente [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) do passo anterior.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um balanceador de carga e anexou VMs ao mesmo. Aprendeu a:
 
 > [!div class="checklist"]
