@@ -3,7 +3,7 @@ title: Experiências de usuário final para aplicações - Azure Active Director
 description: Azure Active Directory (Azure AD) fornece várias formas de personalizáveis para implementar aplicações para utilizadores finais em sua organização.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b1a4ec4b3a75d1337c011275591af11da8c45a6a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0adc9b72dc752788b76e8383be91233a5c3958c7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629279"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462124"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para as aplicações no Azure Active Directory
 Azure Active Directory (Azure AD) fornece várias formas de personalizáveis para implementar aplicações para utilizadores finais em sua organização:

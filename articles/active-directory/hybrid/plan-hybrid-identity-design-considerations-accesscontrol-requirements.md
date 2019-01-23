@@ -4,7 +4,7 @@ description: Aborda os pilares da identidade e identificar os requisitos de aces
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f71fc7547ef60cdc3d038705dbb04d396affdf0a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478234"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de controlo de acesso para a sua solução de identidade híbrida
 Quando uma organização é conceber a sua solução de identidade híbrida, também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que eles estiverem planejando para disponibilizá-lo para os utilizadores. O acesso a dados em várias quatro todos os pilares da identidade, que são:

@@ -2,18 +2,18 @@
 title: 'Azure AD Connect: Referência do PowerShell ADSyncTools | Documentos da Microsoft'
 description: Este documento fornece informações de referência para o módulo do ADSyncTools.psm1 PowerShell.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054968"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478217"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADSyncTools
 A seguinte documentação fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que está incluído com o Azure AD Connect.
@@ -65,7 +65,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>ADSyncToolsADModuleLoaded confirmar
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher o sinopse}}
@@ -88,7 +88,7 @@ PS C:\> {{ Add example code here }}
 
 {{Adicionar descrição de exemplo aqui}}
 
-## <a name="connect-adsyncdatabase"></a>AdSyncDatabase ligar
+## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
 
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher o sinopse}}
@@ -114,7 +114,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-database"></a>-A base de dados
+#### <a name="-database"></a>-Database
 {{Preencher a descrição da base de dados}}
 
 ```yaml
@@ -129,7 +129,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-instance"></a>-Instância
+#### <a name="-instance"></a>-Instance
 {{Preencher a descrição de instância}}
 
 ```yaml
@@ -174,7 +174,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-username"></a>-O nome de utilizador
+#### <a name="-username"></a>-UserName
 {{Preencher a descrição de nome de utilizador}}
 
 ```yaml
@@ -193,7 +193,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="export-adsynctoolsconsistencyguidmigration"></a>ADSyncToolsConsistencyGuidMigration de exportação
+## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Exportar relatório ConsistencyGuid
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-hostname"></a>-nome do anfitrião
+#### <a name="-hostname"></a>-hostName
 {{Nome do anfitrião descrição preencher}}
 
 ```yaml
@@ -535,9 +535,9 @@ Consultas de AAD Connect histórico de execuções de função e exporta todos o
 #Required Parameters
 ```
 
-$sourcePath = Read-Host - Prompt "Introduza o caminho do ficheiro de registo com o nome de ficheiro" #"\<Source_Path\>" $outputPath = Read-Host-Prompt "Introduza o seu limite caminho do ficheiro com o nome de ficheiro" #"\<Out_Path\>"
+$sourcePath = Read-Host -Prompt "Enter your log file path with file name" #"\<Source_Path\>" $outputPath = Read-Host -Prompt "Enter your out file path with file name" #"\<Out_Path\>"
  
- Get-ADSyncToolsUsersSourceAnchorChanged - sourcePath $sourcePath - outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPLO 2
 ```
@@ -580,7 +580,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="import-adsynctoolsimmutableidmigration"></a>Importar-ADSyncToolsImmutableIdMigration
+## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Importar o ImmutableID do AAD
@@ -644,7 +644,7 @@ Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable,
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-## <a name="invoke-adsyncdatabasequery"></a>AdSyncDatabaseQuery invocar
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher o sinopse}}
@@ -669,7 +669,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-query"></a>-Consulta
+#### <a name="-query"></a>-Query
 {{Preencher a descrição do consultar}}
 
 ```yaml
@@ -788,7 +788,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Reparação ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SINOPSE
 Breve descrição
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-hostname"></a>-nome do anfitrião
+#### <a name="-hostname"></a>-hostName
 {{Nome do anfitrião descrição preencher}}
 
 ```yaml
@@ -854,7 +854,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="restore-adsynctoolsexpiredcertificates"></a>Restauro-ADSyncToolsExpiredCertificates
+## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SINOPSE
 (PARA O FAZER) Restaura o atributo AD UserCertificate a partir de um ficheiro de certicate
@@ -880,7 +880,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="set-adsynctoolsconsistencyguid"></a>Conjunto ADSyncToolsConsistencyGuid
+## <a name="set-adsynctoolsconsistencyguid"></a>Set-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>SINOPSE
 Definir o mS-Ds-ConsistencyGuid no utilizador do AD
@@ -923,7 +923,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-#### <a name="-value"></a>-Valor
+#### <a name="-value"></a>-Value
 ImmutableId (matriz de bytes, GUID, GUID cadeia ou cadeia Base64)
 
 ```yaml
@@ -942,7 +942,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="test-adsyncnetworkport"></a>Teste ADSyncNetworkPort
+## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
 ### <a name="synopsis"></a>SINOPSE
 {{Preencher o sinopse}}
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-hostname"></a>-nome do anfitrião
+#### <a name="-hostname"></a>-hostName
 {{Nome do anfitrião descrição preencher}}
 
 ```yaml
@@ -997,7 +997,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="trace-adsynctoolsadimport"></a>Rastreio ADSyncToolsADImport
+## <a name="trace-adsynctoolsadimport"></a>Trace-ADSyncToolsADImport
 
 ### <a name="synopsis"></a>SINOPSE
 Cria um ficheiro de rastreio do e o passo de importação do AD
@@ -1071,7 +1071,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-filter"></a>-filtro
+#### <a name="-filter"></a>-filter
 DN de raiz de floresta
 
 ```yaml
@@ -1121,7 +1121,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="trace-adsynctoolsldapquery"></a>Rastreio ADSyncToolsLdapQuery
+## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>SINOPSE
 Breve descrição
@@ -1150,7 +1150,7 @@ Another example of how to use this cmdlet
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-context"></a>-Contexto
+#### <a name="-context"></a>-Context
 Descrição de ajuda de param1
 
 ```yaml
@@ -1214,7 +1214,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Atualização-ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SINOPSE
 Atualiza os utilizadores com o novo ConsistencyGuid (ImmutableId)
@@ -1319,7 +1319,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-confirm"></a>-Confirmar
+#### <a name="-confirm"></a>-Confirm
 Pede-lhe confirmação antes de executar o cmdlet.
 
 ```yaml

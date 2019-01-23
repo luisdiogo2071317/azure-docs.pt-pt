@@ -5,7 +5,7 @@ services: active-directory
 keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fc78e6381c3e3bae0d1806f85b4d7038ad11e799
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285038"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452429"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>O que é o que, se a ferramenta no acesso condicional do Azure Active Directory?
 
@@ -32,7 +32,7 @@ Este artigo explica como pode utilizar esta ferramenta para testar as suas polí
 
 ## <a name="what-it-is"></a>O que é
 
-O **de acesso condicional e se a ferramenta de política** permite-lhe compreender o impacto das suas políticas de acesso condicional no seu ambiente. Em vez de teste impulsionar as suas políticas executando vários inícios de sessão manualmente, essa ferramenta permite-lhe avaliar um simulado início de sessão de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. O relatório não lista apenas política de acesso aplicada políticas de acesso, mas também [políticas clássicas](policy-migration.md#classic-policies) caso existam.    
+O **de acesso condicional e se a ferramenta de política** permite-lhe compreender o impacto das suas políticas de acesso condicional no seu ambiente. Em vez de testar as suas políticas ao executar vários inícios de sessão manualmente, esta ferramenta permite avaliar um início de sessão simulado de um utilizador. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação. O relatório não lista apenas política de acesso aplicada políticas de acesso, mas também [políticas clássicas](policy-migration.md#classic-policies) caso existam.    
 
 O que se ferramentas também fornece uma forma de rapidamente determinar as políticas que se aplicam a um utilizador específico. Pode utilizar as informações de, por exemplo, se precisar de resolver um problema.  
 

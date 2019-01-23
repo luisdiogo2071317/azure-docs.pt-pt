@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620766"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457098"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Para concluir este tutorial, precisa de uma conta ativa do Azure. Se não tiver 
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de escrever qualquer código para o seu dispositivo, implementar o acelerador de soluções de monitorização remota e adicione um novo dispositivo físico à solução.
+Antes de escrever qualquer código para o seu dispositivo, implementar o acelerador de soluções de monitorização remota e adicione um novo dispositivo real à solução.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementar o acelerador de soluções de monitorização remota
 
@@ -62,17 +62,17 @@ Para adicionar um dispositivo à sua solução de monitorização remota, execut
 
 1. Escolher **+ novo dispositivo**e, em seguida, escolha **físico** como o **tipo de dispositivo**:
 
-    ![Adicionar um dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Adicionar um dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Introduza **físico chiller** como o ID de dispositivo. Escolha o **chave simétrica** e **chaves de geração automática** opções:
 
     ![Escolher opções de dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Escolher **aplicar**. Em seguida, anote o **ID do dispositivo**, **chave primária**, e **chave primária de cadeia de ligação** valores:
+1. Escolha **Aplicar**. Em seguida, anote o **ID do dispositivo**, **chave primária**, e **chave primária de cadeia de ligação** valores:
 
     ![Obter credenciais](media/iot-suite-selector-connecting/credentials.png)
 
-Acabou de adicionar um dispositivo físico para o acelerador de solução de monitorização remota e observar a sua cadeia de ligação do dispositivo. Nas seções a seguir, implementa a aplicação de cliente que utiliza a cadeia de ligação do dispositivo para ligar à sua solução.
+Acabou de adicionar um dispositivo real para o acelerador de solução de monitorização remota e observar a sua cadeia de ligação do dispositivo. Nas seções a seguir, implementa a aplicação de cliente que utiliza a cadeia de ligação do dispositivo para ligar à sua solução.
 
 A aplicação cliente implementa o incorporado **Chiller** modelo do dispositivo. Um modelo de dispositivo do acelerador de solução Especifica o seguinte sobre um dispositivo:
 

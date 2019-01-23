@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Conceitos de Design | Documentos da Microsoft'
+title: 'Azure AD Connect: Conceitos de design | Documentos da Microsoft'
 description: Este tópico fornece detalhes sobre determinadas áreas de design de implementação
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471791"
 ---
-# <a name="azure-ad-connect-design-concepts"></a>O Azure AD Connect: Conceitos de Design
+# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
 O objetivo deste documento é descrever áreas que devem ser consideradas por meio de durante o design de implementação do Azure AD Connect. Este documento é uma descrição profunda sobre determinadas áreas e esses conceitos uma breve descrição também outros documentos.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -44,7 +44,7 @@ O valor do atributo tem de seguir as seguintes regras:
 
 * Menos de 60 carateres de comprimento
   * Carateres que não estão sendo a-z, A-Z ou 0 a 9 são codificados e como de 3 carateres
-* Contém um caráter especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > (-) '; : , [ ] " \@ _
+* Contém um caráter especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * Tem de ser globalmente exclusivo
 * Tem de ser uma cadeia de caracteres, inteiros ou binário
 * Não deve ser baseado no nome do utilizador, uma vez que estes podem alterar

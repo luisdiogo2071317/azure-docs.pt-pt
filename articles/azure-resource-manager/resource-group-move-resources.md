@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426731"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463036"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -56,6 +56,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Automatização
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Data Explorer
 * Base de Dados do Azure para MySQL
 * Base de Dados do Azure para PostgreSQL
 * DevOps do Azure - as organizações de DevOps do Azure com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
@@ -166,6 +167,7 @@ A partir de 24 de Setembro de 2018, pode mover os discos geridos. Esse suporte s
 Ainda não são suportados os seguintes cenários:
 
 * Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
+* Discos geridos em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
 * Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard
 * Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
 

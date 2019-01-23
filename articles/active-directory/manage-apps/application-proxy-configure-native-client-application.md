@@ -4,7 +4,7 @@ description: Aborda como permitir que as aplicações de cliente nativo comunica
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 472b30b849ef11ae0a42e1b41c25ec5dc341fb27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462934"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como ativar aplicações de cliente nativo interagir com aplicativos de proxy
 
@@ -34,10 +34,10 @@ Utilize a biblioteca de autenticação do AD do Azure, que se encarrega de auten
 
 Este artigo descreve os quatro passos para publicar um aplicativo nativo com o Proxy de aplicações e a biblioteca de autenticação do Azure AD. 
 
-## <a name="step-1-publish-your-application"></a>Passo 1: Publicar a sua aplicação
+## <a name="step-1-publish-your-application"></a>Passo 1: Publicar a aplicação
 Publicar a aplicação de proxy, tal como faria com qualquer outro aplicativo e atribuir utilizadores à sua aplicação. Para obter mais informações, consulte [publicar aplicações com o Proxy de aplicações](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-configure-your-application"></a>Passo 2: Configurar a sua aplicação
+## <a name="step-2-configure-your-application"></a>Passo 2: Configurar a aplicação
 Configure o seu aplicativo nativo da seguinte forma:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).

@@ -3,7 +3,7 @@ title: Configurar o início de sessão único - Azure Active Directory | Microso
 description: Este tutorial utiliza o portal do Azure para configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory (Azure AD).
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 73e97a38913b3098ba2e14294ecf621add310428
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011982"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465723"
 ---
-# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory
+# <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação com o Azure Active Directory
 
 Este tutorial utiliza o portal do [Azure](https://portal.azure.com) para configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory (Azure AD). Utilize este tutorial quando uma [específico do aplicativo tutorial](../saas-apps/tutorial-list.md) não está disponível. 
 
@@ -35,7 +35,7 @@ Este tutorial utiliza o portal do Azure para:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Se o aplicativo não tenha sido adicionado ao seu inquilino do Azure AD, veja [início rápido: adicionar uma aplicação ao seu inquilino do Azure AD](add-application-portal.md).
+1. Se o aplicativo não tenha sido adicionado ao seu inquilino do Azure AD, consulte o artigo [início rápido: Adicionar uma aplicação ao seu inquilino do Azure AD](add-application-portal.md).
 
 2. Peça ao fornecedor da sua aplicação as informações descritas em [Configurar domínio e URLs](#configure-domain-and-urls).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a1fbe541d9cb2f9b5a839d90fcfa9c7b017efce9
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198513"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475667"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar o balanceamento de carga e regras de saída no balanceador de carga Standard com a CLI do Azure
 
@@ -32,7 +32,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 O exemplo seguinte cria um grupo de recursos chamado *myresourcegroupoutbound* no *eualeste2* localização:
 
@@ -42,7 +42,7 @@ O exemplo seguinte cria um grupo de recursos chamado *myresourcegroupoutbound* n
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>Criar a rede virtual
-Criar uma rede virtual denominada *myvnetoutbound* com uma sub-rede denominada *mysubnetoutbound* no *myresourcegroupoutbound* usando [az rede vnet criar](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Criar uma rede virtual denominada *myvnetoutbound* com uma sub-rede denominada *mysubnetoutbound* no *myresourcegroupoutbound* usando [az rede vnet criar](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -55,7 +55,7 @@ Criar uma rede virtual denominada *myvnetoutbound* com uma sub-rede denominada *
 
 ## <a name="create-inbound-public-ip-address"></a>Criar endereço IP público de entrada 
 
-Para aceder à sua aplicação Web na Internet, precisa de um endereço IP público para o balanceador de carga. Um Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Uso [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip#create) para criar um endereço IP público Standard com o nome *mypublicipinbound* na *myresourcegroupoutbound*.
+Para aceder à sua aplicação Web na Internet, precisa de um endereço IP público para o balanceador de carga. Um Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Uso [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip) para criar um endereço IP público Standard com o nome *mypublicipinbound* na *myresourcegroupoutbound*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
@@ -63,7 +63,7 @@ Para aceder à sua aplicação Web na Internet, precisa de um endereço IP públ
 
 ## <a name="create-outbound-public-ip-address"></a>Criar endereço IP público de saída 
 
-Criar um endereço IP padrão para a configuração de saída de front-end do Balanceador de carga através de [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip#create).
+Criar um endereço IP padrão para a configuração de saída de front-end do Balanceador de carga através de [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +81,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-load-balancer"></a>Criar Balanceador de carga
 
-Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) com o nome *lb* que inclui uma configuração de IP de entrada de front-end e um conjunto de back-end que estão associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
+Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *lb* que inclui uma configuração de IP de entrada de front-end e um conjunto de back-end que estão associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
 
 ```azurecli-interactive
   az network lb create \
@@ -95,7 +95,7 @@ Criar um balanceador de carga com a entrada através de endereços IP [criar az 
   ```
 
 ### <a name="create-outbound-frontend-ip"></a>Criar endereço IP de front-end saída
-Criar a configuração de IP de saída de front-end do Balanceador de carga com [criar az rede lb frontend-ip](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) que inclui e o nome de configuração de IP de front-end saída *myfrontendoutbound* ou seja associados para o endereço IP público *mypublicipoutbound*
+Criar a configuração de IP de saída de front-end do Balanceador de carga com [criar az rede lb frontend-ip](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) que inclui e o nome de configuração de IP de front-end saída *myfrontendoutbound* ou seja associados para o endereço IP público *mypublicipoutbound*
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -107,7 +107,7 @@ Criar a configuração de IP de saída de front-end do Balanceador de carga com 
 
 ### <a name="create-health-probe"></a>Criar a sonda de estado de funcionamento
 
-Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem enviar o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Crie uma sonda de estado de funcionamento com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para monitorizar o estado de funcionamento das máquinas virtuais. 
+Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem enviar o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Crie uma sonda de estado de funcionamento com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorizar o estado de funcionamento das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -121,7 +121,7 @@ Uma sonda de estado de funcionamento verifica todas as instâncias de máquina v
 
 ### <a name="create-load-balancing-rule"></a>Criar regra de balanceamento de carga
 
-Uma regra de Balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o conjunto de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de Balanceador de carga *myinboundlbrule* com [criar regra de lb de rede de az](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escutar a porta 80 no conjunto de front-end *myfrontendinbound* e enviar tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end *bepool* também através da porta 80. 
+Uma regra de Balanceador de carga define a configuração de IP de front-end para o tráfego de entrada e o conjunto de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de Balanceador de carga *myinboundlbrule* com [criar regra de lb de rede de az](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no conjunto de front-end *myfrontendinbound* e enviar tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end *bepool* também através da porta 80. 
 
 >[!NOTE]
 >Esta regra de balanceamento de carga desativa automática saída (S) NAT devido a esta regra com o-- parâmetro disable-saída snat. NAT de saída só é fornecido pela regra de saída.

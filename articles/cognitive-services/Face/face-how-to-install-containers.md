@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474817"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -55,7 +55,7 @@ Se o pedido for aprovado, em seguida, receber um e-mail com instruções que des
 
 Tem de criar um recurso de Face no Azure, se quiser usar o contêiner de rostos. Depois de criar o recurso, em seguida, utilize o URL de ponto final e a chave de subscrição do recurso para instanciar o contentor. Para obter mais informações sobre como criar uma instância de um contentor, consulte [criar uma instância de um contentor a partir de uma imagem de contentor transferido](#instantiate-a-container-from-a-downloaded-container-image).
 
-Execute os seguintes passos para criar e recuperar informações de um recurso de Face:
+Execute os seguintes passos para criar e recuperar informações a partir de um recurso de Face:
 
 1. Crie um recurso de Face no portal do Azure.  
    Se quiser usar o contêiner de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
@@ -178,3 +178,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 * Revisão [descrição geral de Face](Overview.md) para saber mais sobre a detetar e identificar rostos  
 * Consulte a [a API Face](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter detalhes sobre os métodos suportados pelo contentor.
 * Consulte a [perguntas mais frequentes (FAQ) do sobre](FAQ.md) para resolver problemas relacionados com a funcionalidade de rostos.
+* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)

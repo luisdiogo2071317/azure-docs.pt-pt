@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452977"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar a implementação do Azure Data Box Gateway (Pré-visualização)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar a implementação de Gateway de caixa de dados do Azure (pré-visualização)
 
 
 Este é o primeiro tutorial da série de tutoriais de implementação necessários para implementar completamente o Azure Data Box Gateway. Este tutorial descreve como preparar o portal do Azure para implementar o recurso do Data Box Gateway. 
@@ -147,9 +147,9 @@ A chave de ativação serve para registar todos os dispositivos Data Box Gateway
 
 > [!IMPORTANT]
 > - A chave de ativação expira 3 dias após ser gerada. 
-> - Se a chave tiver expirado, gere um nova chave. A chave mais antiga não é válida.
+> - Se a chave expirou, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

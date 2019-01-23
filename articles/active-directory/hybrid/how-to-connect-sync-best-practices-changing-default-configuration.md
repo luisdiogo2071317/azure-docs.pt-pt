@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: alterar a configuração predefinida | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Alterar a configuração predefinida | Documentos da Microsoft'
 description: Disponibiliza as melhores práticas para alterar a configuração predefinida de sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad19916dc49c2bee870eef77611d120cc66b44cd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312201"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461182"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: melhores práticas para alterar a configuração predefinida
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Sincronização do Azure AD Connect: Melhores práticas para alterar a configuração predefinida
 O objetivo deste tópico é descrever as alterações de suportados e não suportadas para a sincronização do Azure AD Connect.
 
 A configuração criada pelo Azure AD Connect funciona "como está" para a maioria dos ambientes que sincronizar o Active Directory no local com o Azure AD. No entanto, em alguns casos, é necessário aplicar algumas alterações para uma configuração para satisfazer uma necessidade específica ou um requisito.
@@ -73,5 +73,5 @@ Sobre esta regra clonada, faça as alterações necessárias ao âmbito, associa
 ## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

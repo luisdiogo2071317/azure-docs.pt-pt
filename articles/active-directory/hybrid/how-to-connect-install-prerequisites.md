@@ -4,7 +4,7 @@ description: Este tópico descreve os pré-requisitos e os requisitos de hardwar
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: eb5ad49a26631ca363737406f54b4c794e01ebda
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472845"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -79,7 +79,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
   * Se estiver a utilizar a Cloud da Microsoft na Alemanha ou para a nuvem do Microsoft Azure Government, veja [considerações de instâncias do serviço de sincronização do Azure AD Connect](reference-connect-instances.md) para URLs.
 * O Azure AD Connect (versão 1.1.614.0 e o depois) por padrão usa a TLS 1.2 para encriptar a comunicação entre o motor de sincronização e o Azure AD. Se o TLS 1.2 não está disponível no sistema operacional subjacente, o Azure AD Connect incrementalmente retrocede para protocolos mais antigos (TLS 1.1 e TLS 1.0).
 * Anterior à versão 1.1.614.0, o Azure AD Connect, por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o motor de sincronização e o Azure AD. Para alterar para TLS 1.2, siga os passos em [ativar o TLS 1.2 para o Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Se estiver a utilizar um proxy de saída para ligar à Internet, a definição seguinte no **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** ficheiro tem de ser adicionado para o Assistente de instalação e o Azure AD Ligar a sincronização para conseguir estabelecer ligação à Internet e do Azure AD. Este texto têm de ser introduzido na parte inferior do ficheiro. Nesse código, &lt;PROXYADRESS&gt; representa o nome de anfitrião ou endereço IP do proxy real.
+* Se estiver a utilizar um proxy de saída para ligar à Internet, a definição seguinte no **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** ficheiro tem de ser adicionado para o Assistente de instalação e o Azure AD Ligar a sincronização para conseguir estabelecer ligação à Internet e do Azure AD. Este texto têm de ser introduzido na parte inferior do ficheiro. Nesse código, &lt;PROXYADDRESS&gt; representa o nome de anfitrião ou endereço IP do proxy real.
 
 ```
     <system.net>
@@ -120,7 +120,7 @@ Para obter mais informações quando tiver problemas de conectividade, consulte 
 O Azure AD Connect depende do Microsoft PowerShell e .NET Framework 4.5.1. Precisa esta versão ou uma versão posterior instalado no seu servidor. Dependendo da versão do Windows Server, efetue o seguinte:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell está instalado por predefinição. É necessária nenhuma ação.
+  * Microsoft PowerShell está instalado por predefinição. Não é necessário realizar qualquer ação.
   * .NET framework 4.5.1 e versões posteriores são oferecidas por meio do Windows Update. Certifique-se de que instalou as atualizações mais recentes para o Windows Server, no painel de controlo.
 * Windows Server 2008 R2 e Windows Server 2012
   * A versão mais recente do Microsoft PowerShell está disponível no **Windows Management Framework 4.0**, disponível no [Microsoft Download Center](https://www.microsoft.com/downloads).

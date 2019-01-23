@@ -2,21 +2,21 @@
 title: Esquema do evento de hubs de eventos do Azure Event Grid
 description: Descreve as propriedades que são fornecidas para eventos de hubs de eventos com o Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055809"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475412"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos do Azure Event Grid para os hubs de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos de hubs de eventos. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de hubs de eventos. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
 Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de eventos de Hubs de eventos](event-sources.md#event-hubs).
 
@@ -60,7 +60,7 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |

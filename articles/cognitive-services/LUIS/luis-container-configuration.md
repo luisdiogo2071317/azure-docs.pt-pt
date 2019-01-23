@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975514"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468340"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do docker de compreensão de idiomas 
 
@@ -35,6 +35,7 @@ Este contentor tem as seguintes definições de configuração:
 |Sim|[Faturação](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
 |Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
 |Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
+|Não|[Proxy de HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
 |Não|[Registro em log](#logging-settings)|Fornece suporte para o contentor de registo do ASP.NET Core. |
 |Sim|[Monta](#mount-settings)|Ler e gravar dados de computador do anfitrião para contentor e de contentor para o computador anfitrião.|
 
@@ -77,6 +78,10 @@ Esta definição pode ser encontrada nos seguintes locais:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Definições de credenciais de proxy de HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Definições de registo
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Revisão [como instalar e executar contentores](luis-container-howto.md)
 * Consulte a [perguntas mais frequentes (FAQ) do sobre](luis-resources-faq.md) para resolver problemas relacionados com a funcionalidade de LUIS.
+* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)

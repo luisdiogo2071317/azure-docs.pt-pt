@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 3a7ec043f1990dd7f380177fd612c8cd88786b07
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440242"
+ms.locfileid: "54452722"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegar um subdomínio de DNS do Azure
 
@@ -47,7 +47,7 @@ Em seguida, copie os quatro servidores de nomes para o subdomínio.
 
 Em seguida, crie um registo de servidor (NS) de nome para o **engenharia** zona.
 
-1. Navegue para o ficheiro de zona para o domínio principal.
+1. Navegue para a zona de domínio principal.
 2. Selecione **+ Conjunto de registos**.
 3. Sobre o **adicionar conjunto de registos** painel, escreva **engenharia** no **nome** caixa de texto.
 4. Para **tipo**, selecione **NS**.

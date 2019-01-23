@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: entender e personalizar a sincronização | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Compreender e personalizar a sincronização | Documentos da Microsoft'
 description: Explica como o Azure AD Connect sincronizar funciona e como personalizar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 994169d4280c479ffe1b766a309198c8f4d951b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 74973371b3d893c1e0c94024a97c77b59fa570fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461948"
 ---
-# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: entender e personalizar a sincronização
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronização do Azure AD Connect: Compreender e personalizar a sincronização
 Os serviços de sincronização do Azure Active Directory Connect (sincronização do Azure AD Connect) é um componente principal do Azure AD Connect. Ele cuida de todas as operações relacionadas com para sincronizar dados de identidade entre o seu ambiente no local e o Azure AD. Sincronização do Azure AD Connect é o sucessor do DirSync, Azure AD Sync e Forefront Identity Manager com o conector Azure Active Directory configurado.
 
 Este tópico é o lar dos **do Azure AD Connect** (também denominado **motor de sincronização**) e apresenta uma lista de links para todos os outros tópicos relacionados a ele. Para obter ligações para o Azure AD Connect, consulte [integrar as identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).

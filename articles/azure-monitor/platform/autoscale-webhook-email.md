@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326411"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463325"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor
 Este artigo mostra-lhe como configurar acionadores, para que pode chamar URLs da web específica ou enviar e-mails com base em ações de dimensionamento automático no Azure.  
@@ -65,7 +65,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
 | sendToSubscriptionAdministrator |sim |valor tem de ser "verdadeiro" ou "false" |
 | sendToSubscriptionCoAdministrators |sim |valor tem de ser "verdadeiro" ou "false" |
 | customEmails |sim |valor pode ser [null] ou matriz de cadeia de caracteres de mensagens de e-mail |
-| Webhooks |sim |o valor pode ser nulo ou válido Uri |
+| webhooks |sim |o valor pode ser nulo ou válido Uri |
 | serviceUri |sim |um Uri de https válido |
 | propriedades |sim |o valor tem de estar vazio {} ou podem conter pares chave-valor |
 
@@ -106,7 +106,7 @@ Quando a notificação de dimensionamento automático é gerada, os seguintes me
 | --- | --- | --- |
 | status |sim |O estado que indica que uma ação de dimensionamento automático foi gerada |
 | operação |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
-| Contexto |sim |O contexto de ação de dimensionamento automático |
+| context |sim |O contexto de ação de dimensionamento automático |
 | carimbo de data/hora |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
 | ID |Sim |Gestor de recursos do ID de definição de dimensionamento automático |
 | nome |Sim |O nome da definição de dimensionamento automático |
@@ -120,3 +120,4 @@ Quando a notificação de dimensionamento automático é gerada, os seguintes me
 | oldCapacity |Sim |O atual número de instâncias (antiga) quando o dimensionamento automático executou uma ação de dimensionamento |
 | newCapacity |Sim |A nova contagem de instância que o recurso de ajustados de dimensionamento automático |
 | Propriedades |Não |Opcional. Conjunto de < chave, valor > pares (por exemplo, Dictionary < String, String >). O campo de propriedades é opcional. Numa interface do usuário personalizada ou fluxo de trabalho de aplicação com base de lógica, pode introduzir as chaves e valores que podem ser transmitidos a utilizar o payload. Outra forma de passar as propriedades personalizadas para a chamada de webhook saída consiste em utilizar o webhook URI em si (como parâmetros de consulta) |
+

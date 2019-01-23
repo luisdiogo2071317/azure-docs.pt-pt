@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426813"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468102"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>População UserPrincipalName do Azure AD
 
@@ -90,9 +90,9 @@ Seguem-se cenários de exemplo de como o UPN é calculado com base num determina
 
 Objeto de utilizador no local:
 - mailNickName: &lt;não definido&gt;
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- userPrincipalName: us3@contoso.com'
+- userPrincipalName : us3@contoso.com`
 
 Sincronizar o objeto de utilizador para o inquilino do Azure AD pela primeira vez
 - Defina o atributo MailNickName do Azure AD para o prefixo de endereço SMTP principal.
@@ -100,19 +100,19 @@ Sincronizar o objeto de utilizador para o inquilino do Azure AD pela primeira ve
 - Defina o atributo UserPrincipalName do Azure AD para MOERA.
 
 Objeto de utilizador do inquilino do AD do Azure:
-- MailNickName: us1           
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- MailNickName      : us1           
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
 
-### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Cenário 2: Sufixo do UPN não verificados – conjunto locais atributo mailNickName
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Cenário 2: Sufixo do UPN não verificado – conjunto locais atributo mailNickName
 
 ![Scenario2](./media/plan-connect-userprincipalname/example2.png)
 
 Objeto de utilizador no local:
 - mailNickName      : us4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- UserPrincipalName: us3@contoso.com
+- userPrincipalName : us3@contoso.com
 
 Sincronizar atualizações no atributo de mailNickName no local para o inquilino do Azure AD
 - Atualize o atributo MailNickName do Azure AD com o atributo mailNickName no local.
@@ -120,17 +120,17 @@ Sincronizar atualizações no atributo de mailNickName no local para o inquilino
 
 Objeto de utilizador do inquilino do AD do Azure:
 - MailNickName      : us4
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
-### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Cenário 3: Sufixo do UPN não verificados – atualização no local atributo userPrincipalName
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Cenário 3: Sufixo do UPN não verificado – atualização no local atributo userPrincipalName
 
 ![Scenario3](./media/plan-connect-userprincipalname/example3.png)
 
 Objeto de utilizador no local:
 - mailNickName      : us4
-- proxyAddresses: {SMTP:us1@contoso.com}
+- proxyAddresses        : {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- UserPrincipalName: us5@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Sincronizar atualizações no atributo de userPrincipalName no local para o inquilino do Azure AD
 - Atualização no atributo de userPrincipalName no local aciona o recálculo do atributo MOERA e UserPrincipalName do Azure AD.
@@ -139,24 +139,24 @@ Sincronizar atualizações no atributo de userPrincipalName no local para o inqu
 
 Objeto de utilizador do inquilino do AD do Azure:
 - MailNickName      : us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: Atributo de correio do sufixo do UPN não verificados – endereço SMTP principal de atualização e no local
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Cenário 4: Atributo de correio não verificado sufixo UPN – endereço SMTP principal de atualização e no local
 
 ![Scenario4](./media/plan-connect-userprincipalname/example4.png)
 
 Objeto de utilizador no local:
 - mailNickName      : us4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
 - email: us7@contoso.com
-- UserPrincipalName: us5@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Sincronizar a atualização no atributo de correio no local e o endereço SMTP principal para o inquilino do Azure AD
 - Após a sincronização inicial de objeto do usuário, de atualizações para o atributo de correio no local e o endereço SMTP principal não afetarão o MailNickName do AD do Azure ou o atributo UserPrincipalName.
 
 Objeto de utilizador do inquilino do AD do Azure:
 - MailNickName      : us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Cenário 5: Sufixo do UPN verificado – atualização no local sufixo de atributo userPrincipalName
 
@@ -164,9 +164,9 @@ Objeto de utilizador do inquilino do AD do Azure:
 
 Objeto de utilizador no local:
 - mailNickName      : us4
-- proxyAddresses: {SMTP:us6@contoso.com}
+- proxyAddresses        : {SMTP:us6@contoso.com}
 - email: us7@contoso.com
-- UserPrincipalName: us5@verified.contoso.com
+- userPrincipalName : us5@verified.contoso.com
 
 Sincronizar atualizações no atributo de userPrincipalName no local para o inquilino do Azure AD
 - Atualização no local userPrincipalName atributo acionadores recálculo de atributo UserPrincipalName do Azure AD.
@@ -174,7 +174,7 @@ Sincronizar atualizações no atributo de userPrincipalName no local para o inqu
 
 Objeto de utilizador do inquilino do AD do Azure:
 - MailNickName      : us4     
-- UserPrincipalName: us5@verified.contoso.com
+- UserPrincipalName : us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Integrar os diretórios no local com o Azure Active Directory](whatis-hybrid-identity.md)

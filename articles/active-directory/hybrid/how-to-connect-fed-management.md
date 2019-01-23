@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS gestão, o AAD Connect, Connect, início de sessão
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244462"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463903"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory com o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS) com o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas de AD FS comuns que poderá ter de fazer para uma configuração completa de um farm do AD FS.
@@ -76,7 +76,7 @@ Recomenda-se que o nome de Principal de utilizador no local e na cloud Nome Prin
 ![Seleção de atributo ID alternativa](./media/how-to-connect-fed-management/attributeselection.png)
 
 Configurar o ID de início de sessão alternativo para o AD FS consiste em dois passos principais:
-1. **Configurar o conjunto certo de emissão de afirmações**: as regras de afirmação de emissão a terceira parte confiável do Azure AD confiam são modificados para utilizar o atributo UserPrincipalName selecionado como o ID alternativo do utilizador.
+1. **Configurar o conjunto certo de emissão de afirmações**: As regras de afirmação de emissão a confiança de entidade confiadora do Azure AD são modificadas para utilizar o atributo UserPrincipalName selecionado como o ID alternativo do utilizador.
 2. **Ativar o ID de início de sessão alternativo na configuração do AD FS**: A configuração do AD FS é atualizada para que o AD FS pode procurar utilizadores nas florestas adequadas com o ID alternativo. Esta configuração é suportada para o AD FS no Windows Server 2012 R2 (com o KB2919355) ou posterior. Se os servidores AD FS 2012 R2, do Azure AD Connect verifica a presença do KB necessária. Se não for detetado o KB, um aviso será apresentado após a conclusão da configuração, conforme mostrado abaixo:
 
     ![Aviso de ausentes KB no 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
@@ -227,7 +227,7 @@ Além disso, utilizando **adicione** e não **problema**, evitar a adição de u
 
 Esta regra define um sinalizador temporário chamado **idflag** que está definido como **useguid** se não houver nenhum **ms-ds-consistencyguid** preenchidos para o utilizador. A lógica por trás disso é o fato de que o AD FS não permite afirmações vazias. Assim, quando adicionar afirmações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid na regra 1, acaba tendo uma **msdsconsistencyguid** afirmação apenas se o valor é preenchido para o utilizador. Se não estiver preenchida, o AD FS vê que terão um valor vazio e ignora-lo imediatamente. Todos os objetos terão **objectGuid**, por isso, essa afirmação sempre estará lá após 1 de regra é executada.
 
-**A regra 3: Emitir ms-ds-consistencyguid como ID imutável, se estiver presente**
+**Regra 3: Emitir ms-ds-consistencyguid como ID imutável, se estiver presente**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);

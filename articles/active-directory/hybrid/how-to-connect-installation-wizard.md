@@ -5,7 +5,7 @@ keywords: O Assistente de instalação do Azure AD Connect permite configurar de
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c5f5f59329e8f4e34a4c08a5819d0e4d96fe2f5c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 49c606d1f063eb4969bad88cd6bb7cd14eaa4349
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315281"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477673"
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o Assistente de instalação de uma segunda vez
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: Executar o assistente de instalação pela segunda vez
 Na primeira vez que executar o Assistente de instalação do Azure AD Connect, ele explica como configurar a sua instalação. Se executar novamente o Assistente de instalação, ele oferece opções para manutenção.
 
 Encontrará o Assistente de instalação no menu Iniciar com o nome **do Azure AD Connect**.
@@ -90,5 +90,5 @@ Para obter mais informações sobre esta opção, consulte [sessão do utilizado
 
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

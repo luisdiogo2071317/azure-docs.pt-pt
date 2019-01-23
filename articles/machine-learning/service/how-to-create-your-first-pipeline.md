@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62be7412c93b846980ffab00b9964585e3644140
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 5d0fe5d010fc53db3ca280620d224d405d0ccf42
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319205"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478200"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -185,7 +185,7 @@ except ComputeTargetException:
 
 O Azure Data Lake Analytics é uma plataforma de análise de macrodados na cloud do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
 
-Ceate uma conta do Azure Data Lake Analytics antes de o utilizar. Para criar este recurso, consulte a [introdução ao Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) documento.
+Crie uma conta do Azure Data Lake Analytics antes de o utilizar. Para criar este recurso, consulte a [introdução ao Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) documento.
 
 Para anexar como um destino de computação do Data Lake Analytics, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
 
@@ -286,7 +286,7 @@ Quando submete o pipeline, o serviço Azure Machine Learning verifica as depend�
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
-pipeline_run.wait_for_completion()
+pipeline_run1.wait_for_completion()
 ```
 
 Quando executa primeiro um pipeline, o Azure Machine Learning:

@@ -1,22 +1,22 @@
 ---
-title: Réplicas de leitura na base de dados do Azure para PostgreSQL
+title: Réplicas de leitura na Base de Dados do Azure para PostgreSQL
 description: Este artigo descreve as réplicas de leitura na base de dados do Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 7aecfdedba04502ffdc68876635611a2f26d9896
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/22/2019
+ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383501"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466079"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de leitura na base de dados do Azure para PostgreSQL
 A funcionalidade de réplica de leitura permite-lhe replicar dados a partir de uma base de dados do Azure para o servidor PostgreSQL (principal) até cinco só de leitura servidores (réplicas de leitura) na mesma região do Azure. Réplicas de leitura assíncrona são atualizadas utilizando a tecnologia de replicação nativo do mecanismo de PostgreSQL.
 
-Réplicas são novos servidores que podem ser geridos de formas similares como autónoma normal da base de dados do Azure para servidores PostgreSQL. As réplicas têm um preço à mesma tarifa como um servidor autónomo.
+Réplicas são novos servidores que podem ser geridos de formas similares como autónoma normal da base de dados do Azure para servidores PostgreSQL. Para cada réplica de leitura, é cobrada a computação aprovisionada em vCores e armazenamento aprovisionado em GB/mês.
 
 ## <a name="when-to-use-read-replicas"></a>Quando a utilização de réplicas de leitura
 A funcionalidade de réplica de leitura é indicada para ajudar a melhorar o desempenho e dimensionamento de cargas de trabalho de leitura intensiva. Por exemplo, as cargas de trabalho de leitura podem ser isoladas para as réplicas, embora escrita cargas de trabalho podem ser direcionadas para o mestre.
@@ -117,7 +117,7 @@ Depois de uma réplica tiver sido criado, o escalão de preço (exceto para e do
 > [!IMPORTANT]
 > Antes de configuração do servidor de um modelo é atualizada para novos valores, a configuração das réplicas deve ser atualizada para valores iguais ou superior. Isto garante que as réplicas estão capazes de acompanhar as alterações efetuadas a mestre.
 
-Em particular, Postgres requer que o valor de servidor mestre para max_connections ser maior que valor a réplica caso contrário, que a réplica não será iniciado. Na base de dados do Azure para PostgreSQL, o valor de max_connections é definido dependendo do sku. Para obter mais informações, leia [o documento de limites](concepts-limits.md). 
+Em particular, Postgres requer que o valor de servidor de réplica para o parâmetro max_connections ser maior ou igual ao valor do mestre caso contrário, que a réplica não será iniciado. Na base de dados do Azure para PostgreSQL, o valor de max_connections é definido dependendo do sku. Para obter mais informações, leia [o documento de limites](concepts-limits.md). 
 
 A tentativa de fazer uma atualização que viola isso levará a um erro.
 

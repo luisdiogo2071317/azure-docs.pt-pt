@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a26deba97d1ed61f2a6f3b54dafe9f651167ab5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424375"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474524"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -38,7 +38,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 
 ## <a name="create-a-network-interface"></a>Criar uma interface de rede
 
-Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma interface de rede com as predefinições para. Se em vez disso, deve especificar todas as definições de interface de rede, pode criar uma interface de rede com definições personalizadas e anexar a interface de rede a uma máquina virtual ao criar a máquina virtual (com o PowerShell ou a CLI do Azure). Também pode criar uma interface de rede e adicioná-lo a uma máquina virtual existente (com o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com uma interface de rede existente ou adicionar ou remover interfaces de rede de máquinas virtuais existentes, veja [adicionar ou remover interfaces de rede](virtual-network-network-interface-vm.md). Antes de criar uma interface de rede, tem de ter um existente [rede virtual](manage-virtual-network.md#create-a-virtual-network) na mesma localização e subscrição cria uma interface de rede no.
+Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma interface de rede com as predefinições para. Se em vez disso, deve especificar todas as definições de interface de rede, pode criar uma interface de rede com definições personalizadas e anexar a interface de rede a uma máquina virtual ao criar a máquina virtual (com o PowerShell ou a CLI do Azure). Também pode criar uma interface de rede e adicioná-lo a uma máquina virtual existente (com o PowerShell ou a CLI do Azure). Para saber como criar uma máquina virtual com uma interface de rede existente ou adicionar ou remover interfaces de rede de máquinas virtuais existentes, veja [adicionar ou remover interfaces de rede](virtual-network-network-interface-vm.md). Antes de criar uma interface de rede, tem de ter um existente [rede virtual](manage-virtual-network.md) na mesma localização e subscrição cria uma interface de rede no.
 
 1. Na caixa que contém o texto *recursos de pesquisa* na parte superior do portal do Azure, escreva *interfaces de rede*. Quando **interfaces de rede** aparecer nos resultados da pesquisa, selecione-o.
 2. Selecione **+ adicionar** sob **interfaces de rede**.
@@ -69,7 +69,7 @@ O portal não fornece a opção de atribuir a interface de rede para grupos de s
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Ver definições de interface de rede
 
@@ -158,7 +158,7 @@ Pode alterar a sub-rede, mas não a rede virtual, atribuída a uma interface de 
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adicionar ou remover grupos de segurança de aplicação
 
-Apenas pode adicionar uma interface de rede, ou remover uma interface de rede de um grupo de segurança de aplicação com o portal se a interface de rede está ligada a uma máquina virtual. Pode utilizar o PowerShell ou a CLI do Azure para uma interface de rede para adicionar ou remover uma interface de rede de um grupo de segurança de aplicações, se a interface de rede está ligada a uma máquina virtual ou não. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [crie um grupo de segurança de aplicações](manage-network-security-group.md#create-an-application-security-group).
+Apenas pode adicionar uma interface de rede, ou remover uma interface de rede de um grupo de segurança de aplicação com o portal se a interface de rede está ligada a uma máquina virtual. Pode utilizar o PowerShell ou a CLI do Azure para uma interface de rede para adicionar ou remover uma interface de rede de um grupo de segurança de aplicações, se a interface de rede está ligada a uma máquina virtual ou não. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups) e como [crie um grupo de segurança de aplicações](manage-network-security-group.md).
 
 1. Na *procurar recursos, serviços e documentos* caixa na parte superior do portal, comece a escrever o nome de uma máquina virtual que tenha uma interface de rede que pretende adicionar ou remover de um grupo de segurança de aplicações. Quando o nome da sua VM for apresentada nos resultados da pesquisa, selecione-o.
 2. Em **DEFINIÇÕES**, selecione **Redes**.  Selecione **configurar os grupos de segurança de aplicativo**, selecione os grupos de segurança de aplicação que pretende adicionar a interface de rede ou anule a seleção de grupos de segurança de aplicações que pretende remover a interface de rede, e, em seguida, selecione **guardar**. Apenas as interfaces de rede que existem na mesma rede virtual podem ser adicionadas ao mesmo grupo de segurança do aplicativo. O grupo de segurança de aplicações têm de existir na mesma localização que a interface de rede.

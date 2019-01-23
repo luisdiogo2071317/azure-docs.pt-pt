@@ -4,7 +4,7 @@ description: Resolver problemas comuns enfrentados ao iniciar sessão Applicatio
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379269"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468800"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -34,11 +34,11 @@ Existem três formas principais que um utilizador pode obter acesso a uma aplica
 
 -   Para aplicações que a Microsoft ou um 3rd Party publica livremente para qualquer pessoa a utilizar, podem também ser concedido acesso aos utilizadores através de **consentimento de administrador**. Isso significa que um administrador determinou que a aplicação pode ser utilizada por todas as pessoas na organização, para que inicie sessão para a aplicação com uma conta de Administrador Global e concedem acesso a todas as pessoas na organização.
 
-Para resolver o seu problema, comece com o [áreas com problemas gerais com acesso a aplicações a serem considerados](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o [passo a passo: passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para obter o detalhes.
+Para resolver o seu problema, comece com o [áreas com problemas gerais com acesso a aplicações a serem considerados](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o [passo a passo: Passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para entrar em detalhes.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas com problemas gerais com acesso à aplicação a considerar
 
-Segue-se uma lista das áreas de problema geral que pode pormenorizar se tiver uma idéia de como iniciar, mas recomendamos que leia o passo a passo para começar rapidamente: [passo a passo: passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Segue-se uma lista das áreas de problema geral que pode pormenorizar se tiver uma idéia de como iniciar, mas recomendamos que leia o passo a passo para começar rapidamente: [Passo a passo: Passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problemas com a conta de utilizador](#problems-with-the-users-account)
 
@@ -204,7 +204,7 @@ Para verificar o estado de autenticação multifator de um utilizador, siga este
 
 9.  Selecione o utilizador a partir da lista de utilizadores e **habilitar**, **desativar**, ou **impor** autenticação multifator conforme pretendido.
 
-  * **Tenha em atenção**: se um utilizador estiver num **imposto** de estado, pode defini-los como **desativado** temporariamente para informá-los novamente para a respetiva conta. Assim que estão de volta, pode alterar seu estado para **ativado** novamente para que eles para voltar a registar as informações de contacto durante o próximo início de sessão. Em alternativa, pode seguir os passos a [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
+  * **Nota**: Se um utilizador estiver num **imposto** de estado, pode defini-los como **desativado** temporariamente para informá-los novamente para a respetiva conta. Assim que estão de volta, pode alterar seu estado para **ativado** novamente para que eles para voltar a registar as informações de contacto durante o próximo início de sessão. Em alternativa, pode seguir os passos a [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info) para verificar ou definir esses dados para eles.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Verificar informações de contacto de autenticação de um utilizador
 

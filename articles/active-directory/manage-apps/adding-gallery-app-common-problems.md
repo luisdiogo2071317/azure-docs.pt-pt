@@ -4,7 +4,7 @@ description: Compreender os rostos de pessoas de problemas comuns ao adicionar a
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: b44b72c4414314e4329a7de91f4d1a61914afc6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 29538d4cab4df328ba9cbff2f30c35626b3360dd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477605"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
 

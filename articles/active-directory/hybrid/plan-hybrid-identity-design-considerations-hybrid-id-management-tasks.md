@@ -4,7 +4,7 @@ description: Com o controlo de acesso condicional, o Azure Active Directory veri
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 16b09b7d4bddc24d9efa2e37c9e31f61a4333f86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 436bb3c235c76f04e0f3d0fec1beeec3872f1dfb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311725"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475820"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida da identidade híbrida
 A identidade é um dos alicerces da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou a aplicação SaaS, a sua identidade é a chave para ganhar acesso a tudo. Em seu nível mais elevado, uma solução de gestão de identidades abrange unificar e sincronização entre seus repositórios de identidades, que inclui automação e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser centralizado de identidades no local e na cloud e também utilizar alguma forma de Federação de identidades para manter a autenticação centralizada e com segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos variam de sistemas operacionais e aplicativos para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de aprovisionamento.

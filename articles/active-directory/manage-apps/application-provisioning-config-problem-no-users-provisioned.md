@@ -4,7 +4,7 @@ description: Como resolver problemas comuns enfrentados ao não vir os utilizado
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465408"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Não existem utilizadores estão a ser aprovisionados para um aplicativo de galeria do Azure AD
 Após o aprovisionamento automático foi configurado para uma aplicação (incluindo a verificar que as credenciais de aplicação fornecidas para o Azure AD para ligar à aplicação são válidas), em seguida, os utilizadores e/ou grupos são aprovisionados para a aplicação. Aprovisionamento é determinado através dos seguintes pontos:
@@ -56,8 +56,8 @@ Quando um utilizador aparece como "ignorada" nos registos de auditoria, é impor
 - **Foi configurado um filtro de âmbito** **que é filtrar o utilizador com base num valor de atributo**. Para obter mais informações sobre filtros de âmbito, veja [filtros de âmbito](define-conditional-rules-for-provisioning-user-accounts.md).
 - **O utilizador é "não efetivamente ultrapassará".** Se vir esta mensagem de erro específico, é porque não existe um problema com o registo de atribuição do utilizador armazenado no Azure AD. Para corrigir este problema, anular a atribuição de utilizador (ou grupo) a partir da aplicação e reatribuí-la novamente. Para obter mais informações sobre a atribuição, consulte [atribuir acesso de utilizador ou grupo](assign-user-or-group-access-portal.md).
 - **Um atributo obrigatório está em falta ou não preenchida para um utilizador.** É uma coisa importante a considerar ao configurar o aprovisionamento rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem qual usuário (ou grupo) propriedades fluxo a partir do Azure AD à aplicação. Esta configuração inclui a definição de "propriedade correspondente" que é utilizada para identificar exclusivamente e corresponder ao utilizadores/grupos entre os dois sistemas. Para obter mais informações sobre este processo importante, consulte [personalizando aprovisionamento atributo mapeamentos de utilizador para aplicações de SaaS no Azure Active Directory](customize-application-attributes.md).
-- **Mapeamentos para grupos de atributos:** aprovisionamento do nome do grupo e detalhes do grupo, além de membros, se for suportado para alguns aplicativos. É possível habilitar ou desabilitar essa funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo, mostrados na **aprovisionamento** separador. Se o provisionamento de grupos estiver ativado, certifique-se de que reveja os mapeamentos de atributos para garantir que um campo adequado, está a ser utilizado para o ID"correspondente". O ID correspondente pode ser o alias de e-mail ou nome de exibição. O grupo e seus membros não são aprovisionados se a propriedade correspondente estiver vazio ou não preenchida para um grupo no Azure AD.
+- **Mapeamentos de atributos para grupos:** Aprovisionamento do nome do grupo e detalhes do grupo, além de membros, se for suportado para alguns aplicativos. É possível habilitar ou desabilitar essa funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo, mostrados na **aprovisionamento** separador. Se o provisionamento de grupos estiver ativado, certifique-se de que reveja os mapeamentos de atributos para garantir que um campo adequado, está a ser utilizado para o ID"correspondente". O ID correspondente pode ser o alias de e-mail ou nome de exibição. O grupo e seus membros não são aprovisionados se a propriedade correspondente estiver vazio ou não preenchida para um grupo no Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Sincronização do Azure AD Connect: compreender a aprovisionamento declarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Sincronização do Azure AD Connect: Noções básicas sobre o aprovisionamento declarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

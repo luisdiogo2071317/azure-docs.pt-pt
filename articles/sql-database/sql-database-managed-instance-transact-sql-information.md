@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390014"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463750"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -503,6 +503,12 @@ Embora esse código funciona com os dados dentro da instância do mesmo é neces
 Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este erro é um problema transitório.
 
 **Solução**: Se for possível utilize ligações de contexto no módulo CLR.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Bases de dados do TDE encriptado não suportam cópias de segurança iniciada pelo utilizador
+
+Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados que é encriptado com encriptação de dados transparente (TDE). TDE força seja encriptada com chaves TDE internas e não é possível exportar a chave de, pelo que não será capaz de restaurar a cópia de segurança.
+
+**Solução**: Utilize cópias de segurança automáticas e restauro de ponto no tempo, ou desativar a encriptação na base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

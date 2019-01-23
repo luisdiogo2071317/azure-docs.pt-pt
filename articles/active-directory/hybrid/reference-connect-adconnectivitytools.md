@@ -1,24 +1,24 @@
 ---
-title: 'Do Azure AD Connect: Referência do PowerShell ADConnectivityTools | Documentos da Microsoft'
+title: 'Azure AD Connect: Referência do PowerShell ADConnectivityTools | Documentos da Microsoft'
 description: Este documento fornece informações de referência para o módulo do ADConnectivityTools.psm1 PowerShell.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425229"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462102"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Do Azure AD Connect: Referência do PowerShell ADConnectivityTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
 A seguinte documentação fornece informações de referência para o módulo do PowerShell ADConnectivityTools.psm1 que está incluído com o Azure AD Connect.
 
-## <a name="confirm-dnsconnectivity"></a>DnsConnectivity confirmar
+## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
 
 ### <a name="synopsis"></a>SINOPSE
 Deteta problemas de Dns locais.
@@ -47,7 +47,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Especifica o nome da floresta para testar.
 
 ```yaml
@@ -62,7 +62,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Controladores de domínio
+#### <a name="-dcs"></a>-DCs
 Especifique os controladores de domínio para testar.
 
 ```yaml
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-forestexists"></a>ForestExists confirmar
+## <a name="confirm-forestexists"></a>Confirm-ForestExists
 
 ### <a name="synopsis"></a>SINOPSE
 Determina se existe uma floresta especificada.
@@ -120,7 +120,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Especifica o nome da floresta para testar.
 
 ```yaml
@@ -139,7 +139,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-functionallevel"></a>FunctionalLevel confirmar
+## <a name="confirm-functionallevel"></a>Confirm-FunctionalLevel
 
 ### <a name="synopsis"></a>SINOPSE
 Verifica se o nível funcional da floresta do AD.
@@ -179,7 +179,7 @@ Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCre
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Floresta de destino.
 Valor predefinido é a floresta do utilizador atualmente com sessão iniciada.
 
@@ -229,7 +229,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-networkconnectivity"></a>NetworkConnectivity confirmar
+## <a name="confirm-networkconnectivity"></a>Confirm-NetworkConnectivity
 
 ### <a name="synopsis"></a>SINOPSE
 Deteta problemas de conectividade de rede local.
@@ -260,7 +260,7 @@ Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbos
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-dcs"></a>-Controladores de domínio
+#### <a name="-dcs"></a>-DCs
 Especifique os controladores de domínio para testar.
 
 ```yaml
@@ -310,7 +310,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-targetsarereachable"></a>TargetsAreReachable confirmar
+## <a name="confirm-targetsarereachable"></a>Confirm-TargetsAreReachable
 
 ### <a name="synopsis"></a>SINOPSE
 Determina se uma floresta especificada e seus controladores de domínio associado estão acessíveis.
@@ -338,7 +338,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Especifica o nome da floresta para testar.
 
 ```yaml
@@ -353,7 +353,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Controladores de domínio
+#### <a name="-dcs"></a>-DCs
 Especifique os controladores de domínio para testar.
 
 ```yaml
@@ -372,7 +372,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-validdomains"></a>ValidDomains confirmar
+## <a name="confirm-validdomains"></a>Confirm-ValidDomains
 
 ### <a name="synopsis"></a>SINOPSE
 Validar que os domínios no FQDN de floresta obtido se encontram acessíveis
@@ -412,7 +412,7 @@ Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCreden
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Floresta de destino.
 
 ```yaml
@@ -461,7 +461,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-validenterpriseadmincredentials"></a>ValidEnterpriseAdminCredentials confirmar
+## <a name="confirm-validenterpriseadmincredentials"></a>Confirm-ValidEnterpriseAdminCredentials
 
 ### <a name="synopsis"></a>SINOPSE
 Verifica se um utilizador tiver credenciais de administrador da empresa.
@@ -619,7 +619,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCreden
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Floresta de destino. Valor predefinido é o domínio do utilizador atualmente com sessão iniciado.
 
 ```yaml
@@ -677,7 +677,7 @@ Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAcco
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Floresta de destino.
 
 ```yaml
@@ -693,7 +693,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
-Para instalações de personalizado: Sinalizar ou seja $True se o usuário escolher "Criar nova conta AD" na janela do Assistente do AADConnect conta AD de floresta.
+Para instalações de personalizado: Sinalizador que é $True se o usuário escolher "Criar nova conta AD" na janela do Assistente do AADConnect conta AD de floresta.
 $False se o usuário escolher "Utilizar conta AD existente".
 Para instalações de Express: O valor da variável tem de ser $True para instalações do Express.
 
@@ -709,7 +709,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-username"></a>-O nome de utilizador
+#### <a name="-username"></a>-UserName
 Parâmetro que preenche previamente o campo de nome de utilizador quando são solicitadas as credenciais do utilizador.
 
 ```yaml
@@ -758,7 +758,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TES
 
 ### <a name="parameters"></a>PARÂMETROS
 
-#### <a name="-forest"></a>-Floresta
+#### <a name="-forest"></a>-Forest
 Especifica o nome da floresta para testar.
 
 ```yaml
@@ -804,7 +804,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-dcs"></a>-Controladores de domínio
+#### <a name="-dcs"></a>-DCs
 Especifique os controladores de domínio para testar.
 
 ```yaml

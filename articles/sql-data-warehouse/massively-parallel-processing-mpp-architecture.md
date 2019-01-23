@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005755"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473185"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
@@ -51,7 +51,7 @@ O nó de controlo é o cérebro do armazém de dados. É o front-end que interag
 
 Os nós de computação fornecem a capacidade computacional. Mapa de distribuições para nós de computação para processamento. Como paga para obter mais recursos de computação, o SQL Data Warehouse mapeia novamente as distribuições para os nós de computação disponíveis. O número de intervalos de nós de 1 a 60 de computação e é determinado pelo nível de serviço para o armazém de dados.
 
-Cada nó de computação tem um ID de nó que está visível nas vistas de sistema. Pode ver o ID de nó de computação para a coluna de node_id nas vistas de sistema cujos nomes comecem com sys.pdw_nodes procurar. Para obter uma lista uma destas vistas de sistema, consulte [vistas de sistema MPP](sql-data-warehouse-reference-tsql-statements.md).
+Cada nó de computação tem um ID de nó que está visível nas vistas de sistema. Pode ver o ID de nó de computação para a coluna de node_id nas vistas de sistema cujos nomes comecem com sys.pdw_nodes procurar. Para obter uma lista uma destas vistas de sistema, consulte [vistas de sistema MPP](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Serviço de movimento de dados
 Serviço de movimento de dados (DMS) é a tecnologia de transporte de dados que coordena o movimento de dados entre os nós de computação. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas devolvem resultados precisos. Quando for necessário o movimento de dados, o DMS garante que os dados corretos obtém para o local correto. 

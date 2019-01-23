@@ -4,7 +4,7 @@ description: Novo comportamento de como lidar com objetos com o UPN ou ProxyAddr
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406199"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464872"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Resiliência de atributos duplicados é uma funcionalidade do Azure Active Directory que eliminarão fricção causada por **UserPrincipalName** e **ProxyAddress** está em conflito ao executar um da Microsoft ferramentas de sincronização.
@@ -133,7 +133,7 @@ Eis um exemplo do aspeto a notificação de e-mail para um conflito de ProxyAddr
 ## <a name="resolving-conflicts"></a>Resolver conflitos
 Resolução de problemas e resolução de estratégia táticas quanto a erros não deve diferem da forma como os erros de atributos duplicados foram processados no passado. A única diferença é que a tarefa de temporizador varra por meio do inquilino no lado do serviço para adicionar automaticamente o atributo em questão para o objeto correto depois do conflito é resolvido.
 
-O artigo seguinte descreve várias estratégias de resolução de problemas: [duplicado ou atributos impedem a sincronização de diretórios no Office 365](https://support.microsoft.com/kb/2647098).
+O artigo seguinte descreve várias estratégias de resolução de problemas: [Atributos duplicados ou é inválidos impedem a sincronização de diretórios no Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 Nenhum desses problemas conhecidos faz com que dados perda ou degradação de serviços. Várias delas estão estética, outras pessoas fazer com que o padrão "*pré-resiliência*" erros de atributo duplicado para ser lançada em vez dos colocar em quarentena o atributo de conflito e outro faz com que determinados erros exigir extra manual de segurança de correção.

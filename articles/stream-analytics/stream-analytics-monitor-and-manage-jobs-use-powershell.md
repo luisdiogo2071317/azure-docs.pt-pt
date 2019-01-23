@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 881de4fc47a399b2ab22edbc6748eb95bc032086
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6754b4b3bb9d85447cbeed571778fbaa13167be6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075773"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452671"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorizar e gerir tarefas do Stream Analytics com cmdlets do Azure PowerShell
 Saiba como monitorizar e gerir os recursos de Stream Analytics com cmdlets do Azure PowerShell e scripts do powershell que são executadas tarefas básicas do Stream Analytics.
@@ -50,7 +50,7 @@ New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
 > [!NOTE]
-> Criado por meio de programação de tarefas do Stream Analytics não tem monitorização ativada por predefinição.  Pode ativar manualmente a monitorização no Portal do Azure ao navegar para a página de Monitor da tarefa e clicar no botão Ativar ou pode fazer isso programaticamente ao seguir os passos localizados em [Azure Stream Analytics - monitorizar tarefas do Stream Analytics Programaticamente](stream-analytics-monitor-jobs.md).
+> Criado por meio de programação de tarefas do Stream Analytics não tem monitorização ativada por predefinição.  Pode ativar manualmente a monitorização no Portal do Azure ao navegar para a página de Monitor da tarefa e clicar no botão Ativar ou pode fazer isso programaticamente ao seguir os passos localizados em [Azure Stream Analytics - monitorizar tarefas do Stream Analytics Por meio de programação](stream-analytics-monitor-jobs.md).
 > 
 > 
 

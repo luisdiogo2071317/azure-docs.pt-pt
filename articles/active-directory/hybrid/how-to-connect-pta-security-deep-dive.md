@@ -5,7 +5,7 @@ services: active-directory
 keywords: Autenticação do Azure AD Connect pass-through, Active Directory, de instalação necessários componentes para o Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 45f99ac99c54caab17ba7b74dc09a46c335c8fe4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185074"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476347"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>O Azure Active Directory pass-through Authentication detalhada da segurança
 
@@ -53,7 +53,7 @@ Para obter detalhes gerais sobre segurança de dados e serviço operacional, do 
 - **O Azure Service Bus**: Fornece a capacidade de cloud a comunicação com mensagens empresariais e a comunicação de reencaminhamentos que lhe permite ligar soluções no local à cloud.
 - **O agente de autenticação do Azure AD Connect**: Um componente no local que escuta e responde a pedidos de validação da palavra-passe.
 - **Base de dados SQL do Azure**: Contém informações sobre agentes de autenticação do seu inquilino, incluindo as chaves de encriptação e de metadados.
-- **Do Active Directory**: No local do Active Directory, onde são armazenadas as contas de utilizador e as palavras-passe.
+- **Active Directory**: No local do Active Directory, onde são armazenadas as contas de utilizador e as palavras-passe.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Instalação e registo dos agentes de autenticação
 

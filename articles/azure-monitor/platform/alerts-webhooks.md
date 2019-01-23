@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580642"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465671"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para serviços que enviam mensagens SMS, para registrar bugs, para notificar a equipa através de bate-papo ou serviços de mensagens ou para várias outras ações. 
@@ -72,7 +72,7 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | Campo | Obrigatório | Conjunto fixo de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |S |Ativado, resolvido |O estado do alerta com base nas condições que definir. |
-| Contexto |S | |O contexto do alerta. |
+| context |S | |O contexto do alerta. |
 | carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
 | ID |S | |Cada regra de alerta tem um ID exclusivo. |
 | nome |S | |O nome do alerta. |
@@ -106,3 +106,4 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem numa fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

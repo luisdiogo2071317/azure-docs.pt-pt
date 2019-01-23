@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 72c50871f0d339d5d8f173a50e03aefc72fdcb36
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: d3bd4d80f167a496c9b980891f31d30bc86a0cb2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585414"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473764"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
 Este artigo será apresentado exemplo de comandos do PowerShell para o ajudar a aceder aos recursos do Azure Monitor.
@@ -387,3 +387,4 @@ Tenha em atenção que a propriedade WorkspaceId leva a *ID de recurso* da área
 ```
 
 Estes comandos podem ser combinados para enviar dados para vários destinos.
+

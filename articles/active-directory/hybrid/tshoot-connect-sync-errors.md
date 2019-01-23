@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Solucionando problemas de erros durante a sincronização | Documentos da Microsoft'
+title: 'Azure AD Connect: Resolver problemas de erros durante a sincronização | Documentos da Microsoft'
 description: Explica como resolver problemas de erros encontrados durante a sincronização com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463317"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Resolução de problemas de erros durante a sincronização
 Erros podem ocorrer quando os dados de identidade são sincronizados a partir do Windows Server Active Directory (AD DS) para o Azure Active Directory (Azure AD). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que fazem com que esses erros e potenciais formas para corrigir os erros. Este artigo inclui os tipos de erro comuns e talvez não abranjam todos os erros possíveis.
@@ -30,7 +30,7 @@ Com a versão mais recente do Azure AD Connect \(Agosto de 2016 ou superior\), u
 
 A partir de 1 de Setembro de 2016 [do Azure Active Directory duplicar resiliência de atributos](how-to-connect-syncservice-duplicate-attribute-resiliency.md) funcionalidade será ativada por predefinição para todos os *novo* inquilinos do Azure Active Directory do. Esta funcionalidade será ativada automaticamente para os inquilinos existentes nos próximos meses.
 
-Azure AD Connect efetua três tipos de operações de diretórios mantém sincronizado: importação, sincronização e exportação. Erros podem ocorrer em todas as operações. Este artigo enfoca principalmente erros durante a exportação para o Azure AD.
+Azure AD Connect efetua três tipos de operações de diretórios mantém sincronizado: Importar, sincronização e exportação. Erros podem ocorrer em todas as operações. Este artigo enfoca principalmente erros durante a exportação para o Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Erros durante a exportação para o Azure AD
 Secção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD com o conector do Azure AD. Este conector pode ser identificado com o formato de nome a ser "contoso. *onmicrosoft.com*".
@@ -49,7 +49,7 @@ Em outras palavras, por ordem para a correspondência de forma recuperável func
 
 Esquema do Active Directory do Azure não permite duas ou mais objetos para ter o mesmo valor dos seguintes atributos. \(Não se trata de uma lista exaustiva.\)
 
-* proxyAddresses
+* ProxyAddresses
 * UserPrincipalName
 * onPremisesSecurityIdentifier
 * ObjectId
@@ -74,16 +74,16 @@ Esquema do Active Directory do Azure não permite duas ou mais objetos para ter 
 2. BOB Smith **UserPrincipalName** está definido como **bobs@contoso.com**.
 3. **"abcdefghijklmnopqrstuv = ="** é o **SourceAnchor** calculado ao Connect de AD do Azure com Bob Smith **objectGUID** no local do Active Directory, que está a  **immutableId** de Bob Smith no Azure Active Directory.
 4. BOB também tem valores para a seguir a **proxyAddresses** atributo:
-   * SMTP: bobs@contoso.com
-   * SMTP: bob.smith@contoso.com
-   * **SMTP: bob@contoso.com**
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
+   * **smtp: bob@contoso.com**
 5. Um novo utilizador **Bob Taylor**, é adicionado ao Active Directory no local.
 6. De Bob Taylor **UserPrincipalName** está definido como **bobt@contoso.com**.
 7. **"abcdefghijkl0123456789 = =" "** é o **sourceAnchor** calculado ao Connect do Azure AD através de Bob Taylor **objectGUID** no local do Active Directory. Objeto de Bob Taylor não tenha sincronizado ao Azure Active Directory ainda.
 8. BOB Taylor tem os seguintes valores para o atributo proxyAddresses
-   * SMTP: bobt@contoso.com
-   * SMTP: bob.taylor@contoso.com
-   * **SMTP: bob@contoso.com**
+   * smtp: bobt@contoso.com
+   * smtp: bob.taylor@contoso.com
+   * **smtp: bob@contoso.com**
 9. Durante a sincronização, o Azure AD Connect irá reconhecer a adição de Bob Taylor no local do Active Directory e pedir ao Azure AD para fazer a mesma alteração.
 10. Azure AD pela primeira vez irá efetuar a correspondência de disco rígida. Ou seja, ele pesquisará se houver qualquer objeto com o immutableId igual a "abcdefghijkl0123456789 = =". Correspondência de disco rígida falhará como nenhum outro objeto no Azure AD terão que immutableId.
 11. Correspondência de forma recuperável Bob Taylor, em seguida, tenta do Azure AD. Ou seja, ele pesquisará se houver qualquer objeto com proxyAddresses igual a três valores, incluindo smtp: bob@contoso.com
@@ -132,7 +132,7 @@ A razão mais comum para o erro ObjectTypeMismatch é dois objetos de tipo difer
 #### <a name="description"></a>Descrição
 Esquema do Active Directory do Azure não permite duas ou mais objetos para ter o mesmo valor dos seguintes atributos. É que cada objeto no Azure AD é forçado a ter um valor exclusivo destes atributos numa determinada instância.
 
-* proxyAddresses
+* ProxyAddresses
 * UserPrincipalName
 
 Se o Azure AD Connect tenta adicionar um novo objeto ou atualizar um objeto existente com um valor para os atributos acima que já está atribuído a outro objeto no Azure Active Directory, a operação resulta num erro de sincronização "AttributeValueMustBeUnique".
@@ -144,14 +144,14 @@ Se o Azure AD Connect tenta adicionar um novo objeto ou atualizar um objeto exis
 1. **BOB Smith** é um utilizador sincronizado no Azure Active Directory de ativado no local do Active Directory contoso.com
 2. BOB Smith **UserPrincipalName** no local é definido como **bobs@contoso.com**.
 3. BOB também tem valores para a seguir a **proxyAddresses** atributo:
-   * SMTP: bobs@contoso.com
-   * SMTP: bob.smith@contoso.com
-   * **SMTP: bob@contoso.com**
+   * smtp: bobs@contoso.com
+   * smtp: bob.smith@contoso.com
+   * **smtp: bob@contoso.com**
 4. Um novo utilizador **Bob Taylor**, é adicionado ao Active Directory no local.
 5. De Bob Taylor **UserPrincipalName** está definido como **bobt@contoso.com**.
-6. **BOB Taylor** tem os seguintes valores para o **ProxyAddresses** atributo i. SMTP: bobt@contoso.com ii. SMTP: bob.taylor@contoso.com
+6. **BOB Taylor** tem os seguintes valores para o **ProxyAddresses** atributo i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. Objeto de Bob Taylor é sincronizado com o Azure AD com êxito.
-8. Administrador decidiu atualizar de Bob Taylor **ProxyAddresses** atributo com o seguinte valor: eu. **SMTP: bob@contoso.com**
+8. Administrador decidiu atualizar de Bob Taylor **ProxyAddresses** atributo com o seguinte valor: eu. **smtp: bob@contoso.com**
 9. O Azure AD irá tentar atualizar objeto de Bob Taylor no Azure AD com o valor acima, mas que a operação falhe como que ProxyAddresses valor já está atribuído a Bob Smith, resultando no erro de "AttributeValueMustBeUnique".
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Como corrigir o erro de AttributeValueMustBeUnique

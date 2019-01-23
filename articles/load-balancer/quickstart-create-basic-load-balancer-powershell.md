@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: d3e024998e186e9c552a9a21d2b5a4bb74e18c2f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c8c7d94e216f45551ed869b2ba921f3c79e6307a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422784"
+ms.locfileid: "54452688"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga público com o Azure PowerShell
 Este início rápido mostra como criar um Balanceador de Carga Básico com o Azure PowerShell. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o Windows Server e faça o balanceamento de carga de uma aplicação Web entre as VMs.
@@ -277,7 +277,7 @@ O parâmetro `-AsJob` cria a VM como uma tarefa em segundo plano, para que os pe
  
 Instale o IIS com uma página Web personalizada em ambas as VMs de back-end da seguinte forma:
 
-1. Obtenha o endereço IP público do Balanceador de Carga. Obtenha o endereço IP público do Balanceador de Carga com `Get-AzureRmPublicIPAdress`.
+1. Obtenha o endereço IP público do Balanceador de Carga. Obtenha o endereço IP público do Balanceador de Carga com `Get-AzureRmPublicIPAddress`.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

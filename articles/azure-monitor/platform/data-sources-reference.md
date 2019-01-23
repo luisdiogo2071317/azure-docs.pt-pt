@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 62474aba9eb429755ff5e7c78725ee3ce2d90117
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: ''
+ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728215"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467507"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -49,3 +49,4 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 - Saiba mais sobre [métricas do Azure Monitor](data-collection.md)
 - Saiba mais sobre [o registo de atividades do Azure](activity-logs-overview.md)
 - Saiba mais sobre [registos de diagnóstico do Azure](diagnostic-logs-overview.md)
+

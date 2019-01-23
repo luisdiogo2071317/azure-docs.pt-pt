@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042143"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452960"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
@@ -506,7 +506,7 @@ Também pode aninhar as chamadas para o operador como na consulta abaixo.
 
 Como com outros operadores de consulta, se as propriedades referenciadas na expressão condicional estão em falta em qualquer item, ou se os tipos que está a ser comparados forem diferentes, em seguida, esses itens são excluídos nos resultados da consulta.
 
-O operador de Coalesce (?) pode ser usado para verificar com eficiência a presença de uma propriedade (também conhecido como é definido) num item. Este operador é útil quando consultando semiestruturados ou dados de tipos mistos. Por exemplo, esta consulta devolve o "lastName" se estiver presente, ou "Apelido", se não estiver presente.
+O operador de Coalesce (?) pode ser usado para verificar a presença de uma propriedade num item com eficiência. Este operador é útil quando consultando semiestruturados ou dados de tipos mistos. Por exemplo, esta consulta devolve o "lastName" se estiver presente, ou "Apelido", se não estiver presente.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -1741,7 +1741,7 @@ Aqui está uma lista de operadores LINQ suportados no provedor de LINQ incluído
 * **OrderBy e OrderByDescending**: Traduz-se por ordem ascendente/descendente
 * **Contagem**, **soma**, **Min**, **Max**, e **média** operadores de agregação e seus equivalentes de async **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, e **AverageAsync**.
 * **CompareTo**: Se traduz em comparações de intervalo. Normalmente utilizado para cadeias de caracteres, uma vez que eles não são comparáveis em .NET
-* **Tirar**: Traduz-se na parte superior de SQL para limitar os resultados de uma consulta
+* **Take**: Traduz-se na parte superior de SQL para limitar os resultados de uma consulta
 * **Funções matemáticas**: Oferece suporte à conversão de. Abs, funções Acos, Asin do NET, Atan, invisível, Cos, Exp, andar, Log, Log10, Pow, Round, início de sessão, Sin, Sqrt, Tan, Truncate para as funções internas de SQL equivalentes.
 * **As funções de cadeias de caracteres**: Oferece suporte à conversão de. Concat, Contains, EndsWith do NET, IndexOf, contagem, ToLower, TrimStart, Replace, inverso, TrimEnd, StartsWith, SubString, ToUpper para as funções internas de SQL equivalentes.
 * **As funções de matriz**: Oferece suporte à conversão de. Do NET Concat, Contains e contagem para as funções internas de SQL equivalentes.

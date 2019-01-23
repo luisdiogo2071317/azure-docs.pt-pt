@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050596"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464226"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Escolhas arquitetónicas da monitorização remotas
 
@@ -61,7 +61,7 @@ Para processamento de fluxo, a solução de monitorização remota utiliza o Azu
 
 ### <a name="storage"></a>Armazenamento
 
-Para armazenamento, o acelerador de solução de monitorização remota utiliza o Azure Time Series Insights e o Azure Cosmos DB. O Azure Time Series Insights armazena as mensagens recebidas pelo IoT Hub dos seus dispositivos ligados. O solution accelerator utiliza o Azure Cosmos DB para todos os outro armazenamento como armazenamento esporádico, definições de regras, alarmes e definições de configuração.
+Para armazenamento, o acelerador de solução de monitorização remota utiliza o Azure Time Series Insights e o Azure Cosmos DB. O Azure Time Series Insights armazena as mensagens recebidas pelo IoT Hub dos seus dispositivos ligados. O solution accelerator utiliza o Azure Cosmos DB para todos os outro armazenamento como armazenamento esporádico, definições de regras, alertas e as definições de configuração.
 
 O Azure Cosmos DB é a solução de armazenamento de acesso pouco frequente recomendado para fins gerais para aplicações de IoT. No entanto, as soluções como o Azure Time Series Insights e o Azure Data Lake são adequadas para muitos casos de utilização. Com o Azure Time Series Insights, pode obter informações mais detalhadas sobre os seus dados de séries temporais sensor ao detetar tendências e anomalias. Esta funcionalidade permite-lhe realizar análises de causa raiz e evitar períodos de indisponibilidade dispendiosos.
 
@@ -70,7 +70,7 @@ O Azure Cosmos DB é a solução de armazenamento de acesso pouco frequente reco
 
 ### <a name="business-integration"></a>Integração de negócios
 
-Integração de negócios na solução de monitorização remota está limitada à geração de alarmes, que são colocadas no armazenamento de acesso pouco frequente. Conecte-se a solução Azure Logic Apps para implementar cenários de integração de negócios mais aprofundados.
+Integração de negócios na solução de monitorização remota está limitada à geração de alertas, que são colocadas no armazenamento de acesso pouco frequente. Conecte-se a solução Azure Logic Apps para implementar cenários de integração de negócios mais aprofundados.
 
 ### <a name="user-interface"></a>Interface do usuário
 

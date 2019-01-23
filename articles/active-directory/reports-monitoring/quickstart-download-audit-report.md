@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0184fb058e467e8a9981edcf223613dfc431b933
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620739"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464328"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início Rápido: Transferir um relatório de auditoria no portal do Azure
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início rápido: Transferir um relatório de auditoria no portal do Azure
 
-Neste início rápido, vai aprender a transferir os registos de auditoria do seu inquilino das últimas 24 horas.
+Neste início rápido, vai aprender a transferir os registos de auditoria do seu inquilino das últimas 24 horas. Pode baixar até 5000 registos do portal do Azure. Os registos são ordenados pelos mais recentes para que, por padrão, obtém os registos de 5000 mais recentes. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ Neste início rápido, vai aprender a transferir os registos de auditoria do seu
 * Um inquilino do Azure Active Directory. 
 * Um utilizador, o que está a **administrador de segurança**, **leitor de segurança**, ou **Administrador Global** função para o inquilino. Além disso, qualquer utilizador no inquilino pode aceder aos seus próprios registos de auditoria.
 
-## <a name="quickstart-download-an-audit-report"></a>Início Rápido: Transferir um relatório de auditoria
+## <a name="quickstart-download-an-audit-report"></a>Início rápido: Transferir um relatório de auditoria
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory** no painel de navegação esquerdo e utilize o botão **Trocar diretório** para selecionar o Active Directory.

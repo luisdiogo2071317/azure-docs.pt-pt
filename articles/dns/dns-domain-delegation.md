@@ -1,24 +1,17 @@
 ---
-title: Descrição geral de delegação do DNS do Azure | Microsoft Docs
+title: Descrição geral da delegação de DNS do Azure
 description: Compreenda como alterar a delegação de domínios e utilizar servidores de nomes de DNS do Azure para fornecer o alojamento de domínios.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461038"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
 
@@ -58,17 +51,20 @@ A imagem seguinte mostra um exemplo de consulta DNS. As contoso.net e partners.c
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. O cliente pede `www.partners.contoso.net` a partir do respetivo servidor DNS local.
-1. O servidor DNS local não tem o registo, por isso faz um pedido ao respetivo servidor de nomes de raiz.
-1. O servidor de nomes de raiz não tem o registo, mas sabe o endereço do servidor de nomes `.net`, e fornece esse endereço ao servidor DNS
-1. O DNS envia o pedido ao servidor de nomes `.net`, não tem o registo, mas não sabe o endereço do servidor de nomes contoso.net. Neste caso, é uma zona DNS alojada no DNS do Azure.
-1. A zona `contoso.net` não tem o registo, mas sabe o servidor de nomes para `partners.contoso.net` e responde com o mesmo. Neste caso, é uma zona DNS alojada no DNS do Azure.
-1. O servidor DNS solicita o endereço IP do `partners.contoso.net` a partir da zona `partners.contoso.net`. Contém o registo A e responde com o endereço IP.
-1. O servidor DNS fornece o endereço IP ao cliente
-1. O cliente liga-se ao site `www.partners.contoso.net`.
+2. O servidor DNS local não tem o registo, por isso faz um pedido ao respetivo servidor de nomes de raiz.
+3. O servidor de nomes de raiz não tem o registo, mas sabe o endereço do servidor de nomes `.net`, e fornece esse endereço ao servidor DNS
+4. O servidor DNS local envia o pedido para o `.net` nome do servidor.
+5. O `.net` nome do servidor não tem o registo, mas souber o endereço do `contoso.net` nome do servidor. Neste caso, ele responde com o endereço do servidor nome da zona DNS alojada no DNS do Azure.
+6. O servidor DNS local envia o pedido para o nome do servidor para o `contoso.net` zona alojada no DNS do Azure.
+7. A zona `contoso.net` não tem o registo, mas sabe o nome do servidor para `partners.contoso.net` e responde com o endereço. Neste caso, é uma zona DNS alojada no DNS do Azure.
+8. O servidor DNS local envia o pedido para o nome do servidor para o `partners.contoso.net` zona.
+9. O `partners.contoso.net` zona tem o registo e responde com o endereço IP.
+10. O servidor DNS local fornece o endereço IP do cliente
+11. O cliente liga-se ao site `www.partners.contoso.net`.
 
 Cada delegação, na verdade, tem duas cópias dos registos NS; uma na zona principal a apontar para a subordinada e outra na própria zona subordinada. A zona “contoso.net” contém os registos NS para “contoso.net” (além dos registos NS em “net”). Estes são designados registos NS autoritativos e residem no vértice da zona subordinada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a [delegar o domínio no DNS do Azure](dns-delegate-domain-azure-dns.md)
 

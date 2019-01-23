@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632166"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467983"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para documentos de índice (como PDFs, documentos do Microsoft Office e diversos outros formatos comuns) armazenados no armazenamento de Blobs do Azure. Em primeiro lugar, ele explica as noções básicas de definir e configurar um indexador de Blobs. Em seguida, ele oferece uma discussão mais aprofundada dos comportamentos e cenários que tem probabilidade de encontrar.
@@ -34,7 +34,6 @@ Pode configurar um indexador do armazenamento de Blobs do Azure utilizando:
 
 > [!NOTE]
 > Algumas funcionalidades (por exemplo, mapeamentos de campo) ainda não estão disponíveis no portal e têm de ser utilizadas por meio de programação.
->
 >
 
 Aqui, vamos demonstrar o fluxo com a API REST.

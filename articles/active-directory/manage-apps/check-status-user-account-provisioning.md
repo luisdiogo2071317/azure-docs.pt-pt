@@ -4,7 +4,7 @@ description: Saiba como verificar o estado das tarefas de configuração de cont
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357207"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463071"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento de contas de utilizadores automático
 
@@ -40,9 +40,9 @@ Conectores de aprovisionamento são a configurar e configurado com o [portal do 
 
 Este artigo utiliza os seguintes termos definidos abaixo:
 
-* **Sistema de origem** -o repositório de utilizadores que sincroniza a partir do serviço de aprovisionamento do AD do Azure. O Azure Active Directory é o sistema de origem para a maioria dos pré-integradas aprovisionamento conectores, no entanto, existem algumas exceções (exemplo: a sincronização de entrada Workday).
+* **Sistema de origem** -o repositório de utilizadores que sincroniza a partir do serviço de aprovisionamento do AD do Azure. O Azure Active Directory é o sistema de origem para a maioria dos conectores de aprovisionamento previamente integradas, no entanto, existem algumas exceções (exemplo: Workday sincronização de entrada).
 
-* **Sistema de destino** -o repositório de utilizadores que sincroniza os para o Azure AD que o serviço de aprovisionamento. Normalmente, se trata de uma aplicação SaaS (exemplos: Salesforce, ServiceNow, Google Apps, o Dropbox for Business), mas em alguns casos, pode ser um sistema no local como o Active Directory (exemplo: sincronização de entrada do Workday para o Active Directory).
+* **Sistema de destino** -o repositório de utilizadores que sincroniza os para o Azure AD que o serviço de aprovisionamento. Normalmente, se trata de uma aplicação SaaS (exemplos: Salesforce, ServiceNow, Google Apps, o Dropbox for Business), mas em alguns casos, pode ser um sistema no local como o Active Directory (exemplo: Workday sincronização de entrada para o Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obter relatórios a partir do portal de gestão do Azure de aprovisionamento
@@ -68,7 +68,7 @@ O relatório de resumo de aprovisionamento está visível no **aprovisionamento*
 
 O relatório de resumo de provisionamento deve ser o primeiro contato de administradores local para verificar o estado de funcionamento operacional a tarefa de aprovisionamento.
 
- ![Relatório de resumo](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Relatório de resumo](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Aprovisionamento de registos de auditoria
 Todas as atividades executadas pelo serviço de aprovisionamento são registadas nos registos de auditoria do Azure AD, que podem ser visualizados no **registos de auditoria** separador sob a **aprovisionamento da conta** categoria. Tipos de eventos de atividade registada incluem:
@@ -83,13 +83,13 @@ Todas as atividades executadas pelo serviço de aprovisionamento são registadas
 
 Ao examinar o aprovisionamento de eventos para um usuário individual, ocorrem os eventos normalmente pela seguinte ordem:
 
-1. Evento de importação: utilizador é obtido a partir do sistema de origem.
+1. Evento de importação: Utilizador é recuperado do sistema de origem.
 
-2. Evento de importação: sistema de destino é consultado para verificar a existência do utilizador obtido.
+2. Evento de importação: Sistema de destino é consultado para verificar a existência do utilizador obtidos.
 
-3. Evento de regra de sincronização: os dados de utilizador de sistemas de origem e de destino são avaliados em relação a regras de mapeamento do atributo configuradas e filtros de âmbito para determinar a ação que, se houver, deve ser efetuada.
+3. Evento de regra de sincronização: Dados de utilizador de sistemas de origem e de destino são avaliados em relação a regras de mapeamento do atributo configuradas e filtros de âmbito para determinar a ação que, se houver, deve ser efetuada.
 
-4. Exportar eventos: se o evento de regra de sincronização ditado que uma ação deve ser executada (Add, Update, Delete), em seguida, os resultados da ação são registrados num evento de exportação.
+4. Evento de exportação: Se o evento de regra de sincronização ditado que uma ação deve ser executada (Add, Update, Delete), em seguida, os resultados da ação são registrados num evento de exportação.
 
 ![Criar um utilizador de teste do Azure AD](./media/check-status-user-account-provisioning/audit_logs.PNG)
 

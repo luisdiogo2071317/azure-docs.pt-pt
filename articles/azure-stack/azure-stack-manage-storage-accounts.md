@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302719"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470278"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento no Azure Stack
+
 Saiba como gerir contas de armazenamento no Azure Stack para encontrar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
 
-## <a name="find"></a>Localizar uma conta de armazenamento
+## <a name="find-a-storage-account"></a>Localizar uma conta de armazenamento
 A lista de contas de armazenamento na região pode ser visualizada no Azure Stack por:
 
 1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
 
-2. Selecione **todos os serviços** > **gestão da região** sob **administração**.
+2. Selecione **todos os serviços** > **contas de armazenamento**.
 
-3. Selecione **armazenamento** partir do **fornecedores de recursos** lista.
-   
-   ![Fornecedor de Recursos de Armazenamento](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Selecione **contas de armazenamento** na **armazenamento**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   O painel apresenta a lista de contas de armazenamento nessa região.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 Por predefinição, são apresentadas as primeiras 10 contas. Pode optar por obter muito mais ao clicar o **carregar mais** link na parte inferior da lista.

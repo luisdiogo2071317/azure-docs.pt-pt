@@ -1,10 +1,10 @@
 ---
-title: 'Do Azure AD Connect: Tarefas de configuração de postagem de associação Azure AD híbrido | Documentos da Microsoft'
+title: 'Azure AD Connect: Tarefas de configuração do Azure AD híbrido associação post | Documentos da Microsoft'
 description: Este detalhes de documento post tarefas de configuração necessários para concluir a associação do Azure AD híbrido
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31bf3c7ba2365f3fdfd6f2da1dbd1942ada1327e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999236"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475463"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
@@ -30,12 +30,12 @@ Depois de executar o Azure AD Connect para configurar a sua organização para a
 Todos os dispositivos associados a um domínio que executam o Windows 10 e Windows Server 2016 automaticamente Registre-se com o Azure AD depois que todos os passos de configuração forem concluídos. Se preferir uma implementação controlada, em vez deste registo automático, pode utilizar a política de grupo para seletivamente ativar ou desativar a implementação automática.  Esta política de grupo deve ser definida antes de iniciar o outro configuração passos: Azure AD
 * Crie um objeto de política de grupo no Active Directory.
 * Nomeie-(associar ex-híbrido do Azure AD).
-* Editar & Ir para: configuração do computador > políticas > modelos administrativos > componentes do Windows > registo de dispositivos.
+* Editar & Ir para:  Configuração do computador > políticas > modelos administrativos > componentes do Windows > registo de dispositivos.
 
 >[!NOTE]
 >Para 2012R2 as definições de política estão em **configuração do computador > políticas > modelos administrativos > componentes do Windows > associação à área de trabalho > automaticamente à área de trabalho associar computadores cliente**
 
-* Desative esta definição: registar computadores associados a domínios como dispositivos.
+* Desative esta definição:  Registre-se a computadores associados a domínios como dispositivos.
 * Aplicar e clique em OK.
 * Ligue o GPO para o local de sua preferência (unidade organizacional, segurança, grupo, ou ao domínio para todos os dispositivos).
 
@@ -69,7 +69,7 @@ Se sua organização utiliza a sincronização de Hash de palavra-passe ou auten
 Para registar dispositivos de nível inferior do Windows, terá de certificar-se de que a política do Azure AD permite aos utilizadores registar dispositivos. 
 
 * Iniciar sessão na sua conta no portal do Azure.
-* Aceda a: Azure Active Directory > dispositivos > definições do dispositivo
+* Vá para:  O Azure Active Directory > dispositivos > definições do dispositivo
 * Defina "Os utilizadores podem registar os dispositivos com o Azure AD" para todos.
 * Clicar em Guardar
 
@@ -87,8 +87,8 @@ Este instalador cria uma tarefa agendada no sistema de dispositivo que é execut
 
 * Crie um objeto de política de grupo no Active Directory – se ainda não estiver criado.
 * Nomeie-(associar ex-híbrido do Azure AD).
-* Editar & Ir para: configuração do computador > políticas > modelos administrativos > componentes do Windows > registo de dispositivos
-* Ativar: Registar computadores associados a um domínio, como dispositivos
+* Editar & Ir para:  Configuração do computador > políticas > modelos administrativos > componentes do Windows > registo de dispositivos
+* Ative:  Registe-se os computadores associados a um domínio, como dispositivos
 * Aplicar e clique em OK.
 * Ligue o GPO para o local de sua preferência (unidade organizacional, segurança, grupo, ou ao domínio para todos os dispositivos).
 

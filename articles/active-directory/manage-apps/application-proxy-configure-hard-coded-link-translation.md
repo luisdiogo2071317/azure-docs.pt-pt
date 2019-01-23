@@ -4,7 +4,7 @@ description: Abrange as noções básicas sobre os conectores de Proxy de aplica
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461557"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -52,7 +52,7 @@ Pode utilizar o Intune Managed Browser para proteger ainda mais a sua aplicaçã
 
 Para obter mais informações, incluindo como configurar esta opção, consulte a [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentação.  
 
-### <a name="option-2-myapps-browser-extension"></a>Opção 2: Extensão de MyApps Browser 
+### <a name="option-2-myapps-browser-extension"></a>Opção 2: Extensão do Browser de My Apps 
 
 Com a extensão de Browser MyApps, todos os URL internos publicados com o Proxy de aplicações são reconhecidos pela extensão e redirecionados para o URL externo correspondente. Isto garante que todos os hard-coded internos URLs de trabalho e, se um usuário vai para a barra de endereço do browser e tipos diretamente o URL interno, funciona mesmo que o utilizador é remoto.  
 
@@ -85,7 +85,7 @@ Existem dois tipos comuns de ligações internas em aplicações no local:
 
 Conversão de link está ativada para cada aplicativo, para que tem controle sobre a experiência do usuário no nível por aplicação. Ativar a conversão de link para uma aplicação quando pretender que os links *partir* essa aplicação para ser convertido, não liga *para* essa aplicação. 
 
-Por exemplo, suponha que tem três aplicações publicadas através do Proxy de aplicações que todos ligar entre si: vantagens, as despesas e viagens. Existe uma quarta aplicação, comentários, que não não publicado através do Proxy de aplicações.
+Por exemplo, suponha que tem três aplicações publicadas através do Proxy de aplicações que todos ligar entre si: Vantagens, as despesas e viagens. Existe uma quarta aplicação, comentários, que não não publicado através do Proxy de aplicações.
 
 Ao ativar a conversão de link para a aplicação de benefícios, as ligações para as despesas e viagens são redirecionadas para os URLs externos para essas aplicações, mas a ligação para comentários não for redirecionada porque não existe nenhuma URL externo. Links de despesas e viagem para a benefícios não funcionam, porque não foi ativada a conversão de link para essas duas aplicações.
 

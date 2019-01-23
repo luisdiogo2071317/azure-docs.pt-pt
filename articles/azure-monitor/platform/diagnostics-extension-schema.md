@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790763"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471655"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
 Esta página de índices versões de esquema de extensão de diagnóstico do Azure fornecidos como parte do SDK do Microsoft Azure.  
@@ -210,3 +210,4 @@ Se estiver a atualizar o seu projeto do Azure SDK 2.4 para o Azure SDK 2.5 ou po
 * **Diagnósticos para aplicações de serviço em nuvem só podem ser configurados ao nível da função, não ao nível da instância.**
 * **Sempre que implemente a sua aplicação, a configuração de diagnósticos é atualizada** – isso pode causar problemas de paridade, se alterar a configuração de diagnóstico no Explorador de servidores e, em seguida, volte a implementar a sua aplicação.
 * **No Azure SDK 2.5 e posterior, despejos de memória estão configurados no arquivo de configuração de diagnósticos, não no código** – se tiver despejos de memória configurados no código, terá que transferir manualmente a configuração a partir do código ao arquivo de configuração, porque o despejos de memória não são transferidos durante a migração para o Azure SDK 2.6.
+

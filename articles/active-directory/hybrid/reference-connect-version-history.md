@@ -4,7 +4,7 @@ description: Este artigo apresenta uma lista de todas as versões do Azure AD Co
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608448"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469768"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -616,7 +616,7 @@ O problema que surge é que o **sincronizar todos os domínios e UOs opção** e
 
 * Foi corrigido um problema relacionado com o [ms-DS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) funcionalidade qual o Azure AD Connect é não repetição de escrita no local atributo ms-DS-ConsistencyGuid do AD. O erro ocorre quando há vários locais florestas do AD adicionadas ao Azure AD Connect e o *as identidades dos utilizadores existem em toda a opção de diretórios vários* está selecionada. Quando tal configuração é usada, as regras de sincronização resultante não preencher o atributo de sourceAnchorBinary no Metaverso. O atributo sourceAnchorBinary é utilizado como o atributo de origem para o atributo ms-DS-ConsistencyGuid. Como resultado, a repetição de escrita para o atributo ms-DSConsistencyGuid não ocorre. Para corrigir o problema, seguintes regras de sincronização foram atualizadas para se certificar de que o atributo sourceAnchorBinary no Metaverso sempre é preenchido:
   * Do AD - InetOrgPerson AccountEnabled.xml
-  * Do AD - InetOrgPerson Common.xml
+  * In from AD - InetOrgPerson Common.xml
   * Do AD - AccountEnabled.xml de utilizador
   * Do AD - Common.xml de utilizador
   * No utilizador associar as SOAInAAD.xml do AD-
@@ -685,7 +685,7 @@ CBool(
   * Foram adicionados ao esquema de MV seguintes atributos:
     * Grupo: Nome da Conta
     * Group: domainNetBios
-    * Grupo: domainFQDN
+    * Group: domainFQDN
     * Pessoa: distinguishedName
 
   * Os atributos seguintes foram adicionados ao esquema do conector do Azure AD:

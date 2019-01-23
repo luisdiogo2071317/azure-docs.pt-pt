@@ -4,7 +4,7 @@ description: Como resolver problemas comuns enfrentados ao configurar aprovision
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1d2b4094300fa3e42f07bbbfe80630fbb40501c5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 340a7dfdf9698019eeb2c96dc56411afb7a78f50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356954"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471995"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema ao configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD
 
@@ -67,7 +67,7 @@ Quando um utilizador aparece como "ignorada" nos registos de auditoria, é muito
 
 -   **Um atributo obrigatório está em falta ou não preenchida para um utilizador.** Uma coisa importante a considerar ao configurar o aprovisionamento ser para rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem qual usuário (ou grupo) propriedades fluxo a partir do Azure AD à aplicação. Isto inclui a definição "da propriedade correspondente" que ser utilizado para identificar exclusivamente e corresponder ao utilizadores/grupos entre os dois sistemas. Para obter mais informações sobre este processo importante, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-   * **Mapeamentos para grupos de atributos:** aprovisionamento do nome do grupo e detalhes do grupo, além de membros, se for suportado para alguns aplicativos. É possível habilitar ou desabilitar essa funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo, mostrados na **aprovisionamento** separador. Se o provisionamento de grupos estiver ativado, certifique-se de que reveja os mapeamentos de atributos para garantir que um campo adequado, está a ser utilizado para o ID"correspondente". Isso pode ser o alias de e-mail ou nome de exibição), como o grupo e seus membros não ser aprovisionado se a propriedade correspondente estiver vazio ou não preenchida para um grupo no Azure AD.
+   * **Mapeamentos de atributos para grupos:** Aprovisionamento do nome do grupo e detalhes do grupo, além de membros, se for suportado para alguns aplicativos. É possível habilitar ou desabilitar essa funcionalidade ativando ou desativando a **mapeamento** para objetos de grupo, mostrados na **aprovisionamento** separador. Se o provisionamento de grupos estiver ativado, certifique-se de que reveja os mapeamentos de atributos para garantir que um campo adequado, está a ser utilizado para o ID"correspondente". Isso pode ser o alias de e-mail ou nome de exibição), como o grupo e seus membros não ser aprovisionado se a propriedade correspondente estiver vazio ou não preenchida para um grupo no Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e o desaprovisionamento de utilizadores em Aplicações SaaS com o Azure Active Directory)

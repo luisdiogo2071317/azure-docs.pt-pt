@@ -3,7 +3,7 @@ title: Compreender os conectores de Proxy de aplicações do Azure AD | Document
 description: Abrange as noções básicas sobre os conectores de Proxy de aplicações do Azure AD.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca483e84b28b50d963ecc6c2e26499574f546e0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134977"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473627"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -120,9 +120,9 @@ O balanceamento de carga acontece entre conectores de um grupo de conector indic
 
 Outro fator que afeta o desempenho é a qualidade do sistema de rede entre os conectores, incluindo: 
 
-* **O serviço online**: ligações lentas ou de alta latência ao Proxy da aplicação de serviço no Azure influência o desempenho do conector. Para obter o melhor desempenho, ligue a sua organização para o Azure com o Express Route. Caso contrário, tem a sua equipa de rede, certifique-se de que as ligações para o Azure são processadas mais eficientemente possível. 
-* **As aplicações de back-end**: em alguns casos, são proxies adicionais entre o conector e as aplicações de back-end que podem tornar mais lenta ou impedir conexões. Para resolver problemas neste cenário, abra um browser a partir do servidor do conector e tente aceder à aplicação. Se executar os conectores no Azure, mas os aplicativos estão no local, a experiência poderá não ser o que os usuários esperam.
-* **Os controladores de domínio**: se os conectores realizar SSO com delegação restrita de Kerberos, entre em contato com os controladores de domínio antes de enviar o pedido para o back-end. Os conectores tenham uma cache de tíquetes Kerberos, mas num ambiente ocupado a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Este problema é mais comum para os conectores que executam no Azure, mas se comunicar com os controladores de domínio que estão no local. 
+* **O serviço online**: Ligações lentas ou de alta latência para o serviço de Proxy de aplicações no Azure influenciam o desempenho do conector. Para obter o melhor desempenho, ligue a sua organização para o Azure com o Express Route. Caso contrário, tem a sua equipa de rede, certifique-se de que as ligações para o Azure são processadas mais eficientemente possível. 
+* **As aplicações de back-end**: Em alguns casos, há proxies adicionais entre o conector e as aplicações de back-end que podem tornar mais lenta ou impedir conexões. Para resolver problemas neste cenário, abra um browser a partir do servidor do conector e tente aceder à aplicação. Se executar os conectores no Azure, mas os aplicativos estão no local, a experiência poderá não ser o que os usuários esperam.
+* **Os controladores de domínio**: Se os conectores realizar SSO com delegação restrita de Kerberos, eles entre em contato com os controladores de domínio antes de enviar o pedido para o back-end. Os conectores tenham uma cache de tíquetes Kerberos, mas num ambiente ocupado a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Este problema é mais comum para os conectores que executam no Azure, mas se comunicar com os controladores de domínio que estão no local. 
 
 Para obter mais informações sobre como otimizar sua rede, consulte [considerações sobre a topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory](application-proxy-network-topology.md).
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584382"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465246"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
@@ -70,23 +70,23 @@ Se as funções incorporadas acima não atenderem às necessidades exatas de sua
 
 | Operação | Descrição |
 | --- | --- |
-| Eliminar Microsoft.Insights/ActionGroups/[Read, escrita] |Grupos de ação de leitura/escrita/eliminar. |
-| Eliminar Microsoft.Insights/ActivityLogAlerts/[Read, escrita] |Alertas de registo de atividade de leitura/escrita/eliminar. |
-| Eliminar Microsoft.Insights/AlertRules/[Read, escrita] |Regras de alerta de leitura/escrita/eliminar (a partir de alertas clássicas). |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Grupos de ação de leitura/escrita/eliminar. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Alertas de registo de atividade de leitura/escrita/eliminar. |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Regras de alerta de leitura/escrita/eliminar (a partir de alertas clássicas). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lista de incidentes (histórico de regra de alerta a ser disparado) para regras de alerta. Isto aplica-se apenas ao portal. |
-| Eliminar Microsoft.Insights/AutoscaleSettings/[Read, escrita] |Definições de dimensionamento automático de leitura/escrita/eliminar. |
-| Eliminar Microsoft.Insights/DiagnosticSettings/[Read, escrita] |Definições de diagnóstico de leitura/escrita/eliminar. |
+| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Definições de dimensionamento automático de leitura/escrita/eliminar. |
+| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Definições de diagnóstico de leitura/escrita/eliminar. |
 | Microsoft.Insights/EventCategories/Read |Enumere todas as categorias de possíveis no registo de atividades. Utilizado pelo portal do Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de Atividades através do portal. |
 | Microsoft.Insights/eventtypes/values/Read |Lista de eventos de registo de Atividades (eventos de gestão) numa subscrição. Esta permissão é aplicável ao portal e programático acesso ao registo de atividades. |
-| Eliminar Microsoft.Insights/ExtendedDiagnosticSettings/[Read, escrita] | Leitura/escrita/eliminar definições de diagnóstico para os registos de fluxo de rede. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Leitura/escrita/eliminar definições de diagnóstico para os registos de fluxo de rede. |
 | Microsoft.Insights/LogDefinitions/Read |Esta permissão é necessária para os utilizadores que necessitam de aceder a registos de Atividades através do portal. |
-| Eliminar Microsoft.Insights/LogProfiles/[Read, escrita] |Perfis de registo de leitura/escrita/eliminar (transmissão em fluxo o registo de atividades para a conta de armazenamento ou de hub de eventos). |
-| Eliminar Microsoft.Insights/MetricAlerts/[Read, escrita] |Leitura/escrita/eliminar perto de alertas de métricas em tempo real |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Perfis de registo de leitura/escrita/eliminar (transmissão em fluxo o registo de atividades para a conta de armazenamento ou de hub de eventos). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Leitura/escrita/eliminar perto de alertas de métricas em tempo real |
 | Microsoft.Insights/MetricDefinitions/Read |Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 | Microsoft.Insights/Metrics/Read |Ler métricas para um recurso. |
 | Microsoft.Insights/Register/Action |Registe o fornecedor de recursos do Azure Monitor. |
-| Eliminar Microsoft.Insights/ScheduledQueryRules/[Read, escrita] |Alertas de registo de leitura/escrita/eliminar no Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Alertas de registo de leitura/escrita/eliminar no Azure Monitor. |
 
 
 
@@ -187,4 +187,5 @@ Para obter mais informações, consulte [de rede de segurança e armazenamento d
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre RBAC e as permissões no Resource Manager](../../role-based-access-control/overview.md)
 * [Leia a visão geral de monitorização no Azure](../../azure-monitor/overview.md)
+
 

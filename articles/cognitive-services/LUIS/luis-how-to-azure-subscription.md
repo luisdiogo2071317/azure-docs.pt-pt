@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7127dad813dc4c026f8feb2840f3a3903e7a3e2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423090"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473389"
 ---
-# <a name="using-subscription-keys-with-your-luis-app"></a>Utilizar chaves de subscrição com a sua aplicação LUIS
+# <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
 Não é necessário criar chaves de subscrição para utilizar as suas consultas de ponto final de 1000 primeiro gratuito. Assim que as consultas de ponto de extremidade são usadas, criar um recurso do Azure no [portal do Azure](http://portal.azure.com), em seguida, atribuir esse recurso para uma aplicação LUIS no [portal de LUIS](https://www.luis.ai).
 

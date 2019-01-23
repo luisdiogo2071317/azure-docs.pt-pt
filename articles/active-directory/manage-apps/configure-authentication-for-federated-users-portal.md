@@ -4,7 +4,7 @@ description: Explica é que um inquilino do Azure AD e como gerir o Azure atrav�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957943"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461200"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 
@@ -63,9 +63,9 @@ Sintaxe de sugestão de domínio varia consoante o protocolo que é utilizado e,
 
 **WS-Federation**: whr=contoso.com na cadeia de consulta.
 
-**SAML**: qualquer um de um autenticação pedido SAML que contenha uma sugestão de domínio ou um whr=contoso.com de cadeia de caracteres de consulta.
+**SAML**:  De qualquer um autenticação pedido SAML que contenha uma sugestão de domínio ou um whr=contoso.com de cadeia de caracteres de consulta.
 
-**Abrir ID Connect**: um domain_hint=contoso.com de cadeia de caracteres de consulta. 
+**Abrir ID Connect**: Um domain_hint=contoso.com de cadeia de caracteres de consulta. 
 
 Se uma sugestão de domínio está incluída no pedido de autenticação da aplicação e o inquilino está Federado com esse domínio, do Azure AD tenta redirecionar o início de sessão para o IdP que está configurado para esse domínio. 
 
@@ -220,7 +220,7 @@ Pode repetir este comando para cada principal de serviço ao qual pretende adici
 
 No caso em que uma aplicação já tem uma política de HomeRealmDiscovery atribuída, não poderá adicionar um segundo.  Nesse caso, altere a definição da política de deteção de Realm Inicial que é atribuída para o aplicativo para adicionar parâmetros adicionais.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Passo 4: Verificar os principais de serviço de aplicação a política HRD é atribuída a
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>Passo 4: Verifique os principais de serviço de aplicação a política HRD é atribuída a
 Para verificar as aplicações que tenham a política HRD configurada, utilize o **Get-AzureADPolicyAppliedObject** cmdlet. Transmita-o **ObjectID** da política que pretende verificar.
 
 ``` powershell
@@ -231,7 +231,7 @@ Experimente o aplicativo para verificar se a nova política está a funcionar.
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemplo: Lista os aplicativos para o qual HRD política está configurada
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Passo 1: Lista todas as políticas que foram criadas na sua organização 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Passo 1: Listar todas as políticas que foram criadas na sua organização 
 
 ``` powershell
 Get-AzureADPolicy
@@ -239,14 +239,14 @@ Get-AzureADPolicy
 
 Tenha em atenção a **ObjectID** da política que pretende listar atribuições para.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 2: Lista de principais de serviço ao qual a política é atribuída  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 2: Lista os principais de serviço ao qual a política é atribuída  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover uma política HRD para uma aplicação
-#### <a name="step-1-get-the-objectid"></a>Passo 1: Obter o ObjectID
+#### <a name="step-1-get-the-objectid"></a>Passo 1: Obtenha o ObjectID
 Utilize o exemplo anterior para obter o **ObjectID** da política e que o principal de serviço de aplicativo do qual pretende removê-lo. 
 
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passo 2: Remover a atribuição de política do principal de serviço de aplicações  

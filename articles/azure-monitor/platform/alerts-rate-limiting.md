@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 6f60e7c6e6a053e3c563fb1e0850d65311b9baba
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346232"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476449"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Taxa de limitação para voz, SMS, mensagens de correio eletrónico, notificações push da aplicação do Azure e webhook de mensagens
 Limitação de velocidade é uma suspensão de notificações que ocorre quando demasiados são enviados para um número de telefone específico, o endereço de e-mail ou o dispositivo. Limitação de velocidade garante que os alertas são gerenciáveis e passíveis de ação.
@@ -35,3 +35,4 @@ Os limiares de limite de taxa são:
 * Saiba mais sobre [comportamento de alertas do SMS](alerts-sms-behavior.md).
 * Obter um [descrição geral dos alertas de registo de atividade](alerts-overview.md)e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

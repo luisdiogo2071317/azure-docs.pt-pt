@@ -3,6 +3,7 @@ title: Implemente a área de trabalho do Studio com o Azure Resource Manager tit
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implementar o Azure Machine Learning Studio área de trabalho com o Azure Resource Manager
 
 Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar espaços de trabalho do Azure Machine Learning, por exemplo, terá primeiro de configurar uma conta de armazenamento do Azure e, em seguida, implementar a sua área de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo Azure Resource Manager para implementar uma área de trabalho do Azure Machine Learning e todas as respetivas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente descrição geral do Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -83,7 +84,7 @@ Connect-AzureRmAccount
 ```
 Este passo tem de ser repetido para cada sessão. Uma vez autenticado, deverá ser apresentadas informações da sua subscrição.
 
-![Conta do Azure][1]
+! [Conta do azure] [1]
 
 Agora que temos acesso ao Azure, podemos criar o grupo de recursos.
 
@@ -97,7 +98,7 @@ $rg
 Certifique-se de que o grupo de recursos está aprovisionado corretamente. **ProvisioningState** deve ser "com êxito."
 O nome do grupo de recursos é utilizado pelo modelo para gerar o nome de conta de armazenamento. O nome da conta de armazenamento tem de ter entre 3 e 24 carateres de comprimento e utilizar números e letras minúsculas apenas.
 
-![Grupo de Recursos][2]
+! [Grupo de recursos] [2]
 
 * Ao utilizar a implementação do grupo de recursos, implemente uma nova área de trabalho do Machine Learning.
 
@@ -125,10 +126,8 @@ Depois da área de trabalho é aprovisionada, pode também automatizar muitas ta
 * Saiba mais sobre [criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Veja a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Assista a este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Consulte a [ajuda de referência de modelo do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
+ <!--Image references--> [1]: [2] de./media/deploy-with-resource-manager-template/azuresubscription.png: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.png
 
 
 <!--Link references-->

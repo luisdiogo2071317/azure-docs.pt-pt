@@ -2,21 +2,21 @@
 title: Esquema do evento de armazenamento de Blobs do Azure Event Grid
 description: Descreve as propriedades que são fornecidas para eventos de armazenamento de Blobs com o Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060267"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469745"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos do Azure Event Grid para armazenamento de BLOBs
 
-Este artigo fornece as propriedades e o esquema para eventos de armazenamento de Blobs. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de armazenamento de Blobs. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
 Para obter uma lista de scripts de exemplo e tutoriais, consulte [origem de eventos de armazenamento](event-sources.md#storage).
 
@@ -83,7 +83,7 @@ O esquema para um evento de blob eliminado é semelhante:
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
@@ -91,7 +91,7 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |

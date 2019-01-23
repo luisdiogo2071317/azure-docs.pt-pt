@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: extensões de diretórios | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Extensões de diretórios | Documentos da Microsoft'
 description: Este tópico descreve a funcionalidade de extensões de diretório no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288310"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476908"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretório
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: Extensões de diretórios
 Pode utilizar extensões de diretório para expandir o esquema no Azure Active Directory (Azure AD) com seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB ao consumo de atributos que continua a gerir no local. Estes atributos podem ser consumidos por meio [extensões de diretório do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://developer.microsoft.com/graph/). Pode ver os atributos disponíveis utilizando [do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
 
 No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
@@ -37,8 +37,8 @@ Configurar quais atributos adicionais que pretende sincronizar no caminho de def
 A instalação mostra os seguintes atributos, são candidatos válidos:
 
 * Tipos de objeto de utilizador e grupo
-* Atributos de valor único: cadeia, booleano, número inteiro, binário
-* Atributos com múltiplos valores: cadeia de caracteres, o binário
+* Atributos de valor único: Cadeia, booleano, número inteiro, binário
+* Atributos com múltiplos valores: Cadeia de caracteres, binário
 
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Ou pode consultar os atributos através do Microsoft Graph API, utilizando [API 
 >[!NOTE]
 > Terá de pedir os atributos a serem retornados. Selecionar explicitamente os atributos como este: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Para obter mais informações, consulte [Microsoft Graph: utilizam parâmetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Para obter mais informações, consulte [Microsoft Graph: Utilizar parâmetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [do Azure AD Connect](how-to-connect-sync-whatis.md) configuração.

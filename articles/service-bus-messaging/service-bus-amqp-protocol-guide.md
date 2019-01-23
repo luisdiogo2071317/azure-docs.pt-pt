@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413912"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476994"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -234,7 +234,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | hora de criação |Declara nesse momento a mensagem foi criada. Não é utilizada pelo barramento de serviço |Não está acessível através da API do barramento de serviço. |
 | group-id |Identificador para um conjunto relacionado de mensagens definidas pelo aplicativo. Utilizado para sessões de barramento de serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Identificar o número de sequência relativo da mensagem dentro de uma sessão de contador. Ignorados pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Anotações de mensagem
 

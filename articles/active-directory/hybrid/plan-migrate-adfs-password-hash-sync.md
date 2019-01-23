@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Migrar de Federação para a sincronização de hash d
 description: Este artigo tem informações sobre como mover o seu ambiente de identidade híbrida da Federação para a sincronização de hash de palavra-passe.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 988c3364bf3bb3c76536c043fd6733599719fdc7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435928"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463342"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar de Federação para a sincronização de hash de palavra-passe do Azure Active Directory
 

@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385419"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476859"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodados em fluxo para um armazém de dados
 Azure [Event Grid](overview.md) é um serviço de encaminhamento de eventos inteligente que permite-lhe reagir a notificações (eventos) de aplicações e serviços. Por exemplo, ele pode acionar uma função do Azure para processar dados de Hubs de eventos que captura a um armazenamento de Blobs do Azure ou o armazenamento do Azure Data Lake e migrar os dados para outros repositórios de dados. Isso [exemplo de integração do Hubs de eventos e o Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como utilizar os Hubs de eventos com o Event Grid migrar dados de Hubs de eventos capturados do armazenamento de BLOBs para um SQL Data Warehouse.

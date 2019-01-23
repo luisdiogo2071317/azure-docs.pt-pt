@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Resolver problemas de conectividade | Documentos da Microsoft'
+title: 'Azure AD Connect: Resolver problemas de conectividade | Documentos da Microsoft'
 description: Explica como resolver problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310672"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474885"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade com o Azure AD Connect
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais probabilidades de ser vistos num ambiente com um servidor proxy.
@@ -46,7 +46,7 @@ URLs, a tabela seguinte é o mínimo absoluto, para conseguir ligar ao Azure AD 
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Utilizado para transferir as listas CRL. |
 | \*.verisign.com |HTTP/80 |Utilizado para transferir as listas CRL. |
-| \*. entrust.net |HTTP/80 |Utilizado para transferir as listas CRL para a MFA. |
+| \*.entrust.net |HTTP/80 |Utilizado para transferir as listas CRL para a MFA. |
 | \*.windows.net |HTTPS/443 |Utilizado para iniciar sessão Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilizado para a MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Utilizado para configurar o diretório do Azure AD e importar/exportar dados. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467490"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
@@ -333,7 +333,7 @@ Saída:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Crie um NIC virtual
-Placas de interface de rede virtual (NICs) estão disponíveis por meio de programação porque pode aplicar regras de seu uso. Consoante a [tamanho da VM](sizes.md), pode anexar vários NICs virtuais a uma VM. A seguir [criar az rede nic](/cli/azure/network/nic#az_network_nic_create) comando, crie um NIC com o nome *myNic* e associá-la com o seu grupo de segurança de rede. O endereço IP público *myPublicIP* está também associado a NIC virtual.
+Placas de interface de rede virtual (NICs) estão disponíveis por meio de programação porque pode aplicar regras de seu uso. Consoante a [tamanho da VM](sizes.md), pode anexar vários NICs virtuais a uma VM. A seguir [criar az rede nic](/cli/azure/network/nic) comando, crie um NIC com o nome *myNic* e associá-la com o seu grupo de segurança de rede. O endereço IP público *myPublicIP* está também associado a NIC virtual.
 
 ```azurecli
 az network nic create \

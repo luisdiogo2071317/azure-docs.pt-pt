@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Expressões do aprovisionamento declarativo | Documentos da Microsoft'
+title: 'Azure AD Connect: Expressões de aprovisionamento declarativa | Documentos da Microsoft'
 description: Explica as expressões do aprovisionamento declarativo.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312068"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460504"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções básicas sobre expressões de aprovisionamento declarativas
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Compreender as Expressões de Aprovisionamento Declarativas
 Sincronização do Azure AD Connect se baseia no serviço de aprovisionamento declarativo introduzidos no Forefront Identity Manager 2010. Ele permite que implemente a lógica de negócio de integração de identidade completa sem a necessidade de escrever código compilado.
 
 Uma parte essencial de aprovisionamento declarativo é a linguagem de expressão utilizada em fluxos de atributos. O idioma utilizado é um subconjunto do Microsoft® Visual Basic® for Applications (VBA). Este idioma é usado no Microsoft Office e os utilizadores com a experiência do VBScript também irão reconhecê-lo. A linguagem de expressão de aprovisionamento declarativa estiver a utilizar apenas as funções e não é uma linguagem estruturada. Não há métodos ou instruções. As funções em vez disso, estão aninhadas no fluxo do programa express.
@@ -35,10 +35,10 @@ Os atributos tem rigidez de tipos. Uma função só aceita atributos do tipo cor
 * As funções têm um nome, seguido de argumentos entre parênteses Retos: FunctionName (argumento 1, o argumento N).
 * Atributos são identificados por parênteses Retos: [attributeName]
 * Parâmetros são identificados sinais de porcentagem: % ParameterName %
-* Constantes de cadeia de caracteres são circundados por aspas: por exemplo, "Contoso" (Nota: tem de utilizar retas aspas "" e não smart aspas "")
+* Constantes de cadeia de caracteres são circundados por aspas: Por exemplo, "Contoso" (Nota: tem de utilizar retas aspas "" e não smart aspas "")
 * Valores numéricos são expressados sem aspas e deve ser decimal. Valores hexadecimais têm o prefixo & H. Por exemplo, 98052 & HFF
-* Valores booleanos são expressos com constantes: True, False.
-* Constantes internas e literais são expressos com apenas seu nome: IgnoreThisFlow NULL, CRLF,
+* Valores booleanos são expressos com constantes: VERDADEIRO, FALSO.
+* Constantes internas e literais são expressos com apenas o nome do utilizador: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Funções
 Aprovisionamento declarativo utiliza muitas funções para ativar a possibilidade de transformar valores de atributo. Estas funções podem ser aninhadas para que o resultado de uma função é passado para outra função.
@@ -93,10 +93,10 @@ Por exemplo:
 
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: referência das funções](reference-connect-sync-functions-reference.md)
+* [Sincronização do Azure AD Connect: Referência das funções](reference-connect-sync-functions-reference.md)
 

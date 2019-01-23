@@ -2,22 +2,22 @@
 title: Esquema de eventos de registo de contentor de grelha de eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de Reigstry de contentor com o Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42061505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462849"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos do Azure Event Grid para o registo de contentor
 
-Este artigo fornece as propriedades e o esquema para eventos de registo de contentor. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de registo de contentor. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponíveis
 
@@ -100,7 +100,7 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
@@ -134,10 +134,10 @@ O objeto de solicitação tem as seguintes propriedades:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | ID | cadeia | O ID do pedido que deu início ao evento. |
-| Ender | cadeia | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
+| addr | cadeia | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
 | anfitrião | cadeia | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
 | método | cadeia | O método de pedido que gerou o evento. |
-| USERAGENT | cadeia | O cabeçalho do agente de utilizador do pedido. |
+| useragent | cadeia | O cabeçalho do agente de utilizador do pedido. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

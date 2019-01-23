@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.subservice: logs
+ms.openlocfilehash: 186b0c693b077b4fa0b1287301b52de5d09c3fe6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542004"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478506"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar para alteração de formato para os registos de diagnóstico do Azure Monitor arquivado para uma conta de armazenamento
 
@@ -137,3 +137,4 @@ Ferramentas personalizadas devem ser atualizadas para lidar com o formato atual 
 
 * Saiba mais sobre [arquivar registos de diagnóstico de recursos para uma conta de armazenamento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Saiba mais sobre [arquivamento de dados de registo de atividade para uma conta de armazenamento](./../../azure-monitor/platform/archive-activity-log.md)
+

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103949"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473814"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -34,7 +34,7 @@ Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos 
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Armazenamento local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
+| **Armazenamento local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
 | **Ficheiro de configuração do agente de monitorização** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Pacote de extensão de diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho de utilitário de coleção de registo** | %SystemDrive%\Packages\GuestAgent\ |
@@ -68,10 +68,10 @@ Se não houver dados para a métrica específica, verifique **configuração de 
 - \ASP.NET\Requests rejeitado
 - \Processor(w3wp)\% de tempo do processador
 - Bytes de \Private \Process (w3wp)
-- \Process(WaIISHost)\% de tempo do processador
+- \Process(WaIISHost)\% Processor Time
 - Bytes de \Private \Process (WaIISHost)
-- \Process(WaWorkerHost)\% de tempo do processador
-- Bytes de \Private \Process (WaWorkerHost)
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page stránkování/s
 - \.Memória de NET CLR (_Global_)\% Time no GC
 - Escrita de \Disk \LogicalDisk (c) Bytes/seg
@@ -203,10 +203,10 @@ Esse código gera quatro tabelas:
 
 | Evento | Nome da tabela |
 | --- | --- |
-| fornecedor = "prov1" &lt;id de evento = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
-| fornecedor = "prov1" &lt;id de evento = eventDestination "2" = "dest1" /&gt; |WADdest1 |
-| fornecedor = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| fornecedor = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |
+| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent + MD5("prov1") + "1" |
+| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
+| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
+| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
 
 ## <a name="references"></a>Referências
 
@@ -293,3 +293,4 @@ A experiência do portal nas máquinas virtuais mostra alguns contadores de dese
 - Se os dados no armazenamento têm nomes de contadores em inglês. Se os nomes de contador não estão em inglês, o gráfico de métricas de portal não capaz de reconhecê-lo. **Atenuação**: Altere idioma da máquina para inglês para as contas do sistema. Para tal, selecione **painel de controlo** > **região** > **administração** > **as definições de cópia**. Em seguida, desmarque **contas de sistema e de tela de boas-vindas** para que o idioma personalizado não é aplicado para a conta do sistema.
 
 - Se estiver a utilizar carateres universais (\*) em seus nomes de contador de desempenho, o portal não conseguir correlacionar o contador recolhido e configurado, quando os contadores de desempenho são enviados para o sink de armazenamento do Azure. **Atenuação**: Para se certificar-se de que pode utilizar carateres universais e fazer com o portal, expanda a (\*), encaminhar os contadores de desempenho para o [sink "Do Azure Monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+

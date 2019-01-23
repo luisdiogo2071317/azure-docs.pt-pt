@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475208"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos do Azure Event Grid para o IoT Hub
 
@@ -115,7 +115,7 @@ Todos os eventos contêm os mesmos dados de nível superior:
 | -------- | ---- | ----------- |
 | ID | cadeia | Identificador exclusivo para o evento. |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | dados | objeto | Dados de eventos do IoT Hub.  |
@@ -126,7 +126,7 @@ Para todos os eventos do IoT Hub, o objeto de dados contém as seguintes proprie
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| HubName | cadeia | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
+| hubName | cadeia | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
 | deviceId | cadeia | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **dispositivo ligado** e **dispositivo desligado** eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
@@ -143,7 +143,7 @@ O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **
 | -------- | ---- | ----------- |
 | duplo | objeto | Informações sobre o dispositivo duplo, que é o represenation de cloud de metadados de dispositivo do aplicativo. | 
 | deviceID | cadeia | O identificador exclusivo do dispositivo duplo. | 
-| ETag | cadeia | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
+| etag | cadeia | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
 | deviceEtag| cadeia | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
 | status | cadeia | Se o dispositivo duplo está ativado ou desativado. | 
 | statusUpdateTime | cadeia | Atualizar o carimbo de hora ISO8601 do último Estado de twin do dispositivo. |

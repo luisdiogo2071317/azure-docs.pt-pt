@@ -3,19 +3,19 @@ title: Hub de eventos de utilização da aplicação do Apache Kafka - Event Hub
 description: Este artigo fornece informações sobre o suporte do Apache Kafka ao Event Hubs do Azure.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091191"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452348"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utilizar os Hubs de eventos do Azure a partir de aplicações do Apache Kafka
 Os Hubs de eventos fornece um ponto de extremidade do Kafka que pode ser utilizado por já existentes Kafka com base em aplicações como uma alternativa à execução de seu próprio cluster do Kafka. Os Hubs de eventos suportam [protocolo do Apache Kafka 1.0 e posterior](https://kafka.apache.org/documentation/)e funciona com seus aplicativos existentes do Kafka, incluindo o MirrorMaker.  
@@ -31,7 +31,7 @@ Conceitualmente Kafka e os Hubs de eventos são quase idênticos: são os dois r
 | Conceito de Kafka | Conceito de Hubs de eventos|
 | --- | --- |
 | Cluster | Espaço de Nomes |
-| Tópico | Hubs de Eventos |
+| Tópico | Hub de Eventos |
 | Partição | Partição|
 | Grupo de Consumidores | Grupo de Consumidores |
 | Desvio | Desvio|
@@ -76,6 +76,4 @@ Este artigo fornecido uma introdução aos Hubs de eventos para o Kafka. Para ob
 - [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md) (Ligar o Akka Streams a um hub de eventos com Kafka ativado)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
 
- 
- 
 

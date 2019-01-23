@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/12/2018
-ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470737"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
@@ -33,7 +33,7 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Memória Otimizada| 4| 500|
 |Memória Otimizada| 8| 960|
 |Memória Otimizada| 16| 1900|
-|Memória Otimizada| 32| 3000|
+|Memória Otimizada| 32| 1900|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
 > FATAL: Desculpe, muitos clientes já

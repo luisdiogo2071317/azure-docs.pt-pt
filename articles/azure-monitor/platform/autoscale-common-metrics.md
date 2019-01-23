@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437729"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461098"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns do Azure Monitor dimensionamento automático
 Dimensionamento automático de Monitor do Azure permite-lhe dimensionar o número de instâncias em execução ou reduzir verticalmente, com base nos dados de telemetria (Métrica). Este documento descreve as métricas comuns que pode querer utilizar. No portal do Azure, pode escolher a métrica do recurso para reduzir horizontalmente para. No entanto, também pode escolher qualquer métrica entre um recurso diferente para reduzir horizontalmente para.
@@ -51,9 +51,9 @@ Pode criar um alerta para as métricas seguintes:
 | Nome da Métrica | Unidade |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Percentagem |
-| \Processor(_Total)\% de tempo privilegiado |Percentagem |
+| \Processor(_Total)\% Privileged Time |Percentagem |
 | \Processor(_Total)\% de tempo do utilizador |Percentagem |
-| Frequência de \Processor \Processor informações ( total) |Contagem |
+| \Processor Information(_Total)\Processor Frequency |Contagem |
 | \System\Processes |Contagem |
 | Contagem de \Thread \Process ( total) |Contagem |
 | Contagem de \Handle \Process ( total) |Contagem |
@@ -63,12 +63,12 @@ Pode criar um alerta para as métricas seguintes:
 | Limite de \Memory\Commit |Bytes |
 | Bytes de \Memory\Pool bloco paginado |Bytes |
 | \Memory\Pool memória não paginável |Bytes |
-| \PhysicalDisk(_Total)\% tempo de disco |Percentagem |
-| \PhysicalDisk(_Total)\% tempo de leitura do disco |Percentagem |
+| \PhysicalDisk(_Total)\% Disk Time |Percentagem |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percentagem |
 | \PhysicalDisk(_Total)\% hora de gravação em disco |Percentagem |
 | \PhysicalDisk ( total) \Disk transferências/seg. |CountPerSecond |
-| \PhysicalDisk ( total) \Disk leituras/seg. |CountPerSecond |
-| \PhysicalDisk ( total) \Disk escritas/seg. |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
 | \PhysicalDisk ( total) \Disk bytes/seg. |BytesPerSecond |
 | \Disk \PhysicalDisk ( total) Bytes lidos/seg |BytesPerSecond |
 | Escrita de \Disk \PhysicalDisk ( total) Bytes/seg |BytesPerSecond |
@@ -187,3 +187,4 @@ Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensiona
 > Para o Service Bus, o conceito de grupo de recursos não existe mas do Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos é normalmente no formato 'Default - ServiceBus-[Região]'. Por exemplo, "Predefinição-ServiceBus-EastUS", 'Predefinição-ServiceBus-WestUS', 'predefinido-ServiceBus-AustraliaEast"etc.
 >
 >
+

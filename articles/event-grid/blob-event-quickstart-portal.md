@@ -3,20 +3,20 @@ title: Enviar eventos de armazenamento de BLOBs para o ponto final web - portal 
 description: Utilize o Azure Event Grid e o portal do Azure para criar a conta de armazenamento de Blobs e subscrever os respetivos eventos. Envie eventos para um Webhook.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b8b06a540af99cad45bed4068dd55773eaf38d0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086968"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468578"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Eventos de armazenamento de BLOBs de rota ponto final da web com o portal do Azure
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Encaminhar eventos de armazenamento de BLOBs para o ponto final da web com o portal do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, irá utilizar o portal do Azure para criar uma conta de armazenamento de Blobs, subscrever eventos nesse armazenamento de blobs e acionar um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 86a3430f6109eb4b61baa0c7014752d07063fe85
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580523"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468787"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -66,9 +66,15 @@ import logging
 import os
 ```
 
+Se estiver a seguir o tutorial em seu próprio ambiente de Python, utilize o seguinte para instalar pacotes necessários.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## <a name="configure-workspace"></a>Configurar a área de trabalho
 
-Crie um objeto de área de trabalho a partir da área de trabalho existente. A `Workspace` é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo. 
+Crie um objeto de área de trabalho a partir da área de trabalho existente. A `Workspace` é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo.
 
 `Workspace.from_config()` lê o ficheiro **aml_config/config.json** e carrega os detalhes para um objeto com o nome `ws`.  `ws` é utilizado em todo o restante código neste tutorial.
 
@@ -95,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Explorar dados
 
-Utilize o objeto de fluxo de dados criado no tutorial anterior. Abrir e executar o fluxo de dados e rever os resultados:
+Utilize o objeto de fluxo de dados criado no tutorial anterior. Para resumir, parte 1 deste tutorial limpos os dados de táxis de NYC para que ele poderia ser usado num modelo de machine learning. Agora, vai utilizar várias funcionalidades do conjunto de dados e permitir que um modelo automatizado criar relações entre os recursos e o preço de uma viagem de táxis. Abrir e executar o fluxo de dados e rever os resultados:
 
 
 ```python
@@ -605,27 +611,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-Tem agora os pacotes necessários e dados prontos para autotraining seu modelo.
+O objetivo deste passo é ter pontos de dados para testar o modelo concluído, que não foram usados para preparar o modelo, para poder medir precisão verdadeiro. Em outras palavras, um modelo bem preparado deve conseguir com precisão fazer predições dos dados que não tenha já viu. Tem agora os pacotes necessários e dados prontos para autotraining seu modelo.
 
 ## <a name="automatically-train-a-model"></a>Preparar automaticamente um modelo
 
 Para preparar automaticamente um modelo, siga os passos seguintes:
-1. Configurar as definições para a experimentação executar.
-1. Submeta a experimentação para o ajuste do modelo.
+1. Configurar as definições para a experimentação executar. Anexar os seus dados de preparação para a configuração e modificar as definições que controlam o processo de treinamento.
+1. Submeta a experimentação para o ajuste do modelo. Depois de submeter a experimentação, o processo faz a iteração por meio de diferente de machine learning algoritmos e as definições de hiper-parâmetros, respeitando as restrições definidas pelo. Ele escolhe o modelo mais adequado ao otimizar uma métrica de precisão.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>As definições para a geração automática e Otimização
 
-Defina o parâmetro de experimentação e as definições para a geração automática e a otimização de modelo. Ver a lista completa dos [definições](how-to-configure-auto-train.md).
+Defina o parâmetro de experimentação e as definições para a geração automática e a otimização de modelo. Ver a lista completa dos [definições](how-to-configure-auto-train.md). A submeter a experimentação com estas predefinições irá demorar cerca de 10 a 15 minutos, mas se pretender que um menor tempo de execução, reduzir `iterations` ou `iteration_timeout_minutes`.
 
 
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração.|
-|**iterations**|30|Número de iterações. Em cada iteração, o modelo prepara-se com os dados com um pipeline específico.|
-|**primary_metric**| spearman_correlation | Métrica que pretende otimizar.|
-|**preprocess**| Verdadeiro | Usando **True**, a experimentação pode pré-processar a entrada.|
+|**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Reduza este valor para diminuir o tempo de execução total.|
+|**iterations**|30|Número de iterações. Em cada iteração, um novo modelo de aprendizagem automática é preparado com os seus dados. Este é o valor principal que afeta o tempo de execução total.|
+|**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo mais adequado será escolhido com base nesta métrica.|
+|**preprocess**| Verdadeiro | Usando **True**, a experimentação pode pré-processar os dados de entrada (processamento de dados em falta, converter o texto em numérico, etc.)|
 |**Verbosidade**| logging.INFO | Controla o nível de registo.|
-|**n_cross_validationss**|5|Número de divisões de validação cruzada.|
+|**n_cross_validations**|5|Número de divisões de validação cruzada a efetuar quando os dados de validação não for especificados.|
 
 
 
@@ -640,6 +646,7 @@ automl_settings = {
 }
 ```
 
+Utilizar as definições de formação definidos como um parâmetro para um `AutoMLConfig` objeto. Além disso, especificar os dados de treinamento e o tipo de modelo, o que é `regression` neste caso.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -664,6 +671,8 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
+A saída mostrada atualizações em direto como a experimentação é executada. Para cada iteração, verá o tipo de modelo, a duração de execução e a precisão de treinamento. O campo `BEST` controla o melhor com score de treinamento com base em seu tipo de métrica.
+
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
@@ -672,7 +681,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -724,7 +733,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opção 2: Obter e examinar todas as iterações de execução em Python
 
-Também pode obter o histórico de cada experimentação e explore as métricas individuais para cada execução de iteração:
+Também pode obter o histórico de cada experimentação e explore as métricas individuais para cada execução de iteração. Ao examinar RMSE (root_mean_squared_error) para cada modelo individual ser executado, verá que a maioria das iterações são prever o custo razoável de táxis dentro de uma margem razoável (US $3 a 4).
 
 ```python
 children = list(local_run.get_children())
@@ -1081,28 +1090,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="register-the-model"></a>Registe o modelo
-
-Registe o modelo na sua área de trabalho do serviço do Azure Machine Learning:
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## <a name="test-the-best-model-accuracy"></a>A maior precisão do modelo de teste
 
-Utilize o melhor modelo para executar previsões no conjunto de dados de teste. A função `predict` utiliza o melhor modelo e prevê os valores de y, **enganar custo**, da `x_test` conjunto de dados. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`:
+Utilize o melhor modelo para executar previsões no conjunto de dados de teste para prever fares táxis. A função `predict` utiliza o melhor modelo e prevê os valores de y, **enganar custo**, da `x_test` conjunto de dados. Imprimir os primeiros 10 prevista valores a partir de custos `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` funcionalidade como o eixo x e viagem `cost` como o eixo y. Para comparar a variância de custo previsto em cada valor de distância de viagem, as primeiras 100 previstos e valores de custo real são criados como série separada. Examinar o desenho mostra que a relação de custo/distância é quase linear. E os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
+Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` funcionalidade como o eixo x e viagem `cost` como o eixo y. Para comparar a variância de custo previsto em cada valor de distância de viagem, as primeiras 100 previstos e valores de custo real são criados como série separada. Examinar o desenho mostra que a relação de custo/distância é quase linear e os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1127,7 +1124,7 @@ plt.show()
 
 ![Gráfico de dispersão de predição](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calcular o `root mean squared error` dos resultados. Utilize o `y_test` dataframe. Convertê-la a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado dá um erro na mesma unidade como a variável y, **custo**. Ele indica que são as predições mais ou menos a distância do valor real:
+Calcular o `root mean squared error` dos resultados. Utilize o `y_test` dataframe. Convertê-la a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado dá um erro na mesma unidade como a variável y, **custo**. Ele indica que são as previsões de Europeia táxis aproximadamente a distância das fares reais:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1165,6 +1162,8 @@ print(1 - mean_abs_percent_error)
 
     Model Accuracy:
     0.8945484613043041
+
+Entre as métricas de precisão predições finais, verá que o modelo é razoavelmente bom em prever fares de táxis de recursos do conjunto de dados, normalmente dentro + - us $3,00. A processo de desenvolvimento do modelo de aprendizagem tradicional é altamente com muitos recursos e requer investimento de dados de conhecimento e a hora de domínio significativo para executar e comparar os resultados de dezenas de modelos. Utilizar a aprendizagem automática é uma excelente forma de rapidamente testar muitos modelos diferentes para o seu cenário.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

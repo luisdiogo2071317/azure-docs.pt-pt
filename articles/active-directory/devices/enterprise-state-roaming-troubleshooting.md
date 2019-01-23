@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise de estado as configurações de roaming, cloud do windows, perguntas mais frequentes sobre o roaming de estado empresarial
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248426"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452943"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -42,7 +42,7 @@ Antes de iniciar a resolução de problemas, certifique-se de que o utilizador e
 ## <a name="information-to-include-when-you-need-help"></a>Informações a incluir quando precisar de ajuda
 Se não conseguir resolver o seu problema com as orientações abaixo, pode contactar os nossos engenheiros de suporte. Quando entre em contato com eles, incluem as seguintes informações:
 
-* **Descrição geral do erro**: existem mensagens de erro vistas pelo utilizador? Caso não tenha havido nenhuma mensagem de erro, descreva o comportamento inesperado, que reparou em detalhes. Que funcionalidades estão ativadas para sincronização e o que é o utilizador à espera de sincronização? São vários recursos não sincronizar ou está isolado numa?
+* **Descrição geral do erro**: Existem mensagens de erro vistas pelo utilizador? Caso não tenha havido nenhuma mensagem de erro, descreva o comportamento inesperado, que reparou em detalhes. Que funcionalidades estão ativadas para sincronização e o que é o utilizador à espera de sincronização? São vários recursos não sincronizar ou está isolado numa?
 * **Utilizadores afetados** – está sincronizado trabalho/falhados para um utilizador ou de vários usuários? Quantos dispositivos estão envolvidos por utilizador? São todos eles não sincronizar ou são alguns deles, sincronização e alguns não sincronizar?
 * **Informações sobre o utilizador** – o que a identidade é o utilizador a utilizar para iniciar sessão no dispositivo? Como é o utilizador iniciar sessão no dispositivo? Eles são parte de um grupo de segurança selecionado permitido para sincronizar? 
 * **Informações sobre o dispositivo** – este dispositivo do Azure AD associado ou associado a um domínio? Que compilação o dispositivo está no? Quais são as atualizações mais recentes?
@@ -61,7 +61,7 @@ Esta secção fornece sugestões sobre como solucionar problemas e diagnosticar 
   * Bloqueando e desbloqueando a tela (Win + L) pode ajudar a acionar a sincronização.
   * Deve estar a iniciar com a mesma conta em ambos os PCs para sincronização se trabalhar – como o Roaming de estado empresarial é vinculado à conta de utilizador e não uma conta de computador.
 
-**Problema em potencial**: se os controles no **definições** página não estão disponíveis e verá a mensagem "o algumas funcionalidades do Windows só estão disponíveis se estiver a utilizar uma conta Microsoft ou a conta profissional". Este problema pode surgir para dispositivos que estão configurados para ser associado a um domínio e registado para o Azure AD, mas o dispositivo ainda não ainda com êxito foi autenticado com o Azure AD. Uma causa possível é que tem de ser aplicada a política de dispositivo, mas esta aplicação acontece de forma assíncrona e poderia ser atrasada por algumas horas. 
+**Problema em potencial**: Se os controles a **definições** página não estão disponíveis e verá a mensagem "o algumas funcionalidades do Windows só estão disponíveis se estiver a utilizar uma conta Microsoft ou a conta profissional". Este problema pode surgir para dispositivos que estão configurados para ser associado a um domínio e registado para o Azure AD, mas o dispositivo ainda não ainda com êxito foi autenticado com o Azure AD. Uma causa possível é que tem de ser aplicada a política de dispositivo, mas esta aplicação acontece de forma assíncrona e poderia ser atrasada por algumas horas. 
 
 ### <a name="verify-the-device-registration-status"></a>Verificar o estado de registo do dispositivo
 
@@ -74,15 +74,15 @@ Roaming de estado empresarial requer que o dispositivo ser registado com o Azure
 **Problema em potencial**: **WamDefaultSet** e **AzureAdJoined** tem o valor do campo "Não", o dispositivo foi associado a um domínio e registado com o Azure AD e do dispositivo não sincroniza. Se está a mostrar isso, o dispositivo poderá ter de aguardar para a política seja aplicada ou a autenticação do dispositivo falhou ao estabelecer ligação ao Azure AD. O utilizador pode ter de esperar algumas horas para a política seja aplicada. Outros passos de resolução de problemas podem incluir repetir o registo automático ao terminar a sessão e de volta no ou a iniciar a tarefa no agendador de tarefas. Em alguns casos, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 
-**Problema em potencial**: O campo de **SettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI, navegue até **do Azure Active Directory** > **dispositivos** > **Roaming de estado empresarial** Desativar e reativar **os utilizadores podem sincronizar definições e dados de aplicação em todos os dispositivos**. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **SettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
+**Problema em potencial**: O campo para **SettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI, navegue até **do Azure Active Directory** > **dispositivos** > **Roaming de estado empresarial** Desativar e reativar **os utilizadores podem sincronizar definições e dados de aplicação em todos os dispositivos**. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **SettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Roaming de estado empresarial e multi-factor Authentication 
 
 Sob determinadas condições, Roaming de estado empresarial pode não conseguir sincronizar os dados se o Azure multi-factor Authentication está configurado. Para obter detalhes adicionais sobre esses sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Problema em potencial**: se o dispositivo estiver configurado para requerer o multi-factor Authentication no portal do Azure Active Directory, poderá falhar sincronizar definições ao iniciar sessão num dispositivo Windows 10 com uma palavra-passe. Destina-se este tipo de configuração de multi-factor Authentication para proteger uma conta de administrador do Azure. Os utilizadores administradores ainda poderá sincronizar ao iniciar sessão para os dispositivos Windows 10 com o seu Microsoft Passport para o PIN de trabalho ou ao concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
+**Problema em potencial**: Se o dispositivo estiver configurado para requerer o multi-factor Authentication no portal do Azure Active Directory, poderá falhar sincronizar definições ao iniciar sessão num dispositivo Windows 10 com uma palavra-passe. Destina-se este tipo de configuração de multi-factor Authentication para proteger uma conta de administrador do Azure. Os utilizadores administradores ainda poderá sincronizar ao iniciar sessão para os dispositivos Windows 10 com o seu Microsoft Passport para o PIN de trabalho ou ao concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
-**Problema em potencial**: sincronização pode falhar se o administrador configura a política de acesso condicional de autenticação do multi-factor dos serviços de Federação do Active Directory e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
+**Problema em potencial**: Sincronização pode falhar se o administrador configura a política de acesso condicional de autenticação do multi-factor dos serviços de Federação do Active Directory e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 
@@ -166,7 +166,7 @@ O passo de limpeza, limpeza os seguinte ficheiros:
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID de evento 6065:80070533 que este utilizador não pode iniciar sessão uma vez que esta conta está atualmente desativada  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID de evento 6065: 80070533 este utilizador não pode iniciar sessão uma vez que esta conta está atualmente desativada  
 
 No Visualizador de eventos em registos de SettingSync/depuração, este erro pode ser visto quando as credenciais do utilizador expiraram. Além disso, pode ocorrer quando o inquilino não tinha automaticamente AzureRMS aprovisionado. 
 
@@ -175,9 +175,9 @@ No primeiro caso, peça ao utilizador atualizar suas credenciais e início de se
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID de evento 1098: Erro: Falha na operação de Mediador de Token 0xCAA5001C  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID de evento 1098: Erro: operação de Mediador de token de 0xCAA5001C falhou  
 
-No Visualizador de eventos em registos de AAD/Operational, este erro pode ser visto com eventos 1104: chamada de plug-in do AP de nuvem do AAD Get token devolveu o erro: 0xC000005F. Este problema ocorre se estiverem faltando permissões ou atributos de propriedade.  
+No Visualizador de eventos em registos de AAD/Operational, este erro pode ser visto com 1104 de evento: Chamada de plug-in do AP de nuvem do AAD Get token devolveu o erro: 0xC000005F. Este problema ocorre se estiverem faltando permissões ou atributos de propriedade.  
 
 **Ação recomendada**  
 Continue com os passos listados [KB3196528](https://support.microsoft.com/kb/3196528).  

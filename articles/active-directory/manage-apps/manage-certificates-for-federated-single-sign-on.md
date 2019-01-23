@@ -4,7 +4,7 @@ description: Saiba como personalizar a data de expiração para os certificados 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48f001ab0634451b1e339b346e03f5d15cdbf9c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035341"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463852"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para início de sessão único federado no Azure Active Directory
 Este artigo aborda as questões comuns e informações relacionadas com os certificados que cria do Azure Active Directory (Azure AD) para estabelecer único início de sessão Federado (SSO) às suas aplicações SaaS. Adicione aplicações de Galeria de aplicações do Azure AD ou utilizando um modelo de aplicativo externas à galeria. Configure a aplicação ao utilizar a opção de SSO federada.

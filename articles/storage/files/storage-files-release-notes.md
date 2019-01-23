@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478642"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -72,7 +72,7 @@ Para obter mais informações sobre como instalar e configurar o agente de sincr
 
 - O pacote de instalação do agente tem de ser instalado com permissões elevadas (administrador).
 - O agente não é suportado nas opções de implementação do Windows Server Core ou Nano Server.
-- O agente só é suportado no Windows Server 2016 e no Windows Server 2012 R2.
+- O agente é suportado apenas no Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019.
 - O agente requer, pelo menos, 2 GiB de memória. Se o servidor estiver em execução numa máquina virtual com memória dinâmica ativada, a VM deve ser configurada com um MiB 2048 mínima de memória.
 - O serviço de agente de sincronização de armazenamento (FileSyncSvc) não suporta pontos finais do servidor localizados num volume que tenha o diretório de informações (SVI) do volume de sistema comprimido. Esta configuração irá levar a resultados inesperados.
 - Um erro de paragem 0x3B ou um erro de paragem 0x1E pode ocorrer quando é criado um instantâneo VSS.

@@ -4,7 +4,7 @@ description: Compreenda o guia de operações no serviço Gerenciador de sincron
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92de95cb3192fb9f551bea631ef878070f9173cf
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57d5dd17a180c946043c307e31e1c89e91f1219e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315057"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467694"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Usando a guia de operações de Gestor do serviço de sincronização
 
@@ -36,8 +36,8 @@ O **estado** coluna são as informações mais importantes e mostra o problema m
 
 | Estado | Comentário |
 | --- | --- |
-| parado-\* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inativo e não pode ser contactado. |
-| parado-erro-limite |Há mais de 5.000 erros. A execução automaticamente foi parada devido ao grande número de erros. |
+| stopped-\* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inativo e não pode ser contactado. |
+| stopped-error-limit |Há mais de 5.000 erros. A execução automaticamente foi parada devido ao grande número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5.000), que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até que a corrigir esses erros, avisos não deve investigar. |
 | exito |Não existem problemas. |

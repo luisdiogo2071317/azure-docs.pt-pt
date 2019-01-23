@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - Portal cativas | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e da Palo Alto Networks - Portal cativas.
+title: 'Tutorial: Integração do Active Directory do Azure com o Portal de cativas da Palo Alto redes | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Portal de cativas de redes da Palo Alto.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,198 +14,197 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: eff08cc17f475e2b6ad6406e463de27371bbe5b1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 96c72055ed81a384b9f44bcb7a49b67dda15db97
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064734"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475297"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - Portal cativas
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de cativas de redes da Palo Alto
 
-Neste tutorial, saiba como integrar da Palo Alto Networks - cativas Portal com o Azure Active Directory (Azure AD).
-Integração da Palo Alto Networks - cativas Portal com o Azure AD fornece as seguintes vantagens:
+Neste tutorial, saiba como integrar o Portal de cativas da Palo Alto redes com o Azure Active Directory (Azure AD).
 
-* Pode controlar no Azure AD que tenha acesso da Palo Alto Networks - Portal cativas.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Palo Alto Networks - Portal cativas (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+Obtém as seguintes vantagens quando integrar o Portal de cativas da Palo Alto redes com o Azure AD:
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* No Azure AD, pode controlar quem tem acesso ao Portal de cativas de redes da Palo Alto.
+* Pode assinar automaticamente sessão dos utilizadores no Portal de cativas redes da Palo Alto (início de sessão único), utilizando as contas de utilizador do Azure AD.
+* Pode gerir as suas contas num, local central, o portal do Azure.
+
+Para saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com da Palo Alto Networks - Portal cativas, terá dos seguintes itens:
+Para integrar o Azure AD com o Portal de cativas de redes da Palo Alto, precisa do seguinte:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição de ativado da Palo Alto Networks - Portal cativas início de sessão único
+* Uma subscrição do Azure Active Directory. Se não tiver o Azure AD, pode obter um [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Um Portal cativas de redes da Palo Alto início de sessão único (SSO)-ativada a subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Da Palo Alto Networks - Portal cativas suporta **IDP** iniciada SSO
+Portal de cativas da Palo Alto redes suporta estes cenários:
 
-* Da Palo Alto Networks - Portal cativas suporta **Just In Time** aprovisionamento de utilizadores
+* **IDP iniciada pelo início de sessão único**
+* **Aprovisionamento de utilizadores de just-in-time**
 
-## <a name="adding-palo-alto-networks---captive-portal-from-the-gallery"></a>Adição da Palo Alto Networks - cativas Portal a partir da Galeria
+## <a name="add-palo-alto-networks-captive-portal-from-the-gallery"></a>Adicionar cativas de redes da Palo Alto Portal a partir da Galeria
 
-Para configurar a integração da Palo Alto Networks - cativas Portal com o Azure AD, terá de adicionar da Palo Alto Networks - Portal cativas partir da galeria, à sua lista de aplicações de SaaS geridas.
+Para começar a utilizar, na galeria, adicione cativas de redes da Palo Alto Portal à sua lista de aplicações de SaaS geridas:
 
-**Para adicionar da Palo Alto Networks - cativas Portal a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na [portal do Azure](https://portal.azure.com), no menu da esquerda, selecione **Azure Active Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Selecione **aplicações empresariais** > **todas as aplicações**.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A opção de aplicações empresariais no menu](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Selecione **Nova aplicação**.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Palo Alto Networks - Portal cativas**, selecione **Palo Alto Networks - Portal cativas** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação .
+4. Na caixa de pesquisa, introduza **cativas de redes da Palo Alto Portal**. Nos resultados da pesquisa, selecione **Palo Alto Networks - Portal cativas**e, em seguida, selecione **Add**.
 
      ![Da Palo Alto Networks - Portal cativas na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configurar e testar o Azure AD início de sessão único da Palo Alto Networks - Portal cativas com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único para o trabalho, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado da Palo Alto Networks - Portal cativas deve ser estabelecido.
+Configure e teste do Azure AD início de sessão único com o Portal de cativas de redes da Palo Alto com base num utilizador de teste com o nome *Eduarda Almeida*. Para o início de sessão único funcione, tem de estabelecer uma relação entre um utilizador do Azure AD e o mesmo utilizador no Portal de cativas de redes da Palo Alto. 
 
-Para configurar e testar o Azure AD início de sessão único da Palo Alto Networks - Portal cativas, precisa concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com o Portal de cativas da Palo Alto redes, conclua as seguintes tarefas:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar da Palo Alto Networks - cativas Portal início de sessão único](#configure-palo-alto-networks---captive-portal-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar da Palo Alto Networks - utilizador de teste de Portal cativas](#create-palo-alto-networks---captive-portal-test-user)**  - para ter um equivalente da Eduarda Almeida na Palo Alto Networks - Portal cativas, que está ligada à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**: Permitir que o utilizador utilizar esta funcionalidade.
+2. **[Configurar Portal de cativas da Palo Alto redes início de sessão único](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure as definições de início de sessão únicas no aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**: Teste do Azure AD início de sessão único com o usuário *Eduarda Almeida*.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**: Defina Eduarda Almeida para utilizar o Azure AD início de sessão único.
+5. **[Criar um utilizador de teste do Portal de cativas de redes da Palo Alto](#create-palo-alto-networks-captive-portal-test-user)**: Criar um utilizador de contraparte *Eduarda Almeida* da Palo Alto redes Portal cativas que está ligada ao utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**: Certifique-se de que a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único da Palo Alto Networks - Portal cativas, execute os seguintes passos:
+Em primeiro lugar, ative o Azure AD início de sessão único no portal do Azure:
 
 1. Na [portal do Azure](https://portal.azure.com/), na **Palo Alto Networks - Portal cativas** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na **selecionar um método de início de sessão único** painel, selecione **SAML**.
 
     ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** painel, selecionar o lápis **editar** ícone.
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![O ícone de edição penciled](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** caixa de diálogo, execute os seguintes passos:
+4. Na **configuração básica de SAML** painel, conclua os seguintes passos:
 
-    ![Da Palo Alto Networks - cativas de Portal de domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
+    ![Painel da Palo Alto redes cativas Portal SAML configuração básica](common/idp-intiated.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<Customer Firewall Hostname>/SAML20/SP`
+    1. Para **identificador**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    2. Para **URL de resposta**, introduza um URL com o padrão `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [Palo Alto Networks - equipa de suporte de cliente de Portal cativas](https://support.paloaltonetworks.com/support) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Atualize os valores de marcador de posição neste passo com o identificador real e URLs de resposta. Para obter os valores reais, contacte [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Na **certificado de assinatura SAML** secção, junto a **XML de metadados de Federação**, selecione **transferir**. Guarde o ficheiro transferido no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![Ligação de transferência do XML de metadados de Federação](common/metadataxml.png)
 
-### <a name="configure-palo-alto-networks---captive-portal-single-sign-on"></a>Configurar da Palo Alto Networks - cativas Portal início de sessão único
+### <a name="configure-palo-alto-networks-captive-portal-single-sign-on"></a>Configurar Portal de cativas da Palo Alto redes início de sessão único
 
-1. Abra o site da Palo Alto como um administrador na outra janela do browser.
+Em seguida, configure o início de sessão único no Portal de cativas da Palo Alto redes:
 
-2. Clique em **dispositivo**.
+1. Numa janela do browser diferente, inicie sessão no site da Palo Alto Networks como um administrador.
 
-    ![Configurar da Palo Alto início de sessão único](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
+2. Selecione o **dispositivo** separador.
 
-3. Selecione **fornecedor de identidade de SAML** no painel de navegação esquerda da barra e clique em "Importar" para importar o ficheiro de metadados.
+    ![O separador de dispositivo da Palo Alto Networks Web site](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-    ![Configurar da Palo Alto início de sessão único](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
+3. No menu, selecione **fornecedor de identidade de SAML**e, em seguida, selecione **importação**.
 
-4. Executar as ações na janela de importação seguintes
+    ![O botão Importar](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-    ![Configurar da Palo Alto início de sessão único](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+4. Na **importação de perfil do servidor de fornecedor de identidade da SAML** diálogo caixa, conclua os seguintes passos:
 
-    a. No **nome do perfil** caixa de texto, forneça um por exemplo, de nome da interface do Usuário do administrador do Azure AD.
+    ![Configurar da Palo Alto Networks início de sessão único](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+
+    1. Para **nome do perfil**, introduza um nome, como **AzureAD CaptivePortal**.
     
-    b. Na **metadados de fornecedor de identidade**, clique em **procurar** e selecione o arquivo METADATA XML que transferiu a partir do portal do Azure
+    2. Junto a **metadados de fornecedor de identidade**, selecione **procurar**. Selecione o arquivo METADATA XML que transferiu no portal do Azure.
     
-    c. Clique em **OK**
+    3. Selecione **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Em seguida, crie um utilizador de teste com o nome *Eduarda Almeida* no portal do Azure:
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 
     !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo utilizador**.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![O novo botão de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Na **utilizador** painel, conclua os seguintes passos:
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    1. Para **Name**, introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    2. Para **nome de utilizador**, introduza **BrittaSimon @\<your_company_domain\>**. Por exemplo, **BrittaSimon@contoso.com**.
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    3. Para **palavra-passe**, introduza uma palavra-passe. Recomendamos que mantenha um registo da palavra-passe que introduzir. Pode selecionar o **mostrar palavra-passe** caixa de verificação para apresentar a palavra-passe.
 
-    d. Clique em **Criar**.
+    4. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Palo Alto Networks - Portal cativas.
+Em seguida, conceda acesso ao Portal cativas de redes da Palo Alto modo Eduarda Almeida pode utilizar o Azure início de sessão único:
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **da Palo Alto Networks - Portal cativas**.
+1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **Palo Alto Networks - Portal cativas**.
+2. Na lista de aplicativos, introduza **Palo Alto Networks - Portal cativas**e, em seguida, selecione a aplicação.
 
     ![Da Palo Alto Networks - ligação de Portal cativas na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No menu, selecione **utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione **adicionar utilizador**. Em seguida, na **adicionar atribuição** painel, selecione **utilizadores e grupos**.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição de adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** painel, na **utilizadores** lista, selecione **Eduarda Almeida**. Selecione **selecione**.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Adicionar um valor de função para a asserção de SAML, o **selecionar função** painel, selecione a função relevante para o utilizador. Selecione **selecione**.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na **adicionar atribuição** painel, selecione **atribuir**.
 
-### <a name="create-palo-alto-networks---captive-portal-test-user"></a>Criar da Palo Alto Networks - utilizador de teste de Portal cativas
+### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Criar um utilizador de teste do Portal de cativas de redes da Palo Alto
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado da Palo Alto Networks - Portal cativas. Da Palo Alto Networks - Portal cativas suporta **aprovisionamento de utilizadores de just-in-time**, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir da Palo Alto Networks - Portal cativas, é criado um novo após a autenticação.
+Em seguida, crie um utilizador com o nome *Eduarda Almeida* no Portal de cativas de redes da Palo Alto. Portal de cativas de redes da Palo Alto suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não precisa de concluir eventuais tarefas nesta secção. Se um utilizador já não existe no Portal de cativas de redes da Palo Alto, é criado um novo após a autenticação.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [Palo Alto Networks - equipa de suporte de cliente de Portal cativas](https://support.paloaltonetworks.com/support).
+> Se quiser criar manualmente um utilizador, entre em contato com o [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Portal cativas está configurado por trás do firewall na VM do Windows. Testar o início de sessão único no Portal cativas, início de sessão na VM do Windows com o protocolo RDP. A partir na sessão do RDP, abra um browser para qualquer web site, deverá abrir automaticamente o url SSO e a linha de comandos para a autenticação. Quando Authenticaiton estiver concluída, deve conseguir navgiate sites da web.
+Portal de cativas de redes da Palo Alto é instalado atrás da firewall numa VM do Windows. Para testar o início de sessão único no Portal de cativas de redes da Palo Alto, inicie sessão para a VM do Windows utilizando o protocolo RDP (Remote Desktop). Na sessão do RDP, abra um browser e aceda a qualquer Web site. O URL de SSO é aberto e lhe for pedido para se autenticar. Quando a autenticação for concluída, pode acessar os Web sites.
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Para obter mais informações, veja estes artigos:
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

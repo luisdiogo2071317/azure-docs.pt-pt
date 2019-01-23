@@ -3,19 +3,19 @@ title: 'Azure AD Connect: Configurar as permissões de conta do AD DS conector |
 description: Este documento fornece detalhes sobre como configurar a conta do conector do AD DS com o novo módulo do PowerShell de ADSyncConfig
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463394"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -299,7 +299,7 @@ Este cmdlet irá definir as seguintes permissões:
 |Permitir |Utilizadores Autenticados |Permissões de Leitura |Este objeto 
 
 ## <a name="next-steps"></a>Próximos Passos
-- [Do Azure AD Connect: Contas e permissões](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
 - [Instalação rápida](how-to-connect-install-express.md)
 - [Instalação personalizada](how-to-connect-install-custom.md)
 - [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)

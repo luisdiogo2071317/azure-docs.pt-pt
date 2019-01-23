@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427479"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471825"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
 No Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, ou **padrão**, onde **padrão** está disponível em várias configurações e as capacidades. Começar a maioria dos clientes com o **gratuito** escalão para avaliação e, em seguida, passar gradualmente para **padrão** para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva. 
 
-Camadas de determinam a capacidade, recursos e são diferenciadas por:
+Camadas de refletem as características de hardware que aloja o serviço (em vez de recursos) e são diferenciadas por:
 
 + Número de índices que pode criar
 + Tamanho e a velocidade de partições (armazenamento físico)

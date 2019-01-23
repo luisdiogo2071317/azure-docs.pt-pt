@@ -4,7 +4,7 @@ description: Aborda os erros que podem ocorrer durante o processo de consentir u
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356994"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477724"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao consentir uma aplicação
 
@@ -36,17 +36,17 @@ Tem de ser verdadeiras para um utilizador dar consentimento às permissões de q
 Este erro ocorre quando um utilizador que não seja um administrador da empresa tenta utilizar uma aplicação que está a pedir permissões que apenas um administrador pode conceder. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede a conceder permissões de erro
-* **AADSTS90093:** um administrador do &lt;tenantDisplayName&gt; definiu uma política que impede a concessão &lt;nome da aplicação&gt; as permissões que está a solicitar. Contacte um administrador do &lt;tenantDisplayName&gt;, que pode conceder permissões a esta aplicação em seu nome.
+* **AADSTS90093:** Um administrador do &lt;tenantDisplayName&gt; definiu uma política que impede a concessão &lt;nome da aplicação&gt; as permissões que está a solicitar. Contacte um administrador do &lt;tenantDisplayName&gt;, que pode conceder permissões a esta aplicação em seu nome.
 
 Este erro ocorre quando um administrador de empresa desativa a capacidade dos utilizadores dar consentimento a aplicações e, em seguida, um utilizador de não-administrador tenta utilizar uma aplicação que necessita de consentimento. Este erro pode ser resolvido por um administrador conceder acesso à aplicação em nome da sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
-* **AADSTS90090:** parece que o processo de início de sessão encontrou um problema intermitente gravar as permissões que tentou conceder ao &lt;clientAppDisplayName&gt;. Tente novamente mais tarde.
+* **AADSTS90090:** Parece que o processo de início de sessão encontrou um problema intermitente gravar as permissões que tentou conceder aos &lt;clientAppDisplayName&gt;. Tente novamente mais tarde.
 
 Este erro indica que ocorreu um problema de lado do serviço. Puder ser resolvido, tentando autorizar a aplicação novamente.
 
 ## <a name="resource-not-available-error"></a>Recurso erro não está disponível
-* **AADSTS65005:** a aplicação &lt;clientAppDisplayName&gt; solicitadas permissões para aceder a um recurso &lt;resourceAppDisplayName&gt; que não está disponível. 
+* **AADSTS65005:** A aplicação &lt;clientAppDisplayName&gt; solicitadas permissões para aceder a um recurso &lt;resourceAppDisplayName&gt; que não está disponível. 
 
 Contacte o programador da aplicação.
 
@@ -56,7 +56,7 @@ Contacte o programador da aplicação.
 Certifique-se de que este recurso está disponível ou contacte o administrador do &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Erro de correspondência de permissões
-* **AADSTS65005:** a aplicação pediu o consentimento para recursos de acesso &lt;resourceAppDisplayName&gt;. Este pedido falhou porque não corresponde a como a aplicação foi previamente configurada durante o registo de aplicação. Entre em contato com a aplicação vendor.* *
+* **AADSTS65005:** A aplicação pediu o consentimento para recursos de acesso &lt;resourceAppDisplayName&gt;. Este pedido falhou porque não corresponde a como a aplicação foi previamente configurada durante o registo de aplicação. Entre em contato com a aplicação vendor.* *
 
 Estes erros todos ocorrem quando o aplicativo de um usuário está tentando dar consentimento a está a pedir permissões para aceder a uma aplicação de recurso que não pode ser encontrada no diretório da organização (inquilino). Esta situação pode ocorrer por diversos motivos:
 

@@ -4,7 +4,7 @@ description: Publica aplicações com o Proxy de aplicações e o PingAccess par
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52111d54031b2d458b0bfc727dcb310fbbcbd9ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140851"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468619"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -73,13 +73,13 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 3. Selecione **adicionar** na parte superior do painel.
 4. Selecione **aplicação no local**.
 5. Preencha os campos obrigatórios com informações sobre a sua nova aplicação. Utilize as seguintes orientações para as definições:
-   - **URL interno**: normalmente é fornecer o URL que leva-o para a página de início de sessão da aplicação quando estiver na rede empresarial. Para este cenário o conector tem de tratar o proxy do PingAccess como a página da aplicação. Utilize este formato: `https://<host name of your PA server>:<port>`. A porta é 3000 por predefinição, mas pode configurá-lo no PingAccess.
+   - **URL interno**: Normalmente fornecer o URL que leva-o para a página de início de sessão da aplicação quando estiver na rede empresarial. Para este cenário o conector tem de tratar o proxy do PingAccess como a página da aplicação. Utilize este formato: `https://<host name of your PA server>:<port>`. A porta é 3000 por predefinição, mas pode configurá-lo no PingAccess.
 
     > [!WARNING]
     > Para este tipo de SSO, o URL interno tem de utilizar https e não é possível utilizar o http.
 
    - **Método de pré-autenticação**: Azure Active Directory
-   - **Traduzir URL nos cabeçalhos**: não
+   - **Traduzir URL nos cabeçalhos**: Não
 
    >[!NOTE]
    >Se esta for a sua primeira aplicação, utilize a porta 3000 para iniciar e voltar atrás para atualizar esta definição se alterar a configuração do PingAccess. Se esta for a sua aplicação de segundo ou posterior, isto terá de acordo com o serviço de escuta que configurou no PingAccess. Saiba mais sobre [serviços de escuta no PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).

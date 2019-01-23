@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Contas e permissões | Documentos da Microsoft'
+title: 'Azure AD Connect: Contas e permissões | Documentos da Microsoft'
 description: Este tópico descreve as contas usadas e criado e as permissões necessárias.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308788"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478608"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>O Azure AD Connect: Contas e permissões
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas utilizadas para o Azure AD Connect
 
@@ -120,7 +120,7 @@ Segue-se um resumo das páginas de Assistente de instalação personalizada, as 
 >[!IMPORTANT]
 >Um novo módulo do PowerShell ADSyncConfig.psm1 nomeado foi introduzida com compilação **1.1.880.0** (lançado em Agosto de 2018) que inclui uma coleção de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD DS Conta de conector.
 >
->Para obter mais informações consulte [do Azure AD Connect: configurar as permissões de conta de conector para o AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+>Para obter mais informações consulte [do Azure AD Connect: Configurar as permissões de conta do AD DS conector](how-to-connect-configure-ad-ds-connector-account.md)
 
 A conta que especificar no **ligar os seus diretórios** página tem de estar presente no Active Directory antes da instalação.  O Azure AD Connect na versão 1.1.524.0 e posterior, tem a opção para permitir que o Assistente do Azure AD Connect crie a **conta de conector do AD DS** utilizado para ligar ao Active Directory.  
 
@@ -190,7 +190,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
+| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

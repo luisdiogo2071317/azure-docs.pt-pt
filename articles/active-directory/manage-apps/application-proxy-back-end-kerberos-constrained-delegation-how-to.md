@@ -4,7 +4,7 @@ description: Resolver problemas de configurações de delegação restrita de Ke
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 99f756489c04637d37de5e1baff7e4fe46c3947a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134663"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462696"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações
 
@@ -64,7 +64,7 @@ O que mostra um problema KCD? Existem vários indicações comuns KCD SSO com fa
 
    ![Autorização falhou devido a permissões em falta](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ambas essas imagens mostram o sintoma mesmo: falha SSO. É negado o acesso de utilizador à aplicação.
+Ambas essas imagens mostram o sintoma mesmo: Falha SSO. É negado o acesso de utilizador à aplicação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

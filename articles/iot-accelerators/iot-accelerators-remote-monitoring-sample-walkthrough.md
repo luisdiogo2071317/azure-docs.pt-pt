@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468034"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções da Monitorização Remota
 
@@ -47,11 +47,11 @@ Arquitetura de nuvem evoluiu desde o lançamento do Microsoft solution accelerat
 
 A solução inclui os seguintes componentes na parte de conectividade do dispositivo da arquitetura lógica:
 
-### <a name="physical-devices"></a>Dispositivos físicos
+### <a name="real-devices"></a>Dispositivos reais
 
-Pode ligar dispositivos físicos à solução. Pode implementar o comportamento dos seus dispositivos simulados com o Azure IoT device SDKs.
+Pode ligar dispositivos reais à solução. Pode implementar o comportamento dos seus dispositivos simulados com o Azure IoT device SDKs.
 
-Pode aprovisionar dispositivos físicos a partir do dashboard no portal da solução.
+Pode aprovisionar dispositivos reais, a partir do dashboard no portal da solução.
 
 ### <a name="device-simulation-microservice"></a>Microsserviços de simulação de dispositivo
 
@@ -66,7 +66,7 @@ Pode aprovisionar dispositivos simulados a partir do dashboard no portal da solu
 
 ### <a name="iot-hub"></a>IoT Hub
 
-O [IoT hub](../iot-hub/index.yml) ingere telemetria enviada a partir de dispositivos simulados e físicos para a cloud. O IoT hub disponibiliza a telemetria para os serviços no back-end de solução de IoT, para processamento.
+O [IoT hub](../iot-hub/index.yml) ingere telemetria enviada a partir de dispositivos reais ou simulados para a cloud. O IoT hub disponibiliza a telemetria para os serviços no back-end de solução de IoT, para processamento.
 
 O hub IoT na solução também:
 
@@ -106,7 +106,7 @@ O serviço fornece um ponto de extremidade RESTful para operações CRUD em pare
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-As implementações de acelerador de solução utilizem [do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para armazenar as regras, alarmes, definições de configuração e todos os outro armazenamento amovível.
+As implementações de acelerador de solução utilizem [do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para armazenar as regras, alertas, as definições de configuração e todos os outro armazenamento amovível.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Microsserviços de Gestor do Stream Analytics do Azure
 

@@ -3,7 +3,7 @@ title: Fatores a influenciar o desempenho do Azure AD Connect
 description: Este documento explica os fatores como várias influenciam o Azure AD Connect mecanismo de provisionamento. Esses fatores ajudará as organizações a planejar a implantação do Azure AD Connect para se certificar de que cumpre os requisitos de sincronização.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474137"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
@@ -41,7 +41,7 @@ O diagrama seguinte mostra uma arquitetura de alto nível do aprovisionamento de
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-O mecanismo de provisionamento liga-se para cada floresta do Active Directory e para o Azure AD. O processo de leitura de informações de cada diretório é chamado de importação. Exportação refere-se para atualizar os diretórios do mecanismo de provisionamento. Sincronização avalia as regras de como os objetos irão fluir dentro do mecanismo de provisionamento. Para se aprofundar pode consultar [do Azure AD Connect: compreender a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+O mecanismo de provisionamento liga-se para cada floresta do Active Directory e para o Azure AD. O processo de leitura de informações de cada diretório é chamado de importação. Exportação refere-se para atualizar os diretórios do mecanismo de provisionamento. Sincronização avalia as regras de como os objetos irão fluir dentro do mecanismo de provisionamento. Para se aprofundar pode consultar [do Azure AD Connect: Compreendendo a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 O Azure AD Connect utiliza as seguintes áreas de preparo, regras e processos para permitir a sincronização do Active Directory para o Azure AD:
 

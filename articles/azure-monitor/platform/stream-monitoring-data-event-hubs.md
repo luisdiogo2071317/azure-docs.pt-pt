@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: ''
+ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468238"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -120,4 +120,5 @@ Encaminhamento seus dados de monitorização para um hub de eventos com o Azure 
 * [Arquive o registo de atividades para uma conta de armazenamento](../../azure-monitor/platform/archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md)
 * [Configurar um alerta com base num evento do registo de atividade](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

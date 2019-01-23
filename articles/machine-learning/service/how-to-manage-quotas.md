@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475072"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 
@@ -46,7 +46,7 @@ Existe um limite no número de máquinas virtuais, que pode aprovisionar uma sub
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-Para obter uma lista mais detalhada e atualizada de limites de quota, consulte o artigo de quota do Azure em todo [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
+Para obter uma lista mais detalhada e atualizada de limites de quota, consulte o artigo de quota do Azure em todo [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
 Para Azure computação do Machine Learning, existe um limite de cota padrão sobre o número de núcleos e o número exclusivo de recursos de computação permitidas por região numa subscrição. Esta quota é separada da quota de núcleos VM acima e os limites de principal não são atualmente partilhados entre os tipos de dois recursos.

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309864"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464260"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais acerca da governação de máquinas virtuais do Linux com a CLI do Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais sobre a governação de máquina virtual do Linux com a CLI do Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -177,7 +177,7 @@ O utilizador aplica as [etiquetas](../../azure-resource-manager/resource-group-u
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Para aplicar etiquetas a uma máquina virtual, utilize o comando [az resource tag](/cli/azure/resource#az_resource_tag). As etiquetas existentes no recurso não são mantidas.
+Para aplicar etiquetas a uma máquina virtual, utilize o comando [az resource tag](/cli/azure/resource). As etiquetas existentes no recurso não são mantidas.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por etiqueta
 
-Para localizar recursos com um nome e valor de etiqueta, utilize o comando [az resource list](/cli/azure/resource#az_resource_list):
+Para localizar recursos com um nome e valor de etiqueta, utilize o comando [az resource list](/cli/azure/resource):
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name
@@ -227,7 +227,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 

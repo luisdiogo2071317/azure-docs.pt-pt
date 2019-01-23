@@ -1,29 +1,29 @@
 ---
-title: Subscrições do Azure grelha de evento de consulta
-description: Descreve como lista de subscrições de grelha de eventos do Azure.
+title: Consultar subscrições do Azure Event Grid
+description: Descreve como listar as subscrições do Azure Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/04/2018
-ms.author: tomfitz
-ms.openlocfilehash: 2b46cde4a352e647ee97669f116a6c1926879fa0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/04/2019
+ms.author: spelluru
+ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302420"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470989"
 ---
-# <a name="query-event-grid-subscriptions"></a>Subscrições de grelha de evento de consulta 
+# <a name="query-event-grid-subscriptions"></a>Consultar subscrições do Event Grid 
 
-Este artigo descreve como listar as subscrições da grelha de evento na sua subscrição do Azure. Ao consultar as subscrições da grelha de evento existentes, é importante compreender os diferentes tipos de subscrições. Fornecer parâmetros diferentes com base no tipo de subscrição que pretende obter.
+Este artigo descreve como listar as subscrições do Event Grid na sua subscrição do Azure. Ao consultar as suas subscrições do Event Grid existentes, é importante compreender os diferentes tipos de subscrições. Fornecer parâmetros diferentes com base no tipo de subscrição que pretende obter.
 
-## <a name="resource-groups-and-azure-subscriptions"></a>Grupos de recursos e as subscrições do Azure
+## <a name="resource-groups-and-azure-subscriptions"></a>Grupos de recursos e subscrições do Azure
 
-As subscrições do Azure e grupos de recursos não são recursos do Azure. Por conseguinte, as subscrições da grelha de eventos para grupos de recursos ou subscrições do Azure não têm as mesmas propriedades de subscrições de grelha de eventos nos recursos do Azure. Subscrições de grelha de eventos para grupos de recursos ou subscrições do Azure são consideradas global.
+As subscrições do Azure e grupos de recursos não são recursos do Azure. Por conseguinte, subscrições do event grid para grupos de recursos ou subscrições do Azure não tem as mesmas propriedades de subscrições do event grid para recursos do Azure. Subscrições do Event grid para grupos de recursos ou subscrições do Azure são consideradas global.
 
-Para obter as subscrições de grelha de eventos para uma subscrição do Azure e os respetivos grupos de recursos, não precisa de fornecer os parâmetros. Certifique-se de que selecionou a subscrição do Azure que pretende consultar. Os exemplos seguintes não obter subscrições de grelha de eventos para tópicos personalizados ou de recursos do Azure.
+Para obter as subscrições do event grid para uma subscrição do Azure e os respetivos grupos de recursos, não precisa fornecer quaisquer parâmetros. Certifique-se de que selecionou a subscrição do Azure que pretende consultar. Os exemplos a seguir não obtém as subscrições do event grid para tópicos personalizados ou de recursos do Azure.
 
 Para a CLI do Azure, utilize:
 
@@ -39,7 +39,7 @@ Set-AzureRmContext -Subscription "My Azure Subscription"
 Get-AzureRmEventGridSubscription
 ```
 
-Para obter as subscrições da grelha de eventos para uma subscrição do Azure, forneça o tipo de tópico **Microsoft.Resources.Subscriptions**.
+Para obter as subscrições do event grid para uma subscrição do Azure, forneça o tipo de tópico **Microsoft.Resources.Subscriptions**.
 
 Para a CLI do Azure, utilize:
 
@@ -53,7 +53,7 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
-Para obter as subscrições da grelha de eventos para todos os grupos de recursos dentro de uma subscrição do Azure, forneça o tipo de tópico **Microsoft.Resources.ResourceGroups**.
+Para obter as subscrições do event grid para todos os grupos de recursos dentro de uma subscrição do Azure, forneça o tipo de tópico **Microsoft.Resources.ResourceGroups**.
 
 Para a CLI do Azure, utilize:
 
@@ -67,7 +67,7 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
-Para obter as subscrições da grelha de eventos para um grupo de recursos especificado, forneça o nome do grupo de recursos como um parâmetro.
+Para obter as subscrições do event grid para um grupo de recursos especificado, forneça o nome do grupo de recursos como um parâmetro.
 
 Para a CLI do Azure, utilize:
 
@@ -81,11 +81,11 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
 ```
 
-## <a name="custom-topics-and-azure-resources"></a>Tópicos personalizados e de recursos do Azure
+## <a name="custom-topics-and-azure-resources"></a>Tópicos personalizados e recursos do Azure
 
-Tópicos de personalizada de grelha de evento são recursos do Azure. Por conseguinte, consultar o evento grelha subscrições tópicos personalizados e outros recursos, como a conta do Blob storage, da mesma forma. Para obter as subscrições de grelha de eventos para tópicos personalizados, tem de fornecer os parâmetros que identificam o recurso ou para identificam a localização do recurso. Não é possível amplamente consulta eventos grelha subscrições para os recursos na sua subscrição do Azure.
+Tópicos de personalizado do Event grid são recursos do Azure. Portanto, consultar subscrições do event grid para tópicos personalizados e outros recursos, como conta de armazenamento de BLOBs, da mesma forma. Para obter as subscrições do event grid para tópicos personalizados, tem de fornecer os parâmetros que identificar o recurso ou identificar a localização do recurso. Não é possível amplamente consulta subscrições do event grid para os recursos na sua subscrição do Azure.
 
-Para obter as subscrições de grelha de eventos para tópicos personalizados e outros recursos numa localização, forneça o nome da localização.
+Para obter as subscrições do event grid para tópicos personalizados e outros recursos num local, forneça o nome da localização.
 
 Para a CLI do Azure, utilize:
 
@@ -99,7 +99,7 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -Location westus2
 ```
 
-Para obter subscrições de tópicos personalizadas para uma localização, forneça a localização e o tipo de tópico **Microsoft.EventGrid.Topics**.
+Para obter as subscrições de tópicos personalizados para uma localização, forneça a localização e o tipo de tópico **Microsoft.EventGrid.Topics**.
 
 Para a CLI do Azure, utilize:
 
@@ -127,7 +127,7 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
-Para obter as subscrições da grelha de eventos para um tópico personalizado, forneça o nome do tópico personalizado e o nome do respetivo grupo de recursos.
+Para obter as subscrições do event grid para um tópico personalizado, forneça o nome do tópico personalizado e o nome do seu grupo de recursos.
 
 Para a CLI do Azure, utilize:
 
@@ -141,7 +141,7 @@ Para o PowerShell, utilize:
 Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
-Para obter as subscrições da grelha de eventos para um recurso específico, forneça o ID de recurso.
+Para obter as subscrições do event grid para um recurso em particular, forneça o ID de recurso.
 
 Para a CLI do Azure, utilize:
 
@@ -159,6 +159,6 @@ Get-AzureRmEventGridSubscription -ResourceId $resourceid
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter informações sobre a entrega de eventos e de tentativas, [entrega de mensagens de evento grelha e volte a tentar](delivery-and-retry.md).
-* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
-* Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).
+* Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+* Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
+* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

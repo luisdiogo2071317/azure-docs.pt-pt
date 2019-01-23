@@ -3,7 +3,7 @@ title: Proxy de aplicações do Azure Active Directory e o Tableau | Documentos 
 description: Saiba como utilizar o Proxy de aplicações do Azure Active Directory (Azure AD) para fornecer acesso remoto para a sua implementação Tableau.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8a4231e5d49dad790855293ac50d475e499e0993
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138675"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476160"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy de aplicações do Azure Active Directory e o Tableau 
 
@@ -59,9 +59,9 @@ Para:
 
 5. Preencha os campos obrigatórios com informações sobre a sua nova aplicação. Utilize as seguintes orientações para as definições: 
 
-    - **URL interno**: esta aplicação deve ter um URL interno que é o URL de Tableau em si. Por exemplo, `https://adventure-works.tableau.com`. 
+    - **URL interno**: Esta aplicação deve ter um URL interno que é o URL de Tableau em si. Por exemplo, `https://adventure-works.tableau.com`. 
 
-    - **Método de pré-autenticação**: Azure Active Directory (recomendado mas não obrigatório). 
+    - **Método de pré-autenticação**: O Azure Active Directory (recomendado mas não obrigatório). 
 
 6. Selecione **adicionar** na parte superior do painel. Seu aplicativo é adicionado e abre o menu de início rápido. 
 

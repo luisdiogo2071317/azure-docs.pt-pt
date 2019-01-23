@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105921"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473168"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
 > [!NOTE]
@@ -154,7 +154,7 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**Contentor**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento de FailedRequestLogs  
@@ -166,7 +166,7 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**Contentor**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento de IISLogs  
@@ -178,7 +178,7 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**Contentor**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="datasources-element"></a>Elemento de origens de dados  
@@ -195,7 +195,7 @@ Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**Contentor**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="absolute-element"></a>Elemento absoluto  
@@ -220,7 +220,7 @@ Atributos:
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|cadeia|Necessário. O nome do recurso local que contém o diretório para monitorizar.|  
-|**RelativePath**|cadeia|Necessário. O caminho relativo para o recurso local para monitorizar.|  
+|**relativePath**|cadeia|Necessário. O caminho relativo para o recurso local para monitorizar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elemento  
  Define o caminho para o contador de desempenho a recolher.
@@ -245,7 +245,7 @@ Atributos:
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|cadeia|Necessário. O caminho para o contador de desempenho a recolher.|  
-|**SampleRate como sendo**|duração|Necessário. A taxa em que o contador de desempenho deve ser recolhido.|  
+|**sampleRate**|duração|Necessário. A taxa em que o contador de desempenho deve ser recolhido.|  
 
 ## <a name="windowseventlog-element"></a>Elemento de WindowsEventLog  
  Define os registos de eventos a monitorizar.
@@ -263,10 +263,11 @@ Atributos:
 ## <a name="datasource-element"></a>Elemento de origem de dados  
  Define o registo de eventos a monitorizar.
 
- Elemento principal: [Elemento de WindowsEventLog](#windowsEventLog).  
+ Elemento principal: [WindowsEventLog Element](#windowsEventLog).  
 
  Atributos:
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|cadeia|Necessário. Uma expressão XPath especificando o registo para recolher.|  
+

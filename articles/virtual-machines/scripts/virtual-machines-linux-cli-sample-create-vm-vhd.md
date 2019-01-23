@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a71ac929c9db1b7046796242a8b0146f183aa927
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 6963a7d8541897940316d0fdfbea06f265884249
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478319"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Criar uma VM com um disco rígido virtual
 
@@ -61,7 +61,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Cria um contentor na conta de armazenamento. |
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Cria um blob no contentor ao carregar o VHD. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Utilizado com `--query` e verifica se o nome da VM está em utilização. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Cria as máquinas virtuais. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria as máquinas virtuais. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Obtém o endereço IP da VM que foi criada. |
 
 ## <a name="next-steps"></a>Passos Seguintes

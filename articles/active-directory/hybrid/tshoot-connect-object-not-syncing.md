@@ -4,7 +4,7 @@ description: Resolver problemas relacionados com a razão pela qual um objeto n�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312425"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478659"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
@@ -47,8 +47,8 @@ O **estado** coluna são as informações mais importantes e mostra o problema m
 
 | Estado | Comentário |
 | --- | --- |
-| parado-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inativo e não pode ser contactado. |
-| parado-erro-limite |Há mais de 5.000 erros. A execução automaticamente foi parada devido ao grande número de erros. |
+| stopped-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inativo e não pode ser contactado. |
+| stopped-error-limit |Há mais de 5.000 erros. A execução automaticamente foi parada devido ao grande número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5.000), que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até que a corrigir esses erros, avisos não deve investigar. |
 | exito |Não existem problemas. |
@@ -90,7 +90,7 @@ Quando abrir um objeto de cs, existem várias guias na parte superior. O **impor
 ![Objecto CS](./media/tshoot-connect-object-not-syncing/csobject.png)    
 O **valor antigo** mostra o que atualmente é armazenado no Connect e o **novo valor** o que foi recebido do sistema de origem e ainda não foi aplicado. Se existir um erro no objeto, as alterações não são processadas.
 
-**Erro**  
+**Error**  
 ![Objecto CS](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
 O **erro de sincronização** separador só está visível se existe um problema com o objeto. Para obter mais informações, consulte [resolver problemas de erros de sincronização](#troubleshoot-errors-in-operations-tab).
 
@@ -103,7 +103,7 @@ Também pode ver na **PasswordSync** coluna que o espaço conector de entrada po
 
 Na guia linhagem, pode obter para o metaverso ao clicar em [propriedades do objeto de Metaverso](#mv-attributes).
 
-Na parte inferior de todas as guias são dois botões: **pré-visualização** e **Log**.
+Na parte inferior de todas as guias são dois botões: **Pré-visualização** e **Log**.
 
 ### <a name="preview"></a>Pré-visualização
 A página de pré-visualização é usada para sincronizar um único objeto. É útil se estiver a resolver algumas regras de sincronização personalizados e quiser ver o efeito de uma alteração num único objeto. Pode selecionar entre **Full sync** e **sincronização Delta**. Também pode selecionar entre **gerar pré-visualização**, que apenas mantém a alteração na memória, e **confirmar pré-visualização**, que atualizado metaverso e prepara a todas as alterações aos espaços de conector de destino.  

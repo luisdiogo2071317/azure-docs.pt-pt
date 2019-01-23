@@ -4,7 +4,7 @@ description: Como resolver problemas de acesso à aplicação a partir de um dee
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c12e223c4e57fccd78ed773f929949c7c63efe9f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1ba34fa0bed467d1b6dedc1d5a475bdf04032d6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356953"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465314"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas ao iniciar sessão para uma aplicação com um deeplink
 
@@ -250,7 +250,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga estes 
 
 11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Para adicionar o utilizador para o **selecionados** lista, clique na caixa de verificação junto a fotografia do perfil ou à logótipo do utilizador.
 
-12. **Opcional:** se quiser **adicionar mais do que um utilizador**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
+12. **Opcional:** Se quiser **adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 

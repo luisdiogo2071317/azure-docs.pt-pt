@@ -4,7 +4,7 @@ description: Definir a estratégia de proteção de dados para a sua solução d
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865051"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468561"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu no:
@@ -118,32 +118,32 @@ Assim que o utilizador é autenticado com o Azure AD, é importante avaliar o n�
 
 Cada interação no diagrama mostrado na figura X representa um cenário de controlo de acesso que pode ser abrangido pelo Azure AD. Abaixo, pode encontrar uma descrição de cada cenário:
 
-  1. Acesso condicional a aplicações que estão alojadas no local: pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com o Windows Server 2012 R2.
+  1. Acesso condicional a aplicações que estão alojadas no local: Pode utilizar dispositivos registados com políticas de acesso para aplicações que estão configuradas para utilizar o AD FS com o Windows Server 2012 R2.
 
-  2. Controlo de acesso ao portal do Azure: Azure também permite-lhe controlar o acesso ao portal com controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI pode delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
+  2. Controlo de acesso ao portal do Azure:  O Azure também permite controlar o acesso ao portal com controlo de acesso baseado em funções (RBAC)). Este método permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer no portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI pode delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
 
-   - Atribuição de função baseado no grupo: pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isso permite que aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
-   - Utilizar funções incorporadas no Azure: pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
-   -  Acesso granular aos recursos: pode atribuir funções a utilizadores e grupos para uma subscrição específica, grupo de recursos ou um recurso do Azure individual como um Web site ou a base de dados. Dessa forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e nenhum acesso a recursos que eles não precisam de gerir.
+   - Atribuição de função baseado no grupo: Pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isso permite que aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
+   - Utilize funções incorporadas no Azure: Pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
+   -  Acesso granular aos recursos: Pode atribuir funções a utilizadores e grupos para uma subscrição específica, grupo de recursos ou um recurso do Azure individual como um Web site ou a base de dados. Dessa forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e nenhum acesso a recursos que eles não precisam de gerir.
 
    > [!NOTE]
    > Se estiver a criar aplicações e desejar personalizar o controlo de acesso para os mesmos, também é possível utilizar funções de aplicação do Azure AD para autorização. Veja esta [exemplo de aplicação Web-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) sobre como criar a sua aplicação para utilizar esta capacidade.
 
 
-  3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune: os administradores de TI podem aprovisionar políticas de dispositivo de acesso condicional para proteger recursos da empresa, e, ao mesmo tempo permitindo que os operadores de informações em dispositivos em conformidade para aceder aos serviços. 
+  3. Acesso condicional para aplicações do Office 365 com o Microsoft Intune:  Os administradores de TI podem aprovisionar políticas de dispositivo de acesso condicional para proteger recursos da empresa, e, ao mesmo tempo permitindo que os operadores de informações em dispositivos em conformidade para aceder aos serviços. 
   
-  4. Acesso condicional para aplicações de Saas: [esta funcionalidade](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator para todos os utilizadores que estão atribuídos à aplicação, ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator, se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
+  4. Acesso condicional para aplicações Saas: [Esta funcionalidade](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) permite-lhe configurar regras de acesso por aplicação multi-factor authentication e a capacidade de bloquear o acesso para os utilizadores não numa rede fidedigna. Pode aplicar as regras de autenticação multifator para todos os utilizadores que estão atribuídos à aplicação, ou apenas para os utilizadores nos grupos de segurança especificados. Os utilizadores podem ser excluídos do requisito de autenticação multifator, se estão a aceder a aplicação a partir de um endereço IP que no dentro da organização de rede.
 
 Uma vez que as opções de controlo de acesso utilizam uma abordagem multicamada, comparação entre essas opções não são aplicáveis para esta tarefa. Certifique-se de que vocês estão utilizando todas as opções disponíveis para cada cenário que requer a controlar o acesso aos seus recursos.
 
 ## <a name="define-incident-response-options"></a>Definir as opções de resposta a incidentes
 O Azure AD pode ajudá-lo em que a TI da identidade potenciais riscos de segurança no ambiente através da monitorização da atividade do utilizador. IT pode utilizar o acesso do Azure AD e relatórios de utilização ganhar visibilidade sobre a integridade e segurança de diretório da sua organização. Com essas informações, um administrador de TI pode determinar melhor onde podem existir possíveis riscos de segurança para que eles podem planear adequadamente atenuar esses riscos.  [Subscrição do Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que pode permitir que a TI obter essas informações. [Relatórios do Azure AD](../reports-monitoring/overview-reports.md) são classificados da seguinte forma:
 
-* **Relatórios de anomalias**: contém eventos de início de sessão que foram detetados a anómalas. O objetivo é conscientizá-lo de tal atividade e permitem-lhe a determinação sobre se um evento está suspeito.
-* **Integrado de relatório de aplicação**: fornece informações sobre como as aplicações na cloud estão a ser utilizadas na sua organização. Azure Active Directory oferece integração com milhares de aplicações na cloud.
-* **Relatórios de erros**: indicam erros que possam ocorrer quando o aprovisionamento de contas em aplicativos externos.
-* **Relatórios de utilizador específico**: apresentar dispositivos/início de sessão nos dados de atividade para um utilizador específico.
-* **Registos de atividades**: conter um registo de todos os eventos auditados dentro o últimas 24 horas, últimos 7 dias, ou últimos 30 dias, bem como alterações de atividade de grupo e atividade de registo e reposição de palavra-passe.
+* **Relatórios de anomalias**: Conter os eventos de início de sessão que foram detetados a anómalas. O objetivo é conscientizá-lo de tal atividade e permitem-lhe a determinação sobre se um evento está suspeito.
+* **Integrado de relatório de aplicação**: Fornece informações sobre como as aplicações na cloud estão a ser utilizadas na sua organização. Azure Active Directory oferece integração com milhares de aplicações na cloud.
+* **Relatórios de erros**: Indica os erros que possam ocorrer quando o aprovisionamento de contas em aplicativos externos.
+* **Relatórios de utilizador específico**: Apresentar o dispositivo/início de sessão nos dados de atividade para um utilizador específico.
+* **Registos de atividades**: Conter um registo de todos os eventos auditados dentro o últimas 24 horas, últimos 7 dias, ou últimos 30 dias, bem como alterações de atividade de grupo e atividade de registo e reposição de palavra-passe.
 
 > [!TIP]
 > Outro relatório que também pode ajudar a equipe de resposta a incidentes, trabalhando num caso é o [utilizador com fuga de credenciais](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) relatório. Este relatório apresenta qualquer correspondência entre a lista de fuga de credenciais e o seu inquilino.

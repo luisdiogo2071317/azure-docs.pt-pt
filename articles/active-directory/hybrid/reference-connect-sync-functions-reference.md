@@ -4,7 +4,7 @@ description: Referência de expressões do aprovisionamento declarativo na sincr
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471188"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -57,14 +57,14 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[certThumbprint](#certthumbprint) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
 [ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversão** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
 | [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
 | **Data / hora** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[formatDateTime](#formatdatetime) |[agora](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[agora](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
 | **Diretório** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
@@ -78,12 +78,12 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | [Contém](#contains) |[Contagem](#count) |[Item](#item) |[ItemOrNull](#itemornull) | |
 | [Associar](#join) |[RemoveDuplicates](#removeduplicates) |[Dividir](#split) | | |
 | **Fluxo do programa** | | | | |
-| [Erro](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
-| [onde](#where) |[com o](#with) | | | |
+| [Error](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
+| [Where](#where) |[With](#with) | | | |
 | **Text** (Texto) | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [À esquerda](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [padleft do modelo](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[substituir](#replace) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[substituir](#replace) | |
 | [ReplaceChars](#replacechars) |[Direita](#right) |[RTrim](#rtrim) |[Cortar](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
@@ -394,7 +394,7 @@ A função de ConvertFromBase64 converte o valor codificado em base64 especifica
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Origem: Cadeia codificada em Base64  
-* Codificação: UTF8 de Unicode, ASCII,
+* Codificação: Unicode, ASCII, UTF8
 
 **Exemplo**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -446,7 +446,7 @@ O formato de saída desta função é utilizado pelo Azure Active Directory como
 
 **Exemplo:**  
 `ConvertToUTF8Hex("Hello world!")`  
-Devolve 48656C6C6F20776F726C6421
+Returns 48656C6C6F20776F726C6421
 
 - - -
 ### <a name="count"></a>Contagem
@@ -499,7 +499,7 @@ Devolve uma data que contém uma data para o qual foi adicionado um intervalo de
 **Sintaxe:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* intervalo de: Expressão de cadeia de caracteres que é o intervalo de tempo que pretende adicionar. A cadeia tem de ter um dos seguintes valores:
+* interval: Expressão de cadeia de caracteres que é o intervalo de tempo que pretende adicionar. A cadeia tem de ter um dos seguintes valores:
   * AAAA ano
   * p trimestre
   * m mês
@@ -971,10 +971,10 @@ A função de NumFromDate devolve uma data no formato de data do AD.
 
 **Exemplo:**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
-Devolve 129699324000000000
+Returns 129699324000000000
 
 - - -
-### <a name="padleft"></a>padleft do modelo
+### <a name="padleft"></a>PadLeft
 **Descrição:**  
 Os padleft modelo função esquerda-pads uma cadeia de caracteres para um comprimento especificado com um caráter de preenchimento fornecido.
 
@@ -1086,7 +1086,7 @@ A função reconhece os monikers especiais seguintes:
 
 * \n – nova linha
 * \r – símbolo de retorno
-* \t – separador
+* \t – Tab
 
 **Exemplo:**  
 `Replace([address],"\r\n",", ")`  

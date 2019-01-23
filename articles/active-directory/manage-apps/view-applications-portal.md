@@ -4,7 +4,7 @@ description: Utilize o portal do Azure para ver as aplicações no seu inquilino
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/25/2018
 ms.author: barbkess
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
-ms.translationtype: HT
+ms.openlocfilehash: ce998cd23ac3606ca9269e1e3316e6679fe0a7af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266491"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462866"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Ver as aplicações do seu inquilino do Azure Active Directory
 
@@ -84,7 +84,7 @@ Para procurar uma aplicação específica:
 
     ![Procurar com prefixo](media/view-applications-portal/search-by-prefix.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a ver as aplicações que estão no seu inquilino do Azure AD e a filtrar a lista de aplicações por tipo de aplicação, estado e visibilidade. Também aprendeu a procurar aplicações específicas.
 

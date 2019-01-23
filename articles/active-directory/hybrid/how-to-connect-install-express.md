@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect: Começar a utilizar as definições rápidas | Microsoft Docs'
+title: 'Azure AD Connect: Introdução ao utilizar as definições rápidas | Documentos da Microsoft'
 description: Saiba como transferir, instalar e executar o assistente de configuração do Azure AD Connect.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 14ed452759aa74abf5eaa2ae37a39f6172889313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b3b90950ea0ade8064680e813958b0575d11aab6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233325"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468000"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.
 
-Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferiu o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e concluiu os pré-requisitos indicados em [Azure AD Connect: Hardware e pré-requisitos](how-to-connect-install-prerequisites.md).
+Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e concluir os pré-requisitos indicados [do Azure AD Connect: Pré-requisitos de hardware e](how-to-connect-install-prerequisites.md).
 
 Se as definições rápidas não coincidirem com a topologia, consulte [documentação relacionada](#related-documentation) para obter outros cenários.
 
@@ -59,10 +59,10 @@ Para obter um vídeo sobre como utilizar a instalação rápida, consulte:
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
-Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Atualização automática](how-to-connect-install-automatic-upgrade.md), [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [A atualização automática](how-to-connect-install-automatic-upgrade.md), [impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md), e [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Saiba mais acerca destes tópicos comuns: [agendador e como acionar a sincronização](how-to-connect-sync-feature-scheduler.md).
 

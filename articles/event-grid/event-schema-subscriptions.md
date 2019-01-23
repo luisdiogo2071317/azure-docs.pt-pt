@@ -2,21 +2,21 @@
 title: Esquema de eventos de subscrição do Azure Event Grid
 description: Descreve as propriedades que são fornecidas para eventos de subscrição com o Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ae6513c503b930d9c953f5245a9c98ea096109bb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310242"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473440"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos do Azure Event Grid para subscrições
 
-Este artigo fornece as propriedades e o esquema para eventos de subscrição do Azure. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos de subscrição do Azure. Para obter uma introdução aos esquemas de eventos, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
 As subscrições do Azure e grupos de recursos emitem os mesmos tipos de evento. Os tipos de evento estão relacionadas com as alterações de recursos ou ações. A principal diferença é que grupos de recursos emitem eventos para os recursos no grupo de recursos e subscrições do Azure emitem eventos para recursos entre a subscrição.
 
@@ -237,7 +237,7 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
@@ -253,12 +253,12 @@ O objeto de dados tem as seguintes propriedades:
 | afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | cadeia | Um ID de operação para resolução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído ao atualizar um recurso existente ou eliminar um recurso. |
-| ResourceProvider | cadeia | O fornecedor de recursos para a operação. |
+| resourceProvider | cadeia | O fornecedor de recursos para a operação. |
 | resourceUri | cadeia | O URI do recurso na operação. |
 | operationName | cadeia | A operação que foi tirada. |
 | status | cadeia | O estado da operação. |
 | subscriptionId | cadeia | O ID de subscrição do recurso. |
-| TenantId | cadeia | O ID de inquilino do recurso. |
+| tenantId | cadeia | O ID de inquilino do recurso. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -4,7 +4,7 @@ description: Este artigo descreve as operações adicionais que podem ser execut
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280525"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478302"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que pode realizar com o Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ O Azure AD Connect Health para serviços de Federação do Active Directory (AD 
 
 1. Abra o **servidor** painel da **lista de servidores** painel ao selecionar o nome do servidor a ser removido.
 2. Sobre o **servidor** painel, a partir da barra de ação, clique em **eliminar**.
+![Captura de ecrã do Azure AD Connect Health eliminar servidor](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Certifique-se ao escrever o nome do servidor na caixa de confirmação.
 4. Clique em **Eliminar**.
 
@@ -86,8 +87,9 @@ Quando estiver a eliminar uma instância de serviço, tenha em atenção o segui
 * Depois de efetuar esta ação, se quiser iniciar a monitorização do serviço, desinstale e reinstale o agente de estado de funcionamento em todos os servidores. Depois de efetuar esta ação, se quiser iniciar a monitorização novamente o mesmo servidor, desinstalar, reinstalar e registar o agente de estado de funcionamento nesse servidor.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Para eliminar uma instância de serviço do serviço do Azure AD Connect Health
-1. Abra o **serviço** painel da **lista de serviço** painel selecionando o identificador de serviço (nome de farm) que pretende remover.
-2. Sobre o **servidor** painel, a partir da barra de ação, clique em **eliminar**.
+1. Abra o **serviço** painel da **lista de serviço** painel selecionando o identificador de serviço (nome de farm) que pretende remover. 
+2. Sobre o **serviço** painel, a partir da barra de ação, clique em **eliminar**. 
+![Captura de ecrã do Azure AD Connect Health Eliminar serviço](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirme ao escrever o nome do serviço na caixa de confirmação (por exemplo: sts.contoso.com).
 4. Clique em **Eliminar**.
    <br><br>
@@ -111,13 +113,13 @@ Todas as outras funções (por exemplo, os administradores de acesso de utilizad
 O Azure AD Connect Health oferece suporte a gerir o acesso em dois níveis:
 
 * **Todas as instâncias de serviço**: Este é o caminho recomendado na maioria dos casos. Ele controla o acesso a todas as instâncias de serviço (por exemplo, um farm do AD FS) em todos os tipos de função que estão a ser monitorizados pelo Azure AD Connect Health.
-* **Instância de serviço**: em alguns casos, poderá ter de segregar o acesso com base em tipos de função ou por uma instância de serviço. Neste caso, pode gerir o acesso ao nível da instância de serviço.  
+* **Instância de serviço**: Em alguns casos, poderá ter de segregar o acesso com base em tipos de função ou por uma instância de serviço. Neste caso, pode gerir o acesso ao nível da instância de serviço.  
 
 Permissão é concedida se um utilizador final tem acesso no diretório ou o serviço de nível de instância.
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Permitir que utilizadores ou o acesso de grupos para o Azure AD Connect Health
 Os passos seguintes mostram como permitir o acesso.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Passo 1: Selecionar o âmbito de acesso apropriado
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Passo 1: Selecione o âmbito de acesso apropriado
 Para permitir um acesso de utilizador com o *todas as instâncias de serviço* nível no Azure AD Connect Health, abra o painel principal no Azure AD Connect Health.<br>
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Passo 2: Adicionar utilizadores e grupos e atribuir funções

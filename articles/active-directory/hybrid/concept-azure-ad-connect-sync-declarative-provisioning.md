@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Entender a aprovisionamento declarativo | Documentos da Microsoft'
+title: 'Azure AD Connect: Noções básicas sobre o aprovisionamento declarativo | Documentos da Microsoft'
 description: Explica o modelo de configuração de aprovisionamento declarativo no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315036"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471783"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: compreender a aprovisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Compreender o Aprovisionamento Declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de aprovisionamento declarativo e permite-lhe efetuar uma configuração alterar com facilidade. Muitas coisas descritas neste tópico são avançadas e não é necessário para a maioria dos cenários de clientes.
 
 ## <a name="overview"></a>Descrição geral
@@ -54,9 +54,9 @@ O módulo de âmbito suporta as seguintes operações.
 
 | Operação | Descrição |
 | --- | --- |
-| IGUAL, NOTEQUAL |Comparação de cadeia de caracteres que avalia se o valor é igual ao valor no atributo. Para atributos com múltiplos valores, consulte ISIN e ISNOTIN. |
+| EQUAL, NOTEQUAL |Comparação de cadeia de caracteres que avalia se o valor é igual ao valor no atributo. Para atributos com múltiplos valores, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Uma comparação de cadeia de caracteres que avalia se o valor for less than do valor no atributo. |
-| CONTÉM, NOTCONTAINS |Comparação de cadeia de caracteres que avalia se o valor pode ser encontrado em algum lugar dentro do valor no atributo. |
+| CONTAINS, NOTCONTAINS |Comparação de cadeia de caracteres que avalia se o valor pode ser encontrado em algum lugar dentro do valor no atributo. |
 | STARTSWITH, NOTSTARTSWITH |Comparação de cadeia de caracteres que avalia se o valor é no início do valor no atributo. |
 | ENDSWITH, NOTENDSWITH |Comparação de cadeia de caracteres que avalia se o valor é no fim do valor no atributo. |
 | GREATERTHAN, GREATERTHAN_OR_EQUAL |Comparação de cadeia de caracteres que avalia se o valor for superior do valor no atributo. |
@@ -158,9 +158,9 @@ Para este cenário, terá de alterar o âmbito das regras de sincronização par
 
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 
 **Tópicos de referência**
 
-* [Sincronização do Azure AD Connect: referência das funções](reference-connect-sync-functions-reference.md)
+* [Sincronização do Azure AD Connect: Referência das funções](reference-connect-sync-functions-reference.md)

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959882"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462475"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -61,6 +61,9 @@ Não precisa de desencriptar as bases de dados para operações no Azure. As def
 - Criação de uma cópia da base de dados
 - Restauro de ficheiro de cópia de segurança para instância gerida do SQL do Azure
 
+> [!IMPORTANT]
+> Criação manual apenas de cópia cópia de segurança das bases de dados criptografados por TDE gerida pelo serviço não é permitida na instância SQL do Azure gerido, uma vez que o certificado utilizado para encriptação não está acessível. Utilize a funcionalidade de ponto de restauro anterior no tempo mover este tipo de base de dados para outra instância gerida.
+
 Ao exportar uma base de protegido por encriptação de dados transparente, o conteúdo exportado da base de dados não está encriptado. Este conteúdo exportado é armazenado nos arquivos BACPAC não encriptados. Certifique-se de que proteger os ficheiros BACPAC adequadamente e ativar a encriptação de dados transparente, depois de concluída a importação da nova base de dados.
 
 Por exemplo, se o ficheiro BACPAC é exportado a partir de uma instância do SQL Server no local, o conteúdo importado da nova base de dados não encriptado automaticamente. Da mesma forma, se o ficheiro BACPAC é exportado para uma instância do SQL Server no local, a nova base de dados também não é automaticamente encriptado.
@@ -89,10 +92,10 @@ Utilize os seguintes cmdlets para a base de dados do Azure SQL e o armazém de d
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [Conjunto AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Ativa ou desativa a encriptação de dados transparente para uma base de dados|
+| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Ativa ou desativa a encriptação de dados transparente para uma base de dados|
 | [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Obtém o estado de encriptação de dados transparente para uma base de dados |
 | [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Verifica o progresso de criptografia para uma base de dados |
-| [AzureRmSqlServerKeyVaultKey adicionar](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Adiciona uma chave de Cofre de chaves para uma instância do SQL Server |
+| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Adiciona uma chave de Cofre de chaves para uma instância do SQL Server |
 | [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Obtém as chaves do Cofre de chaves para um servidor de base de dados SQL do Azure  |
 | [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Define o protetor de encriptação de dados transparente para uma instância do SQL Server |
 | [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Obtém o protetor de encriptação de dados transparente |
@@ -109,7 +112,7 @@ Ligar à base de dados com um início de sessão que seja administrador ou membr
 | Comando | Descrição |
 | --- | --- |
 | [Alterar base de dados (banco de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | Definir ativa/inativa de encriptação encripta ou desencripta uma base de dados |
-| [dm database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Devolve informações sobre o estado de encriptação de uma base de dados e a respetiva base de dados associado chaves de encriptação |
+| [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Devolve informações sobre o estado de encriptação de uma base de dados e a respetiva base de dados associado chaves de encriptação |
 | [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Devolve informações sobre o estado de encriptação de cada dados do armazém de nó e as chaves de encriptação de base de dados associada |
 |  | |
 

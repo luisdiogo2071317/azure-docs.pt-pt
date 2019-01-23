@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, gestão do AD FS, o AAD Connect, Connect, do Azure AD, co
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: mtillman
+manager: daveba
 ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: bfdc58b8af9fc5c7c5e56e78b17d97aa60681239
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432059"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462373"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
 
@@ -40,12 +40,12 @@ O Azure AD Connect gerencia **apenas** as definições relacionadas com a confia
 
 | Definição | Descrição |
 | :--- | :--- |
-| Certificado de assinatura de tokens | O Azure AD Connect pode servir-se para repor e recriar a confiança com o Azure AD. O Azure AD Connect não um rollover de imediato única de certificados de assinatura de tokens do AD FS e atualiza as definições de Federação do domínio do Azure AD.|
+| Certificado de assinatura de token | O Azure AD Connect pode servir-se para repor e recriar a confiança com o Azure AD. O Azure AD Connect não um rollover de imediato única de certificados de assinatura de tokens do AD FS e atualiza as definições de Federação do domínio do Azure AD.|
 | Algoritmo de assinatura de token | A Microsoft recomenda utilizar SHA-256 como o algoritmo de assinatura de tokens. O Azure AD Connect pode detectar se o algoritmo de assinatura de token é definido como um valor menos seguro do que o SHA-256. Ele irá atualizar a definição para SHA-256 na próxima operação de configuração possíveis. Outra fidedignidade de entidade confiadora tem de ser atualizada para utilizar o novo certificado de assinatura de token. |
 | Identificador de fidedignidade do Azure AD | O Azure AD Connect define o valor de identificador correto para a fidedignidade do Azure AD. AD FS identifica exclusivamente a confiança do Azure AD com o valor do identificador. |
 | Pontos finais de AD do Azure | O Azure AD Connect certifica-se de que os pontos finais configurados para a fidedignidade do Azure AD são sempre de acordo com os valores recomendados mais recente para resiliência e desempenho. |
 | Regras de transformação de emissão | Há um número de regras de afirmação que são necessários para otimizar o desempenho dos recursos do Azure AD numa configuração federada. O Azure AD Connect certifica-se de que a fidedignidade do Azure AD é sempre configurada com o conjunto certo de regras de afirmação recomendada. |
-| Id alternativo | Se a sincronização estiver configurada para utilizar o id alternativo, o Azure AD Connect configura o AD FS para efetuar a autenticação com o id alternativo. |
+| Alternate-id | Se a sincronização estiver configurada para utilizar o id alternativo, o Azure AD Connect configura o AD FS para efetuar a autenticação com o id alternativo. |
 | Atualização automática de metadados | Confiança com o Azure AD está configurada para atualização automática de metadados. Periodicamente, o AD FS verifica os metadados de confiança do Azure AD e mantém atualizado no caso de ele altera no lado do Azure AD. |
 | Autenticação integrada do Windows (IWA) | Durante a operação de associação do Azure AD híbrido, IWA está ativada para o registo de dispositivos facilitar a associação do Azure AD híbrido para dispositivos de nível inferior |
 
@@ -58,7 +58,7 @@ Do Azure AD connect não atualiza todas as definições de confiança do Azure A
 | Primeira instalação de passagem (rápida) | Nenhuma |
 | Primeiro, de passar a instalação (novo farm do AD FS) | É criado um novo farm do AD FS e é criada uma confiança com o Azure AD a partir do zero. |
 | Primeiro, de passar a instalação (farm do AD FS, existente de confiança do Azure AD) | Identificador de fidedignidade do Azure AD, as regras de transformação de emissão, pontos de extremidade do Azure AD, alternativa-id (se necessário), atualização automática de metadados |
-| Repor confiança do Azure AD | Token de certificado de assinatura, assinatura algoritmo identificador de fidedignidade do Azure AD, de transformação de emissão de tokens de regras, pontos de extremidade do Azure AD, alternativa-id (se necessário), atualização automática de metadados |
+| Redefina a confiança do Azure AD | Token de certificado de assinatura, assinatura algoritmo identificador de fidedignidade do Azure AD, de transformação de emissão de tokens de regras, pontos de extremidade do Azure AD, alternativa-id (se necessário), atualização automática de metadados |
 | Adicionar servidor de federação | Nenhuma |
 | Adicionar servidor WAP | Nenhuma |
 | Opções do dispositivo | Regras de transformação de emissão, IWA para registo de dispositivos |

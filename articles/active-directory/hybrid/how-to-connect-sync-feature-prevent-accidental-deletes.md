@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: impedir eliminações acidentais | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Impedir eliminações acidentais | Documentos da Microsoft'
 description: Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314630"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464158"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir eliminações acidentais
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: Impedir eliminações acidentais
 Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect.
 
 Quando instalar o Azure AD Connect, impedir acidental eliminações é ativada por predefinição e configurado para não permitir uma exportação com mais de 500 eliminações. Esta funcionalidade foi concebida para proteger contra alterações acidentais de configuração e alterações ao seu diretório no local, que poderiam afetar muitos utilizadores e outros objetos.
@@ -53,7 +53,7 @@ Se esta foi inesperada, em seguida, investigue e tome medidas corretivas. Para v
 2. Aceda a **conectores**.
 3. Seleccione o conector com o tipo **do Azure Active Directory**.
 4. Sob **ações** à direita, selecione **procurar espaço conector**.
-5. No pop-up sob **âmbito**, selecione **desligado, uma vez que** e escolha uma hora no passado. Clique em **pesquisa**. Esta página fornece uma vista de todos os objetos prestes a ser eliminado. Ao clicar em cada item, pode obter informações adicionais sobre o objeto. Também pode clicar **definição de coluna** para adicionar atributos adicionais para ser visíveis na grelha.
+5. No pop-up sob **âmbito**, selecione **desligado, uma vez que** e escolha uma hora no passado. Clique em **Procurar**. Esta página fornece uma vista de todos os objetos prestes a ser eliminado. Ao clicar em cada item, pode obter informações adicionais sobre o objeto. Também pode clicar **definição de coluna** para adicionar atributos adicionais para ser visíveis na grelha.
 
 ![Procurar espaço conector](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -68,5 +68,5 @@ Se todas as exclusões são pretendidos, em seguida, faça o seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

@@ -3,7 +3,7 @@ title: Configurar o consentimento do utilizador a uma aplicação - Azure Active
 description: Saiba como gerir a forma como os utilizadores dar consentimento a permissões de aplicação. Pode simplificar a experiência do utilizador através da concessão de consentimento de administrador. Esses métodos se aplicam a todos os utilizadores finais no seu inquilino do Azure Active Directory (Azure AD).
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 65ab6b62b1da925880b3197036f52407e868ece7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 852188714a55fe461d0788e9f1926bcbf3dccc5e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263600"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472709"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar a forma como os utilizadores finais autorizam uma aplicação no Azure Active Directory
 Saiba como configurar a forma como os utilizadores dar consentimento a permissões de aplicação. Pode simplificar a experiência do utilizador através da concessão de consentimento de administrador. Este artigo apresenta as diferentes formas que pode configurar o consentimento do utilizador. Os métodos que se aplicam a todos os utilizadores finais no seu inquilino do Azure Active Directory (Azure AD). 

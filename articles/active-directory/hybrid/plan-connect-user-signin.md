@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Utilizador iniciar sessão | Documentos da Microsoft'
+title: 'Azure AD Connect: Sessão do utilizador | Documentos da Microsoft'
 description: O Azure AD Connect-sessão do utilizador para definições personalizadas.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365847"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463461"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador início de sessão
 O Azure Active Directory (Azure AD) Connect permite aos utilizadores iniciar sessão nos recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade ajudar a escolher a identidade que pretende utilizar para iniciar sessão no Azure AD.
@@ -125,7 +125,7 @@ Página de início de sessão do Azure AD lista os sufixos do UPN que são defin
 
 | Estado | Descrição | Ação necessária |
 |:--- |:--- |:--- |
-| Verificado |O Azure AD Connect foi encontrada que uma correspondência de domínio verificado no Azure AD. Todos os utilizadores para este domínio podem iniciar sessão através das respetivas credenciais no local. |É necessária nenhuma ação. |
+| Verificado |O Azure AD Connect foi encontrada que uma correspondência de domínio verificado no Azure AD. Todos os utilizadores para este domínio podem iniciar sessão através das respetivas credenciais no local. |Não é necessária nenhuma ação. |
 | Não verificado |O Azure AD Connect foi encontrado um domínio personalizado correspondente no Azure AD, mas não é verificado. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com após a sincronização, se o domínio não está verificado. | [Verifique se o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Não adicionado |O Azure AD Connect não foram encontradas num domínio personalizado que correspondessem ao sufixo UPN. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com se o domínio não estiver adicionado e verificado no Azure. | [Adicionar e verificar um domínio personalizado que corresponda ao sufixo de UPN.](../fundamentals/add-custom-domain.md) |
 

@@ -2,17 +2,17 @@
 title: Origens de eventos do Azure Event Grid
 description: Descreve as origens de eventos suportados do Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498305"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476041"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
@@ -114,7 +114,7 @@ Subscreva eventos do Service Bus para responder a mensagens sem um serviço de e
 |Cargo  |Descrição  |
 |---------|---------|
 | [Tutorial: O Azure Service Bus para exemplos de integração do Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens de tópico do Service Bus para a função de aplicação e a aplicação lógica. |
-| [Descrição geral: Azure Service Bus para integração do Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Descrição geral da integração do Service Bus com o Event Grid. |
+| [Descrição geral: O Azure Service Bus, a integração do Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Descrição geral da integração do Service Bus com o Event Grid. |
 | [Esquema de eventos](event-schema-service-bus.md) | Mostra campos de eventos do Service Bus. |
 
 ## <a name="storage"></a>Armazenamento
@@ -128,7 +128,7 @@ Subscreva eventos de armazenamento de BLOBs para responder a eventos criados e e
 | [Início rápido: criar e encaminhar eventos de armazenamento de Blobs com o portal do Azure](blob-event-quickstart-portal.md) | Mostra como utilizar o portal para enviar eventos de armazenamento de BLOBs para um WebHook. |
 | [CLI do Azure: subscrever eventos para uma conta de armazenamento de BLOBs](./scripts/event-grid-cli-blob.md) | Script de exemplo que subscreve eventos para uma conta de armazenamento de Blobs. Envia o evento para um WebHook. |
 | [PowerShell: subscrever eventos para uma conta de armazenamento de BLOBs](./scripts/event-grid-powershell-blob.md) | Script de exemplo que subscreve eventos para uma conta de armazenamento de Blobs. Envia o evento para um WebHook. |
-| [Modelo do Resource Manager: criar o armazenamento de BLOBs e subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
+| [Modelo do Resource Manager: Criar armazenamento de BLOBs e subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Implementa uma conta de armazenamento de Blobs do Azure e subscreve eventos para essa conta de armazenamento. Envia eventos para um WebHook. |
 | [Descrição geral: reagir a eventos de armazenamento de BLOBs](../storage/blobs/storage-blob-event-overview.md) | Descrição geral da integração do armazenamento de Blobs com o Event Grid. |
 | [Esquema de eventos](event-schema-blob-storage.md) | Mostra os campos nos eventos de armazenamento de Blobs. |
 

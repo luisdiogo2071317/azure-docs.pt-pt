@@ -5,7 +5,7 @@ services: active-directory
 keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0a546acd05246e011fa66abea8a667d0b3513588
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: a105e6d85f1c62b166c08ae269928694d2fcb48e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465824"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
 
@@ -36,7 +36,7 @@ Este artigo fornece uma descrição geral de ambas as mensagens de e-mail de not
 
 ## <a name="users-at-risk-detected-email"></a>Utilizadores em risco detetado por e-mail
 
-Em resposta a uma conta detetada em risco, o Azure AD Identity Protection gera um alerta de e-mail com **utilizadores em risco detetado** como assunto. O e-mail inclui uma ligação para o ** [utilizadores sinalizados para risco](../reports-monitoring/concept-user-at-risk.md) ** relatório. Como melhor prática, deve investigar imediatamente os utilizadores em risco.
+Em resposta a uma conta detetada em risco, o Azure AD Identity Protection gera um alerta de e-mail com **utilizadores em risco detetado** como assunto. O e-mail inclui uma ligação para o **[utilizadores sinalizados para risco](../reports-monitoring/concept-user-at-risk.md)** relatório. Como melhor prática, deve investigar imediatamente os utilizadores em risco.
 
 ![Utilizadores em risco detetado por e-mail](./media/notifications/01.png)
 

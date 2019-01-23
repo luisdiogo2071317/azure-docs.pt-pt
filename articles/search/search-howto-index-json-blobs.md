@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753154"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467168"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexar blobs JSON com o indexador Blob do Azure Search
 Este artigo mostra-lhe como configurar um indexador de Blobs do Azure Search para extrair conteúdo estruturado de blobs JSON no armazenamento de Blobs do Azure.
@@ -23,6 +23,9 @@ Este artigo mostra-lhe como configurar um indexador de Blobs do Azure Search par
 Pode utilizar o [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), ou [SDK de .NET](#json-indexer-dotnet) para indexar conteúdo JSON. Comum a todas as abordagens é documentos JSON localizados num contentor de BLOBs numa conta de armazenamento do Azure. Para obter orientações sobre como enviar documentos JSON a partir de outras plataformas não pertencente ao Azure, consulte [importação de dados no Azure Search](search-what-is-data-import.md).
 
 Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou uma matriz JSON. O indexador blob do Azure Search pode analisar a construção, dependendo de como definir o **parsingMode** parâmetro na solicitação.
+
+> [!IMPORTANT]
+> A indexação de BLOBs JSON está disponível em geral, mas JsonArray análise está em pré-visualização pública e não deve ser usado em ambientes de produção. Para obter mais informações, consulte [REST api-version = 2017-11-11-pré-visualização](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
@@ -293,10 +296,10 @@ O exemplo seguinte é um payload de indexador totalmente especificado, incluindo
 
 O SDK de .NET totalmente tem paridade com a API REST. Recomendamos que reveja a secção de REST API anterior para aprender conceitos, fluxo de trabalho e os requisitos. Em seguida, pode consultar a seguinte documentação de referência de .NET API para implementar um indexador JSON em código gerenciado.
 
-+ [Microsoft.Azure.Search.models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.Azure.Search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 ## <a name="see-also"></a>Consulte também
 

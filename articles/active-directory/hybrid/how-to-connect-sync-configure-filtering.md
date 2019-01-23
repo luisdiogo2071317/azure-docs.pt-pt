@@ -4,7 +4,7 @@ description: Explica como configurar a filtragem de sincronização do Azure AD 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 886ac908d2e294f4627f95b35d93ea49a9e1607a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391046"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472335"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos são apresentados no Azure Active Directory (Azure AD) do seu diretório no local. A configuração predefinida leva todos os objetos em todos os domínios nas florestas configurados. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam a cargas de trabalho do Office 365, como o Exchange Online e Skype para empresas, beneficiam de uma lista completa de endereço Global para que possam enviar e-mail e chamar todos os utilizadores. Com a configuração predefinida, que é preciso a mesma experiência que eles teriam com uma implementação no local do Exchange ou o Lync.

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24e11f186d9114fab5b21e8cfec6438178839550
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7c3a7c4d961a5ae2fe243ced1e13087d5cdb7a6f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358546"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452926"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e o Log Analytics
 O [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) serviço usa um número de endereços IP. Poderá ter de conhecer estes endereços se a aplicação que está a monitorizar é alojada por trás de uma firewall.
@@ -28,7 +28,7 @@ O [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.
 > 
 
 > [!TIP]
-> Subscrever esta página como um RSS feed adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/ip-addresses.md.atom para seu leitor RSS/ATOM favorito para serem notificadas das alterações mais recentes.
+> Subscrever esta página como um RSS feed adicionando https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom para seu leitor RSS/ATOM favorito para serem notificadas das alterações mais recentes.
 > 
 > 
 

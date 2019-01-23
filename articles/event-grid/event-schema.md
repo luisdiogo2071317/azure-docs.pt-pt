@@ -6,18 +6,18 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186116"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470628"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
-Este artigo descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem num conjunto de propriedades de cadeia de caracteres necessárias cinco e um objeto de dados necessários. As propriedades são comuns a todos os eventos de qualquer fabricante. O objeto de dados tem propriedades que são específicas para cada editor. Para os tópicos de sistema, estas propriedades são específicas para o fornecedor de recursos, como o armazenamento do Azure ou Event Hubs do Azure.
+Este artigo descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem num conjunto de propriedades de cadeia de caracteres necessárias cinco e um objeto de dados necessários. As propriedades são comuns a todos os eventos de qualquer fabricante. O objeto de dados tem propriedades que são específicas para cada editor. Para os tópicos de sistema, estas propriedades são específicas para o fornecedor de recursos, como o armazenamento do Azure ou Event Hubs do Azure.
 
 Origens de eventos enviam eventos para o Azure Event Grid numa matriz, o que pode ter vários objetos de evento. Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB. Se um evento ou a matriz é maior do que os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
 
@@ -83,7 +83,7 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |

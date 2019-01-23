@@ -4,7 +4,7 @@ description: Escolha que solução de proxy é melhor se estiver a atualizar do 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1517fedd4b4f8d46b0c7367fa4c1319325818b08
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365180"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461354"
 ---
 # <a name="compare-remote-access-solutions"></a>Compare as soluções de acesso remoto
 
-Proxy de aplicação do Active Directory do Azure é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de aplicações Web, a versão no local. Essas duas soluções substituem produtos anteriores que Microsoft oferecido: Microsoft Forefront Threat Management Gateway (TMG) e o Unified Access Gateway (UAG). Utilize este artigo para compreender como essas quatro soluções comparam entre si. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, utilize este artigo para ajudar a planear a migração para um Proxy de aplicações. 
+Proxy de aplicação do Active Directory do Azure é uma das duas soluções de acesso remoto que a Microsoft oferece. O outro é o Proxy de aplicações Web, a versão no local. Essas duas soluções substituem produtos anteriores que Microsoft oferecida: Microsoft Forefront Threat Management Gateway (TMG) e o Unified Access Gateway (UAG). Utilize este artigo para compreender como essas quatro soluções comparam entre si. Para aqueles que ainda utilizam as soluções TMG ou UAG preteridas, utilize este artigo para ajudar a planear a migração para um Proxy de aplicações. 
 
 
 ## <a name="feature-comparison"></a>Comparação de funcionalidades

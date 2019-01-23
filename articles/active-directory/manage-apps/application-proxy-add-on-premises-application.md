@@ -3,7 +3,7 @@ title: Adicionar uma aplicação no local - Proxy de aplicações no Azure Activ
 description: Azure Active Directory (Azure AD) tem um serviço de Proxy de aplicações que permite aos utilizadores aceder a aplicações no local ao iniciar sessão com a respetiva conta do Azure AD. Este tutorial mostra como preparar o ambiente para utilização com o Proxy de aplicações e, em seguida, utiliza o portal do Azure para adicionar uma aplicação no local com o seu inquilino do Azure AD.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0ea948760c7639f24031a0177df0d42f9706d006
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120738"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471220"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -81,7 +81,7 @@ Abrir as seguintes portas **saída** tráfego.
 
 Se a firewall impuser tráfego de acordo com os utilizadores de origem, também abra as portas 80 e 443 para tráfego dos serviços do Windows que são executados como um serviço de rede.
 
-Se já estiver a utilizar o Proxy de aplicações, poderá ter uma versão mais antiga do conector instalado.  Siga este tutorial para instalar a versão mais recente do conector. Versões anteriores ao 1.5.132.0 também necessitam de que portas de abrir o seguinte: 5671, 8080, 9090-9091, 9350, 9352, 10100 – 10120. 
+Se já estiver a utilizar o Proxy de aplicações, poderá ter uma versão mais antiga do conector instalado.  Siga este tutorial para instalar a versão mais recente do conector. Versões anteriores ao 1.5.132.0 também necessitam de que portas de abrir o seguinte: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
 
 ### <a name="allow-access-to-urls"></a>Permitir o acesso aos URLs
 
@@ -89,7 +89,7 @@ Permitir o acesso aos seguintes URLs:
 
 | do IdP | Como são utilizadas |
 | --- | --- |
-| \*. msappproxy.net<br>\*. servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de aplicações |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do Proxy de aplicações |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure utiliza estes URLs para verificar os certificados |
 | login.windows.net<br>login.microsoftonline.com | O conector utiliza estes URLs durante o processo de registo. |
 

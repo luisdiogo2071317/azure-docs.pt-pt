@@ -4,7 +4,7 @@ description: Este tópico fornece os passos de remediação para erros de LargeO
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478625"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: erros de processamento de LargeObject causados pelo atributo userCertificate
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros de LargeObject causados pelo atributo userCertificate
 
 O Azure AD impõe um limite máximo de **15** valores de certificado no **userCertificate** atributo. Se o Azure AD Connect exporta um objeto com mais de 15 valores para o Azure AD, o Azure AD retorna um **LargeObject** erro com a mensagem:
 
@@ -41,7 +41,7 @@ Para obter a lista de objetos no seu inquilino com erros de LargeObject, utilize
 ## <a name="mitigation-options"></a>Opções de atenuação
 Até que o erro de LargeObject for resolvido, outras alterações de atributos para o mesmo objeto não não possível exportar para o Azure AD. Para resolver o erro, pode considerar as seguintes opções:
 
- * Atualizar o Azure AD Connect, para criar 1.1.524.0 ou depois. No Azure AD Connect crie 1.1.524.0, a sincronização de out-of-box regras foram atualizadas para não exportar atributos userCertificate e userSMIMECertificate, se os atributos têm mais de 15 valores. Para obter detalhes sobre como atualizar o Azure AD Connect, consulte o artigo [do Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Atualizar o Azure AD Connect, para criar 1.1.524.0 ou depois. No Azure AD Connect crie 1.1.524.0, a sincronização de out-of-box regras foram atualizadas para não exportar atributos userCertificate e userSMIMECertificate, se os atributos têm mais de 15 valores. Para obter detalhes sobre como atualizar o Azure AD Connect, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementar um **regra de sincronização de saída** no Azure AD Connect que exporta um **nulo, valor em vez dos valores reais para objetos com mais de 15 valores de certificado**. Esta opção é adequada se não necessitar de qualquer um dos valores de certificado seja exportado para o Azure AD para objetos com mais de 15 valores. Para obter detalhes sobre como implementar esta regra de sincronização, consulte a secção seguinte [regra de sincronização de implementar para limitar a exportação de atributo userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
@@ -91,10 +91,10 @@ Deve haver uma regra de sincronização existente que está ativada e configurad
 
     | Atributo | Valor |
     | --- | --- |
-    | Direção |**Saída** |
+    | Direção |**Outbound** |
     | Tipo de objeto de MV |**Pessoa** |
     | Conector |*nome do conector do Azure AD* |
-    | Tipo de objeto do conector |**Utilizador** |
+    | Tipo de objeto do conector |**user** |
     | Atributo de MV |**userCertificate** |
 
 3. Se estiver a utilizar as regras de sincronização (out-of-box) de OOB para o conector do Azure AD para exportar o atributo de userCertficiate para objetos de utilizador, deve regressar a *"Out ao AAD – utilizador ExchangeOnline"* regra.
@@ -106,7 +106,7 @@ Deve haver uma regra de sincronização existente que está ativada e configurad
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL A | Utilizador |
+    | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passo 3. Criar a regra de sincronização de saída necessária
@@ -119,7 +119,7 @@ A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **pre
     | Nome | *Forneça um nome* | Por exemplo, *"Out ao AAD – personalizado para userCertificate substituição"* |
     | Descrição | *Forneça uma descrição* | Por exemplo, *"Se o atributo userCertificate tem mais de 15 valores, exportar NULL".* |
     | Sistema ligado | *Selecione o conector Azure AD* |
-    | Tipo de objeto de sistema ligado | **Utilizador** | |
+    | Tipo de objeto de sistema ligado | **user** | |
     | Tipo de objeto de Metaverso | **person** | |
     | Tipo de Ligação | **Associar** | |
     | Precedência | *Optou por um número entre 1 e 99* | O número escolhido não pode ser utilizado por qualquer regra de sincronização existente e tem um valor inferior (e, portanto, precedência superior) que a regra de sincronização existente. |

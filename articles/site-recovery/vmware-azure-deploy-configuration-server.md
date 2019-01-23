@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468408"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -144,7 +144,7 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
     Consulte a [arquitetura de replicação do Azure de VMware para](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e as funcionalidades do mesmo.
 5. Onde posso encontrar a versão mais recente do servidor de configuração?
 
-    Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Pode baixá-lo de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, consulte [aqui](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+    Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, consulte [aqui](https://aka.ms/asr_how_to_upgrade).
 6. Onde posso transferir a frase de acesso para o servidor de configuração?
 
     Consulte a [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para transferir a frase de acesso.
@@ -164,6 +164,8 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
 11. Posso configurar o servidor de configuração no Azure?
 
     Recomenda-se para configurar o servidor de configuração no ambiente no local com direto linha de visão com o Centro de v e para minimizar a latências de transferência de dados. Pode efetuar cópias de segurança agendadas do servidor de configuração para [fins de reativação pós-falha](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Para perguntas mais frequentes no servidor de configuração, consulte a nossa [documentação sobre perguntas comuns sobre o configuration server](vmware-azure-common-questions.md#configuration-server) .
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

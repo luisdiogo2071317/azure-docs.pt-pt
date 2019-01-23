@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 4244520fa30fece53e1d01e50044cfeca496066c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6aee3c42c7c01d226732245b47dfb87e07a5ce4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464464"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e pontos finais para uma VM do Linux com a CLI do Azure
 
@@ -42,7 +42,7 @@ Para obter mais controlo sobre as regras, como na definição de um intervalo de
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e regras
-Criar o grupo de segurança de rede com [nsg de rede de az criar](/cli/azure/network/nsg#az_network_nsg_create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* no *eastus* localização:
+Criar o grupo de segurança de rede com [nsg de rede de az criar](/cli/azure/network/nsg). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* no *eastus* localização:
 
 ```azurecli
 az network nsg create \

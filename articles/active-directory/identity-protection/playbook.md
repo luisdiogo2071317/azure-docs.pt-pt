@@ -5,7 +5,7 @@ services: active-directory
 keywords: proteção de identidade do Azure Active Directory, da cloud discovery, gerenciamento de aplicativos, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460529"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook do Azure Active Directory Identity Protection
 
@@ -115,7 +115,7 @@ Esta secção fornece passos para testar o risco de utilizador e a política de 
 
 ### <a name="user-risk-security-policy"></a>Política de segurança de risco do utilizador
 
-Para obter mais informações, consulte [como configurar a política de risco do utilizador](howto-user-risk-policy.md).
+Para obter mais informações, veja [Como configurar a política de risco de utilizador](howto-user-risk-policy.md).
 
 ![Risco de utilizador](./media/playbook/02.png "Playbook")
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte [como configurar a política de risco do
 
 ### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de início de sessão
 
-Para obter mais informações, consulte [como configurar a política de risco de início de sessão](howto-sign-in-risk-policy.md).
+Para obter mais informações, veja [Como configurar a política de risco de início de sessão](howto-sign-in-risk-policy.md).
 
 ![Início de sessão de risco](./media/playbook/01.png "Playbook")
 

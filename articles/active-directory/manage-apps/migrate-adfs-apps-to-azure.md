@@ -3,7 +3,7 @@ title: Mova as aplicações do AD FS para o Azure AD. | Microsoft Docs
 description: Este artigo destina-se para ajudar as organizações a compreender como migrar aplicativos para o Azure AD, com foco em aplicações SaaS federadas.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cf8ce4d39d0097c1ec1866a0aad071a2b5d8908f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141939"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474273"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 
@@ -92,8 +92,8 @@ As tabelas seguintes mapeiam várias ideias importantes que o AD FS, o Azure AD 
 
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Representar a aplicação no Azure AD ou no AD FS
 A migração começa com a avaliação da forma como a aplicação está configurada no local e mapear essa configuração para o Azure AD. A tabela seguinte mapeia os elementos de configuração da entidade confiadora do AD FS para os elementos correspondentes no Azure AD.  
-- Termo do AD FS: entidade confiadora ou confiança da entidade confiadora.
-- Termo do Azure AD: aplicação empresarial ou registo de aplicações (consoante o tipo de aplicação).
+- Termo do AD FS: Entidade confiadora ou confiança de entidade confiadora.
+- Termo do AD do Azure: Enterprise application ou registo de aplicações (consoante o tipo de aplicação).
 
 |Elemento de configuração da aplicação|Descrição|Localização na configuração do AD FS|Localização correspondente na configuração do Azure AD|Elemento de token SAML|
 |-----|-----|-----|-----|-----|
@@ -124,7 +124,7 @@ A tabela seguinte descreve os principais elementos de configuração do IdP para
 |Metadados </br>de fim de sessão </br>do IdP|URL de fim de sessão do IdP na perspetiva da aplicação (para onde o utilizador é redirecionado quando escolhe terminar sessão na aplicação).|No AD FS, o URL de fim de sessão é o URL de início de sessão ou é o mesmo URL com “wa=wsignout1.0” anexado. Por exemplo: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|O valor correspondente para o Azure AD depende de a aplicação suportar o fim de sessão SAML 2.0.</br></br>Se o suportar, o valor segue o padrão em que o valor de {tenant-id} é substituído pelo ID do inquilino. Este está disponível no portal do Azure em **Azure Active Directory** > **Propriedades** como **ID do Diretório**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Se a aplicação não suportar o fim de sessão SAML: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Certificado de </br>assinatura de </br>certificado|O certificado cuja chave privada é utilizada pelo IdP para assinar tokens emitidos. Verifica se o token provém do mesmo IdP para o qual a aplicação está configurada para confiar.|O certificado de assinatura de tokens do AD FS está disponível na Gestão do AD FS, em **Certificados**.|No Azure AD, o certificado de assinatura de tokens está disponível no portal do Azure, nas propriedades **Início de Sessão Único** da aplicação, no cabeçalho **Certificado de Assinatura SAML**. Aí, pode transferir o certificado para carregamento para a aplicação.</br></br> Se a aplicação tiver mais de um certificado, todos os certificados estão disponíveis no ficheiro XML dos metadados de federação.|
 |Identificador/</br>“emissor”|O identificador do IdP na perspetiva da aplicação (por vezes, denominado “emissor” ou “ID do emissor”).</br></br>No token SAML, o valor aparece como o elemento **Emissor**.|Geralmente, o identificador no AD FS é o identificador do serviço de federação na Gestão do AD FS, em **Serviço** >  **Editar Propriedades do Serviço de Federação**. Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente para o Azure AD segue o padrão em que o valor de {tenant-id} é substituído pelo ID do inquilino. Este está disponível no portal do Azure em **Azure Active Directory** > **Propriedades** como **ID do Diretório**: https&#58;//sts.windows.net/{tenant-id}/|
-|Metadados </br>de federação </br>do IdP|A localização dos metadados de federação publicamente disponíveis do IdP. (Algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens.)|O URL dos metadados de federação estão disponíveis na Gestão do AD FS em **Serviço** > **Pontos Finais** > **Metadados** > **Tipo: Metadados de Federação**. Por exmplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente para o Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor de {TenantDomainName} pelo nome do seu inquilino, no formato “contoso.onmicrosoft.com.” </br></br>Para obter mais informações, veja [Federation metadata](../develop/azure-ad-federation-metadata.md) (Metadados da federação).
+|Metadados </br>de federação </br>do IdP|A localização dos metadados de federação publicamente disponíveis do IdP. (Algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens.)|Encontrar o URL de metadados de Federação do AD FS na gestão do AD FS, em **serviço** > **pontos finais** > **metadados**  >   **Tipo: Metadados de Federação**. Por exmplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente para o Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor de {TenantDomainName} pelo nome do seu inquilino, no formato “contoso.onmicrosoft.com.” </br></br>Para obter mais informações, veja [Federation metadata](../develop/azure-ad-federation-metadata.md) (Metadados da federação).
 
 ## <a name="moving-saas-apps"></a>Mover aplicações SaaS
 Mover aplicações SaaS do AD FS ou de outro fornecedor de identidade para o Azure AD é um processo manual de hoje. Para obter orientações para aplicações específicas, veja a [lista de tutoriais relativos à integração de aplicações SaaS disponíveis no Marketplace](../saas-apps/tutorial-list.md).
@@ -210,19 +210,19 @@ Para verificar o acesso, os utilizadores deverão ver a aplicação SaaS no resp
 ### <a name="configure-the-saas-app"></a>Configurar a aplicação SaaS
 O processo de transição da federação no local para o Azure AD depende de a aplicação SaaS com que está a trabalhar suportar ou não vários fornecedores de identidade. Seguem-se algumas perguntas comuns sobre o suporte para vários IdPs:
 
-   **P: O que significa uma aplicação suportar vários IdPs?**
+   **P: O que significa para uma aplicação suportar vários IdPs?**
     
-   R: As aplicações SaaS que suportam vários IdPs permitem-lhe introduzir todas as informações do IdP novo (no nosso caso, o Azure AD) antes de consolidar a alteração da experiência de início de sessão. Quando a configuração estiver concluída, pode mudar a configuração de autenticação da aplicação para apontar para o Azure AD.
+   R: Aplicações SaaS que suportam vários IdPs permitem-lhe introduzir todas as informações sobre o IdP novo (no nosso caso, o Azure AD) antes de consolidar a alteração da experiência de início de sessão. Quando a configuração estiver concluída, pode mudar a configuração de autenticação da aplicação para apontar para o Azure AD.
 
    **P: Por que motivo é relevante a aplicação SaaS suportar vários IdPs?**
 
-   R: Se não forem suportados vários IdPs, o administrador terá de reservar um curto período de tempo como falha de serviço ou manutenção para configurar o Azure AD como o IdP novo da aplicação. Durante este período de inatividade, os utilizadores devem ser notificados de que não conseguirão iniciar sessão nas respetivas contas.
+   R: Se não forem suportados vários IdPs, o administrador tem reservar um curto período de tempo como para falha de serviço ou manutenção durante o qual configurar o Azure AD como o IdP novo da aplicação. Durante este período de inatividade, os utilizadores devem ser notificados de que não conseguirão iniciar sessão nas respetivas contas.
 
    Se uma aplicação suportar vários IdPs, os IdPs adicionais podem ser configurados com antecedência. O administrador pode, então, mudar o IdP quando estiver a transitar para o Azure.
 
    Se a aplicação suportar vários IdPs e quiser ter vários IdPs a processar em simultâneo a autenticação de início de sessão, o utilizador pode escolher que IdP vai utilizar na autenticação na respetiva página de início de sessão.
 
-#### <a name="example-support-for-multiple-idps"></a>Exemplo: suporte para vários IdPs
+#### <a name="example-support-for-multiple-idps"></a>Exemplo: Suporte para vários IdPs
 Por exemplo, no Salesforce, a configuração do IdP está disponível em **Settings** (Definições) > **Company Settings** (Definições da Empresa) > **My Domain** (O Meu Domínio) > **Authentication Configuration** (Configuração da Autenticação).
 
 ![Secção "Configuração da Autenticação" na aplicação Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)
@@ -231,7 +231,7 @@ Devido à configuração que criámos anteriormente em **Identity** (Identidade)
 
 ![Selecionar o Azure AD como o serviço de autenticação](media/migrate-adfs-apps-to-azure/migrate10.png)
 
-### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: configurar o aprovisionamento de utilizadores no Azure AD
+### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: Configurar o aprovisionamento de utilizador no Azure AD
 Se quiser que o Azure AD processe diretamente o aprovisionamento de utilizadores numa aplicação SaaS, veja [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](user-provisioning.md) (Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS com o Azure Active Directory).
 
 ## <a name="next-steps"></a>Passos Seguintes

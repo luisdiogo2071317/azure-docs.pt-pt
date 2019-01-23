@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Se já tiver o AD do Azure | Documentos da Microsoft'
+title: 'Azure AD Connect: Se já tiver o AD do Azure | Documentos da Microsoft'
 description: Este tópico descreve como utilizar o Connect quando tiver um inquilino do Azure AD existente.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6425c2cd77cc32e296c75504d3fd01a5b5e583e9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f0c16a86d4e3dbe582f1471d2b94e1ec85b70b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311886"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475924"
 ---
-# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>O Azure AD Connect: Se tiver um inquilino existente
+# <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
 A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de começar com um Azure novo inquilino do AD e o que há nenhum usuário ou outros objetos. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é para si.
 
 ## <a name="the-basics"></a>Noções básicas

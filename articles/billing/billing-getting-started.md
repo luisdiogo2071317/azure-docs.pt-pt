@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582434"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452901"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -90,7 +90,7 @@ Depois de obter seus serviços em execução, regularmente verificar quanto eles
 
     ![Captura de ecrã da vista de análise de custo no portal do Azure](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Pode filtrar por propriedades diferentes, como [etiquetas](#tags), grupo de recursos e o período de tempo. Clique em **aplicar** para confirmar os filtros e **transferir** se pretender exportar o modo de exibição para um ficheiro de valores de comma-separated (. csv).
+4. Pode filtrar por propriedades diferentes, como [etiquetas](#tags), tipo de recurso, o grupo de recursos e o período de tempo. Clique em **aplicar** para confirmar os filtros e **transferir** se pretender exportar o modo de exibição para um ficheiro de valores de comma-separated (. csv).
 
 5. Além disso, pode clicar num recurso para ver seu diariamente gastar o histórico e quanto o recurso tem um custo por dia.
 

@@ -5,21 +5,21 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 01/22/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: ec7b1ad33ec80593b718bdf86a48269fb469e078
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476398"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o anfitrião de extensão para o Azure Stack
 
-O anfitrião de extensão protege o Azure Stack, reduzindo o número de portas de TCP/IP necessárias. Este artigo analisa a preparação do Azure Stack para o anfitrião de extensão, o que é ativado automaticamente por meio de um pacote de atualização de pilha do Azure após a atualização 1808.
+O anfitrião de extensão protege o Azure Stack, reduzindo o número de portas de TCP/IP necessárias. Este artigo analisa a preparação do Azure Stack para o anfitrião de extensão, o que é ativado automaticamente por meio de um pacote de atualização de pilha do Azure após a atualização 1808. Este artigo aplica-se para as atualizações do Azure Stack 1808 1809 e 1811.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 

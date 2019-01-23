@@ -1,10 +1,10 @@
 ---
-title: 'O Azure AD Connect: Selecione o tipo de instalação | Documentos da Microsoft'
+title: 'Azure AD Connect: Selecione o tipo de instalação | Documentos da Microsoft'
 description: Este tópico explica como selecionar o tipo de instalação a utilizar para o Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e4185b6b30bdd01492d9aae7ac38e18aaba7eef5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6082d583432e246ba3d45f3e97f4b104710e8727
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312047"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473695"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação a utilizar para o Azure AD Connect
-O Azure AD Connect tem dois tipos de instalação para a nova instalação: Express e personalizado. Este tópico ajuda-o a decidir a opção a utilizar durante a instalação.
+O Azure AD Connect tem dois tipos de instalação para a nova instalação: Expresso e personalizadas. Este tópico ajuda-o a decidir a opção a utilizar durante a instalação.
 
 ## <a name="express"></a>Express
 Express é a opção mais comum e é utilizado em cerca de 90% de todas as novas instalações. Ele foi projetado para fornecer uma configuração que funciona para os cenários mais comuns do cliente.
@@ -43,7 +43,7 @@ Obtém:
 
 Opções de onde pode continuar a utilizar Express:
 
-- Se não quiser sincronizar todas as UOs, ainda pode utilizar o Express e na última página, anule a seleção **iniciar o processo de sincronização...**\*. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
+- Se não quiser sincronizar todas as UOs, ainda pode utilizar o Express e na última página, anule a seleção * * iniciar o processo de sincronização... ***. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
 - Pretende ativar um dos recursos no Azure AD Premium, tais como a repetição de escrita de palavra-passe. Em primeiro lugar express para obter a instalação inicial foi concluída. Em seguida, execute novamente o Assistente de instalação e alterar os [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado

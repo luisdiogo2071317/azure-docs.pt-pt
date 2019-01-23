@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c7b4da7292600f3d477d5c16263660eb6d4d4226
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.subservice: autoscale
+ms.openlocfilehash: 074f090d295ef5eafad48e57f68dad019bf7eab9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051277"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470040"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração do dimensionamento automático avançado com modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode reduzir e aumentar horizontalmente em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métricas de desempenho, por uma agenda periódica ou por uma data específica. Também pode configurar notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager num conjunto de dimensionamento de VM.
@@ -41,7 +41,7 @@ Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resour
     | Regra |Contagem de mensagens da fila de barramento de serviço > x |
     | Regra |Contagem de mensagens da fila de barramento de serviço < y |
     | Regra |% De CPU > n |
-    | Regra |% De CPU < p |
+    | Regra |CPU% < p |
     | **Perfil** |**Dia da semana horas da manhã (não há regras)** |
     | **Perfil** |**Dia de lançamento do produto (não há regras)** |
 

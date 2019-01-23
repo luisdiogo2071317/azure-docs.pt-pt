@@ -4,7 +4,7 @@ description: Determinar as capacidades de monitorização e de relatórios para 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464838"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de resposta a incidentes para a sua solução de identidade híbrida
 Grandes e médias organizações provavelmente terá um [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar a IT agir em conformidade para o nível de incidente. O sistema de gestão de identidade é um componente importante do processo de resposta a incidentes, porque este pode ser utilizado para o ajudar a identificar quem realizou uma ação específica contra o destino. A solução de identidade híbrida tem de ser capaz de fornecer capacidades de monitorização e relatórios que podem ser usadas pelo departamento de TI tomar medidas para identificar e mitigar uma ameaça potencial. Um plano de resposta a incidentes típico terão as seguintes fases como parte do plano:
@@ -51,7 +51,7 @@ O sistema de gestão de identidade deve ajudar os administradores de TI para ide
 * A sua empresa precisa para fazer a auditoria de acesso e a ação do utilizador?
 * A sua empresa precisa de saber quando um usuário redefinir sua senha?
 
-## <a name="policy-enforcement"></a>Imposição de políticas
+## <a name="policy-enforcement"></a>Aplicação da política
 Durante o controle de danos e a fase de redução de risco, é importante reduzir os efeitos reais e potenciais de um ataque rapidamente. Neste momento, essa ação que irá efetuar pode fazer a diferença entre pequenas e grandes proporções. A resposta exata dependerá-se a sua organização e a natureza do ataque enfrentado. Se a avaliação inicial concluíram que uma conta foi comprometida, será necessário para impor a política para bloquear esta conta. Isso é apenas um exemplo onde o sistema de gestão de identidade irá ser aproveitado. Utilize as perguntas abaixo para criar a sua solução de identidade híbrida ao mesmo tempo que em consideração a forma como serão aplicadas políticas de reagir a um incidente em curso:
 
 * A sua empresa tem políticas in-loco para impedir que os utilizadores de acesso a rede se necessário?

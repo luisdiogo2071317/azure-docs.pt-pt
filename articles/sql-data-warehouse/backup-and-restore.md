@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308483"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465178"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
@@ -86,7 +86,7 @@ Cada instantâneo cria um ponto de restauro que representa a hora de início de 
 
 Pode manter o armazém de dados restaurados e atual ou elimine um deles. Se pretende substituir o armazém de dados atual com o armazém de dados restaurada, pode alterá-lo usando [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) com a opção de modificar o nome. 
 
-Para restaurar um armazém de dados, consulte [restaurar um armazém de dados com o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um armazém de dados com o T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
+Para restaurar um armazém de dados, consulte [restaurar um armazém de dados com o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um armazém de dados com REST APIs](sql-data-warehouse-restore-database-rest-api.md).
 
 Para restaurar um armazém de dados eliminada ou em pausa, pode [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md). 
 

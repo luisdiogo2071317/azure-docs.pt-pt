@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 190d81fc7811e4afdb32555407716f60f5b9a2d1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842191"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476143"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicar atualizações no Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Pode utilizar o **atualizar** mosaico no portal de administração para aplicar os pacotes de atualização de OEM da Microsoft ou para o Azure Stack. Tem de transferir o pacote de atualização, importe os ficheiros de pacote para o Azure Stack e, em seguida, instale o pacote de atualização.
 
@@ -50,13 +50,11 @@ O procedimento seguinte mostra como importar e instalar pacotes de atualização
 
 2. Na caixa de filtro, escreva **atualizar**e selecione o **updateadminaccount** conta de armazenamento.
 
-    ![Mostra como procurar updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. No armazenamento de detalhes da conta, em **serviços**, selecione **Blobs**.
  
     ![Mostra como obter para Blobs para a conta de armazenamento](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. Sob **serviço Blob**, selecione **+ contentor** para criar um contentor. Introduza um nome (por exemplo *atualização 1709*) e, em seguida, selecione **OK**.
+
+4. Sob **serviço Blob**, selecione **+ contentor** para criar um contentor. Introduza um nome (por exemplo *atualização 1811*) e, em seguida, selecione **OK**.
  
      ![Mostra como adicionar um contentor na conta de armazenamento](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -66,12 +64,12 @@ O procedimento seguinte mostra como importar e instalar pacotes de atualização
 
 6. Sob **carregar blob**, clique no ícone de pasta, procure .exe ficheiro o pacote de atualização e, em seguida, clique em **aberto** na janela do Explorador de ficheiros.
   
-7. Sob **carregar blob**, clique em **carregar**. 
+7. Sob **carregar blob**, clique em **carregar**.
   
     ![Mostra onde carregar cada ficheiro de pacote](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita os passos 6 e 7 para o *PackageName*. bin e arquivos de METADATA. Não importe o arquivo notice suplementares se incluído.
-9. Quando terminar, pode rever as notificações (ícone de sino no canto superior direito do portal). As notificações devem indicar que concluiu o carregamento. 
+8. Repita os passos 6 e 7 para o *PackageName*. bin e arquivos de METADATA. Não importe o arquivo notice suplementares se incluído.
+9. Quando terminar, pode rever as notificações (ícone de sino no canto superior direito do portal). As notificações devem indicar que concluiu o carregamento.
 10. Navegue de volta para o atualizar mosaico no dashboard. O mosaico deve indicar que está disponível uma atualização. Clique no mosaico para rever o pacote de atualização adicionada recentemente.
 11. Para instalar a atualização, selecione o pacote que está marcado como **pronto** e um pacote com o botão direito e selecione **atualizar agora**, ou clique nas **atualizar agora** ação perto da parte superior .
 12. Ao clicar o pacote de atualização de instalação, pode ver o estado dos **detalhes de execução de atualização** área. A partir daqui, pode também clicar **transferir registos completos** para transferir os ficheiros de registo.

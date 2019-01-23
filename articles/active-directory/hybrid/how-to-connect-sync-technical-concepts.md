@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: conceitos técnicos | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Conceitos técnicos | Documentos da Microsoft'
 description: Explica os conceitos técnicos de sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463495"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: Conceitos Técnicos
 Este artigo é um resumo do tópico [arquitetura de compreensão](how-to-connect-sync-technical-concepts.md).
@@ -36,7 +36,7 @@ As secções seguintes fornecem mais detalhes sobre os seguintes aspectos do ser
 * Conector
 * Fluxo de atributos
 * Espaço conector
-* Metaverso
+* Metaverse
 * Aprovisionamento
 
 ## <a name="connector"></a>Conector
@@ -66,7 +66,7 @@ Isso permite que o serviço de sincronização operar localmente, sem a necessid
 
 Quando a origem de dados e o conector tem a capacidade de fornecer uma lista de alterações (uma importação delta), em seguida, a eficiência operacional aumenta drasticamente como apenas as alterações, uma vez que o último ciclo de consulta são trocadas. O espaço conector separa a origem de dados ligada contra alterações propagar-se automaticamente ao exigir que o cronograma de conector importa e exporta. Dessa segurança adicionada concede-lhe tranquilidade durante os testes, a pré-visualizar ou confirmar a próxima atualização.
 
-## <a name="metaverse"></a>Metaverso
+## <a name="metaverse"></a>Metaverse
 Metaverso é a vista consolidada de todas as identidades associado do vizinho espaços conectores.
 
 À medida que as identidades são vinculadas e autoridade é atribuída para vários atributos através de mapeamentos de fluxo de importação, o objeto de metaverso central é começa a agregam informações de vários sistemas. De que este fluxo de atributos de objeto, mapeamentos de transmitir informações para sistemas de saída.
@@ -86,7 +86,7 @@ Isto inerentemente estabelece uma ligação e fluxo de atributos pode continuar 
 Sempre que uma regra de determina que um novo objeto de espaço conector tem de ser criado, ele é chamado de aprovisionamento. No entanto, porque esta operação só ocorre dentro do espaço de conector, ele não passa para a origem de dados ligada até que uma exportação é executada.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
-* [Sincronização do Azure AD Connect: Personalizar as opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 
 <!--Image references-->

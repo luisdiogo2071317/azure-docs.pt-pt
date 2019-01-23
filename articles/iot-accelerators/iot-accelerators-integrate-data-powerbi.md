@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970406"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470652"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota com o Power BI
 
@@ -28,7 +28,7 @@ Este tutorial explica como conectar seus dados de solução de monitorização r
 
 ## <a name="information-needed-from-azure-portal"></a>Informações necessárias a partir do Portal do Azure
 
-1. Navegue para [Portal do Azure](https://portal.azure.com) e iniciar sessão, se necessário
+1. Navegue para [Portal do Azure](https://portal.azure.com) e início de sessão se for necessário
 
 2. No painel à esquerda, clique em grupos de recursos
 
@@ -84,11 +84,11 @@ Este tutorial explica como conectar seus dados de solução de monitorização r
 
 ## <a name="creating-a-dashboard"></a>Criar um dashboard
 
-Assim que o fluxo foi ligado, está pronto para criar dashboards personalizados! O dashboard abaixo é um exemplo de criar tabelas dinâmicas a telemetria a ser immmited por nossos dispositivos simulados e mostrar diferentes em torno dele, tais como: 
+Assim que o fluxo foi ligado, está pronto para criar dashboards personalizados! O dashboard abaixo é um exemplo de colocar a telemetria que está a ser emitida pelo nosso dispositivos simulados e tabelas dinâmicas de diferentes que mostra em torno dele, tais como: 
 
 * Localização do dispositivo num mapa (direita)
 * Dispositivos com o respetivo estado e gravidade. (canto superior esquerdo)
-* Dispositivos com regras no local e se existem quaisquer alarmes vai para os mesmos (canto inferior esquerdo)
+* Dispositivos com regras no local e se existem quaisquer alertas vai para os mesmos (canto inferior esquerdo)
 
 ![Visualização do Power BI](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

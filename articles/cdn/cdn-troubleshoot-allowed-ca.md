@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 11651c2721756a4f750a5a5e78f86fdbd363fb9d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954042"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462594"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado na CDN do Azure
 
@@ -33,14 +33,11 @@ Para um domínio personalizado da rede de entrega conteúdo (CDN) numa **CDN Sta
 As CAs seguintes são permitidas quando cria seu próprio certificado:
 
 - AddTrust externo AC de raiz
-- AC de raiz de AlphaSSL
-- Infra-estrutura AME 01 de AC
-- Infra-estrutura AME AC 02
+- AlphaSSL Root CA
+- AME Infra CA 01
+- AME Infra CA 02
 - Ameroot
-- AC de raiz do Pacífico
-- Autoridade de certificação de raiz de AP 2013
-- Autoridade de certificação de raiz de AP de 2014
-- APCA DM3P
+- APCA-DM3P
 - AC de raiz do autopilot
 - Raiz da CyberTrust Baltimore
 - Autoridade de certificação primária pública classe 3
@@ -54,33 +51,33 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - DigiCert SHA2 estendido AC do servidor de validação
 - Servidor de alta garantia de DigiCert SHA2 AC
 - Servidor seguro da DigiCert SHA2 AC
-- X3 de AC de raiz de horário de Verão
+- DST Root CA X3
 - AC de classe 3 de raiz de confiança de D de 2009 2
 - Encriptação em qualquer lugar DV TLS AC
 - Autoridade de certificação de raiz da Entrust
 - G2 da autoridade de certificação de raiz - Entrust
-- Autoridade de certificação Entrust.NET (2048)
+- Entrust.net Certification Authority (2048)
 - AC de GeoTrust Global
 - Autoridade de certificação primária GeoTrust
 - Autoridade de certificação primária GeoTrust - G2
-- Geotrust RSA 2018 de AC
+- Geotrust RSA CA 2018
 - GlobalSign
 - GlobalSign estendido G2 de AC - SHA256 - validação
-- Validação de organização GlobalSign AC - G2
+- GlobalSign Organization Validation CA - G2
 - AC de raiz de GlobalSign
 - Aceda a autoridade de certificação de raiz Daddy - G2
 - Aceda a autoridade de certificação segura de Daddy - G2
-- RapidSSL RSA 2018 de AC
-- Agência de raiz
+- QuoVadis Root CA2 G3
+- RapidSSL RSA CA 2018
 - AC de SSL do Symantec classe 3 EV - G3
 - Classe da Symantec 3 servidor seguro AC - G4
-- Symantec Enterprise Mobile Root para a Microsoft
+- Symantec Enterprise Mobile Root for Microsoft
 - AC de raiz de Thawte primário
 - AC de raiz do principal de Thawte - G2
 - AC de raiz do principal de Thawte - G3
-- Thawte RSA 2018 de AC
+- Thawte RSA CA 2018
 - Carimbo de Thawte AC
-- TrustAsia TLS RSA AC
+- TrustAsia TLS RSA CA
 - AC de SSL de validação estendida 3 classe VeriSign
 - Classe de VeriSign 3 validação estendida SSL SGC AC
 - Autoridade de certificação primária pública classe 3 da VeriSign - G5

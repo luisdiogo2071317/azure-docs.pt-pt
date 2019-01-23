@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248015"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463223"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota com a CLI
 
@@ -62,7 +62,7 @@ Esta secção resume as principais diferenças entre uma implementação de bás
 
 ### <a name="basic"></a>Básica
 
-Implementação básica destina-se se utilizar que apresenta a solução. Para reduzir os custos, todos os microsserviços são implementados numa única máquina virtual. Esta implementação não usa uma arquitetura de prontos para produção.
+A implementação Básica destina-se a demonstrar a solução. Para reduzir os custos, todos os microsserviços são implementados numa única máquina virtual. Esta implementação não usa uma arquitetura de prontos para produção.
 
 Uma implementação básica cria os seguintes serviços na sua subscrição do Azure:
 
@@ -70,7 +70,7 @@ Uma implementação básica cria os seguintes serviços na sua subscrição do A
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Alojamento de microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – escalão Standard | Gestão de dispositivos e a comunicação |
-| 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alarmes e outro armazenamento amovível |  
+| 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alertas e outro armazenamento amovível |  
 | 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e os pontos de verificação de transmissão em fluxo |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Aplicativo web de front-end de hospedagem |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciamento de identidades de utilizador e segurança |
@@ -89,7 +89,7 @@ Uma implementação padrão cria os seguintes serviços na sua subscrição do A
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Serviço Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Utilizar um serviço totalmente gerido Kubernetes contentor orquestração, a predefinição é 3 agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – escalão Standard | Gestão de dispositivos, comando e controlo |
-| 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e a telemetria do dispositivo, como regras, alarmes e mensagens |
+| 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e a telemetria do dispositivo, como regras, alertas e mensagens |
 | 5     | [Contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de VM e 1 para os pontos de verificação de transmissão em fluxo |
 | 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação através de SSL |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciamento de identidades de utilizador e segurança |

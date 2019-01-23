@@ -1,10 +1,10 @@
 ---
-title: 'Sincronização do Azure AD Connect: entender utilizadores, grupos e contactos | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos | Documentos da Microsoft'
 description: Explica os utilizadores, grupos e contactos na sincronização do Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315239"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473933"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: entender utilizadores, grupos e contactos
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos
 Existem vários motivos diferentes por que teria de várias florestas do Active Directory e existem várias topologias de implementação diferentes. Modelos comuns incluem uma implementação de recurso de conta e GAL sync'ed florestas depois de uma fusão e aquisição. Mas, mesmo se existirem modelos puros, modelos híbridos são comuns também. A configuração predefinida do Azure AD Connect não assume qualquer modelo específico, mas dependendo de como a correspondência de utilizador tiver sido selecionada no guia de instalação, podem ser observados comportamentos diferentes.
 
 Neste tópico, iremos percorrer como a configuração predefinida se comporta em algumas topologias. Iremos percorrer a configuração e o Editor de regras de sincronização pode ser usado para examinar a configuração.
@@ -73,6 +73,6 @@ A suposição é que, se for encontrada uma conta de utilizador desativado, em s
 Quando um objeto tenha sido exportado para o Azure AD, em seguida, ele não tem permissão para alterar o sourceAnchor mais. Quando o objeto ter sido exportados o atributo do metaverso **cloudSourceAnchor** está definida com o **sourceAnchor** valor aceite pelo Azure AD. Se **sourceAnchor** é alterado e não corresponde ao **cloudSourceAnchor**, a regra **expansão para AAD – associar utilizador** lançará o erro **tem o atributo sourceAnchor alterado**. Neste caso, a configuração ou dados têm de ser corrigidos, para que o mesmo sourceAnchor está presente no metaverso novamente antes do objeto pode ser sincronizado novamente.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
-* [Sincronização do Azure AD Connect: Personalizar as opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 

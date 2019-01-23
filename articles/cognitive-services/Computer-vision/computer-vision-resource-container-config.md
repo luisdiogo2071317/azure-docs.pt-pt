@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579792"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477640"
 ---
 # <a name="configure-recognize-text-containers"></a>Configurar os contentores de reconhecer texto
 
@@ -32,6 +32,7 @@ Definições de configuração em contentores de imagem digitalizada hierárquic
 * [Faturação](#billing-configuration-setting)
 * [EULA](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Definições de credenciais de proxy de HTTP](#http-proxy-credentials-settings)
 * [Registro em log](#logging-configuration-settings)
 * [Monta](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ A tabela seguinte descreve as definições de configuração suportadas ao abrig
 | `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo limite, em milissegundos, para estabelecer uma ligação de SSL/TLS com o servidor de Fluentd. O valor predefinido é 10000 milissegundos (10 segundos).<br/> Se `UseTLS` é definido como FALSO, este valor é ignorado. |
 | `UseTLS` | Booleano | Indica se o contentor deve utilizar SSL/TLS para comunicar com o servidor de Fluentd. O valor predefinido é false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Definições de credenciais de proxy de HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registo
 
 O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as definições de configuração. Pode usar as mesmas definições de configuração e os valores para o contentor que pode fazer para uma aplicação ASP.NET Core. Suporta os seguintes fornecedores de registo de contentores de imagem digitalizada:
@@ -164,3 +170,7 @@ Por exemplo, o comando seguinte define uma montagem de enlace de Docker para o `
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)

@@ -8,15 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 11/30/2017
-ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 01/12/2019
+ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473712"
 ---
-# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar alterações de máquina virtual com o Azure Event Grid e o Logic Apps
 
 Pode iniciar um [fluxo de trabalho de aplicação lógica](../logic-apps/logic-apps-overview.md) automatizado quando ocorrerem eventos específicos em recursos do Azure ou recursos de terceiros. Estes recursos podem publicar esses eventos numa [grelha de eventos do Azure](../event-grid/overview.md). Por sua vez, a grelha de eventos envia esses eventos aos subscritores que têm filas, webhooks ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos finais. Como subscritor, a aplicação lógica pode aguardar esses eventos na grelha de eventos antes de executar fluxos de trabalho automatizados para efetuar tarefas, sem ter de escrever qualquer código.
 
@@ -81,9 +81,9 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
    O Estruturador de Aplicações Lógicas mostra-lhe agora [*conectores*](../connectors/apis-list.md) e [*acionadores*](../logic-apps/logic-apps-overview.md#logic-app-concepts) que pode utilizar para iniciar a aplicação lógica, bem como as ações que pode adicionar após um acionador para efetuar tarefas. Um acionador é um evento que cria uma instância de aplicação lógica e inicia o fluxo de trabalho da aplicação lógica. 
    A aplicação lógica precisa de um acionador como primeiro item.
 
-6. Na caixa de pesquisa, introduza "event grid" como filtro. Selecione este acionador: **Azure Event Grid - Num evento de recursos**
+6. Na caixa de pesquisa, introduza "event grid" como filtro. Selecione este acionador: **O Azure Event Grid - num evento de recurso**
 
-   ![Selecione este acionador: "Azure Event Grid - Num evento de recursos"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Selecione este acionador: "O azure Event Grid - num evento de recursos"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. Quando lhe for solicitado, inicie sessão no Azure Event Grid com as suas credenciais do Azure.
 
@@ -101,7 +101,7 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
    | **Subscrição** | *{virtual-machine-Azure-subscription}* | Selecione a subscrição do Azure do editor de eventos. Para este tutorial, selecione a subscrição do Azure para a sua máquina virtual. | 
    | **Tipo de Recurso** | Microsoft.Resources.resourceGroups | Selecione o tipo de recurso do editor de eventos. Para este tutorial, selecione o valor especificado para a aplicação lógica monitorizar apenas grupos de recursos. | 
    | **Nome do Recurso** | *{virtual-machine-resource-group-name}* | Selecione o nome do recurso do editor. Para este tutorial, selecione o nome do grupo de recursos para a sua máquina virtual. | 
-   | Para definições opcionais, selecione **Mostrar opções avançadas**. | *{see descriptions}* | * **Filtro de Prefixo**: para este tutorial, deixe esta definição em branco. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Filtro de Sufixo**: para este tutorial, deixe esta definição em branco. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de sufixo como filtro, por exemplo, uma extensão de nome de ficheiro, quando quiser apenas tipos de ficheiro específicos.<p>* **Nome da Subscrição**: indique um nome exclusivo para a subscrição de eventos. |
+   | Para definições opcionais, selecione **Mostrar opções avançadas**. | *{see descriptions}* | * **Filtro de prefixo**: Para este tutorial, deixe esta definição está vazio. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Filtro de sufixo**: Para este tutorial, deixe esta definição está vazio. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de sufixo como filtro, por exemplo, uma extensão de nome de ficheiro, quando quiser apenas tipos de ficheiro específicos.<p>* **Nome da subscrição**: Indique um nome exclusivo para a subscrição de eventos. |
    | | | 
 
    Quando estiver pronto, o acionador do Event Grid pode ter o seguinte aspeto neste exemplo:
@@ -183,7 +183,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
    | ------- | --------------- | ----------- | 
    | **Para** | *{recipient-email-address}* |Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
    | **Assunto** | Recurso atualizado: **Assunto**| Introduza o conteúdo para o assunto do e-mail. Neste tutorial, introduza o texto sugerido e selecione o campo **Assunto** do evento. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). | 
-   | **Corpo** | Grupo de recursos: **Tópico** <p>Tipo de evento: **Tipo de Evento**<p>ID do Evento: **ID**<p>Hora: **Hora do Evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, introduza o texto sugerido e selecione os campos **Tópico**, **Tipo de Evento**, **ID** e **Hora do Evento** do evento para que o e-mail inclua o nome do grupo de recursos, o tipo de evento, o carimbo de data/hora do evento e o ID do evento para a atualização. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. | 
+   | **Corpo** | Grupo de recursos: **Tópico** <p>Tipo de evento: **Tipo de evento**<p>ID de evento: **ID**<p>Hora: **Hora do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, introduza o texto sugerido e selecione os campos **Tópico**, **Tipo de Evento**, **ID** e **Hora do Evento** do evento para que o e-mail inclua o nome do grupo de recursos, o tipo de evento, o carimbo de data/hora do evento e o ID do evento para a atualização. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. | 
    | | | 
 
    > [!NOTE] 

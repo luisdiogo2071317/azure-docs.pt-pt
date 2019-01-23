@@ -2,17 +2,17 @@
 title: Manipuladores de eventos do Azure Event Grid
 description: Descreve os manipuladores de eventos suportados do Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
-ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498662"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478472"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos no Azure Event Grid
 

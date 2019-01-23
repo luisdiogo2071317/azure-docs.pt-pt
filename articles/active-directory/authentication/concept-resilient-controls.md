@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424046"
+ms.locfileid: "54452552"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -199,7 +199,7 @@ Ordem de ativação:
 
 1. Exclua SalesAdmins e SalesforceContingency a política de conformidade do dispositivo existente para o Salesforce. Certifique-se de que um utilizador no grupo de SalesforceContingency pode aceder a Salesforce.
 2. Ative política de 1: Certifique-se de que os utilizadores fora da SalesContingency não é possível aceder a Salesforce. Verifique se os utilizadores a SalesAdmins e SalesforceContingency podem aceder ao Salesforce.
-3. Ative política de 2: Certifique-se de que os utilizadores no grupo de SalesContigency não é possível aceder a Salesforce a partir de seus laptops de Windows/Mac, mas ainda podem aceder a partir dos respetivos dispositivos móveis. Certifique-se de que os SalesAdmin ainda pode aceder Salesforce a partir de qualquer dispositivo.
+3. Ative política de 2: Certifique-se de que os utilizadores no grupo de SalesContingency não é possível aceder a Salesforce a partir de seus laptops de Windows/Mac, mas ainda podem aceder a partir dos respetivos dispositivos móveis. Certifique-se de que os SalesAdmin ainda pode aceder Salesforce a partir de qualquer dispositivo.
 4. Desative a política de conformidade do dispositivo existente para o Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Implementar sincronização de hash de palavra-passe, mesmo que está federados ou utiliza a autenticação pass-through

@@ -4,7 +4,7 @@ description: Esta página tem fornecedores de identidade de terceiros que podem 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a31e7ed12e75bd7dee3d53a8d650179d8e118d8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 56447f04e63c588e2192d350ce9188f8a15c604b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464736"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
 O Azure Active Directory fornece início de sessão único em e avançada de segurança de acesso de aplicativo para Office 365 e outros serviços Online da Microsoft para híbridos e implementações apenas na cloud sem exigir qualquer solução de terceiros. Office 365, como a maioria dos Serviços Online da Microsoft, está integrado com o Azure Active Directory para serviços de diretório, autenticação e autorização. O Azure Active Directory também fornece início de sessão único a milhares de aplicações SaaS e aplicativos da web no local. Veja o Azure Active Directory [Galeria de aplicações](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) para aplicações SaaS suportadas. 

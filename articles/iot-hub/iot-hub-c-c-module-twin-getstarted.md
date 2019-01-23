@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247522"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452459"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo usando o back-end de C e C dispositivo
 
@@ -176,7 +176,7 @@ Esta aplicação cria uma identidade de dispositivo com o ID **myFirstDevice** e
 
 Nesta secção, vai criar uma aplicação de C para sua simulado no dispositivo que atualiza o duplo do módulo de propriedades comunicadas.
 
-1. **Obter a cadeia de ligação do módulo** – agora, se iniciar sessão [portal do Azure](https://portal.azure.com). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e veja se myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
+1. **Obter a cadeia de ligação do módulo** – agora, se iniciar sessão [portal do Azure](https://portal.azure.com). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Encontre myFirstDevice, abra-lo e ver myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
     ![Detalhe do módulo no portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

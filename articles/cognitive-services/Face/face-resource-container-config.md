@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476925"
 ---
 # <a name="configure-containers"></a>Configurar contentores
 
@@ -33,6 +33,7 @@ Definições de configuração no contentor Face hierárquicas e todos os conten
 * [CloudAI](#cloudai-configuration-settings)
 * [EULA](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Definições de credenciais de proxy de HTTP](#http-proxy-credentials-settings)
 * [Registro em log](#logging-configuration-settings)
 * [Monta](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ A tabela seguinte descreve as definições de configuração suportadas ao abrig
 | `TlsConnectionEstablishmentTimeoutMs` | Número inteiro | O tempo limite, em milissegundos, para estabelecer uma ligação de SSL/TLS com o servidor de Fluentd. O valor predefinido é 10000 milissegundos (10 segundos).<br/> Se `UseTLS` é definido como FALSO, este valor é ignorado. |
 | `UseTLS` | Booleano | Indica se o contentor deve utilizar SSL/TLS para comunicar com o servidor de Fluentd. O valor predefinido é false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Definições de credenciais de proxy de HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Definições de configuração de registo
 
 O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as definições de configuração. Pode usar as mesmas definições de configuração e os valores para o contentor que pode fazer para uma aplicação ASP.NET Core. Os seguintes fornecedores de registo são compatíveis com o contentor de Face:
@@ -212,3 +218,7 @@ Por exemplo, o comando seguinte define uma montagem de enlace de Docker para o `
   ```
 
 O contentor de rostos não usa a entrada ou saída monta para armazenar dados de treinamento ou base de dados. Em vez disso, o contêiner de Face fornece cenários de armazenamento para o gerenciamento de dados de treinamento e base de dados. Para obter mais informações sobre a utilização de cenários de armazenamento, consulte [definições de cenário de armazenamento](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)

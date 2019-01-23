@@ -4,7 +4,7 @@ description: Quando planear a sua solução de identidade híbrida, identificar 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: c317c2bab26a44fc78e42fe440744bd26add1f2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315232"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473508"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plano para melhorar a segurança de dados através de uma solução de identidade forte
 A primeira etapa da proteção de dados é identificar quem pode aceder aos dados. Além disso, tem de ter uma solução de identidade que pode ser integrado com o sistema para oferecer capacidades de autenticação e autorização. Autenticação e autorização, freqüentemente são confundidos uns com os outros e respetivas funções mal compreendidos. Na realidade, elas são diferentes, conforme mostrado na figura abaixo:

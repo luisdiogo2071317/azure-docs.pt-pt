@@ -1,6 +1,6 @@
 ---
-title: Localizar e eliminar desanexados discos geridos e do Azure | Microsoft Docs
-description: Como localizar e eliminar desanexados discos do Azure geridos e não geridas (blobs de páginas/VHDs) ao utilizar a CLI do Azure.
+title: Localize e elimine desanexados discos geridos e não geridos do Azure | Documentos da Microsoft
+description: Como encontrar e eliminar do Azure geridos e não geridos (blobs de páginas/VHDs) discos desanexados com a CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ramankumarlive
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 1718b35aa68937cad4b3ae7e677e300506820bd0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: disks
+ms.openlocfilehash: 58a54b7e867b625adf76d6287d5067c326c80f17
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323258"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462798"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localizar e eliminar desanexados discos geridos e do Azure
-Quando elimina uma máquina virtual (VM) no Azure, por predefinição, não são eliminados todos os discos que estão ligados à VM. Esta funcionalidade ajuda a evitar perda de dados devido a eliminação não intencional de VMs. Depois de uma VM é eliminada, continuará a pagar para os discos não ligados. Este artigo mostra como encontrar e eliminar quaisquer discos desanexados e reduzir os custos desnecessários. 
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localize e elimine desanexados discos geridos e não geridos do Azure
+Quando elimina uma máquina virtual (VM) no Azure, por predefinição, não são eliminados todos os discos que estão ligados à VM. Esta funcionalidade ajuda a evitar a perda de dados devido à exclusão involuntária de VMs. Depois de eliminar uma VM, continuará a pagar pelos discos desanexados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos desanexados e reduzir custos desnecessários. 
 
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos pelo: localizar e eliminar discos desanexados 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Discos geridos: Localize e elimine discos desanexados 
 
-O script seguinte procura desanexados [discos geridos pelo](managed-disks-overview.md) , examinando o valor da **está** propriedade. Quando um disco gerido está ligado a uma VM, o **está** propriedade contém o ID de recurso da VM. Quando um disco gerido é desanexado, a **está** propriedade é nula. O script analisa todos os discos geridos uma subscrição do Azure. Quando o script localiza um disco gerido com o **está** propriedade definida como nulo, o script determina que o disco não ligado.
+O script a seguir procura desanexados [discos geridos](managed-disks-overview.md) examinando o valor da **ManagedBy** propriedade. Quando um disco gerido está ligado a uma VM, o **ManagedBy** propriedade contém o ID de recurso da VM. Quando um disco gerido é desligado, o **ManagedBy** propriedade é nula. O script examina todos os discos geridos numa subscrição do Azure. Quando o script localiza um disco gerido com o **ManagedBy** propriedade definida como null, o script determina que o disco é desligado.
 
 >[!IMPORTANT]
->Em primeiro lugar, execute o script, definindo o **deleteUnattachedDisks** variável como 0. Esta ação permite-lhe localizar e ver todos os discos geridos não ligados.
+>Em primeiro lugar, execute o script, definindo a **deleteUnattachedDisks** variável como 0. Esta ação permite-lhe localizar e ver todos os discos geridos ligados.
 >
->Depois de analisar todos os discos desanexados, execute novamente o script e defina o **deleteUnattachedDisks** variável para 1. Esta ação permite eliminar todos os discos geridos não ligados.
+>Depois de analisar todos os discos desanexados, execute novamente o script e defina a **deleteUnattachedDisks** variável como 1. Esta ação permite-lhe eliminar todos os discos geridos ligados.
 >
 
 ```azurecli
@@ -58,14 +59,14 @@ do
 done
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Não gerido discos: localizar e eliminar discos desanexados 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não geridos: Localize e elimine discos desanexados 
 
-Os discos não geridos são ficheiros VHD que são armazenados como [blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) no [contas do storage do Azure](../../storage/common/storage-create-storage-account.md). O script seguinte procura desanexados discos não geridos (os blobs de páginas), examinando o valor da **LeaseStatus** propriedade. Quando um disco não gerido está ligado a uma VM, o **LeaseStatus** propriedade está definida como **está bloqueado**. Quando um disco não gerido é desanexado, a **LeaseStatus** propriedade está definida como **Unlocked**. O script analisa todos os discos não geridos todas as contas de armazenamento do Azure uma subscrição do Azure. Quando o script localiza um disco não gerido com um **LeaseStatus** propriedade definida como **Unlocked**, o script determina que o disco não ligado.
+Discos não geridos são arquivos VHD que são armazenados como [blobs de páginas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) na [contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md). O script a seguir procura desanexados discos não geridos (blobs de páginas), examinando o valor do **LeaseStatus** propriedade. Quando um disco não gerido está ligado a uma VM, o **LeaseStatus** estiver definida como **bloqueado**. Quando um disco não gerido é desligado, o **LeaseStatus** estiver definida como **Unlocked**. O script examina todos os discos não geridos em todas as contas de armazenamento do Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com um **LeaseStatus** definida como **Unlocked**, o script determina que o disco é desligado.
 
 >[!IMPORTANT]
->Em primeiro lugar, execute o script, definindo o **deleteUnattachedVHDs** variável como 0. Esta ação permite-lhe localizar e ver todos os VHDs não geridos não ligados.
+>Em primeiro lugar, execute o script, definindo a **deleteUnattachedVHDs** variável como 0. Esta ação permite-lhe localizar e ver todos os VHDs não geridos ligados.
 >
->Depois de analisar todos os discos desanexados, execute novamente o script e defina o **deleteUnattachedVHDs** variável para 1. Esta ação permite eliminar todos os VHDs não geridos não ligados.
+>Depois de analisar todos os discos desanexados, execute novamente o script e defina a **deleteUnattachedVHDs** variável como 1. Esta ação permite-lhe eliminar todos os VHDs não geridos ligados.
 >
 
 ```azurecli
@@ -113,7 +114,7 @@ done
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Eliminar conta do storage](../../storage/common/storage-create-storage-account.md)
+[Eliminar conta de armazenamento](../../storage/common/storage-create-storage-account.md)
 
 
 

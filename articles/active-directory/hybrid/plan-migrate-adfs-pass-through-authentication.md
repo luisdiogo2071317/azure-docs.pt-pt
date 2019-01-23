@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Migrar de Federação para autenticação pass-through
 description: Este artigo tem informações sobre como mover o seu ambiente de identidade híbrida da Federação para autenticação pass-through.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 52acac64180ae7d6d545ec5edaa1473e47290020
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fe2ff3697d362119db2df682aacd89ebcf073059
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465637"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar de Federação para autenticação pass-through do Azure Active Directory
 

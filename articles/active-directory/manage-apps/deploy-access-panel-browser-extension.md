@@ -4,7 +4,7 @@ description: Como utilizar a política de grupo para implementar o suplemento do
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877481"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463444"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer usando a diretiva de grupo
 Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer nos computadores dos seus utilizadores. É necessária para os usuários do Internet Explorer que tem de iniciar sessão em aplicações que estão configuradas ao utilizar esta extensão [baseado em palavra-passe de início de sessão único](what-is-single-sign-on.md#password-based-sso).
@@ -31,7 +31,7 @@ Também está disponível para a extensão do painel de acesso [Chrome](https://
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Configurou [serviços de domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), e associar máquinas dos seus utilizadores ao seu domínio.
-* Tem de ter a permissão de "Edit settings" para editar o objeto de política de grupo (GPO). Por predefinição, os membros dos grupos de segurança seguintes têm esta permissão: os administradores do domínio, administradores da empresa e proprietários de criador de políticas de grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Tem de ter a permissão de "Edit settings" para editar o objeto de política de grupo (GPO). Por predefinição, os membros dos grupos de segurança seguintes têm esta permissão: Os administradores do domínio, administradores da empresa e proprietários de criador de políticas de grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Passo 1: Criar o ponto de distribuição
 Em primeiro lugar, tem de colocar o pacote do instalador numa localização de rede que pode ser acessada pelas máquinas que deseja instalar remotamente a extensão no. Para tal, siga estes passos:
@@ -44,13 +44,13 @@ Em primeiro lugar, tem de colocar o pacote do instalador numa localização de r
    
     ![Ficheiros abertos e serviços de armazenamento](./media/deploy-access-panel-browser-extension/shares.png)
 4. Concluir o **Assistente de nova partilha** e definir permissões para se certificar de que pode ser acedido a partir de máquinas dos seus utilizadores. [Saiba mais sobre as partilhas.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Transferir o pacote seguinte do Microsoft Windows Installer (arquivo. msi): [Extension do painel de acesso](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+5. Baixe o seguinte pacote do Microsoft Windows Installer (arquivo. msi): [Extension do painel de acesso](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copie o pacote de instalador para uma localização pretendida na partilha.
    
     ![Copie o arquivo. msi para a partilha.](./media/deploy-access-panel-browser-extension/copy-package.png)
 7. Certifique-se de que as máquinas de cliente são capazes de aceder ao pacote de instalador do compartilhamento de. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Passo 2: Criar o objeto de diretiva de grupo
+## <a name="step-2-create-the-group-policy-object"></a>Passo 2: Criar o objeto de política de grupo
 1. Inicie sessão no servidor que aloja a instalação de serviços de domínio do Active Directory (AD DS).
 2. O Gestor de servidor, aceda a **ferramentas** > **gestão de políticas de grupo**.
    
@@ -80,7 +80,7 @@ Em primeiro lugar, tem de colocar o pacote do instalador numa localização de r
 3. Com o botão direito **instalação de Software**, em seguida, selecione **New** > **pacote...**
    
     ![Criar um novo pacote de instalação de software](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Vá para a pasta partilhada que contém o pacote de instalador do [passo 1: criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo. msi e clique em **aberto**.
+4. Vá para a pasta partilhada que contém o pacote de instalador do [passo 1: Criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo. msi e clique em **aberto**.
    
    > [!IMPORTANT]
    > Se a partilha estiver localizada no, esse mesmo servidor, certifique-se de que está a aceder o. msi através do caminho de ficheiro de rede, em vez do caminho do ficheiro local.
@@ -97,7 +97,7 @@ A extensão é agora implementada para a UO que selecionou. [Saiba mais sobre a 
 ## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Passo 4: Auto-ativar a extensão para o Internet Explorer
 Além de executar o instalador, cada extensão para o Internet Explorer tem de estar explicitamente ativada antes de poder ser utilizada. Siga os passos abaixo para ativar a extensão do painel de acesso usando a diretiva de grupo:
 
-1. Na **Editor de gerenciamento de diretiva de grupo** janela, aceda a qualquer um dos seguintes caminhos, dependendo do tipo de configuração que selecionou no [passo 3: atribuir o pacote de instalação](#step-3-assign-the-installation-package):
+1. Na **Editor de gerenciamento de diretiva de grupo** janela, aceda a qualquer um dos seguintes caminhos, dependendo do tipo de configuração que selecionou no [passo 3: Atribuir o pacote de instalação](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ Além de executar o instalador, cada extensão para o Internet Explorer tem de e
 
 A extensão agora deve ser ativada para as máquinas na UO selecionada. [Saiba mais sobre como utilizar a política de grupo para ativar ou desativar complementos do Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Passo 5 (opcional): desativar linha de comandos "Memorizar palavra-passe"
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Passo 5 (opcional): Desativar linha de comandos "Memorizar palavra-passe"
 Quando os utilizadores iniciam sessão em Web sites com a extensão do painel de acesso, o Internet Explorer pode mostrar o seguinte pedido perguntando "Gostaria de armazenar a palavra-passe?"
 
 ![Prompt de senha](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
@@ -148,10 +148,10 @@ Os utilizadores já não será capazes de armazenar as suas credenciais ou utili
 > 
 > 
 
-## <a name="step-6-testing-the-deployment"></a>Passo 6: Testar a implantação
+## <a name="step-6-testing-the-deployment"></a>Passo 6: Teste da implementação
 Siga os passos abaixo para verificar se a implementação de extensão foi concluída com êxito:
 
-1. Se tiver implementado usando **configuração do computador**, inicie sessão numa máquina de cliente que pertence à UO que selecionou na [passo 2: criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se tiver implementado usando **configuração do usuário**, certifique-se de iniciar sessão como um utilizador que pertença ao UO.
+1. Se tiver implementado usando **configuração do computador**, inicie sessão numa máquina de cliente que pertence à UO que selecionou no [passo 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se tiver implementado usando **configuração do usuário**, certifique-se de iniciar sessão como um utilizador que pertença ao UO.
 2. Poderá demorar alguns início de sessão ins para a política de grupo totalmente é alterado para atualizar com esta máquina. Para forçar a atualização, abra um **linha de comandos** janela e execute o seguinte comando: `gpupdate /force`
 3. Tem de reiniciar a máquina para a instalação ocorra. Inicialização poderá demorar consideravelmente mais tempo do que instala normal enquanto a extensão.
 4. Depois de reiniciar, abra **Internet Explorer**. No canto canto superior direito da janela, clique em **ferramentas** (o ícone de engrenagem) e, em seguida, selecione **gerir suplementos**.

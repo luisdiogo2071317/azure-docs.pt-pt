@@ -4,7 +4,7 @@ description: Saiba de que forma é que a gestão de dispositivos o pode ajudar a
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037366"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452773"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é a gestão de dispositivos no Azure Active Directory?
 
@@ -174,7 +174,7 @@ Como regra geral, deve utilizar:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
 

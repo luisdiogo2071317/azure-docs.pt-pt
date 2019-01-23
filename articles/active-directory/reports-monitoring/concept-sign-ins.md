@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cb0c72c8a14dd71bbbe9d6cd46224542f7bf3e5b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436727"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470584"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -203,7 +203,10 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Date
 - MFA Necessário
 - Estado de início de sessão
- 
+
+> [!NOTE]
+> Endereços IP são emitidos de forma que não existe nenhuma ligação definitiva entre um endereço IP e em que o computador com esse endereço está fisicamente localizado. Mapear endereços IP é complicado pelo fato de que os fornecedores de móveis e VPNs emitir endereços IP de conjuntos de centrais que são, muitas vezes, muito longe de ser em que o dispositivo de cliente, na verdade, é utilizado. Atualmente, nos relatórios do Azure AD, a conversão de endereço IP para uma localização física é um melhor esforço com base em rastreamentos, os dados de registo, pesquisas inversa e outras informações.
+
 Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/08.png "Atividade de início de sessão")

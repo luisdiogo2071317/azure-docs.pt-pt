@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 6aeb2d63fca36bb89478f05ff818892f8bf05840
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214917"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465535"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início rápido: Transferir um relatório de início de sessão no portal do Azure
 
-Neste início rápido, vai aprender a transferir os dados de início de sessão do seu inquilino das últimas 24 horas.
+Neste início rápido, vai aprender a transferir os dados de início de sessão do seu inquilino das últimas 24 horas. Pode baixar até 5000 registos do portal do Azure. Os registos são ordenados pelos mais recentes para que, por padrão, obtém os registos de 5000 mais recentes. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

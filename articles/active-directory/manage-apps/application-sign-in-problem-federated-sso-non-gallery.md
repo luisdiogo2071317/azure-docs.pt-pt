@@ -4,7 +4,7 @@ description: Documentação de orientação para problemas específicos, que pod
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356934"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469717"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de externas à Galeria configurada para início de sessão único federado
 
@@ -34,7 +34,7 @@ Para resolver seu problema, terá de verificar a configuração de aplicação n
 
 ## <a name="application-not-found-in-directory"></a>Não foi encontrada no diretório de aplicação
 
-*Erro AADSTS70001: Aplicação com o identificador 'https://contoso.com"não foi encontrado no diretório*.
+*Error AADSTS70001: Aplicação com o identificador 'https://contoso.com"não foi encontrado no diretório*.
 
 **Causa possível**
 
@@ -100,7 +100,7 @@ Depois de atualizar o valor de URL de resposta no Azure AD e ele correspondênci
 
 ## <a name="user-not-assigned-a-role"></a>Não atribuído uma função de utilizador
 
-*AADSTS50105 de erro: O utilizador com sessão iniciada "brian@contoso.com' não está atribuído a uma função para a aplicação*
+*Error AADSTS50105: O utilizador com sessão iniciada "brian@contoso.com' não está atribuído a uma função para a aplicação*
 
 **Causa possível**
 
@@ -134,7 +134,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do usuário ou a logótipo para adicionar o utilizador para o **selecionados** lista.
 
-12. **Opcional:** se quiser **adicionar mais do que um utilizador**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
+12. **Opcional:** Se quiser **adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 
@@ -146,7 +146,7 @@ Após um curto período de tempo, os utilizadores que selecionou ser capaz de in
 
 ## <a name="not-a-valid-saml-request"></a>Não um pedido de SAML válida
 
-*AADSTS75005 de erro: O pedido não é uma mensagem de protocolo Saml2 válida.*
+*Error AADSTS75005: O pedido não é uma mensagem de protocolo Saml2 válida.*
 
 **Causa possível**
 
@@ -170,7 +170,7 @@ Eles devem validar que suportam a implementação de SAML do Azure AD para iníc
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Nenhum recurso no requiredResourceAccess lista
 
-*AADSTS65005 de erro: A aplicação cliente pediu acesso ao recurso ' 00000002-0000-0000-c000-000000000000'. Este pedido falhou porque o cliente não especificada este recurso em sua lista de requiredResourceAccess*.
+*Error AADSTS65005: A aplicação de cliente pediu acesso ao recurso ' 00000002-0000-0000-c000-000000000000'. Este pedido falhou porque o cliente não especificada este recurso em sua lista de requiredResourceAccess*.
 
 **Causa possível**
 
@@ -202,7 +202,7 @@ Depois de reconfigurar o aplicativo, deverá conseguir iniciar sessão na aplica
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado ou chave não configurado
 
-Erro AADSTS50003: Nenhuma chave de assinatura configurado.
+Error AADSTS50003: Nenhuma chave de assinatura configurado.
 
 **Causa possível**
 

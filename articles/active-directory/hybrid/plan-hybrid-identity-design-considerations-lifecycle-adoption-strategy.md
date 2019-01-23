@@ -4,7 +4,7 @@ description: Ajuda a definir as tarefas de gestão de identidade híbrida, de ac
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512cb71cc8ca973a778b7e172afcd9e056421ed
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251768"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478387"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar a estratégia de adoção de ciclo de vida de identidade híbrida
 Nesta tarefa, vai definir a estratégia de gestão de identidade para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu nas [determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -43,9 +43,9 @@ Contas de empresas de TI sofisticados incluem centenas de parâmetros que define
 Acesso baseado em funções (RBAC) utiliza funções de controle e aprovisionamento políticas para avaliar, testar e impor seus processos de negócios e regras para conceder acesso a utilizadores. Os administradores de chave a criar políticas de aprovisionamento e atribuir utilizadores a funções e que definir conjuntos de elegibilidade para os recursos para estas funções. RBAC estende a solução de gestão de identidade para utilizar processos baseados em software e reduzir a interação manual do utilizador no processo de aprovisionamento.
 RBAC do Azure AD permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer uma vez que ele tem acesso ao portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI AC delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
 
-* **Atribuição de função com base em grupo**: pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isto permite-lhe aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
-* **Tire partido de funções no Azure incorporado**: pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
-* **Acesso granular aos recursos**: pode atribuir funções a utilizadores e grupos para uma subscrição específica, grupo de recursos ou um recurso do Azure individual como um Web site ou a base de dados. Dessa forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e nenhum acesso a recursos que eles não precisam de gerir.
+* **Atribuição de função com base em grupo**: Pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isto permite-lhe aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
+* **Tire partido de funções no Azure incorporado**: Pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
+* **Acesso granular aos recursos**: Pode atribuir funções a utilizadores e grupos para uma subscrição específica, grupo de recursos ou um recurso do Azure individual como um Web site ou a base de dados. Dessa forma, pode certificar-se de que os utilizadores têm acesso a todos os recursos que precisam e nenhum acesso a recursos que eles não precisam de gerir.
 
 ## <a name="provisioning-and-other-customization-options"></a>Aprovisionamento e outras opções de personalização
 Sua equipe pode utilizar planos de negócios e os requisitos para decidir como muito personalizar a solução de identidade. Por exemplo, uma grande empresa poderá exigir um plano de implementação faseado para fluxos de trabalho e os adaptadores personalizados que se baseia numa linha de tempo para o aprovisionamento de forma incremental os aplicativos que são amplamente utilizados em localizações geográficas. Outro plano de personalização pode fornecer para dois ou mais aplicativos a ser aprovisionado em toda a empresa, após os testes com êxito. Interação de aplicativos para o usuário pode ser personalizada e procedimentos para o aprovisionamento de recursos podem ser alterados para acomodar o aprovisionamento automatizado.
@@ -93,7 +93,7 @@ Reveja a tabela seguinte para comparar as opções de sincronização:
 
 | Opção de gestão de sincronização | Vantagens | Desvantagens |
 | --- | --- | --- |
-| Baseadas na sincronização (através de DirSync ou AADConnect) |Utilizadores e grupos sincronizados a partir de aplicações no local e na cloud <br>  **O controle de diretiva**: políticas de conta podem ser definidas por meio do Active Directory, que oferece ao administrador a capacidade de gerir as políticas de palavra-passe, estação de trabalho, restrições, controles de bloqueio de saída e mais, sem ter de efetuar tarefas adicionais no a cloud.  <br>  **Controlo de acesso**: pode restringir o acesso ao serviço cloud, para que os serviços podem ser acedidos através do ambiente Corporativo, através de servidores online, ou ambos. <br>  Redução de chamadas de suporte: se os utilizadores tiverem menos palavras-passe para se lembrar, eles têm menos probabilidade de esquecê-los. <br>  Segurança: As identidades de utilizador e as informações estão protegidas porque todos os servidores e serviços utilizados no início de sessão único, controladas e controlado no local. <br>  Suporte para autenticação forte: pode utilizar a autenticação forte (também chamada de autenticação de dois fatores) com o serviço cloud. No entanto, se usar uma autenticação segura, tem de utilizar o início de sessão único. | |
+| Baseadas na sincronização (através de DirSync ou AADConnect) |Utilizadores e grupos sincronizados a partir de aplicações no local e na cloud <br>  **O controle de diretiva**: Diretivas de conta podem ser definidas por meio do Active Directory, que oferece ao administrador a capacidade de gerir as políticas de palavra-passe, estação de trabalho, restrições, controles de bloqueio de saída e muito mais, sem ter de efetuar tarefas adicionais na cloud.  <br>  **Controlo de acesso**: Pode restringir o acesso ao serviço cloud, para que os serviços podem ser acedidos através do ambiente Corporativo, através de servidores online, ou ambos. <br>  Reduzidos chamadas de suporte: Se os utilizadores tiverem menos palavras-passe para se lembrar, é menos provável que se esqueça-los. <br>  Segurança: Identidades de utilizador e as informações estão protegidas porque todos os servidores e serviços utilizados no início de sessão único, controladas e ser controlado no local. <br>  Suporte para autenticação forte: Pode utilizar a autenticação forte (também chamada de autenticação de dois fatores) com o serviço cloud. No entanto, se usar uma autenticação segura, tem de utilizar o início de sessão único. | |
 | Baseada em Federação (através do AD FS) |Ativado por serviço de Token de segurança (STS). Quando configurar um STS para fornecer acesso de início de sessão único com um serviço cloud da Microsoft, que irá criar uma confiança federada entre os STS no local e o domínio federado que especificou no seu inquilino do Azure AD. <br> Permite que os utilizadores finais utilizem o mesmo conjunto de credenciais para obter acesso a vários recursos <br>os utilizadores finais não tem de manter vários conjuntos de credenciais. No entanto, os utilizadores têm de fornecer as credenciais para cada um dos participantes recursos., B2B e B2C cenários suportados. |Requer pessoal especializado selecionado para a implantação e manutenção de dedicada no local servidores do AD FS. Existem restrições quanto à utilização de autenticação forte se planeia utilizar o AD FS para seu STS. Para obter mais informações, consulte [configurar opções avançadas para o AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]

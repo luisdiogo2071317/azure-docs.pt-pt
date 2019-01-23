@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790882"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464719"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -67,7 +67,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | automationaccounts | Sim | Sim |
-| automationaccounts/configurações | Sim | Sim |
+| automationaccounts/configurations | Sim | Sim |
 | automationaccounts/runbooks | Sim | Sim |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
@@ -155,15 +155,15 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | availabilitysets | Sim | Sim |
 | Discos | Sim | Sim |
 | galerias | Não | Não |
-| galerias/imagens | Não | Não |
-| galerias/imagens/versões | Não | Não |
+| galleries/images | Não | Não |
+| galleries/images/versions | Não | Não |
 | imagens | Sim | Sim |
 | restorepointcollections | Não | Não |
 | sharedvmimages | Não | Não |
-| sharedvmimages/versões | Não | Não |
+| sharedvmimages/versions | Não | Não |
 | instantâneos | Sim | Sim |
 | virtualmachines | Sim | Sim |
-| virtualmachines/extensões | Sim | Sim |
+| virtualmachines/extensions | Sim | Sim |
 | virtualmachinescalesets | Sim | Sim |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
@@ -180,10 +180,10 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | registos | Sim | Sim |
-| registos/buildtasks | Sim | Sim |
-| replicações/registos | Não | Não |
+| registries/buildtasks | Sim | Sim |
+| registries/replications | Não | Não |
 | registos/tarefas | Sim | Sim |
-| registos/webhooks | Sim | Sim |
+| registries/webhooks | Sim | Sim |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -248,11 +248,11 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | accounts | Sim | Sim |
 
-## <a name="microsoftdatamigration"></a>Microsoft. datamigration
+## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | services | Não | Não |
-| projetos/Services | Não | Não |
+| services/projects | Não | Não |
 | ranhuras | Não | Não |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
@@ -277,8 +277,8 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | artifactsources | Não | Não |
 | Implementações | Não | Não |
 | servicetopologies | Não | Não |
-| servicetopologies/serviços | Não | Não |
-| servicetopologies/serviços/serviceunits | Não | Não |
+| servicetopologies/services | Não | Não |
+| servicetopologies/services/serviceunits | Não | Não |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -291,15 +291,15 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | labcenters | Não | Não |
 | Laboratórios | Sim | Não |
-| laboratórios/servicerunners | Sim | Sim |
-| laboratórios/virtualmachines | Sim | Não |
+| labs/servicerunners | Sim | Sim |
+| labs/virtualmachines | Sim | Não |
 | Agendas | Não | Não |
 
-## <a name="microsoftdns"></a>Microsoft.DNS
+## <a name="microsoftdns"></a>microsoft.dns
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | dnszones | Não | Não |
-| dnszones ou uma | Não | Não |
+| dnszones/a | Não | Não |
 | dnszones/aaaa | Não | Não |
 | dnszones/cname | Não | Não |
 | dnszones/mx | Não | Não |
@@ -327,7 +327,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | Clusters | Sim | Sim |
-| espaços de nomes | Sim | Sim |
+| namespaces | Sim | Sim |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -349,7 +349,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | tarefas | Sim | Sim |
 
-## <a name="microsoftinsights"></a>Microsoft. insights
+## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | actiongroups | Sim | Sim |
@@ -371,6 +371,11 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | cofres | Sim | Sim |
+
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Tipo de recurso | Grupo de recursos | Subscrição |
+| ------------- | -------------- | ------------ |
+| Clusters | Sim | Sim |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -405,15 +410,15 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | operationalizationclusters | Sim | Sim |
 
-## <a name="microsoftmachinelearningexperimentation"></a>Machinelearningexperimentation
+## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | accounts | Sim | Sim |
-| as contas/áreas de trabalho | Sim | Sim |
-| as contas/áreas de trabalho/projetos | Sim | Sim |
+| accounts/workspaces | Sim | Sim |
+| accounts/workspaces/projects | Sim | Sim |
 | teamaccounts | Sim | Sim |
 | teamaccounts/áreas de trabalho | Sim | Sim |
-| áreas de trabalho/teamaccounts/projetos | Sim | Sim |
+| teamaccounts/workspaces/projects | Sim | Sim |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -445,7 +450,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | mediaservices | Sim | Sim |
 | mediaservices/liveevents | Sim | Sim |
-| mediaservices/pontos finais | Sim | Sim |
+| mediaservices/streamingendpoints | Sim | Sim |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -476,7 +481,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | networksecuritygroups | Sim | Sim |
 | networkwatchers | Sim | Sim |
 | networkwatchers/connectionmonitors | Sim | Sim |
-| networkwatchers/lentes | Sim | Sim |
+| networkwatchers/lenses | Sim | Sim |
 | networkwatchers/pingmeshes | Sim | Sim |
 | publicipaddresses | Sim | Sim |
 | publicipprefixes | Sim | Sim |
@@ -496,8 +501,8 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
-| espaços de nomes | Sim | Sim |
-| espaços de nomes/notificationhubs | Sim | Sim |
+| namespaces | Sim | Sim |
+| namespaces/notificationhubs | Sim | Sim |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -514,7 +519,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
-| Dashboards | Sim | Sim |
+| dashboards | Sim | Sim |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -534,7 +539,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
-| espaços de nomes | Sim | Sim |
+| namespaces | Sim | Sim |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -555,7 +560,7 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
-| espaços de nomes | Sim | Sim |
+| namespaces | Sim | Sim |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -591,10 +596,10 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | managedinstances | Sim | Sim |
-| managedinstances/bases de dados | Sim | Sim |
+| managedinstances/databases | Sim | Sim |
 | servidores | Sim | Sim |
-| bases de dados/servidores | Sim | Sim |
-| servidores/elasticpools | Sim | Sim |
+| servers/databases | Sim | Sim |
+| servers/elasticpools | Sim | Sim |
 | virtualclusters | Sim | Sim |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -622,16 +627,16 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | ------------- | -------------- | ------------ |
 | Ambientes | Sim | Sim |
 | ambientes/eventsources | Sim | Sim |
-| ambientes/referencedatasets | Sim | Sim |
+| environments/referencedatasets | Sim | Sim |
 
-## <a name="microsoftvisualstudio"></a>Microsoft.visualstudio
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | conta | Sim | Sim |
 | extensão da conta / | Sim | Sim |
 | conta/projeto | Sim | Sim |
 
-## <a name="microsoftweb"></a>Microsoft. Web
+## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | -------------- | ------------ |
 | certificados | Não | Sim |
@@ -641,9 +646,9 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 | customapis | Sim | Sim |
 | hostingenvironments | Não | Não |
 | serverfarms | Sim | Sim |
-| Sites | Sim | Sim |
+| sites | Sim | Sim |
 | sites/premieraddons | Sim | Sim |
-| sites/ranhuras | Sim | Sim |
+| sites/slots | Sim | Sim |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -655,10 +660,10 @@ Depois de encontrar o fornecedor de recursos e o tipo de recurso, utilize as tab
 
 Serviços de terceiros atualmente não é suportada a operação de movimentação. Esses provedores de recursos são:
 
-* 84codes. CloudAMQP
+* 84codes.CloudAMQP
 * AppDynamics.APM
 * Aspera.Transfers
-* Auth0.cloud
+* Auth0.Cloud
 * Citrix.Cloud
 * Citrix.Services
 * CloudSimple.PrivateCloudIaaS

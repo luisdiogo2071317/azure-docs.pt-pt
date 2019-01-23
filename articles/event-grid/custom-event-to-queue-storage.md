@@ -3,20 +3,20 @@ title: Enviar eventos personalizados para a fila de armazenamento - Event Grid, 
 description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico e subscrever esse evento. É utilizada uma fila de armazenamento para o ponto final.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 12/07/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093969"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474987"
 ---
-# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o armazenamento de filas do Azure com a CLI do Azure e o Event Grid
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o armazenamento de Filas do Azure com a CLI do Azure e o Event Grid
 
 O Azure Event Grid é um serviço de eventos para a cloud. O armazenamento de Filas do Azure é um dos processadores de eventos suportados. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Os eventos são enviados para o armazenamento de Filas.
 

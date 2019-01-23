@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 5fb615ff042cc5cdd3b6b8e42e4d91b161ebf445
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602380"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467320"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introdução à arquitetura de referência do IoT do Azure
 
@@ -79,7 +79,7 @@ Como a solução ingere telemetria, é importante compreender como o fluxo de pr
 
 Encaminhamento pode expedir a telemetria para um ou mais pontos finais de armazenamento, os processos de análise e ações. Uma solução pode combinar as fases em ordens diferentes e processá-las com tarefas paralelas em simultâneo.
 
-A solução de monitorização remota utiliza [do Azure Stream Analytics](/azure/stream-analytics/) para processamento de fluxo. O mecanismo de regras na solução usa consultas do Stream Analytics para gerar alarmes e ações. Por exemplo, a solução pode utilizar uma consulta para identificar quando a temperatura média no compartimento de armazenamento de um camião mais de cinco minutos cai abaixo de 36 graus.
+A solução de monitorização remota utiliza [do Azure Stream Analytics](/azure/stream-analytics/) para processamento de fluxo. O mecanismo de regras na solução usa consultas do Stream Analytics para gerar alertas e ações. Por exemplo, a solução pode utilizar uma consulta para identificar quando a temperatura média no compartimento de armazenamento de um camião mais de cinco minutos cai abaixo de 36 graus.
 
 ### <a name="storage"></a>Armazenamento
 

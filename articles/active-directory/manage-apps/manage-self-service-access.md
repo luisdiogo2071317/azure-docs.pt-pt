@@ -4,7 +4,7 @@ description: Ativar o acesso de aplicações self-service permitir que os utiliz
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf908c3c148a2649c22392e64c17c7a80d338e4f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476670"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações self-service
 
@@ -70,18 +70,18 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
     > [!NOTE]
     > Grupos sincronizados no local não são suportados para ser utilizado para o grupo a que os utilizadores que pedem acesso a esta aplicação devem ser adicionados.
   
-10. **Opcional:** se quiser pedir uma aprovação de negócios antes dos utilizadores têm permissão para aceder, defina o **exigir a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
+10. **Opcional:** Se quiser pedir uma aprovação de negócios antes dos utilizadores têm permissão para aceder, defina o **exigem a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
 
-11. **Opcional: para aplicativos usando apenas, palavra-passe início de sessão único no** se pretender permitir que os aprovadores empresariais especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir que os aprovadores definam do utilizador palavras-passe para esta aplicação?**  alternar para **Sim**.
+11. **Opcional: Para aplicativos usando apenas, palavra-passe início de sessão único no** se pretender permitir que os aprovadores empresariais especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir que os aprovadores definam as palavras-passe do utilizador para isso aplicação?**  alternar para **Sim**.
 
-12. **Opcional:** para especificar os aprovadores empresariais que têm permissão para aprovar o acesso a esta aplicação, clique o Seletor de junto a etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar a pessoa até 10 aprovadores empresariais.
+12. **Opcional:** Para especificar os aprovadores empresariais que têm permissão para aprovar o acesso a esta aplicação, clique o Seletor de junto à etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar até 10 aprovadores de negócios individuais.
 
      > [!NOTE]
      > Grupos não são suportados.
      >
      >
 
-13. **Opcional:** **para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados self-service a uma função, clique no Seletor de junto a **a que função devem ser atribuídos os utilizadores desta aplicação?** para selecionar a função para que estes utilizadores devem ser atribuídos.
+13. **Opcional:** **Para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados self-service a uma função, clique o Seletor de junto aos **a que função devem ser atribuídos os utilizadores desta aplicação?** para selecionar a função para o qual Estes utilizadores devem ser atribuídos.
 
 14. Clique nas **guardar** botão na parte superior do painel para concluir.
 

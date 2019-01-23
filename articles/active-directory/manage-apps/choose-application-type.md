@@ -4,7 +4,7 @@ description: Compreender os tipos suportados de aplicativos pode integrar com o 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 99405f9ae3e86324aba7a6fdc583225c1f71f83a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845115"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473321"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
 Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 

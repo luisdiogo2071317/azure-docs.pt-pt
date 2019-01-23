@@ -4,7 +4,7 @@ description: Como utilizar as restrições de inquilino para gerir os utilizador
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: yossib
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096711"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478149"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Restrições de inquilino de utilização para gerir o acesso ao SaaS na nuvem
 
@@ -70,7 +70,7 @@ A seguinte configuração é necessária para ativar restrições de inquilino a
 
 #### <a name="configuration"></a>Configuração
 
-Para cada pedido recebido login.microsoftonline.com, login.microsoft.com e login.windows.net, inserir dois cabeçalhos HTTP: *restringir acesso para inquilinos* e *contexto de restringir acesso*.
+Para cada pedido recebido login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restringir-Access-para-inquilinos* e *restringir acesso-contextual*.
 
 Os cabeçalhos devem incluir os seguintes elementos: 
 - Para *restringir acesso para inquilinos*, um valor de \<permitido a lista de inquilino\>, que é uma lista separada por vírgulas de inquilinos para permitir que os usuários acessem. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor é semelhante a:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 

@@ -4,7 +4,7 @@ description: Este documento descreve a definir e configurar vários domínios de
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311865"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477937"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte para Vários Domínios para Federação com o Azure AD
 A seguinte documentação fornece orientação sobre como utilizar vários domínios de nível superior e os subdomínios quando o federação com o Office 365 ou a domínios do Azure AD.
@@ -168,7 +168,7 @@ Utilize os seguintes passos para adicionar uma declaração personalizada para s
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).
 
-Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [Atualização automática](how-to-connect-install-automatic-upgrade.md), [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Saiba mais acerca destas funcionalidades que foram ativadas com a instalação: [A atualização automática](how-to-connect-install-automatic-upgrade.md), [impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md), e [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Saiba mais acerca destes tópicos comuns: [agendador e como acionar a sincronização](how-to-connect-sync-feature-scheduler.md).
 

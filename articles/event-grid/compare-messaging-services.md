@@ -2,19 +2,19 @@
 title: Mensagens de comparação - Event Grid, os Hubs de eventos do Service Bus do Azure
 description: Descreve os três serviços do Azure mensagens - Azure Event Grid, Hubs de eventos e do Service Bus. Recomenda que serviço utilizar para diferentes cenários.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469853"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços mensagens do Azure - Event Grid, Hubs de eventos e do Service Bus
 
@@ -77,7 +77,7 @@ Tem as seguintes características:
 
 ### <a name="service-bus"></a>Service Bus
 
-O Service Bus destina-se a aplicações empresariais tradicionais. Estas aplicações empresariais precisam de transações, encomendas, deteção de duplicados e consistência instantânea. Com o Service Bus, as aplicações nativas da cloud podem proporcionar gestão de transição de estados fiável para os processos empresariais. Para processar mensagens de alto valor que não podem ser perdidas ou duplicadas, utilize o Azure Service Bus. Além disso, também facilita a comunicação altamente segura em soluções de cloud híbrida e pode ligar sistemas no local existentes a soluções na cloud.
+O Service Bus destina-se a aplicações empresariais tradicionais. Estas aplicações empresariais precisam de transações, encomendas, deteção de duplicados e consistência instantânea. Service Bus permite [nativas da cloud](https://azure.microsoft.com/overview/cloudnative/) aplicações para garantir o estado de reliable fazer a transição de gestão para os processos de negócios. Para processar mensagens de alto valor que não podem ser perdidas ou duplicadas, utilize o Azure Service Bus. Além disso, também facilita a comunicação altamente segura em soluções de cloud híbrida e pode ligar sistemas no local existentes a soluções na cloud.
 
 O Service Bus é um sistema de mensagens mediadas. Armazena as mensagens num "mediador" (por exemplo, uma fila) até que a parte consumidora esteja preparada para recebê-las.
 

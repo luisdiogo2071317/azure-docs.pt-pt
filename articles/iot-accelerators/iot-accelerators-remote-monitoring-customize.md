@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345101"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462204"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador de solução de monitorização remota
 
@@ -77,7 +77,7 @@ Os passos seguintes descrevem o processo para configurar um ambiente local para 
 
 ## <a name="customize-the-layout"></a>Personalizar o esquema
 
-Cada página na solução de monitorização remota é composta por um conjunto de controles, denominados *painéis* no código-fonte. O **Dashboard** página é constituída por cinco painéis: Descrição geral, mapa, alarmes, telemetria e análise. Pode encontrar o código-fonte que define cada página e seus painéis na [pcs-remote-monitoring-serem](https://github.com/Azure/pcs-remote-monitoring-webui) repositório do GitHub. Por exemplo, o código que define a **Dashboard** página, o esquema e os painéis da página está localizado na [src/componentes/páginas/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) pasta.
+Cada página na solução de monitorização remota é composta por um conjunto de controles, denominados *painéis* no código-fonte. O **Dashboard** página é constituída por cinco painéis: Descrição geral, mapa, alertas, telemetria e análise. Pode encontrar o código-fonte que define cada página e seus painéis na [pcs-remote-monitoring-serem](https://github.com/Azure/pcs-remote-monitoring-webui) repositório do GitHub. Por exemplo, o código que define a **Dashboard** página, o esquema e os painéis da página está localizado na [src/componentes/páginas/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) pasta.
 
 Uma vez que os painéis de gerir o seu próprio layout e o dimensionamento, pode facilmente modificar o layout de uma página. Efetue as seguintes alterações para o **PageContent** elemento no `src/components/pages/dashboard/dashboard.js` de ficheiros para:
 
@@ -335,7 +335,7 @@ O gráfico de telemetria agora mostra os cinco minutos de dados de telemetria:
 
 ## <a name="add-a-new-kpi"></a>Adicionar um novo KPI
 
-O **Dashboard** página apresenta os KPIs no **Analytics** painel. Estes KPIs são calculados no `src/components/pages/dashboard/dashboard.js` ficheiro. Os KPIs são processados pelo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` ficheiro. Os passos seguintes descrevem como calcular e processar um novo valor KPI no **Dashboard** página. O exemplo mostrado é adicionar uma nova alteração de percentagem no aviso alarmes KPI:
+O **Dashboard** página apresenta os KPIs no **Analytics** painel. Estes KPIs são calculados no `src/components/pages/dashboard/dashboard.js` ficheiro. Os KPIs são processados pelo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` ficheiro. Os passos seguintes descrevem como calcular e processar um novo valor KPI no **Dashboard** página. O exemplo mostrado é adicionar uma nova alteração de percentagem de alertas de aviso KPI:
 
 1. Abra o ficheiro `src/components/pages/dashboard/dashboard.js`. Modificar a **initialState** objeto para incluir um **warningAlertsChange** propriedade da seguinte forma:
 
@@ -365,7 +365,7 @@ O **Dashboard** página apresenta os KPIs no **Analytics** painel. Estes KPIs s�
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

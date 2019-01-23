@@ -4,7 +4,7 @@ description: Saiba como utilizar os mapeamentos de expressão para transformar v
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973728"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470057"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -27,13 +27,13 @@ Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de map
 A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual Basic para funções de Applications (VBA).
 
 * Toda a expressão tem de ser definida em termos de funções, que são compostas por um nome, seguido de argumentos parênteses: <br>
-  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
-* Pode aninhar funções dentro de uns dos outros. Por exemplo: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* Pode aninhar funções dentro de uns dos outros. Por exemplo: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Pode passar três tipos de argumentos diferentes em funções:
   
   1. Atributos, que devem estar entre parênteses Retos. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "United States"
-  3. Outras funções. Por exemplo: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+  3. Outras funções. Por exemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
@@ -241,7 +241,7 @@ Terá de gerar um utilizador alias ao colocar os primeiros 3 letras do nome pró
 
 **Exemplo de entrada/saída:** <br>
 
-* **ENTRADA** (givenName): "João"
+* **INPUT** (givenName): "João"
 * **ENTRADA** (sobrenome): "Doe"
 * **SAÍDA**:  "JohDoe"
 
@@ -253,7 +253,7 @@ NormalizeDiacritics([givenName])
 
 **Exemplo de entrada/saída:** <br>
 
-* **ENTRADA** (givenName): "Zoë"
+* **INPUT** (givenName): "Zoë"
 * **SAÍDA**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
@@ -298,8 +298,8 @@ Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um 
 
 **Exemplo de entrada/saída:**
 
-* **ENTRADA** (PreferredFirstName): "João"
-* **ENTRADA** (PreferredLastName): "Smith"
+* **INPUT** (PreferredFirstName): "João"
+* **INPUT** (PreferredLastName): "Smith"
 * **SAÍDA**: "John.Smith@contoso.com" se valor UPN de John.Smith@contoso.com ainda não existir no diretório
 * **SAÍDA**: "J.Smith@contoso.com" se valor UPN de John.Smith@contoso.com já existe no diretório
 * **SAÍDA**: "Jo.Smith@contoso.com" se os dois valores UPN acima já existam no diretório

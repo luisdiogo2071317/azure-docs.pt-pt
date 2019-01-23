@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789761"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470516"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico de várias origens diferentes. Atualmente suportados são Web do serviço de Cloud do Azure (clássico) e funções de trabalho, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Ver [descrição geral da monitorização no Azure](../../azure-monitor/overview.md).
@@ -85,3 +85,4 @@ Comece a utilizar [monitorizar uma aplicação do Service Fabric](../../service-
 ## <a name="general-articles"></a>Artigos gerais
 * Aprenda a [utilizar contadores de desempenho no diagnóstico do Azure](../../cloud-services/diagnostics-performance-counters.md).
 * Se tiver problemas com a partir de diagnóstico ou localizar os seus dados nas tabelas de armazenamento do Azure, consulte [resolução de problemas do diagnóstico do Azure](diagnostics-extension-troubleshooting.md)
+

@@ -1,6 +1,6 @@
 ---
-title: Tarefa de configuração predefinida para o indexador de suporte de dados do Azure
-description: Este tópico fornece uma descrição geral das tarefas de configuração predefinida para o indexador de suporte de dados do Azure.
+title: Tarefa de configuração predefinida para o indexador de multimédia do Azure
+description: Este tópico apresenta uma visão geral das tarefas de configuração predefinida para o indexador de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,30 +13,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463093"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de suporte de dados do Azure
+# <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de multimédia do Azure
 
-Indexador de suporte de dados do Azure é um processador de multimédia que utilizar para efetuar as seguintes tarefas: fará com que os ficheiros de suporte de dados e conteúdo pesquisáveis, gerar controla captioning fechada e as palavras-chave, ficheiros de elementos que fazem parte do seu elemento de índice.
+O indexador de multimédia do Azure é um processador de multimédia que utilizar para efetuar as seguintes tarefas: tornar os arquivos de mídia e conteúdo pesquisável, gerar faixas de legenda codificadas fechadas e palavras-chave, indexar os arquivos de recurso que fazem parte do seu elemento.
 
-Este tópico descreve as tarefas que tem de passar para a tarefa de indexação da configuração predefinida. Por exemplo completado, consulte [indexar os ficheiros de suporte de dados com o indexador de suporte de dados do Azure](media-services-index-content.md).
+Este tópico descreve a tarefa de configuração predefinida que tem de passar para a tarefa de indexação. Para obter um exemplo completo, consulte [indexe ficheiros multimédia com o indexador de multimédia do Azure](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>XML de configuração do indexador de Media Services do Azure
+## <a name="azure-media-indexer-configuration-xml"></a>XML de configuração do indexador de multimédia do Azure
 
-A tabela seguinte explica os elementos e atributos do XML de configuração.
+A tabela seguinte explica os elementos e atributos da configuração do XML.
 
 |Nome|Requerer|Descrição|
 |---|---|---|
-|Input|true|Ficheiros de recurso que pretende índice.<br/>Indexador de suporte de dados do Azure suporta os seguintes formatos de ficheiro do suporte de dados: MP4 MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o nome de ficheiro (s) no **nome** ou **lista** atributo o **entrada** elemento (tal como mostrado abaixo). Se não especificar o ficheiro de recurso para o índice, é selecionado o ficheiro principal. Não se for definido nenhum ficheiro de elemento principal, o primeiro ficheiro no recurso de entrada está indexado.<br/><br/>Para especificar explicitamente o nome de ficheiro de recurso, efetue:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de elemento de uma só vez (até 10 ficheiros). Para efetuar este procedimento:<br/>-Criar um ficheiro de texto (o ficheiro de manifesto) e atribua-lhe uma extensão de .lst.<br/>-Adicione uma lista de todos os nomes de ficheiro de recurso no seu elemento de entrada para este ficheiro de manifesto.<br/>-Adicione ficheiros de thanifest (carregamento) para o elemento.<br/>-Especifique o nome do ficheiro de manifesto do atributo de lista de entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** se adicionar mais do que 10 ficheiros para o ficheiro de manifesto, a tarefa de indexação irá falhar com o código de erro 2006.|
-|do IdP|false|Metadados para os ficheiros de recurso especificado.<br/>```<metadata key="..." value="..." />```<br/><br/>Pode fornecer valores para chaves predefinidas. <br/><br/>Atualmente, as seguintes chaves são suportadas:<br/><br/>**título** e **Descrição** - utilizado para atualizar o modelo de idioma para melhorar a precisão de reconhecimento de voz.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de utilizador** e **palavra-passe** - utilizado para autenticação quando transferir os ficheiros da internet através de http ou https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de utilizador e palavra-passe se aplicam a todos os URLs de suporte de dados no manifesto de entrada.|
-|elástica<br/><br/>Adicionar a versão 1.2. Atualmente, a única funcionalidade suportada é o reconhecimento de voz ("ASR").|false|A funcionalidade de reconhecimento de voz tem as seguintes chaves de definições:<br/><br/>Idioma:<br/>-A linguagem natural para ser reconhecido no ficheiro multimedia.<br/>-Inglês, espanhol<br/><br/>CaptionFormats:<br/>-uma lista de valores separados por ponto e vírgula da legenda saída pretendido formata (se aplicável)<br/>-ttml; sami; webvtt<br/><br/><br/>GenerateAIB:<br/>-Um sinalizador booleano que especifica se é ou não um ficheiro AIB necessário (para utilização com o SQL Server e o cliente indexador IFilter). Para obter mais informações, consulte Utilizar AIB os ficheiros com o indexador de suporte de dados do Azure e o SQL Server.<br/>-True; FALSO<br/><br/>GenerateKeywords:<br/>-Um sinalizador booleano especificar se pretende ou não um ficheiro XML de palavra-chave é necessário.<br/>-True; FALSO.|
+|Input|true|Ficheiros de recurso que deseja indexar.<br/>O indexador de multimédia do Azure suporta os seguintes formatos de arquivo de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o nome de ficheiro (s) no **name** ou **lista** atributo do **entrada** elemento (conforme mostrado abaixo). Se não especificar qual arquivo de recurso para o índice, o ficheiro principal é escolhido. Não se for definido nenhum ficheiro de ativo primário, o primeiro arquivo no recurso de entrada é indexado.<br/><br/>Para especificar explicitamente o nome do arquivo de recurso, fazer:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de elemento ao mesmo tempo (até 10 ficheiros). Para efetuar este procedimento:<br/>-Criar um arquivo de texto (ficheiro de manifesto) e dê a ele uma extensão de .lst.<br/>-Adicione uma lista de todos os nomes de arquivo de recurso em seu elemento de entrada para este ficheiro de manifesto.<br/>-Adicione o ficheiro de manifesto (carregamento) ao elemento.<br/>-Especifique o nome do ficheiro de manifesto no atributo de lista da entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se adicionar mais do que 10 ficheiros para o arquivo de manifesto, a tarefa de indexação irá falhar com o código de erro de 2006.|
+|do IdP|false|Metadados para o ficheiro de ativo especificado (s).<br/>```<metadata key="..." value="..." />```<br/><br/>Pode fornecer valores para chaves predefinidas. <br/><br/>Atualmente, são suportadas as seguintes chaves:<br/><br/>**título** e **Descrição** - utilizado para atualizar o modelo de idioma para melhorar a precisão de reconhecimento de voz.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de utilizador** e **palavra-passe** - utilizado para autenticação quando o download de arquivos de internet através de http ou https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de utilizador e palavra-passe se aplicam a todos os URLs de multimédia no manifesto de entrada.|
+|elástica<br/><br/>Adicionado na versão 1.2. Atualmente, a única funcionalidade suportada é o reconhecimento de fala ("ASR").|false|A funcionalidade de reconhecimento de voz tem as seguintes chaves de definições:<br/><br/>Idioma:<br/>-A linguagem natural a ser reconhecida no ficheiro multimédia.<br/>-Inglês, espanhol<br/><br/>CaptionFormats:<br/>-uma lista delimitada por vírgulas de legenda a saída desejada formatos (se houver)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-Um sinalizador booleano que especifica se é ou não um ficheiro AIB necessário (para utilização com o SQL Server e o cliente IFilter indexador). Para obter mais informações, consulte usando arquivos de AIB com o indexador de multimédia do Azure e o SQL Server.<br/>-True; FALSO<br/><br/>GenerateKeywords:<br/>-Um sinalizador booleano que especifica se é ou não é necessário um ficheiro XML de palavra-chave.<br/>-True; FALSO.|
 
-## <a name="azure-media-indexer-configuration-xml-example"></a>Exemplo do XML de configuração de indexador de suporte de dados do Azure
+## <a name="azure-media-indexer-configuration-xml-example"></a>Exemplo do XML de configuração de indexador de multimédia do Azure
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -64,5 +64,5 @@ A tabela seguinte explica os elementos e atributos do XML de configuração.
   
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte [indexar os ficheiros de suporte de dados com o indexador de suporte de dados do Azure](media-services-index-content.md).
+Ver [indexe ficheiros multimédia com o indexador de multimédia do Azure](media-services-index-content.md).
 

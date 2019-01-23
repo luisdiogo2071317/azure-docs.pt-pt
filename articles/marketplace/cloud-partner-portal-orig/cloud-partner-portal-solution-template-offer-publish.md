@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a19b06e1297b86610ecee01a4e84150813cdb208
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261622"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452412"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicar um modelo de solução no Azure Marketplace
 
@@ -139,7 +139,7 @@ Forneça as seguintes definições de SKU.
 - **Título** -um título para o SKU. Este título é apresentado na Galeria para este item.
 - **Resumo** - uma breve descrição de resumo do SKU. (O comprimento máximo é 100 carateres.)
 - **Descrição** - uma descrição do SKU de detalhadas.
-- **Tipo de SKU** -uma lista suspensa com estes valores: "Aplicação de gerida (pré-visualização)" e "Modelo de solução". Para este cenário, selecione **modelo de solução**.
+- **Tipo de SKU** -uma lista suspensa com estes valores: "Aplicação (pré-visualização) gerida" e "Modelo de solução". Para este cenário, selecione **modelo de solução**.
 - **Disponibilidade da cloud** -a localização do SKU. A predefinição é **público do Azure**.
 
 ### <a name="package-details"></a>Detalhes do pacote

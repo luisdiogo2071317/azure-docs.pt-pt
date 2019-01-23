@@ -4,7 +4,7 @@ description: Saiba como utilizar filtros de âmbito para impedir que os objetos 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 84c4939a93adbb8983cae87fdaa2727904010b03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719363"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461251"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativos de baseadas em atributos com filtros de âmbito
 O objetivo deste artigo é explicar como utilizar filtros de âmbito para definir regras baseadas em atributos que determinam quais usuários são aprovisionados para um aplicativo.
@@ -78,17 +78,17 @@ Filtros de âmbito são configurados como parte dos mapeamentos de atributos par
 
 7. Definir uma cláusula ao selecionar uma origem **nome do atributo**, um **operador**e um **valor do atributo** para correspondência. São suportados os seguintes operadores:
 
-   a. **É IGUAL A**. Cláusula devolvido "true" se o atributo avaliado o valor de cadeia de entrada de corresponder exatamente (sensível a maiúsculas e minúsculas).
+   a. **EQUALS**. Cláusula devolvido "true" se o atributo avaliado o valor de cadeia de entrada de corresponder exatamente (sensível a maiúsculas e minúsculas).
 
-   b. **NÃO É IGUAL A**. Cláusula devolve "verdadeira" se o atributo avaliado não corresponder o valor de cadeia de entrada (sensível a maiúsculas e minúsculas).
+   b. **NOT EQUALS**. Cláusula devolve "verdadeira" se o atributo avaliado não corresponder o valor de cadeia de entrada (sensível a maiúsculas e minúsculas).
 
    c. **É VERDADE**. Cláusula devolve "verdadeira" se o atributo avaliado contém um valor booleano de true.
 
    d. **É FALSO**. Cláusula devolve "verdadeira" se o atributo avaliado contém um valor booleano FALSE.
 
-   e. **É NULO**. Cláusula devolve "verdadeira" se o atributo avaliado está vazio.
+   e. **IS NULL**. Cláusula devolve "verdadeira" se o atributo avaliado está vazio.
 
-   f. **NÃO É NULO**. Cláusula devolve "verdadeira" se o atributo avaliado não está vazio.
+   f. **IS NOT NULL**. Cláusula devolve "verdadeira" se o atributo avaliado não está vazio.
 
    g. **CORRESPONDÊNCIA DE REGEX**. Cláusula devolve "verdadeira" se o atributo avaliado corresponde a um padrão de expressão regular. Por exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 

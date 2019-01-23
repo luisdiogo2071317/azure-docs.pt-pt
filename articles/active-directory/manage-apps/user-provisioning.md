@@ -4,7 +4,7 @@ description: Uma introdução à utilização do Azure AD para aprovisionar auto
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311458"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478489"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -57,13 +57,13 @@ Alguns comuns motivações para utilizar esta funcionalidade incluem:
 O **serviço de aprovisionamento do Azure AD** Aprovisiona utilizadores para aplicações SaaS e outros sistemas, conectando-se aos pontos finais de API de gestão de utilizador fornecidos pelo fornecedor de cada aplicação. Esses pontos de extremidade do API de gestão do usuário permitem que o Azure AD para programaticamente criar, atualizar e remover utilizadores. Para aplicações selecionadas, que o serviço de aprovisionamento também pode criar, atualizar e remover objetos adicionais relacionadas com a identidade, por exemplo, grupos e funções. 
 
 ![Aprovisionamento](./media/user-provisioning/provisioning0.PNG)
-*figura 1: O serviço de aprovisionamento do AD do Azure*
+*figura 1: O serviço de aprovisionamento do Azure AD*
 
-![Aprovisionamento de saída](./media/user-provisioning/provisioning1.PNG)
-*figura 2: fluxo de trabalho do Azure AD para aplicações SaaS populares de aprovisionamento de utilizadores de "Saída"*
+![Saída de aprovisionamento](./media/user-provisioning/provisioning1.PNG)
+*figura 2: Fluxo de trabalho do Azure AD para aplicações SaaS populares de aprovisionamento de utilizadores de "Saída"*
 
 ![Aprovisionamento de entrada](./media/user-provisioning/provisioning2.PNG)
-*figura 3: fluxo de trabalho de aplicações populares de gestão de Capital humano (HCM) para o Azure Active Directory e o Windows Server Active Directory de aprovisionamento de utilizadores de "Entrada"*
+*figura 3: "Entrada" fluxo de trabalho aprovisionamento do utilizador a partir de aplicações populares de gestão de Capital humano (HCM) para o Azure Active Directory e o Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quais aplicativos e sistemas posso utilizar com o aprovisionamento de utilizadores automático do Azure AD?
@@ -103,7 +103,7 @@ No ecrã de gestão de aplicações, aprovisionamento está configurado no **apr
 
 * **Credenciais de administrador** tem de ser fornecido com o Azure AD que irão permiti-lhe ligar-se para a gestão de utilizadores fornecida pela aplicação de API do serviço de aprovisionamento. Esta secção também permite-lhe ativar notificações por e-mail, se não das credenciais, ou a tarefa de aprovisionamento entra em [quarentena](#quarantine).
 
-* **Mapeamentos de atributo** pode ser configurado que especificar quais campos no sistema de origem (exemplo: Azure AD) serão têm seu conteúdo sincronizados a cada campo no sistema de destino (exemplo: ServiceNow). Se o aplicativo de destino o suportar, esta secção permitirá, opcionalmente, configurar o aprovisionamento de grupos, além de contas de utilizador. "Propriedades correspondentes" permite-lhe selecionar quais campos são utilizados para corresponder ao contas entre os sistemas. "[Expressões](functions-for-customizing-application-data.md)" permite-lhe modificar e transformar os valores obtidos a partir do sistema de origem antes que sejam gravadas no sistema de destino. Para obter mais informações, consulte [personalizar mapeamentos de atributos](customize-application-attributes.md).
+* **Mapeamentos de atributo** pode ser configurado que especificar quais campos no sistema de origem (exemplo: O Azure AD) terão seu conteúdo sincronizado a cada campo no sistema de destino (exemplo: ServiceNow). Se o aplicativo de destino o suportar, esta secção permitirá, opcionalmente, configurar o aprovisionamento de grupos, além de contas de utilizador. "Propriedades correspondentes" permite-lhe selecionar quais campos são utilizados para corresponder ao contas entre os sistemas. "[Expressões](functions-for-customizing-application-data.md)" permite-lhe modificar e transformar os valores obtidos a partir do sistema de origem antes que sejam gravadas no sistema de destino. Para obter mais informações, consulte [personalizar mapeamentos de atributos](customize-application-attributes.md).
 
 ![Definições](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -197,13 +197,13 @@ A tabela seguinte resume as horas de sincronização para cenários comuns de ap
 
 | Configuração de âmbito | Os utilizadores, grupos e membros no âmbito | Tempo de sincronização inicial | Hora de sincronização incremental |
 | -------- | -------- | -------- | -------- |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  < a 1000 |  < a 30 minutos | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |  < 1,000 |  < a 30 minutos | < a 30 minutos |
 | Sincronizar os utilizadores atribuídos e apenas a grupos |  1.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |   10 000 - 100.000 | 1,170 - minutos 2,340 | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  < a 1000 | < a 30 minutos  | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |   10,000 - 100,000 | 1,170 - minutos 2,340 | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  < 1,000 | < a 30 minutos  | < a 30 minutos |
 | Sincronizar todos os utilizadores e grupos no Azure AD |  1.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  10 000 - 100.000  | 713 - minutos 1,425 | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD|  < a 1000  | < a 30 minutos | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  10,000 - 100,000  | 713 - minutos 1,425 | < a 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD|  < 1,000  | < a 30 minutos | < a 30 minutos |
 | Sincronizar todos os utilizadores no Azure AD | 1.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
 
 

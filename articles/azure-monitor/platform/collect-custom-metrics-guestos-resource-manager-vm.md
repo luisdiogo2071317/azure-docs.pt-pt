@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: a4581ec70c5d13f215b115c51493a1994ffa8fd4
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.subservice: metrics
+ms.openlocfilehash: 49c37c5dd2910cda234c479dc624f6c6ae92f6c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412899"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467932"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -44,14 +44,14 @@ Neste exemplo, pode utilizar um modelo de exemplo disponíveis publicamente. Os 
 
 Transfira e guarde ambos os ficheiros localmente.
 
-### <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy
+### <a name="modify-azuredeployparametersjson"></a>Modify azuredeploy.parameters.json
 Abra o *azuredeploy* ficheiro
 
 1. Introduza os valores para **adminUsername** e **adminPassword** para a VM. Esses parâmetros são usados para acesso remoto à VM. Para evitar que a sua VM seqüestrada, não use os valores neste modelo. A internet para nomes de utilizador e palavras-passe em repositórios de GitHub públicos de análise de bots. É provável que realizar testes VMs com esses padrões.
 
 1. Crie um dnsname exclusivo para a VM.
 
-### <a name="modify-azuredeployjson"></a>Modificar azuredeploy. JSON
+### <a name="modify-azuredeployjson"></a>Modify azuredeploy.json
 
 Abra o *azuredeploy. JSON* ficheiro
 
@@ -286,3 +286,4 @@ Para implementar o modelo do Resource Manager, podemos tirar partido do Azure Po
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711689"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474002"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, transferir e listar blobs através da CLI do Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início rápido: Carregar, transferir e listar os blobs com a CLI do Azure
 
 A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode utilizá-la no seu browser com o Azure Cloud Shell. Também pode instalá-la no macOS, Linux ou Windows e executá-la a partir da linha de comandos. Neste início rápido, vai aprender a utilizar a CLI do Azure para carregar e transferir dados de e para o armazenamento de Blobs do Azure.
 
@@ -33,7 +33,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 Os Blobs são sempre carregados para um contentor. Pode organizar grupos de blobs, à semelhança de como organiza os ficheiros em pastas no seu computador.
 
-Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -116,4 +116,4 @@ az group delete --name myResourceGroup
 Neste Início Rápido, aprendeu a transferir ficheiros entre o disco local e um contentor no armazenamento de Blobs do Azure. Para saber mais sobre a utilização de blobs no Armazenamento do Azure, avance para o tutorial para utilizar o armazenamento de Blobs do Azure.
 
 > [!div class="nextstepaction"]
-> [Procedimentos de operações de armazenamento de Blobs com a CLI do Azure](storage-how-to-use-blobs-cli.md)
+> [How to: Operações de armazenamento de Blobs com a CLI do Azure](storage-how-to-use-blobs-cli.md)
