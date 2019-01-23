@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119446"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448471"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 – criar uma rede de Perímetro para proteger redes com uma Firewall, UDR e NSG
 [Regressar à página de práticas recomendada de segurança limites][HOME]
@@ -110,7 +110,7 @@ Neste exemplo, os comandos seguintes são utilizados para criar a tabela de rota
 
 1. Primeiro tem de ser criada a tabela de encaminhamento de base. Este fragmento mostra a criação da tabela para a sub-rede de back-end. No script, uma tabela correspondente também é criada para a sub-rede de front-end.
    
-     Novo AzureRouteTable-nome $BERouteTableName '
+     New-AzureRouteTable -Name $BERouteTableName `
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
@@ -134,7 +134,7 @@ Neste exemplo, os comandos seguintes são utilizados para criar a tabela de rota
             -NextHopType VNETLocal
 5. Por fim, com a tabela de roteamento criado e preenchido com um rotas definidas pelo utilizador, a tabela tem agora de ser vinculada a uma sub-rede. No script, a tabela de rotas de front-end também está vinculada à sub-rede de front-end. Aqui está o script de enlace para a sub-rede de back-end.
    
-     Conjunto AzureSubnetRouteTable - VirtualNetworkName $VNetName '
+     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
    
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
@@ -153,7 +153,7 @@ Configurar o reencaminhamento IP é um comando único e pode ser feito no moment
 
 1. Chamar a instância VM que é a sua aplicação virtual, o firewall nesse caso e ativar o reencaminhamento de IP (Observe; qualquer item no início vermelho com um sinal de dólar (p. ex.: $VMName[0]) é uma variável de definidas pelo utilizador a partir do script na seção referência deste documento. Zero entre parênteses Retos, [0], representa a primeira VM na matriz de VMs, para que o script de exemplo funcionar sem modificações, a primeira VM (VM 0) têm de ser o firewall):
    
-     Get-AzureVM-nome $VMName [0] - ServiceName $ServiceName [0] | `
+     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
    
         Set-AzureIPForwarding -Enable
 
@@ -312,10 +312,10 @@ As especificidades de cada regra necessário para concluir este exemplo são des
      
      | Nome da Regra | Servidor | Serviço | Lista de destino |
      | --- | --- | --- | --- |
-     | RDP para IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
-     | RDP para DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
-     | RDP para AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
-     | RDP para AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
+     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
 > Restringir o âmbito dos campos de origem e o serviço irá reduzir a superfície de ataque. O âmbito mais limitado que permitirá que a funcionalidade deve ser utilizado.
@@ -777,7 +777,7 @@ Este script do PowerShell deve ser executado localmente num que Internet ligado 
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

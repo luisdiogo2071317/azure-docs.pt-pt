@@ -245,7 +245,7 @@ Para obter mais informações sobre camadas de pooling, veja estes artigos:
 
 ## <a name="response-normalization-bundles"></a>Pacotes de normalização de resposta
 
-**Normalização de resposta** é um esquema de normalização local que foi introduzido pela primeira vez por Geoffrey Hinton, e outros, o documento [ImageNet Classiﬁcation com redes Neurais Convolucionais profundas](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+**Normalização de resposta** é um esquema de normalização local que foi introduzido pela primeira vez por Geoffrey Hinton, e outros, o documento [ImageNet classificação com redes Neurais Convolucionais profundas](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 Normalização de resposta é utilizada para ajudar a generalização em redes neurais. Quando um neurônio está a ser ativada num nível muito alto de ativação, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios ao redor. Isso é feito com três parâmetros (`α`, `β`, e `k`) e uma estrutura convolucional (ou Vizinhança forma). Cada neurônio da camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela seguinte fórmula, onde `f` é o nível de ativação de um neurônio, e `Nx` é o kernel (ou o conjunto que contém os neurônios tem cerca de **x**), conforme definido pela estrutura convolucional seguinte:  
 

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: ae45a268536f6a8fcb4ab27336a1281837cf5dc7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 40588ec29eb6f7c33ba5e1d6071caf5c8ed43424
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450180"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utilizar controlos de acesso baseado em funções do Azure para definir o acesso ao arquivo de configuração de Kubernetes no Azure Kubernetes Service (AKS)
 
-Pode interagir com os clusters de Kubernetes com o `kubectl` ferramenta. A CLI do Azure fornece uma forma fácil de obter as credenciais de acesso e informações de configuração para ligar ao seu AKS clusters com `kubectl`. Limite quem pode obter essa configuração Kubernetes (*kubeconfig*) informações e as permissões, em seguida, têm, pode usar controles de acesso baseado em função do Azure (RBAC).
+Pode interagir com os clusters de Kubernetes com o `kubectl` ferramenta. A CLI do Azure fornece uma forma fácil de obter as credenciais de acesso e informações de configuração para ligar ao seu AKS clusters com `kubectl`. Limite quem pode obter essa configuração Kubernetes (*kubeconfig*) informações e para limitar as permissões, em seguida, eles têm, pode usar controles de acesso baseado em função do Azure (RBAC).
 
 Este artigo mostra-lhe como atribuir funções RBAC esse limite que pode obter as informações de configuração para um cluster do AKS.
 
@@ -128,7 +128,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para maior segurança e acesso a clusters do AKS [integrar a autenticação do Azure Active Directory][aad-integration].
+Para uma maior segurança no acesso aos clusters do AKS, [integrar a autenticação do Azure Active Directory][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

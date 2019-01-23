@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2eacb55eaf355a4eef17b9e16075d8d12167266d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 44eea4ec4fd335cd0061807521f96f2887751f7a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164206"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457081"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Preparar para autenticar pedidos do Azure Resource Manager
 Tem de autenticar todas as operações que executar nos recursos com o [do Azure Resource Manager] [ lnk-authenticate-arm] com o Azure Active Directory (AD). A maneira mais fácil de configurar esta opção é utilizar o PowerShell ou da CLI do Azure.
@@ -42,8 +42,8 @@ Os passos seguintes mostram como configurar a autenticação de palavra-passe pa
    
    * **{Nome a apresentar}:** um nome a apresentar para a sua aplicação, tais como **MySampleApp**
    * **{URL da Home page}:** o URL da home page da sua aplicação, tais como **http://mysampleapp/home**. Este URL não é necessário apontar para um aplicativo real.
-   * **{Identificador da aplicação}:** um identificador exclusivo, como **http://mysampleapp**. Este URL não é necessário apontar para um aplicativo real.
-   * **{Password}:** uma palavra-passe que utiliza para autenticar com a sua aplicação.
+   * **{Identificador da aplicação}:** Um identificador exclusivo, como **http://mysampleapp**. Este URL não é necessário apontar para um aplicativo real.
+   * **{Password}:** Uma palavra-passe que utiliza para autenticar com a sua aplicação.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
@@ -69,4 +69,4 @@ Agora concluir a criação de aplicação do Azure AD, que permite-lhe autentica
 * Palavra-passe
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps

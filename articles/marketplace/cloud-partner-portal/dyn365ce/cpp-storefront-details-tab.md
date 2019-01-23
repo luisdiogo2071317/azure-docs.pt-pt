@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083200"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445067"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 para o separador de detalhes de Vitrine de envolvimento do cliente
 
@@ -76,10 +76,10 @@ Em que a tabela seguinte descreve os campos neste separador:
 |      Campo            |    Descrição                 |
 |  ---------------      |  ---------------               |
 | Logótipo da oferta (formato png, 48 x 48) | Carregar uma imagem que será apresentado na página de pesquisa da sua aplicação. O formato é PNG e o tamanho deve ser 48x48 pixels. |
-| Logótipo da oferta (formato png, 216 x 216) | Carregue uma imagem que será disaply na página de detalhes da sua aplicação. O formato é PNG e o tamanho deve ser 216 x 216 pixel. |
+| Logótipo da oferta (formato png, 216 x 216) | Carregar uma imagem que será apresentado na página de detalhes da sua aplicação. O formato é PNG e o tamanho deve ser 216 x 216 pixel. |
 | Vídeos                | Carrega vídeos promocionais ou instruções para a aplicação, com um máximo de quatro.  Para cada vídeo, preencha o nome do vídeo, o URL (YouTube ou Vimeo apenas) e a miniatura associada no formato PNG e o tamanho de 1280 x 720 de pixel.  | 
 | Documentos             | Carregar documentos de promocionais ou instruções de produto no formato PDF, com um máximo de três.  Para cada documento, forneça um nome de documento.  |
-| Capturas de ecrã           | Carregar um máximo de cinco imagens da aplicação da interface do Usuário no formato PNG e o tamanho de 1280 x 720 de pixels.  Estas capturas de ecrã serão apresentado na página de detalhes do AppSource para a sua aplicação. |
+| Capturas de Ecrã           | Carregar um máximo de cinco imagens da aplicação da interface do Usuário no formato PNG e o tamanho de 1280 x 720 de pixels.  Estas capturas de ecrã serão apresentado na página de detalhes do AppSource para a sua aplicação. |
 |  |  |
 
 

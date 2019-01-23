@@ -1,27 +1,27 @@
 ---
-title: Configurar a localização de Recortador de suporte de dados do Azure | Microsoft Docs
-description: Saiba mais sobre o suporte de localização e idiomas Recortador de suporte de dados do Azure suportada
+title: Configurar a localização do Azure Media Clipper | Documentos da Microsoft
+description: Saiba mais sobre o suporte de localização e de idiomas suportados do Azure Media Clipper
 services: media-services
-keywords: Clip; subclip codificação; suporte de dados
+keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788145"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448674"
 ---
-# <a name="configure-localization"></a>Configurar a localização
-Recortador de suporte de dados do Azure está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passagem da cadeia de código de idioma pretendido na lista seguinte:
+# <a name="configure-localization"></a>Configurar localização
+Azure Media Clipper está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passa a cadeia de caracteres do código de idioma desejado na lista seguinte:
 - Chinês (simplificado): zh-hans
 - Chinês (tradicional): zh-hant
 - Checo: cs
-- Neerlandês, Flemish: nl
+- Holandês, Flemish: nl
 - Inglês: en
 - Francês: fr
 - Alemão: Alemanha
@@ -29,7 +29,7 @@ Recortador de suporte de dados do Azure está disponível em 18 idiomas. Para de
 - Italiano:-
 - Japonês: ja
 - Coreano: ko
-- Polaco: LP
+- Polaco: pl
 - Português (Brasil): pt-br
 - Português (Portugal): pt-pt
 - Russo: ru
@@ -37,7 +37,7 @@ Recortador de suporte de dados do Azure está disponível em 18 idiomas. Para de
 - Sueco: sv
 - Turco: tr
 
-Para definir um dicionário de idioma personalizado ou expandir o dicionário de idioma predefinido, tem de definir o `languages` ou `extraLanguages` parâmetro, respetivamente. Transmita um dicionário personalizado utilizando o seguinte formato JSON:
+Para definir um dicionário de idioma personalizado ou estender o dicionário de idioma predefinido, tem de definir o `languages` ou `extraLanguages` parâmetro, respectivamente. Passar um dicionário personalizado usando o seguinte formato JSON:
 
 ```javascript
 {
@@ -49,7 +49,7 @@ Para definir um dicionário de idioma personalizado ou expandir o dicionário de
 }
 ```
 
-Por exemplo, o exemplo seguinte define as cadeias localizadas em inglês:
+Por exemplo, o exemplo a seguir define as cadeias de caracteres localizadas em inglês:
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Por exemplo, o exemplo seguinte define as cadeias localizadas em inglês:
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',
@@ -139,7 +139,7 @@ Por exemplo, o exemplo seguinte define as cadeias localizadas em inglês:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte os passos seguintes para configurar o Recortador de suporte de dados do Azure:
-- [Carregar recursos para o Recortador de suporte de dados do Azure](media-services-azure-media-clipper-load-assets.md)
-- [Configurar os atalhos de teclado personalizado](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Submeter tarefas de recorte do Recortador](media-services-azure-media-clipper-submit-job.md)
+Veja os passos seguintes para configurar o Azure Media Clipper:
+- [Carregamento de recursos no Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+- [Configurar atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
+- [Submeter tarefas de recorte do Clipper](media-services-azure-media-clipper-submit-job.md)

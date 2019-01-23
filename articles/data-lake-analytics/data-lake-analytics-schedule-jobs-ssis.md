@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412515"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448725"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar tarefas de U-SQL através do SQL Server Integration Services (SSIS)
 
@@ -40,7 +40,7 @@ Pode obter o script de U-SQL a partir de locais diferentes através das funçõe
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Cenário 1-utilização inline script chamada tvfs e procs armazenado
 
-No Azure Data Lake Analytics Editor de tarefas, configure **SourceType** como **DirectInput**e colocar as instruções de U-SQL para **USQLStatemnt**.
+No Azure Data Lake Analytics Editor de tarefas, configure **SourceType** como **DirectInput**e colocar as instruções de U-SQL para **USQLStatement**.
 
 Para facilidade de manutenção e gerenciamento de código, apenas colocar o script de U-SQL curto como inline scripts, por exemplo, pode chamar funções de valor de tabela existente e procedimentos armazenados nas suas bases de U-SQL. 
 

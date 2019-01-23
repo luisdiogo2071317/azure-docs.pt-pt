@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360195"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440481"
 ---
 As organizações têm necessidades de computação em grande escala. Estas cargas de trabalho de Macrocomputação incluem o design de engenharia e análise, cálculos de riscos financeiros, composição de imagem, modelação complexa, simulações Monte Carlo e muito mais. 
 
@@ -95,7 +95,7 @@ Aprenda a:
 
 * [Instalar e configurar CycleCloud com um modelo do Resource Manager](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [Configurar manualmente o CycleCloud](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [Configurar manualmente o CycleCloud](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## <a name="azure-batch"></a>Azure Batch
 

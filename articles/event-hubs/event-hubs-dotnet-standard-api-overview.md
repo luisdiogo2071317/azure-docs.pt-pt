@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746648"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450460"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Descrição geral da API padrão do .NET dos Hubs de eventos
 
 Este artigo resume alguns dos principais dos Hubs de eventos do Azure [APIs de cliente .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Existem atualmente duas bibliotecas de cliente .NET Standard dos Hubs de eventos:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): fornece todas as operações de tempo de execução básica.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): adiciona mais funcionalidades que permite manter o controle de eventos processados e é a forma mais fácil de ler a partir de um hub de eventos.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Fornece todas as operações de tempo de execução básica.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): Adiciona funcionalidade adicional que permite manter o controle de eventos processados e é a forma mais fácil de ler a partir de um hub de eventos.
 
 ## <a name="event-hubs-client"></a>Cliente de Hubs de eventos
 

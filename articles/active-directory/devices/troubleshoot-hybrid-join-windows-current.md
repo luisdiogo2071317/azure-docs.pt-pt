@@ -4,7 +4,7 @@ description: Resolução de problemas híbrida do Azure Active Directory associa
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050570"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446107"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Resolução de problemas híbrida do Azure Active Directory associados a dispositivos Windows 10 e Windows Server 2016 
 
@@ -33,7 +33,7 @@ Para outros clientes Windows, consulte [híbrido de resolução de problemas do 
 
 Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrida do Azure Active Directory](hybrid-azuread-join-plan.md) para suportar os cenários seguintes:
 
-- Acesso condicional com base no dispositivo
+- Acesso condicional baseado no dispositivo
 
 - [Definições de roaming empresarial](../active-directory-windows-enterprise-state-roaming-overview.md)
 
@@ -59,8 +59,8 @@ Para Windows 10 e Windows Server 2016, híbrido associação do Azure Active Dir
     | Estado do dispositivo |  +----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: Nenhum DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: TpmProtected de fornecedor de criptografia da plataforma da Microsoft: Sim KeySignTest:: deve ter execução privilegiada para testar.
-                  IDP: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl : eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ = = JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: KeySrvUrl de 1,0: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Sim DomainName: CONTOSO
+     EnterpriseJoined: Não existem DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: TpmProtected de fornecedor de criptografia da plataforma da Microsoft: Sim KeySignTest:: TEM de executar elevada para testar.
+                  IDP: TenantId login.windows.net: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Sim DomainName: CONTOSO
     
     +----------------------------------------------------------------------+
     | Estado do utilizador |  +----------------------------------------------------------------------+
@@ -69,7 +69,7 @@ Para Windows 10 e Windows Server 2016, híbrido associação do Azure Active Dir
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: as organizações WamDefaultId: https://login.microsoft.com WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd) AzureAdPrt: Sim
+    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: SIM
 
 
 
@@ -77,7 +77,7 @@ Para Windows 10 e Windows Server 2016, híbrido associação do Azure Active Dir
 
 Reveja os seguintes campos e certifique-se de que têm os valores esperados:
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined: Sim  
+### <a name="azureadjoined--yes"></a>AzureAdJoined : SIM  
 
 Este campo indica se o dispositivo está associado com o Azure AD. Se o valor for **não**, a associação ao Azure AD ainda não foi concluída. 
 
@@ -93,7 +93,7 @@ Este campo indica se o dispositivo está associado com o Azure AD. Se o valor fo
 
 - Se o computador tiver um TPM, pode estar num Estado incorreto.
 
-- Pode haver uma configuração incorreta nos serviços observamos no documento que terá de verificar novamente. Exemplos comuns são:
+- Pode haver uma configuração incorreta nos serviços observamos no documento que terá de verificar novamente. Alguns exemplos comuns são:
 
     - Servidor de Federação não tem pontos de extremidade do WS-Trust ativados
 
@@ -103,19 +103,19 @@ Este campo indica se o dispositivo está associado com o Azure AD. Se o valor fo
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined: Sim  
+### <a name="domainjoined--yes"></a>DomainJoined : SIM  
 
 Este campo indica se o dispositivo estiver associado a um Active Directory no local ou não. Se o valor for **não**, o dispositivo não é possível efetuar uma associação do Azure AD híbrido.  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined: não  
+### <a name="workplacejoined--no"></a>WorkplaceJoined: NO  
 
 Este campo indica se o dispositivo está registado no Azure AD como um dispositivo pessoal (marcados como *à área de trabalho*). Este valor deve ser **não** para um computador associado a um domínio que também é associado ao Azure AD híbrido. Se o valor for **Sim**, uma conta escolar ou profissional foi adicionada antes da conclusão da associação do Azure AD híbrido. Neste caso, a conta é ignorada quando utilizar a versão de atualização de aniversário do Windows 10 (1607).
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Sim e AzureADPrt: Sim
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : Sim e AzureADPrt: SIM
   
 Estes campos indicam se o utilizador foi autenticado com êxito para o Azure AD ao iniciar sessão no dispositivo. Se os valores forem **não**, é possível devido:
 

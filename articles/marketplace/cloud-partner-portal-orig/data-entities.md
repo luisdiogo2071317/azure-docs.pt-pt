@@ -1,6 +1,6 @@
 ---
 title: Entidades de dados | Documentos da Microsoft
-description: Uma visão geral de entites de dados.
+description: Uma visão geral de entidades de dados.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810452"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446583"
 ---
 # <a name="data-entities"></a>Entidades de dados
 
@@ -29,7 +29,7 @@ Este artigo define e fornece uma descrição geral de entidades de dados. Ele in
 
 Uma entidade de dados é uma abstração da implementação física das tabelas de base de dados. Por exemplo, em tabelas normalizadas, muitos dos dados para cada cliente podem ser armazenado numa tabela de cliente e, em seguida, o resto pode estar distribuído por um pequeno conjunto de tabelas relacionadas. Neste caso, a entidade de dados para o conceito de cliente é apresentado como uma exibição desnormalizada, em que cada linha contém todos os dados da tabela customer e suas tabelas relacionadas. Uma entidade de dados encapsula um conceito de negócios num formato que facilita o desenvolvimento e integração. A natureza abstrata de uma entidade de dados pode simplificar o desenvolvimento de aplicativos e personalização. Mais tarde, a abstração também separa o código da aplicação de volume de alterações inevitável as tabelas físicas entre versões.
 
-Para resumir: entidade de dados fornece a abstração conceitual e encapsulamento (exibição desnormalizada) de esquemas de tabela subjacente para representar os conceitos de dados de chave e funcionalidades.
+Para resumir: Entidade de dados fornece a abstração conceitual e encapsulamento (exibição desnormalizada) de esquemas de tabela subjacente para representar os conceitos de dados de chave e funcionalidades.
 
 ## <a name="capabilities"></a>Capacidades
 

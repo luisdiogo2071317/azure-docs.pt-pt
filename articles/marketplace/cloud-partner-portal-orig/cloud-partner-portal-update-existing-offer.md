@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bfe2b0c70c8b912f6489ed461f5bcf6f233ed60d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4bf11c0a084cb0241125a1ed546f48c1c5455de3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810364"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449457"
 ---
 <a name="update-an-existing-offer-for-azure-marketplace"></a>Atualizar uma oferta existente para o Azure Marketplace
 ==============================================
@@ -87,7 +87,7 @@ Para disponibilizar um SKU de novo para a sua oferta existente, siga os passos a
 
 1.  Inicie sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/).
 2.  Sob **todas as ofertas** encontrar a oferta que pretende atualizar.
-3.  Sob o **SKUs** formulário, clik na **adicionar novo SKU** e fornecer uma **ID de SKU** no pop-up.
+3.  Sob o **SKUs** de formulário, clique em **adicionar novo SKU** e fornecer uma **ID de SKU** no pop-up.
 4.  Siga o resto dos passos detalhados [publique uma máquina virtual no Azure Marketplace](./cloud-partner-portal-publish-virtual-machine.md).
 5.  Clique em **publicar** para iniciar o fluxo de trabalho de publicar para que o seu novo SKU ativadas.
 
@@ -133,39 +133,39 @@ Terá até 1 de Novembro de 2018 para definir um novo preço para as regiões em
 | **Argélia**              | DZ        | USD                         |
 | **Argentina**            | AR        | USD                         |
 | **Barém**              | BH        | USD                         |
-| **Bielorrússia**              | POR        | USD                         |
+| **Bielorrússia**              | BY        | USD                         |
 | **Brasil**               | BR        | BRL                         |
 | **Bulgária**             | BG        | EUR                         |
 | **Chile**                | CL        | USD                         |
 | **Colômbia**             | CO        | USD                         |
 | **Costa Rica**           | CR        | USD                         |
-| **Croácia**              | RH        | EUR                         |
+| **Croácia**              | HR        | EUR                         |
 | **República Checa**       | CZ        | EUR                         |
-| **Egipto**                | POR EXEMPLO        | USD                         |
+| **Egipto**                | EG        | USD                         |
 | **Guatemala**            | GT        | USD                         |
 | **RAE de Hong Kong**            | HK        | USD                         |
 | **Hungria**              | HU        | EUR                         |
-| **Islândia**              | É        | EUR                         |
+| **Islândia**              | IS        | EUR                         |
 | **Indonésia**            | ID        | USD                         |
 | **Israel**               | IL        | USD                         |
 | **Jordânia**               | JO        | USD                         |
 | **Cazaquistão**           | KZ        | USD                         |
 | **Quénia**                | KE        | USD                         |
 | **Kuwait**               | KW        | USD                         |
-| **Listenstaine**        | LI        | EUR                         |
+| **Liechtenstein**        | LI        | EUR                         |
 | **Macedónia (ARJM)**     | MK        | USD                         |
-| **Malásia**             | MEU        | USD                         |
+| **Malásia**             | MY        | USD                         |
 | **México**               | MX        | USD                         |
-| **Montenegro**           | -ME        | USD                         |
+| **Montenegro**           | ME        | USD                         |
 | **Marrocos**              | MA        | USD                         |
 | **Nigéria**              | NG        | USD                         |
-| **Omã**                 | OM        | USD                         |
+| **Oman**                 | OM        | USD                         |
 | **Paquistão**             | PK        | USD                         |
 | **Paraguai**             | PY        | USD                         |
 | **Peru**                 | PE        | USD                         |
 | **Filipinas**          | PH        | USD                         |
 | **Polónia\***             | PL        | EUR                         |
-| **Catar**                | CONTROLE DE QUALIDADE        | USD                         |
+| **Qatar**                | QA        | USD                         |
 | **Roménia**              | RO        | EUR                         |
 | **Arábia Saudita**         | SA        | USD                         |
 | **Sérvia**               | RS        | USD                         |

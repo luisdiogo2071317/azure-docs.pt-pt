@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994170"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447365"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como utilizar o Twilio para voz e SMS capacidades em Python
 Este guia demonstra como realizar tarefas comuns de programação com o serviço de Twilio API no Azure. Os cenários abrangidos incluem uma ligação telefônica e enviar uma mensagem de serviço de mensagens curtas (SMS). Para obter mais informações sobre o Twilio e voz e SMS a utilizar nas suas aplicações, consulte a [passos seguintes](#NextSteps) secção.
@@ -41,22 +41,22 @@ A API Twilio é uma API RESTful, que fornece funcionalidade SMS e de voz para ap
 
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação do Twilio (TwiML).
 
-### <a id="Verbs"></a>Verbos de Twilio
+### <a id="Verbs"></a>Twilio Verbs
 A API usa Twilio verbos; Por exemplo, o **&lt;Digamos&gt;** verbo instrui o Twilio para poder ouvi-lo entregar uma mensagem numa chamada.
 
 Segue-se uma lista de verbos Twilio. Saiba mais sobre os outros verbos e capacidades através de [documentação da linguagem de marcação do Twilio][twiml].
 
 * **&lt;Dial&gt;**: Liga-se o autor da chamada para outro telefone.
-* **&lt;Reunir&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
+* **&lt;Gather&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
 * **&lt;Hangup&gt;**: Termina uma chamada.
-* **&lt;Colocar em pausa&gt;**: Aguarda silenciosamente um número de segundos especificado.
+* **&lt;Pause&gt;**: Aguarda silenciosamente um número de segundos especificado.
 * **&lt;Reproduzir&gt;**: Reproduz um arquivo de áudio.
 * **&lt;Fila&gt;**: Adicionar à uma fila de chamadores.
 * **&lt;Registo&gt;**: Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
-* **&lt;Redirecionar&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
-* **&lt;Rejeitar&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
-* **&lt;Digamos&gt;**: Converte texto em voz, que é efetuado numa chamada.
-* **&lt;SMS&gt;**: Envia uma mensagem SMS.
+* **&lt;Redirect&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
+* **&lt;Reject&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
+* **&lt;Say&gt;**: Converte texto em voz, que é efetuado numa chamada.
+* **&lt;Sms&gt;**: Envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções com base em XML, com base nos verbos de Twilio informam Twilio de como processar uma chamada ou SMS.
@@ -89,7 +89,7 @@ Primeiro, [configuração uma nova VM do Linux do Azure] [azure_vm_setup] para a
 
 ### <a name="set-the-dns-name-label"></a>Defina a etiqueta de nome DNS
   1. Aceda à página [a endereços IP públicos] [azure_ips].
-  2. Selecione o IP público que correspends com a sua máquina Virtual.
+  2. Selecione o IP público que corresponde com a sua máquina Virtual.
   3. Definir o **etiqueta de nome DNS** no **configuração** secção. No caso deste exemplo ele será algo parecido com isto *your-domínio-label*. centralus.cloudapp.azure.com
 
 Depois de se conseguir estabelecer ligação através de SSH à máquina Virtual pode instalar a estrutura de Web à sua escolha (os dois mais conhecidos em Python que está sendo [Flask](http://flask.pocoo.org/) e [Django](https://www.djangoproject.com)). Pode instalar qualquer um deles apenas executando o `pip install` comando.

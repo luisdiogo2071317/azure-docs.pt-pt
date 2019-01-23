@@ -3,8 +3,8 @@ title: Enviar notificações multiplataformas para os utilizadores com os Hubs d
 description: Saiba como utilizar modelos dos Hubs de notificação para enviar, numa única solicitação, uma notificação de independente de plataforma que se destina a todas as plataformas.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
@@ -12,17 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: c9d1874fb611b349403736593fdc9eccc45d2d4d
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 637bae0a3f6bba712662e894b75c8bd663e91b4a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446636"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações multiplataformas para os utilizadores com os Hubs de notificação
-Num tutorial anterior, [notificar os utilizadores com os Hubs de notificação], ficou a saber como enviar notificações push para todos os dispositivos que estão registados para um utilizador autenticado específico. Esse tutorial, vários pedidos eram necessário para enviar uma notificação para cada plataforma de cliente suportada. Os Hubs de notificação do Azure suporta modelos, com a qual pode especificar como quer receber notificações de um dispositivo específico. Esse método simplifica o envio de notificações para várias plataformas. 
+
+Num tutorial anterior, [notificar os utilizadores com os Hubs de notificação], ficou a saber como enviar notificações push para todos os dispositivos que estão registados para um utilizador autenticado específico. Esse tutorial, vários pedidos eram necessário para enviar uma notificação para cada plataforma de cliente suportada. Os Hubs de notificação do Azure suporta modelos, com a qual pode especificar como quer receber notificações de um dispositivo específico. Esse método simplifica o envio de notificações para várias plataformas.
 
 Este artigo demonstra como tirar proveito dos modelos para enviar, numa única solicitação, uma notificação de independente de plataforma que se destina a todas as plataformas. Para obter mais informações sobre modelos, consulte [descrição geral de Hubs de notificação do Azure][Templates].
 
@@ -31,57 +32,61 @@ Este artigo demonstra como tirar proveito dos modelos para enviar, numa única s
 
 > [!NOTE]
 > Com os Hubs de notificação, um dispositivo pode registrar vários modelos com a mesma etiqueta. Neste caso, uma mensagem de entrada que tenha como destino os resultados de marca em várias notificações fornecido ao dispositivo, um para cada modelo. Este processo permite-lhe apresentar a mesma mensagem em várias notificações visual, por exemplo, ambos como um destaque e como uma notificação de alerta num aplicativo da Windows Store.
-> 
-> 
+
+## <a name="send-cross-platform-notifications-using-templates"></a>Enviar notificações para várias plataformas através de modelos
 
 Para enviar notificações entre plataformas com os modelos, faça o seguinte:
 
 1. No Explorador de soluções no Visual Studio, expanda o **controladores** e, em seguida, abra o ficheiro de RegisterController.cs.
 
-2. Localize o bloco de código a **colocar** método que cria um novo registo e, em seguida, substitua o `switch` conteúdo com o código a seguir:
-   
-        switch (deviceUpdate.Platform)
-        {
-            case "mpns":
-                var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                       "<wp:Toast>" +
-                            "<wp:Text1>$(message)</wp:Text1>" +
-                       "</wp:Toast> " +
-                    "</wp:Notification>";
-                registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "wns":
-                toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
-                registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "apns":
-                var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
-                registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
-                break;
-            case "gcm":
-                var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
-                registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
-                break;
-            default:
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-        }
-   
+2. Localize o bloco de código a `Put` método que cria um novo registo e, em seguida, substitua o `switch` conteúdo com o código a seguir:
+
+    ```csharp
+    switch (deviceUpdate.Platform)
+    {
+        case "mpns":
+            var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                    "<wp:Toast>" +
+                        "<wp:Text1>$(message)</wp:Text1>" +
+                    "</wp:Toast> " +
+                "</wp:Notification>";
+            registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "wns":
+            toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
+            registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "apns":
+            var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
+            registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
+            break;
+        case "gcm":
+            var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
+            registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+            break;
+        default:
+            throw new HttpResponseException(HttpStatusCode.BadRequest);
+    }
+    ```
+
     Esse código chama o método de específicas da plataforma para criar um registo de modelo em vez de um registo nativo. Porque os registos de modelos derivam de registos nativos, não precisa de modificar registos existentes.
 
-3. Na **notificações** controlador, substitua a **sendNotification** método com o código a seguir:
-   
-        public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:" + user;
-   
-            var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
-   
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-   
+3. Na `Notifications` controlador, substitua o `sendNotification` método com o código a seguir:
+
+    ```csharp
+    public async Task<HttpResponseMessage> Post()
+    {
+        var user = HttpContext.Current.User.Identity.Name;
+        var userTag = "username:" + user;
+
+        var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
+        await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
+
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
+    ```
+
     Este código envia uma notificação para todas as plataformas, ao mesmo tempo, sem tiver de especificar um payload nativo. Notification Hubs baseia-se e oferece o payload correto para todos os dispositivos com o fornecido *marca* valor, conforme especificado nos modelos de registados.
 
 4. Voltar a publicar o projeto de back-end de WebApi.
@@ -92,17 +97,15 @@ Para enviar notificações entre plataformas com os modelos, faça o seguinte:
     É apresentada uma notificação em cada dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que concluiu este tutorial, saiba mais sobre os Hubs de notificação e modelos nos seguintes tópicos:
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Descrição geral dos Hubs de notificação do Azure][Templates]: contém informações mais detalhadas sobre os modelos.
+* [Descrição geral dos Hubs de notificação do Azure][Templates]: Contém informações mais detalhadas sobre os modelos.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-
-
-
 
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md

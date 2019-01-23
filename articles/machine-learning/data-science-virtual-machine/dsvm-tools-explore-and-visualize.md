@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dfe6184779d3c26273e8e7cabef4890360cf7e76
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567388"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446265"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados na máquina de Virtual de ciência de dados
 
@@ -32,7 +32,7 @@ ms.locfileid: "51567388"
 | O que é?   | Motor de consulta SQL de código-fonte aberto de macrodados    |
 | Versões suportadas DSVM      | Windows, Linux  |
 | Como é ele configurado / instalado no DSVM?      |  Instalado em `/dsvm/tools/drill*` no modo de embedded apenas   |
-| Utilizações típicas      |  Exploração de dados no situ sem a necessidade de ETL. Consultar dados de diferentes origens e formatos includign CSV, JSON, tabelas relacionais, Hadoop     |
+| Utilizações típicas      |  Exploração de dados no situ sem a necessidade de ETL. Consultar a diferentes origens de dados e formatos, incluindo CSV, JSON, tabelas relacionais, Hadoop     |
 | Como utilizar / executá-lo?      | Atalho de Desktop  <br/> [Introdução ao teste em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Ferramentas relacionadas na DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
@@ -44,7 +44,7 @@ ms.locfileid: "51567388"
 | Utilizações típicas      | Ferramenta de ML geral     |
 | Como utilizar / executá-lo?      | No Windows, procure Weka no Menu Iniciar. No Linux, inicie sessão com X2Go, em seguida, navegue para aplicativos -> desenvolvimento -> Weka. |
 | Links para amostras      | [Exemplos de weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Ferramentas relacionadas na DSVM      |Xgboost LightGBM, Rattle,   |
+| Ferramentas relacionadas na DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
@@ -54,7 +54,7 @@ ms.locfileid: "51567388"
 | Utilizações típicas      | Ferramenta de mineração de dados de interface de Usuário geral para R    |
 | Como utilizar / executá-lo?      | Ferramenta de interface do Usuário. No Windows, inicie uma linha de comandos, execute o R, em seguida, dentro de R executar `rattle()`. No Linux, conecte-se X2Go, iniciar um terminal, execute R, em seguida, dentro de R executar `rattle()`. |
 | Links para amostras      | [Rattle](https://togaware.com/onepager/) |
-| Ferramentas relacionadas na DSVM      |Xgboost LightGBM, Weka,   |
+| Ferramentas relacionadas na DSVM      |LightGBM, Weka, Xgboost   |
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |

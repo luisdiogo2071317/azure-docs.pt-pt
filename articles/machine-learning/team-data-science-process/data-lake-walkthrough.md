@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141820"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451618"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados dimensionável com o Azure Data Lake: uma passo a passo-a-ponto
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados dimensionável com o Azure Data Lake: Uma passo a passo-a-ponto
 Estas instruções mostram como utilizar o Azure Data Lake para fazer a exploração de dados e tarefas de classificação binária de uma amostra da viagem de táxis de NYC e se comportarão de conjunto de dados para prever se ou não uma dica é pago por uma Europeia. Ele explica-lhe os passos para o [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)ponto-a- ponto, de aquisição de dados para modelar o treinamento e, em seguida, para a implementação de um serviço web que publica o modelo.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -146,7 +146,7 @@ Para executar o U-SQL, abra o Visual Studio, clique em **ficheiro--> New--> Proj
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Ingestão de dados: Dados de blob público de leitura
+### <a name="ingest"></a>Ingestão de dados: Leitura de dados de blob público
 A localização dos dados no blob do Azure é referenciada como **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e pode ser extraído usando **Extractors.Csv()**. Substitua o seu nome de contentor e o nome de conta de armazenamento no seguintes scripts para container_name@blob_storage_account_name o endereço de wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível usar **viagem\_data_ {\*\}. csv** ler em todos os arquivos de 12 de viagem. 
 
     ///Read in Trip data
@@ -374,7 +374,7 @@ Tabelas de viagem e Europeia podem ser associadas ao medallion, hack_license e p
 
 Para cada nível de contagem de passageiros, calcule o número de registos, Gorjeta média, desvio da quantidade de sugestão, percentagem de viagens colocado para.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,
@@ -452,7 +452,7 @@ Duas opções estão disponíveis extrair dados para o Azure Machine Learning pa
 * A primeira opção, vai utilizar os dados de exemplo que foi escritos para um Blob do Azure (na **amostragem de dados** passo acima) e utilizar o Python para criar e implementar modelos do Azure Machine Learning. 
 * Na segunda opção, consultar os dados no Azure Data Lake diretamente, usando uma consulta do Hive. Esta opção requer que crie um novo cluster de HDInsight ou utilizar um cluster do HDInsight existente em que as tabelas do Hive apontam para os dados de táxis de NY no armazenamento do Azure Data Lake.  Ambas estas opções são abordadas nas secções seguintes. 
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opção 1: Utilizar o Python para criar e implementar modelos do machine learning
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Opção 1: Utilizar Python para criar e implementar modelos de machine learning
 Para criar e implementar modelos de aprendizagem automática com o Python, crie um bloco de notas do Jupyter no seu computador local ou no Azure Machine Learning Studio. O bloco de notas do Jupyter fornecida no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) contém o código completo para explorar, visualizar dados, engenharia de funcionalidades, modelação e implementação. São abordados neste artigo, apenas a modelação e a implantação. 
 
 ### <a name="import-python-libraries"></a>Bibliotecas de Python de importação

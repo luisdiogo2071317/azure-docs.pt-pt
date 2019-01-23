@@ -5,7 +5,7 @@ services: active-directory
 keywords: roaming, cloud do windows, como ativar o roaming de estado empresarial de estado empresarial
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098070"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448385"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença Security (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -41,7 +41,7 @@ Quando ativar o Roaming de estado empresarial, sua organização é automaticame
 Para um dispositivo Windows 10 utilizar o serviço de Roaming de estado empresarial, o dispositivo tem de ser autenticado com uma identidade do Azure AD. Para dispositivos que estão associados ao Azure AD, a identidade do utilizador primário início de sessão é a identidade do Azure AD, portanto, é necessária nenhuma configuração adicional. Para dispositivos que utilizam o Active Directory no local, o administrador de TI deve [dispositivos associados ao configurar híbrida do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Armazenamento de dados
-Dados de Roaming de estado empresarial são hospedados num ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que melhor se alinham com o valor de país/região definido na instância do Azure Active Directory. Roaming de estado empresarial os dados são particionados com base em três regiões geográficas grandes: América do Norte, EMEA e APAC. Dados de Roaming de estado empresarial para o inquilino está localmente localizados com a região geográfica e não são replicados em várias regiões.  Por exemplo:
+Dados de Roaming de estado empresarial são hospedados num ou mais [regiões do Azure](https://azure.microsoft.com/regions/) que melhor se alinham com o valor de país/região definido na instância do Azure Active Directory. Roaming de estado empresarial os dados são particionados com base em três regiões geográficas principais: América do Norte, EMEA e APAC. Dados de Roaming de estado empresarial para o inquilino está localmente localizados com a região geográfica e não são replicados em várias regiões.  Por exemplo:
 
 Valor de país/região | tem dos dados hospedados em
 ---------------------|-------------------------
@@ -75,9 +75,9 @@ Dados sincronizados para a cloud da Microsoft usando o Roaming de estado empresa
 ### <a name="explicit-deletion"></a>Eliminação explícita
 Eliminação explícita é quando um administrador do Azure elimina um utilizador ou um diretório ou caso contrário, solicita explicitamente que os dados estão a ser eliminado.
 
-* **Eliminação do utilizador**: quando um utilizador é eliminado no Azure AD, a conta de utilizador roaming de dados é eliminada após 90 para 180 dias. 
-* **Eliminação de diretório**: a eliminar um diretório inteiro no Azure AD é uma operação de imediato. Todos os dados de definições associados com que o diretório é eliminado após 90 para 180 dias. 
-* **Na eliminação do pedido**: se o administrador do Azure AD quiser eliminar manualmente os dados ou dados de definições de um utilizador específico, o administrador pode enviar um pedido com [suporte do Azure](https://azure.microsoft.com/support/). 
+* **Eliminação do utilizador**: Quando um utilizador é eliminado no Azure AD, a conta de utilizador roaming de dados é eliminada após 90 para 180 dias. 
+* **Eliminação de diretório**: A eliminar um diretório inteiro no Azure AD é uma operação de imediato. Todos os dados de definições associados com que o diretório é eliminado após 90 para 180 dias. 
+* **Na eliminação de pedido**: Caso queiram que os administradores do Azure AD eliminar manualmente os dados ou dados de definições de um utilizador específico, o administrador pode enviar um pedido com [suporte do Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Eliminação de dados obsoletos
 Dados que não tiverem sido acedidos durante um ano ("o período de retenção") serão tratados como obsoleto e podem ser eliminados da cloud da Microsoft. O período de retenção está sujeitas a alterações, mas não será inferior a 90 dias. Os dados obsoletos podem ser um conjunto específico de definições do Windows/aplicação ou todas as definições para um utilizador. Por exemplo:

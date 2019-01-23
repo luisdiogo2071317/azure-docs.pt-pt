@@ -4,7 +4,7 @@ description: Resolução de problemas híbrida do Azure Active Directory disposi
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800864"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445291"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -37,7 +37,7 @@ Para Windows 10 ou Windows Server 2016, veja [híbrido de resolução de problem
 
 Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrida do Azure Active Directory](hybrid-azuread-join-plan.md) para suportar os cenários seguintes:
 
-- Acesso condicional com base no dispositivo
+- Acesso condicional baseado no dispositivo
 
 
 Este artigo fornece orientações sobre como resolver problemas potenciais de resolução de problemas.  
@@ -116,7 +116,7 @@ Se o dispositivo não tiver sido associado ao Azure AD híbrido, pode tentar faz
 
     ![Associação à área de trabalho para Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Também pode encontrar as informações de estado no registo de eventos em: **aplicativos e serviços Log\Microsoft-Workplace Join**
+Também pode encontrar as informações de estado no registo de eventos em: **Aplicações e serviços a associação à área de trabalho a Log\Microsoft**
   
 **As causas mais comuns para uma associação do Azure AD híbrido de falha são:** 
 

@@ -4,7 +4,7 @@ description: Um tópico que explica como os utilizadores podem configurar a Asso
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446430"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Adicione um novo dispositivo do Windows 10 ao Azure AD durante a primeira execução
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Junte-se a um novo dispositivo Windows 10 com o Azure AD durante uma execução primeiro
 
 Com a gestão de dispositivos no Azure Active Directory (Azure AD), pode assegurar que os seus utilizadores acedem aos seus recursos a partir de dispositivos que cumpram as suas normas de segurança e conformidade. Para obter mais informações, veja [introdução à gestão de dispositivos no Azure Active Directory](overview.md).
 
@@ -89,7 +89,7 @@ Para verificar se um dispositivo está associado ao Azure AD, reveja a caixa de 
 ![Acesso escolar ou profissional](./media/azuread-joined-devices-frx/13.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações, veja [introdução à gestão de dispositivos no Azure Active Directory](overview.md).
 

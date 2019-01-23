@@ -4,7 +4,7 @@ description: Instruções sobre como obter ajuda e abrir um pedido de suporte do
 services: active-directory
 documentationcenter: na
 author: eross-msft
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: feecc0b5b8c6bd7cb39a9aa8f40e84b07b242f39
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064951"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447774"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abra um pedido de suporte do Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 

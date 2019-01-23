@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
-ms.openlocfilehash: 2a5066a2dcb74051088b2fc67b5089e95ae4dd3f
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410358"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446787"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerir metadados de artefactos nas contas de integração com o Azure Logic Apps e o Enterprise Integration Pack
 
@@ -47,7 +47,7 @@ Pode definir metadados personalizados para artefactos em contas de integração 
 
 1. Quando tiver terminado, escolha **OK**.
 
-1. Para exibir esses metadados na definição do JavaScript Object Notation (JSON) para a conta de integração, escolha **editar como JSON** , de modo a que abre esse editor de JSON: 
+1. Para exibir esses metadados na definição do JavaScript Object Notation (JSON) para a conta de integração, escolha **editar como JSON** , de modo a que abre o editor de JSON: 
 
    ![JSON para os metadados de parceiro](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 

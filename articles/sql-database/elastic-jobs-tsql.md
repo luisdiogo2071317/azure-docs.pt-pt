@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606814"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449406"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
 Este artigo fornece muitos cenários de exemplo para começar a trabalhar com tarefas elásticas com o T-SQL.
 
-Os exemplos utilizam o [procedimentos armazenados](#job-stored-procedures) e [vistas](#job-views) disponíveis no [ *base de dados de tarefa*](elastic-jobs-overview.md#job-database).
+Os exemplos utilizam o [procedimentos armazenados](#job-stored-procedures) e [vistas](#job-views) disponíveis no [ *base de dados de tarefa*](sql-database-job-automation-overview.md#job-database).
 
 O Transact-SQL (T-SQL) é utilizado para criar, configurar, executar e gerir tarefas. Criar o agente de tarefa elástica não é suportado em T-SQL, pelo que deve primeiro criar uma *agente de tarefa elástica* com o portal, ou [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>Criar um grupo de destino (servidores)
 
 O exemplo seguinte mostra como executar uma tarefa em todas as bases de dados num servidor.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>Excluir uma base de dados
 
 O exemplo seguinte mostra como executar uma tarefa em todas as bases de dados num servidor, exceto para a base de dados com o nome *MappingDB*.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Criar um grupo de destino (conjuntos)
 
 O exemplo seguinte mostra como todas as bases de dados num ou mais conjuntos elásticos de destino.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Implementar o novo esquema em muitas bases de dados
 
 O exemplo seguinte mostra como implementar o novo esquema em todas as bases de dados.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 
 ```sql
@@ -195,7 +195,7 @@ Por predefinição, o agente de tarefa ficará para criar a tabela para armazena
 2. Coluna adicional para internal_execution_id com o tipo de dados de uniqueidentifier.
 3. Um índice não agrupado com o nome "IX_<TableName>_Internal_Execution_ID" na coluna internal_execution_id.
 
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute os seguintes comandos:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute os seguintes comandos:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>Ver definições de tarefa
 
 O exemplo seguinte mostra como ver definições de tarefa atual.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>Iniciar execução ad hoc de uma tarefa
 
 O exemplo seguinte mostra como iniciar uma tarefa de imediato.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>Agendar a execução de uma tarefa
 
 O exemplo seguinte mostra como agendar um trabalho para execução futura.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>Monitorizar o estado de execução da tarefa
 
 O exemplo seguinte mostra como ver os detalhes de estado de execução para todas as tarefas.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>Cancelar uma tarefa
 
 O exemplo seguinte mostra como cancelar uma tarefa.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>Eliminar histórico antigo de tarefas
 
 O exemplo seguinte mostra como eliminar histórico de tarefas antes de uma data específica.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Eliminar uma tarefa e o respetivo histórico de tarefas
 
 O exemplo seguinte mostra como eliminar uma tarefa e todos os relacionados de histórico de tarefas.  
-Ligar para o [ *base de dados da tarefa* ](elastic-jobs-overview.md#job-database) e execute o seguinte comando:
+Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>Procedimentos armazenados de tarefa
 
-Os seguintes procedimentos armazenados são no [base de dados de tarefas](elastic-jobs-overview.md#job-database).
+Os seguintes procedimentos armazenados são no [base de dados de tarefas](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -447,10 +447,10 @@ Adiciona uma nova tarefa.
   
 #### <a name="arguments"></a>Argumentos  
 
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa. O nome tem de ser exclusivo e não pode conter o caráter de percentagem (%). job_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@description =** ] 'description'  
+[ **@description =** ] 'description'  
 A descrição da tarefa. a descrição é nvarchar(512), com uma predefinição de NULL. Se a descrição for omitida, é utilizada uma cadeia vazia.
 
 [  **@enabled =** ] ativada  
@@ -471,7 +471,7 @@ Número de períodos de schedule_interval_count seja efetuada entre cada execuç
 [  **@schedule_start_time =** ] schedule_start_time  
 Data na qual tarefa pode começar a execução. schedule_start_time é DATETIME2, com a predefinição de 00:00:00.0000000 0001-01-01.
 
-[  **@schedule_end_time =** ] schedule_end_time  
+[ **@schedule_end_time =** ] schedule_end_time  
 Data na qual tarefa pode parar a execução. schedule_end_time é DATETIME2, com o padrão de 9999-12-31 11:59:59.0000000. 
 
 [  **@job_id =** ] job_id saída  
@@ -510,13 +510,13 @@ Atualiza uma tarefa existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa para ser atualizado. job_name é nvarchar(128).
 
-[  **@new_name =** ] "new_name"  
+[ **@new_name =** ] 'new_name'  
 O novo nome da tarefa. new_name é nvarchar(128).
 
-[  **@description =** ] 'description'  
+[ **@description =** ] 'description'  
 A descrição da tarefa. a descrição é nvarchar(512).
 
 [  **@enabled =** ] ativada  
@@ -538,7 +538,7 @@ Número de períodos de schedule_interval_count seja efetuada entre cada execuç
 [  **@schedule_start_time=** ] schedule_start_time  
 Data na qual tarefa pode começar a execução. schedule_start_time é DATETIME2, com a predefinição de 00:00:00.0000000 0001-01-01.
 
-[  **@schedule_end_time=** ] schedule_end_time  
+[ **@schedule_end_time=** ] schedule_end_time  
 Data na qual tarefa pode parar a execução. schedule_end_time é DATETIME2, com o padrão de 9999-12-31 11:59:59.0000000. 
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -567,10 +567,10 @@ Elimina uma tarefa existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa para serem eliminados. job_name é nvarchar(128).
 
-[  **@force =** ] forçar  
+[ **@force =** ] force  
 Especifica se pretende eliminar se a tarefa tem quaisquer execuções em curso e cancelar todas as execuções de em curso (1) ou falha se todas as execuções de tarefas estão em curso (0). força é o bit.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -622,32 +622,32 @@ Adiciona um passo a um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa ao qual pretende adicionar o passo. job_name é nvarchar(128).
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 O número de identificação de sequência para o passo da tarefa. Números de identificação de passo começam em 1 e incrementar sem lacunas. Se um passo existente já tem este id, em seguida, que o passo e todos os passos seguintes terão o id do incrementado para que este novo passo pode ser inserido na sequência de. Se não for especificado, o step_id será automaticamente atribuído para o último na sequência de passos. step_id é um int.
 
 [  **@step_name =** ] step_name  
 O nome do passo. Tem de ser especificado, exceto a primeira etapa de uma tarefa que (para conveniência) tem um nome predefinido de 'JobStep'. step_name é nvarchar(128).
 
-[  **@command_type =** ] 'command_type'  
+[ **@command_type =** ] 'command_type'  
 O tipo de comando que é executado por este passo de tarefa. command_type é nvarchar(50), com um valor padrão de TSql, que significa que o valor da @command_type parâmetro é um script T-SQL.
 
 Se for especificado, o valor tem de ser TSql.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 O tipo de localização em que o comando é armazenado. command_source é nvarchar(50), com um valor padrão de Inline, que significa que o valor da @command_source parâmetro é o texto literal do comando.
 
 Se for especificado, o valor tem de ser Inline.
 
-[  **@command =** ] 'command'  
+[ **@command =** ] 'command'  
 O comando deve ser o script de T-SQL válida e, em seguida, é executado por este passo de tarefa. comando é nvarchar (Max), com uma predefinição de NULL.
 
-[  **@credential_name =** ] 'credential_name'  
+[ **@credential_name =** ] 'credential_name'  
 O nome da base de dados no âmbito a credencial armazenada nesta base de dados de controle de tarefa que é utilizada para ligar a cada uma das bases de dados de destino dentro do grupo de destino quando este passo é executado. credential_name é nvarchar(128).
 
-[  **@target_group_name =** ] "group_name de destino"  
+[ **@target_group_name =** ] 'target-group_name'  
 O nome do grupo de destino que contém as bases de dados de destino que será executado o passo da tarefa na. target_group_name é nvarchar(128).
 
 [  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -656,39 +656,39 @@ O atraso antes da primeira repetição tentar, se o passo de tarefa falhar duran
 [  **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. maximum_retry_interval_seconds é int, com o valor predefinido de 120.
 
-[  **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador para aplicar o atraso de repetição se a execução de passo de tarefa de várias tentativas de ativação. Por exemplo, se a primeira repetição tinha um atraso de 5 segundos e o multiplicador de término é 2.0, a segunda repetição terão um atraso de 10 segundos e a repetição de terceiro terá um atraso de 20 segundos. retry_interval_backoff_multiplier é real, com o valor predefinido do 2.0.
 
-[  **@retry_attempts =** ] retry_attempts  
+[ **@retry_attempts =** ] retry_attempts  
 O número de vezes a repetir a execução se a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts é 10, em seguida, haverá 1 inicial tentativa e 10 tentativas de repetição, fornecendo um total de tentativas de 11. Se a tentativa de repetição final falhar, a execução de tarefa irá terminar com um ciclo de vida de falhado. retry_attempts é int, com o valor predefinido de 10.
 
-[  **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **@step_timeout_seconds =** ] step_timeout_seconds  
 A quantidade máxima de tempo permitido para o passo executar. Se for excedido neste momento, em seguida, a execução de tarefa irá terminar com um ciclo de vida de excedido. step_timeout_seconds é int, com o valor predefinido de 43.200 segundos (12 horas).
 
-[  **@output_type =** ] 'output_type'  
+[ **@output_type =** ] 'output_type'  
 Se não for nulo, o tipo de destino do conjunto de resultados do comando de primeira é escrito. output_type é nvarchar(50), com uma predefinição de NULL.
 
 Se for especificado, o valor tem de ser SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[ **@output_credential_name =** ] 'output_credential_name'  
 Se não nulo, o nome da base de dados credencial com âmbito que é utilizada para ligar à base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_credential_name é nvarchar(128), com um valor predefinido nulo.
 
-[  **@output_subscription_id =** ] 'output_subscription_id'  
+[ **@output_subscription_id =** ] 'output_subscription_id'  
 Tem de descrição.
 
-[  **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **@output_resource_group_name =** ] 'output_resource_group_name'  
 Tem de descrição.
 
-[  **@output_server_name =** ] 'output_server_name'  
+[ **@output_server_name =** ] 'output_server_name'  
 Se não for null, o nome DNS completamente qualificado do servidor que contém a base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_server_name é nvarchar(256), com uma predefinição de NULL.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[ **@output_database_name =** ] 'output_database_name'  
 Se não for null, o nome da base de dados que contém a tabela de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_database_name é nvarchar(128), com uma predefinição de NULL.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
+[ **@output_schema_name =** ] 'output_schema_name'  
 Se não for null, o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for igual a SqlDatabase, o valor predefinido é dbo. output_schema_name é nvarchar(128).
 
-[  **@output_table_name =** ] 'output_table_name'  
+[ **@output_table_name =** ] 'output_table_name'  
 Se não for nulo, o nome da tabela que conjunto de resultados do comando de primeira será gravado. Se a tabela já não existir, será criada com base no esquema do conjunto de resultados de retornar. Tem de ser especificado se output_type é igual a SqlDatabase. output_table_name é nvarchar(128), com um valor predefinido nulo.
 
 [  **@job_version =** ] job_version saída  
@@ -746,38 +746,38 @@ Atualiza um passo de tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa à qual pertence o passo. job_name é nvarchar(128).
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 O número de identificação para o passo da tarefa ser modificado. Step_id ou step_name tem de ser especificado. step_id é um int.
 
 [  **@step_name =** ] 'step_name'  
 O nome do passo deve ser modificada. Step_id ou step_name tem de ser especificado. step_name é nvarchar(128).
 
-[  **@new_id =** ] new_id  
+[ **@new_id =** ] new_id  
 O novo número de identificação sequência para o passo da tarefa. Números de identificação de passo começam em 1 e incrementar sem lacunas. Se um passo foi reordenado, em seguida, outros passos irão ser automaticamente renumerados.
 
-[  **@new_name =** ] "new_name"  
+[ **@new_name =** ] 'new_name'  
 O novo nome do passo. new_name é nvarchar(128).
 
-[  **@command_type =** ] 'command_type'  
+[ **@command_type =** ] 'command_type'  
 O tipo de comando que é executado por este passo de tarefa. command_type é nvarchar(50), com um valor padrão de TSql, que significa que o valor da @command_type parâmetro é um script T-SQL.
 
 Se for especificado, o valor tem de ser TSql.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 O tipo de localização em que o comando é armazenado. command_source é nvarchar(50), com um valor padrão de Inline, que significa que o valor da @command_source parâmetro é o texto literal do comando.
 
 Se for especificado, o valor tem de ser Inline.
 
-[  **@command =** ] 'command'  
+[ **@command =** ] 'command'  
 O comando deve ser o script de T-SQL válido e, em seguida, é executado por este passo de tarefa. comando é nvarchar (Max), com uma predefinição de NULL.
 
-[  **@credential_name =** ] 'credential_name'  
+[ **@credential_name =** ] 'credential_name'  
 O nome da base de dados no âmbito a credencial armazenada nesta base de dados de controle de tarefa que é utilizada para ligar a cada uma das bases de dados de destino dentro do grupo de destino quando este passo é executado. credential_name é nvarchar(128).
 
-[  **@target_group_name =** ] "group_name de destino"  
+[ **@target_group_name =** ] 'target-group_name'  
 O nome do grupo de destino que contém as bases de dados de destino que será executado o passo da tarefa na. target_group_name é nvarchar(128).
 
 [  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -786,33 +786,33 @@ O atraso antes da primeira repetição tentar, se o passo de tarefa falhar duran
 [  **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. maximum_retry_interval_seconds é int, com o valor predefinido de 120.
 
-[  **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador para aplicar o atraso de repetição se a execução de passo de tarefa de várias tentativas de ativação. Por exemplo, se a primeira repetição tinha um atraso de 5 segundos e o multiplicador de término é 2.0, a segunda repetição terão um atraso de 10 segundos e a repetição de terceiro terá um atraso de 20 segundos. retry_interval_backoff_multiplier é real, com o valor predefinido do 2.0.
 
-[  **@retry_attempts =** ] retry_attempts  
+[ **@retry_attempts =** ] retry_attempts  
 O número de vezes a repetir a execução se a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts é 10, em seguida, haverá 1 inicial tentativa e 10 tentativas de repetição, fornecendo um total de tentativas de 11. Se a tentativa de repetição final falhar, a execução de tarefa irá terminar com um ciclo de vida de falhado. retry_attempts é int, com o valor predefinido de 10.
 
-[  **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **@step_timeout_seconds =** ] step_timeout_seconds  
 A quantidade máxima de tempo permitido para o passo executar. Se for excedido neste momento, em seguida, a execução de tarefa irá terminar com um ciclo de vida de excedido. step_timeout_seconds é int, com o valor predefinido de 43.200 segundos (12 horas).
 
-[  **@output_type =** ] 'output_type'  
+[ **@output_type =** ] 'output_type'  
 Se não for nulo, o tipo de destino do conjunto de resultados do comando de primeira é escrito. Repor o valor de output_type NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_type é nvarchar(50), com uma predefinição de NULL.
 
 Se for especificado, o valor tem de ser SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[ **@output_credential_name =** ] 'output_credential_name'  
 Se não nulo, o nome da base de dados credencial com âmbito que é utilizada para ligar à base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_credential_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_credential_name é nvarchar(128), com um valor predefinido nulo.
 
-[  **@output_server_name =** ] 'output_server_name'  
+[ **@output_server_name =** ] 'output_server_name'  
 Se não for null, o nome DNS completamente qualificado do servidor que contém a base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_server_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_server_name é nvarchar(256), com uma predefinição de NULL.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[ **@output_database_name =** ] 'output_database_name'  
 Se não for null, o nome da base de dados que contém a tabela de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_database_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_database_name é nvarchar(128), com uma predefinição de NULL.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
+[ **@output_schema_name =** ] 'output_schema_name'  
 Se não for null, o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for igual a SqlDatabase, o valor predefinido é dbo. Repor o valor de output_schema_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_schema_name é nvarchar(128).
 
-[  **@output_table_name =** ] 'output_table_name'  
+[ **@output_table_name =** ] 'output_table_name'  
 Se não for nulo, o nome da tabela que conjunto de resultados do comando de primeira será gravado. Se a tabela já não existir, será criada com base no esquema do conjunto de resultados de retornar. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_server_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_table_name é nvarchar(128), com um valor predefinido nulo.
 
 [  **@job_version =** ] job_version saída  
@@ -853,10 +853,10 @@ Remove um passo de tarefa de uma tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa da qual o passo vai ser removido. job_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 O número de identificação para o passo da tarefa a ser eliminado. Step_id ou step_name tem de ser especificado. step_id é um int.
 
 [  **@step_name =** ] 'step_name'  
@@ -897,7 +897,7 @@ Inicia uma tarefa em execução.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa da qual o passo vai ser removido. job_name é nvarchar(128), com nenhuma predefinição.
 
 [  **@job_execution_id =** ] job_execution_id saída  
@@ -928,7 +928,7 @@ Interrompe uma execução de tarefa.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_execution_id =** ] job_execution_id  
+[ **@job_execution_id =** ] job_execution_id  
 O número de identificação da execução da tarefa para parar. job_execution_id é uniqueidentifier, com o padrão de nulo.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -958,7 +958,7 @@ Adiciona um grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **@target_group_name =** ] 'target_group_name'  
+[ **@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino para criar. target_group_name é nvarchar(128), com nenhuma predefinição.
 
 [  **@target_group_id =** ] target_group_id o destino de saída de grupo número de identificação atribuído à tarefa se criado com êxito. target_group_id é uma variável de saída do tipo uniqueidentifier, com uma predefinição de NULL.
@@ -988,7 +988,7 @@ Elimina um grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[  **@target_group_name =** ] 'target_group_name'  
+[ **@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino para eliminar. target_group_name é nvarchar(128), com nenhuma predefinição.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -1022,28 +1022,28 @@ Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@target_group_name =** ] 'target_group_name'  
+[ **@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino ao qual o membro será adicionado. target_group_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@membership_type =** ] 'membership_type'  
+[ **@membership_type =** ] 'membership_type'  
 Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar(128), com o padrão de "Inclusão". Valores válidos para target_group_name são 'Include' ou "Excluir".
 
-[  **@target_type =** ] 'target_type'  
+[ **@target_type =** ] 'target_type'  
 O tipo de base de dados de destino ou a coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico, todas as bases de dados num mapa de partições horizontais ou uma base de dados individual. target_type é nvarchar(128), com nenhuma predefinição. Valores válidos para target_type são 'SqlServer', "SqlElasticPool", "SqlDatabase" ou 'SqlShardMap'. 
 
-[  **@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **@refresh_credential_name =** ] 'refresh_credential_name'  
 O nome do servidor lógico. refresh_credential_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@server_name =** ] 'server_name'  
+[ **@server_name =** ] 'server_name'  
 O nome do servidor lógico que deve ser adicionado ao grupo de destino especificado. SERVER_NAME deve ser especificado quando target_type é 'SqlServer'. SERVER_NAME é nvarchar(128), com nenhuma predefinição.
 
-[  **@database_name =** ] "database_name"  
+[ **@database_name =** ] 'database_name'  
 O nome da base de dados que deve ser adicionado ao grupo de destino especificado. database_name deve ser especificado quando target_type é "SqlDatabase". database_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **@elastic_pool_name =** ] 'elastic_pool_name'  
 O nome do conjunto elástico que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlElasticPool'. elastic_pool_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@shard_map_name =** ] 'shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 O nome do agrupamento de mapa de partições horizontais que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlSqlShardMap'. shard_map_name é nvarchar(128), com nenhuma predefinição.
 
 [  **@target_id =** ] target_group_id saída  
@@ -1106,10 +1106,10 @@ Remove um membro do grupo de destino de um grupo de destino.
 
 
 
-Argumentos [ @target_group_name =] 'target_group_name'  
+Arguments [ @target_group_name = ] 'target_group_name'  
 O nome do grupo de destino a partir da qual pretende remover o membro do grupo de destino. target_group_name é nvarchar(128), com nenhuma predefinição.
 
-[ @target_id =] target_id  
+[ @target_id = ] target_id  
  O número de identificação de destino atribuído para o membro do grupo de destino a ser removido. target_id é um uniqueidentifier, com uma predefinição de NULL.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -1157,13 +1157,13 @@ Remove os registos do histórico para uma tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[  **@job_name =** ] 'job_name'  
+[ **@job_name =** ] 'job_name'  
 O nome da tarefa para o qual pretende eliminar os registos do histórico. job_name é nvarchar(128), com uma predefinição de NULL. É necessário especificar job_id ou job_name, mas não não possível especificar ambos.
 
-[  **@job_id =** ] job_id  
+[ **@job_id =** ] job_id  
  O número de identificação de tarefa do trabalho para os registos a eliminar. job_id é uniqueidentifier, com uma predefinição de NULL. É necessário especificar job_id ou job_name, mas não não possível especificar ambos.
 
-[  **@oldest_date =** ] oldest_date  
+[ **@oldest_date =** ] oldest_date  
  O registo mais antigo para reter no histórico. oldest_date é DATETIME2, com uma predefinição de NULL. Quando oldest_date é especificado, o sp_purge_jobhistory remove apenas os registos que são mais antigos do que o valor especificado.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -1190,23 +1190,23 @@ GO
 
 ## <a name="job-views"></a>Vistas de tarefa
 
-As vistas seguintes estão disponíveis no [base de dados de tarefas](elastic-jobs-overview.md#job-database).
+As vistas seguintes estão disponíveis no [base de dados de tarefas](sql-database-job-automation-overview.md#job-database).
 
 
 |Vista  |Descrição  |
 |---------|---------|
 |[jobs_executions](#jobsexecutions-view)     |  Mostra o histórico de execução de tarefas.      |
-|[Tarefas](#jobs-view)     |   Mostra todas as tarefas.      |
+|[jobs](#jobs-view)     |   Mostra todas as tarefas.      |
 |[job_versions](#jobversions-view)     |   Mostra todas as versões de tarefa.      |
-|[primeiro](#jobsteps-view)     |     Mostra todos os passos na versão atual de cada tarefa.    |
+|[jobsteps](#jobsteps-view)     |     Mostra todos os passos na versão atual de cada tarefa.    |
 |[jobstep_versions](#jobstepversions-view)     |     Mostra todos os passos em todas as versões de cada tarefa.    |
 |[target_groups](#targetgroups-view)     |      Mostra todos os grupos de destino.   |
 |[target_group_members](#targetgroups-view)     |   Mostra todos os membros de todos os grupos de destino.      |
 
 
-### <a name="jobsexecutions-view"></a>Ver jobs_executions
+### <a name="jobsexecutions-view"></a>jobs_executions view
 
-[tarefas]. [jobs_executions]
+[jobs].[jobs_executions]
 
 Mostra o histórico de execução de tarefas.
 
@@ -1219,7 +1219,7 @@ Mostra o histórico de execução de tarefas.
 |**job_version**    |int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).
 |**step_id**    |int|   Identificador exclusivo (para esta tarefa) para o passo. NULO indica que esta é a execução de tarefa principal.
 |**is_active**| bit |Indica se as informações estão ativos ou inativos. 1 indica tarefas ativas e 0 indica inativos.
-|**ciclo de vida**| nvarchar(50)|Valor que indica o estado da tarefa: "Criado", "Em curso", "Falha", "Com êxito", "Ignorada", 'SucceededWithSkipped'|
+|**lifecycle**| nvarchar(50)|Valor que indica o estado da tarefa: "Criado", "Em curso", "Falha", "Com êxito", "Ignorada", 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   Data e hora que a criação da tarefa.
 |**start_time** |datetime2(7)|  Data e hora a tarefa iniciou a execução. NULO se a tarefa ainda não tiver sido executada.
 |**end_time**|  datetime2(7)    |Data e hora a tarefa foi concluída a execução. NULO se a tarefa ainda não tiver sido executada ou não tem ainda concluiu a execução.
@@ -1235,7 +1235,7 @@ Mostra o histórico de execução de tarefas.
 
 ### <a name="jobs-view"></a>na vista de tarefas
 
-[tarefas]. [tarefas]
+[jobs].[jobs]
 
 Mostra todas as tarefas.
 
@@ -1244,7 +1244,7 @@ Mostra todas as tarefas.
 |**job_name**|  nvarchar(128)   |Nome da tarefa.|
 |**job_id**|    uniqueidentifier    |ID exclusivo da tarefa.|
 |**job_version**    |int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
-|**Descrição**    |nvarchar(512)| Descrição da tarefa. bits ativado indica se a tarefa está ativada ou desabilitada. 1 indica tarefas ativadas, e 0 trabalhos desativados.|
+|**description**    |nvarchar(512)| Descrição da tarefa. bits ativado indica se a tarefa está ativada ou desabilitada. 1 indica tarefas ativadas, e 0 trabalhos desativados.|
 |**schedule_interval_type** |nvarchar(50)   |Valor que indica quando a tarefa está a ser executado: 'Uma vez', 'Minutos', 'Horas', ' dias', 'Semanas', 'Meses'
 |**schedule_interval_count**|   int|    Número de períodos de schedule_interval_type seja efetuada entre cada execução da tarefa.|
 |**schedule_start_time**    |datetime2(7)|  Data e hora que a tarefa foi a última execução iniciada.|
@@ -1253,7 +1253,7 @@ Mostra todas as tarefas.
 
 ### <a name="jobversions-view"></a>Ver job_versions
 
-[tarefas]. [job_verions]
+[jobs].[job_verions]
 
 Mostra todas as versões de tarefa.
 
@@ -1266,7 +1266,7 @@ Mostra todas as versões de tarefa.
 
 ### <a name="jobsteps-view"></a>ver primeiro
 
-[tarefas]. [primeiro]
+[jobs].[jobsteps]
 
 Mostra todos os passos na versão atual de cada tarefa.
 
@@ -1279,7 +1279,7 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**step_name**  |nvarchar(128)  |Nome exclusivo (para esta tarefa) para o passo.|
 |**command_type**   |nvarchar(50)   |Tipo de comando a executar o passo de tarefa. Para a v1, valor tem de ser igual ao e predefinido para 'TSql'.|
 |**command_source** |nvarchar(50)|  Localização do comando. Para a v1, "Inline" é o padrão e apenas aceite o valor.|
-|**Comando**|   nvarchar(max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
+|**command**|   nvarchar(max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
 |**credential_name**|   nvarchar(128)   |Nome da credencial com âmbito de base de dados utilizado para a execução da tarefa.|
 |**target_group_name**| nvarchar(128)   |Nome do grupo de destino.|
 |**target_group_id**|   uniqueidentifier|   ID exclusivo do grupo de destino.|
@@ -1301,13 +1301,13 @@ Mostra todos os passos na versão atual de cada tarefa.
 
 ### <a name="jobstepversions-view"></a>Ver jobstep_versions
 
-[tarefas]. [jobstep_versions]
+[jobs].[jobstep_versions]
 
 Mostra todos os passos em todas as versões de cada tarefa. O esquema é idêntico à [primeiro](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>Ver target_groups
+### <a name="targetgroups-view"></a>target_groups view
 
-[tarefas]. [target_groups]
+[jobs].[target_groups]
 
 Apresenta uma lista de todos os grupos de destino.
 
@@ -1316,15 +1316,15 @@ Apresenta uma lista de todos os grupos de destino.
 |**target_group_name**| nvarchar(128)   |O nome do grupo de destino, uma coleção de bases de dados. 
 |**target_group_id**    |uniqueidentifier   |ID exclusivo do grupo de destino.
 
-### <a name="targetgroupsmembers-view"></a>Ver target_groups_members
+### <a name="targetgroupsmembers-view"></a>target_groups_members view
 
-[tarefas]. [target_groups_members]
+[jobs].[target_groups_members]
 
 Mostra todos os membros de todos os grupos de destino.
 
 |Nome da coluna|Tipo de dados| Descrição|
 |-----|-----|-----|
-|**target_group_name**  |nvarchar (128|O nome do grupo de destino, uma coleção de bases de dados. |
+|**target_group_name**  |nvarchar(128|O nome do grupo de destino, uma coleção de bases de dados. |
 |**target_group_id**    |uniqueidentifier   |ID exclusivo do grupo de destino.|
 |**membership_type**    |int|   Especifica se o membro do grupo de destino é incluído ou excluído no grupo de destino. Valores válidos para target_group_name são 'Include' ou "Excluir".|
 |**target_type**    |nvarchar(128)| Tipo de base de dados de destino ou uma coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico ou uma base de dados. Valores válidos para target_type são 'SqlServer', "SqlElasticPool", "SqlDatabase" ou 'SqlShardMap'.|
@@ -1332,7 +1332,7 @@ Mostra todos os membros de todos os grupos de destino.
 |**refresh_credential_name**    |nvarchar(128)  |Nome da base de dados no âmbito a credencial utilizada para ligar para o membro do grupo de destino.|
 |**subscription_id**    |uniqueidentifier|  ID exclusivo da subscrição.|
 |**resource_group_name**    |nvarchar(128)| Nome do grupo de recursos no qual reside o membro do grupo de destino.|
-|**SERVER_NAME**    |nvarchar(128)  |Nome do servidor lógico contido no grupo de destino. Especificado apenas se target_type é 'SqlServer'. |
+|**server_name**    |nvarchar(128)  |Nome do servidor lógico contido no grupo de destino. Especificado apenas se target_type é 'SqlServer'. |
 |**database_name**  |nvarchar(128)  |Nome da base de dados contido no grupo de destino. Especificada apenas quando o target_type é "SqlDatabase".|
 |**elastic_pool_name**  |nvarchar(128)| Nome do conjunto elástico contido no grupo de destino. Especificada apenas quando o target_type é 'SqlElasticPool'.|
 |**shard_map_name** |nvarchar(128)| Nome do mapa de partições horizontais contido no grupo de destino. Especificada apenas quando o target_type é 'SqlShardMap'.|

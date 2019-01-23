@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135310"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448793"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizagem automática criados com o Spark
 
@@ -120,7 +120,7 @@ Para obter mais informações sobre os kernels de blocos de notas do Jupyter e p
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Ingestão de dados e criar um quadro de dados de membros limpos
 Esta secção contém o código de uma série de tarefas necessárias para ingestão de dados ser classificados. Ler um exemplo de 0,1% associado ao souboru táxis viagem e Europeia (armazenado como um ficheiro. tsv), formato os dados e, em seguida, cria um quadro de dados limpa.
 
-Os ficheiros de viagem e Europeia táxis foram associados com base no procedimento fornecido no: [o processo de ciência de dados de equipa em ação: com clusters do HDInsight Hadoop](hive-walkthrough.md) tópico.
+Os ficheiros de viagem e Europeia táxis foram associados com base no procedimento fornecido no: [O processo de ciência de dados de equipa em ação: com clusters do HDInsight Hadoop](hive-walkthrough.md) tópico.
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -279,7 +279,7 @@ Também contém o código que mostra como dimensionar os dados com o `StandardSc
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Consumir modelos de Spark através de uma interface da web
-Spark fornece um mecanismo para submeter remotamente tarefas de lote ou consultas interativas através de uma interface REST com um componente chamado Livy. Livy está ativada por predefinição no seu cluster do HDInsight Spark. Para obter mais informações sobre o Livy, consulte: [tarefas do Spark de submeter remotamente com o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark fornece um mecanismo para submeter remotamente tarefas de lote ou consultas interativas através de uma interface REST com um componente chamado Livy. Livy está ativada por predefinição no seu cluster do HDInsight Spark. Para obter mais informações sobre o Livy, consulte: [Submeter tarefas do Spark remotamente com o Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Pode utilizar Livy remotamente submeter uma tarefa que o batch pontuações de um ficheiro que é armazenado num blob do Azure e, em seguida, grava os resultados em outro blob. Para fazer isso, carrega o script de Python de  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) para o blob do cluster do Spark. Pode usar uma ferramenta como o **Explorador de armazenamento do Microsoft Azure** ou **AzCopy** para copiar o script para o blob de cluster. No nosso caso, nós carregamos o script para ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -555,7 +555,7 @@ Aqui está o código de Python para a chamada HTTP:
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
@@ -587,5 +587,5 @@ Se preferir uma experiência de cliente gratuito de código, utilize o [do Azure
 ![Estruturador de Aplicações Lógicas](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Passos seguintes?
-**A validação cruzada e varrimento de hiper-parâmetros**: veja [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar.
+**A validação cruzada e varrimento de hiper-parâmetros**: Ver [avançada de exploração de dados e modelagem com o Spark](spark-advanced-data-exploration-modeling.md) na forma como os modelos podem ser treinado varrimento de validação cruzada e de hyper-parâmetro a utilizar.
 

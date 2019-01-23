@@ -1,6 +1,6 @@
 ---
 title: Configurar a sua aplicação no Portal de publicação | Documentos da Microsoft
-description: Instruções de como configurar o acesso no Portal de publicação de Cloud.
+description: Instruções de como configurar a sua aplicação no Portal de publicação de Cloud.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810312"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448488"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar a sua aplicação no Portal de publicação
 
@@ -82,15 +82,15 @@ A maioria dos editores irão deixá-las campos com valores predefinidos, utiliza
 
 Aqui está uma explicação para estes campos:
 
-* Nome de ficheiro do pacote: O nome de ficheiro que criou no passo anterior, quando criar o ficheiro zip que é o seu pacote de AppSource de CRM. No exemplo acima, é "Microsoft\_SamplePackage.zip".
-* URL da sua localização de pacote: Este é o URL para a conta de armazenamento do Azure que contém o nome de ficheiro do pacote especificado acima. É o URL que criou no passo 9 da secção acima.
-* Existe mais do que um pacote de crm no seu ficheiro de pacote: selecione Sim **apenas** se estiver dando suporte a várias versões do crm com diferentes pacotes. Para a maioria dos parceiros, esta será "Não". Se selecionar Sim, terá de criar pacotes de AppSource para cada versão da sua solução. _Nota: Isto não estamos a pedir se tiver múltiplos **zip** ficheiros. Se tiver vários arquivos de solution.zip, mas apenas uma versão, deve ainda selecionar "não". A ferramenta de empacotamento irá reunir estas de automaticamente._
+* Nome do ficheiro do pacote: O nome de ficheiro que criou no passo acima quando criar o ficheiro zip que é o seu pacote de AppSource de CRM. No exemplo acima, é "Microsoft\_SamplePackage.zip".
+* URL de sua localização de pacote: Este é o URL para a conta de armazenamento do Azure que contém o nome de ficheiro do pacote especificado acima. É o URL que criou no passo 9 da secção acima.
+* Existe mais do que um pacote de crm no seu ficheiro de pacote: Selecione Sim **apenas** se estiver dando suporte a várias versões do crm com diferentes pacotes. Para a maioria dos parceiros, esta será "Não". Se selecionar Sim, terá de criar pacotes de AppSource para cada versão da sua solução. _Nota: Isso não estamos a pedir se tiver múltiplos **zip** ficheiros. Se tiver vários arquivos de solution.zip, mas apenas uma versão, deve ainda selecionar "não". A ferramenta de empacotamento irá reunir estas de automaticamente._
 
 ### <a name="crm-package-availability"></a>Disponibilidade do pacote CRM
 
 Nesta secção, selecione em que regiões do seu pacote será disponibilizado para CRM. Para obter informações em que regiões servem que países, consulte o link: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
 
-Nota: A implementar Alemanha permissão especial de REQUIRES garante a soberania: "Independentes e Cloud de Governo dos E.U.A." e a validação durante a certificação
+Nota: Implementar Alemanha permissão especial de REQUIRES garante a soberania: "Independentes e Cloud de Governo dos E.U.A." e a validação durante a certificação
 
 ## <a name="storefront-details"></a>Vitrine detalhes
 
@@ -166,7 +166,7 @@ Pode carregar o máximo de três documentos em formato PDF. Para cada documento 
 
 Para adicionar novos document(s), clique no sinal de adição
 
-### <a name="screenshots"></a>Capturas de ecrã
+### <a name="screenshots"></a>Capturas de Ecrã
 
 Estes são capturas de ecrã que aparecerão na página de detalhes do AppSource para a sua aplicação.
 
@@ -193,4 +193,4 @@ Selecione um sistema CRM onde levar serão armazenados. Selecione "Tabelas do Az
 
 ## <a name="storefront-details"></a>Vitrine detalhes
 
-Os detalhes de contactos são utilizados para comunicação interna entre os parceiros e a Microsoft apenas. Nota: É importante usar um endereço de e-mail que é monitorizado nestes campos. Utilizaremos este e-mail para se comunicar com em seu progresso em publicar no AppSource. Apenas o URL de suporte serão visível para os clientes.
+Os detalhes de contactos são utilizados para comunicação interna entre os parceiros e a Microsoft apenas. Nota: É importante utilizar um endereço de e-mail que é monitorizado nestes campos. Utilizaremos este e-mail para se comunicar com em seu progresso em publicar no AppSource. Apenas o URL de suporte serão visível para os clientes.

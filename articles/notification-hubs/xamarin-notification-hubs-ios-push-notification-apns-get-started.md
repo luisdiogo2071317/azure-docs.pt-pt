@@ -4,8 +4,8 @@ description: Neste tutorial, irá aprender a utilizar os Notification Hubs do Az
 services: notification-hubs
 keywords: notificações push ios, mensagens push, notificações push, mensagem push
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
-ms.author: dimazaid
-ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: HT
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f81066489d09bd6abef3f96ed83bea1108f99b77
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917708"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447450"
 ---
-# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Xamarin.iOS com Hubs de Notificação do Azure
+# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações push para aplicações xamarin. IOS com Notification Hubs do Azure
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -44,11 +44,11 @@ Neste tutorial, pode criar/atualizar código para efetuar as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Versão mais recente do [Xcode][Install Xcode]
-- Um dispositivo compatível iOS 10 (ou versão posterior)
-- Associação ao [Programa de Programador da Apple](https://developer.apple.com/programs/)
-- [Visual Studio para Mac]
+* **Subscrição do Azure**. Se não tiver uma subscrição do Azure, [criar uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Versão mais recente do [Xcode][Install Xcode]
+* Um dispositivo compatível iOS 10 (ou versão posterior)
+* Associação ao [Programa de Programador da Apple](https://developer.apple.com/programs/)
+* [Visual Studio para Mac]
   
   > [!NOTE]
   > Devido aos requisitos de configuração para as notificações push do iOS, deve implementar e testar a aplicação de exemplo num dispositivo iOS físico (iPhone ou iPad) em vez do simulador.
@@ -84,19 +84,19 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
 
      ![Visual Studio - Selecione o Tipo de Aplicação][31]
 
-2. Introduza o identificador do nome da aplicação e a organização e, em seguida, prima **Seguinte** e **Criar**
+2. Introduza o identificador de nome da aplicação e a organização, em seguida, clique em **próxima**, em seguida, **Create**
 
 3. Na vista Solução, faça duplo clique em *Info.plist* e, em **Identidade**, certifique-se de que o Identificador do Pacote corresponde ao utilizado aquando da criação do seu perfil de aprovisionamento. Em **Assinatura** certifique-se de que a sua conta de Programador está selecionada em **Equipa**, que "Gerir assinatura automaticamente" está selecionado e que o certificado de assinatura e perfil de aprovisionamento são automaticamente selecionados.
 
     ![Configuração de Aplicação do Visual Studio-iOS][32]
 
-4. Na vista Solução, faça duplo clique em *Entitlements.plist* e certifique-se de que a opção **Ativar Notificações Push**"** está assinalada.
+4. Na vista solução, faça duplo clique o `Entitlements.plist` e certifique-se de que **ativar notificações Push**"* * está selecionada.
 
     ![Configuração de Elegibilidade do Visual Studio-iOS][33]
 
 5. Adicione o pacote de Mensagens do Azure. Na vista Solução, clique com o botão direito no projeto e selecione **Adicionar** > **Adicionar pacotes de NuGet**. Procure **Xamarin.Azure.NotificationHubs.iOS** e adicione o pacote ao projeto.
 
-6. Adicione um novo ficheiro à classe, nomeie-o **Constants.cs** e adicione as seguintes variáveis e substitua os marcadores de posição literais de cadeia pelo seu *nome do hub* e pela *DefaultListenSharedAccessSignature* anotada anteriormente.
+6. Adicionar um novo ficheiro à sua classe, nomeie- `Constants.cs` e adicione as seguintes variáveis e substitua os marcadores de posição literais de cadeia de caracteres com o `hubname` e o `DefaultListenSharedAccessSignature` observado anteriormente.
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -104,19 +104,19 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. Em **AppDelegate.cs**, adicione o seguinte ao utilizar a instrução:
+7. No `AppDelegate.cs`, adicione o seguinte usando a instrução:
 
     ```csharp
     using WindowsAzure.Messaging;
     ```
 
-8. Declare uma instância do **SBNotificationHub**:
+8. Declare uma instância do `SBNotificationHub`:
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. Em **AppDelegate.cs**, atualize **FinishedLaunching()** para fazer corresponder o seguinte código:
+9. Na `AppDelegate.cs`, atualize `FinishedLaunching()` de acordo com o código a seguir:
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -145,7 +145,7 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
     }
     ```
 
-10. Substitua o método **RegisteredForRemoteNotifications()** em **AppDelegate.cs**:
+10. Na `AppDelegate.cs`, substitua o `RegisteredForRemoteNotifications()` método:
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -168,7 +168,7 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
     }
     ```
 
-11. Substitua o método **ReceivedRemoteNotification()** em **AppDelegate.cs**:
+11. Na `AppDelegate.cs`, substitua o `ReceivedRemoteNotification()` método:
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -177,7 +177,7 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
     }
     ```
 
-12. Crie o seguinte método **ProcessNotification()** em **AppDelegate.cs**:
+12. Na `AppDelegate.cs`, crie o `ProcessNotification()` método:
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -216,7 +216,7 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
     ```
 
     > [!NOTE]
-    > Pode optar por substituir **FailedToRegisterForRemoteNotifications()** para processar situações como falha de ligação de rede. Isto é especialmente importante quando o utilizador inicia a aplicação no modo offline (por exemplo, Avião) e pretende processar cenários de mensagens push específicos para a sua aplicação.
+    > Pode optar por substituir `FailedToRegisterForRemoteNotifications()` para processar situações como nenhuma ligação de rede. Isto é especialmente importante quando o utilizador inicia a aplicação no modo offline (por exemplo, Avião) e pretende processar cenários de mensagens push específicos para a sua aplicação.
 
 13. Execute o aplicativo no seu dispositivo.
 
@@ -228,7 +228,7 @@ Pode testar a receção das notificações na aplicação com a opção *Envio d
 
 Normalmente, as notificações push são enviadas num serviço de back-end como Mobile Apps ou ASP.NET com uma biblioteca compatível. Caso não esteja disponível uma biblioteca para o back-end, também pode utilizar a API REST diretamente para enviar mensagens de notificação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, enviou notificações de difusão para todos os dispositivos iOS registados no back-end. Para saber como enviar notificações push para dispositivos iOS específicos, avance para o tutorial seguinte:
 
@@ -239,24 +239,19 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos iOS
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio para Mac]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Portal do Azure]: https://portal.azure.com

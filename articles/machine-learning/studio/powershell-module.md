@@ -25,7 +25,7 @@ Seguem-se algumas das tarefas que pode realizar com este módulo do PowerShell. 
 * Executar uma experiência ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * Criar um serviço Web a partir de uma experiência preditiva ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * Criar um ponto final no serviço web publicado ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Invocar um ponto final de serviço Web RRS e/ou BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) e [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* Invocar um endpoint de serviço web RRS e/ou BES ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) e [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 Eis um exemplo rápido de como utilizar o PowerShell para executar uma experiência existente:
 

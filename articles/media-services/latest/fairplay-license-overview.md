@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e861d8fe22d4e7acb970990b27998caf923ed6c2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140546"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449654"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configuração e requisitos de licença do Apple FairPlay 
 
 Serviços de multimédia do Azure permite-lhe encriptar o seu conteúdo HLS com **Apple FairPlay** (AES-128 CBC). Serviços de multimédia também fornecem um serviço para entregar licenças do FairPlay. Quando um jogador tenta reproduzir o conteúdo protegido por FairPlay, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, que emite a licença que é enviada ao cliente e é utilizada para desencriptar e reproduzir o conteúdo especificado.
 
-Serviços de multimédia também fornecem APIs que pode utilizar para configurar as suas licenças do FairPlay. Este tópico aborda os requisitos de licença do FairPlay e demonstra como pode configurar uma **FairPlay** com APIs de Sercies de mídia de licença. 
+Serviços de multimédia também fornecem APIs que pode utilizar para configurar as suas licenças do FairPlay. Este tópico aborda os requisitos de licença do FairPlay e demonstra como pode configurar uma **FairPlay** usando APIs de serviços de mídia de licença. 
 
 ## <a name="requirements"></a>Requisitos
 
@@ -35,7 +35,7 @@ São necessários os seguintes quando utilizar os serviços de multimédia para 
 * Apple exige o proprietário do conteúdo obter o [pacote de implementação](https://developer.apple.com/contact/fps/). Estado que já implementada módulo de segurança da chave (KSM) com os serviços de multimédia, e que está a solicitar o pacote FPS final. Existem instruções no pacote final FPS para gerar a certificação e obter a chave de segredo de aplicação (ASK). Utilize ASK para configurar o FairPlay.
 * Os seguintes procedimentos tem de ser definidos no lado de entrega de chaves/licenças de serviços de multimédia:
 
-    * **Certificado da aplicação (CA)**: Este é um ficheiro. pfx que contém a chave privada. Pode criar este ficheiro e criptografá-la com uma palavra-passe. Shoul de ficheiro. pfx de estar no formato Base64.
+    * **Certificado de aplicação (CA)**: Este é um ficheiro. pfx que contém a chave privada. Pode criar este ficheiro e criptografá-la com uma palavra-passe. O ficheiro. pfx deve estar no formato Base64.
 
         Os passos seguintes descrevem como gerar um ficheiro de certificado. pfx para o FairPlay:
 
@@ -50,11 +50,11 @@ São necessários os seguintes quando utilizar os serviços de multimédia para 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
     * **Palavra-passe do certificado de aplicação**: A palavra-passe para criar o ficheiro. pfx.
-    * **PEDIR**: esta chave é recebida quando gera a certificação com o portal de programador da Apple. Cada equipe de desenvolvimento recebe um ASK exclusivo. Guardar uma cópia do ASK e armazene-o num local seguro. Tem de configurar ASK como FairPlayAsk com os Media Services.
+    * **ASK**: Esta chave é recebida quando gera a certificação com o portal de programador da Apple. Cada equipe de desenvolvimento recebe um ASK exclusivo. Guardar uma cópia do ASK e armazene-o num local seguro. Tem de configurar ASK como FairPlayAsk com os Media Services.
     
 * Os seguintes procedimentos tem de ser definidos pelo lado do cliente FPS:
 
-  * **Certificado da aplicação (CA)**: Este é um ficheiro de.cer/.der que contém a chave pública, o que o sistema operativo utiliza para criptografar alguns payload. Serviços de multimédia precisa saber sobre isso, porque é necessário pelo jogador. O serviço de entrega de chave descriptografa-lo com a chave privada correspondente.
+  * **Certificado de aplicação (CA)**: Este é um ficheiro de.cer/.der que contém a chave pública, o que o sistema operativo utiliza para criptografar alguns payload. Serviços de multimédia precisa saber sobre isso, porque é necessário pelo jogador. O serviço de entrega de chave descriptografa-lo com a chave privada correspondente.
 
 * Para reproduzir um fluxo encriptado de FairPlay, obtenha respostas fazem real primeiro e, em seguida, gerar um certificado real. Esse processo cria todas as três partes:
 

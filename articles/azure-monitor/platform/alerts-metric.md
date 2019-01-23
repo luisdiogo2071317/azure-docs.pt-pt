@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b8252e6575ec7acb46fb69563720cc38796964ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d871cecda8e7957e3d0d3c37078b8a1fa2ab5214
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425073"
+ms.locfileid: "54451260"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas através do Azure Monitor
 
@@ -31,23 +31,23 @@ O procedimento seguinte descreve como criar uma regra de alerta de métrica no p
     > [!TIP]
     > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
 
-3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que pretende modificar. Uso **subscrição** e **tipo de recurso** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
 
-4. Se o recurso selecionado tem métricas, pode criar alertas, **sinais disponíveis** na parte inferior direita irá incluir as métricas. Pode ver a lista completa dos tipos de recurso suportados para alertas de métricas desta [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+4. Se o recurso selecionado tem métricas, pode criar alertas, **sinais disponíveis** na parte inferior direita irá incluir as métricas. Pode ver a lista completa dos tipos de recurso suportados para alertas de métricas desta [artigo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Assim que tiver selecionado um recurso de destino, clique em **adicionar critérios**
+5. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
 
 6. Irá ver uma lista de suportadas para o recurso de sinais, selecione a métrica que pretende criar um alerta.
 
-7. Verá um gráfico para a métrica para as últimas 6 horas. Definir o **período**, **frequência**, **operador** e **limiar**, esta ação irá determinar a lógica que será a regra de alerta de métrica Avalie.
+7. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Se a métrica tem dimensões, verá **dimensões** tabela apresentada. Selecione um ou mais valores por dimensão. Alerta de métrica será executado avaliar a condição para todas as combinações de valores selecionados. [Saiba mais sobre como funciona o alertas em métricas multidimensionais](alerts-metric-overview.md). Também pode **selecionar \***  para qualquer uma das dimensões. **Selecione \***  serão dinamicamente escala que a seleção para todos os valores atuais e futuras para uma dimensão.
 
-8. Utilizar o gráfico de métricas pode determinar o que pode ser um limiar razoável.
+8. Verá um gráfico para a métrica para as últimas 6 horas. Definir os parâmetros de alerta; **Tipo de condição**, **frequência**, **operador** e **limiar** ou **sensibilidade**, esta irá Determine a lógica que irão avaliar a regra de alerta de métrica. [Saiba mais sobre opções de tipo e a sensibilidade de condição de limiares dinâmicos](alerts-dynamic-thresholds.md).
 
-9. Opcionalmente, se a métrica tem dimensões, verá as dimensões tabela apresentada. Selecione um ou mais valores por dimensão. Alerta de métrica será executado avaliar a condição para todas as combinações de valores selecionados. [Saiba mais sobre como funciona o alertas em métricas multidimensionais](alerts-metric-overview.md). Também pode **selecionar \***  para qualquer uma das dimensões. **Selecione \***  serão dinamicamente escala que a seleção para todos os valores atuais e futuras para uma dimensão.
+9. Se estiver a utilizar um limiar estático, o gráfico de métricas pode ajudar a determinar o que pode ser um limiar razoável. Se estiver a utilizar um limiares dinâmicos, o gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
 
 10. Clique em **Concluído**
 
-11. Opcionalmente, adicione critérios outro se pretender monitorizar uma regra de alerta complexa
+11. Opcionalmente, adicione critérios outro se pretender monitorizar uma regra de alerta complexa. Atualmente os usuários podem ter regras de alerta com os critérios de limiares dinâmicos como um único critério.
 
 12. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição** e **gravidade**
 
@@ -73,7 +73,7 @@ Pode ver e gerir regras de alerta de métrica utilizando o painel de gerir regra
 
 4. Clique no nome da regra de alerta métrica que pretende editar
 
-5. A regra de editar, clique nas **critérios de alerta** que pretende editar. Pode alterar a métrica, limiar e outros campos conforme necessário
+5. A regra de editar, clique nas **critérios de alerta** que pretende editar. Pode alterar a métrica, a condição de limiar e outros campos conforme necessário
 
     > [!NOTE]
     > Não é possível editar a **recurso de destino** e **nome da regra de alerta** depois de criar o alerta de métrica.
@@ -92,10 +92,10 @@ As secções anteriores descreveram como criar, ver e gerir regras de alerta de 
     az monitor metrics alert --help
     ```
 
-3. Pode criar uma regra alerta de métrica simple que monitoriza se a média de percentagem de CPU, numa VM for superior a 70
+3. Pode criar uma regra alerta de métrica simple que monitoriza se a média de percentagem de CPU, numa VM é superior a 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. Pode ver todos os alertas de métricas num grupo de recursos com o seguinte comando
@@ -130,5 +130,6 @@ As secções anteriores descreveram como criar, ver e gerir regras de alerta de 
 
 - [Criar alertas de métricas utilizando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Compreender a forma como o trabalho de alertas de métrica](alerts-metric-overview.md).
+- [Compreender como métrica alertas com limiares dinâmicos condição trabalho](alerts-dynamic-thresholds.md).
 - [Compreender o esquema de hook de web para alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
 

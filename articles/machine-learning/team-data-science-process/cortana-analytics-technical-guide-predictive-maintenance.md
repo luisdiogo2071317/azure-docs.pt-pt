@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140188"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451736"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo
 
@@ -143,7 +143,7 @@ Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentar utilizado para este modelo de solução fornece a útil vida remanescente (RUL) de um motor de aeronave. A experimentação é específica para o conjunto de dados consumido e requer modificação ou substituição específica para os dados colocados.
 
-Para obter informações sobre a criação da experimentação do Azure Machine Learning, consulte [manutenção preditiva: passo 1 de 3, preparação de dados e de engenharia de funcionalidades](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Para obter informações sobre a criação da experimentação do Azure Machine Learning, consulte [manutenção preditiva: Passo 1 de 3, preparação de dados e de engenharia de funcionalidades](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Monitorize o progresso
 Assim que o gerador de dados é iniciado, o pipeline começa a dehydrate e os diferentes componentes da sua solução iniciar iniciar no seguinte ação os comandos emitidos pela fábrica de dados. Existem duas formas de monitorizar o pipeline.
@@ -174,7 +174,7 @@ Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix para a base de dad
    * Uma vez **'Do Azure SQL Database'** no seu modelo de solução diagrama fica verde, clique no mesmo e, em seguida, clique em **"Abrir"**.
    * Verá uma novo separador/janela do browser que apresenta a página do portal do Azure. Clique em **grupos de recursos** no painel esquerdo.
    * Selecione a subscrição está a utilizar para implementar a solução e, em seguida, selecione **' YourSolutionName\_ResourceGroup "**.
-   * No pop de novo o painel, clique nas ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para acessar seu banco de dados. O nome da sua base de dados é junto a este ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de base de dados** está listado sob a propriedade de nome de servidor e deve ser semelhante à  **YourSoutionName.database.windows.net**.
+   * No pop de novo o painel, clique nas ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para acessar seu banco de dados. O nome da sua base de dados é junto a este ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de base de dados** está listado sob a propriedade de nome de servidor e deve ser semelhante à  **YourSolutionName.database.windows.net**.
    * A base de dados **nome de utilizador** e **palavra-passe** são o mesmo que o nome de utilizador e palavra-passe gravado anteriormente durante a implementação da solução.
 2. Atualize a origem de dados do ficheiro de relatório do caminho típico com o Power BI Desktop.
    
@@ -182,7 +182,7 @@ Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix para a base de dad
      
      ![Editar consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique em ![ícone de definições de consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **"Source"** sob **passos aplicados** à direita **definições de consulta** painel. Ignore todas as mensagens de aviso que aparecem.
-   * No pop de fora da janela, substitua **"Server"** e **'Database'** com seus próprios nomes de servidor e base de dados e, em seguida, clique **'OK'**. Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSoutionName.database.windows.net, 1433**). Deixe o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
+   * No pop de fora da janela, substitua **"Server"** e **'Database'** com seus próprios nomes de servidor e base de dados e, em seguida, clique **'OK'**. Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSolutionName.database.windows.net, 1433**). Deixe o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
    * No pop seguinte fora da janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **'Database'**, preencha suas **'Username'** e **'Password'** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução pela primeira vez e criado do Azure Base de dados SQL). Na ***selecione o nível para aplicar estas definições para***, marque a opção de nível de base de dados. Em seguida, clique em **"Ligar"**.
    * Clique na segunda tabela **PMResult** , em seguida, clique em ![ícone de navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a **"Source"** sob **passos aplicados** à direita **Definições de consulta** painel e atualizar os nomes de servidor e base de dados, tal como os passos acima e clique em OK.
    * Assim que estiver orientada para a página anterior, feche a janela. É apresentada uma mensagem - clique **aplicar**. Por último, clique a **guardar** botão para guardar as alterações. O ficheiro do Power BI agora estabeleceu ligação ao servidor. Se as visualizações estiverem vazias, certifique-se de que desmarcar as seleções nas visualizações para visualizar todos os dados ao clicar no ícone de borracha no canto superior direito de legendas. Utilize o botão de atualização para refletir novos dados nas visualizações. Inicialmente, apenas verá os dados de seed nas suas visualizações conforme a fábrica de dados é agendada para atualização em três horas. Depois de 3 horas, verá novas predições refletidas nas suas visualizações, quando atualizar os dados.
@@ -197,7 +197,7 @@ Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix para a base de dad
      <br/>
    * Para agendar a atualização dos dados, passe o mouse sobre o **PredictiveMaintenanceAerospace** conjunto de dados, clique em ![ícone de reticências](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e, em seguida, escolha **agendar atualização**.
      <br/>
-     **Nota:** se vir ajustamos um aviso, clique em **editar credenciais** e certificar-se de que as credenciais da sua base de dados são iguais aos descritos no passo 1.
+     **Nota:** Se vir ajustamos um aviso, clique em **editar credenciais** e certificar-se de que as credenciais da sua base de dados são iguais aos descritos no passo 1.
      <br/>
      ![Agendar Atualização](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados de tarefas do Str
 
 1. Adicione a saída do Power BI do Azure Stream Analytics (ASA).
    
-   * Tem de seguir as instruções em [do Azure Stream Analytics e o Power BI: dashboard de análise de visibilidade em tempo real de dados de transmissão em fluxo](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI.
+   * Tem de seguir as instruções em [Azure Stream Analytics e o Power BI: Dashboard de análise de visibilidade em tempo real de dados de transmissão em fluxo](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI.
    * A consulta do ASA tem três saídas que são **aircraftmonitor**, **aircraftalert**, e **flightsbyhour**. Pode ver a consulta ao clicar no separador de consulta. Correspondente a cada uma destas tabelas, terá de adicionar uma saída para ASA. Ao adicionar o primeiro resultado (**aircraftmonitor**) certifique-se a **Alias de saída**, **nome do conjunto de dados** e **nome da tabela** são o mesmo (**aircraftmonitor**). Repita os passos para adicionar as saídas de **aircraftalert**, e **flightsbyhour**. Depois de ter adicionado todas as três tabelas de saída e a tarefa ASA foi iniciada, deverá receber uma mensagem de confirmação ("a iniciar o Stream Analytics tarefa maintenancesa02asapbi foi concluída com êxito").
 2. Inicie sessão no [online do Power BI](http://www.powerbi.com)
    

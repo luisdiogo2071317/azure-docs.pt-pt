@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599506"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448079"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos ligados à sua solução de monitorização
 
 Neste tutorial, vai utilizar o acelerador de soluções de Monitorização Remota para configurar e gerir os seus dispositivos IoT ligados. Adicionar um novo dispositivo para o solution accelerator e configurar o dispositivo.
 
-A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, adicione um novo dispositivo simulado motor para o solution accelerator do monitoramento remoto e o teste que esse dispositivo responde corretamente às atualizações de configuração. Embora este tutorial utilize dispositivos simulados, um programador de dispositivos pode implementar métodos diretos num [dispositivo físico ligado ao acelerador de soluções de Monitorização Remota](iot-accelerators-connecting-devices.md).
+A Contoso encomendou novas máquinas para expandir uma das suas instalações. Enquanto aguarda pela entrega das novas máquinas, quer executar uma simulação para testar o comportamento da sua solução. Para executar a simulação, adicione um novo dispositivo simulado motor para o solution accelerator do monitoramento remoto e o teste que esse dispositivo responde corretamente às atualizações de configuração. Embora este tutorial utiliza dispositivos simulados, um desenvolvedor de dispositivo pode implementar os métodos diretos num [dispositivo real ligado para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
 
 Neste tutorial:
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415394"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448813"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aprovada de aplicações de cliente de acesso à aplicação de cloud com o acesso condicional 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicações aprovadas do cliente para o acesso de aplicação de cloud com o acesso condicional 
 
 Os seus funcionários utilizem os dispositivos móveis para tarefas pessoais e profissionais. Certificar-se de que seus funcionários são produtivo, também quer evitar perda de dados. Com o acesso condicional do Azure Active Directory (Azure AD), pode restringir o acesso às suas aplicações na cloud para aplicações aprovadas do cliente que podem proteger dados da sua empresa.  
 
@@ -108,13 +108,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online**.
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online**.
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **condições**, tem de configurar **plataformas de dispositivos** e **aplicações de cliente**:
+4. **Condições:** Como **condições**, terá de configurar **plataformas de dispositivos** e **aplicações de cliente**:
 
     a. Como **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
@@ -137,14 +137,14 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online**.
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online**.
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **condições**, tem de configurar **aplicações de cliente (pré-visualização)**. 
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)**. 
 
     a. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
@@ -188,14 +188,14 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
     ![Acesso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condições:** como **condições**, tem de configurar **plataformas de dispositivos** e **aplicações de cliente**:
+4. **Condições:** Como **condições**, terá de configurar **plataformas de dispositivos** e **aplicações de cliente**:
 
     a. Como **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
@@ -220,13 +220,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. Online 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. Online 
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **condições**, tem de configurar **aplicações de cliente**:
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente**:
 
     a. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
@@ -273,13 +273,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
      ![Acesso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condições:** como **condições**, tem de configurar **plataformas de dispositivos** e **aplicações de cliente**. 
+4. **Condições:** Como **condições**, terá de configurar **plataformas de dispositivos** e **aplicações de cliente**. 
  
     a. Como **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
@@ -309,13 +309,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. 
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **condições**, tem de configurar **aplicações de cliente**. 
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente**. 
 
     Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
@@ -369,13 +369,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
      ![Acesso condicional](./media/app-based-conditional-access/02.png)
 
-4. **Condições:** como **condições**, tem de configurar **plataformas de dispositivos** e **aplicações de cliente**. 
+4. **Condições:** Como **condições**, terá de configurar **plataformas de dispositivos** e **aplicações de cliente**. 
  
     a. Como **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
@@ -405,13 +405,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 1. O **nome** da sua política de acesso condicional.
 
-2. **Utilizadores e grupos**: cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
+2. **Utilizadores e grupos**: Cada política de acesso condicional tem de ter pelo menos um utilizador ou grupo selecionado.
 
-3. **Aplicações na cloud:** como aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. 
+3. **Aplicações na cloud:** Como as aplicações na cloud, tem de selecionar **Office 365 Exchange Online**. 
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** como **condições**, tem de configurar **aplicações de cliente (pré-visualização)**. 
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)**. 
 
     Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 

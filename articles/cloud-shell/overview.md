@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869368"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447212"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo, acessível para o browser para o gerenciamento de recursos do Azure.
@@ -57,11 +57,16 @@ Cloud Shell oferece um editor de texto gráfica integrada com base no Editor de 
 
 [Saiba mais sobre o editor do Cloud Shell](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>Integrado no docs.microsoft.com
+
+Pode utilizar o Cloud Shell diretamente a partir de documentação alojada num [docs.microsoft.com](https://docs.microsoft.com). Ele está integrado no [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) e [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure) -clique no botão "Experimente-lo" um trecho de código para abrir a shell de imersão experiência. 
+
 ### <a name="multiple-access-points"></a>Vários pontos de acesso
 O cloud Shell é uma ferramenta flexível que pode ser usada em:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentação de "Experimente" de CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure)
+* [Documentação do PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [Aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão da conta do Azure de código de VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

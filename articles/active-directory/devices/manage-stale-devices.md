@@ -4,7 +4,7 @@ description: Saiba de que forma é que a gestão de dispositivos o pode ajudar a
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: overview
 ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: 53474d2d364b26f4d54e1917e4aa50bc6f0e5280
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249371"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449593"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedimento: Gerir os dispositivos obsoletos no Azure AD
+# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Como: Gerir os dispositivos obsoletos no Azure AD
 
 Idealmente, para concluir o ciclo de vida, deverá anular o registo dos dispositivos registados quando estes já não são necessários. No entanto, devido a vários motivos, como dispositivos perdidos, roubados ou danificados ou a reinstalações do SO, é comum haver dispositivos obsoletos no seu ambiente. Enquanto administrador de TI, é provável que precise de um método para remover os dispositivos obsoletos, para que os seus recursos se possam dedicar à gestão dos dispositivos que têm, efetivamente, de ser geridos.
 
@@ -197,7 +197,7 @@ Qualquer autenticação em que esteja a ser utilizado um dispositivo para autent
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
 

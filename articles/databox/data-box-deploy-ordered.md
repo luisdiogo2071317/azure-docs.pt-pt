@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359124"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451889"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Pedido do Azure Data Box
 
@@ -79,7 +79,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
     |Nome     |  Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.      |
     |Grupo de recursos     |   Utilize um grupo de recursos existente ou crie um novo. <br> Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto.         |
     |Região do Azure de destino     | Selecione uma região para a sua conta de armazenamento. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).        |
-    |Contas de armazenamento     | Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. <br> Também pode criar uma nova conta para **Fins gerais v1**, **Fins gerais v2** ou de **Armazenamento de Blobs**. Não é possível utilizar contas de armazenamento que têm regras configuradas. O armazenamento de contas deve **permitir o acesso de todas as redes** o fogos de artifício e a secção de redes virtuais.|
+    |Contas de armazenamento     | Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. <br> Também pode criar uma nova conta para **Fins gerais v1**, **Fins gerais v2** ou de **Armazenamento de Blobs**. Não é possível utilizar contas de armazenamento que têm regras configuradas. O armazenamento de contas deve **permitir o acesso de todas as redes** as firewalls e a secção de redes virtuais.|
     
 7. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Clique em **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito. Clique em **Seguinte**.
 

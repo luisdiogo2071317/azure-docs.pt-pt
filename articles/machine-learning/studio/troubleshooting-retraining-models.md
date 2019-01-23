@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de reparametrização um titleSuffix de serviço web clássico Machine Learning Studio: Descrição do Azure Machine Learning Studio: Identificar e corrigir encontrou de problemas comuns quando são reparametrização do modelo para um web service do Azure Machine Learning Studio.
+title: Resolver problemas de reparametrização um titleSuffix de serviço web clássico Machine Learning Studio: Descrição do Azure Machine Learning Studio: Identificar e corrigir problemas comuns encontrados quando são reparametrização do modelo para um web service do Azure Machine Learning Studio.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
 
 autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: anterior ms.author=yahajiza, autor anterior = YasinMSFT MS: 11/01/2017
@@ -31,7 +31,7 @@ Com todas as peças no lugar, os principais passos que tem de efetuar para volta
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se tem o URL correto do PATCH
 O URL de aplicar o PATCH de mensagens em fila que está a utilizar tem de ser um associados com o novo ponto de extremidade classificação adicionado para o serviço web de pontuação. Existem várias formas de obter o URL de PATCHES:
 
-**Opção 1: Programaticamente**
+**Opção 1: Por meio de programação**
 
 Para obter o URL correto de PATCHES:
 

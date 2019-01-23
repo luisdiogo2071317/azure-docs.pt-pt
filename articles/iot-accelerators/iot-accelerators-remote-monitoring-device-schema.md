@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635532"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445427"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
@@ -22,7 +22,7 @@ Pode utilizar dispositivos simulados na solução de monitorização remota para
 Este artigo descreve o esquema do modelo de dispositivo Especifica as capacidades e comportamento de um dispositivo simulado. O modelo do dispositivo é armazenado num ficheiro JSON.
 
 > [!NOTE]
-> Este esquema de modelo do dispositivo é apenas para dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo físico, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
+> Este esquema de modelo do dispositivo é apenas para dispositivos simulados alojados no serviço de simulação do dispositivo. Se quiser criar um dispositivo real, veja [ligar o seu dispositivo para o acelerador de solução de monitorização remota](iot-accelerators-connecting-devices.md).
 
 Os artigos seguintes estão relacionados ao artigo atual:
 

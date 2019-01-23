@@ -4,7 +4,7 @@ description: Explica os passos necessários para implementar o Azure AD disposit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: be7cded5b9cd2f7a3f33d1de11f36e82f079fc4b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189518"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448573"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -239,7 +239,7 @@ Aqui está uma comparação dessas três abordagens
 |Fluxos aplicável|OOBE & definições|OOBE apenas|OOBE apenas|
 |Direitos de administrador local para o utilizador primário|Sim, por predefinição|Configurável|Não|
 |Precisam de suporte do OEM do dispositivo|Não|Sim|Não|
-|Versões suportadas|versão 1511 +|1709 +|1703 +|
+|Versões suportadas|1511+|1709+|1703+|
  
 Escolha a abordagem de implantação ou abordagens ao rever a tabela acima e rever as seguintes considerações para a adoção de qualquer uma das abordagens:  
 

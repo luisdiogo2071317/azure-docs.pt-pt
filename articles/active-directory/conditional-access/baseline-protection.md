@@ -5,7 +5,7 @@ services: active-directory
 keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158708"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446277"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é a proteção de linha de base (pré-visualização)?  
 
@@ -56,7 +56,7 @@ Esta política de linha de base fornece-lhe a opção para excluir usuários. Po
 
 ## <a name="enable-a-baseline-policy"></a>Ativar uma política de linha de base 
 
-Embora as políticas de linha de base estiverem em pré-visualização, são por predefinição não ativada. Tem de ativar manualmente uma política para ativá-lo. Se ativar explicitamente as políticas de linha de base a fase de pré-visualização, eles permanecerá ativos quando esta funcionalidade atinge disponibilidade geral. A alteração de comportamento planeada é o motivo por que, além do mais para ativar e desativar, tem uma terceira opção para definir o estado de uma política: **ativar política automaticamente no futuro**. Ao selecionar esta opção, pode deixar as políticas desativadas durante a pré-visualização, mas tem de ativá-las automaticamente quando esta funcionalidade atinge disponibilidade geral do Microsoft. Se não explicitamente ativar políticas de linha de base agora e não selecionar a **ativar política automaticamente no futuro** opção, as políticas permanecerá desativado quando esta funcionalidade atinge disponibilidade geral.
+Embora as políticas de linha de base estiverem em pré-visualização, são por predefinição não ativada. Tem de ativar manualmente uma política para ativá-lo. Se ativar explicitamente as políticas de linha de base a fase de pré-visualização, eles permanecerá ativos quando esta funcionalidade atinge disponibilidade geral. A alteração de comportamento planeada é o motivo por que, além do mais para ativar e desativar, tem uma terceira opção para definir o estado de uma política: **Ativar política automaticamente no futuro**. Ao selecionar esta opção, pode deixar as políticas desativadas durante a pré-visualização, mas tem de ativá-las automaticamente quando esta funcionalidade atinge disponibilidade geral do Microsoft. Se não explicitamente ativar políticas de linha de base agora e não selecionar a **ativar política automaticamente no futuro** opção, as políticas permanecerá desativado quando esta funcionalidade atinge disponibilidade geral.
 
 
 **Para ativar uma política de linha de base:**  

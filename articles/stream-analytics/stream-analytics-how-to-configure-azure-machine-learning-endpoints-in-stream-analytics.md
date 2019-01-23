@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104943"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451043"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração de aprendizagem do Stream Analytics do computador
 Stream Analytics suporta funções definidas pelo utilizador que chamam pontos finais do Azure Machine Learning. Suporte da REST API para esta funcionalidade está detalhado na [biblioteca de API de REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação com êxito desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -21,10 +21,10 @@ Stream Analytics suporta funções definidas pelo utilizador que chamam pontos f
 ## <a name="overview-azure-machine-learning-terminology"></a>Descrição geral: Terminologia do Azure Machine Learning
 Microsoft Azure Machine Learning fornece uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de Análise Preditiva nos seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O studio é utilizado para interagir com os recursos de Aprendizado de máquina e facilmente criar, testar e iterar o design. Esses recursos e as respetivas definições são abaixo.
 
-* **Área de trabalho**: A *área de trabalho* é um contentor que retém todos os outros recursos de aprendizagem automática em conjunto num contentor para o gerenciamento e controle.
-* **Experimentação**: *experimentações* são criados por cientistas de dados para utilizar conjuntos de dados e treinar um modelo de aprendizagem automática.
-* **Ponto final**: *pontos de extremidade* são o objeto do Azure Machine Learning, utilizado para necessitam de funcionalidades como entrada, aplicar um modelo de aprendizagem de máquina especificada e devolve dados com a pontuação.
-* **Serviço Web de classificação**: A *classificação webservice* é uma coleção de pontos de extremidade, conforme mencionado acima.
+* **Área de trabalho**: O *área de trabalho* é um contentor que retém todos os outros recursos de aprendizagem automática em conjunto num contentor para o gerenciamento e controle.
+* **Experimentação**: *Experimentações* são criados por cientistas de dados para utilizar conjuntos de dados e treinar um modelo de aprendizagem automática.
+* **Ponto final**: *Pontos de extremidade* são o objeto do Azure Machine Learning, utilizado para necessitam de funcionalidades como entrada, aplicar um modelo de aprendizagem de máquina especificada e devolve dados com a pontuação.
+* **Serviço Web de classificação**: R *classificação webservice* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem apis para execução de lote e execução síncrona. Stream Analytics utiliza execução síncrona. O serviço específico é denominado um [serviço de solicitação/resposta](../machine-learning/studio/consume-web-services.md) no AzureML studio.
 
@@ -69,7 +69,7 @@ Corpo do pedido de exemplo:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto final de RetrieveDefaultDefinition para predefinição UDF
-Assim que o esqueleto UDF for criado é necessária a definição completa do UDF. O ponto de extremidade RetreiveDefaultDefinition ajuda a obter a definição padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. O payload abaixo exige que obter a definição de UDF padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. Ele não especificar o ponto final real, como já foi fornecido durante o pedido PUT. Stream Analytics chama o ponto final fornecido no pedido, se fornecida explicitamente. Caso contrário, ele usa um originalmente referenciado. Aqui, a leva UDF uma única cadeia de parâmetro (uma frase) e devolve o resultado de um único do tipo de cadeia que indica que a etiqueta "sentiment" para a essa frase.
+Assim que o esqueleto UDF for criado é necessária a definição completa do UDF. O ponto de extremidade RetrieveDefaultDefinition ajuda a obter a definição padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. O payload abaixo exige que obter a definição de UDF padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. Ele não especificar o ponto final real, como já foi fornecido durante o pedido PUT. Stream Analytics chama o ponto final fornecido no pedido, se fornecida explicitamente. Caso contrário, ele usa um originalmente referenciado. Aqui, a leva UDF uma única cadeia de parâmetro (uma frase) e devolve o resultado de um único do tipo de cadeia que indica que a etiqueta "sentiment" para a essa frase.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

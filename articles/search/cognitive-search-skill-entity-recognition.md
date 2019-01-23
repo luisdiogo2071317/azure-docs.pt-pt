@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a2bf61c167211e1ff62abe1453ac62227a137d53
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411378"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452212"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
 
@@ -43,7 +43,7 @@ Parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 | categories    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para utilização futura. |
-|includeTypelessEntites | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. A predefinição é `false` |
+|includeTypelessEntities | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. A predefinição é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades

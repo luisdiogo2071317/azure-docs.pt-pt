@@ -3,18 +3,18 @@ title: O que é o Azure Active Directory? | Microsoft Docs
 description: Saiba mais sobre o Azure Active Directory, incluindo a terminologia necessária, o público-alvo, licenciamento Noções básicas e recursos associados.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085931"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450222"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory? 
 Azure Active Directory (Azure AD) é baseado na nuvem acesso e identidade do serviço de gestão da Microsoft. O Azure AD ajuda os funcionários de iniciar sessão e aceder a recursos no:
@@ -52,7 +52,7 @@ Para melhorar a sua implementação do Azure AD, também pode adicionar funciona
 
 - **Licenças de recursos de "Pay as you go".** Também pode obter licenças de recursos adicionais, como o Azure Active Directory Business-cliente (B2C). B2C pode ajudar a fornecer a identidade e aceder às soluções de gestão para as suas aplicações do lado do cliente. Para obter mais informações, consulte [documentação do Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Para obter mais informações sobre a associação de uma subscrição do Azure para o Azure AD, consulte [como: associar ou adicionar uma subscrição do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e para obter mais informações sobre a atribuição de licenças aos seus utilizadores, consulte [Como: atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
+Para obter mais informações sobre a associação de uma subscrição do Azure para o Azure AD, consulte [como: Associar ou adicionar uma subscrição do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e para obter mais informações sobre a atribuição de licenças aos seus utilizadores, consulte [como: Atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologia
 Para compreender melhor do Azure AD e a documentação, deve rever os termos seguintes.
