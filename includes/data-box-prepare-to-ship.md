@@ -2,32 +2,44 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 4efaaa0e3a1439a94a693aed13bf5c60563b4b29
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c7e5231650ec1afb97a72ec0cf26cb8f80088b63
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549784"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440459"
 ---
-O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não é possível aceder às partilhas depois de começar a preparar o dispositivo para envio.
-1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. 
+O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não não possível aceder as partilhas depois de iniciar este processo.
+
+> [!IMPORTANT]
+> Preparação para envio é necessária, como sinalizadores de dados que não estão em conformidade com as convenções de nomenclatura do Azure. A ignorar este passo foi resultem em dados de potenciais falhas de carregamento devido a não confirmar dados.
+
+1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas inline durante a preparação para envio. O cálculo de soma de verificação pode demorar horas a dias dependendo do tamanho dos seus dados. 
    
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-2. Por predefinição, as somas de verificação são calculadas inline durante a preparação para envio. O cálculo de soma de verificação pode demorar algum tempo, consoante o tamanho dos seus dados. Clique em **Iniciar preparação**.
-    1. As partilhas do dispositivo ficam offline e o dispositivo é bloqueado enquanto é feita a preparação para envio.
+    Se por algum motivo quiser interromper a preparação do dispositivo, clique em **parar preparação**. Pode retomar a preparação para envio posterior.
         
-        ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship2.png) 
-   
-    2. O estado do dispositivo é atualizado para *Pronto para enviar* depois de concluída a preparação do dispositivo. 
-        
-        ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship3.png)
+    ![Preparação para envio 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
+    
+2. A preparação para envio é iniciado e as partilhas de dispositivo offline. Verá um lembrete para transferir a etiqueta quando o dispositivo está pronto.
 
-    3. Transfira a lista de ficheiros (manifesto) que foram copiados neste processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure.
-        
-        ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+    ![Baixe o lembrete de etiqueta de envio](media/data-box-prepare-to-ship/download-shipping-label-reminder.png)
 
-3. Encerre o dispositivo. Aceda à página **Encerrar ou reiniciar** e clique em **Encerrar**. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
-4. Remova os cabos. O passo seguinte é enviar o dispositivo para a Microsoft.
+3. Atualizações do Estado do dispositivo *pronto para enviar* e o dispositivo está bloqueado depois de concluída a preparação do dispositivo.
+        
+    ![Preparação para envio 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
+
+    Se desejar copiar mais dados para o dispositivo, pode desbloquear o dispositivo, copiar mais dados e execução de preparação para envio de novamente.
+
+    Se houver erros neste passo, terá de transferir o registo de erros e resolva os erros. Depois dos erros são resolvidos, execute **preparação para envio**.
+
+4. Após a preparação para envio concluída com sucesso (sem nenhum erro), baixe a lista de ficheiros (também conhecido como manifesto) copiada nesse processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure.
+        
+    ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
+
+5. Encerre o dispositivo. Aceda à página **Encerrar ou reiniciar** e clique em **Encerrar**. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
+
+6. Remova os cabos. O passo seguinte é enviar o dispositivo para a Microsoft.
