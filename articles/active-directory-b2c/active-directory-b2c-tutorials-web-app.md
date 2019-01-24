@@ -3,21 +3,21 @@ title: Tutorial - Ativar uma aplicação Web para autenticar com as contas utili
 description: Tutorial sobre como utilizar o Azure Active Directory B2C para fornecer início de sessão do utilizador para uma aplicação Web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30a94cb5de2d618938f17c4e5733821ac7247785
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834728"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851526"
 ---
-# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação web autenticar com contas através do Azure Active Directory B2C
 
 Este tutorial mostra como utilizar o Azure Active Directory (Azure AD) B2C para início de sessão e inscrição de utilizadores numa aplicação Web ASP.NET. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais, contas empresariais e contas do Azure Active Directory através de protocolos padrão abertos.
 
@@ -171,9 +171,9 @@ A aplicação Web ASP.NET de exemplo é uma aplicação de lista de tarefas simp
 
 Existem dois projetos na solução de exemplo:
 
-**Aplicação de exemplo da aplicação Web (TaskWebApp):** aplicação Web para criar e editar uma lista de tarefas. A aplicação web utiliza a **inscrição ou início de sessão** fluxo de utilizador para inscrever-se ou iniciar sessão dos utilizadores.
+**Aplicação de exemplo de aplicação da Web (TaskWebApp):** Aplicação Web para criar e editar uma lista de tarefas. A aplicação web utiliza a **inscrição ou início de sessão** fluxo de utilizador para inscrever-se ou iniciar sessão dos utilizadores.
 
-**Exemplo de aplicação da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
+**Aplicação de exemplo da Web API (TaskService):** API Web que suporta o criar, ler, atualizar e eliminar a funcionalidade de lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
 Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu inquilino, o que inclui o ID da aplicação e a chave que registou anteriormente. Terá também de configurar os fluxos de utilizador que criou. A aplicação Web de exemplo define os valores de configuração como definições da aplicação no ficheiro Web.config. Para alterar as definições da aplicação:
 
@@ -216,4 +216,4 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros tutoria
 Neste tutorial, aprendeu a criar um inquilino do Azure AD B2C, criar fluxos de utilizador e atualizar a aplicação web de exemplo para utilizar o inquilino do Azure AD B2C. Avance para o próximo tutorial para aprender a registar, configurar e chamar uma API Web ASP.NET protegida pelo inquilino do Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Tutorial: utilizar o Azure Active Directory B2C para proteger uma API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
+> [Tutorial: Utilizar o Azure Active Directory B2C para proteger uma API web ASP.NET](active-directory-b2c-tutorials-web-api.md)

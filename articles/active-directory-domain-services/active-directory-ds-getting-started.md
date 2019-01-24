@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de domínio do Azure Active Directory: Introdução | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Introdução | Documentos da Microsoft'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850421"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como ativar o Azure Active Directory Domain Services (Azure AD DS) no portal do Azure.
@@ -61,11 +61,11 @@ Na **Noções básicas** página do assistente, especifique o nome de domínio D
 
    > [!NOTE]
    > **Diretrizes para selecionar um nome de domínio DNS**
-   > * **Nome de domínio interno:** por predefinição, o assistente Especifica o nome de domínio predefinido/interno-in do diretório (com um **. onmicrosoft.com** sufixo) para. Se optar por ativar o acesso de secure LDAP para o domínio gerido através da internet, espere problemas de criar um registo DNS público ou obter um certificado de secure LDAP de uma AC pública para este nome de domínio. A Microsoft possui os *. onmicrosoft.com* ACs e de domínio não emitirá certificados pela garantia para este domínio.
-   * **Nomes de domínio personalizados:** também pode escrever um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
-   * **Sufixos de domínio não encaminháveis:** em geral, recomendamos que evite um sufixo de nome de domínio não encaminháveis internos. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS "contoso.com". O sufixo DNS. 'local' não é roteável e pode causar problemas de resolução de DNS.
-   * **Restrições de prefixo de domínio:** o prefixo do seu nome de domínio especificado (por exemplo, *contoso100* no *contoso100.com* nome de domínio) tem de conter 15 ou menos carateres. Não é possível criar um domínio gerido com um prefixo mais de 15 carateres.
-   * **Conflitos de nome de rede:** Certifique-se de que o nome de domínio DNS que escolheu para o domínio gerido ainda não existir na rede virtual. Especificamente, verifique se:
+   > * **Nome de domínio internos:** Por predefinição, o assistente Especifica o nome de domínio predefinido/interno-in do diretório (com uma **. onmicrosoft.com** sufixo) para. Se optar por ativar o acesso de secure LDAP para o domínio gerido através da internet, espere problemas de criar um registo DNS público ou obter um certificado de secure LDAP de uma AC pública para este nome de domínio. A Microsoft possui os *. onmicrosoft.com* ACs e de domínio não emitirá certificados pela garantia para este domínio.
+   * **Nomes de domínio personalizado:** Também pode escrever um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
+   * **Sufixos de domínio não encaminháveis:** Em geral, recomendamos que evite um sufixo de nome de domínio não encaminháveis internos. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS "contoso.com". O sufixo DNS. 'local' não é roteável e pode causar problemas de resolução de DNS.
+   * **Restrições de prefixo de domínio:** O prefixo do seu nome de domínio especificado (por exemplo, contoso100 no nome de domínio *contoso100.com*) tem de conter 15 ou menos carateres. Não é possível criar um domínio gerido com um prefixo mais de 15 carateres.
+   * **Conflitos de nome de rede:** Certifique-se de que o nome de domínio DNS que escolheu para o domínio gerido ainda não existe na rede virtual. Especificamente, verifique se:
        * Já tem um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual.
        * A rede virtual em que pretende ativar o domínio gerido tem uma ligação VPN à sua rede no local. Neste cenário, certifique-se que não tiver um domínio com o mesmo nome de domínio DNS na sua rede no local.
        * Tem um serviço cloud existente com este nome na rede virtual.

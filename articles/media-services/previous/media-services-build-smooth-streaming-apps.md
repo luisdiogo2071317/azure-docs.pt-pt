@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232690"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828320"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar um Smooth Streaming de aplicativos da Windows Store
 
@@ -142,7 +142,7 @@ Depois de adicionar as referências, tem de selecionar a plataforma de destino (
    O controle MediaElement é utilizado para reproduzir multimédia. O controlo de deslize com o nome sliderProgress será utilizado na próxima lição para controlar o progresso de suporte de dados.
 3. Prima **CTRL + S** para guardar o ficheiro.
 
-O controle MediaElement não suporta a transmissão em fluxo uniforme conteúdo out-of-box. Para ativar o suporte de transmissão em fluxo uniforme, deve registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme por extensão de nome de ficheiro e o tipo MIME.  Para registar, utilize o método MediaExtensionManager.RegisterByteStremHandler do namespace do botão.
+O controle MediaElement não suporta a transmissão em fluxo uniforme conteúdo out-of-box. Para ativar o suporte de transmissão em fluxo uniforme, deve registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme por extensão de nome de ficheiro e o tipo MIME.  Para registar, utilize o método MediaExtensionManager.RegisterByteStreamHandler do namespace do botão.
 
 Nesse arquivo XAML, alguns manipuladores de eventos estão associados com os controles.  Deve definir esses manipuladores de eventos.
 
@@ -821,7 +821,7 @@ Ter concluído a lição 3.  Nesta lição, adicionar a funcionalidade para esco
 Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheiros de vídeo codificados com níveis de qualidade diferente (taxas de bits) e as resoluções. Nesta lição, irá permitir aos usuários selecionar roteiros. Nesta lição contém os seguintes procedimentos:
 
 1. Modifique o arquivo XAML.
-2. Modifique o arquivo de behand de código.
+2. Modificar o código por trás do ficheiro
 3. Compilar e testar a aplicação
 
 **Para modificar o arquivo XAML.**

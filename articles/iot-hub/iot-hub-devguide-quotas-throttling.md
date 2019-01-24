@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395161"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827385"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
@@ -21,7 +21,7 @@ ms.locfileid: "49395161"
 
 Cada subscrição do Azure pode ter no máximo, 50 hubs IoT e no máximo, 1 hub gratuito.
 
-Cada hub IoT é aprovisionada com um determinado número de unidades de um escalão específico. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar. O tamanho da mensagem utilizado para calcular que a quota diária é 0,5 KB para um hub de escalão gratuito e de 4KB para todos os outros escalões. Para obter mais informações, consulte [preços do Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+Cada hub IoT é aprovisionado com um determinado número de unidades num escalão específico. O escalão e o número de unidades de determinam a quota diária máxima de mensagens que pode enviar. O tamanho da mensagem utilizado para calcular que a quota diária é 0,5 KB para um hub de escalão gratuito e de 4KB para todos os outros escalões. Para obter mais informações, consulte [preços do Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 A camada também determina os limites de limitação que o IoT Hub impõe em todas as operações.
 
@@ -41,15 +41,18 @@ A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub 
 | Na cloud para o dispositivo envia<sup>1</sup> | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
 | Na cloud para o dispositivo recebe<sup>1</sup> <br/> (apenas quando dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/min/unidade) | 16.67/SEC/Unit (1000/min/unidade) | 833.33/SEC/Unit (50000/min/unidade) |
 | Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/min/unidade) |
-| Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
+| Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Tarefas de operações<sup>1,3</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
 | Tarefas de operações de dispositivo<sup>1</sup> <br/> (atualizar duplo, invocar o método direto) | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Configurações e implementações de borda<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) |
+| Taxa de inicialização de fluxo de dispositivo<sup>4</sup> | 5 novos fluxos/seg | 5 novos fluxos/seg | 5 novos fluxos/seg |
+| Número máximo de fluxos de dispositivos conectados simultaneamente<sup>4</sup> | 50 | 50 | 50 |
+| Transferência de dados de fluxo de dispositivo máximo<sup>4</sup> (agregar volume por dia) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB. <br/><sup>3</sup>só pode ter uma tarefa de importação/exportação de dispositivos ativos por vez.
+<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB. <br/><sup>3</sup>só pode ter uma tarefa de importação/exportação de dispositivos ativos por vez. <br/><sup>4</sup>só estão disponíveis para S1, S2, S3, F1 do SKU e fluxos de dispositivo do IoT Hub.
 
 O *ligações de dispositivos* limitação rege a taxa a que seja possível estabelecer novas ligações de dispositivo com um hub IoT. O *ligações de dispositivos* limitação não controlam o número máximo de dispositivos ligados em simultâneo. O *ligações de dispositivos* limitação de taxa depende do número de unidades que sejam aprovisionados para o hub IoT.
 
@@ -77,7 +80,7 @@ IoT Hub impõe outros limites operacionais:
 | Método direto<sup>1</sup> | Tamanho de payload do método direto máximo é 128 KB. |
 | Configurações de dispositivos automático<sup>1</sup> | configurações de 100 por hub SKU paga. configurações de 20 por hub SKU gratuito. |
 | Implementações de borda automática<sup>1</sup> | 20 módulos por implementação. 100 implementações por hub SKU paga. 20 implementações por hub SKU gratuito. |
-| Os gémeos<sup>1</sup> | Tamanho máximo por secção duplo (etiquetas, as propriedades pretendidas, as propriedades comunicadas) é de 8 KB |
+| Twins<sup>1</sup> | Tamanho máximo por secção duplo (etiquetas, as propriedades pretendidas, as propriedades comunicadas) é de 8 KB |
 
 <sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md).
 

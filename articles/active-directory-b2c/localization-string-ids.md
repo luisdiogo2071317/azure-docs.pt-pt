@@ -3,19 +3,19 @@ title: Localização de cadeias de caracteres IDs - Azure Active Directory B2C |
 description: Especifique os IDs para uma definição de conteúdo com o Id api.signuporsignin numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7619ebf038e164c9e586118c70e34955ca7c4767
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 72ed1f7f6d9fe9958bbd78b001d727feb5f8861c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222677"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848415"
 ---
 # <a name="localization-string-ids"></a>Cadeia de caracteres de localização IDs
 
@@ -29,12 +29,12 @@ Os seguintes Ids são utilizados para uma definição de conteúdo com o ID `api
 
 | ID | Valor predefinido |
 | -- | ------------- |
-| **local_intro_email** | Inicie a sessão com a sua conta existente |
+| **local_intro_email** | Inicie sessão com a sua conta existente |
 | **logonIdentifier_email** | Endereço de E-mail |
 | **requiredField_email** | Introduza o seu e-mail |
 | **invalid_email** | Introduza um endereço de e-mail válido |
-| **email_pattern** | ^ [a-zA-Z0-9.! n. º $% & ' * c++ /CLI =? ^ _'{|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ um-zA-Z0 - 9-] +) * $ |
-| **local_intro_username** | Inicie sessão com o seu nome de utilizador |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **local_intro_username** | Iniciar sessão com o nome de utilizador |
 | **logonIdentifier_username** | Nome de utilizador |
 | **requiredField_username** | Introduza o seu nome de utilizador |
 | **password** | Palavra-passe |
@@ -44,9 +44,9 @@ Os seguintes Ids são utilizados para uma definição de conteúdo com o ID `api
 | **createaccount_intro** | Não tem uma conta? |
 | **createaccount_link** | Inscreva-se já |
 | **divider_title** | OU |
-| **cancel_message** | O utilizador esqueceu-se da sua palavra-passe. |
+| **cancel_message** | O utilizador esqueceu-se da sua palavra-passe |
 | **button_signin** | Iniciar sessão |
-| **social_intro** | Inicie a sessão com a sua conta de redes sociais |
+| **social_intro** | Inicie sessão com a sua conta de redes sociais |
   **remember_me** |Manter sessão iniciada|
 | **unknown_error** | Estamos com dificuldades a iniciar sessão. Tente novamente mais tarde. |
 
@@ -86,7 +86,7 @@ O exemplo seguinte localizes o fornecedor de identidade do Facebook para Árabe:
 | **UserMessageIfInvalidPassword** | A palavra-passe está incorreta. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Não é possível encontrar a sua conta. |
 | **UserMessageIfOldPasswordUsed** | Parece que utilizou uma palavra-passe antiga. |  
-| **DefaultMessage** | Nome de utilizador ou palavra-passe inválidos. |  
+| **DefaultMessage** | Nome de utilizador ou palavra-passe inválido. |  
 | **UserMessageIfUserAccountDisabled** | Sua conta foi bloqueada. Entre em contacto com seu suporte para desbloqueá-lo, em seguida, tente novamente. |  
 | **UserMessageIfUserAccountLocked** | Sua conta está temporariamente bloqueada para evitar utilizações não autorizadas. Tente novamente mais tarde. |  
 | **AADRequestsThrottled** | Existem demasiados pedidos neste momento. Aguarde algum tempo e tente novamente. |  
@@ -110,7 +110,7 @@ Seguem-se os IDs para uma definição de conteúdo com o ID `api.localaccountsig
 | **ver_fail_no_retry** | Criou demasiadas tentativas de introdução incorretas. Tente novamente mais tarde. |
 | **Mês** | Mês |
 | **ver_success_msg** | Endereço de correio eletrónico verificado. Agora pode continuar. |
-| **meses** | Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro |
+| **months** | Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro |
 | **ver_fail_server** | Estamos com problemas ao verificar o seu endereço de e-mail. Introduza um endereço de e-mail válido e tente novamente. |
 | **error_requiredFieldMissing** | Um campo obrigatório está em falta. . Preencha todos os campos obrigatórios e tente novamente. |
 | **initial_intro** | Forneça os seguintes detalhes. |
@@ -122,7 +122,7 @@ Seguem-se os IDs para uma definição de conteúdo com o ID `api.localaccountsig
 | **ver_but_verify** | Verificar código |
 | **alert_no** | Não |
 | **ver_info_msg** | Código de verificação foi enviado para a sua caixa de entrada. Copie-a para a caixa de entrada abaixo. |
-| **dia** | Dia |
+| **day** | Dia |
 | **ver_fail_throttled** | Tem havido demasiados pedidos para verificar este endereço de e-mail. Aguarde algum tempo, em seguida, tente novamente. |
 | **helplink_text** | O que é isto? |
 | **ver_fail_retry** | Esse código está incorreto. Tente novamente. |
@@ -159,11 +159,11 @@ Seguem-se os IDs para uma definição de conteúdo com o ID `api.phonefactor`.
 
 | ID | Valor predefinido |
 | -- | ------------- |
-| **button_verify** | Liguem-me |
-| **country_code_label** | Indicativo do País |
+| **button_verify** | Telefonar-me |
+| **country_code_label** | Código do País |
 | **cancel_message** | O utilizador cancelou a autenticação multifator |
 | **text_button_send_second_code** | enviar um novo código |
-| **code_pattern** | \\1!D{6} |
+| **code_pattern** | \\d{6} |
 | **intro_mixed** | Temos o número seguinte no Registro para. Podemos pode enviar um código através de SMS ou por telefone para o autenticar. |
 | **intro_mixed_p** | Temos os números a seguir no Registro para. Escolha um número de nós pode de telefone ou enviar um código através de SMS para o autenticar. |
 | **button_verify_code** | Verificar Código |
@@ -172,20 +172,20 @@ Seguem-se os IDs para uma definição de conteúdo com o ID `api.phonefactor`.
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
 | **button_retry** | Repetir |
-| **alternative_text** | Não tenho o meu telemóvel |
+| **alternative_text** | Não tenho o meu telefone |
 | **intro_phone_p** | Temos os números a seguir no Registro para. Escolha um número de nós pode de telefone para o autenticar. |
 | **intro_phone** | Temos o número seguinte no Registro para. Podemos será de telefone para o autenticar. |
-| **enter_code_text_intro** | Introduza o seu código de verificação abaixo ou  |
-| **intro_entry_phone** | Introduza um número abaixo para o qual possamos telefonar para autenticar o utilizador. |
-| **intro_entry_sms** | Introduza um número abaixo para o qual possamos enviar um código via SMS para autenticar o utilizador. |
+| **enter_code_text_intro** | Introduza o código de verificação abaixo, ou  |
+| **intro_entry_phone** | Introduza um número abaixo para o qual possamos telefonar para autenticá-lo. |
+| **intro_entry_sms** | Introduza um número abaixo para o qual possamos enviar um código por SMS para autenticá-lo. |
 | **button_send_code** | Enviar Código |
-| **invalid_number** | Introduza um número de telemóvel válido |
+| **invalid_number** | Introduza um número de telefone válido. |
 | **intro_sms** | Temos o número seguinte no Registro para. Nós enviaremos um código através de SMS para o autenticar. |
-| **intro_entry_mixed** | Introduza um número abaixo para o qual possamos enviar um código via SMS ou telefonar para autenticar o utilizador. |
-| **number_pattern** | ^\\+ (?: [0-9] [\\x20-]?) {6,14}[0-9] $ |
+| **intro_entry_mixed** | Introduza um número abaixo para o qual possamos enviar um código por SMS ou telefonar para autenticá-lo. |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
 | **intro_sms_p** |Temos os números a seguir no Registro para. Escolha um número que podemos enviar um código através de SMS para o autenticar. |
-| **requiredField_countryCode** | Selecione o seu indicativo |
-| **requiredField_number** | Introduza o seu número de telefone |
+| **requiredField_countryCode** | Selecione o indicativo do seu país |
+| **requiredField_number** | Introduza o seu número de telemóvel |
 | **country_code_input_placeholder_text** |País ou Região |
 | **number_label** | Número de Telefone |
 | **error_tryagain** | O número de telefone que forneceu está ocupado ou indisponível. Verifique o número e tente novamente. |

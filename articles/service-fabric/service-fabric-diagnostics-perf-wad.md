@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452637"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de diagnóstico do Windows Azure
 
@@ -43,7 +43,7 @@ Para recolher contadores de desempenho por meio de WAD, terá de modificar a con
     }
     ```
 
-    O `scheduledTransferPeriod` define como frquently os valores dos contadores que são recolhidos são transferidos para a tabela de armazenamento do Azure e a qualquer configuradas sink. 
+    O `scheduledTransferPeriod` define a frequência com que os valores dos contadores que são recolhidos são transferidos para a tabela de armazenamento do Azure e em qualquer sink configurado. 
 
 3. Adicionar os contadores de desempenho que pretende recolher para o `PerformanceCounterConfiguration` que foi declarado no passo anterior. Cada contador que pretende recolher é definida com um `counterSpecifier`, `sampleRate`, `unit`, `annotation`e qualquer relevantes `sinks`.
 

@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: Ajuda de utilizador para autenticação, aplicações e gestão de dispositivos - Azure Active Directory | Microsoft Docs
-description: A ajuda de utilizador serve para os utilizadores que precisem de ajuda a configurar as informações de segurança, verificação de dois passos, reposição de palavra-passe self-service, gestão de dispositivos, a aplicação Microsoft Authenticator e o portal As minhas Aplicações.
+title: 'Ajuda de utilizador para autenticação, aplicações e gestão de dispositivos - Azure Active Directory | Microsoft Docs'
+description: 'A ajuda de utilizador serve para os utilizadores que precisem de ajuda a configurar as informações de segurança, verificação de dois passos, reposição de palavra-passe self-service, gestão de dispositivos, a aplicação Microsoft Authenticator e o portal As minhas Aplicações.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41926957"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ajuda do utilizador para autenticação, aplicações e gestão de dispositivos
 
 Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações de segurança, verificação de dois passo, para aprender a repor as suas próprias palavras-passe, para configurar e associar os seus dispositivos do Azure Active Directory e configurar e utilizar a aplicação do Microsoft Authenticator e o portal As minhas Aplicações.

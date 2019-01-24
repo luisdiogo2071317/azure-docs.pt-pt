@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345154"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450588"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Implementar um novo dispositivo simulado
 
@@ -147,4 +147,4 @@ Se já não precisar do solution accelerator, elimine-o a partir da [aprovisiona
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de mostrar como implementar modelos de dispositivo personalizado para o acelerador de solução de monitorização remota. A próxima etapa sugerida é saber como [ligue-se um dispositivo físico, à sua solução de monitorização remota](iot-accelerators-connecting-devices-node.md).
+Este guia de mostrar como implementar modelos de dispositivo personalizado para o acelerador de solução de monitorização remota. A próxima etapa sugerida é saber como [ligar um dispositivo real à sua solução de monitorização remota](iot-accelerators-connecting-devices-node.md).

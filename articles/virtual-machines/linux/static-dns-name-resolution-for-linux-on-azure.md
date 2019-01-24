@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411113"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466096"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar cartões de interface de rede virtual e utilizar o DNS interno para resolução de nomes VM no Azure
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Implementar uma VM e ligue-se a vNic
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O `--nics` sinalizador liga-se a vNic na VM durante a implementação para o Azure. O exemplo seguinte cria uma VM com o nome `myVM` com o Managed Disks do Azure e anexa a vNic com o nome `myNic` do passo anterior:
+Crie uma VM com [az vm create](/cli/azure/vm). O `--nics` sinalizador liga-se a vNic na VM durante a implementação para o Azure. O exemplo seguinte cria uma VM com o nome `myVM` com o Managed Disks do Azure e anexa a vNic com o nome `myNic` do passo anterior:
 
 ```azurecli
 az vm create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementar a VM numa infraestrutura de rede virtual
 Agora, temos uma rede virtual e uma sub-rede, um grupo de segurança de rede que funcionam como uma firewall para proteger nossos sub-rede ao bloquear todo o tráfego de entrada, exceto a porta 22 para SSH e um vNic. Agora, pode implementar uma VM esta infraestrutura de rede existente.
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome `myVM` com o Managed Disks do Azure e anexa a vNic com o nome `myNic` do passo anterior:
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome `myVM` com o Managed Disks do Azure e anexa a vNic com o nome `myNic` do passo anterior:
 
 ```azurecli
 az vm create \
