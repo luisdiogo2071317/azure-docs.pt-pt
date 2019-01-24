@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608703"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823356"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migração de Contoso: Realojar uma aplicação no local em VMs do Azure
 
@@ -66,7 +66,7 @@ A equipe de cloud de Contoso tiver afixado para baixo de objetivos para essa mig
 
 ## <a name="solution-design"></a>Design da solução
 
-a afixação de pós pendente objetivos e requisitos, a Contoso designs e rever uma solução de implantação e identifica o processo de migração, incluindo os serviços do Azure que Contoso irá utilizar para a migração.
+Depois de fixar-se para baixo de objetivos e requisitos, a Contoso projeta e rever uma solução de implantação e identifica o processo de migração, incluindo os serviços do Azure que Contoso irá utilizar para a migração.
 
 ### <a name="current-app"></a>Aplicação atual
 
@@ -292,7 +292,7 @@ Os administradores da Contoso executam estes passos da seguinte forma:
 8. Iniciam sessão na máquina novamente e o Assistente de gestão de servidor de configuração é iniciado automaticamente.
 9. No assistente, eles selecionam o NIC para receber o tráfego de replicação. Não é possível alterar esta definição depois de estar configurada.
 10. Selecionar a subscrição, grupo de recursos e o Cofre no qual pretende registar o servidor de configuração.
-        ![Cofre](./media/contoso-migration-rehost-vm/cswiz1.png)
+        ![vault](./media/contoso-migration-rehost-vm/cswiz1.png)
 
 10. Eles transferirem e instalar o servidor MySQL e o VMWare PowerCLI.
 11. Após a validação, eles especificam o FQDN ou endereço IP do vCenter server ou vSphere no anfitrião. Deixe a porta predefinida e especifique um nome amigável para o servidor no Azure.

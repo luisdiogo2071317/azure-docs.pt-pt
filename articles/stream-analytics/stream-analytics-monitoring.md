@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096625"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844743"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização de tarefa do Stream Analytics e como monitorizar consultas
 
-## <a name="introduction-the-monitor-page"></a>Introdução: A página objeto da monitorização
+## <a name="introduction-the-monitor-page"></a>Introdução: A página de monitor
 O Azure portal ambos superfície métricas de chave de desempenho que podem ser utilizadas para monitorizar e resolver problemas de desempenho da sua consulta e a tarefa. Para ver estas métricas, navegue para a tarefa de Stream Analytics está interessado em ver as métricas para e ver que o **monitorização** secção na página de descrição geral.  
 
 ![Monitorização de ligação de tarefa do Stream Analytics](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
@@ -30,17 +30,17 @@ Será apresentada a janela conforme mostrado:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Pendentes       | Número de eventos de entrada que estão pendentes. |
-| Erros de Conversão de Dados | Número de eventos de saída que não foi possível converter para o esquema de saída esperada. |
-| Eventos de Entrada Antigos       | Número de eventos recebidos no início. |
+| Eventos de Entrada Pendentes       | Número de eventos de entrada que estão pendentes. Um valor diferente de zero para esta métrica indica que o seu trabalho não é capaz de acompanhar o número de eventos de entrada. Se este valor é lentamente crescente ou consistentemente diferente de zero, deve aumentar horizontalmente o seu trabalho. Pode saber mais, visite a página [compreender e ajustar as unidades transmissão em fluxo](stream-analytics-streaming-unit-consumption.md). |
+| Erros de Conversão de Dados | Número de eventos de saída que não foi possível converter para o esquema de saída esperada. Política de erros pode ser alterada para 'Drop' para remover os eventos que encontram este cenário. |
+| Eventos de Entrada Antigos       | Eventos cujo timestamp de aplicação é anterior ao seu tempo de chegada em mais de 5 minutos. |
 | Falha no pedido de funções | Número de chamadas de função, com falhas do Azure Machine Learning (se presente). |
 | Eventos de Função        | Número de eventos enviados para a função do Azure Machine Learning (se presente). |
 | Pedidos de Função      | Número de chamadas para a função do Azure Machine Learning (se presente). |
-| Erros de Desserialização de entrada       | Número de eventos que não foi possível anular a serialização.  |
+| Erros de Desserialização de entrada       | Número de eventos de entrada que não foi possível anular a serialização.  |
 | Bytes de Evento de Entrada      | Quantidade de dados recebidos pela tarefa de Stream Analytics, em bytes. Isto pode ser utilizado para validar que eventos estão a ser enviados para a origem de entrada. |
-| Eventos de Entrada           | Quantidade de dados recebidos pela tarefa de Stream Analytics, no número de eventos. Isto pode ser utilizado para validar que eventos estão a ser enviados para a origem de entrada. |
-| Origens de Entrada Recebidas       | Número de eventos provenientes de uma origem de entrada. |
-| Eventos de Entrada atrasados      | Número de eventos que chegam mais tarde na origem que optar por ter sido removido ou seus timestamp foi ajustado, com base na configuração da política de ordenação de eventos da definição de janela de tolerância de chegada tardia. |
+| Eventos de Entrada           | Número de registos de anular a serialização de eventos de entrada. |
+| Origens de Entrada Recebidas       | Número de evento recebido pela tarefa. Isto pode ser utilizado para validar que eventos estão a ser enviados para a origem de entrada. |
+| Eventos de Entrada atrasados      | Eventos que chegaram mais tarde do que a janela de tolerância de chegada tardia configurado. Saiba mais sobre [considerações de ordem de eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md) . |
 | Eventos de fora de ordem    | Número de eventos recebidos fora de ordem que foram removidos ou tendo em conta um período de tempo ajustado com base na política de ordenação de eventos. Isso pode ser afetado pela configuração da definição de janela de tolerância de fora de ordem. |
 | Eventos de Saída          | Quantidade de dados enviados por tarefa do Stream Analytics para o destino de saída, no número de eventos. |
 | Erros de Tempo de Execução         | Número total de erros relacionados com o processamento de consultas (excluindo detetados erros durante a ingestão de eventos ou resultados outputing) |

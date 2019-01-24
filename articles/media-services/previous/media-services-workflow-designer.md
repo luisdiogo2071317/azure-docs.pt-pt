@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: fa858ffbae5c1a37851ea114efd0fbc9cf010e68
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200807"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823237"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho
 ## <a name="overview"></a>Descrição geral
@@ -30,7 +30,7 @@ Fluxos de trabalho podem incluir a lógica de decisão de cliente e ramificaçã
 
 Os fluxos de trabalho de exemplo que pode criar incluem:
 
-* Decisão com base em fluxos de trabalho que inspecionar o conteúdo de origem para a resolução e codificar apenas as faixas de saída desejada.  Isso é útil, eliminando os desperdício roteiros que seriam gerados pelo der o inadvertantly de conteúdo de origem.
+* Decisão com base em fluxos de trabalho que inspecionar o conteúdo de origem para a resolução e codificar apenas as faixas de saída desejada.  Isso é útil, eliminando os desperdício roteiros que seriam gerados pelo der o conteúdo de origem inadvertidamente.
 * Vários ficheiros de entrada podem ser utilizados para suportar legendas, sobreposições e clips conteúdo em conjunto. 
 
 Essa ferramenta também pode ser usada para modificar qualquer um dos nossos [publicados fluxos de trabalho](media-services-workflow-designer.md#existing_workflows). 

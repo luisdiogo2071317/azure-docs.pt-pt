@@ -11,12 +11,12 @@ ms.topic: concept
 ms.date: 01/16/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 5929d591b745992143ee2441759943af15b932d9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c5979357532bb29f8e3545db57aa32603763dc1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479549"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855606"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Definições de cookies para aceder a aplicações no local no Azure Active Directory
 
@@ -24,12 +24,12 @@ Azure Active Directory (Azure AD) tem os cookies de acesso e de sessão para ace
 
 ## <a name="what-are-the-cookie-settings"></a>Quais são as definições de cookie?
 
-[Proxy de aplicações](application-proxy.md) utiliza as seguintes definições de cookie do acesso e de sessão para definir sinalizadores no respetivo cabeçalho de resposta HTTP. 
+[Proxy de aplicações](application-proxy.md) utiliza as seguintes definições de cookie do acesso e de sessão.
 
 | Definição de cookie | Predefinição | Descrição | Recomendações |
 | -------------- | ------- | ----------- | --------------- |
-| Utilizar Cookie Apenas HTTP | **Não** | **Sim** permite que o Proxy de aplicações incluir o sinalizador de HTTPOnly nos cabeçalhos de resposta HTTP. Este sinalizador fornece benefícios de segurança adicional, por exemplo, ele impede que o lado do cliente scripts (CSS) copiar ou modifiquem os cookies.<br></br><br></br>Antes que suporte a definição apenas para HTTP, o Proxy de aplicações encriptados e transmitidas cookies através de um canal do TLS seguro para proteger contra modificação. | Uso **Sim** por causa dos benefícios de segurança adicionais.<br></br><br></br>Uso **não** para os clientes ou agentes de utilizador que necessitam de acesso para o cookie de sessão. Por exemplo, usar **não** para um cliente RDP ou MTSC que se liga a um servidor de Gateway de ambiente de trabalho remoto através do Proxy de aplicações.|
-| Utilizar Cookie Seguro | **Não** | **Sim** permite que o Proxy de aplicações incluir o Secure sinalizador nos cabeçalhos de resposta HTTP. Cookies seguros aprimorou a segurança com a transmissão de cookies através de um canal seguro do TLS, tal como HTTPS. | Uso **Sim** por causa dos benefícios de segurança adicionais.<br></br><br></br>Evitar **não** porque permite a transmissão de cookies através de pedidos HTTP não criptografados em que as partes não autorizadas podem visualizá-los.|
+| Utilizar Cookie Apenas HTTP | **Não** | **Sim** permite que o Proxy de aplicações incluir o sinalizador de HTTPOnly nos cabeçalhos de resposta HTTP. Este sinalizador fornece benefícios de segurança adicional, por exemplo, ele impede que o lado do cliente scripts (CSS) copiar ou modifiquem os cookies.<br></br><br></br>Antes que suporte a definição apenas para HTTP, o Proxy de aplicações encriptados e transmitidas cookies através de um canal seguro do SSL para proteger contra modificação. | Uso **Sim** por causa dos benefícios de segurança adicionais.<br></br><br></br>Uso **não** para os clientes ou agentes de utilizador que necessitam de acesso para o cookie de sessão. Por exemplo, usar **não** para um cliente RDP ou MTSC que se liga a um servidor de Gateway de ambiente de trabalho remoto através do Proxy de aplicações.|
+| Utilizar Cookie Seguro | **Não** | **Sim** permite que o Proxy de aplicações incluir o Secure sinalizador nos cabeçalhos de resposta HTTP. Cookies seguros aprimorou a segurança com a transmissão de cookies através de um canal seguro do TLS, tal como HTTPS. Isto impede que cookies que está a ser observado pelo partes não autorizadas devido a transmissão do cookie em texto não criptografado. | Uso **Sim** por causa dos benefícios de segurança adicionais.|
 | Utilizar Cookie Persistente | **Não** | **Sim** permite que o Proxy de aplicações definir seus cookies de acesso para não expirarem quando o navegador da web está fechado. A persistência dura até que o token de acesso expira, ou até que o utilizador o elimine manualmente os cookies persistentes. | Uso **não** devido ao risco de segurança associado a mantém os usuários autenticados.<br></br><br></br>Sugerimos que utilize apenas **Sim** para aplicativos mais antigos que não é possível partilhar cookies entre processos. É melhor atualizar a sua aplicação para processar cookies partilha entre processos em vez de utilizar cookies persistentes. Por exemplo, poderá ter cookies persistentes para permitir que um utilizador abrir documentos do Office na vista de Explorador de um site SharePoint. Sem cookies persistentes, esta operação poderá falhar se os cookies de acesso não são partilhados entre o navegador, o processo explorer e o processo do Office. |
 
 ## <a name="set-the-cookie-settings---azure-portal"></a>Configurar as definições de cookie - portal do Azure

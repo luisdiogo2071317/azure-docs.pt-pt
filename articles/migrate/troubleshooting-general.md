@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261235"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827946"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -286,7 +286,7 @@ Para recolher eventos de rastreio para Windows, faça o seguinte:
 | 751       | UnableToConnectToServer        | Não foi possível ligar ao vCenter Server "%Name;" devido ao erro: %ErrorMessage;     | Consulte a mensagem de erro para obter detalhes.                                                             | Resolva o problema e tente novamente.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | O servidor "%Name;" não é um vCenter Server.                                  | Forneça os detalhes do vCenter Server.                                                                       | Tente novamente a operação com os detalhes do vCenter Server corretos.                                                                                   |
 | 753       | InvalidLoginCredentials        | Não é possível ligar ao vCenter Server "%Name;" devido ao erro: %ErrorMessage; | Falha ao ligar ao vCenter Server devido a credenciais de início de sessão inválidas.                             | Certifique-se de que as credenciais de início de sessão fornecidas estão corretas.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Dados de desempenho não disponíveis.                                               | Verifique o nível de estatísticas no vCenter Server. Ele deve ser definido como 3 para dados de desempenho estejam disponíveis. | Alterar o Nível de Estatísticas para 3 (para duração de 5 minutos, 30 minutos e 2 horas) e experimente aguardar pelo menos um dia.                   |
+| 754       | NoPerfDataAvailable           | Dados de desempenho não disponíveis.                                               | Verifique o nível de estatísticas no vCenter Server. Ele deve ser definido como 3 para dados de desempenho estejam disponíveis. | Alterar o Nível de Estatísticas para 3 (para duração de 5 minutos, 30 minutos e 2 horas) e experimente aguardar pelo menos um dia.                   |
 | 756       | NullInstanceUUID               | Foi encontrada uma máquina com InstanceUUID nulo                                  | O vCenter Server pode ter um objeto inapropriado.                                                      | Resolva o problema e tente novamente.                                                                                                           |
 | 757       | VMNotFound                     | A máquina virtual não foi encontrada                                                  | A máquina virtual pode ser eliminada: %VMID;                                                                | Certifique-se de que as máquinas virtuais selecionadas enquanto efetua o controlo do âmbito do inventário do vCenter existem durante a deteção                                      |
 | 758       | GetPerfDataTimeout             | O pedido do VCenter excedeu o tempo limite. Mensagem % Message;                                  | As credenciais do vCenter Server estão incorretas                                                              | Verifique as credenciais do vCenter Server e certifique-se de que o vCenter Server está acessível. Repita a operação. Se o problema persistir, contacte o suporte. |

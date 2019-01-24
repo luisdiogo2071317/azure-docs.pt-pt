@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 6f2fb29e705edde24d6f54faafd17b580ae131b5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c25196f03d9c4e70a43b9ea8c3a24ed6c0e39ead
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809867"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do Active Directory do Azure com o SAP Cloud para o cliente
 
@@ -142,7 +142,7 @@ Para configurar o Azure AD início de sessão único com o SAP Cloud para o clie
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -179,7 +179,7 @@ Para configurar o Azure AD início de sessão único com o SAP Cloud para o clie
    
     O sistema envia apenas o URL de normais do sistema ao funcionário. O funcionário não pode iniciar sessão através do SSO e tem de utilizar palavra-passe ou certificado em vez disso.
    
-    **URL DE SSO** 
+    **SSO URL** 
    
     O sistema envia apenas o URL de SSO ao funcionário. O funcionário pode iniciar sessão através do SSO. Pedido de autenticação é redirecionado através do IdP.
    

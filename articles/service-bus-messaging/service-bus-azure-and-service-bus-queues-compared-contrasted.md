@@ -3,29 +3,29 @@ title: Filas de armazenamento do Azure e filas do Service Bus comparação e con
 description: Analisa as diferenças e semelhanças entre dois tipos de filas disponibilizadas pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852801"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do Service Bus - comparação e contraste
-Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: filas do Service Bus e filas de armazenamento. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
+Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: Filas de armazenamento e filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
 
 ## <a name="introduction"></a>Introdução
-O Azure suporta dois tipos de mecanismos de fila: **filas de armazenamento** e **filas do Service Bus**.
+O Azure suporta dois tipos de mecanismos de fila: **Filas de armazenamento** e **filas do Service Bus**.
 
 **Filas de armazenamento**, que fazem parte dos [o armazenamento do Azure](https://azure.microsoft.com/services/storage/) infraestrutura, funcionalidade uma interface baseada em REST GET/PUT/PEEK simples, fornecendo mensagens confiáveis e persistentes dentro e entre serviços.
 
@@ -68,7 +68,7 @@ Esta seção compara alguns dos recursos fundamentais colocação em fila fornec
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Garantia de ordenação |**Não** <br/><br>Para obter mais informações, consulte a nota primeiro na secção "Additional Information".</br> |**Sim - First-In-First-Out (FIFO)**<br/><br>(com o uso de sessões de mensagens) |
-| Garantia de entrega |**Pelo-menos-uma vez** |**Pelo-menos-uma vez**<br/><br/>**Na maioria-única** |
+| Garantia de entrega |**At-Least-Once** |**At-Least-Once**<br/><br/>**Na maioria-única** |
 | Suporte de operação atômica |**Não** |**Sim**<br/><br/> |
 | Comportamento de recebimento |**Não limitativos**<br/><br/>(é concluída imediatamente não se for encontrada nenhuma mensagem nova) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece consulta longa, ou o ["Técnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não limitativos**<br/><br/>(através da utilização de .NET API gerenciada apenas) |
 | API em estilo de push |**Não** |**Sim**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage** sessões .NET API. |

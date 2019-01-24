@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Skillport | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Skillport | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Skillport.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 71a2b7186c77c6c1872870a594b287479c292472
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2d0b7b8f5e5455471f27bcfe6eaa5f35740f2e01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448310"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827793"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integração do Azure Active Directory com Skillport
+# <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integração do Active Directory do Azure com Skillport
 
 Neste tutorial, saiba como integrar Skillport com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Skillport, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Skillport início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Skillport com o Azure AD, terá de adicionar S
 
 **Para adicionar Skillport a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -210,7 +210,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico Skillport no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Skillport.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

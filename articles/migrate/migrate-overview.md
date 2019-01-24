@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263208"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808362"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -57,7 +57,7 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>O Azure Migrate suporta atualmente 33 regiões como localizações dos destinos de migração. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida como E.U.A. Oeste 2.
+**Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>O Azure Migrate suporta atualmente 33 regiões como localizações dos destinos de migração. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida para E.U.A. Leste.
 **Tipo de armazenamento** | O tipo de discos geridos que pretende alocar para todas as VMs que fazem parte da avaliação. Se o critério de dimensionamento for *no local dimensionamento* pode especificar o tipo de disco de destino como os discos premium (predefinição), os discos standard SSD ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, também tem a opção de selecionar automático que irá garantir que o disco a recomendação do tamanho é automaticamente feito com base nos dados de desempenho das VMs. Por exemplo, se quer atingir um [única instância de VM SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), talvez queira especificar o tipo de armazenamento como discos geridos Premium, que irão garantir que todos os discos na avaliação irão ser recomendados como discos geridos Premium. Note que o Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
 **Critérios de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.

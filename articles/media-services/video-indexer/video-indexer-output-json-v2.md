@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810708"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -83,7 +83,7 @@ Esta secção mostra o resumo das informações.
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
 |thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chamar Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
-|rostos|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
+|faces|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
 |audioEffects| Pode conter zero ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioeffects).|
@@ -105,7 +105,7 @@ Esta secção mostra o resumo das informações.
 |failureCode|O código de falha se processou (por exemplo, "UnsupportedFileType').|
 |failureMessage|A mensagem de falha se não foi possível processar.|
 |externalId|ID externo o vídeo (se especificado pelo utilizador).|
-|URL externo|Url externo o vídeo (se especificado pelo utilizador).|
+|externalUrl|Url externo o vídeo (se especificado pelo utilizador).|
 |do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
 |informações|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
@@ -159,14 +159,14 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |OCR|O [ocr](#ocr) dimensão.|
 |palavras-chave|O [palavras-chave](#keywords) dimensão.|
 |blocos|Pode conter um ou mais [blocos](#blocks)|
-|rostos|O [rostos](#faces) dimensão.|
+|faces|O [rostos](#faces) dimensão.|
 |etiquetas|O [etiquetas](#labels) dimensão.|
 |capturas de|O [capturas](#shots) dimensão.|
 |marcas|O [marcas](#brands) dimensão.|
 |audioEffects|O [audioEffects](#audioEffects) dimensão.|
 |sentimentos|O [sentimentos](#sentiments) dimensão.|
 |visualContentModeration|O [visualContentModeration](#visualcontentmoderation) dimensão.|
-|textualConentModeration|O [textualConentModeration](#textualconentmoderation) dimensão.|
+|textualContentModeration|O [textualContentModeration](#textualcontentmoderation) dimensão.|
 |emoções| O [emoções](#emotions) dimensão.|
 |Tópicos|O [tópicos](#topics) dimensão.|
 
@@ -187,7 +187,7 @@ Exemplo:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -326,7 +326,7 @@ Exemplo:
 ] 
 ```
 
-#### <a name="faces"></a>rostos
+#### <a name="faces"></a>faces
 
 |Nome|Descrição|
 |---|---|
@@ -334,7 +334,7 @@ Exemplo:
 |nome|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
 |descrição|Uma descrição da celebridade. |
-|thumbnalId|O ID da miniatura do que enfrentam.|
+|thumbnailId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas Bing.|
@@ -377,7 +377,7 @@ Exemplo:
 |---|---|
 |ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
-|language|Idioma de nome etiqueta (quando traduzido). BCP 47|
+|language|Idioma de nome etiqueta (quando traduzido). BCP-47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
@@ -435,7 +435,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |ID|O ID de captura.|
-|quadros-chave|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
+|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
 |instâncias|Uma lista de intervalos de tempo desta captura (capturas de tem apenas 1 instância).|
 
 ```json
@@ -662,7 +662,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |Nome|Descrição|
 |---|---|

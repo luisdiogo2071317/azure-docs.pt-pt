@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329995"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828099"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicação do Azure
 
@@ -36,7 +36,7 @@ A tabela seguinte apresenta uma lista e descreve cada etapa de publicação e fo
 |  **Etapa de publicação**           | **tempo**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar a pré-requisitos         | < 15 min    | Oferecer informações e oferecer definições são validadas.                        |
-| Validar as definições de receita influenciada | < 15 min  |      |
+| Validar as definições de receita influenciada | < 15 min  | Atribuição de utilização de recursos do Azure para a oferta é verificada.             |
 | Certificação                  | < 1 dia     | Oferta é analisada pela equipe de certificação do Azure. A oferta é procurada vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver de que cumpre todos os critérios de elegibilidade. Para obter mais informações, consulte [pré-requisitos](./cpp-prerequisites.md). Comentários é fornecido se não for encontrado um problema. |
 | Validação de unidade de teste          | < a 2 horas   | (Opcional) Se uma versão de teste estiver presente, a Microsoft valida que pode ser implantado e replicada.  |
 | Empacotamento e registo de geração de oportunidades potenciais | < 1 hora  | Ativos de técnicos da oferta são empacotados para uso do cliente e os sistemas de oportunidades potenciais são configurados e implementados. |

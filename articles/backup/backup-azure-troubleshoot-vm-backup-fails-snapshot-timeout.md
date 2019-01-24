@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353967"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816760"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -113,6 +113,26 @@ A operação de cópia de segurança poderá falhar quando a cópia de seguranç
 **Mensagem de erro**: Atualmente, o Azure Backup não suporta discos Standard SSD <br>
 
 Atualmente o Azure Backup suporta discos de Standard SSD apenas para os cofres que são atualizados para o [restaurar instantâneas](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso.
+
+**Código de erro**: UserErrorBackupOperationInProgress <br>
+**Mensagem de erro**: Não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso<br>
+
+Sua tarefa de cópia de segurança recente falhou porque existe uma tarefa de cópia de segurança existente em curso. Não é possível iniciar uma nova tarefa de cópia de segurança até que seja concluída a tarefa atual. Certifique-se de que a operação de cópia de segurança atualmente em curso é concluída antes de acionar ou outro operações de cópia de segurança de agendamento. Para verificar o estado de tarefas de cópia de segurança, execute os passos abaixo:
+
+1. Inicie sessão no portal do Azure, clique em **todos os serviços**. Escreva os serviços de recuperação e clique em **cofres dos serviços de recuperação**. É apresentada a lista dos cofres dos serviços de recuperação.
+2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual a cópia de segurança está configurada.
+3. No menu do dashboard do cofre, clique em **tarefas de cópia de segurança** apresenta todas as tarefas de cópia de segurança.
+
+    * Se uma tarefa de cópia de segurança está em curso, aguarde para concluir ou cancelar a tarefa de cópia de segurança.
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Se o ter de reconfigurar a cópia de segurança num cofre diferente, em seguida, certifique-se não há nenhuma tarefa de cópia de segurança em execução no cofre antigo. Se existir, em seguida, cancele a tarefa de cópia de segurança.
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Repita a operação de cópia de segurança.
+
+Se a operação de cópia de segurança agendada está a demorar mais tempo em conflito com a seguinte configuração de cópia de segurança, em seguida, reveja os [melhores práticas](backup-azure-vms-introduction.md#best-practices), [desempenho de cópia de segurança](backup-azure-vms-introduction.md#backup-performance) e [restaurar consideração ](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções

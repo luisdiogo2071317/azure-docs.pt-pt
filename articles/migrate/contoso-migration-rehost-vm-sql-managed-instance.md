@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3564288c55716a9c64ae2460048cb255a60dcc02
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469581"
+ms.locfileid: "54826620"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: Realojar a uma aplicação no local numa VM do Azure e a instância gerida da base de dados do SQL
 
@@ -432,7 +432,7 @@ Para configurar a origem de Contoso os administradores de ambiente, efetue o seg
 
 Agora, os administradores de Contoso configurar o ambiente de replicação de destino:
 
-1. Na **preparar infraestrutura** > **destino**, eles selecs as definições de destino.
+1. Na **preparar infraestrutura** > **destino**, eles selecionam as definições de destino.
 2. Recuperação de sites verifica que existe uma conta de armazenamento e rede de destino especificado.
 
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -473,7 +473,7 @@ Agora, os administradores da Contoso podem iniciar a replicação WebVM.
 
     ![Ativar a replicação – selecione a VM](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Eles verificam a política de replicação correta está selecionada e, ativa a replicação **WEBVM**. Eles tracs progresso de replicação em **tarefas**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
+5. Eles verificam a política de replicação correta está selecionada e, ativa a replicação **WEBVM**. Controlar o progresso de replicação em **tarefas**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 6. Na **Essentials** no portal do Azure, eles podem ver o estado para as VMs que estão a replicar para o Azure:
 
     ![Vista da infraestrutura](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Os administradores da Contoso tem de criar um projeto de serviço de migração 
         ![Serviço de migração de base de dados - configurar definições de migração](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Guardar as definições de migração e, em seguida, executar a migração.
-6. Na **descrição geral**, eles monitos o estado de migração.
+6. Na **descrição geral**, eles monitoram o estado de migração.
 
     ![Serviço de migração de base de dados - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

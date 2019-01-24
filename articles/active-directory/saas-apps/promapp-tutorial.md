@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Promapp | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Promapp | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 392bd8cf660ce1e394d25693bf1cd74d882fb028
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017121"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810147"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Azure Active Directory com Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com Promapp
 
 Neste tutorial, saiba como integrar Promapp com o Azure Active Directory (Azure AD).
 
@@ -172,7 +172,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     c. Abra o certificado transferido no bloco de notas, copie o conteúdo de certificado sem a primeira linha (---**BEGIN CERTIFICATE**---) e a última linha (---**certificado final**---), cole-o para o  **Certificado x.509 de SSO** caixa de texto e, em seguida, clique em **guardar**.
         
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

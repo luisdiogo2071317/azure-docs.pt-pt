@@ -3,19 +3,19 @@ title: ClaimsTransformations - Azure Active Directory B2C | Documentos da Micros
 description: Definição do elemento ClaimsTransformations na identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b569fe6a354bed315fd2136cafdade667b6f3a8b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 152149f94bba9077909d5b5c6bf92f3706b31b8c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432817"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848449"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -71,7 +71,7 @@ O **InputClaims** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| InputClaim | 1: n | Tipo de afirmação de entrada esperada. |
+| InputClaim | 1:n | Tipo de afirmação de entrada esperada. |
 
 #### <a name="inputclaim"></a>InputClaim
 
@@ -88,7 +88,7 @@ O **InputParameters** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| InputParameter | 1: n | Um parâmetro de entrada esperado. |
+| InputParameter | 1:n | Um parâmetro de entrada esperado. |
 
 #### <a name="inputparameter"></a>InputParameter
 
@@ -104,9 +104,9 @@ O **OutputClaims** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| outputClaim | 0: n | Tipo de afirmação de um resultado esperado. |
+| OutputClaim | 0:n | Tipo de afirmação de um resultado esperado. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>OutputClaim 
 
 O **OutputClaim** elemento contém os seguintes atributos:
 
@@ -161,10 +161,10 @@ Para obter exemplos de transformações de afirmações, consulte as seguintes p
 
 - [valor booleano](boolean-transformations.md)
 - [data](date-transformations.md)
-- [Número inteiro](integer-transformations.md)
+- [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Geral](general-transformations.md)
 - [Conta de redes sociais](social-transformations.md)
 - [Cadeia de caracteres](string-transformations.md)
-- [stringCollection](stringcollection-transformations.md)
+- [StringCollection](stringcollection-transformations.md)
 

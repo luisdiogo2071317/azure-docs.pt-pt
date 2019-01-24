@@ -3,9 +3,9 @@ title: Como utilizar o AMQP 1.0 com a API de barramento de serviço de Java | Do
 description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: spelluru
-ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: aschhab
+ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308075"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853294"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como utilizar o Java Message Service (JMS) API com do Service Bus e AMQP 1.0
 O Advanced Message colocação Protocol (AMQP) 1.0 é um protocolo de mensagens eficiente, fiável e ao nível da transmissão que pode utilizar para criar aplicativos de mensagens robustos e para várias plataformas.
@@ -41,14 +41,14 @@ Para obter informações sobre onde pode transferir a versão mais recente da bi
 
 Tem de adicionar os seguintes ficheiros JAR quatro de arquivo de distribuição Apache Qpid JMS AMQP 1.0 para o caminho da classe de Java quando criar e executar aplicativos de JMS com o Service Bus:
 
-* geronimo jms\_1.1\_spec 1.0.jar
-* qpid-jms - client-[version]. JAR
+* geronimo-jms\_1.1\_spec-1.0.jar
+* qpid-jms-client-[version].jar
 
 > ! [NOTA] Podem ter alterado JMS JAR nomes e versões. Para obter detalhes, consulte [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## <a name="coding-java-applications"></a>Programar aplicações Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>A atribuição de nomes de Java e a Interface de diretório (JNDI)
-JMS usa a nomenclatura de Java e a Interface de diretório (JNDI) para criar uma separação entre nomes de lógicos e físico. Dois tipos de objetos JMS são resolvidos usando JNDI: ConnectionFactory e de destino. JNDI utiliza um modelo de provedor no qual pode conectar os serviços de diretório diferente para processar tarefas de resolução de nome. Formato do Apache Qpid JMS AMQP 1.0 biblioteca é fornecida com um simples propriedades fornecedor JNDI baseados em ficheiros, que é configurado usando um arquivo de propriedades dos seguintes procedimentos:
+JMS usa a nomenclatura de Java e a Interface de diretório (JNDI) para criar uma separação entre nomes de lógicos e físico. Dois tipos de objetos JMS são resolvidos com JNDI: ConnectionFactory e de destino. JNDI utiliza um modelo de provedor no qual pode conectar os serviços de diretório diferente para processar tarefas de resolução de nome. Formato do Apache Qpid JMS AMQP 1.0 biblioteca é fornecida com um simples propriedades fornecedor JNDI baseados em ficheiros, que é configurado usando um arquivo de propriedades dos seguintes procedimentos:
 
 ```
 # servicebus.properties - sample JNDI configuration

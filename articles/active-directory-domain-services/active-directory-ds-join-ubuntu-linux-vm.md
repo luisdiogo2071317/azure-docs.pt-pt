@@ -4,7 +4,7 @@ description: Junte-se a uma máquina virtual do Ubuntu Linux para o Azure AD Dom
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155274"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845767"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Junte-se a uma máquina virtual do Ubuntu no Azure a um domínio gerido
 Este artigo mostra-lhe como associar uma máquina virtual do Ubuntu Linux a um domínio gerido do Azure AD Domain Services.
@@ -124,7 +124,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual do Linux
     ```
 
    > [!NOTE]
-   > **Resolução de problemas:** se *realm detetar* não conseguiu encontrar o seu domínio gerido:
+   > **Resolução de problemas:** Se *realm detetar* não conseguiu encontrar o seu domínio gerido:
      * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).
      * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
      * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.

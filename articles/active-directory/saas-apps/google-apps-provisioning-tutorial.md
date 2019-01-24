@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configurar o G Suite para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
+title: 'Tutorial: Configurar o G Suite para o aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
 description: Saiba como aprovisionar e desaprovisionar contas de utilizador do Azure AD ao G Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 856fc4416bde6022693cf8250b84854f66a269fd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840355"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820347"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para o aprovisionamento automático de utilizadores
 
 O objetivo deste tutorial é mostrar-lhe como aprovisionar e desaprovisionar contas de utilizador do Azure Active Directory (Azure AD) ao G Suite.
 
@@ -127,7 +127,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
     e. Repita os passos anteriores para quaisquer domínios adicionais que pretende adicionar ao Google Apps.
      
      > [!WARNING]
-     > Se alterar o domínio principal para o seu inquilino do G Suite, e se já tiver configurado o início de sessão único com o Azure AD, em seguida, tem de repetir o passo #3 sob [passo 2: Ativar o início de sessão único](#step-two-enable-single-sign-on).
+     > Se alterar o domínio principal para o seu inquilino do G Suite, e se já tiver configurado o início de sessão único com o Azure AD, em seguida, terá de repetir o passo #3 em [passo 2: Ativar o início de sessão único](#step-two-enable-single-sign-on).
        
 1. Na [consola de administração de aplicações do Google](https://admin.google.com/), selecione **funções de administrador**.
    

@@ -3,7 +3,7 @@ title: Como iniciar sessão utilizando as duas etapas a verificação ou a segur
 description: Saiba mais sobre como iniciar sessão com os vários métodos de verificação de identidade das informações de segurança.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,19 +11,19 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 9f7f06df2ab54e7ccb947362b6824097158166ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810419"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
 
 Depois de configurar a verificação de dois passos ou informações de segurança, poderá iniciar sessão na sua conta escolar ou profissional com o seu método de autenticação especificado.
 
 >[!Note]
->Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo. Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação com estes guias passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Definir informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
+>Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo. Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação com estes guias passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicie sessão com uma notificação de aplicação de autenticador no seu dispositivo móvel
 

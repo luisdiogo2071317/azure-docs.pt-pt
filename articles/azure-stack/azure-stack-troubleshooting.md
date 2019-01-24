@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957645"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857170"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Resolução de problemas do Microsoft Azure Stack
 
@@ -32,11 +32,31 @@ Este documento fornece informações de resolução de problemas comuns para o A
 As recomendações para a solução de problemas que são descritos nesta secção são derivadas de várias origens e podem ou não podem ser resolvido o problema específico. Exemplos de código são fornecidos tal como estão e não for possível garantir os resultados esperados. Esta secção é sujeitos a edições freqüentes e atualizações, melhorias ao produto são implementadas.
 
 ## <a name="deployment"></a>Implementação
-### <a name="deployment-failure"></a>Falha de implementação
+### <a name="general-deployment-failure"></a>Falha de implementação geral
 Se ocorrer uma falha durante a instalação, pode reiniciar implementação a partir do passo falhado, utilizando a – opção nova execução do script de implementação.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>No final da implementação de ASDK, a sessão do PowerShell ainda está aberta e não mostra nenhuma saída.
 Este comportamento é provavelmente somente o resultado do comportamento predefinido de uma janela de comando do PowerShell, quando foi selecionada. A implementação do kit de desenvolvimento foi concluída com êxito, mas o script foi colocada em pausa quando selecionar a janela. Pode verificar a configuração foi concluída para procurar a palavra "selecionar" na barra de títulos da janela de comando.  Prima a tecla ESC para desmarcá-lo e a mensagem de conclusão deve ser mostrada depois dela.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Implementação falha devido à falta de acesso externo
+Quando a implementação falha nos estágios onde é necessário o acesso externo, retornará uma exceção semelhante ao seguinte exemplo:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Se este erro ocorrer, verifique para garantir que todos os requisitos mínimos de sistema de rede tiverem sido cumpridos, revendo os [documentação de tráfego de rede de implementação](deployment-networking.md). Uma ferramenta de verificação da rede também está disponível para parceiros como parte do Kit de ferramentas de parceiros.
+
+Falhas de implementação com a exceção acima são normalmente devido a problemas de ligação a recursos na Internet
+
+Para verificar se que este é o seu problema, pode executar os seguintes passos:
+
+1. Powershell aberto
+2. Enter-PSSession para o WAS01 ou qualquer uma das ERCs VMs
+3. Execute o commandlet: Test-NetConnection login.windows.net-porta 443
+
+Se este comando falhar, verifique se o comutador TOR e outros dispositivos de rede estiverem configurados para [permitir tráfego de rede](azure-stack-network.md).
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 ### <a name="default-image-and-gallery-item"></a>Item de imagem e galeria predefinido

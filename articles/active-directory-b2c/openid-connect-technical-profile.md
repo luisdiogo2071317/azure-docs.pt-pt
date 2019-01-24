@@ -3,19 +3,19 @@ title: Definir um perfil técnico OpenId Connect numa política personalizada no
 description: Defina um perfil técnico OpenId Connect numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e8ee72b9add1947929e5c772edafd55d28edd79b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842420"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851050"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico OpenId Connect em políticas personalizadas do Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ O perfil técnico também retorna afirmações que não são devolvidas pelo for
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
 | IdTokenAudience | Não | O público-alvo do id_token. Se for especificado, o Azure AD B2C verifica se o token está numa afirmação devolvida pelo fornecedor de identidade e é igual a um serviço especificado. |
-| METADADOS | Sim | Um URL que aponta para um documento de configuração JSON formatado em conformidade com a especificação de deteção de ligação OpenID, que também é conhecido como um ponto de extremidade de configuração de openid bem conhecido. |
+| METADATA | Sim | Um URL que aponta para um documento de configuração JSON formatado em conformidade com a especificação de deteção de ligação OpenID, que também é conhecido como um ponto de extremidade de configuração de openid bem conhecido. |
 | ProviderName | Não | O nome do fornecedor de identidade. |
 | response_types | Não | O tipo de resposta, de acordo com a especificação de OpenID Connect Core 1.0. Valores possíveis: `id_token`, `code`, ou `token`. |
 | response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado para o Azure AD B2C. Valores possíveis: `query`, `form_post` (predefinição), ou `fragment`. |
@@ -96,7 +96,7 @@ O **CryptographicKeys** elemento contém o atributo seguinte:
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. A chave de criptografia é necessária apenas se o **response_types** metadados é definido como `code`. Neste caso, o Azure AD B2C faz outra chamada para o código de autorização para um token de acesso do exchange. Se os metadados é definido como `id_token` pode omitir a chave criptográfica.  |  
 
-## <a name="redirect-uri"></a>Uri de redirecionamento
+## <a name="redirect-uri"></a>Redirect Uri
  
 Quando configura o URI de redirecionamento de seu fornecedor de identidade, introduza `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Certifique-se de substituir **inquilino** com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com) ou ID. do inquilino O URI de redirecionamento tem de ser em letras minúsculas.
 

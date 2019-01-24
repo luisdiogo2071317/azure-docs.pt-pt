@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 86a3430f6109eb4b61baa0c7014752d07063fe85
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468787"
+ms.locfileid: "54823021"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -44,11 +44,11 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > * [Executar o tutorial de preparação de dados](tutorial-data-prep.md).
-> * Uma aprendizagem automatizada configurado o ambiente. Os exemplos são blocos de notas do Azure, um ambiente de Python local ou uma máquina de Virtual de ciência de dados. [Configurar a aprendizagem automática](samples-notebooks.md).
+> * Uma aprendizagem automatizada configurado o ambiente. Os exemplos são [blocos de notas do Azure](https://notebooks.azure.com/), um ambiente de Python local ou uma máquina de Virtual de ciência de dados. [Configurar a aprendizagem automática](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Execute o `regression-part2-automated-ml.ipynb` bloco de notas em blocos de notas do Azure ou no seu próprio servidor de bloco de notas do Jupyter.
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Executar o `regression-part2-automated-ml.ipynb` bloco de notas na [blocos de notas do Azure](https://notebooks.azure.com/) ou no seu próprio servidor de bloco de notas do Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

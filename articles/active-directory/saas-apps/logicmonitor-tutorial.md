@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com LogicMonitor | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com LogicMonitor | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e LogicMonitor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502350"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812425"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Azure Active Directory com LogicMonitor
+# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Active Directory do Azure com LogicMonitor
 
 Neste tutorial, saiba como integrar LogicMonitor com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com LogicMonitor, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um LogicMonitor logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do LogicMonitor com o Azure AD, terá de adiciona
 
 **Para adicionar LogicMonitor a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -204,7 +204,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
    
     b. Selecione **funções**, **ver permissões**e o **estado**.
    
-    c. Clique em **submeter**.
+    c. Clique em **Submit** (Submeter).
 
 >[!NOTE]
 >Pode utilizar quaisquer outras LogicMonitor utilizador conta criação ferramentas ou APIs fornecidas pelo LogicMonitor para aprovisionar o Azure Active Directory contas de utilizador. 
@@ -242,7 +242,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
- 
+ 
 Quando clica no mosaico LogicMonitor no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo LogicMonitor.
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../active-directory-saas-access-panel-introduction.md). 
 

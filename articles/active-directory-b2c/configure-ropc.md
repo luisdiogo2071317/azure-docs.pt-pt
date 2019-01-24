@@ -3,19 +3,19 @@ title: Configurar o fluxo de credenciais de palavra-passe de proprietário do re
 description: Saiba como configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726292"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845882"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C
 
@@ -26,9 +26,9 @@ O fluxo de credenciais (ROPC) de palavra-passe de proprietário do recurso é um
 
 No Azure Active Directory (Azure AD) B2C, são suportadas as seguintes opções:
 
-- **Cliente nativo**: interação do usuário durante a autenticação ocorre quando o código é executado num dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está em execução num sistema operativo nativo, tal como Android, ou em execução num browser, como JavaScript.
-- **Fluxo de cliente público**: apenas as credenciais de utilizador, coletadas por uma aplicação, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
-- **Adicionar nova afirmações**: conteúdo o ID de token pode ser alterado para adicionar nova afirmações. 
+- **Cliente nativo**: Interação do usuário durante a autenticação ocorre quando o código é executado num dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel que está em execução num sistema operativo nativo, tal como Android, ou em execução num browser, como JavaScript.
+- **Fluxo de cliente público**: Apenas credenciais de utilizador, coletadas por uma aplicação, são enviadas na chamada de API. As credenciais do aplicativo não são enviadas.
+- **Adicionar nova afirmações**: O conteúdo de token de ID pode ser alterado para adicionar nova afirmações. 
 
 Não são suportados os seguintes fluxos:
 
@@ -74,8 +74,8 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 | o nome de utilizador | leadiocl@outlook.com |
 | palavra-passe | Passxword1 |
 | grant_type | palavra-passe |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
 *Client_id* é o valor que anotou anteriormente como a ID da aplicação. *Offline_access* é opcional, se pretender receber um token de atualização. O nome de utilizador e palavra-passe que utiliza tem de ser as credenciais de um utilizador existente no seu inquilino do Azure AD B2C.
@@ -113,8 +113,8 @@ Construa uma chamada POST, como o mostrado aqui com as informações na tabela s
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *recurso* são os valores que apontou anteriormente como a ID da aplicação. *Refresh_token* é o token que recebeu na chamada de autenticação mencionada anteriormente.

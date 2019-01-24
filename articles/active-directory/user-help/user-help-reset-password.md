@@ -3,7 +3,7 @@ title: Repor a palavra-passe utilizando as informações de segurança - Azure A
 description: Como repor a sua própria palavra-passe caso se esqueça, usando a verificação de dois passos e as informações de segurança.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348527"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815944"
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe profissional ou escolar
 
-Se esqueceu-se a sua palavra-passe, nunca obteve um do suporte da empresa ou estão bloqueadas partido da sua conta, pode utilizar as informações de segurança e o seu dispositivo móvel para repor a palavra-passe.
+Caso se tenha esquecido da sua palavra-passe, nunca tiver recebido nenhuma por parte do suporte da sua empresa ou tiver perdido acesso à mesma, pode utilizar as suas informações de segurança e o seu dispositivo móvel para repor a palavra-passe.
 
 >[!NOTE]
 >Se já sabe a palavra-passe e apenas quiser alterá-la, pode ir para o [alterar a palavra-passe](#how-to-change-your-password) os passos neste artigo.<br><br>
@@ -159,7 +159,7 @@ Aqui estão alguns casos de erro comuns e as respectivas soluções:
 |Ao tentar alterar a minha palavra-passe, recebo um erro. |A palavra-passe tem uma palavra, frase ou padrão que faz com que a palavra-passe guessable facilmente.| Tente novamente utilizando uma palavra-passe mais forte.|
 |Depois de eu insiro o meu ID de utilizador, posso ir para uma página que diz "Contacte o administrador."|A Microsoft determinou que a sua palavra-passe da conta de utilizador é gerida pelo seu administrador num ambiente no local. Como resultado, não é possível repor a palavra-passe da ligação "Não é possível aceder à sua conta". |Contacte o administrador para obter mais ajuda.|
 |Depois de eu insiro o meu ID de utilizador, recebo um erro que diz "sua conta não está ativada para a reposição de palavra-passe."|O administrador ainda não configurar a sua conta para que pode redefinir sua própria palavra-passe.|O administrador não tiver ativado a reposição para a sua organização a partir da hiperligação "Não é possível aceder à sua conta" palavra-passe, ou ainda não licenciado para utilizar a funcionalidade.<br><br> Para repor a palavra-passe, tem de selecionar "Contacte uma ligação de administrador" para enviar um e-mail ao administrador da sua empresa e informá-los de que pretende repor a palavra-passe.|
-|Depois de eu insiro o meu ID de utilizador, recebo um erro que indica "Não foi possível verificar a sua conta."|O processo de início de sessão não foi possível verificar as informações da sua conta.|Existem dois motivos que pode estar a ver esta mensagem.<br><br>1. O administrador ativado para a sua organização de reposição de palavra-passe, mas ainda não registada para utilizar o serviço. Para se registar na reposição de palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [definir informações de segurança para utilizar uma aplicação de autenticação (pré-visualização)](security-info-setup-auth-app.md), [definir informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [Definir informações de segurança para utilizar mensagens de texto (pré-visualização)](security-info-setup-text-msg.md), [definir informações de segurança para utilizar o e-mail (pré-visualização)](security-info-setup-email.md), ou [definir informações de segurança para utilizar perguntas de segurança (pré-visualização) ](security-info-setup-questions.md).<br><br>2. O administrador não tenha ativado para a sua organização de reposição de palavra-passe. Nesta situação, tem de selecionar "Contacte uma ligação de administrador" para enviar um e-mail para o seu administrador, pedindo para repor a palavra-passe.|
+|Depois de eu insiro o meu ID de utilizador, recebo um erro que indica "Não foi possível verificar a sua conta."|O processo de início de sessão não foi possível verificar as informações da sua conta.|Existem dois motivos que pode estar a ver esta mensagem.<br><br>1. O administrador ativado para a sua organização de reposição de palavra-passe, mas ainda não registada para utilizar o serviço. Para se registar na reposição de palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Definir informações de segurança para utilizar uma aplicação de autenticação (pré-visualização)](security-info-setup-auth-app.md), [definir informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [definir informações de segurança para utilizar mensagens de texto (pré-visualização)](security-info-setup-text-msg.md), [ Definir informações de segurança para utilizar o e-mail (pré-visualização)](security-info-setup-email.md), ou [definir informações de segurança para utilizar perguntas de segurança (pré-visualização)](security-info-setup-questions.md).<br><br>2. O administrador não tenha ativado para a sua organização de reposição de palavra-passe. Nesta situação, tem de selecionar "Contacte uma ligação de administrador" para enviar um e-mail para o seu administrador, pedindo para repor a palavra-passe.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

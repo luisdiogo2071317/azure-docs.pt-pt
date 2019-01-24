@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: dbc9b3f4d32dec44b695ef90f1dce4e88000b2b7
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 24bd6fe29e05f84d78316d0bb3e8ffc0d25157f3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065669"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de pessoal de Mimecast
 
@@ -147,7 +147,7 @@ Para configurar o Azure AD início de sessão único com o Portal de pessoal de 
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -264,7 +264,7 @@ Para permitir que os utilizadores do Azure AD inicie sessão no Portal de pessoa
 
 5. Na caixa de diálogo novo endereço, execute os seguintes passos de um Azure válido conta AD que pretende aprovisionar:
    
-    ![Guarde](./media/mimecast-personal-portal-tutorial/ic795006.png "guardar")
+    ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
     a. Na **endereço de E-Mail** caixa de texto, tipo **endereço de E-Mail** do utilizador como **BrittaSimon@contoso.com**.
     

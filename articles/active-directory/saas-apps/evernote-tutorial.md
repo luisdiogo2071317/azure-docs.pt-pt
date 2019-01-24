@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Evernote | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Evernote | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Evernote.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a9282f5418737b583e29d99893df3fc81f52955
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8ba80e113de8ea6754d8d2d6446fb26498904e12
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442637"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816811"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Azure Active Directory com Evernote
+# <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Active Directory do Azure com Evernote
 
 Neste tutorial, saiba como integrar Evernote com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Evernote, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Evernote logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Evernote com o Azure AD, terá de adicionar Ev
 
 **Para adicionar Evernote a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -144,7 +144,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Definição do certificado](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **Ativar SSO:** SSO está ativado por predefinição (clique em **desativar o início de sessão único** para remover o requisito de SSO)
+    a.  **Ative o SSO:** SSO está ativado por predefinição (clique em **desativar o início de sessão único** para remover o requisito de SSO)
 
     b. Colar **SAML início de sessão único URL do serviço** valor, que copiou do portal do Azure para o **URL de pedido de HTTP de SAML** caixa de texto.
 
@@ -153,7 +153,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     d.Click **guardar alterações**
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -203,11 +203,11 @@ No caso de Evernote, o aprovisionamento é uma tarefa manual.
 
 1. Do **consola de administração**, aceda à **"Adicionar utilizadores"**.
 
-    ![TestUser adicionar](./media/evernote-tutorial/create_aaduser_0001.png)
+    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 
 1. **Adicionar membros da Equipe** no **E-Mail** caixa de texto, escreva o endereço de e-mail da conta de utilizador e clique em **convidar.**
 
-    ![TestUser adicionar](./media/evernote-tutorial/create_aaduser_0002.png)
+    ![Add-testUser](./media/evernote-tutorial/create_aaduser_0002.png)
     
 1. Depois de convite é enviado, o titular da conta do Azure Active Directory irá receber um e-mail para aceitar o convite.
 
@@ -241,7 +241,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

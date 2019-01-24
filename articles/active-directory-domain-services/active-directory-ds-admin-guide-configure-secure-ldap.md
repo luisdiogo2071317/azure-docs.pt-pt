@@ -4,7 +4,7 @@ description: Configurar LDAP seguro (LDAPS) para um domínio gerido do Azure AD 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5bc40d5be5b41000ababa35386bcdda6bf3f83f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236958"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854264"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 Este artigo mostra como pode permitir proteger Lightweight Directory Access Protocol (LDAPS) para o seu domínio gerido do Azure AD Domain Services. LDAP seguro também é conhecido como "acesso protocolo LDAP (Lightweight Directory) através de Secure Sockets Layer (SSL) / Transport Layer Security (TLS)".
@@ -90,7 +90,7 @@ No exemplo anterior, substitua 'contoso100.com' com o nome de domínio DNS do se
 
 ![Selecionar o Azure AD Directory](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
-O certificado autoassinado criado recentemente, é colocado no arquivo de certificados do computador local.
+O certificado autoassinado acabado de criar é colocado no arquivo de certificados do computador local.
 
 
 ## <a name="next-step"></a>Passo seguinte

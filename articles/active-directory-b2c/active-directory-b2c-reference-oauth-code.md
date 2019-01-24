@@ -3,21 +3,21 @@ title: Fluxo de código de autorização no Azure Active Directory B2C | Documen
 description: Saiba como criar aplicações web utilizando o protocolo de autenticação do Azure AD B2C e o OpenID Connect.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6d976869f2a068c393a643bb97cae2f7ac1a470
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 17409bc763c89ac7898ee4533ecec90613f48674
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843194"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846052"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Do Azure Active Directory B2C: Fluxo de código de autorização de OAuth 2.0
+# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: Fluxo de código de autorização do OAuth 2.0
 Pode utilizar a concessão de código de autorização de OAuth 2.0 nas aplicações instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OAuth 2.0, pode adicionar inscrição, início de sessão, e as tarefas de outra gestão de identidades às suas aplicações móveis e de Desktops. Este artigo é independente de idioma. Neste artigo, descrevemos como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de código-fonte aberto.
 
 O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Pode usá-lo para autenticação e autorização na maioria [tipos de aplicativos](active-directory-b2c-apps.md), incluindo aplicações web e aplicativos instalados nativamente. Pode utilizar o fluxo de código de autorização de OAuth 2.0 para adquirir os tokens de acesso e tokens de atualização para as suas aplicações, que podem ser utilizadas para aceder a recursos que são protegidos com segurança uma [servidor de autorização](active-directory-b2c-reference-protocols.md).  O token de atualização permite ao cliente adquirir acesso nova (e atualizar) tokens assim que o token de acesso expira, normalmente, depois de uma hora.

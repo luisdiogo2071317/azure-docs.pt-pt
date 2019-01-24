@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465836"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848738"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com a CLI do Azure
 
@@ -70,7 +70,7 @@ Os Conjuntos de Disponibilidade permitem isolar os recursos em domínios com fal
 
 As VMs têm de ser criadas no conjunto de disponibilidade para garantir que são distribuídas corretamente pelo hardware. Não é possível adicionar uma VM existente a um conjunto de disponibilidade depois de ter sido criado.
 
-Quando uma VM for criada com [az vm create](/cli/azure/vm#az_vm_create), utilize o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
+Quando uma VM for criada com [az vm create](/cli/azure/vm), utilize o parâmetro `--availability-set` para especificar o nome do conjunto de disponibilidade.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -104,7 +104,7 @@ az vm availability-set list-sizes \
      --output table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

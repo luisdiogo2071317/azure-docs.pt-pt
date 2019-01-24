@@ -4,7 +4,7 @@ description: Saiba como analisar registos de atividades do Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624204"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810788"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Azure AD de analisar os registos de atividades com o Log Analytics (pré-visualização)
 
@@ -93,9 +93,9 @@ Também pode configurar alertas em sua consulta. Por exemplo, para configurar um
 
 As vistas do Log Analytics pré-criados para a atividade do Azure AD também pode transferir registos. As vistas fornecem vários relatórios relacionados aos cenários comuns que envolvem a auditoria e eventos de início de sessão. Pode também alertar em qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
 
-* **Eventos de aprovisionamento de conta de AD do Azure**: esta vista mostra relatórios relacionados com a auditoria de atividade de aprovisionamento, como o número de novos utilizadores aprovisionado e falhas de aprovisionamento, o número de utilizadores atualizado e atualize a falhas e o número de utilizadores falhas de desaprovisionadas e correspondentes.    
-* **Eventos de inícios de sessão**: esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
-* **Os utilizadores a efetuar a dar consentimento**: esta vista mostra os relatórios relacionados com o consentimento do utilizador, como o consentimento concede por utilizador, inícios de sessão por utilizadores que autoriza, bem como inícios de sessão por aplicação para todos os aplicativos baseados no consentimento. 
+* **Conta do AD FS eventos de aprovisionamento**: Esta vista mostra relatórios relacionados com a auditoria de atividade de aprovisionamento, como o número de novos utilizadores aprovisionado e falhas de aprovisionamento, o número de utilizadores atualizados e atualizar falhas e o número de utilizadores desconfigurados e falhas correspondentes.    
+* **Eventos de inícios de sessão**: Esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
+* **Os utilizadores consentir**: Esta vista mostra os relatórios relacionados com o consentimento do utilizador, como o consentimento concede por utilizador, inícios de sessão por utilizadores que autoriza, bem como inícios de sessão por aplicação para todos os aplicativos baseados no consentimento. 
 
 Saiba como [instalar e utilizar vistas do Log Analytics para registos de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
 

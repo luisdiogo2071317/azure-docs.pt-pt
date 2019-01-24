@@ -3,19 +3,19 @@ title: Predicados e PredicateValidations - Azure Active Directory B2C | Document
 description: Conta de rede social de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432176"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850863"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -35,7 +35,7 @@ O **predicados** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Predicado | 1: n | Uma lista de predicados. | 
+| Predicado | 1:n | Uma lista de predicados. | 
 
 O **predicado** elemento contém os seguintes atributos:
 
@@ -55,7 +55,7 @@ O **parâmetros** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Parâmetro | 1: n | Os parâmetros para o tipo de método de validação da cadeia de caracteres. | 
+| Parâmetro | 1:n | Os parâmetros para o tipo de método de validação da cadeia de caracteres. | 
 
 O **parâmetro** elemento contém os seguintes atributos:
 
@@ -134,7 +134,7 @@ O **PredicateValidations** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1: n | Uma lista de validação de predicado. | 
+| PredicateValidation | 1:n | Uma lista de validação de predicado. | 
 
 O **PredicateValidation** elemento contém o atributo seguinte:
 
@@ -146,13 +146,13 @@ O **PredicateValidation** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1: n | Uma lista de grupos de predicado. | 
+| PredicateGroups | 1:n | Uma lista de grupos de predicado. | 
 
 O **PredicateGroups** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1: n | Uma lista de predicados. | 
+| PredicateGroup | 1:n | Uma lista de predicados. | 
 
 O **PredicateGroup** elemento contém o atributo seguinte:
 
@@ -165,7 +165,7 @@ O **PredicateGroup** elemento contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Uma descrição do predicado que pode ser útil para os utilizadores saber o valor devem escrever. | 
-| PredicateReferences | 1: n | Uma lista de referências de predicado. | 
+| PredicateReferences | 1:n | Uma lista de referências de predicado. | 
 
 O **PredicateReferences** elemento contém os seguintes atributos:
 
@@ -177,7 +177,7 @@ O **PredicateReferences** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1: n | Uma referência a um predicado. | 
+| PredicateReference | 1:n | Uma referência a um predicado. | 
 
 O **PredicateReference** elemento contém os seguintes atributos:
 
@@ -262,7 +262,7 @@ Com o **predicados** e **PredicateValidationsInput** pode controlar os requisito
 Depois de definir as validações básicas, pode combiná-los em conjunto e criar um conjunto de políticas de palavra-passe que podem ser utilizados na sua política:
 
 - **SimplePassword** valida o DisallowedWhitespace AllowedAADCharacters e IsLengthBetween8And64
-- **StrongPassword** valida o IsLengthBetween8And64 DisallowedWhitespace, AllowedAADCharacters,. O último grupo `CharacterClasses` executa um conjunto adicional de predicados com `MatchAtLeast` definido como 3. A palavra-passe do utilizador tem de ter entre 8 e 16 carateres e três dos seguintes carateres: minúsculas, Uppercase, número ou símbolo.
+- **StrongPassword** valida o IsLengthBetween8And64 DisallowedWhitespace, AllowedAADCharacters,. O último grupo `CharacterClasses` executa um conjunto adicional de predicados com `MatchAtLeast` definido como 3. A palavra-passe do utilizador tem de ter entre 8 e 16 carateres e três dos seguintes carateres: Em minúsculas, letras maiúsculas, número ou símbolo.
 - **CustomPassword** valida apenas DisallowedWhitespace, AllowedAADCharacters. Então, o usuário pode fornecer qualquer palavra-passe com qualquer comprimento, desde que os caracteres são válidos.
 
 ```XML

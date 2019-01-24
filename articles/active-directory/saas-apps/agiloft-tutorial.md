@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Agiloft | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Agiloft | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Agiloft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f11d705cceb05c9e9cd0b340a680684eecf4f5d9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f851bd260c18509a3233bb3401383e0e04ba6259
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054204"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813666"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory com Agiloft
+# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Active Directory do Azure com Agiloft
 
 Neste tutorial, saiba como integrar Agiloft com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Agiloft, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Agiloft logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Agiloft com o Azure AD, terá de adicionar Agi
 
 **Para adicionar Agiloft a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -145,35 +145,35 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 7. Sobre o **Agiloft configuração** secção, clique em **configurar Agiloft** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
-    ![Configuração de Agiloft](./media/agiloft-tutorial/tutorial_agiloft_configure.png) 
+    ![Agiloft Configuration](./media/agiloft-tutorial/tutorial_agiloft_configure.png) 
 
 8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Agiloft como administrador.
 
 9. Clique em **programa de configuração** (no painel da esquerda) e, em seguida **acesso**.
 
-    ![Configuração de Agiloft](./media/agiloft-tutorial/setup1.png) 
+    ![Agiloft Configuration](./media/agiloft-tutorial/setup1.png) 
 
 10. Clique no botão **"Configurar SAML 2.0 início de sessão único"**. 
     
-    ![Configuração de Agiloft](./media/agiloft-tutorial/setup2.png) 
+    ![Agiloft Configuration](./media/agiloft-tutorial/setup2.png) 
 
 11. É apresentada uma caixa de diálogo do assistente. Na caixa de diálogo, clique no SEPARADOR **"Detalhes do fornecedor de identidade"** e preencha os campos seguintes:  
     
-    ![Configuração de Agiloft](./media/agiloft-tutorial/setup4.png) 
+    ![Agiloft Configuration](./media/agiloft-tutorial/setup4.png) 
 
-    a. Na **Id de entidade do IdP / emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    a. Na **Id de entidade do IdP / emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    b. Na **URL de início de sessão do IdP** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
+    b. Na **URL de início de sessão do IdP** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
 
-    c. Na **URL de fim de sessão do IdP** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    c. Na **URL de fim de sessão do IdP** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
 
-    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **conteúdo de certificado X.509 de fornecido IdP** caixa de texto.
+    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **conteúdo de certificado X.509 de fornecido IdP**  caixa de texto.
 
     e. Clique em **Concluir**.
 
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -241,7 +241,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -251,7 +251,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

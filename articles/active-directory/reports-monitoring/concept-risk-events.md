@@ -4,7 +4,7 @@ description: Este artice dá-lhe uma visão geral detalhada dos eventos de risco
 services: active-directory
 keywords: proteção de identidade do Azure Active Directory, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652154"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808090"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -44,6 +44,9 @@ Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 - [Inícios de sessão de localizações desconhecidas](#sign-in-from-unfamiliar-locations) 
 
 ![Evento de risco](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> Às vezes, pode encontrar um evento de risco sem uma entrada correspondente início de sessão no [relatório de inícios de sessão](concept-sign-ins.md). Isto acontece porque o Identity Protection avalia o risco para ambos **interativo** e **não interativa** inícios de sessão, ao passo que o relatório de inícios de sessão mostra apenas os interativos inícios de sessão.
 
 A informação que obtém um evento de risco detetados está associada à sua subscrição do Azure AD. 
 

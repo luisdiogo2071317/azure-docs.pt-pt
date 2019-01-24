@@ -1,21 +1,21 @@
 ---
-title: Os TechnicalProfiles | Documentos da Microsoft
+title: TechnicalProfiles | Microsoft Docs
 description: Especifique o elemento os TechnicalProfiles de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566538"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856558"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -95,7 +95,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 | PersistedClaims | 0:1 | Uma lista das referências previamente definidas para tipos que são mantidos pelo fornecedor de afirmações que se relaciona com o perfil técnico de afirmação. |
 | OutputClaims | 0:1 | Uma lista das referências previamente definidas para tipos que são executados como saída no perfil técnico de afirmação. |
 | OutputClaimsTransformations | 0:1 | Uma lista de referências definidas anteriormente a transformação de declarações que deve ser executada após as declarações são recebidas do fornecedor de afirmações. |
-| ValidationTechnicalProfiles | 0: n | Uma lista de referências a outros perfis técnicos que o perfil técnico utiliza para fins de validação. Para obter mais informações, consulte [perfil técnico de validação](validation-technical-profile.md)|
+| ValidationTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico utiliza para fins de validação. Para obter mais informações, consulte [perfil técnico de validação](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controla a produção de nome do requerente tokens em que o nome do requerente é especificado em separado de afirmações. Por exemplo, OAuth ou SAML.  |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico a partir do qual pretende que todas as declarações de entrada e saídas a ser adicionado a este perfil técnico. O perfil técnico referenciado tem de ser definido no mesmo ficheiro de política. | 
 | IncludeTechnicalProfile |0:1 | Um identificador de um perfil técnico a partir do qual pretende que todos os dados a serem adicionados a este perfil técnico. O perfil técnico referenciado tem de existir no mesmo ficheiro de política. |
@@ -117,7 +117,7 @@ R **metadados** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Item | 0: n | Os metadados que se relaciona com o perfil técnico. Cada tipo de perfil técnico tem um conjunto diferente de itens de metadados. Consulte a secção de tipos de perfil técnico, para obter mais informações. |
+| Item | 0:n | Os metadados que se relaciona com o perfil técnico. Cada tipo de perfil técnico tem um conjunto diferente de itens de metadados. Consulte a secção de tipos de perfil técnico, para obter mais informações. |
 
 #### <a name="item"></a>Item
 
@@ -133,7 +133,7 @@ O **CryptographicKeys** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Chave | 1: n | Uma chave criptográfica utilizada neste perfil técnico. |
+| Chave | 1:n | Uma chave criptográfica utilizada neste perfil técnico. |
 
 #### <a name="key"></a>Chave
 
@@ -150,7 +150,7 @@ O **InputClaimsTransformations** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| InputClaimsTransformation | 1: n | O identificador de uma transformação de afirmações que deve ser executado antes de quaisquer afirmações são enviadas para o fornecedor de afirmações ou a entidade confiadora. Uma transformação de afirmações pode ser utilizada para modificar ClaimsSchema nas declarações existente ou gerar novas etiquetas. |
+| InputClaimsTransformation | 1:n | O identificador de uma transformação de afirmações que deve ser executado antes de quaisquer afirmações são enviadas para o fornecedor de afirmações ou a entidade confiadora. Uma transformação de afirmações pode ser utilizada para modificar ClaimsSchema nas declarações existente ou gerar novas etiquetas. |
 
 #### <a name="inputclaimstransformation"></a>InputClaimsTransformation
 
@@ -158,7 +158,7 @@ O **InputClaimsTransformation** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador de uma transformação de afirmações já definido no ficheiro de política ou ficheiro de política do principal. |
+| ReferenceId | Sim | Um identificador de uma transformação de afirmações já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -166,7 +166,7 @@ O **InputClaims** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| InputClaim | 1: n | Tipo de afirmação de entrada esperada. |
+| InputClaim | 1:n | Tipo de afirmação de entrada esperada. |
 
 #### <a name="inputclaim"></a>InputClaim 
 
@@ -184,7 +184,7 @@ O **PersistedClaims** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| PersistedClaim | 1: n | O tipo de afirmação para manter. |
+| PersistedClaim | 1:n | O tipo de afirmação para manter. |
 
 #### <a name="persistedclaim"></a>PersistedClaim 
 
@@ -202,9 +202,9 @@ O **OutputClaims** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| outputClaim | 1: n | Tipo de afirmação de um resultado esperado. |
+| OutputClaim | 1:n | Tipo de afirmação de um resultado esperado. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>OutputClaim 
 
 O **OutputClaim** elemento contém os seguintes atributos:
 
@@ -221,7 +221,7 @@ O **OutputClaimsTransformations** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| OutputClaimsTransformation | 1: n | Os identificadores de transformações de afirmações que devem ser executados antes de quaisquer afirmações são enviadas para o fornecedor de afirmações ou a entidade confiadora. Uma transformação de afirmações pode ser utilizada para modificar ClaimsSchema nas declarações existente ou gerar novas etiquetas. |
+| OutputClaimsTransformation | 1:n | Os identificadores de transformações de afirmações que devem ser executados antes de quaisquer afirmações são enviadas para o fornecedor de afirmações ou a entidade confiadora. Uma transformação de afirmações pode ser utilizada para modificar ClaimsSchema nas declarações existente ou gerar novas etiquetas. |
 
 #### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
 
@@ -229,7 +229,7 @@ O **OutputClaimsTransformation** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador de uma transformação de afirmações já definido no ficheiro de política ou ficheiro de política do principal. |
+| ReferenceId | Sim | Um identificador de uma transformação de afirmações já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -237,7 +237,7 @@ O **ValidationTechnicalProfiles** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1: n | Os identificadores de perfis de técnicos que são utilizados validam algumas ou todas as afirmações de saída do perfil técnico referência. Todas as declarações de entrada do perfil técnico referenciado tem de aparecer nas afirmações de saída do perfil técnico referência. |
+| ValidationTechnicalProfile | 1:n | Os identificadores de perfis de técnicos que são utilizados validam algumas ou todas as afirmações de saída do perfil técnico referência. Todas as declarações de entrada do perfil técnico referenciado tem de aparecer nas afirmações de saída do perfil técnico referência. |
 
 #### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 
@@ -245,7 +245,7 @@ O **ValidationTechnicalProfile** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -261,7 +261,7 @@ O **IncludeTechnicalProfile** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,7 +269,7 @@ O **UseTechnicalProfileForSessionManagement** elemento contém o atributo seguin
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| referenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 O **ClaimsProviderSelections** sessão de um utilizador jornada define a lista de opções de seleção do fornecedor de afirmações e sua ordem. Com o **EnabledForUserJourneys** elemento filtrar, qual o fornecedor de afirmações está disponível para o utilizador. O **EnabledForUserJourneys** elemento contém um dos seguintes valores:

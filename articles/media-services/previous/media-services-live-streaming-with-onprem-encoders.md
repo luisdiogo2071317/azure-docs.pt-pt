@@ -1,6 +1,6 @@
 ---
 title: Stream em direto com codificadores no local que criam transmissões em fluxo - Azure | Documentos da Microsoft
-description: 'Este tópico descreve como configurar um canal que recebe um velocidade de transmissão em fluxo em direto de um codificador no local. O fluxo, em seguida, pode ser entregues aos aplicativos de reprodução de cliente por meio de um ou mais pontos finais de transmissão, através de um dos seguintes protocolos de transmissão em fluxo adaptáveis: HLS, transmissão em fluxo uniforme, DASH.'
+description: 'Este tópico descreve como configurar um canal que recebe um velocidade de transmissão em fluxo em direto de um codificador no local. O fluxo, em seguida, pode ser entregues aos aplicativos de reprodução de cliente por meio de um ou mais pontos finais de transmissão, através de um dos seguintes protocolos de transmissão em fluxo adaptáveis: HLS, Smooth Streaming, DASH.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809037"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>A transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo
 
@@ -39,8 +39,8 @@ Nos serviços de multimédia do Azure, um *canal* representa um pipeline de proc
 
 Começando com o lançamento de 2.10 de serviços de multimédia, quando cria um canal, pode especificar como pretende que o canal para receber o fluxo de entrada. Também pode especificar se pretende que o canal para realizar live encoding da sua transmissão em fluxo. Tem duas opções:
 
-* **Passar**: especificar este valor se planeja usar um codificador em direto no local que tenha um fluxo de velocidade de transmissão (um fluxo de pass-through) como saída. Neste caso, o fluxo de entrada passa à saída sem qualquer tipo de codificação. Este é o comportamento de um canal antes do lançamento 2.10. Este artigo fornece detalhes sobre como trabalhar com canais deste tipo.
-* **Live Encoding**: escolha esse valor, se planeja usar serviços de multimédia para codificar a transmissão em direto de velocidade de transmissão única para um fluxo de velocidade de transmissão. A sair de um canal de codificação em direto numa **em execução** Estado incorre em encargos de faturação. Recomendamos que pare imediatamente os seus canais em execução depois do evento de transmissão em fluxo foi concluído para evitar custos adicionais por hora. Media Services disponibilizam a transmissão aos clientes que solicitação-la.
+* **Pass-Through**: Especifica este valor se planeja usar um codificador em direto no local que tenha um fluxo de velocidade de transmissão (um fluxo de pass-through) como saída. Neste caso, o fluxo de entrada passa à saída sem qualquer tipo de codificação. Este é o comportamento de um canal antes do lançamento 2.10. Este artigo fornece detalhes sobre como trabalhar com canais deste tipo.
+* **Codificação em direto**: Escolha esse valor se planeja usar serviços de multimédia para codificar a transmissão em direto de velocidade de transmissão única para um fluxo de velocidade de transmissão. A sair de um canal de codificação em direto numa **em execução** Estado incorre em encargos de faturação. Recomendamos que pare imediatamente os seus canais em execução depois do evento de transmissão em fluxo foi concluído para evitar custos adicionais por hora. Media Services disponibilizam a transmissão aos clientes que solicitação-la.
 
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão ativados para realizar live encoding. Para obter informações sobre como trabalhar com canais ativados para realizar live encoding, consulte [transmissão em direto através dos serviços de multimédia do Azure para criar transmissões em fluxo](media-services-manage-live-encoder-enabled-channels.md).
@@ -89,7 +89,7 @@ Os passos seguintes descrevem as tarefas envolvidas na criação de aplicações
 Os Media Services suportam a ingestão em direto feeds ao utilizar o MP4 de velocidade de transmissão fragmentada e RTMP de velocidade de transmissão como protocolos de transmissão em fluxo. Quando o RTMP ingerir protocolo de transmissão em fluxo é selecionado, dois pontos finais de (entrada) de ingestão são criadas para o canal:
 
 * **URL principal**: Especifica o ponto final de ingestão do URL completamente qualificado do RTMP de principal do canal.
-* **URL secundário** (opcional): Especifica o ponto final de ingestão do URL completamente qualificado do RTMP de secundário do canal.
+* **URL secundário** (opcional): Especifica o URL completamente qualificado do RTMP o canal de secundário ponto final de ingestão.
 
 Utilize o URL secundário se pretender melhorar a durabilidade e tolerância a falhas de sua ingestão stream (bem como codificador ativação pós-falha e tolerância a falhas), especialmente para os seguintes cenários:
 
@@ -115,7 +115,7 @@ Pode obter os URLs de ingestão ao criar o canal. Para poder obter estes URLs, o
 Tem uma opção de ingestão de um MP4 fragmentado (Smooth Streaming) em fluxo em direto através de uma ligação SSL. Ingerir através de SSL, certifique-se atualizar o URL de inserção para HTTPS. Atualmente, não é possível de ingestão RTMP através de SSL.
 
 #### <a id="keyframe_interval"></a>Intervalo de quadro-chave
-Quando estiver usando um codificador em direto no local para gerar o fluxo de velocidade de transmissão, o intervalo de quadro-chave especifica a duração do grupo de imagens (GOP) como utilizado por esse codificador externo. Depois do canal recebe esse fluxo de entrada, pode fornecer a transmissão em direto para aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: transmissão em fluxo uniforme, Dynamic Adaptive Streaming através de HTTP (DASH) e HTTP Live Streaming (HLS). Quando está fazendo a transmissão em direto, HLS é sempre empacotado dinamicamente. Por predefinição, os serviços de multimédia calcula automaticamente a HLS segmento empacotamento proporção (fragmentos por segmento) com base no intervalo de quadro-chave que é recebido do codificador em direto.
+Quando estiver usando um codificador em direto no local para gerar o fluxo de velocidade de transmissão, o intervalo de quadro-chave especifica a duração do grupo de imagens (GOP) como utilizado por esse codificador externo. Depois do canal recebe esse fluxo de entrada, pode fornecer a sua transmissão em fluxo em direto para aplicativos de reprodução de cliente em qualquer um dos seguintes formatos: Transmissão em fluxo uniforme, Dynamic Adaptive Streaming através de HTTP (DASH) e HTTP Live Streaming (HLS). Quando está fazendo a transmissão em direto, HLS é sempre empacotado dinamicamente. Por predefinição, os serviços de multimédia calcula automaticamente a HLS segmento empacotamento proporção (fragmentos por segmento) com base no intervalo de quadro-chave que é recebido do codificador em direto.
 
 A tabela seguinte mostra como é calculada a duração de segmento:
 
@@ -127,7 +127,7 @@ A tabela seguinte mostra como é calculada a duração de segmento:
 
 Pode alterar a proporção de fragmentos por segmento ao configurar a saída do canal e definir FragmentsPerSegment ChannelOutputHls.
 
-Também pode alterar o valor de intervalo de quadro-chave, definindo a propriedade de KeyFrameInterval no ChanneInput. Se definir explicitamente KeyFrameInterval, os HLS segmentar a proporção de empacotamento que fragmentspersegment é calculada através de regras descritas anteriormente.  
+Também pode alterar o valor de intervalo de quadro-chave, definindo a propriedade de KeyFrameInterval no ChannelInput. Se definir explicitamente KeyFrameInterval, os HLS segmentar a proporção de empacotamento que fragmentspersegment é calculada através de regras descritas anteriormente.  
 
 Se definir explicitamente KeyFrameInterval e FragmentsPerSegment, serviços de multimédia utiliza os valores que definir.
 
@@ -176,11 +176,11 @@ Mesmo depois de parar e eliminar o programa, os utilizadores podem transmitir o 
 ## <a id="states"></a>Estados de um canal e faturação
 Os valores possíveis para o estado atual de um canal incluem:
 
-* **Parado**: Este é o estado inicial do canal após a sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
+* **Parado**: Este é o estado inicial de um canal após a sua criação. Neste estado, as propriedades do canal podem ser atualizadas, mas a transmissão em fluxo não é permitida.
 * **A iniciar**: O canal está a ser iniciado. Não são permitidas transmissões em fluxo nem atualizações durante este estado. Se ocorrer um erro, o canal volta para o **parado** estado.
-* **Executar**: O canal é capaz de processar transmissões em fluxo.
+* **Executar**: O canal pode processar transmissões em fluxo.
 * **A parar**: O canal está a ser parado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
-* **A eliminar**: O canal está a ser eliminado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
+* **A eliminar**: O canal está a ser apagado. Não são permitidas transmissões em fluxo nem atualizações durante este estado.
 
 A tabela seguinte mostra como os estados de um canal mapeiam para o modo de faturação.
 
@@ -197,8 +197,8 @@ A tabela a seguir demonstra padrões suportados para inserção de legendas de �
 | Standard | Notas |
 | --- | --- |
 | Legenda oculta CEA-708 e EIA 608 (708/608) |Legenda oculta CEA-708 e EIA 608 são legendagem padrões para os Estados Unidos e Canadá.<p><p>Atualmente, as legendas de áudio só é suportada se efetuado no fluxo de entrada codificado. Tem de utilizar um codificador de multimédia em direto que pode inserir 608 ou 708 legendas no fluxo codificado que é enviado para os serviços de multimédia. Serviços de multimédia fornece os conteúdos com inserido legendas para os seus utilizadores. |
-| TTML dentro .ismt (faixas de texto de transmissão em fluxo uniforme) |Um empacotamento dinâmico dos serviços de multimédia permite que seus clientes para transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou transmissão em fluxo uniforme. No entanto, se ingerir real de MP4 fragmentado (Smooth Streaming) com as legendas dentro .ismt (transmissão em fluxo uniforme faixas de texto), que pode fornecer o stream apenas clientes de transmissão em fluxo uniforme. |
-| SCTE 35 |SCTE 35 é um sistema de sinalização digital que serve para deixa a inserção de publicidade. Recetores Downstream use o sinal a fusão de anúncio no fluxo de tempo atribuído. SCTE 35 têm de ser enviados como um Roteiro disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas Formatar que executa diversas sinais de ad está fragmentado MP4 (transmissão em fluxo uniforme). O único suportado saída formato também é Smooth Streaming. |
+| TTML dentro .ismt (faixas de texto de transmissão em fluxo uniforme) |Um empacotamento dinâmico dos serviços de multimédia permite que os seus clientes para transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou transmissão em fluxo uniforme. No entanto, se ingerir real de MP4 fragmentado (Smooth Streaming) com as legendas dentro .ismt (transmissão em fluxo uniforme faixas de texto), que pode fornecer o stream apenas clientes de transmissão em fluxo uniforme. |
+| SCTE-35 |SCTE 35 é um sistema de sinalização digital que serve para deixa a inserção de publicidade. Recetores Downstream use o sinal a fusão de anúncio no fluxo de tempo atribuído. SCTE 35 têm de ser enviados como um Roteiro disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas Formatar que executa diversas sinais de ad está fragmentado MP4 (transmissão em fluxo uniforme). O único suportado saída formato também é Smooth Streaming. |
 
 ## <a id="considerations"></a>Considerações
 Quando estiver usando um codificador em direto no local para enviar um fluxo de velocidade de transmissão para um canal, aplicam-se as seguintes restrições:

@@ -3,19 +3,19 @@ title: O que é o Azure Active Directory B2C? | Microsoft Docs
 description: Saiba como criar e gerir a sua experiência de início de sessão em aplicações com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724031"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844998"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -102,15 +102,15 @@ No Azure AD B2C, um inquilino representa a sua organização e é um diretório 
 
 Pode associar o seu inquilino do Azure AD B2C à sua subscrição do Azure para ativar todas as funcionalidades e pagar os custos de utilização. Para permitir aos clientes iniciar sessão na sua aplicação, registe-a num inquilino do Azure AD B2C.
 
-Antes de configurar a sua aplicação para utilizar o Azure AD B2C, primeiro tem de criar um inquilino do Azure AD B2C e registar a sua aplicação. Para registar a sua aplicação, execute os passos em [Tutorial: Registar uma aplicação para ativar a inscrição e o início de sessão com o Azure AD B2C](tutorial-register-applications.md).
+Antes de configurar a sua aplicação para utilizar o Azure AD B2C, primeiro tem de criar um inquilino do Azure AD B2C e registar a sua aplicação. Para registar a sua aplicação, conclua os passos no [Tutorial: Registar uma aplicação para ativar a inscrição e início de sessão com o Azure AD B2C](tutorial-register-applications.md).
   
-Se for programador de aplicações Web ASP.NET, configure a sua aplicação para autenticar contas com os passos em [Tutorial: Ativar uma aplicação Web para fazer a autenticação com contas através do Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+Se for um programador de aplicações web do ASP.NET, configure a sua aplicação para autenticar contas utilizando os passos no [Tutorial: Ativar uma aplicação web autenticar com contas através do Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
 
-Se for programador de aplicações de ambiente de trabalho, configure a sua aplicação para autenticar contas com os passos em [Tutorial: Ativar uma aplicação de ambiente de trabalho para fazer a autenticação com contas através do Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+Se está a um desenvolvedor de aplicativos de área de trabalho, defina a sua aplicação para autenticar contas utilizando os passos no [Tutorial: Ativar um aplicativo de desktop para se autenticar com contas através do Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
 
-Se for programador de aplicações de página única com Node.js, configure a sua aplicação para autenticar contas com os passos em [Tutorial: Ativar uma aplicação de página única para fazer a autenticação com contas através do Azure AD B2C](active-directory-b2c-tutorials-spa.md).
+Se for um desenvolvedor de aplicativo de página única com node. js, configure a sua aplicação para autenticar contas utilizando os passos no [Tutorial: Ativar uma aplicação de página única para autenticar com contas através do Azure AD B2C](active-directory-b2c-tutorials-spa.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Inicie a configuração da sua aplicação para a experiência de inscrição e de início de sessão ao avançar para o tutorial.
 

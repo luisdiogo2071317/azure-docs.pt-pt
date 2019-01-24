@@ -9,14 +9,14 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 41f3e3fffba0dde5277a39f62ef13d4dfc21c67e
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292173"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823288"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Tutorial: como inscrever-se e carregar o seu primeiro vídeo
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Tutorial: Como inscrever-se e carregar o seu primeiro vídeo
 
 Este tutorial de introdução mostra-lhe como iniciar sessão no site do Video Indexer e carregar o seu primeiro vídeo.
 
@@ -41,7 +41,7 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora pode utilizar o site do [Video Indexer](video-indexer-view-edit.md) ou o [Video Indexer Developer Portal](video-indexer-use-apis.md) para ver as informações do vídeo. 
+Agora, pode utilizar o [Video Indexer](video-indexer-view-edit.md) Web site ou [Portal de programador do indexador de vídeos](video-indexer-use-apis.md) para ver as informações do vídeo. 
 
 ## <a name="see-also"></a>Consulte também
 

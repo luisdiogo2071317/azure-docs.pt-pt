@@ -4,7 +4,7 @@ description: Descrever o início de sessão do Azure AD no esquema de registo pa
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2957cd12fb6ef37b3e120b90b1500c6a43bb3e04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546404"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813428"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de início de sessão de registos do Azure AD no Azure Monitor (pré-visualização)
 
@@ -155,14 +155,14 @@ Este artigo descreve o esquema de início de sessão no registo do Azure Active 
 | Hora | A data e hora, em UTC. |
 | ResourceId | Este valor é não mapeado, e pode ignorar este campo.  |
 | OperationName | Para inícios de sessão, este valor é sempre *atividade de início de sessão*. |
-| operationVersion | A versão de REST API é solicitada pelo cliente. |
+| OperationVersion | A versão de REST API é solicitada pelo cliente. |
 | Categoria | Para inícios de sessão, este valor é sempre *SignIn*. | 
 | TenantId | O GUID associada os registos de inquilino. |
-| resultType | O resultado da operação de início de sessão pode ser *sucesso* ou *falha*. | 
+| ResultType | O resultado da operação de início de sessão pode ser *sucesso* ou *falha*. | 
 | resultSignature | Contém o código de erro, se houver, para a operação de início de sessão. |
 | ResultDescription | Fornece a descrição do erro para a operação de início de sessão. |
-| durationMs |  Este valor é não mapeado, e pode ignorar este campo.|
-| callerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
+| DurationMs |  Este valor é não mapeado, e pode ignorar este campo.|
+| CallerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
 | CorrelationId | O GUID opcional que é transmitido pelo cliente. Este valor pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando está a controlar os registos que abrangem serviços. |
 | Identidade | A identidade do token que foi apresentado quando efetuou o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |

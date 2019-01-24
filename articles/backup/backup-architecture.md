@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360327"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812570"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de cópia de segurança do Azure
 
@@ -163,7 +163,7 @@ Criar cópias de segurança com eliminação de duplicados discos | | | ![Parcia
 - VMs do Azure utilizam discos para armazenar o respetivo sistema operativo, aplicações e dados.
 - As VMs do Azure têm, pelo menos, dois discos. Uma para o sistema operativo e um disco temporário. Eles também podem ter discos de dados para dados de aplicativos. Os discos são armazenados como VHDs.
 - VHD são armazenadas como blobs de páginas em contas de armazenamento standard ou premium no Azure.
-    - Armazenamento Standard: Suporte para VMs que executam cargas de trabalho que não são sensíveis a latência de discos de fiável e económica. Armazenamento Standard pode utilizar os discos standard SSD ou discos SSD standard).
+    - Armazenamento Standard: Suporte para VMs que executam cargas de trabalho que não são sensíveis a latência de discos de fiável e económica. Armazenamento Standard pode utilizar os discos standard SSD ou discos HDD standard.
     - Armazenamento Premium: Suporte de disco de alto desempenho. Utiliza discos SSD premium.
 - Existem escalões de desempenho diferentes para discos:
     - Disco standard de HDD: Protegido por HDDs e utilizado para armazenamento económico.

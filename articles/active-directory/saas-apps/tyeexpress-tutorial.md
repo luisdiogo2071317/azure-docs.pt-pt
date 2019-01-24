@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o T & E Express | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o T & E Express | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e T & E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67cc50f3b6812abc566620396369b195d106f2be
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815179"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T & E Express
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Active Directory do Azure com o T & E Express
 
 Neste tutorial, saiba como integrar o T & E Express com o Azure Active Directory (Azure AD).
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com O.C. Tanner - AppreciateHub | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com O.C. Tanner - AppreciateHub | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e O.C. Tanner - AppreciateHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: dee8fbca-0b60-4a21-8917-1fb6919de5a0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a3c6641c3fd9402ede2176e3c5c3f3ec15ed9de
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a2234db09ecd8d2b3f654a18017d50f43c8caca6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822302"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integração do Azure Active Directory com O.C. Tanner - AppreciateHub
+# <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integração do Active Directory do Azure com O.C. Tanner - AppreciateHub
 
 Neste tutorial, saiba como integrar O.C. Tanner - AppreciateHub com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com O.C. Tanner - AppreciateHub, precisa dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - UM O.C. Tanner - AppreciateHub logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do O.C. Tanner - AppreciateHub com o Azure AD, te
 
 **Para adicionar O.C. Tanner - AppreciateHub a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -138,7 +138,7 @@ Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e
 1. Para configurar o início de sessão único em **O.C. Tanner - AppreciateHub** lado, terá de enviar o transferido **XML de metadados** para [O.C. Tanner - equipa de suporte de AppreciateHub](mailto:sso@octanner.com).
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

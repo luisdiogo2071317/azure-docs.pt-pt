@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043469"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848381"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>.NET API da tabela do Azure Cosmos DB: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -37,6 +37,9 @@ ms.locfileid: "54043469"
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Correções de erros
+
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Suporte adicionado de várias regiões de escrita
 * Dependências de pacote NuGet fixas Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
@@ -57,7 +60,7 @@ ms.locfileid: "54043469"
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Versão de disponibilidade geral
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
+### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
 * Versão de pré-visualização inicial
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
@@ -72,6 +75,8 @@ Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo 
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |22 de Janeiro de 2019|--- |
+| [2.0.0](#2.0.0) |26 de Setembro de 2018|--- |
 | [1.1.3](#1.1.3) |17 de Julho de 2018|--- |
 | [1.1.1](#1.1.1) |26 de Março de 2018|--- |
 | [1.1.0](#1.1.0) |21 de fevereiro de 2018|--- |

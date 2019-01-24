@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab68c8f73d4b53f441b8f46f466371cd1d03ad41
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473321"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846817"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
 Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 
@@ -68,11 +68,11 @@ Seguem-se a suportados **início de sessão único** modos para aplicações do 
 
 -   **O Azure AD início de sessão único desativado** – escolha do Azure AD início de sessão único desativado **modo de início de sessão único** se ainda não estiver pronto para integrar esta aplicação com o início de sessão único com o Azure AD, ou são simplesmente testá-lo horizontalmente
 
--   **Ligado logon** – escolha o [ligado início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de início de sessão único** se tiver uma aplicação que já está ligada com uma única início de sessão na solução existente, ou se quiser apenas publicar uma ligação simple para os seus utilizadores no respetivo [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador de aplicações do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Ligado logon** – escolha o [ligado início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **modo de início de sessão único** se tiver uma aplicação que já está ligada com uma única início de sessão na solução existente, ou se quiser apenas publicar uma ligação simple para os seus utilizadores no respetivo [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ou [iniciador de aplicações do Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Com base em palavra-passe de início de sessão** – escolha o [baseado em palavra-passe de início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **modo de início de sessão único** se seu aplicativo processa um campo de nome de utilizador e palavra-passe HTML e pretende armazenar esse nome de utilizador e palavra-passe de forma segura a ser reproduzido para a aplicação mais tarde
+-   **Com base em palavra-passe de início de sessão** – escolha o [baseado em palavra-passe de início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **modo de início de sessão único** se seu aplicativo processa um campo de nome de utilizador e palavra-passe HTML e pretende armazenar esse nome de utilizador e palavra-passe de forma segura a ser reproduzido para a aplicação mais tarde
 
--   **Baseado em SAML logon** – escolha o [baseado em SAML logon](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) início de sessão único no modo, se o aplicativo dá suporte os protocolos SAML ou OpenID Connect ou, se pretender ser capaz de mapear os utilizadores a funções de aplicação específica, com base em regras define em suas declarações SAML *
+-   **Baseado em SAML logon** – escolha o [baseado em SAML logon](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) início de sessão único no modo, se o aplicativo dá suporte os protocolos SAML ou OpenID Connect ou, se pretender ser capaz de mapear os utilizadores a funções de aplicação específica, com base em regras define em suas declarações SAML *
 
    >[!NOTE]
    >Esta opção não está disponível quando o proxy de aplicações está configurado para uma aplicação.

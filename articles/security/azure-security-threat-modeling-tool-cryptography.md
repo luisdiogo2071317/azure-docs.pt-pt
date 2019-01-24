@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844656"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824631"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Atenuações 
 | Produtos/serviços | Artigo |
@@ -29,7 +29,7 @@ ms.locfileid: "52844656"
 | **Dispositivo IoT** | <ul><li>[Store chaves criptográficas com segurança no dispositivo de IoT](#keys-iot)</li></ul> | 
 | **Gateway de Cloud da IoT** | <ul><li>[Gerar uma chave simétrica aleatória de tamanho suficiente para a autenticação para o IoT Hub](#random-hub)</li></ul> | 
 | **Cliente móvel do Dynamics CRM** | <ul><li>[Certifique-se de que é uma política de gestão de dispositivos no local que requer uma utilização PIN e permite remoto limpar](#pin-remote)</li></ul> | 
-| **Cliente do Dynamics CRM Outlook** | <ul><li>[Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o Bitlocker)](#bitlocker)</li></ul> | 
+| **Cliente do Dynamics CRM Outlook** | <ul><li>[Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o BitLocker)](#bitlocker)</li></ul> | 
 | **Servidor de identidades** | <ul><li>[Certifique-se de que as chaves de assinatura são agregadas ao longo ao utilizar o servidor de identidades](#rolled-server)</li><li>[Certifique-se de que o ID de cliente criptograficamente fortes, segredo do cliente são utilizadas no servidor de identidades](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Utilizar apenas as codificações de bloco simétrica aprovados e comprimentos de chave
@@ -139,8 +139,8 @@ ms.locfileid: "52844656"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [ADICIONE a assinatura (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
-| **Passos** | Em casos em que a integridade das bases de dados críticos com capacidade de segurança tem de ser verificado, devem ser usadas assinaturas digitais. Capacidades de segurança da base de dados, como um procedimento armazenado, a função, o assembly ou o acionador podem ser assinadas digitalmente. Segue-se um exemplo de quando pode ser útil: Digamos um ISV (fornecedor independente de Software) forneceu suporte para um software entregue a um dos seus clientes. Antes de fornecer suporte, o ISV iria querer Certifique-se de que uma base de dados com capacidade de segurança no software não foram adulterado por engano ou por uma tentativa maliciosa. Se o com capacidade de segurança estiver assinada digitalmente, o ISV pode verificar a sua assinatura digital e validar a sua integridade.| 
+| **Referências**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **Passos** | Em casos em que a integridade das bases de dados críticos com capacidade de segurança tem de ser verificado, devem ser usadas assinaturas digitais. Capacidades de segurança da base de dados, como um procedimento armazenado, a função, o assembly ou o acionador podem ser assinadas digitalmente. Segue-se um exemplo de quando pode ser útil: Digamos que um ISV (fornecedor independente de Software) forneceu suporte para um software entregue a um dos seus clientes. Antes de fornecer suporte, o ISV iria querer Certifique-se de que uma base de dados com capacidade de segurança no software não foram adulterado por engano ou por uma tentativa maliciosa. Se o com capacidade de segurança estiver assinada digitalmente, o ISV pode verificar a sua assinatura digital e validar a sua integridade.| 
 
 ## <a id="ekm-keys"></a>Utilizar o SQL server EKM para proteger chaves de encriptação
 
@@ -209,7 +209,7 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 | **Referências**              | N/A  |
 | **Passos** | Certifique-se de que é uma política de gestão de dispositivos no local que requer uma utilização PIN e permite remoto limpar |
 
-## <a id="bitlocker"></a>Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o Bitlocker)
+## <a id="bitlocker"></a>Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o BitLocker)
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos** | Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o Bitlocker) |
+| **Passos** | Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o BitLocker) |
 
 ## <a id="rolled-server"></a>Certifique-se de que as chaves de assinatura são agregadas ao longo ao utilizar o servidor de identidades
 

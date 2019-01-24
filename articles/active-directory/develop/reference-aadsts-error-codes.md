@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/11/2019
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434109"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820313"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -79,7 +79,7 @@ ms.locfileid: "54434109"
 | AADSTS50058 | UserInformationNotProvided - isso significa que um utilizador não estiver conectado. Este é um erro comum que é esperado quando um usuário não está autenticado e ainda não tem sessão iniciada no.</br>Se este erro é encorajado num contexto SSO em que o utilizador iniciou sessão anteriormente no, isso significa que a sessão SSO foi ou não foi encontrado ou é inválido.</br>Este erro pode ser devolvido ao aplicativo, se a linha de comandos = não for especificado nenhum. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - informações de identificação de inquilino não foi encontrada uma solicitação explícita ou implícita por quaisquer credenciais fornecidas. O utilizador pode contactar o administrador de inquilino para o ajudar a resolver o problema. |
 | AADSTS50061 | SignoutInvalidRequest - o pedido de fim de sessão é inválido. |
-| AADSTS50064 | CredentialAuthenticationError - validação de credenciais falhou. |
+| AADSTS50064 | CredentialAuthenticationError - validação de credenciais em nome de utilizador ou palavra-passe falhou. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - fim de sessão falhou. A aplicação que iniciou a fim de sessão não é um participante na sessão atual. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - fim de sessão falhou. O pedido de fim de sessão especificado um identificador de nome que não correspondeu a sessões existentes. |
 | AADSTS50071 | SignoutMessageExpired - o pedido de terminar a sessão expirou. |

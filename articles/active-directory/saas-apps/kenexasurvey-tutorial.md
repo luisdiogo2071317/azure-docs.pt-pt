@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o IBM Kenexa pesquisa empresarial | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o IBM Kenexa pesquisa empresarial | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o IBM Kenexa pesquisa empresarial.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d8027aca628185b1e3d2e80323c9f83e6832a913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823934"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa pesquisa empresarial
+# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o IBM Kenexa pesquisa empresarial
 
 Neste tutorial, saiba como integrar o IBM Kenexa pesquisa empresarial no Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais sobre o software como uma integração de aplicação de se
 
 Para configurar a integração do Azure AD com o IBM Kenexa pesquisa empresarial, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma subscrição habilitados para IBM Kenexa pesquisa empresarial SSO
 
 > [!NOTE]
@@ -204,7 +204,7 @@ Para atribuir utilizador Eduarda Almeida a IBM Kenexa pesquisa empresarial, faç
 
 1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração de SSO do Azure AD utilizando o painel de acesso.
 

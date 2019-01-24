@@ -3,19 +3,19 @@ title: Cerca de afirmação resoluções de políticas personalizadas do Azure A
 description: Saiba mais sobre como as resoluções de afirmações são utilizadas numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852389"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845020"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as resoluções de afirmação em políticas personalizadas do Azure Active Directory B2C
 
@@ -47,19 +47,19 @@ As secções seguintes listam as resoluções de declarações disponíveis.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Cultura: LanguageName} | As duas letras código ISO para o idioma. | en |
-| {Cultura: LCID}   | O LCID de código de idioma. | 22 |
-| {Cultura: RegionName} | As duas letras código ISO para a região. | EUA |
-| {Cultura: RFC5646} | O código de idioma RFC5646. | pt-PT |
+| {Culture:LanguageName} | As duas letras código ISO para o idioma. | en |
+| {Culture:LCID}   | O LCID de código de idioma. | 22 |
+| {Culture:RegionName} | As duas letras código ISO para a região. | EUA |
+| {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Política
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Política: PolicyId} | O nome de política de terceiros entidade confiadora. | B2C_1A_signup_signin |
-| {Política: RelyingPartyTenantId} | O ID de inquilino da política da entidade confiadora de terceiros. | seu tenant.onmicrosoft.com |
-| {Política: TenantObjectId} | O ID de objeto do inquilino da política da entidade confiadora de terceiros. | 00000000-0000-0000-0000-000000000000 |
-| {Política: TrustFrameworkTenantId} | O ID de inquilino do framework de confiança. | seu tenant.onmicrosoft.com |
+| {Policy:PolicyId} | O nome de política de terceiros entidade confiadora. | B2C_1A_signup_signin |
+| {Policy:RelyingPartyTenantId} | O ID de inquilino da política da entidade confiadora de terceiros. | your-tenant.onmicrosoft.com |
+| {Policy:TenantObjectId} | O ID de objeto do inquilino da política da entidade confiadora de terceiros. | 00000000-0000-0000-0000-000000000000 |
+| {Policy:TrustFrameworkTenantId} | O ID de inquilino do framework de confiança. | your-tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
@@ -67,7 +67,7 @@ As secções seguintes listam as resoluções de declarações disponíveis.
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |O `acr_values` parâmetro de cadeia de caracteres de consulta. | N/A |
 | {OIDC:ClientId} |O `client_id` parâmetro de cadeia de caracteres de consulta. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |O `domain_hint` parâmetro de cadeia de caracteres de consulta. | Facebook.com |
+| {OIDC:DomainHint} |O `domain_hint` parâmetro de cadeia de caracteres de consulta. | facebook.com |
 | {OIDC:LoginHint} |  O `login_hint` parâmetro de cadeia de caracteres de consulta. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age`. | N/A |
 | {OIDC:Nonce} |O `Nonce` parâmetro de cadeia de caracteres de consulta. | defaultNonce |
@@ -79,11 +79,11 @@ As secções seguintes listam as resoluções de declarações disponíveis.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Contexto: BuildNumber} | A versão do Framework de experiência de identidade (número de compilação).  | 1.0.507.0 |
-| {Contexto: CorrelationId} | O ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
-| {Contexto: DateTimeInUtc} |A data da hora em UTC.  | 10/10/2018 12: DAS 12:00:00 |
-| {Contexto: DeploymentMode} |O modo de implementação de política.  | Produção |
-| {Contexto: IPAddress} | O endereço IP do utilizador. | 11.111.111.11 |
+| {Context:BuildNumber} | A versão do Framework de experiência de identidade (número de compilação).  | 1.0.507.0 |
+| {Context:CorrelationId} | O ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |A data da hora em UTC.  | 10/10/2018 12: DAS 12:00:00 |
+| {Context:DeploymentMode} |O modo de implementação de política.  | Produção |
+| {Context:IPAddress} | O endereço IP do utilizador. | 11.111.111.11 |
 
 
 ### <a name="non-protocol-parameters"></a>Parâmetros de protocolo não
@@ -92,7 +92,7 @@ Qualquer nome de parâmetro incluída como parte de um pedido de OIDC ou OAuth2 
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Um parâmetro de cadeia de caracteres de consulta. | Havai |
+| {OAUTH-KV:campaignId} | Um parâmetro de cadeia de caracteres de consulta. | hawaii |
 | {OAUTH-KV:app_session} | Um parâmetro de cadeia de caracteres de consulta. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Um parâmetro de cadeia de caracteres de consulta. | 1234 |
 | {OAUTH-KV: qualquer cadeia de consulta personalizada} | Um parâmetro de cadeia de caracteres de consulta. | N/A |

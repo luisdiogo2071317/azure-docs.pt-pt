@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: ca73a7f76de61f841af55121823ab045a93632ae
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5702f59a7924a3ca9eefae33dfcae5c3c16274d8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014791"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827215"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para aprovisionamento automático de utilizadores
 
@@ -36,7 +36,7 @@ O cenário descrito neste tutorial parte do princípio de que já tem os seguint
 *   Um Slack inquilino com o [além de plano](https://aadsyncfabric.slack.com/pricing) ou melhor ativado 
 *   Uma conta de utilizador no Slack com permissões de administrador da equipa 
 
-Nota: O Azure AD aprovisionamento integração depende do [Slack SCIM API](https://api.slack.com/scim), que está disponível para as equipes de Slack no mais planear ou melhor.
+Nota: Conta com o Azure AD, integração de aprovisionamento a [Slack SCIM API](https://api.slack.com/scim), que está disponível para as equipes de Slack no mais planear ou melhor.
 
 ## <a name="assigning-users-to-slack"></a>Atribuir utilizadores a Slack
 
@@ -57,7 +57,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir qu
 
 Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do Slack e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no Slack com base na atribuição de utilizadores e grupos no Azure AD.
 
-**Sugestão:** também pode optar por ativada baseado em SAML início de sessão único para o Slack, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
+**Sugestão:** Também pode optar por ativada baseado em SAML início de sessão único para o Slack, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores conta para o Slack no Azure AD:

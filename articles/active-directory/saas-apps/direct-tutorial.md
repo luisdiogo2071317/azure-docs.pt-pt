@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o direct | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o direct | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e direto.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092891"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822659"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Azure Active Directory com o direct
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Tutorial: Integração do Active Directory do Azure com o direct
 
 Neste tutorial, irá aprender a integração direta com o Azure Active Directory (Azure AD).
 
@@ -118,7 +118,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     Na **URL de início de sessão** caixa de texto, escreva o URL: `https://direct4b.com/sso` 
+     Na **URL de início de sessão** caixa de texto, escreva o URL: `https://direct4b.com/sso` 
 
 5. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -164,7 +164,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="creating-a-direct-test-user"></a>Criar um utilizador de teste direto
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida em direto. Trabalhar com [equipa de suporte direto](https://direct4b.com/ja/support.html#inquiry) para adicionar os utilizadores na plataforma direta. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida em direto. Trabalhar com [equipa de suporte direto](https://direct4b.com/ja/support.html#inquiry) para adicionar os utilizadores na plataforma direta. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

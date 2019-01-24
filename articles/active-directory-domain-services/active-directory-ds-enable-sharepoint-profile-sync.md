@@ -4,7 +4,7 @@ description: Configurar domínios geridos do Azure Active Directory Domain Servi
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 982984912494598e9791968e5ee3ccee52c5a7c9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: bb831c2b3cb9aee5146a667841a97771ff0ff85a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154945"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843536"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>Configurar um domínio gerido para oferecer suporte a sincronização de perfil para o SharePoint Server
 SharePoint Server inclui um serviço de perfil de utilizador que é utilizada para sincronização do perfil de utilizador. Para configurar o serviço de perfil do usuário, é necessário que as permissões adequadas concedido a um domínio do Active Directory. Para obter mais informações, consulte [conceder permissões de serviços de domínio do Active Directory para a sincronização do perfil no SharePoint Server 2013](https://technet.microsoft.com/library/hh296982.aspx).

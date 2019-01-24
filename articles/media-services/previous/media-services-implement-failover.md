@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124615"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811745"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementar ativação pós-falha de transmissão em fluxo com os serviços de multimédia do Azure
 
@@ -52,7 +52,7 @@ As seguintes considerações aplicam-se:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Duas contas de serviços de multimédia numa subscrição do Azure nova ou existente. Ver [conta de serviços de como criar um suporte de dados](media-services-portal-create-account.md).
-* Sistema operativo: Windows 7, Windows 2008 R2 ou Windows 8.
+* Sistema operativo: O Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET framework 4.5 ou o .NET Framework 4.
 * Visual Studio 2010 SP1 ou versão posterior (Professional, Premium, Ultimate ou Express).
 
@@ -62,7 +62,7 @@ Nesta secção, pode criar e configura um projeto de aplicação de consola c#.
 1. Utilize o Visual Studio para criar uma nova solução que contém o projeto de aplicação de consola c#. Introduza **HandleRedundancyForOnDemandStreaming** para o nome e, em seguida, clique **OK**.
 2. Criar a **SupportFiles** pasta no mesmo nível que o **HandleRedundancyForOnDemandStreaming.csproj** arquivo de projeto. Sob o **SupportFiles** pasta, criar o **OutputFiles** e **MP4Files** pastas. Copiar um ficheiro. mp4 para o **MP4Files** pasta. (Neste exemplo, o **BigBuckBunny.mp4** arquivo é usado.) 
 3. Uso **Nuget** para adicionar referências para DLLs relacionadas com os serviços de multimédia. Na **Menu de principal do Visual Studio**, selecione **ferramentas** > **Library Package Manager** > **Package Manager Console**. Na janela da consola, escreva **Install-Package windowsazure.mediaservices**, e prima Enter.
-4. Adicionar outras referências que são necessárias para este projeto: Configuration, serialization e System. Web.
+4. Adicione outras referências que são necessárias para este projeto: System, serialization e System. Web.
 5. Substitua **usando** instruções que foram adicionadas para o **Programs.cs** ficheiro por predefinição com os seguintes:
    
         using System;
@@ -178,7 +178,7 @@ Nesta secção, vai criar a capacidade de processar a redundância.
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

@@ -3,9 +3,9 @@ title: Como utilizar as filas do Service bus do Azure com Python | Documentos da
 description: Saiba como utilizar as filas de Azure Service Bus do Python.
 services: service-bus-messaging
 documentationcenter: python
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 08/30/2018
-ms.author: spelluru
-ms.openlocfilehash: cc8fc62811fe019dcaf613a1c0b50d89183e6555
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 3ef2c07888afbc4b640c79e7d442b9b69b63503a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406197"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852733"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
 
@@ -106,7 +106,7 @@ O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de er
 
 Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus irá desbloquear automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a **eliminar** método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Isto é frequentemente chamado **, pelo menos, uma vez processamento**, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é, frequentemente, conseguido através da **MessageId** propriedade da mensagem, que permanecerá constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a **eliminar** método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Isto é frequentemente chamado **, pelo menos, uma vez processamento**, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Tal é, frequentemente, conseguido através da propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu as noções básicas de filas do Service Bus, veja estes artigos para saber mais.

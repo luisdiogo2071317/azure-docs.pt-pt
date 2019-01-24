@@ -3,7 +3,7 @@ title: Relatório de inícios de sessão de risco no portal do Azure Active Dire
 description: Saiba mais sobre o relatório de inícios de sessão de risco no portal do Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807767"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de inícios de sessão de risco no portal do Azure Active Directory
 
@@ -61,9 +61,9 @@ Todas as edições do Azure AD fornecem relatórios de inícios de sessão de ri
 
 As edições gratuita e básica do Azure AD fornecem uma lista de risco inícios de sessão que foram detetados para os seus utilizadores. Cada registro contém os seguintes atributos:
 
-- **Utilizador** – O nome do utilizador que foi utilizado durante a operação de início de sessão
-- **IP** – O endereço IP do dispositivo que foi utilizado para ligar ao Azure Active Directory
-- **Localização** – A localização utilizada para ligar ao Azure Active Directory
+- **Utilizador** -o nome do utilizador que foi utilizado durante a operação de início de sessão.
+- **IP** -o endereço IP do dispositivo que foi utilizado para ligar ao Azure Active Directory.
+- **Localização** -a localização utilizada para ligar ao Azure Active Directory. Esta é uma aproximação de esforço melhor, com base em rastreamentos, os dados de registo, pesquisas inversa e outras informações.
 - **Hora de início de sessão** – A hora quando o início de sessão foi efetuado
 - **Estado** – O estado do início de sessão
 
@@ -106,6 +106,9 @@ Ao selecionar um evento de risco, obtém uma vista de relatório detalhado para 
 - Feche manualmente eventos de risco. 
 
 ![Inícios de Sessão de Risco](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Às vezes, pode encontrar um evento de risco sem uma entrada correspondente início de sessão no [relatório de inícios de sessão](concept-sign-ins.md). Isto acontece porque o Identity Protection avalia o risco para ambos **interativo** e **não interativa** inícios de sessão, ao passo que o relatório de inícios de sessão mostra apenas os interativos inícios de sessão.
 
 Ao selecionar um utilizador, obtém uma vista de relatório detalhado para este utilizador que lhe permite:
 

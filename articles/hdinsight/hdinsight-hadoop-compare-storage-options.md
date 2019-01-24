@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/20/2019
-ms.openlocfilehash: 6174a8015290c3696548e1d9f575a46e4fe17b8a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 14db76068cc11d3f57a72e3e540a5e0da7e1c254
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479537"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853617"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
@@ -27,7 +27,7 @@ Este artigo fornece uma visão geral desses tipos de armazenamento diferentes e 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utilizar o Azure Data Lake Storage Gen2 com o Apache Hadoop no HDInsight do Azure
 
-Para obter mais informações sobre a geração 2 de armazenamento do Azure Data Lake, veja [introdução ao Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-introduction.md).
+Para obter mais informações sobre a geração 2 de armazenamento do Azure Data Lake, veja [introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 O Azure Data Lake Gen2 de armazenamento leva core recursos de geração 1 de armazenamento do Azure Data Lake como um sistema de ficheiros compatível Hadoop, o Azure Active Directory e o acesso baseadas em POSIX (ACLs) de listas de controle e integra-se no armazenamento de Blobs do Azure. Esta combinação permite-lhe tirar partido do desempenho de geração 1 de armazenamento do Azure Data Lake ao utilizar também o gerenciamento de ciclo de vida de dados e a criação de camadas de armazenamento de Blobs.
 
@@ -57,7 +57,7 @@ Aplicações do Apache Hadoop nativamente esperam ler e gravar dados de armazena
 
 Anteriormente, o driver de sistema de ficheiros Hadoop seria converter todas as operações de sistema de ficheiros para chamadas de API de REST de armazenamento do Azure no lado do cliente e, em seguida, invocar a API REST. Este cliente conversão, no entanto, resultado na API de REST vários chama-se de uma operação de sistema de ficheiros único como mudar o nome de um ficheiro. ABFS foi movido parte da lógica de sistema de ficheiros de Hadoop do lado do cliente para a API de geração 2 de armazenamento do Azure Data Lake e do servidor agora é executado em paralelo com a API de Blobs. Esta migração melhora o desempenho, porque agora podem ser executadas operações de sistema de ficheiros comuns do Hadoop com uma chamada à REST API.
 
-Para obter mais informações, consulte [driver de sistema de ficheiros de Blob do Azure (ABFS): Um driver de armazenamento do Azure dedicado para o Hadoop](/../storage/blobs/data-lake-storage-abfs-driver.md).
+Para obter mais informações, consulte [driver de sistema de ficheiros de Blob do Azure (ABFS): Um driver de armazenamento do Azure dedicado para o Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
 
 #### <a name="azure-data-lake-storage-gen-2-uri-scheme"></a>Esquema de URI do Data Lake armazenamento Gen 2 do Azure
 
@@ -83,7 +83,7 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 > [!Note]
 > O nome de ficheiro é `hadoop-examples.jar` em clusters do HDInsight versões 2.1 e 1.6. Ao trabalhar com arquivos fora do HDInsight, a maioria dos utilitários não reconhece os ABFS formatar e em vez disso, esperar que um formato de caminho básico, tal como `example/jars/hadoop-mapreduce-examples.jar`.
 
-Para obter mais informações, consulte [utilizam o URI de geração 2 de armazenamento do Azure Data Lake](/../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+Para obter mais informações, consulte [utilizam o URI de geração 2 de armazenamento do Azure Data Lake](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 
 ## <a name="use-azure-storage"></a>Utilizar o armazenamento do Azure
 
@@ -103,7 +103,7 @@ Não recomendamos que utilize o contentor de BLOBs predefinido para armazenar da
 Utilizar um contentor de BLOBs como o sistema de ficheiros predefinido para múltiplos clusters não é suportada.
  
  > [!NOTE]  
- > A camada de acesso de arquivo é uma camada offline que tenha uma latência de obtenção de hora várias e não é recomendada para utilização com o HDInsight. Para obter mais informações, consulte [camada de acesso de arquivo](/../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+ > A camada de acesso de arquivo é uma camada offline que tenha uma latência de obtenção de hora várias e não é recomendada para utilização com o HDInsight. Para obter mais informações, consulte [camada de acesso de arquivo](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ### <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 O diagrama seguinte apresenta uma vista abstrata da arquitetura de armazenamento do HDInsight relativamente à utilização do Armazenamento do Azure:
@@ -125,7 +125,7 @@ Seguem-se algumas considerações sobre a utilização da conta do Azure Storage
 * **Contentores públicos ou blobs públicos em contas de armazenamento que não estão ligados a um cluster:** Tem a permissão só de leitura para os blobs dos contentores.
   
   > [!NOTE]  
-  > Os contentores públicos permitem obter uma lista de todos os blobs disponíveis nesse contentor, bem como os metadados do mesmo. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, consulte [gerir o acesso a contentores e blobs](/../storage/blobs/storage-manage-access-to-resources.md).
+  > Os contentores públicos permitem obter uma lista de todos os blobs disponíveis nesse contentor, bem como os metadados do mesmo. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, consulte [gerir o acesso a contentores e blobs](../storage/blobs/storage-manage-access-to-resources.md).
 
 * **Contentores privados em contas de armazenamento que não estão ligados a um cluster:** Não é possível aceder os blobs dos contentores, a menos que define a conta de armazenamento, ao submeter as tarefas de WebHCat. Isto é explicado posteriormente neste artigo.
 
@@ -153,7 +153,7 @@ Determinados pacotes e tarefas de MapReduce podem criar resultados intermédios 
 
 ## <a name="use-azure-data-lake-storage-gen1"></a>Utilizar o Azure Data Lake Storage Gen1
 
-Para obter mais informações sobre a geração 1 de armazenamento do Azure Data Lake, veja [descrição geral do Azure Data Lake armazenamento Gen1](/../data-lake-store/data-lake-store-overview.md).
+Para obter mais informações sobre a geração 1 de armazenamento do Azure Data Lake, veja [descrição geral do Azure Data Lake armazenamento Gen1](../data-lake-store/data-lake-store-overview.md).
 
 Geração de armazenamento 1 do Azure Data Lake é um repositório de hiperescala de toda a empresa para cargas de trabalho de análise de macrodados. O Azure Data Lake permite-lhe capturar dados de qualquer tamanho, tipo e velocidade de ingestão num único local para análises exploratórias e operacionais.
 
@@ -194,29 +194,29 @@ Utiliza o Data Lake Gen1 de armazenamento do Azure Active Directory para autenti
 
 | Funcionalidade | Descrição |
 | --- | --- |
-| Autenticação |Gen1 de armazenamento do Data Lake está integrado com o Azure Active Directory (AAD) para a gestão de identidades e acessos para todos os dados armazenados no Data Lake Storage Gen1. Como resultado de integração, benefícios de geração 1 de armazenamento do Data Lake com todas as funcionalidades do AAD incluindo autenticação multifator, acesso condicional, controlo de acesso baseado em funções, monitorização da utilização de aplicações, segurança de monitorização e alertas, etc. Geração 1 de armazenamento do Data Lake suporta o protocolo de OAuth 2.0 para a autenticação com na REST interface. Consulte [autenticação de geração 1 de armazenamento do Data Lake](/../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
-| Controlo de acesso |Geração 1 de armazenamento do Data Lake fornece controlo de acesso ao suportar permissões do estilo POSIX expostas pelo protocolo WebHDFS. As ACLs podem ser ativadas na pasta raiz, nas subpastas e nos ficheiros individuais. Para obter mais informações sobre como as ACLs funcionam no contexto da geração 1 de armazenamento do Data Lake, veja [controlo de acesso no Data Lake Storage Gen1](/../data-lake-store/data-lake-store-access-control.md). |
-| Encriptação |Geração 1 de armazenamento do Data Lake também fornece encriptação para dados armazenados na conta. Especifique as definições de encriptação durante a criação de uma conta de geração 1 de armazenamento do Data Lake. Pode optar por encriptar os seus dados ou por não utilizar encriptação. Para obter mais informações, consulte [encriptação no Data Lake Storage Gen1](/../data-lake-store/data-lake-store-encryption.md). Para obter instruções sobre como fornecer configuração relacionada com encriptação, consulte [introdução à geração 1 de armazenamento do Azure Data Lake com o portal do Azure](/../data-lake-store/data-lake-store-get-started-portal.md). |
+| Autenticação |Gen1 de armazenamento do Data Lake está integrado com o Azure Active Directory (AAD) para a gestão de identidades e acessos para todos os dados armazenados no Data Lake Storage Gen1. Como resultado de integração, benefícios de geração 1 de armazenamento do Data Lake com todas as funcionalidades do AAD incluindo autenticação multifator, acesso condicional, controlo de acesso baseado em funções, monitorização da utilização de aplicações, segurança de monitorização e alertas, etc. Geração 1 de armazenamento do Data Lake suporta o protocolo de OAuth 2.0 para a autenticação com na REST interface. Consulte [autenticação de geração 1 de armazenamento do Data Lake](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Controlo de acesso |Geração 1 de armazenamento do Data Lake fornece controlo de acesso ao suportar permissões do estilo POSIX expostas pelo protocolo WebHDFS. As ACLs podem ser ativadas na pasta raiz, nas subpastas e nos ficheiros individuais. Para obter mais informações sobre como as ACLs funcionam no contexto da geração 1 de armazenamento do Data Lake, veja [controlo de acesso no Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
+| Encriptação |Geração 1 de armazenamento do Data Lake também fornece encriptação para dados armazenados na conta. Especifique as definições de encriptação durante a criação de uma conta de geração 1 de armazenamento do Data Lake. Pode optar por encriptar os seus dados ou por não utilizar encriptação. Para obter mais informações, consulte [encriptação no Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). Para obter instruções sobre como fornecer configuração relacionada com encriptação, consulte [introdução à geração 1 de armazenamento do Azure Data Lake com o portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md). |
 
 Quer saber mais sobre como proteger dados no Data Lake Storage Gen1? Siga as ligações abaixo.
 
-* Para obter instruções sobre como proteger os dados na geração 1 de armazenamento do Data Lake, veja [proteger dados no Azure Data Lake Storage Gen1](/../data-lake-store/data-lake-store-secure-data.md).
+* Para obter instruções sobre como proteger os dados na geração 1 de armazenamento do Data Lake, veja [proteger dados no Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
 ## <a name="applications-compatible-with-data-lake-storage-gen1"></a>Aplicações compatíveis com o Data Lake Storage Gen1
 Geração 1 de armazenamento do Data Lake é compatível com a maioria dos componentes de código-fonte aberto no ecossistema do Hadoop. Também é integrado corretamente com outros serviços do Azure.  Siga os links abaixo para obter mais informações sobre como geração 1 de armazenamento do Data Lake pode ser utilizado tanto com componentes de código-fonte aberto, bem como outros serviços do Azure.
 
-* Ver [aplicativos e serviços compatíveis com o Azure Data Lake Storage Gen1](/../data-lake-store/data-lake-store-compatible-oss-other-applications.md) para obter uma lista de aplicações de código aberto interoperáveis com geração 1 de armazenamento do Data Lake.
-* Ver [integração com outros serviços do Azure](/../data-lake-store/data-lake-store-integrate-with-other-services.md) para compreender como geração 1 de armazenamento do Data Lake pode ser utilizado com outros serviços do Azure para ativar uma vasta gama de cenários.
-* Ver [cenários de utilização de geração 1 de armazenamento do Data Lake](/../data-lake-store/data-lake-store-data-scenarios.md) para aprender a utilizar o Data Lake Storage Gen1 em cenários como a ingestão de dados, processamento de dados, transferência de dados e visualização de dados.
+* Ver [aplicativos e serviços compatíveis com o Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-compatible-oss-other-applications.md) para obter uma lista de aplicações de código aberto interoperáveis com geração 1 de armazenamento do Data Lake.
+* Ver [integração com outros serviços do Azure](../data-lake-store/data-lake-store-integrate-with-other-services.md) para compreender como geração 1 de armazenamento do Data Lake pode ser utilizado com outros serviços do Azure para ativar uma vasta gama de cenários.
+* Ver [cenários de utilização de geração 1 de armazenamento do Data Lake](../data-lake-store/data-lake-store-data-scenarios.md) para aprender a utilizar o Data Lake Storage Gen1 em cenários como a ingestão de dados, processamento de dados, transferência de dados e visualização de dados.
 
 ## <a name="what-is-data-lake-storage-gen1-file-system-adl"></a>O que é o sistema de ficheiros de geração 1 de armazenamento do Data Lake (adl: / /)?
 Geração 1 de armazenamento do Data Lake pode ser acedido através do novo sistema de ficheiros, o AzureDataLakeFilesystem (adl: / /), em ambientes do Hadoop (disponíveis com o cluster do HDInsight). As aplicações e serviços que utilizam adl: / / são capazes de tirar partido da otimização do desempenho que não estão atualmente disponíveis no WebHDFS. Como resultado, Gen1 de armazenamento do Data Lake dá-lhe a flexibilidade de beneficiar do melhor desempenho com a opção recomendada de utilização adl: / / ou manter o código existente ao continuar a utilizar a API WebHDFS diretamente. O Azure HDInsight tira total partido do AzureDataLakeFilesystem para proporcionar o melhor desempenho na geração 1 de armazenamento do Data Lake.
 
-Pode aceder aos seus dados através da geração 1 de armazenamento do Data Lake `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. Para obter mais informações sobre como acessar os dados no Data Lake Storage Gen1, consulte [ver as propriedades dos dados armazenados](/../data-lake-store/data-lake-store-get-started-portal.md#properties)
+Pode aceder aos seus dados através da geração 1 de armazenamento do Data Lake `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. Para obter mais informações sobre como acessar os dados no Data Lake Storage Gen1, consulte [ver as propriedades dos dados armazenados](../data-lake-store/data-lake-store-get-started-portal.md#properties)
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução ao Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-introduction.md).
-* [Introdução ao Armazenamento do Azure](/../storage/common/storage-introduction.md)
+* [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+* [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

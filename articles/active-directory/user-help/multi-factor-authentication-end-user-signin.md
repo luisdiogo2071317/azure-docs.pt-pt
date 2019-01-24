@@ -4,7 +4,7 @@ description: Esta página irá fornecer orientações sobre onde ir para ver os 
 keywords: autenticação de utilizador, início de sessão experiência, inicie sessão com o número de telemóvel, inicie sessão com o telefone do escritório
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: e7886d3c8aa1ef9ee1e392030aabf0d187568e24
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 21228801f866d7221270034e862fe8145ccb839e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815564"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 9408ae20246d7a48340434c201c4568bc02719cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390496"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823832"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Controlar a utilização de um laboratório no serviço de laboratório do Azure
 Este tutorial mostra-lhe como é que os criadores/proprietários de laboratórios podem acompanhar a utilização dos laboratórios.
@@ -44,7 +44,7 @@ Neste tutorial, irá realizar as seguintes ações:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Ver a utilização das VMs no laboratório 
 
 1. Selecione **Máquinas virtuais**, no menu do lado esquerdo. 
-2. Confirme que vê o estado das VMs e o número de horas que estiveram em execução. O tempo gasto num estudante que VM não contabiliza em relação ao tempo de utilização, mostrado na última coluna. 
+2. Confirme que vê o estado das VMs e o número de horas que estiveram em execução. O tempo que despende de proprietário de um laboratório no estudante VM não contabiliza em relação ao tempo de utilização, mostrado na última coluna. 
 
     ![Utilização de VM](../media/tutorial-track-usage/vm-usage.png)
 

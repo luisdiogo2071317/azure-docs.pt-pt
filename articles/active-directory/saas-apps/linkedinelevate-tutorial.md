@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o LinkedIn elevar | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o LinkedIn elevar | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o LinkedIn elevar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116181"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822642"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn elevar
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn elevar
 
 Neste tutorial, saiba como integrar o LinkedIn elevar com o Azure Active Directory (Azure AD).
 
@@ -137,7 +137,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal de ge
 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |
-    | Departamento| User.Department |
+    | Departamento| user.department |
 
       ![Criar um utilizador de teste do Azure AD](./media/linkedinelevate-tutorial/userattribute.png)
 
@@ -240,7 +240,7 @@ Quando clica no mosaico elevar o LinkedIn, no painel de acesso, deve obter a pá
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutorial: Configurar o LinkedIn elevar para automático de utilizadores de aprovisionamento com o Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Tutorial: Configurar o LinkedIn elevar para aprovisionamento automático de utilizadores no Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o aprovisionamento do utilizador](linkedinelevate-provisioning-tutorial.md)

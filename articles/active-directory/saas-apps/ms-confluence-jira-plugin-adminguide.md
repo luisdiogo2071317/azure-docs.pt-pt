@@ -4,7 +4,7 @@ description: Guia do administrador para utilizar o Atlassian Jira e confluência
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77aba012d4e8d333d6f57f8f6a7a12927e6a35ec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426881"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820551"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia do administrador do Atlassian Jira e confluência para o Azure Active Directory
 
@@ -67,8 +67,8 @@ Antes de instalar o plug-in, tenha em atenção as seguintes informações:
 
 O plug-in-suporta as seguintes versões do Jira e confluência:
 
-* Jira Core e de Software: 6.0 para 7.12
-* Central de serviços de Jira: 3.0.0 para 3.5.0
+* Núcleo do Jira e Software: 6.0 para 7.12
+* Jira Service Desk: 3.0.0 para 3.5.0
 * JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluência: 5.0 para 5.10
 * Confluência: 6.0.1
@@ -115,33 +115,33 @@ A imagem seguinte mostra a tela de configuração no Jira e confluência:
 
 *   **URL de resposta**: O URL de resposta no seu fornecedor de identidade (IdP), que inicia o início de sessão no SAML. Mapeia para o **URL de resposta** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
 
-*   **URL de início de sessão**: O URL de início de sessão na sua IdP que inicia o início de sessão no SAML. Mapeia para o **sessão** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
+*   **Inicie sessão no URL**: O URL início de sessão na sua IdP que inicia o início de sessão no SAML. Mapeia para o **sessão** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
 
-*   **ID de entidade do IdP**: O ID de entidade que o IdP utiliza. Esta caixa é preenchida quando o URL de metadados é resolvido.
+*   **ID de entidade de IdP**: O ID de entidade que o IdP utiliza. Esta caixa é preenchida quando o URL de metadados é resolvido.
 
 *   **URL de início de sessão**: O URL de início de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
-*   **URL de fim de sessão**: O URL de fim de sessão a partir do IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
+*   **URL de fim de sessão**: O URL de fim de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
-*   **Certificado X.509**: certificado X.509 de seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
+*   **Certificado X.509**: Certificado X.509 do IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
 *   **Nome do botão de início de sessão**: O nome do botão início de sessão que a organização quer que os utilizadores vejam na página de início de sessão.
 
-*   **Localizações de ID de utilizador de SAML**: A localização onde o ID de utilizador no Jira ou confluência é esperado na resposta SAML. Pode ter **NameID** ou um nome de atributo personalizado.
+*   **Localizações de ID de utilizador SAML**: A localização onde o ID de utilizador no Jira ou confluência é esperado na resposta SAML. Pode ter **NameID** ou um nome de atributo personalizado.
 
 *   **Nome de atributo**: O nome do atributo onde é esperado o ID de utilizador.
 
-*   **Ativar a deteção de Realm inicial**: A seleção fazer se a empresa estiver a utilizar os serviços de Federação do Active Directory (AD FS) - com base em sessão - na.
+*   **Deteção de Realm inicial de Enable**: A seleção fazer se a empresa estiver a utilizar os serviços de Federação do Active Directory (AD FS) - com base em sessão - na.
 
-*   **Nome de domínio**: O nome de domínio se início de sessão do AD FS com base.
+*   **Nome de domínio**: O nome de domínio se início de sessão é do AD FS com base.
 
 *   **Ativar a fim de sessão único**: A seleção para que se pretende terminar a sessão do Azure AD quando um utilizador termina sessão Jira ou confluência.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* **Esteja tirando vários erros de certificado**: Inicie sessão Azure AD e remover vários certificados que estão disponíveis em relação a aplicação. Certifique-se de que apenas um certificado estiver presente.
+* **Esteja tirando vários erros de certificado**: Inicie sessão para o Azure AD e remover os vários certificados que estão disponíveis em relação a aplicação. Certifique-se de que apenas um certificado estiver presente.
 
-* **Um certificado está prestes a expirar no Azure AD**: suplementos cuidam de rollover automático do certificado. Quando um certificado está prestes a expirar, um novo certificado deve ser marcado como ativo e não utilizados certificados devem ser eliminados. Quando um utilizador tenta iniciar sessão no Jira neste cenário, as plug-ins buscas e guarda o novo certificado.
+* **Um certificado está prestes a expirar no Azure AD**: Suplementos cuidam de rollover automático do certificado. Quando um certificado está prestes a expirar, um novo certificado deve ser marcado como ativo e não utilizados certificados devem ser eliminados. Quando um utilizador tenta iniciar sessão no Jira neste cenário, as plug-ins buscas e guarda o novo certificado.
 
 * **Pretende desativar WebSudo (desativar a sessão de administrador seguras)**:
 
@@ -155,13 +155,13 @@ A imagem seguinte mostra a tela de configuração no Jira e confluência:
 
   * Introduza o URL num browser e veja se receber o XML de metadados de Federação.
 
-* **Existe um erro de servidor interno**: rever os registos no diretório de registo da instalação. Se estiver recebendo o erro quando o utilizador está a tentar iniciar sessão com o SSO do Azure AD, pode partilhar os registos com a equipa de suporte.
+* **Existe um erro de servidor interno**: Reveja os registos no diretório de registo da instalação. Se estiver recebendo o erro quando o utilizador está a tentar iniciar sessão com o SSO do Azure AD, pode partilhar os registos com a equipa de suporte.
 
-* **Existe um erro de "ID de utilizador não foi encontrada" quando o utilizador tentar iniciar sessão**: criar o ID de utilizador no Jira ou confluência.
+* **Existe um erro de "ID de utilizador não foi encontrada" quando o utilizador tentar iniciar sessão**: Crie o ID de utilizador no Jira ou confluência.
 
-* **Existe um erro de "Aplicação não foi encontrada" no Azure AD**: veja se o URL adequado é mapeado para a aplicação no Azure AD.
+* **Existe um erro de "Aplicação não foi encontrada" no Azure AD**: Veja se o URL adequado é mapeado para a aplicação no Azure AD.
 
-* **Precisa de suporte**: entrar em contacto com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde em 24-48 horas de expediente.
+* **Precisa de suporte**: Entrar em contacto com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipe responde em 24-48 horas de expediente.
 
   Também pode fazer um pedido de suporte com a Microsoft por meio do canal de portal do Azure.
 
@@ -185,8 +185,8 @@ Não. O plug-in suporta apenas no local as versões do Jira e confluência.
 
 O plug-in oferece suporte a essas versões:
 
-* Jira Core e de Software: 6.0 para 7.12
-* Central de serviços de Jira: 3.0.0 para 3.5.0
+* Núcleo do Jira e Software: 6.0 para 7.12
+* Jira Service Desk: 3.0.0 para 3.5.0
 * JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluência: 5.0 para 5.10
 * Confluência: 6.0.1

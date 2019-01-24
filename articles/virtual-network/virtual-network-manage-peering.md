@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 068ebfb9bdb7874a5596adaa7133ba270853f983
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 10f8b6b2b1ab6249eff4776c8cba869d72f448c5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434126"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851679"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -107,7 +107,7 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 
 **Comandos**
 
-- **CLI do Azure**: [delete de peering de vnet do az rede](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
+- **CLI do Azure**: [delete de peering de vnet do az rede](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações 

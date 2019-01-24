@@ -3,9 +3,9 @@ title: Como utilizar os tópicos do Service bus do Azure com Java | Documentos d
 description: Utilize tópicos do Service Bus e as subscrições no Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: aschhab
+ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241324"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849962"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como utilizar os tópicos do Service Bus e as subscrições com Java
 
@@ -67,7 +67,7 @@ A criação de um espaço de nomes gera automaticamente uma regra inicial de Ass
 1. Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
 2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
 3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** junto a **Cadeia de Ligação Primária** para copiar a cadeia de ligação para a sua área de transferência e utilizá-la mais tarde. Cole este valor no Bloco de Notas ou noutra localização temporária.
+4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
 
     ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
@@ -95,8 +95,8 @@ Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] ante
 
 Também terá de adicionar os JARs seguintes para o caminho de compilação de Java:
 
-- gson 2.6.2.jar
-- Commons-cli-1.4.jar
+- gson-2.6.2.jar
+- commons-cli-1.4.jar
 - proton-j-0.21.0.jar
 
 Adicionar uma classe com um **Main** método e, em seguida, adicione o seguinte `import` declarações na parte superior do ficheiro Java:

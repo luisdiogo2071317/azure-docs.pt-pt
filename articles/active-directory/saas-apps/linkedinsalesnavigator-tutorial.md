@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o LinkedIn Sales Navigator | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o LinkedIn Sales Navigator | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4a30259c4aa00530e5aadd2cb98c19b63bd5d8a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817032"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn Sales Navigator
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn Sales Navigator
 
 Neste tutorial, saiba como integrar o LinkedIn Sales Navigator com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o LinkedIn Sales Navigator, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um LinkedIn Sales Navigator início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do LinkedIn Sales Navigator para o Azure AD, ter�
 
 **Para adicionar o LinkedIn Sales Navigator partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -140,10 +140,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | e-mail| User.Mail |
-    | Departamento| User.Department |
-    | FirstName| User.givenName |
-    | Apelido| User.Surname |
+    | e-mail| user.mail |
+    | Departamento| user.department |
+    | FirstName| user.givenname |
+    | Apelido| user.surname |
     
     ![Criar um utilizador de teste do Azure AD](./media/linkedinsalesnavigator-tutorial/userattribute.png)
     
@@ -187,7 +187,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -261,7 +261,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do LinkedIn Sales Navigator no painel de acesso, deve ser redirecionado à página organizacional, onde tem de fornecer detalhes da sua conta LinkedIn pessoais. Ele liga a sua conta pessoal com a sua conta de negócios do LinkedIn. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico do LinkedIn Sales Navigator no painel de acesso, deve ser redirecionado à página organizacional, onde tem de fornecer detalhes da sua conta LinkedIn pessoais. Ele liga a sua conta pessoal com a sua conta de negócios do LinkedIn. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

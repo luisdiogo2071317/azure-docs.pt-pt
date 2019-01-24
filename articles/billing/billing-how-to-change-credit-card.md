@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581447"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849792"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito para o Azure
 
@@ -32,7 +32,7 @@ No Centro de contas, pode adicionar um novo cartão de crédito, atualizar um ca
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Adicionar um novo cartão de crédito ou débito
 
-1. Inicie sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
+1. Inicie sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions) como o [administrador de conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione uma subscrição.
 1. No lado direito da página, selecione **Gerir métodos de pagamento**.
 
@@ -49,7 +49,7 @@ Se obtiver um erro depois de adicionar o cartão de crédito, consulte [recusado
 
 Se for renovado seu cartão de crédito e o número permanece o mesmo, atualize os detalhes de cartão de crédito existente como a data de expiração. Se as alterações de número de cartão de crédito porque o cartão é perdido, roubado ou expirado, siga os passos a [adicionar um cartão de crédito como um método de pagamento](#addcard) secção. Não precisa de atualizar o CVV.
 
-1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o [administrador de conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a subscrição que está ligada ao cartão.
 1. Selecione **gerir métodos de pagamento**.
 1. Selecione **editar** junto do cartão que pretende atualizar.
@@ -58,14 +58,14 @@ Se for renovado seu cartão de crédito e o número permanece o mesmo, atualize 
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Utilizar outro cartão de crédito para a subscrição do Azure
 
-1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador de conta.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o [administrador de conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a subscrição que está ligada ao cartão.
 1. No lado direito da página, selecione **Gerir métodos de pagamento**.
 1. Clique em **utilizar em vez disso** junto ao cartão que pretende utilizar. Este procedimento também atualiza quaisquer outras subscrições que está associadas este cartão. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Remover um cartão de crédito ou débito a partir da conta
 
-1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como administrador de conta.
+1. Inicie sessão para o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o [administrador de conta](billing-subscription-transfer.md#whoisaa).
 1. Selecione a subscrição que está ligada ao cartão.
 3. No lado direito da página, selecione **Gerir métodos de pagamento**.
 4. Clique em **eliminar** para o cartão de crédito que pretende eliminar.

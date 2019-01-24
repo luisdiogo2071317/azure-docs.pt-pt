@@ -3,22 +3,22 @@ title: Contagem de mensagens do Service Bus do Azure | Documentos da Microsoft
 description: Obter a contagem de mensagens do Service bus do Azure.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 954c16cefe6d7ffe61a0b04b274b9bf92306a587
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 43689ec92fe20e61fdfd7a145d3028a3b1ee956d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857589"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848110"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
 
@@ -34,11 +34,11 @@ Com o PowerShell, pode obter a contagem da seguinte forma:
 
 É útil para determinar se uma fila cria uma lista de pendências que requer mais recursos para processar do que o que atualmente tiver sido implementado saber a contagem de mensagens do Active Directory. Os seguintes detalhes de contador estão disponíveis no [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) classe:
 
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): mensagens na fila ou subscrição, que são ativo estaduais e pronto para entrega.
--   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): mensagens na fila de mensagens não entregues.
--   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): mensagens no Estado agendado.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): mensagens de falha de transferência para outra fila ou tópico e foram movidas para a fila de mensagens não entregues de transferência.
--   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): mensagens pendentes transferência em outra fila ou tópico.
+-   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): Mensagens na fila ou subscrição ativo estaduais e pronto para entrega.
+-   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): Mensagens na fila de mensagens não entregues.
+-   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): Mensagens no Estado agendado.
+-   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): Mensagens de falha de transferência para outra fila ou tópico e foram movidas para a fila de mensagens não entregues de transferência.
+-   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): Mensagens pendentes transferência em outra fila ou tópico.
 
 Se um aplicativo quiser Dimensionar recursos com base no comprimento da fila, ele deve fazer isso com uma medida ritmo. A aquisição dos contadores de mensagem é uma operação dispendiosa dentro do Mediador de mensagens e executá-la com frequência diretamente e negativa afeta o desempenho de entidade.
 

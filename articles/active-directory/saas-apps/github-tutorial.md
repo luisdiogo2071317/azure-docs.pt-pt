@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 41a7a11debfccfcde3258e17a337b5c72732dbf4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5afcec7a1dfd306cb87989e1a24cc662af183b5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065856"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Active Directory do Azure com o GitHub
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD início de sessão único com o GitHub, execute os se
     
     | Nome | Atributo de origem|
     | ---------------| --------------- |
-    | Identificador de Utilizador Exclusivo | User.Mail |
+    | Identificador de Utilizador Exclusivo | User.mail |
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -152,7 +152,7 @@ Para configurar o Azure AD início de sessão único com o GitHub, execute os se
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

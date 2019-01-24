@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o cliente de Gorila ' s Land | Documentos da Microsoft"
+title: "Tutorial: Integração do Active Directory do Azure com o cliente de Gorila ' s Land | Documentos da Microsoft"
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Gorilla da terra.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e4ff5b3fd7797296761ba025dc54d15c491dea06
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116441"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827692"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Azure Active Directory com o cliente de Gorila terra
+# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Active Directory do Azure com o cliente de Gorila terra
 
 Neste tutorial, saiba como integrar ' s Land Gorilla cliente com o Azure Active Directory (Azure AD).
 

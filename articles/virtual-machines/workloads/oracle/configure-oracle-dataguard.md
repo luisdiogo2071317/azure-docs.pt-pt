@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 37ecb314c5f09a51d9ce9d28534a4664b75069af
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412755"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855827"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a proteção de dados Oracle numa máquina virtual Linux do Azure 
 
@@ -40,7 +40,7 @@ A imagem do Marketplace que utilizar para criar as VMs é Oracle: Oracle-base de
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Iniciar sessão sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index#az_login) de comando e siga na tela as direções.
+Iniciar sessão sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index) de comando e siga na tela as direções.
 
 ```azurecli
 az login

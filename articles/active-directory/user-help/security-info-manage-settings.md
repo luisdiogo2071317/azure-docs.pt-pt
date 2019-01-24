@@ -3,7 +3,7 @@ title: Gerir as suas informações de segurança - Azure Active Directory | Docu
 description: Saiba como gerir as suas informações de segurança, incluindo como trabalhar com as definições da verificação de dois passos.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 34023e74fb30f202760b35120da78a18ca653d69
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016151"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815366"
 ---
 # <a name="manage-your-security-info-preview"></a>Gerir as suas informações de segurança (pré-visualização)
 

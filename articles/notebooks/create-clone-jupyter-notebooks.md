@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164420"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844063"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -30,7 +30,7 @@ Um projeto também mantém metadados e outras definições de configuração que
 
 Sua **meus projetos** dashboard em `https://notebooks.azure.com/<userID>/projects` é onde pode ver, gere e criar projetos:
 
-[![](media/my-projects-dashboard.png "O meu dashboard de projetos em blocos de notas do Azure")](media/my-projects-dashboard.png#lightbox)
+[![O meu dashboard de projetos em blocos de notas do Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 O que pode fazer no dashboard depende se iniciou sessão com a conta que possui o ID de utilizador:
 
@@ -105,9 +105,9 @@ Para clonar um projeto:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
-- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [How to: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

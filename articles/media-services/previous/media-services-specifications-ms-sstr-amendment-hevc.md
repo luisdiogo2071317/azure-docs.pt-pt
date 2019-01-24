@@ -1,6 +1,6 @@
 ---
 title: Serviços de multimédia do Azure - Smooth Streaming de modificação de protocolo (MS-SSTR) para HEVC | Documentos da Microsoft
-description: Essa especificação descreve o protocolo e o formato para fragmentados com base em MP4 de transmissão em direto com HEVC nos serviços de multimédia do Azure. Esta é uma alteração às (MS-SSTR) para incluir o suporte de ingestão HEVC documentaiton transmissão em fluxo uniforme de protocolo e a transmissão em fluxo. Apenas as alterações necessárias para proporcionar HEVC são especificadas neste artigo, exceto foram "(não alterar)" indica o texto é copiado para apenas esclarecimentos.
+description: Essa especificação descreve o protocolo e o formato para fragmentados com base em MP4 de transmissão em direto com HEVC nos serviços de multimédia do Azure. Trata-se de uma modificação para a documentação do protocolo de transmissão em fluxo uniforme (MS-SSTR) para incluir suporte HEVC de ingestão e transmissão em fluxo. Apenas as alterações necessárias para proporcionar HEVC são especificadas neste artigo, exceto foram "(não alterar)" indica o texto é copiado para apenas esclarecimentos.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c87795c1203a8639ba224a646f8f0c5f5515b840
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317428"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812765"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificação de protocolo (MS-SSTR) transmissão em fluxo uniforme para HEVC
 
@@ -46,15 +46,15 @@ Os termos seguintes são específicos a este documento:
 
 >   **descodificar tempo:** O tempo de um exemplo é necessário para ser descodificado no cliente, conforme definido na [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
-**fragmento:** Uma unidade de forma independente que pode ser baixada da **multimédia** que é composto por um ou mais **exemplos**.
+**fragment:** Uma unidade de forma independente que pode ser baixada da **multimédia** que é composto por um ou mais **exemplos**.
 
 >   **HEVC:** Elevada eficiência vídeo de codificação, como definido pela [ISO/IEC 23008-2]
 
->   **manifesto:** Metadados sobre o **apresentação** que permite que um cliente fazer pedidos **multimédia**. **suporte de dados:** Comprimir dados de áudio, vídeo e texto utilizados pelo cliente para reproduzir um **apresentação**. **formato de suporte de dados:** Um formato bem definido para representar o áudio ou vídeo como um comprimido **exemplo**.
+>   **manifest:** Metadados sobre o **apresentação** que permite que um cliente fazer pedidos **multimédia**. **suporte de dados:** Comprimir dados de áudio, vídeo e texto utilizados pelo cliente para reproduzir um **apresentação**. **formato de suporte de dados:** Um formato bem definido para representar o áudio ou vídeo como um comprimido **exemplo**.
 
->   **apresentação:** O conjunto de todos os **fluxos** e metadados relacionados necessários para reproduzir um filme único. **Pedido:** Uma mensagem de HTTP enviada do cliente para o servidor, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Resposta:** Uma mensagem de HTTP enviada do servidor para o cliente, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentation:** O conjunto de todos os **fluxos** e metadados relacionados necessários para reproduzir um filme único. **Pedido:** Uma mensagem de HTTP enviada do cliente para o servidor, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Resposta:** Uma mensagem de HTTP enviada do servidor para o cliente, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
->   **Exemplo:** A menor unidade fundamental (por exemplo, um quadro) no qual **multimédia** são armazenados e processados.
+>   **sample:** A menor unidade fundamental (por exemplo, um quadro) no qual **multimédia** são armazenados e processados.
 
 >   **MAIO, DEVE, TEM, NÃO DEVE, NÃO PODEM:** Estes termos (em maiúsculas) são utilizados conforme descrito em [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Todas as instruções de utilização de comportamento opcional ou pode, SHOULD, ou deve não.
 
@@ -147,7 +147,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
 
 >   **FourCC (variável):** Um código de quatro caracteres que identifica qual formato de suporte de dados é utilizado para cada exemplo. O seguinte intervalo de valores está reservado com o significado semântico seguinte:
 
->  * "hev1": Exemplos de vídeo para este vídeo HEVC track de uso, usando o hev1 o formato de descrição especificado no [ISO/IEC-14496-15] de exemplo.
+>  * "hev1”: Exemplos de vídeo para este vídeo HEVC track de uso, usando o hev1 o formato de descrição especificado no [ISO/IEC-14496-15] de exemplo.
 
 >   **CodecPrivateData (variável):** Dados que especifica os parâmetros específicos para o formato de suporte de dados e comuns a todos os exemplos no Roteiro, representados como uma cadeia de caracteres de bytes codificado em hexadecimal. O formato e o significado semântico da seqüência de bytes varia de acordo com o valor do **FourCC** campo da seguinte forma:
 
@@ -173,7 +173,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
 
 ### <a name="223-fragment-request"></a>2.2.3 pedido de fragmento 
 
->   **Tenha em atenção**: O formato de suporte de dados padrão pedida para **MinorVersion** 2 e 'hev1' é "iso8" marca ISO Base suporte de dados de ficheiro de formato especificado no [ISO/IEC 14496-12] ISO Base suporte de dados de ficheiro de formato quarta edição e [ISO/IEC 23001 7] comuns encriptação segundo Edição.
+>   **Nota**: O formato de suporte de dados padrão pedida para **MinorVersion** 2 e 'hev1' é "iso8" marca ISO Base suporte de dados de ficheiro de formato especificado no [ISO/IEC 14496-12] ISO Base suporte de dados de ficheiro de formato quarta edição e [ISO/IEC 23001 7] comuns encriptação segundo Edição.
 
 ### <a name="224-fragment-response"></a>2.2.4 resposta de fragmento 
 
@@ -187,7 +187,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
 
 >   O **TfxdBox** foi preterido e sua função substituído pelo Track fragmento descodificar tempo caixa ('tfdt') especificado na seção de [ISO/IEC 14496-12] 8.8.12.
 
->   **Tenha em atenção**: Um cliente pode calcular a duração de um fragmento ao somar as durações de exemplo listadas na caixa de execução de controle ('trun") ou multiplicar o número de amostras vezes a duração de exemplo do padrão. BaseMediaDecodeTime de duração "tfdt" plus fragmento é igual do parâmetro da hora de URL para o fragmento seguinte.
+>   **Nota**: Um cliente pode calcular a duração de um fragmento ao somar as durações de exemplo listadas na caixa de execução de controle ('trun") ou multiplicar o número de amostras vezes a duração de exemplo do padrão. BaseMediaDecodeTime de duração "tfdt" plus fragmento é igual do parâmetro da hora de URL para o fragmento seguinte.
 
 >   Uma caixa de tempo de referência de produtor ('prft") deve ser inserida antes de uma caixa de fragmento de filmes ('moof"), conforme necessário indicar a hora UTC correspondente para o controle fragmento decodificar o tempo do primeiro exemplo referenciado pela caixa de fragmento de filme, como especificado no [ISO/IEC 14496 -12] secção 8.16.5.
 
@@ -195,7 +195,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
 
 >   O **TfrfBox** foi preterido e sua função substituído pelo Track fragmento descodificar tempo caixa ('tfdt') especificado na seção de [ISO/IEC 14496-12] 8.8.12.
 
->   **Tenha em atenção**: Um cliente pode calcular a duração de um fragmento ao somar as durações de exemplo listadas na caixa de execução de controle ('trun") ou multiplicar o número de amostras vezes a duração de exemplo do padrão. BaseMediaDecodeTime de duração "tfdt" plus fragmento é igual do parâmetro da hora de URL para o fragmento seguinte. Verificar endereços são preteridos porque eles atrasar a transmissão em fluxo em direto.
+>   **Nota**: Um cliente pode calcular a duração de um fragmento ao somar as durações de exemplo listadas na caixa de execução de controle ('trun") ou multiplicar o número de amostras vezes a duração de exemplo do padrão. BaseMediaDecodeTime de duração "tfdt" plus fragmento é igual do parâmetro da hora de URL para o fragmento seguinte. Verificar endereços são preteridos porque eles atrasar a transmissão em fluxo em direto.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -245,7 +245,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Tenha em atenção**: As marcas de compatibilidade "ccff' e"iso8"indicam que fragmentos está em conformidade com"Formato de ficheiro de contentor comum"e a encriptação comum [ISO/IEC 23001 7] e ISO Base suporte de dados de ficheiro de formato Edition 4 [ISO/IEC 14496-12].
+**Nota**: As marcas de compatibilidade "ccff' e"iso8"indicam que fragmentos está em conformidade com"Formato de ficheiro de contentor comum"e a encriptação comum [ISO/IEC 23001 7] e ISO Base suporte de dados de ficheiro de formato Edition 4 [ISO/IEC 14496-12].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -289,7 +289,7 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
     MajorVersion = 2
     MinorVersion = 2
 
->   LookaheadCount = 0 (observação: Caixas de preterida)
+>   LookaheadCount = 0 (Note: Caixas de preterida)
 
 >   Apresentações também devem definir:
 
@@ -350,9 +350,9 @@ O ProtectionElement deve estar presente quando a encriptação comum (CENC) foi 
 
 ## <a name="51-security-considerations-for-implementers"></a>5.1 considerações de segurança de para Implementadores
 
->   Se o conteúdo transportado utilizar este protocolo tem de alto valor comercial, um sistema de proteção de conteúdo deve ser usado para evitar utilizações não autorizadas do conteúdo. O **ProtectionElement** pode ser utilizado para transportar os metadados relacionados com a utilização de um sistema de proteção de conteúdo. Áudio protegido e o conteúdo de vídeo encriptados conforme especificado pelo MPEG comuns encriptação Second Edition: [ISO/IEC 23001 7] DE 2015.
+>   Se o conteúdo transportado utilizar este protocolo tem de alto valor comercial, um sistema de proteção de conteúdo deve ser usado para evitar utilizações não autorizadas do conteúdo. O **ProtectionElement** pode ser utilizado para transportar os metadados relacionados com a utilização de um sistema de proteção de conteúdo. Áudio protegido e o conteúdo de vídeo encriptados conforme especificado pelo MPEG comuns encriptação Second Edition: 2015 [ISO/IEC 23001-7].
 
->   **Tenha em atenção**: Para vídeo HEVC, apenas os dados de setor em VCL NALs são encriptados. Cabeçalhos de setor e outros NALs são acessíveis para aplicações de apresentação antes da desencriptação. um caminho de vídeo segura, informações encriptadas não estão disponíveis para aplicativos de apresentação.
+>   **Nota**: Para vídeo HEVC, apenas os dados de setor em VCL NALs são encriptados. Cabeçalhos de setor e outros NALs são acessíveis para aplicações de apresentação antes da desencriptação. um caminho de vídeo segura, informações encriptadas não estão disponíveis para aplicativos de apresentação.
 
 ## <a name="52-index-of-security-parameters"></a>5.2 índice dos parâmetros de segurança 
 

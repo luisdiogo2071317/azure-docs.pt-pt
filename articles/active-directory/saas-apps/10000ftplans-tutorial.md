@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com planos 10,000ft | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e planos 10,000ft.
+title: 'Tutorial: Integração do Active Directory do Azure com os planos de 10 000 ft | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e planos de 10 000 quadrado.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,112 +14,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230357"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808056"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory com planos 10,000ft
+# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Active Directory do Azure com os planos de 10 000 ft
 
-Neste tutorial, irá aprender a integrar planos 10,000ft com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar os planos de 10 000 quadrado com o Azure Active Directory (Azure AD).
 
-Integrar planos 10,000ft com o Azure AD fornece as seguintes vantagens:
+Planos de 10 000 ft a integração com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao planos 10,000ft
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para planos 10,000ft (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao quadrado 10.000 planos
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para planos de 10 000 ft (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com planos 10,000ft, terá dos seguintes itens:
+Para configurar a integração do Azure AD com planos de 10 000 quadrado, precisa do seguinte:
 
-- Uma subscrição do Azure AD
-- Um 10 000 ft planos-início de sessão único ativada subscrição
+- Uma subscrição do Azure
+- Um quadrado 10.000 planos de início de sessão único de subscrição ativada
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui [oferta da avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar 10 000 ft planos na galeria do
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionar 10.000 ft planos da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-10000ft-plans-from-the-gallery"></a>Adicionar 10 000 ft planos na galeria do
-Para configurar a integração dos planos 10,000ft com o Azure AD, tem de adicionar planos 10,000ft na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-10000ft-plans-from-the-gallery"></a>Adicionar 10.000 ft planos da Galeria
+Para configurar a integração dos planos de 10 000 quadrado com o Azure AD, terá de adicionar os planos de 10 000 ft a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar planos 10,000ft na galeria do, execute os seguintes passos:**
+**Para adicionar planos de 10 000 ft a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **planos 10,000ft**.
+4. Na caixa de pesquisa, escreva **planos de 10 000 ft**.
 
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
 
-5. No painel de resultados, selecione **planos 10,000ft**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **planos de 10 000 ft**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configurar e testar o Azure AD-início de sessão único com 10.000 ft planos com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configurar e testar o Azure AD início de sessão único com 10.000 ft planos com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo nos planos 10,000ft é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no 10 000 ft planos tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no quadrado 10.000 planos para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no quadrado 10.000 planos deve ser estabelecido.
 
-Nos planos 10,000ft, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+Nos planos de 10 000 quadrado, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com planos 10,000ft, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com planos de 10 000 quadrado, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um 10 000 ft planos de utilizador de teste](#creating-a-10000ft-plans-test-user)**  - para ter um homólogo de Britta Simon no 10 000 ft planos que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criação de um quadrado de 10 000 planos de utilizador de teste](#creating-a-10000ft-plans-test-user)**  - para ter um equivalente da Eduarda Almeida no quadrado 10.000 planos que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação de planos 10,000ft.
+Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu aplicativo de planos de 10 000 quadrado.
 
-**Para configurar o Azure AD-início de sessão único com planos 10,000ft, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com planos de 10 000 quadrado, execute os seguintes passos:**
 
-1. No portal do Azure, no **planos 10,000ft** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, no **planos de 10 000 ft** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_samlbase.png)
 
-3. No **10 000 ft planos de domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **10.000 ft planos de domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://app.10000ft.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva o URL: `https://app.10000ft.com`
 
-    b. No **identificador** caixa de texto, escreva o URL: `https://app.10000ft.com/saml/metadata`
+    b. Na **identificador** caixa de texto, escreva o URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE] 
-    > O valor para **identificador** é diferente se tiver um domínio personalizado. Contacte [equipa de suporte de planos 10,000ft](https://www.10000ft.com/plans/support) para obter este valor. 
+    > O valor para **identificador** é diferente se tiver um domínio personalizado. Contacte [equipa de suporte de planos de 10 000 ft](https://www.10000ft.com/plans/support) para obter este valor. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Raw)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Raw)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
 
@@ -127,23 +127,23 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_general_400.png)
 
-6. No **10 000 ft planos configuração** secção, clique em **configurar planos 10,000ft** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. Na **quadrado 10.000 planos de configuração** secção, clique em **configurar planos de 10 000 ft** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
 
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
-7. Para configurar o início de sessão único em **planos 10,000ft** lado, terá de enviar o transferido **Certificate(Raw), Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [10 000 ft Equipa de suporte de planos](https://www.10000ft.com/plans/support).
+7. Para configurar o início de sessão único em **planos de 10 000 ft** lado, terá de enviar o transferido **Certificate(Raw), o URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** para [10.000 ft Equipa de suporte de planos](https://www.10000ft.com/plans/support).
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/create_aaduser_01.png) 
 
@@ -151,68 +151,68 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/10000ftplans-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-10000ft-plans-test-user"></a>Criar um 10 000 ft planos de utilizador de teste
+### <a name="creating-a-10000ft-plans-test-user"></a>Criação de um quadrado de 10 000 planos de utilizador de teste
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon nos planos 10,000ft. Planos 10,000ft suportam o aprovisionamento de just-in-time, que é por predefinição ativada. Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante a tentativa de aceder planos 10,000ft se não existir ainda. 
+O objetivo desta secção é criar um utilizador chamado Eduarda Almeida nos planos de 10 000 quadrado. Planos de 10 000 ft suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de acesso a planos de 10 000 ft se não existir ainda. 
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de planos 10,000ft](https://www.10000ft.com/plans/support).
+> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de planos de 10 000 ft](https://www.10000ft.com/plans/support).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para 10 000 ft planos.
+Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão único, concedendo acesso aos planos de 10 000 quadrado.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon para planos 10,000ft, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida aos planos de 10 000 quadrado, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
-2. Na lista de aplicações, selecione **planos 10,000ft**.
+2. Na lista de aplicações, selecione **planos de 10 000 ft**.
 
     ![Configurar o início de sessão único](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.  
-Quando clica no mosaico de planos 10,000ft no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de planos 10,000ft.
+O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.  
+Quando clica no mosaico de planos de 10 000 quadrado no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de planos de 10 000 quadrado.
  
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444634"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819888"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta de serviços de multimédia com .NET
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Ao criar recursos, pode especificar as seguintes opções de encriptação:
   
     Se o seu elemento estiver armazenamento encriptado, é necessário configurar a política de entrega de elementos. Para obter mais informações, consulte [configurar a política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Se especificar para o seu elemento seja encriptado com uma **CommonEncrypted** opção, ou uma **EnvelopeEncypted** opção, precisa associar o seu elemento com um **ContentKey**. Para obter mais informações, consulte [como criar um ContentKey](media-services-dotnet-create-contentkey.md). 
+Se especificar para o seu elemento seja encriptado com uma **CommonEncrypted** opção, ou uma **EnvelopeEncrypted** opção, precisa associar o seu elemento com um **ContentKey**. Para obter mais informações, consulte [como criar um ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Se especificar para o seu elemento seja encriptado com uma **StorageEncrypted** opção, o SDK de Media Services para .NET cria um **StorateEncrypted** **ContentKey** para o seu elemento.
+Se especificar para o seu elemento seja encriptado com uma **StorageEncrypted** opção, o SDK de Media Services para .NET cria um **StorageEncrypted** **ContentKey** para o seu elemento.
 
 Este artigo mostra como utilizar o SDK .NET dos Media Services, bem como as extensões do SDK .NET dos Media Services para carregar ficheiros para um recurso de serviços de multimédia.
 

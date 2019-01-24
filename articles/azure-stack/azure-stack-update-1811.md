@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267322"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853243"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -191,6 +191,8 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 
 ## <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
+- Quando executa o **Get-AzureStackLog** cmdlet do PowerShell após a execução **teste AzureStack** na mesma sessão de ponto final com privilégios (PEP), **Get-AzureStackLog** falhar. Para contornar este problema, feche a sessão PEP em que é executado **teste AzureStack**e, em seguida, abra uma nova sessão para ser executado **Get-AzureStackLog**.
+
 - Durante a instalação do 1811, certifique-se de que todas as instâncias do portal do administrador estão fechadas durante este período. O portal de utilizador pode permanecer aberto, mas tem de fechar o portal de administração.
 
 - Quando em execução [teste AzureStack](azure-stack-diagnostic-test.md), se qualquer um da **AzsInfraRoleSummary** ou o **AzsPortalApiSummary** teste falhar, se lhe for pedido para executar  **Teste AzureStack** com o `-Repair` sinalizador.  Se executar este comando, ocorre uma falha com a seguinte mensagem de erro:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Este problema será corrigido numa versão futura.
@@ -312,7 +314,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
    - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
       1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Selecione **fornecedores de recursos**, em seguida, selecione **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
-      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que o **AzureStack-DiskRP-Client** função está listada.
    - Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar a autenticação baseada em palavra-passe.

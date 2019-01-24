@@ -3,9 +3,9 @@ title: O Azure Service Bus emparelhado espaços de nomes | Documentos da Microso
 description: Detalhes de implementação do espaço de nomes emparelhado e os custos
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: ac663cc382fcacd4960843c25aa6c95191210116
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 35c643b9bb4f348b790577e560eaf14d3a19802f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395207"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848349"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Emparelhadas detalhes de implementação do espaço de nomes e as implicações de custos
 
@@ -58,7 +58,7 @@ O [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOpti
 | Caminho | [espaço de nomes principal] / x-servicebus-transferência / [Índice] em que [Índice] é um valor na [0, BacklogQueueCount) |
 | --- | --- |
 | MaxSizeInMegabytes |5120 |
-| MaxDeliveryCount |Int. MaxValue |
+| MaxDeliveryCount |int.MaxValue |
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | LockDuration |1 minuto |

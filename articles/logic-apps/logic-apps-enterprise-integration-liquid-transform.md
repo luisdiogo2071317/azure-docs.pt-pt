@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019678"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854382"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Execute transformações de JSON avançadas com modelos de fluidos no Azure Logic Apps
 
@@ -30,6 +30,8 @@ Portanto, antes de poder executar uma transformação líquida na sua aplicaçã
 * Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Básica [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+
+* Conhecimento básico sobre [linguagem do modelo de fluidos.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Criar modelo de fluidos ou mapa para a sua conta de integração
 
@@ -68,7 +70,7 @@ Se pretender utilizar quaisquer filtros no seu modelo de fluidos, certificar-se 
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Nome** | JsonToJsonTemplate | O nome para o seu mapa, o que é "JsonToJsonTemplate" neste exemplo | 
-   | **Tipo de mapa** | **Liquid** | O tipo para seu mapa. Para JSON e transformação de JSON, tem de selecionar **líquidos**. | 
+   | **Tipo de mapa** | **liquid** | O tipo para seu mapa. Para JSON e transformação de JSON, tem de selecionar **líquidos**. | 
    | **Mapa** | "SimpleJsonToJsonTemplate.liquid" | Um líquidos modelo ou do mapa de arquivo existente para utilizar para transformação, que é "SimpleJsonToJsonTemplate.liquid" neste exemplo. Para localizar este ficheiro, pode utilizar o Seletor de ficheiros. |
    ||| 
 

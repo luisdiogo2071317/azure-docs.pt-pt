@@ -3,21 +3,21 @@ title: Complexidade de palavra-passe no Azure Active Directory B2C | Documentos 
 description: Como configurar requisitos de complexidade de palavras-passe fornecidos pelos consumidores no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e728fb037895908882bbe6dc7e8414457ccf273f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724439"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845559"
 ---
-# <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>O Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
+# <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
 
 > [!NOTE]
 > **Esta funcionalidade está em pré-visualização pública.**
@@ -70,9 +70,9 @@ Permite-lhe controlar os requisitos de comprimento da senha.
 
 Permite-lhe controlar os tipos de carateres diferentes usados na palavra-passe.
 
-* **2 de 4: caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém, pelo menos, dois tipos de caráter. Por exemplo, um número e um caráter em minúsculas.
-* **3 de 4: caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém, pelo menos, dois tipos de caráter. Por exemplo, um número, um caráter em minúsculas e um caráter em maiúsculas.
-* **4 de 4: caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém tudo para tipos de carateres.
+* **2 de 4: Caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém, pelo menos, dois tipos de caráter. Por exemplo, um número e um caráter em minúsculas.
+* **3 de 4: Caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém, pelo menos, dois tipos de caráter. Por exemplo, um número, um caráter em minúsculas e um caráter em maiúsculas.
+* **4 de 4: Caráter em minúsculas, carateres em maiúsculas, número (0-9), símbolo** garante que a palavra-passe contém tudo para tipos de carateres.
 
     > [!NOTE]
     > Exigir **4 de 4** pode resultar em frustração do usuário final. Alguns estudos demonstraram que este requisito não melhora entropia de palavra-passe. Consulte [NIST diretrizes de palavra-passe](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

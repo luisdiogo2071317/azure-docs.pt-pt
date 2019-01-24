@@ -1,5 +1,5 @@
 ---
-title: Serviço de porta de entrada do Azure - balanceamento de carga com o conjunto de entrega de aplicação do Azure | Documentos da Microsoft
+title: Serviço de porta de entrada do Azure - balanceamento de carga com o conjunto de entrega de aplicativos do Azure | Documentos da Microsoft
 description: Este artigo ajuda-o a saber mais sobre como o Azure recomenda balanceamento de carga com de entrega conjunto de aplicativos
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026012"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820836"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
 ## <a name="introduction"></a>Introdução
-O Microsoft Azure fornece vários serviços globais e regionais para gerir a forma como o seu tráfego de rede é distribuído e com balanceamento de carga: o Gestor de tráfego, o serviço de porta de entrada, o Gateway de aplicação e o Balanceador de carga.  Juntamente com muitas regiões que escolheu do Azure e zonais o arquitetura, em conjunto a utilizar estes serviços permitem-lhe criar aplicações de alto desempenho robustas e escaláveis.
+O Microsoft Azure fornece vários serviços globais e regionais para gerir a forma como o seu tráfego de rede é distribuído e com balanceamento de carga: Gestor de tráfego, o serviço de porta de entrada, o Gateway de aplicação e o Balanceador de carga.  Juntamente com muitas regiões que escolheu do Azure e zonais o arquitetura, em conjunto a utilizar estes serviços permitem-lhe criar aplicações de alto desempenho robustas e escaláveis.
 
 ![Conjunto de entrega de aplicativos ][1]
  
@@ -51,16 +51,16 @@ Balanceador de carga é uma parte integral da pilha SDN do Azure, fornecendo alt
 
 ## <a name="choosing-a-global-load-balancer"></a>Escolher um balanceador de carga global
 Ao escolher um balanceador de carga global entre o Gestor de tráfego e a porta de entrada do Azure para o encaminhamento global, deve considerar o que é semelhante e quais são as diferenças sobre os dois serviços.   Fornecem ambos os serviços
-- **Redundância geográfica múltipla:** se uma região ficar inativo, tráfego de forma totalmente integrada encaminha para a região mais próxima sem qualquer intervenção do proprietário do aplicativo.
-- **Encaminhamento de região mais próxima:** automaticamente o tráfego é encaminhado para a região mais próxima
+- **Redundância de multi-geo:** Se uma região ficar inativo, tráfego de forma totalmente integrada encaminha para a região mais próxima sem qualquer intervenção do proprietário do aplicativo.
+- **Encaminhamento de região mais próxima:** Automaticamente o tráfego é encaminhado para a região mais próxima
 
 </br>A tabela seguinte descreve as diferenças entre o Gestor de tráfego e o serviço de porta de entrada do Azure:</br>
 
 | Gestor de Tráfego | Azure Front Door Service |
 | --------------- | ------------------------ |
-|**Qualquer protocolo:** porque o Gestor de tráfego funciona na camada DNS, pode encaminhar qualquer tipo de tráfego de rede: HTTP, TCP, UDP, etc. | **Aceleração de HTTP:** porta da frente com o tráfego é transmitidas por proxy na rede do Edge da Microsoft.  Por este motivo, os pedidos de HTTP (S) veja melhorias de latência e débito, reduzindo a latência para negociação de SSL e usando conexões de acesso frequente do AFD para seu aplicativo.|
-|**Encaminhamento no local:** com o encaminhamento numa camada DNS, o tráfego passa sempre de ponto a ponto.  Encaminhamento da sua sucursal para o seu datacenter no local, pode demorar um caminho direto; mesmo em sua própria rede utilizando o Gestor de tráfego. | **Escalabilidade independente:** porta da frente porque funciona com o pedido HTTP, pedidos para os caminhos de URL diferentes podem ser encaminhados para o back-end diferente / serviço regional conjuntos (microsserviços) com base em regras e o estado de funcionamento de cada microsserviço de aplicação.|
-|**Formato de faturação:** faturação baseada no DNS dimensiona com os seus utilizadores e serviços com mais usuários, plateaus para reduzir custos, em utilização superior. |**Segurança de inline:** desde início ativa regras, como a limitação de velocidade e a ACL, ing IP para permitem-lhe proteger o seu back-ends antes do tráfego chega a sua aplicação. 
+|**Qualquer protocolo:** Como o Gestor de tráfego funciona na camada DNS, pode encaminhar qualquer tipo de tráfego de rede: HTTP, TCP, UDP, etc. | **Aceleração de HTTP:** Com a porta de entrada, o tráfego é transmitidas por proxy na rede do Edge da Microsoft.  Por este motivo, os pedidos de HTTP (S) veja melhorias de latência e débito, reduzindo a latência para negociação de SSL e usando conexões de acesso frequente do AFD para seu aplicativo.|
+|**No local encaminhamento:** Com o encaminhamento numa camada DNS, o tráfego segue sempre de ponto a ponto.  Encaminhamento da sua sucursal para o seu datacenter no local, pode demorar um caminho direto; mesmo em sua própria rede utilizando o Gestor de tráfego. | **Escalabilidade independente:** Porque a porta da frente funciona com o pedido HTTP, os pedidos para diferentes caminhos de URL podem ser roteados para back-end diferente / regional conjuntos (microsserviços) com base em regras e o estado de funcionamento de cada microsserviço de aplicação de serviço.|
+|**Formato de faturação:** Faturação baseada no DNS dimensiona com os seus utilizadores e serviços com mais usuários, plateaus para reduzir custos, em utilização superior. |**Segurança de inline:** Porta de entrada ativa regras, como a limitação de velocidade e a ACL, ing IP para permitem-lhe proteger o seu back-ends antes do tráfego chega a sua aplicação. 
 
 </br>Por causa do desempenho, capacidade de operação e benefícios de segurança para cargas de trabalho HTTP com a porta da frente, recomendamos que os clientes utilizam a porta de entrada para as cargas de trabalho HTTP.    Gestor de tráfego e a porta de entrada podem ser utilizada em paralelo para servir de todo o tráfego para a sua aplicação. 
 

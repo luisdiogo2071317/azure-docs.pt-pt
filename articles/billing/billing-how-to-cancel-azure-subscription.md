@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810334"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelar a sua subscrição do Azure
 
@@ -37,10 +37,11 @@ Se cancelar a um plano de suporte do Azure pago, é-lhe cobrada ainda para o res
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Cancelar a subscrição com o portal do Azure
 
 1. Selecione a sua subscrição a partir da [página de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a subscrição que pretende cancelar e clique em **Cancelar subscrição**.
+2. Selecione a subscrição que pretende cancelar.
+3. Selecione **descrição geral**e, em seguida, selecione **Cancelar subscrição**.
 
     ![Captura de ecrã que mostra o botão Cancelar](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Siga instruções e concluir o cancelamento.
+3. Siga instruções e concluir o cancelamento.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>O que acontece depois de cancelar a minha subscrição?
 

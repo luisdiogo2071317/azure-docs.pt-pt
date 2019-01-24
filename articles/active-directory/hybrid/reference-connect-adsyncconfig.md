@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463529"
+ms.locfileid: "54813586"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADSyncConfig
 A seguinte documentação fornece informações de referência para o módulo do PowerShell ADSyncConfig.psm1 que está incluído com o Azure AD Connect.
@@ -1367,7 +1367,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-Esta função retuns todas as permissões do AD atualmente definido para um determinado objeto AD fornecido no parâmetro - ADobjectDN.
+Esta função devolve todas as permissões do AD atualmente definidas para um determinado objeto AD fornecido no parâmetro - ADobjectDN.
 O ADobjectDN deve ser fornecido num formato DistinguishedName.
 
 ### <a name="examples"></a>EXEMPLOS

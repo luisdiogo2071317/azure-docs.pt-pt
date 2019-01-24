@@ -3,19 +3,19 @@ title: Gerir dados de utilizador no Azure Active Directory B2C | Documentos da M
 description: Saiba como eliminar ou exportar dados de utilizador no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055893"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854025"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir dados de utilizador no Azure Active Directory B2C
 
@@ -46,8 +46,8 @@ O processo de exportação de dados de cliente do Azure AD B2C é semelhante ao 
 
 Dados de utilizador do Azure AD B2C estão limitados a:
 
-- **Dados armazenados no Azure Active Directory**: pode recuperar dados num percurso de utilizador de autenticação do Azure AD B2C com o ID de objeto ou qualquer início de sessão no nome, tal como um endereço de e-mail ou nome de utilizador. 
-- **Relatório de eventos de auditoria específicas do usuário**: permite-lhe indexar dados com o ID de objeto.
+- **Dados armazenados no Azure Active Directory**: Pode recuperar dados num percurso de utilizador de autenticação do Azure AD B2C com o ID de objeto ou qualquer início de sessão no nome, tal como um endereço de e-mail ou nome de utilizador. 
+- **Relatório de eventos de auditoria específicas do usuário**: Permite-lhe indexar dados com o ID de objeto.
 
 No exemplo seguinte de um fluxo de dados de exportação, os passos que são descritos como, que está a ser executadas pela aplicação também podem ser executados por um processo de back-end ou um utilizador com uma função de administrador no diretório:
 

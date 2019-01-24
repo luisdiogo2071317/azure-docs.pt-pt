@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o sistema de monitorização do SensoScientific sem fios temperatura | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o sistema de monitorização do SensoScientific sem fios temperatura.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ee9a924d-ccde-45b0-ab40-877f82f5dfa2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 139a40f339c2f403999f1c3b7fe65192d45c84fd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 131d430217ca299698be6fb7e45a0c8270184864
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426926"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824480"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura
+# <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Active Directory do Azure com o sistema de monitorização do SensoScientific sem fios temperatura
 
 Neste tutorial, saiba como integrar o sistema de monitorização do SensoScientific sem fios temperatura com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o sistema de monitorização do SensoScientific sem fios temperatura, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um sistema de monitorização do SensoScientific sem fios temperatura início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do sistema de monitorização do SensoScientific 
 
 **Para adicionar o sistema de monitorização do SensoScientific sem fios temperatura da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -145,7 +145,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     f. Clique em **Guardar**.
   
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado](https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
@@ -180,7 +180,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user"></a>Criar um utilizador de teste de sistema de monitorização do SensoScientific sem fios temperatura
 
-Para ativar a utilizadores do Azure AD iniciar sessão no sistema de monitorização do SensoScientific sem fios temperatura, tem de ser aprovisionados no sistema de monitorização do SensoScientific sem fios temperatura. Trabalhar com [equipa de suporte do sistema de monitorização do SensoScientific sem fios temperatura](https://www.sensoscientific.com/contact-us/) para adicionar os utilizadores na plataforma do sistema de monitorização do SensoScientific sem fios temperatura. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Para ativar a utilizadores do Azure AD iniciar sessão no sistema de monitorização do SensoScientific sem fios temperatura, tem de ser aprovisionados no sistema de monitorização do SensoScientific sem fios temperatura. Trabalhar com [equipa de suporte do sistema de monitorização do SensoScientific sem fios temperatura](https://www.sensoscientific.com/contact-us/) para adicionar os utilizadores na plataforma do sistema de monitorização do SensoScientific sem fios temperatura. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

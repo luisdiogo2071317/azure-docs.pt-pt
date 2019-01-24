@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810385"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
 ## <a name="overview"></a>Descrição geral
 
-O Azure Disk Encryption tira partido do Bitlocker para fornecer encriptação de disco completa em máquinas virtuais do Azure a executar o Windows.  Esta solução está integrada no Azure Key Vault para gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. 
+O Azure Disk Encryption tira partido do BitLocker para fornecer encriptação de disco completa em máquinas virtuais do Azure a executar o Windows.  Esta solução está integrada no Azure Key Vault para gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,15 +73,15 @@ O Azure Disk Encryption requer conectividade à Internet para acesso ao Active D
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Azure.Security | cadeia |
 | tipo | AzureDiskEncryptionForWindows| cadeia |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | Int |
+| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
 | (opcional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (opcional) AADClientSecret | palavra-passe | cadeia |
 | (opcional) AADClientCertificate | Thumbprint | cadeia |
 | EncryptionOperation | EnableEncryption | cadeia | 
-| KeyEncryptionAlgorithm | RSA OAEP | cadeia |
+| KeyEncryptionAlgorithm | RSA-OAEP | cadeia |
 | KeyEncryptionKeyURL | url | cadeia |
 | KeyVaultURL | url | cadeia |
 | SequenceVersion | uniqueidentifier | cadeia |

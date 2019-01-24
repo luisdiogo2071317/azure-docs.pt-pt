@@ -3,23 +3,23 @@ title: AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos 
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Azure Service Bus e dos Hubs de eventos
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476994"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856711"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -134,7 +134,7 @@ Uma chamada de "receber" no nível da API que se traduz numa *fluxo* performativ
 
 O bloqueio numa mensagem é libertado quando a transferência é incorporada a um dos Estados de terminal *aceite*, *rejeitado*, ou *lançado*. A mensagem é removida do Service Bus, quando o estado terminal for *aceites*. Continua no Service Bus e é entregue ao destinatário seguinte quando a transferência atinge qualquer um dos outros Estados. Do Service Bus move automaticamente a mensagem numa fila de mensagens não entregues a entidade quando alcança a contagem máxima de entrega permitida para a entidade devido a rejeições repetidas ou de versões.
 
-Embora as APIs de barramento de serviço não expõem diretamente essa opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode utilizar o modelo de crédito de ligação para ativar a interação de "pull-style" de emissão de uma unidade de crédito para cada pedido de receção para um modelo de "push-style" por emitir um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. Push é suportado através da [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) configurações de propriedade. Quando estão diferente de zero, o cliente AMQP usa-o como o crédito de ligação.
+Embora as APIs de barramento de serviço não expõem diretamente essa opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode utilizar o modelo de crédito de ligação para ativar a interação de "pull-style" de emissão de uma unidade de crédito para cada pedido de receção para um modelo de "push-style" por emitir um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. Push é suportado através da [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) configurações de propriedade. Quando estão diferente de zero, o cliente AMQP usa-o como o crédito de ligação.
 
 Neste contexto, é importante compreender que o período de expiração do bloqueio da mensagem dentro da entidade começa quando a mensagem foi obtida da entidade, não quando a mensagem será colocada na conexão. Sempre que o cliente indica a preparação para receber mensagens através da emissão de crédito de ligação, espera-se, por conseguinte, para receber ativamente mensagens através da rede e estar pronto para manipulá-las. Caso contrário, o bloqueio da mensagem pode ter expirado, antes da mensagem ainda é entregue. A utilização do controlo de fluxo de crédito de ligação deve refletir diretamente a preparação de imediato para lidar com mensagens disponíveis expedidas para o recetor.
 
@@ -228,7 +228,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | correlation-id |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| content-type |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| content-type |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Definido pelo aplicativo codificação de conteúdo indicador para o corpo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
 | absolute-expiry-time |Declara em qual absoluto instantâneas a mensagem expira. Ignorada na entrada (cabeçalho TTL é observada), autoritativa de saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | hora de criação |Declara nesse momento a mensagem foi criada. Não é utilizada pelo barramento de serviço |Não está acessível através da API do barramento de serviço. |

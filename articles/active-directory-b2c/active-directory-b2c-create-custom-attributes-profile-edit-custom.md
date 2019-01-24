@@ -3,21 +3,21 @@ title: Adicionar seus próprios atributos para as políticas personalizadas no A
 description: Um passo a passo sobre como utilizar propriedades de extensão e os atributos personalizados e incluí-los na interface do usuário.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338749"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854059"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>O Azure Active Directory B2C: Atributos personalizados de utilização num perfil personalizado do Editar política
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Utilizar atributos personalizados num perfil personalizado do Editar política
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ Neste artigo, vai criar um atributo personalizado no seu diretório do Azure Act
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Siga os passos no artigo [do Azure Active Directory B2C: introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Siga os passos no artigo [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Utilizar atributos personalizados para recolher informações sobre os seus clientes no Azure AD B2C ao utilizar políticas personalizadas
 O diretório do Azure AD B2C vem com um conjunto interno de atributos. Os exemplos são **nome fornecido**, **Apelido**, **City**, **Código Postal**, e **userPrincipalName**. Muitas vezes, terá de criar seus próprios atributos, como nestes exemplos:
@@ -53,14 +53,14 @@ As instruções estão incluídas no **próximos passos** secção deste artigo.
 2. Selecione **do Azure Active Directory** no menu de navegação esquerdo. Poderá ter de encontrá-lo selecionando **mais serviços**.
 3. Selecione **Registos das aplicações**. Selecione **Novo registo de aplicação**.
 4. Forneça as seguintes entradas:
-    * Um nome para a aplicação web: **WebApp-Graph-DirectoryExtensions**.
-    * O tipo de aplicação: **aplicação/API Web**.
+    * Um nome para a aplicação web: **WebApp-GraphAPI-DirectoryExtensions**.
+    * O tipo de aplicação: **Aplicação/API Web**.
     * O URL de início de sessão: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Selecione **Criar**.
 6. Selecione a aplicação web recentemente criada.
 7. Selecione **configurações** > **permissões obrigatórias**.
 8. Selecione a API **Windows do Azure Active Directory**.
-9. Introduza uma marca de verificação nas permissões de aplicação: **dados de diretório de leitura e escrita**. Em seguida, selecione **Guardar**.
+9. Introduza uma marca de verificação nas permissões de aplicação: **Ler e escrever dados no diretório**. Em seguida, selecione **Guardar**.
 10. Escolher **conceder permissões** e confirme **Sim**.
 11. Copie os seguintes identificadores para sua área de transferência e salvá-los:
     * **ID da aplicação**. Exemplo: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ As instruções estão incluídas no **próximos passos** secção deste artigo.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Modificar a política personalizada para adicionar o **ApplicationObjectId**
 
-Quando tiver seguido os passos em [do Azure Active Directory B2C: introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), transferiu e alterou [ficheiros de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) com o nome **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, e **PasswordReset.xml**. Neste passo, certifique-se mais modificações a esses ficheiros.
+Quando tiver seguido os passos em [Azure Active Directory B2C: Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), transferiu e alterou [arquivos de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) com o nome **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, e **PasswordReset.xml**. Neste passo, certifique-se mais modificações a esses ficheiros.
 
 * Abra o **TrustFrameworkBase.xml** de ficheiros e adicionar o `Metadata` secção conforme mostrado no exemplo a seguir. Insira o ID de objeto que registou anteriormente para o `ApplicationObjectId` valor e o ID da aplicação que registou para o `ClientId` valor: 
 
@@ -240,7 +240,7 @@ Quando tiver seguido os passos em [do Azure Active Directory B2C: introdução �
 1. Selecione a política personalizada que carregou. Selecione **executar agora**.
 1. Inscreva-se utilizando um endereço de e-mail.
 
-O token de ID enviados de volta à sua aplicação inclui a nova propriedade de extensão, como uma declaração personalizada precedida por **extension_loyaltyId**. Veja o exemplo seguinte:
+O token de ID enviados de volta à sua aplicação inclui a nova propriedade de extensão, como uma declaração personalizada precedida por **extension_loyaltyId**. Veja o seguinte exemplo:
 
 ```json
 {

@@ -3,21 +3,21 @@ title: Token de referência no Azure Active Directory B2C | Documentos da Micros
 description: Os tipos de tokens emitidos no Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880119"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848942"
 ---
-# <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
+# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Referência de tokens
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -81,8 +81,8 @@ Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em 
 | Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código está incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso está incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais detalhes sobre como efetuar esta validação, consulte o [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Valor de uso único |`nonce` |`12345` |Um valor de uso único é uma estratégia utilizada para mitigar ataques de repetição de token. A aplicação, pode especificar um valor de uso único numa solicitação de autorização utilizando a `nonce` parâmetro de consulta. O valor que fornecer no pedido será emitido sem modificações no `nonce` de afirmação de apenas um token de ID. Isso permite que a sua aplicação verificar o valor com o valor que ele especificado na solicitação, que associa sessão da aplicação um determinado token de ID. A aplicação deve realizar esta validação durante o processo de validação do token de ID. |
-| Requerente |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Este é o principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [do Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
-| Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não utilizado atualmente, exceto no caso de políticas mais antigas. Para obter mais informações, consulte [do Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
+| Requerente |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Este é o principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
+| Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não utilizado atualmente, exceto no caso de políticas mais antigas. Para obter mais informações, consulte [Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
 | Política de estrutura de confiança |`tfp` |`b2c_1_sign_in` |Este é o nome da política que foi utilizado para adquirir o token de ID. |
 | Tempo de autenticação |`auth_time` |`1438535543` |Esta afirmação é a hora em que um último introduzido credenciais de utilizador, representado na hora "Epoch". |
 
@@ -139,7 +139,7 @@ Uma descrição de como realizar a validação de assinatura está fora do escop
 Quando a sua aplicação ou a API recebe um token de ID, ele também deve executar diversas verificações contra as afirmações no token de ID. Esses incluem, mas não sejam limitam a:
 
 * O **público-alvo** de afirmação: Isto verifica que o token de ID destinava-se a ser dado à sua aplicação.
-* O **não antes** e **hora de expiração** afirmações: estes Certifique-se de que o token de ID não expirou.
+* O **não antes** e **hora de expiração** afirmações: Estes Certifique-se de que o token de ID não expirou.
 * O **emissor** de afirmação: Isto verifica se o token foi emitido para a sua aplicação pelo Azure AD.
 * O **nonce**: Esta é uma estratégia de mitigação de ataques de repetição de token.
 

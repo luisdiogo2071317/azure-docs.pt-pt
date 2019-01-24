@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402366"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827334"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
 
@@ -40,7 +40,7 @@ Eis como cópia de segurança do Azure é concluída uma cópia de segurança pa
 
 O Azure Backup não encriptam os dados como parte do processo de cópia de segurança. O Azure Backup suporta cópias de segurança de VMs do Azure são encriptadas com o Azure Disk Encryption.
 
-- Cópia de segurança de VMs encriptadas com Key(BEK) de encriptação do Bitlocker só e é suportada a BEK em conjunto com a chave de encriptação Key(KEK), geridos e das VMs do Azure.
+- Cópia de segurança de VMs encriptadas com Key(BEK) de encriptação do BitLocker só e é suportada a BEK em conjunto com a chave de encriptação Key(KEK), geridos e das VMs do Azure.
 - O BEK(secrets) e KEK(keys) uma cópia de segurança são encriptados para que possam ser lidos e utilizados apenas quando restaurada para o Cofre de chaves, os utilizadores autorizados.
 - Uma vez que a BEK é também uma cópia de segurança, em cenários em que a BEK é perdido, os utilizadores autorizados podem restaurar a BEK para o Cofre de chaves e recuperar a VM encriptada. Chaves e segredos de VMs encriptadas são uma cópia de segurança no formato encriptado, pelo que nem os utilizadores não autorizados nem para o Azure pode ler ou utilize uma cópia de chaves e segredos de segurança. Apenas os utilizadores com o nível certo de permissões podem criar cópias de segurança e restaurar VMs encriptadas, bem como as chaves e segredos.
 

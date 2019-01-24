@@ -4,7 +4,7 @@ description: Referência aos códigos de erro dos relatórios de atividades de i
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622436"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820160"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -43,7 +43,7 @@ Filtrar o relatório para apresentar inícios de sessão falhas todas selecionan
 
 ![Atividade de início de sessão](./media/reference-sign-ins-error-codes/06.png "Atividade de início de sessão")
 
-Selecionar um item na lista filtrada abre o **detalhes de atividade: inícios de sessão** painel. Esta vista fornece-lhe obter informações adicionais sobre o evento início de sessão falhada, incluindo o **código de erro de início de sessão** e **motivo da falha**.
+Selecionar um item na lista filtrada abre o **detalhes da atividade: Inícios de sessão** painel. Esta vista fornece-lhe obter informações adicionais sobre o evento início de sessão falhada, incluindo o **código de erro de início de sessão** e **motivo da falha**.
 
 ![Atividade de início de sessão](./media/reference-sign-ins-error-codes/05.png "Atividade de início de sessão")
 
@@ -135,7 +135,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |53002|A aplicação utilizada não é uma aplicação aprovada para acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
 |53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O utilizador tem de concluir o processo de registo na autenticação multifator antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator.|
-|65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização ao administrador do seu inquilino para agir em nome da Aplicação :Y para o Recurso : Z.|
+|65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou administrador não permitiu utilizar a aplicação com o ID X. envie um pedido de autorização para o seu administrador de inquilino para agir em nome da aplicação: Y para o recurso: Z.|
 |65004|O utilizador recusou dar autorização para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
 |65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado. Se a aplicação suportar SAML, poderá ter configurado a aplicação com o identificador (Entidade) incorreto. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Concessão inválida devido aos seguintes motivos:<ul><li>A asserção de SAML 2.0 pedida tem um Método de Confirmação de Requerente inválido</li><li>O fluxo OnBehalfOf da aplicação não é suportado em V2</li><li>O token de atualização principal não está assinado com a chave de sessão</li><li>Token de atualização externo inválido</li><li>A concessão de acesso foi obtida para outro inquilino.</li></ul>|
@@ -160,7 +160,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |80001|O Agente de Autenticação não se consegue ligar ao Active Directory. Confirme que o agente de autenticação está instalado num computador associado a um domínio que tenha linha de visão para um controlador de domínio que possa servir o pedido de início de sessão do utilizador.|
 |80002|Erro interno. O pedido de validação da palavra-passe atingiu o tempo limite. Não foi possível enviar o pedido de autenticação para o serviço de identidade híbrido interno. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80003|O Agente de Autenticação recebeu uma resposta inválida. Ocorreu um erro desconhecido ao tentar autenticar no Active Directory no local. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
-|80005|Agente de Autenticação: ocorreu um erro desconhecido ao processar a resposta do Agente de Autenticação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
+|80005|Agente de autenticação: Ocorreu um erro desconhecido ao processar a resposta do agente de autenticação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80007|O Agente de Autenticação não conseguiu validar a palavra-passe do utilizador.|
 |80010|O Agente de Autenticação não conseguiu desencriptar a palavra-passe. |
 |80011|O Agente de Autenticação não conseguiu obter a chave de desencriptação.|

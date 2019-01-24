@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a Sandbox da Salesforce | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a Sandbox da Salesforce | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114501"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808821"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com a Sandbox de Salesforce
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Active Directory do Azure com a Sandbox de Salesforce
 
 Neste tutorial, saiba como integrar o Sandbox de Salesforce com o Azure Active Directory (Azure AD).
 
 Áreas de segurança dão-lhe a capacidade de criar várias cópias da sua organização em ambientes separados para diversas finalidades, como o desenvolvimento, teste e treinamento, sem comprometer os dados e aplicativos em sua produção de Salesforce organização.
-Para obter mais detalhes, consulte [descrição geral de Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Para obter mais detalhes, consulte [descrição geral de Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 Integrar o Salesforce Sandbox no Azure AD fornece as seguintes vantagens:
 
@@ -219,7 +219,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. Na **único início de sessão em definições de SAML** página, campos preencher automaticamente, escreva o nome da configuração (por exemplo: *SPSSOWAAD_Test*) no **nome** caixa de texto e Clique em Guardar.
+25. Sobre o **SAML único configurações de logon** página, campos preencher automaticamente, escreva o nome da configuração (por exemplo: *SPSSOWAAD_Test*) no **nome** caixa de texto e clique em Guardar.
 
     ![Configurar o início de sessão único](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 

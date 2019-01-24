@@ -4,7 +4,7 @@ description: Junte-se a uma máquina virtual CentOS Linux para o Azure AD Domain
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cfa0ab1fdf72e3d363b5845c8602b0bea7ff6a12
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3a321246c948c38abc5840fd4e2113a648151a21
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155189"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850404"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Junte-se a uma máquina virtual CentOS Linux a um domínio gerido
 Este artigo mostra-lhe como associar uma máquina virtual CentOS Linux no Azure a um domínio gerido do Azure AD Domain Services.
@@ -87,7 +87,7 @@ Agora que os pacotes necessários estão instalados na máquina virtual do Linux
     ```
 
     > [!NOTE]
-    > **Resolução de problemas:** se *realm detetar* não conseguiu encontrar o seu domínio gerido:  
+    > **Resolução de problemas:** Se *realm detetar* não conseguiu encontrar o seu domínio gerido:  
       * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).  
       * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
       * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.  

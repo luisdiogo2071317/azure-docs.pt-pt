@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com segurança Menlo | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com segurança Menlo | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e segurança Menlo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a1f7458d52ffdee4cb48e4be0f553e3d57413249
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 70b6693afe1a57e8acd62500d74f860dffc7c692
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808702"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integração do Azure Active Directory com segurança Menlo
+# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integração do Active Directory do Azure com segurança Menlo
 
 Neste tutorial, saiba como integrar a segurança de Menlo com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com segurança Menlo, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um segurança Menlo início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração da segurança de Menlo com o Azure AD, terá de a
 
 **Para adicionar segurança Menlo a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -143,16 +143,16 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Sob **fornecedor de SAML**, selecione **Azure Active Directory**.
 
-    d. **O ponto de extremidade do SAML 2.0** : colar a **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
+    d. **SAML 2.0 Endpoint** : Colar o **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
 
-    e. **Identificador do serviço (emissor)** : colar a **ID da entidade de SAML** que copiou do portal do Azure.
+    e. **Identificador (emissor) do serviço** : Colar o **ID de entidade de SAML** que copiou do portal do Azure.
 
-    f. **Certificado X.509** : Abra a **certificado (Base64)** transferido a partir do Portal do Azure no bloco de notas e cole-o nesta caixa.
+    f. **Certificado X.509** : Abra o **certificado (Base64)** transferido a partir do Portal do Azure no bloco de notas e cole-o nesta caixa.
 
     g. Clique em **Guardar** para guardar as definições.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -188,7 +188,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-menlo-security-test-user"></a>Criar um utilizador de teste de segurança de Menlo
  
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na segurança Menlo. Trabalhar com [equipa de suporte de cliente de segurança de Menlo](https://www.menlosecurity.com/menlo-contact) para adicionar os utilizadores na plataforma Menlo segurança. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na segurança Menlo. Trabalhar com [equipa de suporte de cliente de segurança de Menlo](https://www.menlosecurity.com/menlo-contact) para adicionar os utilizadores na plataforma Menlo segurança. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

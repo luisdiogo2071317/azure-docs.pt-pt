@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229961"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817627"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -34,6 +34,14 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [orientações de migração para mover de serviços de multimédia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2019"></a>Janeiro de 2019
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Ficheiros Media Encoder Standard e MPI 
+
+Ao codificar com o Media Encoder Standard para produzir ficheiros MP4, um novo ficheiro de .mpi é gerado e adicionado à saída de ativo. Este ficheiro MPI destina-se para melhorar o desempenho de empacotamento dinâmico e cenários de transmissão em fluxo.
+
+Não deve modificar ou remover o arquivo MPI ou fazer qualquer dependência no seu serviço na existência (ou não) de um arquivo desse tipo.
+
 ## <a name="december-2018"></a>Dezembro de 2018
 
 Atualizações da versão de disponibilidade geral da V3 API incluem:
@@ -49,16 +57,16 @@ Está agora disponível para o módulo de CLI 2.0 [dos serviços de multimédia 
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [conta do ams AZ](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [filtro de conta do ams AZ](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [ativos de ams AZ](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [filtro de elemento do ams AZ](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ ams conteúdo-key-política](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [tarefa de ams AZ](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ ams evento em direto-](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [ams de AZ live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ ams de transmissão em fluxo-ponto final](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [ams AZ de transmissão em fluxo-localizador](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [conta de AZ ams mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -permite-lhe gerir unidades reservadas de multimédia
 
 ### <a name="new-features-and-breaking-changes"></a>Novas funcionalidades e alterações de última hora

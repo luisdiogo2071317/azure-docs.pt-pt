@@ -4,7 +4,7 @@ description: A suspensão do domínio gerido e eliminação
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1f548fefe1d28e3ca70de12911cb492d78c78629
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854841"
 ---
 # <a name="suspended-domains"></a>Domínios suspensos
 Quando o Azure Active Directory Domain Services (Azure AD DS) não consegue atender a um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Este artigo explica por que os domínios geridos são suspensas e para saber como corrigir um domínio suspenso.
@@ -67,7 +67,7 @@ Em alguns casos (por exemplo, se tiver uma configuração de rede inválido), os
 Um domínio gerido é colocado **suspenso** estado pelos seguintes motivos:
 
 * Um ou mais alertas críticos ainda não foi resolvidos em 15 dias. Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso aos recursos necessários para o Azure AD DS.
-    * Por exemplo, o alerta [AADDS104: erro de rede](active-directory-ds-troubleshoot-nsg.md) tem sido não resolvidos por mais de 15 dias no domínio gerido.
+    * Por exemplo, o alerta [AADDS104: Erro de rede](active-directory-ds-troubleshoot-nsg.md) tem sido não resolvidos por mais de 15 dias no domínio gerido.
 * Existe um problema de faturação com a sua subscrição do Azure ou a sua subscrição do Azure expirou.
 
 Domínios geridos são suspensas quando a Microsoft não consegue gerir, monitorizar, aplicar um patch ou criar cópias de segurança do domínio de forma contínua.

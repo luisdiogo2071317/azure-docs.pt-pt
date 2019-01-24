@@ -1,5 +1,5 @@
 ---
-title: Tutoriais de Avanced Media Encoder Premium Workflow
+title: Tutoriais avançados do Media Encoder Premium Workflow
 description: Este documento contém instruções passo a passo mostra como efetuar tarefas avançadas com o Media Encoder Premium Workflow e também como criar fluxos de trabalho complexos com o estruturador de fluxo de trabalho.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257389"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811976"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do Media Encoder Premium Workflow
 ## <a name="overview"></a>Descrição geral
@@ -293,7 +293,7 @@ Crie um terceiro componente de saída do ficheiro de saída do fluxo de saída d
 *Áudio Muxer criar ficheiro de saída*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adicionar o. Arquivo SMIL ISM
-Para o empacotamento dinâmico trabalhar em combinação com MP4 ficheiros (tanto o MP4 de só de áudio) no nosso recurso de serviços de multimédia, também precisamos de um arquivo de manifesto (também chamado de arquivo de "SMIL": linguagem de integração de multimídia sincronizados). Este ficheiro indica aos serviços de multimédia do Azure que ficheiros MP4 estão disponíveis para empacotamento dinâmico e qual a considerar para o streaming de áudio. Um arquivo de manifesto típico para um conjunto do MP4 com um único fluxo de áudio tem esta aparência:
+Para o empacotamento dinâmico trabalhar em combinação com ficheiros MP4 (tanto o MP4 de só de áudio) no nosso recurso de serviços de multimédia, também precisamos de um arquivo de manifesto (também chamado de arquivo de "SMIL": Sincronizadas a linguagem de integração de multimídia). Este ficheiro indica aos serviços de multimédia do Azure que ficheiros MP4 estão disponíveis para empacotamento dinâmico e qual a considerar para o streaming de áudio. Um arquivo de manifesto típico para um conjunto do MP4 com um único fluxo de áudio tem esta aparência:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -692,8 +692,8 @@ Antes, podemos reescrever o xml de cliplist que é gerado durante a inicializaç
 
 Primeiro, precisamos de uma forma de determinar de qual ponto até que ponto que queremos cortar o vídeo. Para que isso seja conveniente para o usuário menos técnicas do fluxo de trabalho, publicar duas propriedades para a raiz do gráfico. Para tal, clique com o botão direito na superfície de desenho e selecione "Adicionar propriedade de":
 
-* Primeira propriedade: "ClippingTimeStart" do tipo: "Início"
-* Segunda propriedade: "ClippingTimeEnd" do tipo: "Início"
+* Primeira propriedade: "ClippingTimeStart" do tipo: "INÍCIO"
+* Segunda propriedade: "ClippingTimeEnd" do tipo: "INÍCIO"
 
 ![Adicionar a caixa de diálogo de propriedade para a hora de início de recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

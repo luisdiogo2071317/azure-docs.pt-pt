@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 8000208dfe15744c891bbf27ad8f9e69f44ef4dc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4907179b9cc333103a898056ff951decf81c0f6c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807793"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -125,9 +125,9 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
  
     | Nome | Atributo de origem|
     |----- | --------- |
-    | FirstName | User.givenName |
-    | LastName | User.Surname |
-    | Email | User.Mail
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -160,7 +160,7 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

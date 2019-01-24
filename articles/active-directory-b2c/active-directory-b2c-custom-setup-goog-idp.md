@@ -3,19 +3,19 @@ title: Configurar o início de sessão com uma conta do Google com as políticas
 description: Configure o início de sessão com uma conta do Google, no Azure Active Directory B2C, com as políticas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f4aaef65620a2c6f268f123544c7ecf71dccb82
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6f621b831ae6025e5c214a9f63c76b226e20e828
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887279"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851305"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Google com as políticas personalizadas no Azure Active Directory B2C
 

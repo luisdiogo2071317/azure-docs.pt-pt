@@ -4,7 +4,7 @@ description: Verifique o estado de funcionamento do seu domínio gerido com a p�
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fe5776dad4c4b9ae96484ac266a23e87658cf578
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969009"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852836"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido do Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Usando a página de estado de funcionamento no portal do Azure, é capazes de se
 2. Clique no domínio que pretende ver o estado de funcionamento.
 3. No painel de navegação do lado esquerdo, clique em **estado de funcionamento**.
 
-A imagem seguinte ilustra uma página de estado de funcionamento de exemplo: ![página de estado de funcionamento de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
+A imagem seguinte ilustra uma página de estado de funcionamento de exemplo: ![Página de estado de funcionamento de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Estado de funcionamento do seu domínio gerido é avaliado a cada hora. Depois de efetuar alterações ao seu domínio gerido, aguarde até o próximo ciclo de avaliação para ver o estado de funcionamento atualizado do seu domínio gerido. O carimbo de hora "Avaliado pela última vez" no canto superior direito mostra quando o estado de funcionamento do seu domínio gerido foi avaliado pela última vez.

@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de domínio do Azure AD: Comparar o Azure AD Domain Services para controladores de domínio faça mesmo | Documentos da Microsoft'
+title: 'Azure AD Domain Services: Comparar o Azure AD Domain Services para controladores de domínio faça mesmo | Documentos da Microsoft'
 description: Comparar o Azure Active Directory Domain Services para controladores de domínio faça mesmo
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155802"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847633"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se dos serviços de domínio do Azure AD é a certo para seu caso de utilização
 Com o Azure AD Domain Services pode implementar cargas de trabalho nos serviços de infraestrutura do Azure, sem ter de se preocupar sobre como manter a infraestrutura de identidade no Azure. Este serviço gerido é diferente de uma implementação típica do Windows Server Active Directory que implementar e administrar por conta própria. O serviço é fácil implementar e oferece monitorização de estado de funcionamento automatizado e remediação. Estamos constantemente a desenvolver o serviço para adicionar suporte para cenários comuns de implantação.
@@ -34,7 +34,7 @@ Para decidir se deve utilizar o Azure AD Domain Services, recomendamos o seguint
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Comparar o Azure AD Domain Services para o domínio do AD faça mesmo no Azure
 A tabela seguinte ajuda-o a decidir entre a utilizar o Azure AD Domain Services e gerir a sua própria infraestrutura de AD no Azure.
 
-| **Funcionalidade** | **Serviços de domínio do Azure AD** | **AD "Faça mesmo" em VMs do Azure** |
+| **Funcionalidade** | **Azure AD Domain Services** | **AD "Faça mesmo" em VMs do Azure** |
 | --- |:---:|:---:|
 | [**Serviço gerido**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Implementações seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrador precisa de proteger a implementação. |
@@ -106,9 +106,9 @@ Domínios de geridos de serviços de domínio do AD do Azure estão disponíveis
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>"Faça mesmo" Opções de implementação do (DIY) AD
 Talvez tenha casos de utilização de implementação em que é necessário que alguns dos recursos oferecidos por uma instalação do Windows Server AD. Nestes casos, considere uma das seguintes opções (DIY) tipo faça mesmo:
 
-* **Domínio de nuvem autónomo:** pode configurar uma autónoma 'domínio na cloud' utilizando as máquinas virtuais do Azure que tenham sido configuradas como controladores de domínio. Esta infraestrutura não se integra com o ambiente ambiente AD. Esta opção requer um conjunto diferente de credenciais de cloud para início de sessão/administrar VMs na cloud.
-* **Implementação de floresta de recursos:** pode configurar um domínio na topologia de floresta de recursos, utilizando as máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, pode configurar uma relação de confiança do AD no local com o ambiente AD. Pode computadores de associação a um domínio (as VMs do Azure) para esta floresta de recursos na cloud. Autenticação do usuário ocorre ao longo do seja uma ligação de VPN/ExpressRoute para o seu diretório no local.
-* **Expandir o seu domínio no local para o Azure:** pode ligar uma rede virtual do Azure à sua rede no local através de uma ligação de VPN/ExpressRoute. Esta configuração permite que as VMs do Azure esteja associado ao seu local AD. Outra alternativa é promover os controladores de domínio de réplica do seu domínio no local no Azure como uma VM. Pode, em seguida, configurá-lo para replicar através de uma ligação de VPN/ExpressRoute para o seu diretório no local. Neste modo de implementação expande efetivamente o seu domínio no local para o Azure.
+* **Domínio de nuvem autónomo:** Pode configurar uma autónoma 'domínio na cloud' utilizando as máquinas virtuais do Azure que tenham sido configuradas como controladores de domínio. Esta infraestrutura não se integra com o ambiente ambiente AD. Esta opção requer um conjunto diferente de credenciais de cloud para início de sessão/administrar VMs na cloud.
+* **Implementação de floresta de recursos:** Pode configurar um domínio na topologia de floresta de recursos, utilizando as máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, pode configurar uma relação de confiança do AD no local com o ambiente AD. Pode computadores de associação a um domínio (as VMs do Azure) para esta floresta de recursos na cloud. Autenticação do usuário ocorre ao longo do seja uma ligação de VPN/ExpressRoute para o seu diretório no local.
+* **Expanda o seu domínio no local para o Azure:** Pode ligar uma rede virtual do Azure à sua rede no local através de uma ligação de VPN/ExpressRoute. Esta configuração permite que as VMs do Azure esteja associado ao seu local AD. Outra alternativa é promover os controladores de domínio de réplica do seu domínio no local no Azure como uma VM. Pode, em seguida, configurá-lo para replicar através de uma ligação de VPN/ExpressRoute para o seu diretório no local. Neste modo de implementação expande efetivamente o seu domínio no local para o Azure.
 
 > [!NOTE]
 > Pode determinar que uma opção de BRICOLAGEM melhor é adequada para seus casos de uso de implementação. Considere [partilhar comentários](active-directory-ds-contact-us.md) para ajudar-na perceber o que ajudaria funcionalidades escolheu o Azure AD Domain Services no futuro. Seus comentários ajudam-na evoluir o serviço para se adequar melhor às suas necessidades de implementação e casos de utilização.

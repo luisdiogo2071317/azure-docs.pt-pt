@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o ScaleX Enterprise | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o ScaleX Enterprise | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb01aec04af10d3e413213dc9821a27b42a0a9d2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835391"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822982"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ScaleX Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o ScaleX Enterprise
 
 Neste tutorial, saiba como integrar ScaleX Enterprise com o Azure Active Directory (Azure AD).
 
@@ -168,22 +168,22 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     a. Selecione **"Criar qualquer utilizador que pode autenticar com o SSO".**
 
-    b. **Fornecedor de serviços saml**: cole o valor ***urn: oasis: nomes: tc: SAML:2.0:nameid-formato: persistente***
+    b. **Saml do fornecedor de serviços**: Cole o valor ***urn: oasis: nomes: tc: SAML:2.0:nameid-formato: persistente***
 
-    c. **Nome do campo de e-mail do fornecedor de identidade na resposta de ACS**: cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Nome do campo de e-mail do fornecedor de identidade na resposta de ACS**: Cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **ID de entidade EntityDescriptor do fornecedor de identidade:** colar a **ID da entidade de SAML** valor copiado do portal do Azure.
+    d. **ID de entidade EntityDescriptor do fornecedor de identidade:** Colar o **ID de entidade de SAML** valor copiado do portal do Azure.
 
-    e. **URL de SingleSignOnService do fornecedor de identidade:** colar a **SAML único início de sessão no URL do serviço** do portal do Azure.
+    e. **URL de SingleSignOnService do fornecedor de identidade:** Colar o **SAML único início de sessão no URL do serviço** do portal do Azure.
 
-    f. **Certificado X509 pública do fornecedor de identidade:** aberto X509 certificado transferido a partir do Azure no bloco de notas e cole o conteúdo nesta caixa. Certifique-se de que há que não quebras de nenhuma linha no meio do conteúdo de certificado.
+    f. **Certificado X509 pública do fornecedor de identidade:** Abra o X509 certificado transferido a partir do Azure no bloco de notas e cole o conteúdo nesta caixa. Certifique-se de que há que não quebras de nenhuma linha no meio do conteúdo de certificado.
     
-    g. Verifique as seguintes caixas de verificação: **ativado, encriptar NameID e AuthnRequests de início de sessão.**
+    g. Verifique as caixas de verificação seguintes: **Ativado, encriptar NameID e inicie sessão AuthnRequests.**
 
     h. Clique em **definições de atualização de SSO** para guardar as definições.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

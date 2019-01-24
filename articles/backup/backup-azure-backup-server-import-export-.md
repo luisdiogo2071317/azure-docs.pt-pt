@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818562"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de cópia de segurança offline do DPM e o servidor de cópia de segurança do Azure
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O Azure Backup compacta as cópias de segurança iniciais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar a iniciais cópia de segurança de dados comprimidos offline para o Azure.
@@ -59,7 +59,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos antes de inicia
 
 * Uma localização de transição, o que poderá ser um compartilhamento de rede ou de qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter sua cópia inicial, é criada. Por exemplo, se estiver a tentar criar cópias de segurança um servidor de ficheiros de 500 GB, certifique-se de que a área de transição é, pelo menos, 500 GB. (Uma quantidade menor é utilizada devido à compactação.)
 * Com respeito a discos que serão enviados para o Azure, certifique-se de que apenas 2,5 polegadas SSD ou 2.5 polegadas ou 3.5 polegadas SATA II/III discos rígidos internos são utilizados. Pode utilizar unidades de disco rígido até 10 TB. Verifique os [documentação do serviço importar/exportar do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para o conjunto mais recente de unidades de que o serviço suporta.
-* As unidades SATA precisam estar conectado a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de cópia de segurança da *localização de transição* para o SATA unidades é feito. Certifique-se de que o Bitlocker está ativado no *computador de cópia* 
+* As unidades SATA precisam estar conectado a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de cópia de segurança da *localização de transição* para o SATA unidades é feito. Certifique-se de que o BitLocker está ativado no *computador de cópia* 
 
 ## <a name="workflow"></a>Fluxo de trabalho
 As informações nesta secção ajudam-o a concluir o fluxo de trabalho de cópia de segurança offline para que os dados podem ser entregues num Datacenter do Azure e carregados para o armazenamento do Azure. Se tiver dúvidas sobre o serviço de importação ou a todos os aspectos do processo, consulte a [descrição geral do serviço de importação](../storage/common/storage-import-export-service.md) documentação mencionada anteriormente.
@@ -75,9 +75,9 @@ As informações nesta secção ajudam-o a concluir o fluxo de trabalho de cópi
     A descrição das entradas é o seguinte:
 
     * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Localização de transição poderá ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem forem diferentes, recomendamos que especifica o caminho de rede completa da localização de transição.
-    * **Nome de tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure.
-    * **Definições de publicação do Azure**: forneça o caminho local para o ficheiro de definições de publicação.
-    * **ID de subscrição do Azure**: ID de subscrição do Azure para a subscrição de onde transferiu o ficheiro de definições de publicação do Azure. 
+    * **Nome da tarefa de importação do Azure**: O nome exclusivo ao qual importação de Azure service e do Azure Backup controlam a transferência de dados enviados em discos para o Azure.
+    * **Definições de publicação do Azure**: Forneça o caminho local para o ficheiro de definições de publicação.
+    * **ID de subscrição do Azure**: O ID de subscrição do Azure para a subscrição de onde transferiu o ficheiro de definições de publicação do Azure. 
     * **Conta de armazenamento do Azure**: O nome da conta de armazenamento na subscrição do Azure associada ao ficheiro de definições de publicação do Azure.
     * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de armazenamento do Azure em que os dados de cópia de segurança são importados.
 
@@ -98,7 +98,7 @@ As informações nesta secção ajudam-o a concluir o fluxo de trabalho de cópi
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 O *AzureOfflineBackupDiskPrep* utilitário é utilizado para preparar as unidades SATA, que são enviadas para o Datacenter mais próximo do Azure. Esse utilitário está disponível no diretório de instalação do agente dos serviços de recuperação no seguinte caminho:
 
-   *\Microsoft* *azure* *recuperação* *serviços* * Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
 
 1. Vá para o diretório e copiar o **AzureOfflineBackupDiskPrep** diretório para um computador de cópia em que as unidades SATA para estar preparado estão ligadas. Certifique-se o seguinte com respeito o computador de cópia:
 

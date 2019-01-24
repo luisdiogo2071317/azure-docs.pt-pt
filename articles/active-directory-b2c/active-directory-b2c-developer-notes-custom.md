@@ -3,19 +3,19 @@ title: Notas do programador sobre como utilizar políticas personalizadas no Azu
 description: Notas para os desenvolvedores de configuração e manutenção do Azure AD B2C com as políticas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272713"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844981"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de recursos de política personalizada agora está disponível para avaliação em pré-visualização pública para todos os Azure Active Directory B2C (Azure AD B2C) de clientes. Esse conjunto de recursos é direcionado para programadores de identidades avançada a criar soluções de identidade mais complexas.  
@@ -67,7 +67,7 @@ Interfaces com aplicativos e componentes externos
 | IDP-OpenIDConnect |  | x |  | Por exemplo, Google + |
 | IDP OAUTH2 |  | x |  | Por exemplo, o Facebook  |
 | IDP-OAUTH1 |  | x |  | Por exemplo, do Twitter |
-| IDP SAML |  | x |  | Por exemplo, Salesforce, AD FS |
+| IDP-SAML |  | x |  | Por exemplo, Salesforce, AD FS |
 | IDP-WSFED | x |  |  |  |
 | Da entidade confiadora de terceiros OAUTH |  | x |  |  |
 | Da entidade confiadora de terceiros OIDC |  | x |  |  |
@@ -108,7 +108,7 @@ Interfaces com aplicativos e componentes externos
 | Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Id_token_hint de parâmetro de cadeia de caracteres de consulta | x |  |  |  |
-| Domain_hint de parâmetro de cadeia de caracteres de consulta |  | x |  | disponível como afirmação, pode ser passado para o IDP |
+| Query string parameter domain_hint |  | x |  | disponível como afirmação, pode ser passado para o IDP |
 | Login_hint de parâmetro de cadeia de caracteres de consulta |  | x |  | disponível como afirmação, pode ser passado para o IDP |
 | Inserir JSON UserJourney via client_assertion | x |  |  | vão ser preteridos |
 | Inserir JSON UserJourney como id_token_hint | x |  |  | abordagem de go-forward passar JSON |

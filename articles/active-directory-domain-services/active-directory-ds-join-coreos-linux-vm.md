@@ -4,7 +4,7 @@ description: Associar uma máquina virtual Linux do CoreOS ao Azure AD Domain Se
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a2b8c3c0c38349b4c68f85a32bddb2c9b3e60c6f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158453"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850697"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Junte-se a uma máquina virtual Linux do CoreOS a um domínio gerido
 Este artigo mostra-lhe como associar uma máquina virtual Linux do CoreOS no Azure a um domínio gerido do Azure AD Domain Services.
@@ -112,7 +112,7 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> **Resolução de problemas:** se *adcli* não conseguiu encontrar o seu domínio gerido:
+> **Resolução de problemas:** Se *adcli* não conseguiu encontrar o seu domínio gerido:
   * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).
   * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
   * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.

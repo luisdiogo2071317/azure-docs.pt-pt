@@ -4,7 +4,7 @@ description: Políticas de retenção de dados de relatórios no Azure Active Di
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ed23c8efcf43213b288945c2910edf4c97bb63e
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 932290c3b42b0ea55725fbc17de6b81886fe1217
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214475"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822523"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
 
@@ -29,7 +29,7 @@ Neste artigo, ficará a conhecer as políticas de retenção de dados para os re
 
 ### <a name="when-does-azure-ad-start-collecting-data"></a>Quando é que o Azure AD iniciar a recolha de dados?
 
-| Edição do Azure AD | Início da coleção |
+| Azure AD Edition | Início da coleção |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Quando se inscreve para uma subscrição |
 | Azure AD Gratuito <br /> Azure AD Básico | A primeira vez que abre o [painel Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilizar o [APIs de relatórios](https://aka.ms/aadreports)  |

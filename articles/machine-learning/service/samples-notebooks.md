@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811099"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utilizar blocos de notas do Jupyter para explorar o serviço Azure Machine Learning
 
@@ -31,7 +31,7 @@ Concluir o [guia de início rápido do Azure Machine Learning Python](quickstart
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Experimente os blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
 
-É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si nos blocos de notas do Azure. A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
+É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
   
 + Para executar o **principais blocos de notas do tutoriais**:
   1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com/).

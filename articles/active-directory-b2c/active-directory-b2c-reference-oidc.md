@@ -3,21 +3,21 @@ title: Web início de sessão com OpenID Connect no Azure Active Directory B2C |
 description: Criação de aplicativos web, utilizando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f844cc0b798c035e31b45ef00370f95b1ec06d43
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843755"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846035"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>O Azure Active Directory B2C:-Sessão Web com OpenID Connect
+# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Início de sessão Web com OpenID Connect
 OpenID Connect é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores aplicações web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OpenID Connect, que possa terceirizar a inscrição, início de sessão e experiências de outro gestão de identidades nas suas aplicações web ao Azure Active Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente de idioma. Ele descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de código-fonte aberto.
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo para utilização como um *autenticação* protocolo. Isto permite-lhe efetuar o início de sessão único com o OAuth. Ele introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador e obter informações de perfil básicas sobre o utilizador.

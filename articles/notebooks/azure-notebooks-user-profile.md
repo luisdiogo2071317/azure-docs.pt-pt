@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078876"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854178"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>O ID de utilizador e de perfil para blocos de notas do Azure
 
 Dentro do espaço de poderoso e colaboração de blocos de notas do Azure, o seu perfil de utilizador apresenta sua imagem pública a outras pessoas:
 
-[![](media/accounts/profile-page.png "Uma página de perfil de blocos de notas do Azure")](media/accounts/profile-page.png#lightbox)
+[![Uma página de perfil de blocos de notas do Azure](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 O ID de utilizador faz parte dos URLs de usar para compartilhar projetos e blocos de notas. A lista seguinte descreve os diferentes padrões de URL:
 
-- `https://notebooks.azure.com/<user_id>`: A sua página de perfil.
+- `https://notebooks.azure.com/<user_id>`: Sua página de perfil.
 - `https://notebooks.azure.com/<user_id>/projects`: Seus projetos. Verá todos os projetos; outros utilizadores ver apenas os seus projetos públicos.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Arquivos de projeto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de um projetos específicos.
@@ -63,8 +63,8 @@ Para editar seu perfil, utilize o **editar informações de perfil** comando na 
 | Informações sobre a Conta | O nome a apresentar, o ID de utilizador e a conta de e-mail pública. A conta de e-mail aqui fornece uma média para contactá-lo de outros utilizadores e pode ser diferente do [conta](azure-notebooks-user-account.md) pode iniciar sessão em blocos de notas do Azure em si. |
 | Informações do Perfil | Sua localização, empresa, cargo, site da web e uma breve descrição por conta própria. |
 | Perfis de redes sociais | O GItHub, Twitter e identificações no Facebook, caso queira partilhá-los. |
-| Definições de Privacidade | Fornece dois comandos:<ul><li>**Exportar o meu perfil**: cria e transfere um *. zip* ficheiro que contém todas as informações que guarda de blocos de notas do Azure no seu perfil, incluindo a sua fotografia, informações de perfil e registos de segurança.</li><li>**Eliminar a minha conta**: elimina permanentemente todas as suas informações pessoais armazenadas em blocos de notas do Azure.</li></ul> |
-| Ativar funcionalidades do Site | Permite-lhe controlar os aspectos do comportamento de blocos de notas do Azure:<ul><li>**Unificação de front-end para blocos de notas**: permite a inicialização mais rápida do bloco de notas e persistência melhor.</li><li>**Executar no JupyterLab por predefinição**: por predefinição, os blocos de notas do Azure fornece uma interface do usuário simples que é adequada para a maioria dos usuários. JupyterLab fornece uma interface mais rica, mais complicada, mas para usuários experientes.</li><li>**Web site de VNext**: permite que o layout de reestruturação web mostrado nesta documentação.</li></ul> |
+| Definições de Privacidade | Fornece dois comandos:<ul><li>**Exportar o meu perfil**: cria e transfere um *. zip* ficheiro que contém todas as informações que guarda de blocos de notas do Azure no seu perfil, incluindo a sua fotografia, informações de perfil e registos de segurança.</li><li>**Eliminar a minha conta**: Exclui permanentemente todas as suas informações pessoais armazenadas em blocos de notas do Azure.</li></ul> |
+| Ativar funcionalidades do Site | Permite-lhe controlar os aspectos do comportamento de blocos de notas do Azure:<ul><li>**Unificação de front-end para blocos de notas**: permite a inicialização mais rápida do bloco de notas e persistência melhor.</li><li>**Executar no JupyterLab por predefinição**: Por predefinição, os blocos de notas do Azure fornece uma interface do usuário simples que é adequada para a maioria dos usuários. JupyterLab fornece uma interface mais rica, mais complicada, mas para usuários experientes.</li><li>**Web site de VNext**: permite que o layout de reestruturação web mostrado nesta documentação.</li></ul> |
 
 ## <a name="next-steps"></a>Passos Seguintes  
 

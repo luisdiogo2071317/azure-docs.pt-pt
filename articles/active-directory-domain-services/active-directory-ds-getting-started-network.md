@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de domínio do Azure Active Directory: Introdução | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Introdução | Documentos da Microsoft'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156192"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857043"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -44,14 +44,14 @@ A tarefa de configuração seguinte é criar uma rede virtual do Azure e uma sub
   > **Não é possível mover o seu domínio gerido para uma rede virtual diferente depois de ativar o Azure AD Domain Services.** Escolha a rede virtual correta para ativar o seu domínio gerido. Depois de criar um domínio gerido, é possível movê-lo para uma rede virtual diferente, sem eliminar o domínio gerido. Recomendamos que reveja os [considerações para o Azure Active Directory Domain Services de redes](active-directory-ds-networking.md) antes de continuar.  
   >
 
-4. **Criar rede virtual:** clique em **criar novo** para criar uma nova rede virtual. Utilize uma sub-rede dedicada para o Azure AD Domain Services. Por exemplo, crie uma sub-rede com o nome "DomainServices', tornando mais fácil para os outros administradores compreender o que é implementado na sub-rede. Clique em **OK** quando terminar.
+4. **Crie rede virtual:** Clique em **criar novo** para criar uma nova rede virtual. Utilize uma sub-rede dedicada para o Azure AD Domain Services. Por exemplo, crie uma sub-rede com o nome "DomainServices', tornando mais fácil para os outros administradores compreender o que é implementado na sub-rede. Clique em **OK** quando terminar.
 
     ![Escolha a rede virtual](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > Certifique-se de escolher um espaço de endereços que esteja dentro do espaço de endereços IP privados. Endereços IP que não é o proprietário que estão no espaço de endereços públicos causar erros nos serviços de domínio do Azure AD.
 
-5. **Rede virtual existente:** se pretender escolher uma rede virtual existente, [crie uma sub-rede dedicada com a extensão de redes virtuais](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)e, em seguida, escolha essa sub-rede. Clique em **rede Virtual** para selecionar a rede virtual existente. Clique em **sub-rede** para selecionar a sub-rede dedicada na sua rede virtual existente, no qual pretende ativar o seu novo domínio gerido. Clique em **OK** quando terminar.
+5. **Rede virtual existente:** Se pretender escolher uma rede virtual existente, [criar uma sub-rede dedicada com a extensão de redes virtuais](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)e, em seguida, escolha essa sub-rede. Clique em **rede Virtual** para selecionar a rede virtual existente. Clique em **sub-rede** para selecionar a sub-rede dedicada na sua rede virtual existente, no qual pretende ativar o seu novo domínio gerido. Clique em **OK** quando terminar.
 
     ![Escolher sub-rede dentro da rede virtual](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

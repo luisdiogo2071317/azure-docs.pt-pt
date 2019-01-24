@@ -3,23 +3,23 @@ title: Introdução aos tópicos e subscrições do Azure Service Bus | Microsof
 description: Grave uma aplicação da consola C# .NET Core que utilize tópicos e subscrições das mensagens do Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/03/2018
-ms.author: spelluru
-ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230585"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846681"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 
@@ -427,7 +427,7 @@ Para receber as mensagens que acabou de enviar, crie outra aplicação de consol
 
 Parabéns! Através da biblioteca .NET Standard, criou um tópico e uma subscrição, enviou 10 mensagens e recebeu essas mensagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) do Service Bus que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

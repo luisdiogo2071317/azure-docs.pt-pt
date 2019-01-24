@@ -7,21 +7,23 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/25/2018
+ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791830"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807750"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
 Este artigo mostra-lhe como pode incorporar widgets do Video Indexer nas suas aplicações. O Video Indexer suporta incorporação dois tipos de widgets na sua aplicação: **Insights cognitivos** e **Player**. 
 
 > [!NOTE]
-> A partir de 1 de Fevereiro de 2018, a versão 1 dos **Insights cognitivos** widget vai ser preterido. A versão de URL de incorporação será predefinido para `version=2`.
+> A partir de 1 de Fevereiro de 2018, versão 1 dos **Insights cognitivos** widget vai ser preterido. A versão de URL de incorporação será predefinido para `version=2`.
+
+A partir da versão 2, o URL de base do widget inclui a região da conta estar. Por exemplo, gera uma conta na região Oeste dos E.U.A.: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Tipos de widget
 
@@ -69,7 +71,7 @@ Só é possível obter códigos de incorporação a partir de janelas de pop-up 
 
 Se quiser incorporar um vídeo **Privado**, terá de passar um token de acesso no atributo **src** do **iframe**:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 Utilize a API [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) para obter os conteúdos do widget Cognitive Insights ou a API [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) e adicione-a ao URL como um parâmetro de consulta, conforme mostrado acima. Especifique este URL como o valor **src** do **iframe**.
 
@@ -94,13 +96,13 @@ Se optar por implementar o seu próprio código de leitor e fazer a integração
 
 Esta secção mostra-lhe como alcançar a interação entre os dois widgets do Video Indexer para que quando um utilizador clicar no controlo de informações na sua aplicação, o leitor passe para o momento relevante.
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
 
 1. Copie o código de incorporação do widget **Player**.
 2. Copie o código de incorporação do widget **Cognitive Insights**.
 3. Adicione o [**ficheiro Mediator**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) para processar a comunicação entre os dois widgets:
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 Agora quando um utilizador clicar no controlo de informações na sua aplicação, o leitor irá passar para o momento relevante.
 
@@ -110,11 +112,7 @@ Para obter mais informações, veja [esta demonstração](https://codepen.io/vid
 
 Esta secção mostra-lhe como alcançar a interação entre um widget **Cognitive Insights** e uma instância do Leitor de Multimédia do Azure através do [plug-in AMP](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
  
-1. Adicione um plug-in do Video Indexer ao leitor AMP.
-
-        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
-
-
+1. Adicione um plug-in do Video Indexer ao leitor AMP.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instancie o Leitor de Multimédia do Azure com o plug-in do Video Indexer.
 
         // Init Source
@@ -209,7 +207,6 @@ Se utilizar o seu leitor, terá de manipulá-lo para efetuar a comunicação.
         
         </script>
 
-
 Para obter mais informações, veja [esta demonstração](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Adicionar legendas
@@ -219,30 +216,41 @@ Se incorporar informações do Video Indexer com o seu leitor AMP, pode utilizar
 ## <a name="customizing-embeddable-widgets"></a>Personalizar widgets incorporáveis
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
-Pode selecionar os tipos de informações que pretende ao especificá-los como um valor no seguinte parâmetro de URL adicionado ao código de incorporação obtido (a partir da API ou da aplicação Web):
 
-**&widgets=** \<lista de widgets pretendidos>
+Pode escolher os tipos de informações que pretende, especificando-as como um valor para o parâmetro de URL seguinte adicionado para o código de incorporação que obtenha (a partir da API ou da aplicação web): `&widgets=<list of wanted widgets>`.
 
 Os valores possíveis são: people (pessoas), keywords (palavras-chave), sentiments (sentimentos), transcript (transcrição), search (pesquisa).
 
-Por exemplo, se quiser incorporar um widget apenas com informações de pessoas e pesquisa, o URL de incorporação do iframe terá o seguinte aspeto: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
+Por exemplo, se quiser incorporar um widget que contém apenas informações de pessoas e pesquisa de URL de incorporação de iframe ficará assim:
 
-O título da janela do iframe também pode ser personalizado ao fornecer o parâmetro **&title=**<YourTitle> ao URL do iframe (irá personalizar o valor \<title> de html).
-Por exemplo, se quiser que o título da sua janela do iframe seja "AsMinhasInformações", o URL terá o seguinte aspeto: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=AsMinhasInformações. Tenha em atenção que esta opção só é relevante caso precise de abrir as informações numa nova janela.
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+
+O título da janela do iframe também pode ser personalizado, fornecendo `&title=<YourTitle>` para o URL do iframe. (irá personalizar o valor \<title> de html).
+    
+Por exemplo, se quiser fornecer sua janela de iframe o título "MyInsights", o URL ficará assim:
+
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
+
+Tenha em atenção que esta opção só é relevante caso precise de abrir as informações numa nova janela.
 
 ### <a name="player-widget"></a>Widget Player
+
 Se incorporar o leitor do Video Indexer, pode selecionar o tamanho do leitor ao especificar o tamanho do iframe.
 
 Por exemplo:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
+`<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 Por predefinição, o leitor do Video Indexer terá legendas geradas automaticamente com base na transcrição do vídeo extraída do vídeo com o idioma de origem selecionado ao carregar o vídeo.
 
-Se quiser efetuar a incorporação com um idioma diferente, pode adicionar o parâmetro **&captions=< Language | ”all” | “false” >** ao URL do leitor incorporado ou colocar o valor "all", caso queira ter legendas em todos os idiomas.
-Se quiser que as legendas sejam apresentadas por predefinição, pode passar o valor **&showCaptions=true**
+Se deseja incorporar com um idioma diferente, pode adicionar `&captions=< Language | ”all” | “false” >` para o URL de leitor de incorporação ou put "todos" como o valor, se quiser ter todas as legendas de idiomas disponíveis.
+Se pretender que as legendas para ser apresentado por predefinição, pode passar `&showCaptions=true`.
 
-O URL de incorporação terá o seguinte aspeto: https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=portuguese. Se quiser desativar as legendas, pode passar o valor "false" para o parâmetro captions (legendas).
+O URL de incorporação, em seguida, terá o seguinte aspeto: 
+
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
+
+Se quiser desativar as legendas, pode passar o valor "false" para o parâmetro captions (legendas).
 
 Reprodução automática: por predefinição, o leitor iniciará a reprodução do vídeo. Pode optar por desativar esta opção ao passar o valor &autoplay=false para o URL de incorporação acima.
 

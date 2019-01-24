@@ -2,20 +2,20 @@
 title: Integração de datacenter do Azure Stack - identidade
 description: Saiba como integrar o Azure Stack AD FS com o seu datacenter do AD FS
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263801"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852767"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -193,16 +193,21 @@ Para o seguinte procedimento, tem de utilizar um computador que tem conectividad
 
 Para este procedimento, utilize um computador que possa comunicar com o ponto final com privilégios no Azure Stack e tem acesso ao ficheiro de metadados que criou no passo anterior.
 
-1. Abra uma sessão elevada do Windows PowerShell.
+1. Abra uma sessão elevada do Windows PowerShell e ligue-se para o ponto final com privilégios.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Execute o seguinte comando para atualizar o proprietário da subscrição do fornecedor padrão, utilizando os parâmetros adequados para o seu ambiente:
+2. Agora que está conectado ao ponto final com privilégios, execute o seguinte comando utilizando os parâmetros adequados para o seu ambiente:
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. Execute o seguinte comando para atualizar o proprietário da subscrição do fornecedor padrão, utilizando os parâmetros adequados para o seu ambiente:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

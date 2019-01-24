@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 3f893318c3f39f6faa4806cd7c1736710e032ca9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474715"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856422"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Tutorial: Balanceamento de carga de máquinas virtuais do Linux no Azure para criar uma aplicação de elevada disponibilidade com a CLI do Azure
 
@@ -53,7 +53,7 @@ Se seguiu o tutorial anterior para [criar um conjunto de dimensionamento de máq
 
 
 ## <a name="create-azure-load-balancer"></a>Criar um balanceador de carga do Azure
-Esta secção descreve como pode criar e configurar cada componente do balanceador de carga. Antes de poder criar o balanceador de carga, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupLoadBalancer* na localização *eastus*:
+Esta secção descreve como pode criar e configurar cada componente do balanceador de carga. Antes de poder criar o balanceador de carga, tem de criar um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupLoadBalancer* na localização *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus

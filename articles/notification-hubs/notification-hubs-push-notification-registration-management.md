@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/04/2019
-ms.openlocfilehash: da1cad5c949579e0c66d9cc49f99b7cee9d53f35
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/23/2019
+ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452246"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817839"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -34,6 +34,9 @@ Registo de dispositivos no Hub de notificação é realizado através de um **Re
 ### <a name="registrations"></a>Registos
 
 Um registo associa o identificador de serviço de notificação de plataforma (PNS) para um dispositivo com etiquetas e, possivelmente, um modelo. O identificador PNS poderia ser um ChannelURI, o token do dispositivo ou o id de registo do GCM. As etiquetas são utilizadas para encaminhar as notificações para o conjunto correto de identificadores de dispositivo. Para obter mais informações, consulte [encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md). Os modelos são utilizados para implementar a transformação de por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
+
+> [!NOTE]
+> Os Hubs de notificação do Azure suporta um máximo de 60 etiquetas por registo.
 
 ### <a name="installations"></a>Instalações
 

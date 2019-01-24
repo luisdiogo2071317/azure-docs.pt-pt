@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584575"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856380"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare a fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
 
 Este artigo não se aplica aos clientes do Azure com um Enterprise Agreement (os clientes com EA). Se estiver num cliente EA, consulte [compreender a sua fatura para clientes do Azure com um Enterprise Agreement](billing-understand-your-bill-ea.md).  
+
+Para obter uma explicação de como funciona a faturação do programa de fornecedor de soluções de Cloud do Azure (Azure CSP), incluindo o veja de ciclo, preços e utilização, faturação [descrição geral de faturação do Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Reveja os seus custos
 
@@ -33,7 +35,7 @@ Este artigo não se aplica aos clientes do Azure com um Enterprise Agreement (os
 
 Se existe uma cobrança na sua fatura que pretender obter mais informações sobre, pode comparar utilização e os custos com o ficheiro de utilização ou com o portal do Azure.
 
-### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Opção 1: Comparação utilização e os custos com o ficheiro de utilização
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>Opção 1: Comparar a utilização e os custos com o ficheiro de utilização
 
 O ficheiro CSV de utilização detalhada mostra os encargos por período de faturação e utilização diária. Para obter o ficheiro, consulte o artigo [obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md).
 

@@ -4,7 +4,7 @@ description: Compreender a sincronização num domínio gerido do Azure Active D
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155563"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846954"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização num domínio gerido do Azure AD Domain Services
 O diagrama seguinte ilustra como funciona a sincronização no Azure AD Domain Services domínios geridos.
@@ -50,12 +50,12 @@ Por outro lado, o inquilino do Azure AD é muito espaço de nomes mais simples e
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusões - o que não está sincronizado com o seu domínio gerido
 Os seguintes objetos ou atributos não estão sincronizados com o seu inquilino do Azure AD ou ao seu domínio gerido:
 
-* **Atributos de excluídos:** pode optar por excluir determinados atributos a sincronizar com o inquilino do Azure AD do seu domínio no local com o Azure AD Connect. Esses atributos excluídos não estão disponíveis no seu domínio gerido.
-* **As políticas de grupo:** políticas de grupo configuradas no seu domínio no local não estão sincronizadas com o seu domínio gerido.
-* **Partilha SYSVOL:** da mesma forma, os conteúdos da partilha Sysvol no seu domínio no local não estão sincronizados com o seu domínio gerido.
-* **Objetos de computador:** objetos de computador para computadores associados ao seu domínio no local não são sincronizados com o seu domínio gerido. Estes computadores não têm uma relação de confiança com o seu domínio gerido e pertencem ao seu domínio no local apenas. No seu domínio gerido, encontrar os objetos de computador apenas para computadores que tê explicitamente associado a um domínio para o domínio gerido.
-* **Atributos de SidHistory para utilizadores e grupos:** o utilizador primário e o grupo primário SIDs do seu domínio no local são sincronizados com o seu domínio gerido. No entanto, os atributos de SidHistory existentes para utilizadores e grupos não são sincronizados do seu domínio no local seu domínio gerido.
-* **Estruturas de unidades (UO) da organização:** não sincronizar a unidades organizacionais definidas no seu domínio no local seu domínio gerido. Existem duas UOs incorporadas no seu domínio gerido. Por predefinição, o seu domínio gerido tem uma estrutura de UO simples. No entanto pode optar por [criar uma UO personalizada no seu domínio gerido](active-directory-ds-admin-guide-create-ou.md).
+* **Atributos excluídos:** Pode optar por excluir determinados atributos a sincronizar com o inquilino do Azure AD do seu domínio no local com o Azure AD Connect. Esses atributos excluídos não estão disponíveis no seu domínio gerido.
+* **Políticas de grupo:** Políticas de grupo configuradas no seu domínio no local não estão sincronizadas com o seu domínio gerido.
+* **Partilha de SYSVOL:** Da mesma forma, os conteúdos da partilha Sysvol no seu domínio no local não estão sincronizados com o seu domínio gerido.
+* **Objetos de computador:** Objetos de computador para computadores associados ao seu domínio no local não estão sincronizados com o seu domínio gerido. Estes computadores não têm uma relação de confiança com o seu domínio gerido e pertencem ao seu domínio no local apenas. No seu domínio gerido, encontrar os objetos de computador apenas para computadores que tê explicitamente associado a um domínio para o domínio gerido.
+* **Atributos de SidHistory para utilizadores e grupos:** O utilizador primário e o grupo primário SIDs do seu domínio no local são sincronizados com o seu domínio gerido. No entanto, os atributos de SidHistory existentes para utilizadores e grupos não são sincronizados do seu domínio no local seu domínio gerido.
+* **Estruturas de unidades (UO) da organização:** Não sincronizar a unidades organizacionais definidas no seu domínio no local seu domínio gerido. Existem duas UOs incorporadas no seu domínio gerido. Por predefinição, o seu domínio gerido tem uma estrutura de UO simples. No entanto pode optar por [criar uma UO personalizada no seu domínio gerido](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Como atributos específicos são sincronizados com o seu domínio gerido
 A tabela seguinte lista alguns atributos comuns e descreve como eles são sincronizados com o seu domínio gerido.
@@ -69,7 +69,7 @@ A tabela seguinte lista alguns atributos comuns e descreve como eles são sincro
 | Histórico de SIDs para utilizadores e grupos |Utilizador primário no local e o SID do grupo |O atributo de SidHistory para utilizadores e grupos no seu domínio gerido está definido para corresponder o utilizador primário correspondente ou o grupo SID no seu domínio no local. Esta funcionalidade ajuda a facilitar a migração lift-and-shift de aplicações no local para o domínio gerido, uma vez que não é necessário a recursos de re-ACL. |
 
 > [!NOTE]
-> **Inicie sessão no domínio gerido com o formato UPN:** SAMAccountName o atributo pode ser gerado automaticamente para algumas contas de utilizador no seu domínio gerido. Se vários usuários têm o mesmo atributo mailNickname ou os utilizadores têm prefixos UPN demasiado longos, SAMAccountName para estes utilizadores pode ser geradas automaticamente. Por conseguinte, o formato de SAMAccountName (por exemplo, "CONTOSO100\joeuser') nem sempre é uma forma fiável para iniciar sessão domínio. SAMAccountName de gerado automaticamente dos utilizadores pode ser diferente do seu prefixo UPN. Utilize o formato UPN (por exemplo, "joeuser@contoso100.com") para iniciar sessão no domínio gerido com confiança.
+> **Inicie sessão no domínio gerido com o formato UPN:** O atributo SAMAccountName pode ser gerado automaticamente para algumas contas de utilizador no seu domínio gerido. Se vários usuários têm o mesmo atributo mailNickname ou os utilizadores têm prefixos UPN demasiado longos, SAMAccountName para estes utilizadores pode ser geradas automaticamente. Por conseguinte, o formato de SAMAccountName (por exemplo, "CONTOSO100\joeuser') nem sempre é uma forma fiável para iniciar sessão domínio. SAMAccountName de gerado automaticamente dos utilizadores pode ser diferente do seu prefixo UPN. Utilize o formato UPN (por exemplo, "joeuser@contoso100.com") para iniciar sessão no domínio gerido com confiança.
 >
 >
 
@@ -91,7 +91,7 @@ A tabela seguinte ilustra os atributos como específicos para os objetos no inqu
 | mailNickname |SAMAccountName (pode por vezes, ser gerado automaticamente) |
 | móvel |móvel |
 | ObjectId |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |sidHistory |
+| onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl (define ou limpa DONT_EXPIRE_PASSWORD bit) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
@@ -112,7 +112,7 @@ A tabela seguinte ilustra os atributos como específicos para o grupo de objetos
 | mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | ObjectId |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |sidHistory |
+| onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considerações de segurança e de sincronização de hash de palavra-passe

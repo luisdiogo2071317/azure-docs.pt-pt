@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714305"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820789"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
@@ -50,7 +50,7 @@ Utilize a tabela seguinte para ajudar a configurar o certificado. Quando termina
 | Definição | Descrição |
 |-|-|
 | Nome | Um nome amigável para o seu certificado de serviço de aplicações. |
-| Nome do Anfitrião do Domínio sem "www" | Este passo é uma das partes mais importantes do processo de compra. Utilize o nome de domínio de raiz que mapeou para a sua aplicação. Fazer _não_ preceder o nome de domínio com `www`. |
+| Nome do Anfitrião do Domínio sem "www" | Se especificar o domínio raiz aqui, obtém um certificado que protege *ambos* o domínio de raiz e o `www` subdomínio. Para proteger qualquer subdomínio apenas, especifique o nome de domínio completamente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`). |
 | Subscrição | O centro de dados onde o a aplicação Web está alojada. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Pode utilizar um grupo de recursos ou selecione o mesmo grupo de recursos que a sua aplicação de serviço de aplicações, por exemplo. |
 | SKU do Certificado | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado de caráter universal](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -77,7 +77,7 @@ Na **estado do Key Vault** página, clique em **repositório do Key Vault** para
 | Políticas de acesso| Define as aplicações e de ter permissão para aceder aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos indicados em [conceder acesso de aplicações de vários para um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acesso de Rede Virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
-Assim que tiver selecionado o cofre, feche o **repositório do Key Vault** página. O **Store** opção deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para a próxima etapa.
+Depois de selecionar o cofre, feche o **repositório do Key Vault** página. O **Store** opção deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para a próxima etapa.
 
 ## <a name="verify-domain-ownership"></a>Verificar a propriedade do domínio
 
@@ -115,7 +115,7 @@ Utilize a seguinte tabela para o ajudar a configurar o enlace na **enlaces SSL**
 |-|-|
 | Nome de anfitrião | Adicionar enlace de SSL para o nome de domínio. |
 | Thumbprint do Certificado Privado | O certificado para o enlace. |
-| Tipo de SSL | <ul><li>**SNI SSL** -enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Após configurar o enlace, siga os passos em [remapear um registo a para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Tipo de SSL | <ul><li>**SNI SSL** -enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Depois de configurar o enlace, siga os passos em [remapear um registo a para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Verificar o acesso HTTPS
 
@@ -133,7 +133,7 @@ Recodificação do certificado agrega o certificado com um novo certificado emit
 
 ## <a name="renew-certificate"></a>Renovar certificado
 
-Para ativar a renovação automática do certificado a qualquer altura, selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, clique em **definições de renovação automática** na navegação à esquerda. 
+Para ativar a renovação automática do certificado em qualquer altura, selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, clique em **definições de renovação automática** na navegação à esquerda. 
 
 Selecione **nos** e clique em **guardar**. Certificados podem começar a renovar automaticamente 60 dias antes da expiração, se tiver ativada a renovação automática.
 
@@ -157,6 +157,6 @@ Para renovar manualmente o certificado em vez disso, clique em **renovação Man
 ## <a name="more-resources"></a>Mais recursos
 
 * [Impor HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [Impor TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Utilizar um certificado SSL no código da aplicação no serviço de aplicações do Azure](app-service-web-ssl-cert-load.md)
 * [FAQ: Certificados de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

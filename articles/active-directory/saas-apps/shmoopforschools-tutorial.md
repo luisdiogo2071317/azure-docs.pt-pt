@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Shmoop para instituições de ensino | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Shmoop para instituições de ensino | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Shmoop para instituições de ensino.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045962"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818953"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Azure Active Directory com Shmoop para escolas
+# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Active Directory do Azure com Shmoop para escolas
 
 Neste tutorial, saiba como integrar Shmoop para instituições de ensino com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Para obter mais informações sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Shmoop para instituições de ensino, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Shmoop para instituições de ensino logon único habilitado subscrição
 
 > [!NOTE]
@@ -120,7 +120,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop para instituição de ensino suporta duas funções para os utilizadores: **professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para compreender como configurar funções no Azure AD, veja [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+    > Shmoop para instituição de ensino suporta duas funções para os utilizadores: **Professor** e **estudante**. Configure estas funções no Azure AD para que os utilizadores podem ser atribuídos as funções adequadas. Para compreender como configurar funções no Azure AD, veja [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
     
 5. Na **atributos de utilizador** secção a **início de sessão único** diálogo caixa, configure o atributo de token SAML, conforme mostrado na imagem anterior.  Em seguida, siga os passos seguintes:
 
@@ -146,7 +146,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+7. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
     ![O link de download de certificado](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -221,7 +221,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 
@@ -232,7 +232,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais para saber como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

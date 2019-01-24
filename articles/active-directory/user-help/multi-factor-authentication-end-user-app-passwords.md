@@ -3,7 +3,7 @@ title: Como gerir palavras-passe de aplicação no Azure Active Directory | Docu
 description: Esta página ajudará os usuários a compreender quais são as palavras-passe de aplicação e o que são utilizadas com relação ao verificação em dois passos.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 80b04f723c4e5b7ea541833df7575be763001ace
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300918"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827640"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
@@ -49,7 +49,7 @@ Pode criar e eliminar as palavras-passe de aplicação através do portal MyApps
 
 ### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação com o portal MyApps
 
-1. Inicie sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. Inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2. Selecione o nome no canto superior direito e escolher **perfil**.
 

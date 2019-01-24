@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6bd874e6918528d340bca69ebdd91aa060158073
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383048"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811218"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream em direto com serviços de multimédia v3 com APIs
 
@@ -89,7 +89,7 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-a-live-event"></a>Criar um evento em direto
 
-Esta secção mostra como criar um LiveEvent do tipo **pass-through** (LiveEventEncodingType definido como None). Se pretender criar um LiveEvent que esteja ativado para codificação em tempo real definida LiveEventEncodingType como Standard. 
+Esta secção mostra como criar um LiveEvent do tipo **pass-through** (LiveEventEncodingType definido como None). Se pretender criar um LiveEvent que esteja ativado para codificação em tempo real definido LiveEventEncodingType como **padrão**. 
 
 Algumas outras coisas que pode querer especificar ao criar o evento em direto são:
 
@@ -103,7 +103,9 @@ Algumas outras coisas que pode querer especificar ao criar o evento em direto s�
     
     Os endereços IP tem de estar em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
 
-Ao criar o evento, poderá especificar o início automático do mesmo. 
+* Ao criar o evento, poderá especificar o início automático do mesmo. 
+
+    Quando o início automático está definido como true, o evento em direto será iniciado após a criação. Isso significa que, a faturação é iniciada assim que o evento em direto está em execução. Deve chamar explicitamente o parar no recurso LiveEvent para parar a faturação ainda mais. Para obter mais informações, consulte [LiveEvent Estados e de faturação](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

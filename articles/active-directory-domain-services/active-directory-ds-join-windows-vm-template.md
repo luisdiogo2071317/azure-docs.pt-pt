@@ -4,7 +4,7 @@ description: Junte-se uma máquina virtual do Windows Server a um domínio gerid
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157263"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856643"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server a um domínio gerido com um modelo do Resource Manager
 Este artigo mostra-lhe como associar uma máquina virtual do Windows Server a um domínio gerido do Azure AD Domain Services com modelos do Resource Manager.
@@ -38,12 +38,12 @@ Para executar as tarefas apresentadas neste artigo, terá de:
 
 ## <a name="install-and-configure-required-tools"></a>Instalar e configurar as ferramentas necessárias
 Pode utilizar qualquer uma das seguintes opções para executar os passos descritos neste documento:
-* **O Azure PowerShell**: [instalar e configurar](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **CLI do Azure**: [instalar e configurar](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure PowerShell**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **CLI do Azure**: [Instalar e configurar](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opção 1: Aprovisionar uma nova VM do Windows Server e associe-a um domínio gerido
-**Nome do modelo de início rápido**: [201-vm-associação ao domínio](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+**Nome do modelo de início rápido**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Para implementar uma máquina virtual do Windows Server e associe-a um domínio gerido, execute os seguintes passos:
 1. Navegue para o [modelo de início rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -74,7 +74,7 @@ Depois de concluída a implementação com êxito, a sua máquina de virtual de 
 
 
 ## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Opção 2: Junte-se a uma VM do Windows Server existente a um domínio gerido
-**Modelo de início rápido**: [201-vm-domínio-associação-existente](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+**Modelo de início rápido**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Para associar uma máquina de virtual do Windows Server existente a um domínio gerido, execute os seguintes passos:
 1. Navegue para o [modelo de início rápido](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).

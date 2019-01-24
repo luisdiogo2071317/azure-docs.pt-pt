@@ -3,9 +3,9 @@ title: Gerido identidades para recursos do Azure com a pré-visualização do Az
 description: Utilizar identidades geridas para recursos do Azure com o Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
-ms.author: spelluru
-ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: aschhab
+ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842837"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856892"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades geridas para recursos do Azure com o Service Bus 
 
@@ -51,7 +51,7 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Criar um novo namespace de mensagens do Service Bus
 
-Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) de uma das regiões do Azure com suporte de pré-visualização para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
+Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) das regiões do Azure com suporte de pré-visualização para RBAC: **E.U.A. Leste**, **E.U.A. Leste 2**, ou **Europa Ocidental**. 
 
 Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
 

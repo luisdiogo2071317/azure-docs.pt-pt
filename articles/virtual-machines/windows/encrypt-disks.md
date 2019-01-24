@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 48eb76e7e076b8496b32878b2292447b1ccbf7f6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977128"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828082"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Encriptar discos virtuais numa VM do Windows
 Para segurança aprimorada de máquina virtual (VM) e de conformidade, os discos virtuais no Azure podem ser encriptados. Os discos são encriptados utilizando chaves criptográficas que são protegidas num Azure Key Vault. Pode controlar estas chaves criptográficas e pode auditar o seu uso. Este artigo descreve como encriptar discos virtuais numa VM do Windows com o Azure PowerShell. Também pode [encriptar uma VM do Linux ao utilizar a CLI do Azure](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Descrição geral da encriptação de disco
-Discos virtuais em VMs do Windows são encriptados em descanso ao utilizar o Bitlocker. Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas num Azure Key Vault ao utilizar a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. As chaves criptográficas são utilizadas para encriptar e desencriptar os discos virtuais anexados a sua VM. Manter o controlo sobre essas chaves criptográficas e pode auditar o seu uso. 
+Discos virtuais em VMs do Windows são encriptados em descanso ao utilizar o BitLocker. Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas num Azure Key Vault ao utilizar a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. As chaves criptográficas são utilizadas para encriptar e desencriptar os discos virtuais anexados a sua VM. Manter o controlo sobre essas chaves criptográficas e pode auditar o seu uso. 
 
 O processo para encriptar uma VM é o seguinte:
 

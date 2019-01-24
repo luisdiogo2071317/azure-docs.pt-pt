@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com myPolicies | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com myPolicies | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: f4c34d224c65a6e339f12def01079a87247d2d60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8d6db758f01e3ef46a8c770477e1231ee8a8c08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429119"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809280"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory com myPolicies
+# <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Active Directory do Azure com myPolicies
 
 Neste tutorial, saiba como integrar myPolicies com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com myPolicies, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um myPolicies logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do myPolicies com o Azure AD, terá de adicionar 
 
 **Para adicionar myPolicies a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -127,9 +127,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | ---------- |
-    | givenName | User.givenName |
-    | Apelido | User.Surname |
-    | endereço de correio eletrónico | User.Mail |
+    | givenName | user.givenname |
+    | Apelido | user.surname |
+    | emailaddress | user.mail |
     | nome | user.userprincipalname |
     
     a. Clique no atributo para abrir o **Editar atributo** caixa de diálogo.
@@ -155,7 +155,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **myPolicies** lado, terá de enviar o transferido **Certificate(Base64)** e **SAML único início de sessão no URL do serviço** para [ equipa de suporte de myPolicies](mailto:support@mypolicies.com). 
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -191,7 +191,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-mypolicies-test-user"></a>Criar um utilizador de teste myPolicies
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no myPolicies. Trabalhar com [equipa de suporte de myPolicies](mailto:support@mypolicies.com) para adicionar os utilizadores na plataforma myPolicies. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no myPolicies. Trabalhar com [equipa de suporte de myPolicies](mailto:support@mypolicies.com) para adicionar os utilizadores na plataforma myPolicies. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583369"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808753"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrição do Azure
 
@@ -67,14 +67,14 @@ Apenas um [Proprietário](../role-based-access-control/built-in-roles.md#owner) 
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>Adicionar um utilizador convidado como um coadministrador
 
-Os utilizadores convidados que foram atribuídos a função de coadministrador poderão ver algumas diferenças em comparação com os utilizadores de membro com a função de coadministrador. Considere o seguinte cenário:
+[Os utilizadores convidados](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) que tenha recebido o coadministrador função poderá ver algumas diferenças em comparação com os utilizadores de membro com a função de coadministrador. Considere o seguinte cenário:
 
 - O utilizador A com uma conta escolar ou profissional do Azure AD é um administrador de serviços para uma subscrição do Azure.
 - O utilizador B tem uma conta Microsoft.
 - O utilizador A atribui a função de coadministrador ao utilizador B.
 - O utilizador B pode fazer quase tudo, mas não consegue registar aplicações ou procurar os utilizadores no diretório do Azure AD.
 
-Poderia esperar que o utilizador B pode gerir tudo. O motivo para essa diferença é que a conta da Microsoft é adicionada à subscrição como um utilizador convidado, em vez de um utilizador de membro. Os utilizadores convidados têm diferentes permissões predefinidas no Azure AD em comparação com os utilizadores membros. Por exemplo, os utilizadores membros podem ler a outros utilizadores no Azure AD e os utilizadores convidados não é possível. Utilizadores membros podem registar novos principais de serviço no Azure AD e os utilizadores convidados não podem. Se um utilizador convidado tem de ser capaz de executar estas tarefas, uma solução possível é específica de atribuir funções de administrador do Azure AD tem do utilizador convidado. Por exemplo, no cenário anterior, pode atribuir a [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) função ler outros utilizadores e atribuir a [programador da aplicação](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) função para poder criar principais de serviço. Para obter mais informações sobre o membro e os utilizadores convidados e as respetivas permissões, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+Poderia esperar que o utilizador B pode gerir tudo. O motivo para essa diferença é que a conta da Microsoft é adicionada à subscrição como um utilizador convidado, em vez de um utilizador de membro. Os utilizadores convidados têm diferentes permissões predefinidas no Azure AD em comparação com os utilizadores membros. Por exemplo, os utilizadores membros podem ler a outros utilizadores no Azure AD e os utilizadores convidados não é possível. Utilizadores membros podem registar novos principais de serviço no Azure AD e os utilizadores convidados não podem. Se um utilizador convidado tem de ser capaz de executar estas tarefas, uma solução possível é específica de atribuir funções de administrador do Azure AD tem do utilizador convidado. Por exemplo, no cenário anterior, pode atribuir a [leitores de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) função ler outros utilizadores e atribuir a [programador da aplicação](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) função para poder criar principais de serviço. Para obter mais informações sobre o membro e os utilizadores convidados e as respetivas permissões, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). 
 
 Tenha em atenção que o [funções incorporadas para recursos do Azure](../role-based-access-control/built-in-roles.md) são diferentes do que o [funções de administrador do Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções incorporadas não concedem acesso ao Azure AD. Para obter mais informações, consulte [compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
 

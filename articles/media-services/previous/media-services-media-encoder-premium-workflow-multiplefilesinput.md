@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262102"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812068"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilizar vários ficheiros de entrada e propriedades do componente com o codificador Premium
 ## <a name="overview"></a>Descrição geral
@@ -268,13 +268,13 @@ Com remoção de quadro precisos adicional:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobrepor uma imagem com base no vídeo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobreposição de uma imagem com base no vídeo
 
 ### <a name="presentation"></a>Apresentação
 Considere um exemplo no qual pretende sobrepor uma imagem de logótipo no vídeo de entrada enquanto o vídeo está codificado. Neste exemplo, o vídeo de entrada com o nome "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logótipo com o nome "logo.png". Deve executar os seguintes passos:
 
 * Criar um recurso do fluxo de trabalho com o ficheiro de fluxo de trabalho (consulte o exemplo a seguir).
-* Criar um elemento de multimédia, que contém dois arquivos: MyInputVideo.mp4 como o ficheiro primário e MyLogo.png.
+* Crie um elemento de multimédia, que contém dois arquivos: MyInputVideo.mp4 como o ficheiro primário e MyLogo.png.
 * Enviar uma tarefa para o processador de multimédia do Media Encoder Premium Workflow com os ativos de entrada acima e especificar a seguinte cadeia de configuração.
 
 Configuração:
@@ -428,9 +428,9 @@ Depois da tarefa estiver concluída, o ficheiro MP4 no recurso de saída apresen
 
 Pode baixar o fluxo de trabalho de exemplo da [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Vários idiomas de áudio codificação
+## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Codificação do vários idiomas de áudio
 
-Um exemplo de vários idiomas de áudio workfkow codificação está disponível no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Um exemplo de vários idiomas de áudio, codificação de fluxo de trabalho está disponível no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 Esta pasta contém um fluxo de trabalho de exemplo que pode ser utilizado para codificar um arquivo de ficheiros do MXF a um recurso de ficheiros MP4 com várias com várias faixas de áudio.
 

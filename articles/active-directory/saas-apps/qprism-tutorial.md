@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com QPrism | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com QPrism | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420279"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828065"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory com QPrism
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Active Directory do Azure com QPrism
 
 Neste tutorial, saiba como integrar QPrism com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure A
 
 Para configurar a integração do Azure AD com QPrism, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um QPrism logon único habilitado subscrição
 
 Para testar os passos neste tutorial, siga as seguintes recomendações:
@@ -112,7 +112,7 @@ Nesta secção, ativar o Azure AD início de sessão único no portal do Azure e
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o identificador real e início de sessão no URL. Contacte [equipa de suporte de cliente QPrism](mailto:qsupport-ce@quatrro.com) obter esses valores. 
 
-1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
      ![O link de download de certificado](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -156,7 +156,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-qprism-test-user"></a>Criar um utilizador de teste QPrism
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no QPrism. Trabalhar com o [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com) para adicionar utilizadores na plataforma de QPrism. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no QPrism. Trabalhar com o [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com) para adicionar utilizadores na plataforma de QPrism. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -188,7 +188,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Sob **adicionar atribuição**, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

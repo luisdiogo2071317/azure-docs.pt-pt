@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Recognize | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Recognize | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Recognize.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448789"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824155"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory com Recognize
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Active Directory do Azure com Recognize
 
 Neste tutorial, saiba como integrar Recognize com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Recognize, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Recognize logon único habilitado subscrição
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Para configurar a integração do Azure AD com Recognize, terá dos seguintes it
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -59,7 +59,7 @@ Para configurar a integração de reconhecer no Azure AD, terá de adicionar rec
 
 **Para adicionar reconhecer a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de reconhecer](mailto:support@recognizeapp.com) obter o URL de início de sessão e pode obter o valor do identificador ao abrir o URL de metadados do fornecedor de serviço da secção definições de SSO que é explicada mais tarde no tutorial. . 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de reconhecer](mailto:support@recognizeapp.com) obter o URL de início de sessão e pode obter o valor do identificador ao abrir o URL de metadados do fornecedor de serviço da secção definições de SSO que é explicada mais tarde no tutorial. . 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -161,12 +161,12 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
    
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Abra o **ligação de URL de metadados** num navegador em branco para transferir o documento de metadados. Em seguida, copie o value(entityID) EntityDescriptor do ficheiro e cole-a no **identificador** na caixa de texto **seção reconhecer o domínio e URLs** no portal do Azure.
+1. Abra o **ligação de URL de metadados** num navegador em branco para transferir o documento de metadados. Depois, copie o value(entityID) EntityDescriptor do ficheiro e cole-a no **identificador** caixa de texto no **secção reconhecer o domínio e URLs** no portal do Azure.
     
     ![Configure o lado de início de sessão na aplicação única](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

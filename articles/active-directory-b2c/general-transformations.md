@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações geral para a identidade exper
 description: Exemplos de transformação de afirmações geral para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431331"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853104"
 ---
 # <a name="general-claims-transformations"></a>Transformações de afirmações geral
 
@@ -29,8 +29,8 @@ Verifica se o **inputClaim** existe ou não e define **outputClaim** como verdad
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |Qualquer | A afirmação de entrada cuja existência tem de ser verificado. |
-| outputClaim | outputClaim | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
+| InputClaim | inputClaim |Qualquer | A afirmação de entrada cuja existência tem de ser verificado. |
+| OutputClaim | outputClaim | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
 
 Utilize que este afirmações de transformação para verificar se uma afirmação existe ou contém qualquer valor. O valor de retorno é um valor booleano que indica se a afirmação existe. Exemplo a seguir verifica se existe o endereço de e-mail.
 
@@ -50,7 +50,7 @@ Utilize que este afirmações de transformação para verificar se uma afirmaç�
 - Afirmações de entrada:
     - **inputClaim**: someone@contoso.com
 - Afirmações de saída: 
-    - **outputClaim**: VERDADEIRO
+    - **outputClaim**: true
 
 ## <a name="hash"></a>Hash
 
@@ -60,8 +60,8 @@ O texto sem formatação fornecido com o salt e um segredo de hash.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | texto sem formatação | cadeia | A afirmação de entrada sejam encriptados |
 | InputClaim | Salt | cadeia | O parâmetro de salt. Pode criar um aleatório de valor, usando `CreateRandomString` transformação de afirmações. |
-| InputParameter | randomizerSecret | cadeia | Aponta para um existente do Azure AD B2C **chaves de política**. Para criar um novo: no seu inquilino do Azure AD B2C, selecione **definições do B2C > Framework de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Forneça um nome (prefixo B2C_1A_ podem ser adicionados automaticamente.). Na caixa de segredo, introduza qualquer segredo que pretende utilizar, como 1234567890. Para utilização de chave, selecione **segredo**. Selecione **Criar**. |
-| outputClaim | Hash | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. A afirmação configurada no `plaintext` inputClaim. |
+| InputParameter | randomizerSecret | cadeia | Aponta para um existente do Azure AD B2C **chaves de política**. Para criar um novo: No seu inquilino do Azure AD B2C, selecione **definições do B2C > Framework de experiência de identidade**. Selecione **chaves de política** para exibir as chaves que estão disponíveis no seu inquilino. Selecione **Adicionar**. Para **opções**, selecione **Manual**. Forneça um nome (prefixo B2C_1A_ podem ser adicionados automaticamente.). Na caixa de segredo, introduza qualquer segredo que pretende utilizar, como 1234567890. Para utilização de chave, selecione **segredo**. Selecione **Criar**. |
+| OutputClaim | Hash | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. A afirmação configurada no `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -82,10 +82,10 @@ O texto sem formatação fornecido com o salt e um segredo de hash.
 
 - Afirmações de entrada:
     - **texto sem formatação**: MyPass@word1
-    - **Salt**: 487624568
+    - **salt**: 487624568
     - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Afirmações de saída: 
-    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U =
+    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
 
 
 

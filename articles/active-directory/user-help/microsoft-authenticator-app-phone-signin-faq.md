@@ -3,7 +3,7 @@ title: Microsoft Authenticator sessão no telemóvel - contas do Azure e o Micro
 description: Utilize o seu telefone para iniciar sessão na sua conta Microsoft em vez de digitar a palavra-passe. Este artigo responde a FAQs sobre esta funcionalidade.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962222"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822540"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o telefone, não com a palavra-passe.
 A aplicação Microsoft Authenticator não só ajuda a manter as suas contas segura ao efetuar a verificação de dois passos depois de introduzir a palavra-passe, mas agora ele pode substituir a palavra-passe da sua conta Microsoft inteiramente.

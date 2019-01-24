@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a023d9f600f63d1ead4cf7c7e2a3cceec794d28b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4f4456ed81fba4648f5bc3efaa415b1e44e5e415
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972602"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852121"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -171,7 +171,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Preparar um certificado para utilização numa VM
-Para utilizar o certificado durante o processo de criação da VM, obtenha o ID do certificado com [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). A VM precisa do certificado num determinado formato para o inserir no arranque, por isso, converta o certificado com [az vm secret format](/cli/azure/vm#az-vm-secret-format). O exemplo seguinte atribui o resultado destes comandos a variáveis para uma utilização mais fácil nos passos que se seguem:
+Para utilizar o certificado durante o processo de criação da VM, obtenha o ID do certificado com [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). A VM precisa do certificado num determinado formato para o inserir no arranque, por isso, converta o certificado com [az vm secret format](/cli/azure/vm). O exemplo seguinte atribui o resultado destes comandos a variáveis para uma utilização mais fácil nos passos que se seguem:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -271,7 +271,7 @@ O site NGINX protegido e a aplicação Node.js são apresentados como no exemplo
 ![Ver site NGINX seguro em execução](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, configurou as VMs no primeiro arranque com o cloud-init. Aprendeu a:
 
 > [!div class="checklist"]

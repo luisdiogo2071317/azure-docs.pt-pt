@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 06c489fbffb53f7c6dc03ecd0c4414b9f999f8c5
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 85b4045c609705eeca7450e26ead3467d3338a69
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutorial: Integração do Active Directory do Azure com Litmos
 
@@ -121,9 +121,9 @@ Para configurar o Azure AD início de sessão único com Litmos, execute os segu
 
     | Nome |  Atributo de origem |
     |---------------|--------- |
-    | FirstName | User.givenName |
-    | LastName | User.Surname |
-    | Email | User.Mail |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -153,7 +153,7 @@ Para configurar o Azure AD início de sessão único com Litmos, execute os segu
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
