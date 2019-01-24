@@ -32,12 +32,12 @@ Este contentor tem as seguintes definições de configuração:
 |--|--|--|
 |Sim|[ApiKey](#apikey-setting)|Utilizado para controlar informações de faturação.|
 |Não|[ApplicationInsights](#applicationinsights-setting)|Permite que adicione [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights) suporte de telemetria ao seu contentor.|
-|Sim|[Faturação](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
+|Sim|[Billing](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
 |Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
 |Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
 |Não|[Proxy de HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
-|Não|[Registro em log](#logging-settings)|Fornece suporte para o contentor de registo do ASP.NET Core. |
-|Sim|[Monta](#mount-settings)|Ler e gravar dados de computador do anfitrião para contentor e de contentor para o computador anfitrião.|
+|Não|[Logging](#logging-settings)|Fornece suporte para o contentor de registo do ASP.NET Core. |
+|Sim|[Mounts](#mount-settings)|Ler e gravar dados de computador do anfitrião para contentor e de contentor para o computador anfitrião.|
 
 > [!IMPORTANT]
 > O [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), e [ `Eula` ](#eula-setting) definições são utilizadas em conjunto, e tem de indicar valores válidos para todas as três-los; caso contrário não inicia o contentor. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](luis-container-howto.md#billing).
