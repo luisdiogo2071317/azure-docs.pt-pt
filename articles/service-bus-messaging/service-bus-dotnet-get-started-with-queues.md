@@ -3,23 +3,23 @@ title: Introdução às filas do Azure Service Bus | Microsoft Docs
 description: Grave uma aplicação da consola C# que utilize filas das mensagens do Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/07/2018
-ms.author: spelluru
-ms.openlocfilehash: 1dd47dea86478c76ed5bf6f8b393964f97231908
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226962"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852170"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 
@@ -410,7 +410,7 @@ Para receber as mensagens que acabou de enviar, crie outra aplicação de consol
 
 Parabéns! Acabou de criar uma fila, enviou um conjunto de mensagens para essa fila e recebeu essas mensagens da mesma fila.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o nosso [repositório do GitHub com exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples) que demonstram algumas das funcionalidades mais avançadas das mensagens do Service Bus.
 

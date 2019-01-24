@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553413"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841446"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -101,6 +101,10 @@ Os clientes podem tirar um instantâneo de seus discos geridos e, em seguida, ut
 
 Sim, os discos geridos e não são suportados. Recomendamos que utilize discos geridos para novas cargas de trabalho e migrar cargas de trabalho atuais para discos geridos.
 
+**Conjuntamente posso localizar discos geridos e não na mesma VM?**
+
+Não.
+
 **Se eu criar um disco de 128 GB e, em seguida, aumente o tamanho para 130 GiB, vou ser cobrado para o próximo tamanho de disco (256gib)?**
 
 Sim.
@@ -124,10 +128,6 @@ Não. Não é possível atualizar a propriedade de nome de computador. A nova VM
 **Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com discos geridos?**
 * [Lista de modelos a utilizar discos geridos](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Conjuntamente posso localizar discos geridos e não na mesma VM?**
-
-Não.
 
 **Ao criar um disco de um blob, existe qualquer relação continuamente existente com esse blob de origem?**
 
@@ -317,8 +317,8 @@ Não precisa de ferramentas do Azure existentes para criar, anexar ou redimensio
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versão 4.1.0: Versão de Junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: Versão de Maio de 2017 ou posterior|
-|CLI do Azure v2     | Número da versão 2.0.12: Versão de Julho de 2017 ou posterior|
+|Azure CLI v1     | Número de versão 0.10.13: Versão de Maio de 2017 ou posterior|
+|Azure CLI v2     | Número da versão 2.0.12: Versão de Julho de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: Versão de Junho de 2017 ou posterior|
 
 **Tamanhos de disco do P4 e P6 há suporte para discos não geridos ou blobs de páginas?**

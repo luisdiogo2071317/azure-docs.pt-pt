@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306459"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819344"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Postura de segurança de infraestrutura do Azure Stack
 
@@ -41,7 +41,7 @@ Uma vez que a infraestrutura é executado em hardware bem definido e software, A
 Porque o Azure Stack é entregue como um sistema integrado, a postura de segurança da infraestrutura do Azure Stack é definida pela Microsoft. Assim como no Azure, os inquilinos são responsáveis por definir a postura de segurança das suas cargas de trabalho de inquilino. Este documento fornece conhecimento básico sobre a postura de segurança da infraestrutura do Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dados de encriptação de Inativos
-Todos os dados de inquilino e de infraestrutura de Azure Stack são encriptados em descanso ao utilizar o Bitlocker. Esta encriptação protege contra perda física ou o roubo de componentes de armazenamento do Azure Stack. Para obter mais informações, consulte [dados de encriptação de Inativos no Azure Stack](azure-stack-security-bitlocker.md).
+Todos os dados de inquilino e de infraestrutura de Azure Stack são encriptados em descanso ao utilizar o BitLocker. Esta encriptação protege contra perda física ou o roubo de componentes de armazenamento do Azure Stack. Para obter mais informações, consulte [dados de encriptação de Inativos no Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Dados de encriptação de trânsito
 Os componentes de infraestrutura do Azure Stack comunicam através de canais encriptados com TLS 1.2. Certificados de encriptação automática são geridos pela infraestrutura. 

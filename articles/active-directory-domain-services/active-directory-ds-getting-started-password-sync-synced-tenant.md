@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de Domínio do Azure AD: Ativar a sincronização de palavras-passe | Microsoft Docs'
+title: 'Azure AD Domain Services: Ativar a sincronização de palavra-passe | Documentos da Microsoft'
 description: Introdução aos Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be947e2867f00c34e5a0b66893765647349c7eeb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234209"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854212"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de palavras-passe para o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de credenciais necessários para a autenticação NTLM (NT LAN Manager) e Kerberos para sincronizar com os Serviços de Domínio do Azure AD. Assim que a sincronização de credenciais estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -52,7 +52,7 @@ Instale a versão mais recente recomendada do Azure AD Connect num computador as
 
 **[Transferir o Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versão recomendada: **1.1.614.0** - publicada em 5 de setembro de 2017.
+Versão recomendada: **1.1.614.0** - publicada em 5 de Setembro de 2017.
 
 > [!WARNING]
 > TEM de instalar a versão mais recente recomendada do Azure AD Connect para permitir que as credenciais de palavra-passe legadas (necessárias para a autenticação NTLM e Kerberos) sejam sincronizadas com o seu inquilino do Azure AD. Esta funcionalidade não está disponível em versões anteriores do Azure AD Connect ou com a ferramenta DirSync legada.

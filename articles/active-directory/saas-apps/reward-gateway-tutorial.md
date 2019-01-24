@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Gateway de recompensa | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Gateway de recompensa | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Gateway de recompensa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34336386-998a-4d47-ab55-721d97708e5e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 0339889228c80cc3675fd7fde52e75cb84521ab6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 322d85ddfade82232075c11916c528efb3aa610e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840185"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820177"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Azure Active Directory com o Gateway de recompensa
+# <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Active Directory do Azure com o Gateway de recompensa
 
 Neste tutorial, saiba como integrar o Gateway de recompensa com o Azure Active Directory (Azure AD).
 
@@ -142,7 +142,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **Gateway de recompensa** lado, a começar a configurar uma integração no Portal do Gestor de recompensa. Utilize os metadados baixado para obter o seu certificado de assinatura e carregar que durante a configuração. Podem encontrar detalhes na https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

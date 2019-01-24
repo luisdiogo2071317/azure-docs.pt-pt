@@ -1,10 +1,10 @@
 ---
-title: 'O Azure Active Directory Domain Services: Implementar o Proxy de aplicações do Azure Active Directory | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Implementar o Proxy de aplicações do Azure Active Directory | Documentos da Microsoft'
 description: Utilizar o Proxy de aplicações do Azure AD em domínios geridos do Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc428ddc5c9a99e04f932dec620d99a23f366d28
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840304"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845440"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementar o Proxy de aplicações do Azure AD num domínio gerido do Azure AD Domain Services
 Proxy de aplicações do Azure Active Directory (AD) ajuda-o a oferecer suporte a funcionários remotos ao publicar aplicações no local para ser acedido através da internet. Com o Azure AD Domain Services, pode agora migração lift-and-shift aplicações legadas em execução no local para serviços de infraestrutura do Azure. Em seguida, pode publicar esses aplicativos usando o Proxy de aplicações do Azure AD, para fornecer acesso remoto seguro aos utilizadores na sua organização.
 
-Se estiver familiarizado com o Proxy de aplicações do Azure AD, saiba mais sobre esta funcionalidade com o seguinte artigo: [como fornecer acesso remoto seguro a aplicações no local](../active-directory/manage-apps/application-proxy.md).
+Se estiver familiarizado com o Proxy de aplicações do Azure AD, saiba mais sobre esta funcionalidade com o seguinte artigo: [Como fornecer acesso remoto seguro a aplicações no local](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -96,9 +96,9 @@ Anteriormente, pode aprovisionar uma máquina virtual do Windows Server e associ
 ## <a name="next-steps"></a>Próximos Passos
 Tem de configurar o Proxy de aplicações do Azure AD e integrou ao seu domínio gerido do Azure AD Domain Services.
 
-* **Migrar as suas aplicações para máquinas virtuais do Azure:** pode migração lift-and-shift as aplicações a partir de servidores no local para máquinas virtuais do Azure associadas ao seu domínio gerido. Se o fizer, ajuda-o se livrar dos custos de infraestrutura de servidores no local a executar.
+* **Migre as suas aplicações para máquinas virtuais do Azure:** Pode migração lift-and-shift as aplicações a partir de servidores no local para máquinas virtuais do Azure associadas ao seu domínio gerido. Se o fizer, ajuda-o se livrar dos custos de infraestrutura de servidores no local a executar.
 
-* **Publicar aplicações com o Proxy de aplicações do Azure AD:** publicar aplicativos executados em máquinas virtuais do Azure com o Proxy de aplicações do Azure AD. Para obter mais informações, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Publicar aplicações com o Proxy de aplicações do Azure AD:** Publica aplicações em execução nas suas máquinas virtuais do Azure com o Proxy de aplicações do Azure AD. Para obter mais informações, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota de implementação - aplicações publicar IWA (autenticação integrada do Windows) com o Proxy de aplicações do Azure AD

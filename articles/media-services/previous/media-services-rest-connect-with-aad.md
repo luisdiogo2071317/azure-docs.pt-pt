@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818036"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utilizar autenticação do Azure AD para aceder a API de serviços de multimédia do Azure com REST
 
@@ -50,7 +50,7 @@ Neste tutorial, ficará a saber como:
 - Reveja os [aceder ao suporte de dados de API dos serviços Azure com a descrição geral da autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md) artigo.
 - Instalar o [Postman](https://www.getpostman.com/) cliente REST para executar as APIs de REST mostrado neste artigo. 
 
-    Neste tutorial, estamos uring **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
+    Neste tutorial, utilizamos **Postman** mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter as informações de autenticação do portal do Azure
 
@@ -79,7 +79,7 @@ Para obter as informações, siga estes passos:
 5. Selecione um existente **aplicação do Azure AD** ou criar um novo (mostrado abaixo).
 
     > [!NOTE]
-    > Para a solicitação de REST de suporte de dados do Azure com êxito, o utilizador chamador tem de ter uma **contribuinte** ou **proprietário** função para a conta de Media Services está a tentar aceder. Se receber uma exceção que diz "o servidor remoto devolveu um erro: não autorizada (401)," ver [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Para a solicitação de REST de suporte de dados do Azure com êxito, o utilizador chamador tem de ter uma **contribuinte** ou **proprietário** função para a conta de Media Services está a tentar aceder. Se receber uma exceção que diz "o servidor remoto devolveu um erro: Não autorizada (401),"ver [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Se precisar de criar uma nova aplicação do AD, siga estes passos:
     
@@ -118,7 +118,7 @@ Pode adicionar valores para parâmetros de ligação do AD ao ficheiro Web. conf
 
 ## <a name="get-the-access-token-using-postman"></a>Obter o token de acesso com o Postman
 
-Esta secção mostra como usar **Postman** para executar uma API REST que devolve um Token de portador do JWT (token de acesso). Para chamar qualquer API de REST de serviços de suporte de dados, terá de adicionar o cabeçalho "Authorization" para as chamadas e adicione o valor de "portador *your_access_token*" para cada chamada (como mostrado na secção seguinte deste tutorial). 
+Esta secção mostra como usar **Postman** para executar uma API REST que devolve um Token de portador do JWT (token de acesso). Para chamar qualquer API de REST de serviços de suporte de dados, terá de adicionar o cabeçalho "Authorization" para as chamadas e adicione o valor de "portador *your_access_token*" para cada chamada (como mostrado na secção seguinte deste tutorial). 
 
 1. Open **Postman**.
 2. Selecione **PUBLICAR**.
@@ -188,5 +188,5 @@ A resposta devolvida contém os recursos que estão na sua conta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Experimente este código de exemplo no [autenticação do Azure AD para acesso de serviços de multimédia do Azure: ambos através da REST API](https://github.com/willzhan/WAMSRESTSoln)
+* Experimente este código de exemplo no [autenticação do Azure AD para acesso de serviços de multimédia do Azure: Ambos através da REST API](https://github.com/willzhan/WAMSRESTSoln)
 * [Carregar ficheiros com .NET](media-services-dotnet-upload-files.md)

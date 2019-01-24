@@ -4,7 +4,7 @@ description: Junte-se a uma máquina virtual do Windows Server para o Azure AD D
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957679"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850370"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows Server com o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).
@@ -67,7 +67,7 @@ Para criar uma máquina virtual do Windows que está associada à rede virtual e
 10. Depois de concluída a implementação, pode ver informações sobre a VM na **descrição geral** página.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Passo 2: Ligar a máquina virtual do Windows Server com a conta de administrador local
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Passo 2: Ligar à máquina virtual do Windows Server com a conta de administrador local
 Em seguida, ligar à máquina virtual recentemente criada do Windows Server para a associar ao domínio. Utilize as credenciais de administrador local que especificou quando criou a máquina virtual.
 
 Para ligar à máquina virtual, execute os seguintes passos:
@@ -107,9 +107,9 @@ Para associar a máquina virtual do Windows Server com o Azure AD DS gerido dom�
 
 7. Pode especificar as credenciais em qualquer uma das seguintes formas:
 
-   * **Formato UPN**: Especifique (recomendado), o nome principal de utilizador (UPN) de sufixo para a conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *bob* é *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (Recomendado) Especifique o sufixo de nome principal (UPN) do utilizador da conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *bob* é *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **Formato de SAMAccountName**: pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário *bob* tem de introduzir *CONTOSO100\bob*.
+   * **Formato de SAMAccountName**: Pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário *bob* tem de introduzir *CONTOSO100\bob*.
 
      > [!TIP]
      > **Recomendamos que utilize o formato do UPN para especificar as credenciais.**

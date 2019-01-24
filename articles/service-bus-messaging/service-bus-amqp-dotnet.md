@@ -3,23 +3,23 @@ title: Barramento de serviço do Azure com .NET e AMQP 1.0 | Documentos da Micro
 description: Utilizar o Azure Service Bus do .NET com AMQP
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702243"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853209"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilizar o Service Bus do .NET com o AMQP 1.0
 
@@ -66,32 +66,32 @@ Para facilitar a interoperabilidade com clientes de ambientes não .NET, utilize
 | Bool |boolean |Valor AMQP |
 | byte |ubyte |Valor AMQP |
 | ushort |ushort |Valor AMQP |
-| UInt |UInt |Valor AMQP |
+| uint |uint |Valor AMQP |
 | ulong |ulong |Valor AMQP |
-| SByte |byte |Valor AMQP |
+| sbyte |byte |Valor AMQP |
 | curto |curto |Valor AMQP |
-| Int |Int |Valor AMQP |
-| longitude |longitude |Valor AMQP |
-| flutuante |flutuante |Valor AMQP |
+| int |int |Valor AMQP |
+| longa |longa |Valor AMQP |
+| float |float |Valor AMQP |
 | double |double |Valor AMQP |
 | decimal |decimal128 |Valor AMQP |
 | char |char |Valor AMQP |
 | DateTime |carimbo de data/hora |Valor AMQP |
-| GUID |UUID |Valor AMQP |
+| GUID |uuid |Valor AMQP |
 | byte[] |binário |Valor AMQP |
 | cadeia |cadeia |Valor AMQP |
-| System.Collections.IList |lista |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
-| System. Array |array |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
-| System.Collections.IDictionary |Mapa |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. Nota: apenas as chaves de cadeia de caracteres são suportadas. |
-| Uri |Descrito a cadeia de caracteres (consulte a tabela seguinte) |Valor AMQP |
+| System.Collections.IList |list |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
+| System.Array |array |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
+| System.Collections.IDictionary |map |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. Nota: apenas as chaves de cadeia de caracteres são suportadas. |
+| URI |Descrito a cadeia de caracteres (consulte a tabela seguinte) |Valor AMQP |
 | DateTimeOffset |Descrito há muito tempo (consulte a tabela seguinte) |Valor AMQP |
 | Período de tempo |Descrito há muito tempo (consulte o seguinte) |Valor AMQP |
-| Stream |binário |Dados de AMQP (podem ser vários). As secções de dados contêm os bytes não processados que leem o objeto Stream. |
+| Transmissão |binário |Dados de AMQP (podem ser vários). As secções de dados contêm os bytes não processados que leem o objeto Stream. |
 | Outro objeto |binário |Dados de AMQP (podem ser vários). Contém o binário serializado do objeto que utiliza o DataContractSerializer ou um serializador fornecido pela aplicação. |
 
 | Tipo de .NET | AMQP mapeada descrito tipo | Notas |
 | --- | --- | --- |
-| Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | Período de tempo |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
@@ -107,10 +107,10 @@ Existem algumas pequenas diferenças no comportamento da API .NET do Service Bus
 
 O [.NET APIs](/dotnet/api/) expor várias definições para controlar o comportamento do protocolo AMQP:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: controla o crédito inicial aplicado a uma ligação. A predefinição é 0.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: controlos que o tamanho máximo de quadro AMQP disponíveis durante a negociação em ligação abra tempo. A predefinição é 65,536 bytes.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: se as transferências são batchable, este valor determina o atraso máximo para o envio de dispositions. Herdada por remetentes/destinatários por predefinição. Remetente/destinatário individual pode substituir a predefinição, o que é 20 milissegundos.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controla se as ligações AMQP são estabelecidas ao longo de uma ligação SSL. A predefinição é **true**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Controla o crédito inicial aplicado a uma ligação. A predefinição é 0.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Controles, o tamanho máximo de quadro AMQP disponíveis durante a negociação em ligação abra tempo. A predefinição é 65,536 bytes.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Se estiverem batchable transferências, este valor determina o atraso máximo para o envio de dispositions. Herdada por remetentes/destinatários por predefinição. Remetente/destinatário individual pode substituir a predefinição, o que é 20 milissegundos.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controla se as ligações AMQP são estabelecidas ao longo de uma ligação SSL. A predefinição é **true**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

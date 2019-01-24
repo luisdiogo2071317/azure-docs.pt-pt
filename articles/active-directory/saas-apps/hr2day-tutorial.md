@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com HR2day por Merces | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com HR2day por Merces | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e HR2day por Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441620"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821027"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory com HR2day por Merces
+# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
 Neste tutorial, saiba como integrar HR2day por Merces com o Azure Active Directory (Azure AD).
 
@@ -88,11 +88,11 @@ HR2day por Merces, atribuir os **nome de utilizador** no Azure AD para **Usernam
 
 Para configurar e testar o Azure AD início de sessão único com HR2day por Merces, tem de concluir os seguintes blocos de construção:
 
-1. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on): permitir que os utilizadores utilizar esta funcionalidade.
-1. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user): teste do Azure AD início de sessão único com Eduarda Almeida.
-1. [Criar um HR2day por utilizador de teste Merces](#creating-an-hr2day-by-merces-test-user): criar um equivalente da Eduarda Almeida na HR2day por Merces que está ligado à representação de utilizador do Azure AD.
-1. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user): Ativar a Eduarda Almeida para utilizar o Azure AD início de sessão único.
-1. [Testar início de sessão único](#testing-single-sign-on): verificar se a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on): Permita que os utilizadores utilizar esta funcionalidade.
+1. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user): Teste do Azure AD início de sessão único com Eduarda Almeida.
+1. [Criar um HR2day por utilizador de teste Merces](#creating-an-hr2day-by-merces-test-user): Crie um equivalente da Eduarda Almeida HR2day por Merces que está ligado à representação de utilizador do Azure AD.
+1. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user): Ative a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. [Testar início de sessão único](#testing-single-sign-on): Certifique-se de que se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -243,7 +243,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 O objetivo desta secção é testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.  
 

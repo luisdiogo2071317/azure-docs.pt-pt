@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104089"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847548"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
 Um projeto em blocos de notas do Azure é, essencialmente, uma configuração da máquina de virtual de Linux subjacente no qual executar blocos de notas do Jupyter, juntamente com uma pasta de ficheiros e metadados descritivos. Dashboard do projeto em blocos de notas do Azure permite-lhe gerir os ficheiros e caso contrário, configure características do projeto:
 
-- Metadados de projeto incluem um nome, descrição, um identificador que é usado quando o projeto de partilha e se o projeto é pública ou privada.
-- Gerir o bloco de notas do projeto, dados e outros ficheiros tal como sucede com qualquer outro sistema de ficheiros.
-- Configurar o ambiente de um projeto através de scripts de inicialização ou diretamente por meio de terminal.
-- Por meio de terminal, tem acesso a registos.
+- A escala de computação em que o projeto é executado, que pode ser o escalão gratuito ou de uma máquina virtual do Azure.
+- Metadados de projeto, que incluem um nome, descrição, um identificador que é usado quando o projeto de partilha e se o projeto é pública ou privada.
+- Bloco de notas do projeto, dados e outros ficheiros, o que pode gerir, como qualquer outro sistema de ficheiros.
+- Ambiente de um projeto, que gere através de scripts de inicialização ou diretamente por meio de terminal.
+- Registos, o que pode aceder através do terminal.
 
 > [!Note]
-> Não é possível gerir projeto que não possui, a menos que o proprietário do projeto fez um funcionário. Caso contrário, as funcionalidades de gestão e configuração descritas aqui não estão disponíveis para si.
+> As funcionalidades de gestão e configuração descritas aqui só estão disponíveis para o proprietário do projeto que criou o projeto inicialmente. No entanto, pode, clonar o projeto para a sua própria conta, caso em que se tornar o proprietário e pode configurar o projeto conforme pretendido.
 
 Blocos de notas do Azure inicia a máquina virtual subjacente sempre que executar um bloco de notas ou outro ficheiro. O servidor automaticamente guarda ficheiros e encerra após 60 minutos de inatividade. Também pode parar o servidor em qualquer altura com o **encerramento** comando (atalho de teclado: h).
+
+## <a name="compute-tier"></a>Escalão de computação
+
+O **executar** na lista pendente no dashboard do projeto é onde seleciona o escalão de computação em que o projeto é executado. Por predefinição, os projetos de executar no **computação gratuita** escalão, o que está limitado a 4 GB de memória e 1 GB de dados para evitar abusos:
+
+![Lista pendente de camada no dashboard do projeto de computação](media/project-compute-tier-list.png)
+
+Pode ignorar estas limitações ao utilizar uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Tem de instalar também o Jupyter nessa máquina virtual. As imagens de máquina de Virtual de ciência de dados são boas opções, pois eles incluem o Jupyter por predefinição.
+
+Pode ligar a qualquer máquina virtual do Azure já convenientemente configurada utilizando o **computação direto** opção na lista pendente. A seleção desta opção pede-lhe um nome (para mostrar na lista), endereço IP da VM e porta (normalmente, a porta predefinida para o qual escuta JupyterHub, 8000) e as credenciais VM:
+
+![Linha de comandos para recolher informações do servidor para a opção de computação direto](media/project-compute-tier-direct.png)
+
+Se as seguintes condições forem verdadeiras, também mostra a lista pendente [Máquina Virtual de ciência de dados (DSVM)](/azure/machine-learning/data-science-virtual-machine) instâncias. (Se alguma dessas condições não forem cumpridas, pode ligar a DSVM usando a opção de computação direto e introduzir os valores obtidos a partir do portal do Azure.)
+
+- Tem sessão iniciada em blocos de notas do Azure com uma conta que utiliza o Azure Active Directory (AAD), como uma conta da empresa.
+- Sua conta está ligada a uma subscrição do Azure.
+- Tiver uma ou mais máquinas virtuais nessa subscrição, com, pelo menos, acesso de leitor, o que utilizar a máquina de Virtual de ciência de dados para a imagem do Linux (Ubuntu).
+
+![Instâncias de Máquina Virtual de ciência de dados na lista pendente no dashboard do projeto](media/project-compute-tier-dsvm.png)
+
+Quando seleciona uma instância DSVM, blocos de notas do Azure pode solicitar-lhe as credenciais de máquina específica que utilizou quando criou a VM.
+
+Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). *Tem* utilizar o **Máquina Virtual de ciência de dados para Linux (Ubuntu)** porque os blocos de notas do Azure não apresenta as DSVMs que utilizam as imagens do Windows ou CentOS de imagem.
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 
@@ -66,7 +91,7 @@ O **+ novo** comando (atalho de teclado: n) cria novos ficheiros ou pastas. Ao u
 
 ### <a name="upload-files"></a>Carregar ficheiros
 
-O **carregue** comando fornece duas opções para importar dados a partir de outras localizações: **de URL** e **de computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
+O **carregar** comando fornece duas opções para importar dados a partir de outras localizações: **Partir do URL** e **do computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecione a comandos específicos de ficheiro
 
@@ -127,11 +152,11 @@ Para adicionar um passo, selecione **+ adicionar**, em seguida, selecione um tip
 
 As informações que, em seguida, do projeto dependem do tipo de operação que escolheu:
 
-- **Requirements. txt**: na segunda lista pendente, selecione uma *Requirements. txt* ficheiros que já se encontra no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
+- **Requirements. txt**: Na segunda lista pendente, selecione um *Requirements. txt* ficheiros que já se encontra no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
 
-- **Script de shell**: na segunda lista pendente, selecione um script de shell de bash no projeto (normalmente, um ficheiro com o *. SH* extensão) que contém todos os comandos que pretende executar para inicializar o ambiente.
+- **Script de shell**: Na segunda lista pendente, selecione um script de shell de bash no projeto (normalmente, um ficheiro com o *. SH* extensão) que contém todos os comandos que pretende executar para inicializar o ambiente.
 
-- **Environment.yml**: na segunda lista pendente, selecione uma *environments.yml* ficheiro para projetos Python usando um ambiente de conda.
+- **Environment.yml**: Na segunda lista pendente, selecione um *environments.yml* ficheiro para projetos Python usando um ambiente de conda.
 
 Quando tiver terminado de adicionar passos, selecione **guardar**.
 
@@ -186,5 +211,5 @@ Também pode utilizar o comando a partir de uma célula de código num bloco de 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como: trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [How to: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Aceder a dados na cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)

@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d1280525560c5333a5764ac9f962f79bd2284ad
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 9ad9be1d1573bd3c57a3462f1f6ab53152a4469d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061628"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integração do Active Directory do Azure com a consola de administração de Mimecast
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD início de sessão único com a consola de administra
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -243,7 +243,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão na consola de adminis
 
 5. Na caixa de diálogo novo endereço, execute os seguintes passos:
    
-    ![Guarde](./media/mimecast-admin-console-tutorial/ic795006.png "guardar")
+    ![Save](./media/mimecast-admin-console-tutorial/ic795006.png "Save")
    
     a. Tipo de **endereço de E-Mail**, **nome Global**, **palavra-passe**, e **Confirmar palavra-passe** atributos de um válido do Azure AD da conta pretende Aprovisionar em caixas de texto relacionadas.
 

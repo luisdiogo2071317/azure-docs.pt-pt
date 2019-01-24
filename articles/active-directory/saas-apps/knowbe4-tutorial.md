@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b80d2212-cc5f-4adb-836c-570640810c39
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 983571daa19a3658b134902ee328af142a3383c3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 09e6e139571ec22def12cedc62d9668a40657c67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065584"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Active Directory do Azure com a formação de Conscientização de segurança de KnowBe4
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com a formação de Conscie
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

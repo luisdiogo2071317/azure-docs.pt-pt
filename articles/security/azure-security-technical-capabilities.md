@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820245"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -91,7 +91,7 @@ Seguem-se as capacidades de gestão de identidade do Azure core:
 
 - Registo de dispositivo
 
-- Gestão de identidades privilegiadas
+- Privileged Identity Management
 
 - Proteção de identidade
 
@@ -139,7 +139,7 @@ Quando utiliza o Azure Active Directory B2C, os consumidores podem inscrever-se 
 
 Quando combinado com um [gestão de dispositivos móveis (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solução, como o Intune, os atributos do dispositivo no Azure Active Directory são atualizados com informações adicionais sobre o dispositivo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade.
 
-#### <a name="privileged-identity-management"></a>Gestão de identidades privilegiadas
+#### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 [O Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) permite-lhe gere, controla e monitorizar as identidades privilegiadas e aceder aos recursos do Azure AD, bem como outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
 
@@ -179,9 +179,9 @@ Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a qu
 
 Uma das chaves para proteção de dados na cloud é gestão de contas para os Estados possíveis em que os dados podem ocorrer e quais controles estão disponíveis para esse Estado. Para práticas de melhor segurança e encriptação de dados do Azure, as recomendações de ser em torno de Estados dos seguintes dados.
 
-- Em repouso: Isto inclui informações de todos os objetos de armazenamento, contentores e tipos existentes estaticamente em mídia física, ser-magnético ou ótico disco.
+- Inativos: Isto inclui informações de todos os objetos de armazenamento, contentores e tipos existentes estaticamente em mídia física, ser-magnético ou ótico disco.
 
-- Em trânsito: Quando dados estão a ser transferidos entre componentes, locais ou programas, como, por exemplo, mais a rede, num serviço de barramento (a partir de locais para a cloud e vice-versa, incluindo as ligações híbridas, como o ExpressRoute), ou durante um processo de entrada/saída , ele é considerado como sendo em movimento.
+- Em trânsito: Quando dados estão a ser transferidos entre componentes, locais ou programas, tal como através da rede, num barramento de serviço (a partir de locais para a cloud e vice-versa, incluindo as ligações híbridas, como o ExpressRoute), ou durante um processo de entrada/saída, é a ideia de como estar em movimento.
 
 ### <a name="encryption-at-rest"></a>Encriptação inativa
 
@@ -216,7 +216,7 @@ Considere quais arquivos estão a utilizar para armazenar dados. Por exemplo:
 
 Para cada loja que utilizar, tirar partido da encriptação existente no suporte de Rest.
 
-- Armazenamento do Azure: Veja [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
+- Armazenamento do Azure: Ver [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
 - SQL Azure: Consulte [encriptação de dados transparente (TDE), SQL Always encriptada](https://msdn.microsoft.com/library/mt163865.aspx)
 
@@ -248,7 +248,7 @@ Se tiver suporte para chaves gerida pelo cliente, terá de fornecer uma experiê
 
 À medida que a encriptação inativa envolve a encriptação de anfitrião, os dados de infraestrutura e de inquilino, a perda de chaves devido uma falha de sistema ou atividades maliciosas podem significar a todos os dados encriptados é perdido. Portanto, é essencial que a encriptação na solução de Rest tem uma história de recuperação de desastre abrangente resiliente a falhas do sistema e atividade maliciosa.
 
-Serviços que implementam a encriptação em repouso normalmente estão ainda sujeitos às chaves de encriptação ou dados a ser deixados sem criptografia da unidade de anfitrião (por exemplo, no ficheiro página de sistema operacional host.) Por conseguinte, os serviços tem de garantir que o volume do anfitrião para os serviços é encriptado. Para facilitar este computação equipe tiver ativado a implementação de criptografia de anfitrião, que usa [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP e extensões para o serviço de DCM e o agente para encriptar o volume do anfitrião.
+Serviços que implementam a encriptação em repouso normalmente estão ainda sujeitos às chaves de encriptação ou dados a ser deixados sem criptografia da unidade de anfitrião (por exemplo, no ficheiro página de sistema operacional host.) Por conseguinte, os serviços tem de garantir que o volume do anfitrião para os serviços é encriptado. Para facilitar este computação equipe tiver ativado a implementação de criptografia de anfitrião, que usa [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP e extensões para o serviço de DCM e o agente para encriptar o volume do anfitrião.
 
 A maioria dos serviços são implementadas em VMs do Azure standard. Esses serviços devem obter [anfitrião encriptação](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automaticamente quando computação ativa o mesmo. Para serviços em execução na computação clusters geridos anfitrião encriptação está ativada automaticamente como o Windows Server 2016 é implementado.
 
@@ -370,7 +370,7 @@ O Microsoft Antimalware para serviços Cloud do Azure e máquinas virtuais é um
 
 [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ajuda a orquestrar a replicação, ativação pós-falha e recuperação de cargas de trabalho e aplicações para que eles estejam disponíveis de uma localização secundária se a sua localização principal ficar inativo.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantir a conformidade: serviços devido a lista de verificação de cuidado em nuvem (proteger)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Certifique-se de conformidade: Serviços devido a lista de verificação de cuidado em nuvem (proteger)
 
 Microsoft desenvolvida [o Cloud Services devida diligência lista de verificação de](https://aka.ms/cloudchecklist.download) para ajudar as organizações exercer devida diligência ao considerar mover para a cloud. Ele fornece uma estrutura para uma organização de qualquer tamanho e tipo — empresas privadas e organizações do setor público, incluindo Governo em todos os níveis e organizações sem fins lucrativos — para identificar o seu próprio desempenho, serviço, gestão de dados e os objetivos de governação e requisitos. Isto permite-los e comparar as ofertas de fornecedores de serviços cloud diferentes, em última análise, que formam a base para um contrato de serviço cloud.
 
@@ -442,7 +442,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente os dados de re
 
 - Alertas de segurança a partir de programas antimalware e firewalls integrados
 
-### <a name="azure-monitor"></a>O Azure monitor
+### <a name="azure-monitor"></a>Azure monitor
 
 [O Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) fornece indicadores para informações sobre tipos específicos de recursos. Ele oferece a visualização, consulta, encaminhamento, alertas, dimensionamento automático e automatização nos dados da infraestrutura do Azure (registo de atividade) e cada recurso do Azure individual (registos de diagnóstico).
 

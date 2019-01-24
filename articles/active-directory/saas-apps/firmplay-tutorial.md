@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com FirmPlay - defesa do funcionário para Recruiting | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com FirmPlay - defesa do funcionário para Recruiting | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e FirmPlay - defesa do funcionário para Recruiting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809807"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Azure Active Directory com FirmPlay - defesa do funcionário para Recruiting
+# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Active Directory do Azure com FirmPlay - defesa do funcionário para Recruiting
 
 Neste tutorial, saiba como integrar FirmPlay - defesa do funcionário para Recruiting com o Azure Active Directory (Azure AD).
 
@@ -95,7 +95,7 @@ Para configurar e testar o Azure AD início de sessão único com FirmPlay - def
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um FirmPlay - defesa do funcionário para o utilizador de teste Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - para ter um equivalente da Eduarda Almeida na FirmPlay: representantes de funcionário de recrutamento ou seja ligado à representação de ela do Azure AD.
+1. **[Criar um FirmPlay - defesa do funcionário para o utilizador de teste Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - para ter um equivalente da Eduarda Almeida na FirmPlay: Defesa de funcionário de recrutamento ou seja vinculado a representação do Azure AD dela.
 1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 

@@ -3,18 +3,19 @@ title: Melhores práticas para melhorar o desempenho com o Azure Service Bus | D
 description: Descreve como utilizar o Service Bus para otimizar o desempenho quando troca de mensagens mediadas.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392640"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848585"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhoramentos do desempenho através de mensagens do Service Bus
 
@@ -36,7 +37,7 @@ AMQP e SBMP são mais eficientes, uma vez que mantêm a ligação ao Service Bus
 
 ## <a name="reusing-factories-and-clients"></a>Reutilização de fábricas e de clientes
 
-Objetos de cliente do Service Bus, tal como [QueueClient] [ QueueClient] ou [MessageSender][MessageSender], são criados por meio de um [ MessagingFactory] [ MessagingFactory] objeto, que também fornece gerenciamento interno de ligações. Recomenda-se que não feche as fábricas de mensagens ou clientes de fila, tópico e uma subscrição depois de enviar uma mensagem e, em seguida, voltar a criá-los ao enviar a mensagem seguinte. Fechar uma fábrica de mensagens elimina a ligação ao serviço do Service Bus e uma nova ligação é estabelecida quando recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar ao reutilizar o mesmo fábrica e os objetos de cliente para várias operações. Pode utilizar com segurança os [QueueClient] [ QueueClient] objeto para enviar mensagens de operações assíncronas simultâneas e de vários threads. 
+Objetos de cliente do Service Bus, tal como [QueueClient] [ QueueClient] ou [MessageSender][MessageSender], são criados por meio de um [ MessagingFactory] [ MessagingFactory] objeto, que também fornece gerenciamento interno de ligações. Recomenda-se que não feche as fábricas de mensagens ou clientes de fila, tópico e uma subscrição depois de enviar uma mensagem e, em seguida, voltar a criá-los ao enviar a mensagem seguinte. Fechar uma fábrica de mensagens elimina a ligação ao serviço do Service Bus e uma nova ligação é estabelecida quando recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa que pode evitar ao reutilizar o mesmo fábrica e os objetos de cliente para várias operações. Pode utilizar estes objetos de cliente com segurança para operações assíncronas simultâneas e de vários threads. 
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 
@@ -71,7 +72,7 @@ O cliente agendar operações simultâneas executando operações assíncronas. 
 
 ## <a name="receive-mode"></a>Receber modo
 
-Ao criar um cliente de fila ou subscrição, pode especificar um modo de recebimento: *bloqueio de pré-visualização* ou *receber e eliminar*. Modo de receber a predefinição é [PeekLock][PeekLock]. Quando a funcionar neste modo, o cliente envia um pedido para receber uma mensagem do Service Bus. Depois do cliente recebeu a mensagem, ele envia um pedido para concluir a mensagem.
+Ao criar um cliente de fila ou subscrição, pode especificar um modo de receção: *O bloqueio de pré-visualização* ou *receber e eliminar*. Modo de receber a predefinição é [PeekLock][PeekLock]. Quando a funcionar neste modo, o cliente envia um pedido para receber uma mensagem do Service Bus. Depois do cliente recebeu a mensagem, ele envia um pedido para concluir a mensagem.
 
 Ao definir o modo de recebimento [ReceiveAndDelete][ReceiveAndDelete], ambas as etapas são combinadas num único pedido. Estes passos reduzem o número global de operações e podem melhorar o débito de mensagem global. Vem esse ganho de desempenho sob a perda de mensagens.
 
@@ -127,38 +128,9 @@ A propriedade para time-to-live (TTL) de uma mensagem é verificada pelo servido
 
 Pré-busca não afeta o número de operações mensagens a cobrar e está disponível apenas para o protocolo de cliente do Service Bus. O protocolo HTTP não suporta o pré-busca. Pré-busca está disponível para síncronas e assíncronas recebem operações.
 
-## <a name="express-queues-and-topics"></a>Express filas e tópicos
-
-Entidades expressas ativar o alto débito e cenários de latência reduzida e são suportadas apenas no escalão mensagens padrão. Entidades criadas no [espaços de nomes Premium](service-bus-premium-messaging.md) não suportam a opção rápida. Com as entidades expressas, se uma mensagem for enviada para uma fila ou tópico, a mensagem não é imediatamente armazenada no arquivo de mensagens. Em vez disso, ele será armazenado na memória. Se uma mensagem permanecerá na fila por mais de alguns segundos, ele automaticamente é escrito estável de armazenamento, assim, a proteger contra a perda devido a uma falha. Escrever a mensagem para uma cache de memória aumenta o débito e reduz a latência de uma vez que não é possível aceder ao estável de armazenamento no momento que a mensagem é enviada. As mensagens que são consumidas dentro de alguns segundos não são escritas para o arquivo de mensagens. O exemplo seguinte cria um tópico express.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Se a uma entidade express, é enviada uma mensagem com informações críticas que não pode ser perdidas, o remetente pode forçar o Service Bus para manter imediatamente a mensagem para estável armazenamento definindo a [ForcePersistence] [ ForcePersistence] propriedade **true**.
-
-> [!NOTE]
-> Entidades expressas não suportam transações.
-
-## <a name="partitioned-queues-or-topics"></a>Filas ou tópicos particionados
-
-Internamente, o Service Bus utiliza o mesmo nó e de mensagens armazenar, processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). R [particionada fila ou tópico](service-bus-partitioning.md), por outro lado, é distribuído em vários nós e os arquivos de mensagens. Filas e tópicos particionados não só produzem um débito mais elevado do que a regulares filas e tópicos, têm personalidades também maior disponibilidade. Para criar uma entidade com partições, defina o [EnablePartitioning] [ EnablePartitioning] propriedade **verdadeiro**, conforme mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
-
-> [!NOTE]
-> Entidades particionadas não são suportadas os [Premium SKU](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Várias filas
 
-Se não é possível utilizar uma fila particionada ou um tópico ou a carga esperada não pode ser processada por uma única fila particionada ou um tópico, tem de utilizar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade, em vez de utilizar o mesmo cliente para todas as entidades.
+Se a carga esperada não pode ser processada por uma única fila particionada ou um tópico, tem de utilizar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade, em vez de utilizar o mesmo cliente para todas as entidades.
 
 ## <a name="development-and-testing-features"></a>Desenvolvimento e recursos de teste
 

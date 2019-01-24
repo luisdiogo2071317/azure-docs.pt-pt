@@ -4,7 +4,7 @@ description: Apresenta uma resolução para os dados em falta nos registos de at
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 871dd3fda0ee5dc350a468f16e8f389ac3c71d34
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: 0193b2cc04f93efb24138ee2822ef9e945cd7aa4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41921061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819378"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Resolução de problemas: Dados em falta nos registos de atividades do Azure Active Directory 
 
@@ -90,7 +90,7 @@ Para obter mais informações, veja [Políticas de retenção de relatórios do 
 
 Tem duas opções para manter os dados durante mais de 30 dias. Pode utilizar as [APIs de Relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio programático e armazená-los numa base de dados. Em alternativa, pode integrar registos de auditoria num sistema SIEM de terceiros, como o Splunk ou o SumoLogic.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Retenção de relatórios do Azure AD](reference-reports-data-retention.md).
 * [Latências dos relatórios do Azure Active Directory](reference-reports-latencies.md).

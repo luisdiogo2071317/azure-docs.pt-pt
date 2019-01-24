@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464855"
+ms.locfileid: "54819140"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicações web no tempo de execução com o Monitor de estado do Application Insights
 
@@ -36,6 +36,7 @@ Tem a opção de duas rotas de aplicar o Application Insights às suas aplicaç�
 
 * **Tempo de compilação:** [Adicionar o Application Insights SDK] [ greenbrown] ao seu código de aplicação web.
 * **Tempo de execução:** Instrumente a sua aplicação web no servidor, conforme descrito abaixo, sem reconstruir e Reimplementar o código.
+
 > [!NOTE]
 > Se usar a instrumentação do tempo de compilação, instrumention não funcionará, mesmo se está ligado de tempo de execução.
 

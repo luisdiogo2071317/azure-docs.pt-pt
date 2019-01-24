@@ -3,19 +3,19 @@ title: Gerir o acesso de utilizador no Azure Active Directory B2C | Documentos d
 description: Saiba como identificar os menores, recolher a data de nascimento e país dados e obter aceitação dos termos de utilização na sua aplicação com o Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852036"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso de utilizador no Azure Active Directory B2C
 
@@ -36,9 +36,9 @@ Se um utilizador é identificado como menor, pode definir o fluxo de utilizador 
 
 - **Enviar um id_token JWT assinada para a aplicação**: O utilizador está registado no diretório e um token é retornado ao aplicativo. O aplicativo, em seguida, procede-se ao aplicar regras de negócio. Por exemplo, a aplicação pode continuar com um processo de consentimento dos pais. Para utilizar este método, optar por receber as **ageGroup** e **consentProvidedForMinor** afirmações da aplicação.
 
-- **Enviar um token JSON não assinado para a aplicação**: Azure AD B2C notifica a aplicação que o usuário é menor e fornece o estado de consentimento dos pais do utilizador. O aplicativo, em seguida, procede-se ao aplicar regras de negócio. Um token JSON não é concluída uma autenticação com êxito com o aplicativo. A aplicação deve processar o utilizador não autenticado, de acordo com as declarações incluídas no token JSON, que pode incluir **name**, **e-mail**, **ageGroup**e **consentProvidedForMinor**.
+- **Enviar um token JSON não assinado para a aplicação**: O Azure AD B2C notifica a aplicação que o usuário é menor e fornece o estado de consentimento dos pais do utilizador. O aplicativo, em seguida, procede-se ao aplicar regras de negócio. Um token JSON não é concluída uma autenticação com êxito com o aplicativo. A aplicação deve processar o utilizador não autenticado, de acordo com as declarações incluídas no token JSON, que pode incluir **name**, **e-mail**, **ageGroup**e **consentProvidedForMinor**.
 
-- **Impedir o utilizador**: se um utilizador for menor e consentimento dos pais não foi fornecido, do Azure AD B2C pode informar o utilizador que ele está bloqueado. Nenhum token for emitido, o acesso é bloqueado e a conta de utilizador não é criada durante uma jornada de registo. Para implementar esta notificação, é fornecer uma página de conteúdo de HTML/CSS adequada para informar o utilizador e as opções apropriadas presentes. É necessária nenhuma ação adicional por aplicação para novas inscrições.
+- **Impedir o utilizador**: Se um utilizador for menor e consentimento dos pais não foi fornecido, do Azure AD B2C pode notificar o utilizador que ele está bloqueado. Nenhum token for emitido, o acesso é bloqueado e a conta de utilizador não é criada durante uma jornada de registo. Para implementar esta notificação, é fornecer uma página de conteúdo de HTML/CSS adequada para informar o utilizador e as opções apropriadas presentes. É necessária nenhuma ação adicional por aplicação para novas inscrições.
 
 ## <a name="get-parental-consent"></a>Obter o consentimento dos pais
 

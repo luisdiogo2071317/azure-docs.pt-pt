@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 73916fca980b9806fea0229cdd25f6f367609c84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462645"
+ms.locfileid: "54809977"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -65,7 +65,7 @@ Existem cinco conceitos no Azure Event Grid que lhe permitem começar:
 * **Eventos** - o que aconteceu.
 * **Origens dos eventos** – onde o evento aconteceu.
 * **Tópicos** - o ponto final no qual os publicadores enviam eventos.
-* **Subscrições de eventos** -o mecanismo de ponto final ou interna para rotear os eventos, por vezes, a mais do que no manipulador. As subscrições também são utilizadas pelos processadores para filtrar inteligentemente os eventos recebidos.
+* **Subscrições de eventos** -o mecanismo de ponto final ou interna para rotear os eventos, por vezes, até mais de um manipulador. As subscrições também são utilizadas pelos processadores para filtrar inteligentemente os eventos recebidos.
 * **Processadores de eventos** - a aplicação ou o serviço que reage ao evento.
 
 Para obter mais informações sobre estes conceitos, veja [Concepts in Azure Event Grid](concepts.md) (Conceitos no Azure Event Grid).

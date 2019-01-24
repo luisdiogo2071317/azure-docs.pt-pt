@@ -3,19 +3,19 @@ title: Configurar a inscrição e início de sessão com uma conta do Google com
 description: Forneça a inscrição e início de sessão para os clientes com contas do Google nas suas aplicações com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c53c948df295365df4c9643c06a6d309d9a88d2b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165305"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843945"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Google com o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Para utilizar uma conta do Google como um fornecedor de identidade no Azure Acti
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurar uma conta do Google como fornecedor de identidade
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.

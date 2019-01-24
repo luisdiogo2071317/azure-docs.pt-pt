@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825158"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -98,7 +98,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="afs-conflict-resolution"></a>**Se o mesmo ficheiro for alterado em dois servidores, aproximadamente ao mesmo tempo, o que acontece?**  
     O Azure File Sync utiliza uma estratégia de resolução de conflitos simples: mantemos ambas as alterações aos ficheiros que são alterados em dois servidores ao mesmo tempo. A alteração mais recentemente escrita mantém o nome do ficheiro original. O ficheiro de mais antigo tem a máquina de "origem" e o número de conflito acrescentado ao nome. Ela segue este Taxonomia: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Por exemplo, se o primeiro conflito de CompanyReport.docx tornaria CompanyReport CentralServer.docx se CentralServer é onde ocorreu a escrita mais antiga. O segundo conflito teria o nome CompanyReport-CentralServer-1.docx.
 
@@ -131,10 +131,10 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Por predefinição, o Azure File Sync exclui os ficheiros seguintes:
     * desktop.ini
     * thumbs.db
-    * ehthumbs.dB
+    * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
-    * \*. tmp
+    * \*.tmp
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     As seguintes pastas também são excluídas por padrão:
@@ -298,7 +298,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     
     Se precisar de uma funcionalidade de instantâneo de ficheiro, fale na [UserVoice de ficheiros do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **Pode criar instantâneos de partilha de uma partilha de ficheiros encriptados?**  
     Pode tirar um instantâneo de partilha de partilhas de ficheiros do Azure que tem a encriptação em repouso ativado. Pode restaurar ficheiros a partir de um instantâneo de partilha para uma partilha de ficheiros encriptados. Se a partilha é criptografada, o instantâneo de partilha também é encriptado.
 

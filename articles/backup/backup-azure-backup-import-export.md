@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188305"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810725"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -63,7 +63,7 @@ Antes de iniciar o fluxo de trabalho de cópia de segurança Offline, conclua os
     ![registar o fornecedor de recursos](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Uma localização de transição, o que poderá ser um compartilhamento de rede ou de qualquer unidade adicional no computador, interno ou externo, com espaço em disco suficiente para manter sua cópia inicial, é criada. Por exemplo, se estiver a tentar criar cópias de segurança um servidor de ficheiros de 500 GB, certifique-se de que a área de transição é, pelo menos, 500 GB. (Uma quantidade menor é utilizada devido à compactação.)
 * Ao enviar os discos para o Azure, utilize apenas 2,5 polegadas SSD ou 2.5 polegadas ou 3.5 polegadas SATA II/III discos rígidos internos. Pode utilizar unidades de disco rígido até 10 TB. Verifique os [documentação do serviço importar/exportar do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para o conjunto mais recente de unidades de que o serviço suporta.
-* As unidades SATA tem de estar ligadas a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de cópia de segurança da *localização de transição* para o SATA unidades é feito. Certifique-se de que o Bitlocker está ativado no *computador cópia*.
+* As unidades SATA tem de estar ligadas a um computador (conhecido como um *computador de cópia*) de onde a cópia de dados de cópia de segurança da *localização de transição* para o SATA unidades é feito. Certifique-se de que o BitLocker está ativado no *computador cópia*.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 Esta secção descreve o fluxo de trabalho de cópia de segurança offline para que os dados podem ser entregues num Datacenter do Azure e carregados para o armazenamento do Azure. Se tiver dúvidas sobre o serviço de importação ou a todos os aspectos do processo, consulte a [importar documentação de visão geral do serviço](../storage/common/storage-import-export-service.md).

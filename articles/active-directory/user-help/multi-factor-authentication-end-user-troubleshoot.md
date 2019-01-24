@@ -3,7 +3,7 @@ title: Resolver problemas de verificação de dois passos - Azure Active Directo
 description: Fornece instruções para os utilizadores sobre o que fazer se eles se deparam um problema com o Azure multi-factor Authentication e verificação de dois passos.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810181"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda para a verificação de dois passos
 
-Verificação de dois passos é uma funcionalidade de segurança a que sua organização está a utilizar para proteger as suas contas. Verificação de dois passos é mais segura do que apenas uma palavra-passe porque depende de duas formas de autenticação: algo que conhece e algo que tenha com. Algo que conhece é a palavra-passe, enquanto a algo que tem com é o seu telemóvel ou num dispositivo. Utilizar a verificação pode ajudar a parar os hackers mal-intencionados de iniciar sessão como, mesmo que eles recebem a palavra-passe.
+Verificação de dois passos é uma funcionalidade de segurança a que sua organização está a utilizar para proteger as suas contas. A verificação de dois passos é mais segura do que utilizar apenas uma palavra-passe, porque depende de duas formas de autenticação: algo que os utilizadores sabem e algo que têm com eles. Algo que conhece é a palavra-passe, enquanto a algo que tem com é o seu telemóvel ou num dispositivo. Utilizar a verificação pode ajudar a parar os hackers mal-intencionados de iniciar sessão como, mesmo que eles recebem a palavra-passe.
 
 Embora a Microsoft oferece verificação de dois passos, é sua organização que decide se usar o recurso. Não é possível optar pela se a sua organização obriga-lo, tal como não é possível optar por utilizar uma palavra-passe para proteger a sua conta.
 

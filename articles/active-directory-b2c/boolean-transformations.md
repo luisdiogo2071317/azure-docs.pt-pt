@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações booleano para a identidade ex
 description: Booleano exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1afbf8e8473e12992b7f031ac9835a58e1089b0d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432567"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853277"
 ---
 # <a name="boolean-claims-transformations"></a>Transformações de afirmações booleano
 
@@ -23,7 +23,7 @@ ms.locfileid: "47432567"
 
 Este artigo fornece exemplos para usar as transformações de afirmações booleano do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="andclaims"></a>Equeixas
+## <a name="andclaims"></a>AndClaims
 
 Executa uma operação e de dois inputClaims booleanos e define a outputClaim com o resultado da operação.
 
@@ -31,7 +31,7 @@ Executa uma operação e de dois inputClaims booleanos e define a outputClaim co
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | O ClaimType primeiro a avaliar. |
 | InputClaim | inputClaim2  | boolean | O segundo ClaimType a avaliar. |
-|outputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado (true ou false). |
+|OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado (true ou false). |
 
 A transformação de declarações seguinte demonstra como e dois ClaimTypes booleanos: `isEmailNotExist`, e `isSocialAccount`. A afirmação de saída `presentEmailSelfAsserted` está definido como `true` se o valor de ambas as afirmações de entrada é `true`. Um passo de orquestração, pode utilizar uma condição prévia para predefinir uma página de declaração própria, apenas se um e-mail de conta de redes sociais está vazio.
 
@@ -50,10 +50,10 @@ A transformação de declarações seguinte demonstra como e dois ClaimTypes boo
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **inputClaim1**: VERDADEIRO
-    - **inputClaim2**: Falso
+    - **inputClaim1**: true
+    - **inputClaim2**: false
 - Afirmações de saída:
-    - **outputClaim**: Falso
+    - **outputClaim**: false
 
 
 ## <a name="assertbooleanclaimisequaltovalue"></a>AssertBooleanClaimIsEqualToValue
@@ -62,12 +62,12 @@ Verifica se os valores booleanos de duas afirmações são iguais e lança uma e
 
 | Item | TransformationClaimType  | Tipo de Dados  | Notas |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | InputClaim | boolean | ClaimType a avaliar relativamente. |
+| inputClaim | inputClaim | boolean | ClaimType a avaliar relativamente. |
 | InputParameter |valueToCompareTo | boolean | O valor a comparar (true ou false). |
 
 O **AssertBooleanClaimIsEqualToValue** transformação de declarações é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [autodeclarativas perfil técnico](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** metadados de declaração própria perfil técnico controla a mensagem de erro que o perfil técnico apresenta ao usuário.
 
-![Execução de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
 
 A transformação de declarações seguinte demonstra como verificar o valor de um booleano ClaimType com um `true` valor. Se o valor da `accountEnabled` ClaimType é false, é gerada uma mensagem de erro.
 
@@ -109,7 +109,7 @@ O perfil técnico de declaração própria chama a validação **NonInteractive 
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **inputClaim**: Falso
+    - **inputClaim**: false
     - **valueToCompareTo**: VERDADEIRO
 - Resultado: Erro gerado
 
@@ -119,8 +119,8 @@ Executa uma operação não da inputClaim booleana e define a outputClaim com o 
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | boolean | A afirmação a ser operado. |
-| outputClaim | outputClaim | boolean | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání (true ou false). |
+| InputClaim | inputClaim | boolean | A afirmação a ser operado. |
+| OutputClaim | outputClaim | boolean | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání (true ou false). |
 
 Use essa transformação de afirmação para executar a negação lógica numa afirmação.
 
@@ -137,9 +137,9 @@ Use essa transformação de afirmação para executar a negação lógica numa a
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **inputClaim**: Falso
+    - **inputClaim**: false
 - Afirmações de saída:
-    - **outputClaim**: VERDADEIRO
+    - **outputClaim**: true
 
 ## <a name="orclaims"></a>OrClaims 
 
@@ -149,7 +149,7 @@ Calcula um Or de dois inputClaims booleanos e define a outputClaim com o resulta
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | O ClaimType primeiro a avaliar. |
 | InputClaim | inputClaim2 | boolean | O segundo ClaimType a avaliar. |
-| outputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání (true ou false). |
+| OutputClaim | outputClaim | boolean | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání (true ou false). |
 
 A transformação de declarações seguinte demonstra como `Or` dois ClaimTypes booleanos. O passo de orquestração, pode usar uma condição prévia para predefinir uma página de declaração própria, se o valor de uma das afirmações é `true`.
 
@@ -169,8 +169,8 @@ A transformação de declarações seguinte demonstra como `Or` dois ClaimTypes 
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **inputClaim1**: VERDADEIRO
-    - **inputClaim2**: Falso
+    - **inputClaim1**: true
+    - **inputClaim2**: false
 - Afirmações de saída:
-    - **outputClaim**: VERDADEIRO
+    - **outputClaim**: true
 

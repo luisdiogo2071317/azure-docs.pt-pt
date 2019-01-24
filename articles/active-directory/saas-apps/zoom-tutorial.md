@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: a9c0cf9dbe14478d805ff84aa480db0f9fac5d2c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ace02a0cb93cf3e56e4b895524b9e2d35440aecb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971891"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -119,11 +119,11 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
     
     | Nome | Espaço de nomes  |  Atributo de origem|
     | ---------------| --------------- | --------- |
-    | Endereço de e-mail  | User.Mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-    | Nome próprio  | User.givenName  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-    | Apelido  | User.Surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-    | Número de telefone  | User.telephoneNumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-    | Departamento  | User.Department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+    | Endereço de e-mail  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
+    | Nome próprio  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
+    | Apelido  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
+    | Número de telefone  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
+    | Departamento  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -151,7 +151,7 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

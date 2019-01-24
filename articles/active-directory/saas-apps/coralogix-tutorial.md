@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
-ms.openlocfilehash: d9ad1a926a4b7a79958af8725e44f2fe007dc64b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 290cec57f4394ed4f0f435e6032f72aad4a87aad
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54234033"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: Integração do Active Directory do Azure com Coralogix
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD início de sessão único com Coralogix, execute os s
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

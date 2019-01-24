@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2d4b395abefd25d7e187ae3a15943e53f1aed27b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472535"
+ms.locfileid: "54813377"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores para uma aplicação da Galeria de diretório do Azure Active Directory 
 
@@ -30,7 +30,7 @@ Ao utilizar o portal do Azure para configurar [aprovisionamento automático de u
 
 Se baseado em SAML início de sessão único também é configurado para a mesma aplicação, a causa mais provável do erro é o limite de armazenamento interno, por aplicação do Azure AD para certificados e credenciais foi excedido.
 
-Azure AD atualmente tem a capacidade de armazenamento máximo de um kilobyte para todos os certificados, tokens secretas, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como um serviço principal registo no Azure AD).
+Azure AD atualmente tem a capacidade de armazenamento máximo de 1024 bytes para todos os certificados, tokens secretas, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como um serviço principal registo no Azure AD).
 
 Quando baseado em SAML início de sessão único é configurado, o certificado utilizado para assinar os tokens SAML é armazenado aqui e, muitas vezes, consome mais 50% por cento do espaço.
 

@@ -3,9 +3,9 @@ title: Controlo de acesso do Service Bus do Azure com assinaturas de acesso part
 description: Descrição geral do controlo de acesso de Service Bus através de descrição geral de assinaturas de acesso partilhado, detalhes sobre a autorização de SAS com o Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284919"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846341"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -96,13 +96,13 @@ Um token SAS é válido para todos os recursos com o prefixo a `<resourceURI>` u
 
 Recomenda-se que periodicamente regenerar as chaves usadas na [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) objeto. As ranhuras de chave primárias e secundárias existem para que pode girar chaves gradualmente. Se seu aplicativo, geralmente, utiliza a chave primária, pode copiar a chave primária para a ranhura de chave secundária e, apenas, em seguida, voltar a gerar a chave primária. O novo valor da chave primário, em seguida, pode ser configurado nos aplicativos do cliente, continuaram acesso utilizando a chave primária antiga na ranhura de secundária. Depois de todos os clientes são atualizados, pode voltar a gerar a chave secundária para finalmente extinguir a chave primária antiga.
 
-Se conhecer ou se suspeitar que uma chave fica comprometida e tem de revogar as chaves, pode voltar a gerar ambas as [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e o [secundária de regeneração](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituí-los com chaves novas. Este procedimento invalida todos os tokens assinados com as chaves antigas.
+Se conhecer ou se suspeitar que uma chave fica comprometida e tem de revogar as chaves, pode voltar a gerar ambas as [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) e o [secundária de regeneração](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), substituí-los com chaves novas. Este procedimento invalida todos os tokens assinados com as chaves antigas.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação da assinatura de acesso partilhada com o Service Bus
 
 Os cenários descritos da seguinte forma incluem a configuração de regras de autorização, geração de tokens SAS e autorização de cliente.
 
-Para um completo exemplo funcional de um aplicativo de Service Bus que ilustra a autorização de SAS de configuração e utilizações, consulte [autenticação de assinatura de acesso partilhado com o Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização de SAS configuradas em espaços de nomes ou tópicos para proteger as subscrições do Service Bus está disponível aqui: [autenticação a utilizar acesso assinatura partilhado (SAS) com as assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para um completo exemplo funcional de um aplicativo de Service Bus que ilustra a autorização de SAS de configuração e utilizações, consulte [autenticação de assinatura de acesso partilhado com o Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização de SAS configuradas em espaços de nomes ou tópicos para proteger as subscrições do Service Bus está disponível aqui: [Utilizar a autenticação de assinatura de acesso partilhado (SAS) com as subscrições do Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Regras de autorização de acesso partilhado de acesso numa entidade
 
@@ -264,7 +264,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | **fila** | | |
 | Criar uma fila |Gerir |Qualquer endereço de espaço de nomes |
 | Eliminar uma fila |Gerir |Qualquer endereço de fila válido |
-| Enumerar as filas |Gerir |Recursos de $/ filas |
+| Enumerar as filas |Gerir |/$Resources/Queues |
 | Obter a descrição da fila |Gerir |Qualquer endereço de fila válido |
 | Configurar regra de autorização de uma fila |Gerir |Qualquer endereço de fila válido |
 | Enviar para o para a fila |Enviar |Qualquer endereço de fila válido |

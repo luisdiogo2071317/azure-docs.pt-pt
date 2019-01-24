@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 6272565d0c9a4167af229d91255e53a78fc3441d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: a3f5d3c26d3510accb161c47733b309b244fb186
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065244"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Integração do Active Directory do Azure com Ceridian Dayforce HCM
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD início de sessão único com Ceridian Dayforce HCM, 
     
     | Nome | Atributo de origem|
     | ---------| --------- |
-    | nome  | User.extensionattribute2 |
+    | nome  | user.extensionattribute2 |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -166,7 +166,7 @@ Para configurar o Azure AD início de sessão único com Ceridian Dayforce HCM, 
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

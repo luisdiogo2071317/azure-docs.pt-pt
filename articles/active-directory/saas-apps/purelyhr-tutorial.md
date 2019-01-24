@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com PurelyHR | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com PurelyHR | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e PurelyHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 86a9c454-596d-4902-829a-fe126708f739
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0e389f43586bd88f1d03a6cb8d714908d299977f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826399"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com PurelyHR
+# <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Active Directory do Azure com PurelyHR
 
 Neste tutorial, saiba como integrar PurelyHR com o Azure Active Directory (Azure AD).
 
@@ -154,7 +154,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     e. Clique em **guardar alterações** para guardar as definições.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

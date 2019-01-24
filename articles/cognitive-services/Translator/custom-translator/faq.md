@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627586"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854790"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -46,7 +46,7 @@ Sistemas implantados podem ser acedidos através de V3 de API de texto do Micros
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como ignorar alinhamento e frase recentes se meus dados já estão a ser frase alinhado?
 
-O tradutor personalizado ignora a frase alinhamento e pesquisa de última hora de frase para ficheiros TMX e para os ficheiros de texto com o `.align` extensão. `.align` ficheiros de conceder aos utilizadores uma opção a frase do Translator personalizado recentes e o processo de alinhamento para os ficheiros que são perfeitamente alinhados e que precisam sem processamento adicional. Recomendamos que utilize `.align` extensão apenas para ficheiros que são perfeitamente alinhada.
+O tradutor personalizado ignora a frase alinhamento e pesquisa de última hora de frase para ficheiros TMX e para os ficheiros de texto com o `.align` extensão. `.align` ficheiros dar aos utilizadores uma opção para ignorar a frase do Translator personalizado recentes e o processo de alinhamento para os ficheiros que são perfeitamente alinhada e que precisam sem processamento adicional. Recomendamos que utilize `.align` extensão apenas para ficheiros que são perfeitamente alinhada.
 
 Se o número de frases extraídos não coincide com os dois ficheiros com o mesmo nome de base, o tradutor personalizado ainda será executado aligner a frase `.align` ficheiros.
 

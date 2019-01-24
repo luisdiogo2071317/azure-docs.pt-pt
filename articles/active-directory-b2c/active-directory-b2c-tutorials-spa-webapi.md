@@ -3,21 +3,21 @@ title: Tutorial - Conceder acesso a uma API Web ASP.NET Core a partir de uma apl
 description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API Web .NET Core e chamá-la a partir de uma aplicação de página única.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 4a1787f0a6d222f91eefd6f96e265ba825ca9e82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605764"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848102"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutorial - Conceder acesso a uma API Web ASP.NET Core a partir de uma aplicação de página única com o Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API web ASP.NET Core a partir de uma aplicação de página única com o Azure Active Directory B2C
 
 Este tutorial mostra-lhe como chamar um recurso de API Web ASP.NET Core protegida com o Azure Active Directory (Azure AD) B2C a partir de uma aplicação de página única.
 
@@ -214,7 +214,7 @@ Depois de se inscrever ou iniciar sessão com uma conta de utilizador, o exemplo
 
 Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros tutoriais do Azure AD B2C. Quando já não for necessário, pode [eliminar o inquilino do Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo mostrou-lhe como proteger uma API Web ao registar e definir âmbitos no Azure AD B2C. Saiba mais com os exemplos de código do Azure AD B2C disponíveis.
 

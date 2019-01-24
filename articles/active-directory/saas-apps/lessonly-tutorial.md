@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Lessonly.com | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Lessonly.com | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Lessonly.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d9f1cfb125c2fa5cd513ae7c2e20c41b8d98f01b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348009"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808345"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Azure Active Directory com Lessonly.com
+# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutorial: Integração do Active Directory do Azure com Lessonly.com
 
 Neste tutorial, saiba como integrar Lessonly.com com o Azure Active Directory (Azure AD).
 
@@ -140,9 +140,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo   | Valor do Atributo |
     | ---------------  | ----------------|
-    | urn:oid:2.5.4.42 |User.givenName |
-    | urn:oid:2.5.4.4  |User.Surname |
-    | urn:oid:0.9.2342.19200300.100.1.3 |User.Mail |
+    | urn:oid:2.5.4.42 |user.givenname |
+    | urn:oid:2.5.4.4  |user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.ObjectId |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -168,7 +168,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **Lessonly.com** lado, terá de enviar o transferido **Certificate(Base64)** e **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** para [equipa de suporte de Lessonly.com](mailto:support@lessonly.com).
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.

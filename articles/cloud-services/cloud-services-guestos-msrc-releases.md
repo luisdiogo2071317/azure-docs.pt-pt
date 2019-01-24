@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107910"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828456"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+>[!NOTE]
+>O sistema operacional convidado de Janeiro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Janeiro. Esta lista está sujeita a alterações.
+
+## <a name="january-2019-guest-os"></a>SO de convidado de Janeiro de 2019
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Segurança do Windows 10 | 5.27 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480964] | Segurança do Windows | 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480972] | Segurança do Windows | 3.69 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480960] | Segurança do Windows | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480074] | Segurança do .net 4.x | 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480075] | Segurança do .net 4.x | 3.69 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480076] | Segurança do .net 4.x | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480086] | Segurança do .net 3.x | 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480083] | Segurança do .net 3.x | 3.69 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480085] | Segurança do .net 3.x | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de Janeiro de 2019 |
+| N/A | [4471318] | Rollup de Dezembro sem segurança | 2.82 | 11 de Dezembro de 2018 |
+| N/A | [4470641] | Agregação de não-segurança de Dezembro .NET 3.x | 2.82 | 11 de Dezembro de 2018 |
+| N/A | [4470637] | Agregação de não-segurança de Dezembro .NET 4.x | 2.82 | 11 de Dezembro de 2018 |
+| N/A | [4471330] | Rollup de Dezembro sem segurança | 3.69 | 11 de Dezembro de 2018 |
+| N/A | [4470629] | Agregação de não-segurança de Dezembro .NET 3.x | 3.69 | 11 de Dezembro de 2018 |
+| N/A | [4470623] | Agregação de não-segurança de Dezembro .NET 4.x | 3.69 | 11 de Dezembro de 2018 |
+| N/A | [4471320] | Rollup de Dezembro sem segurança | 4.62 | 11 de Dezembro de 2018 |
+| N/A | [4470630] | Agregação de não-segurança de Dezembro .NET 3.x | 4.62 | 11 de Dezembro de 2018 |
+| N/A | [4470622] | Agregação de não-segurança de Dezembro .NET 4.x | 4.62 | 11 de Dezembro de 2018 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>SO de convidado de Dezembro de 2018
 
@@ -29,19 +80,19 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | --- | --- | --- | --- | --- |
 | Rel 18-12 | [4471321] | Segurança do Windows 10 | 5.26 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4471328] | Segurança do Windows   | 2.81 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4471326] | Segurança do Windows   | 3,68 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4471326] | Segurança do Windows   | 3.68 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4471322] | Segurança do Windows   | 4.61 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4470600] | Segurança do .net 3.x  | 2.81 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470601] | Segurança do .net 3.x  | 3,68 | 11 de Dezembro de 2018|
+| Rel 18-12 | [4470601] | Segurança do .net 3.x  | 3.68 | 11 de Dezembro de 2018|
 | Rel 18-12 | [4470602] | Segurança do .net 3.x  | 4.61 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4470493] | Segurança do .net 4.x  | 2.81 | 11 de Dezembro de 2018 |
-| Rel 18-12 | [4470492] | Segurança do .net 4.x  | 3,68 | 11 de Dezembro de 2018 |
+| Rel 18-12 | [4470492] | Segurança do .net 4.x  | 3.68 | 11 de Dezembro de 2018 |
 | Rel 18-12 | [4470491] | Segurança do .net 4.x  | 4.61| 11 de Dezembro de 2018 |
-| Rel 18-12 | [4471331] | Flash  | 3,68, 4.61, 5.26 | 5 de Dezembro de 2018  |
-| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3,68, 4.61 | 11 de Dezembro de 2018 |
-| N/A | [4468323] | Atualização de fuso horário    | 2.81, 3,68, 4.61 | 13 de Dezembro de 2018 |
+| Rel 18-12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 de Dezembro de 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de Dezembro de 2018 |
+| N/A | [4468323] | Atualização de fuso horário    | 2.81, 3.68, 4.61 | 13 de Dezembro de 2018 |
 | N/A | [4467107] | Rollup de Novembro sem segurança   | 2.81 | 13 de Novembro de 2018 |
-| N/A | [4467701] | Rollup de Novembro sem segurança     | 3,68 | 13 de Novembro de 2018 |
+| N/A | [4467701] | Rollup de Novembro sem segurança     | 3.68 | 13 de Novembro de 2018 |
 | N/A | [4467697] | Rollup de Novembro sem segurança     | 4.61 | 13 de Novembro de 2018 |
 
 [4471321]: http://support.microsoft.com/kb/4471321
@@ -182,39 +233,39 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 07 de 18 | [4338814] |Segurança do Windows 10 |5.21 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4338823] |Segurança do Windows apenas |2.76 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4338820] |Segurança do Windows apenas |3.63 |10 de Julho de 2018 |
-| Rel 07 de 18 | [4338824] |Segurança do Windows apenas |4,56 |10 de Julho de 2018 |
+| Rel 07 de 18 | [4338824] |Segurança do Windows apenas |4.56 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4345459] |Atualização do rollup de segurança |2.76 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4345425] |Atualização do rollup de segurança |3.63 |10 de Julho de 2018 |
-| Rel 07 de 18 | [4345424] |Atualização do rollup de segurança |4,56 |10 de Julho de 2018 |
+| Rel 07 de 18 | [4345424] |Atualização do rollup de segurança |4.56 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4345418] |Atualização do rollup de segurança |5.21 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4338612], [4338602] |.NET 3.5, segurança 4.x |2.76 |10 de Julho de 2018 |
-| Rel 07 de 18 | [4338601], [4338604] |.NET 3.5, 4.x, segurança de x 4.5 |3.63 |10 de Julho de 2018 |
-| Rel 07 de 18 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, segurança de x 4.5 |4,56|10 de Julho de 2018 |
+| Rel 07 de 18 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x Security |3.63 |10 de Julho de 2018 |
+| Rel 07 de 18 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x Security |4.56|10 de Julho de 2018 |
 | Rel 07 de 18 | [4338832] |Flash |3.63, 4.76, 5.21 |10 de Julho de 2018 |
 | Rel 07 de 18 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 de Julho de 2018 |
 | N/A | [4284826] |Agregação de não-segurança de Junho |2.76 |12 de junho de 2018 |
 | N/A | [4284855] |Agregação de não-segurança de Junho |3.63 |12 de junho de 2018 |
-| N/A | [4284815] |Agregação de não-segurança de Junho |4,56 |12 de junho de 2018 |
+| N/A | [4284815] |Agregação de não-segurança de Junho |4.56 |12 de junho de 2018 |
 
 ## <a name="june-2018-guest-os"></a>SO de convidado de Junho de 2018
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 06 de 18 | [4284880] |Segurança do Windows 10 |5.20 |12 de junho de 2018 |
 | Rel 06 de 18 | [4284867] |Segurança do Windows apenas |2.75 |12 de junho de 2018 |
-| Rel 06 de 18 | [4284846] |Segurança do Windows apenas |3,62 |12 de junho de 2018 |
+| Rel 06 de 18 | [4284846] |Segurança do Windows apenas |3.62 |12 de junho de 2018 |
 | Rel 06 de 18 | [4284878] |Segurança do Windows apenas |4.55 |12 de junho de 2018 |
-| Rel 06 de 18 | [4230450] |Internet Explorer |2.75, 3,62, 4,75 |12 de junho de 2018 |
-| Rel 06 de 18 | [4287903] |Flash |3,62, 4,75, 5.20 |12 de junho de 2018 |
+| Rel 06 de 18 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 de junho de 2018 |
+| Rel 06 de 18 | [4287903] |Flash |3.62, 4.75, 5.20 |12 de junho de 2018 |
 | N/A | [4103718] |Pode rollup que não são de segurança |2.75 |8 de Maio de 2018 |
-| N/A | [4103730] |Pode rollup que não são de segurança |3,62 |8 de Maio de 2018 |
+| N/A | [4103730] |Pode rollup que não são de segurança |3.62 |8 de Maio de 2018 |
 | N/A | [4103725] |Pode rollup que não são de segurança |4.55 |8 de Maio de 2018 |
 | N/A | [4040980], [4040977] |Agregação de que não são de segurança do .NET ' 17 de Setembro |2.75 |14 de novembro de 2017 |
 | N/A | [4095874] |Poderá não .NET 3.5-security, versão |2.75 |8 de Maio de 2018 |
 | N/A | [4096495] |Pode libertar .NET 4.x não relacionados a segurança |2.75 |8 de Maio de 2018 |
-| N/A | [4040975] |Agregação de que não são de segurança do .NET ' 17 de Setembro |3,62 |14 de novembro de 2017 |
-| N/A | [4095872] |Poderá não .NET 3.5-security, versão |3,62 |8 de Maio de 2018 |
-| N/A | [4096494] |Pode libertar .NET 4.x não relacionados a segurança |3,62 |8 de Maio de 2018 |
-| N/A | [4096416] |Pode libertar .NET 4.5 x não relacionados a segurança |3,62 |8 de Maio de 2018 |
+| N/A | [4040975] |Agregação de que não são de segurança do .NET ' 17 de Setembro |3.62 |14 de novembro de 2017 |
+| N/A | [4095872] |Poderá não .NET 3.5-security, versão |3.62 |8 de Maio de 2018 |
+| N/A | [4096494] |Pode libertar .NET 4.x não relacionados a segurança |3.62 |8 de Maio de 2018 |
+| N/A | [4096416] |Pode libertar .NET 4.5 x não relacionados a segurança |3.62 |8 de Maio de 2018 |
 | N/A | [4040974], [4040972] |Agregação de que não são de segurança do .NET ' 17 de Setembro |4.55 |14 de novembro de 2017 |
 | N/A | [4043763] |Agregação de não-segurança de .NET de ' 17 de Outubro |4.55 |12 de Setembro de 2017 |
 | N/A | [4095876] |Pode libertar .NET 4.x não relacionados a segurança |4.55 |8 de Maio de 2018 |
@@ -229,8 +280,8 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 05 de 18 | [4103726] |Segurança do Windows apenas |3.61 |8 de Maio de 2018 |
 | Rel 05 de 18 | [4103715] |Segurança do Windows apenas |4.54 |8 de Maio de 2018 |
 | Rel 05 de 18 | [4095514], [4095519] |.NET 3.5, segurança 4.x |2.74 |8 de Maio de 2018 |
-| Rel 05 de 18 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, segurança de x 4.5 |3.61 |8 de Maio de 2018 |
-| Rel 05 de 18 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, segurança de x 4.5 |4.74|8 de Maio de 2018 |
+| Rel 05 de 18 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5x Security |3.61 |8 de Maio de 2018 |
+| Rel 05 de 18 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5x Security |4.74|8 de Maio de 2018 |
 | Rel 05 de 18 | [4054856] |Segurança de 4,7 x de .NET |5.19 |8 de Maio de 2018 |
 | Rel 05 de 18 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 de Maio de 2018 |
 | Rel 05 de 18 | [4103729] |Flash |3.61, 4.74, 5.19 |8 de Maio de 2018 |
@@ -258,10 +309,10 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="march-2018-guest-os"></a>SO de convidado de Março de 2018
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5,17 |13 de março de 2018 |
+| Rel 18-03 | [4088787], [4088776] |Segurança do Windows 10 |5.17 |13 de março de 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Segurança do Windows apenas |2.72, 3.59, 4.52 |13 de março de 2018 |
 | Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 de março de 2018 |
-| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5,17 |13 de março de 2018 |
+| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 de março de 2018 |
 | N/A | [4074598] |Agregação de não-segurança de Fevereiro |2.72 |13 de fevereiro de 2018 |
 | N/A | [4074593] |Agregação de não-segurança de Fevereiro |3.59 |13 de fevereiro de 2018 |
 | N/A | [4074594] |Agregação de não-segurança de Fevereiro |4.52 |13 de fevereiro de 2018 |
@@ -285,12 +336,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="january-2018-guest-os"></a>SO de convidado de Janeiro de 2018
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Segurança do Windows apenas |à 2.70, 3.57, 4,50 |3 de Janeiro de 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Segurança do Windows apenas |2.70, 3.57, 4.50 |3 de Janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Segurança do Windows apenas |5.15 |3 de Janeiro de 2018 |
-| N/A | [4054518] |Agregação de não-segurança de Dezembro |à 2.70 |12 de Dezembro de 2017 |
+| N/A | [4054518] |Agregação de não-segurança de Dezembro |2.70 |12 de Dezembro de 2017 |
 | N/A | [4054520] |Agregação de não-segurança de Dezembro |3.57 |12 de Dezembro de 2017 |
 | N/A | [4054519] |Agregação de não-segurança de Dezembro |4.50 |12 de Dezembro de 2017 |
-| N/A | [4051956] |Atualização de fuso horário de Janeiro |à 2.70, 3.57, 4,50 |12 de Dezembro de 2017 |
+| N/A | [4051956] |Atualização de fuso horário de Janeiro |2.70, 3.57, 4.50 |12 de Dezembro de 2017 |
 
 
 

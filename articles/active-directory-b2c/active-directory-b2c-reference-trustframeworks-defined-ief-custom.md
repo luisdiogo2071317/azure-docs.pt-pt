@@ -3,19 +3,19 @@ title: Referência - estruturas de confiança no Azure Active Directory B2C | Do
 description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e o Framework de experiência de identidade.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185784"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845695"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir as estruturas de confiança com o Framework de experiência de identidade do Azure AD B2C
 
@@ -52,10 +52,10 @@ TFs são linchpins do modelo de estrutura de confiança de Exchange aberto de id
 - **A descrição, as informações de identidade digital que tem oferecido/necessária por participantes**.
 
 - **As políticas de técnicas para a produção e o consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Estas políticas escritas incluem, geralmente, as seguintes categorias de políticas:**
-    - Identidade, protegendo contra políticas, por exemplo: *até que ponto são informações de identidade de uma pessoa examinadas?*
-    - As políticas de segurança, por exemplo: *até que ponto são integridade de informações e a confidencialidade protegida?*
-    - As políticas de privacidade, por exemplo: *que controle um utilizador tem sobre informações de identificação pessoas (PII)*?
-    - Políticas de persistência, por exemplo: *se um fornecedor deixará de operações, como faz continuidade e a proteção da função PII?*
+    - Identidade protegendo contra políticas, por exemplo: *Até que ponto são informações de identidade de uma pessoa examinadas?*
+    - Políticas de segurança, por exemplo: *Até que ponto são informações de integridade e a confidencialidade protegidos?*
+    - Políticas de privacidade, por exemplo: *Qual o controle um utilizador tem sobre informações de identificação pessoas (PII)*?
+    - Políticas de persistência, por exemplo: *Se um fornecedor deixará de operações, como funciona a continuidade e a proteção da função PII?*
 
 - **Os perfis técnicos para a produção e o consumo de informações de identidade digital. Estes perfis incluem:**
     - Interfaces de âmbito para os quais informações de identidade digital estão disponíveis num LOA especificado.

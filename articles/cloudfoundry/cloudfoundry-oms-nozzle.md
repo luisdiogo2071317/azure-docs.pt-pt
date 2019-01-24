@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404907"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819038"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle do Azure Log Analytics para o monitoramento de sistema do Cloud Foundry
 
@@ -63,11 +63,11 @@ Antes de configurar o cliente de linha de comando UAA, certifique-se de que o Ru
 1. No portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione o Log Analytics.
 2. Selecione **criar**e, em seguida, selecione opções para os seguintes itens:
 
-   * **Área de trabalho de análise de registo**: escreva um nome para a área de trabalho.
+   * **Área de trabalho de análise de registo**: Escreva um nome para a área de trabalho.
    * **Subscrição**: Se tiver várias subscrições, selecione aquele que é o mesmo que a implementação de CF.
-   * **Grupo de recursos**: pode criar um novo grupo de recursos ou utilize a mesma com a sua implementação CF.
-   * **Localização**: introduza a localização.
-   * **Escalão de preço**: selecione **OK** para concluir.
+   * **Grupo de recursos**: Pode criar um novo grupo de recursos ou utilize a mesma com a sua implementação CF.
+   * **Localização**: Introduza a localização.
+   * **Escalão de preço**: Selecione **OK** para concluir.
 
 Para obter mais informações, consulte [introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -78,13 +78,13 @@ Para obter mais informações, consulte [introdução ao Log Analytics](https://
 3. Escreva "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry monitorização solução".
 4. O Cloud Foundry monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
 5. Introduza os parâmetros necessários:
-    * **Subscrição**: selecione uma subscrição do Azure para a área de trabalho do Log Analytics, normalmente, o mesmo com a implementação de Cloud Foundry.
-    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para a área de trabalho do Log Analytics.
-    * **Localização do grupo de recursos**: selecione a localização do grupo de recursos.
-    * **OMS_Workspace_Name**: introduza um nome de área de trabalho, se a área de trabalho não existir, o modelo irá criar um novo.
-    * **OMS_Workspace_Region**: selecione a localização para a área de trabalho.
-    * **OMS_Workspace_Pricing_Tier**: selecione a área de trabalho do Log Analytics SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
-    * **Termos legais**: termos clique legais, em seguida, clique em "Criar" para aceitar o termo legal.
+    * **Subscrição**: Selecione uma subscrição do Azure para a área de trabalho do Log Analytics, normalmente, o mesmo com a implementação de Cloud Foundry.
+    * **Grupo de recursos**: Selecione um grupo de recursos existente ou crie um novo para a área de trabalho do Log Analytics.
+    * **Localização do grupo de recursos**: Selecione a localização do grupo de recursos.
+    * **OMS_Workspace_Name**: Introduza um nome de área de trabalho, se a área de trabalho não existir, o modelo irá criar um novo.
+    * **OMS_Workspace_Region**: Selecione a localização para a área de trabalho.
+    * **OMS_Workspace_Pricing_Tier**: Selecione a área de trabalho do Log Analytics SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **Termos legais**: Clique em termos legais e, em seguida, clique em "Criar" para aceitar o termo legal.
 - Depois de todos os parâmetros forem especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
 
 
@@ -200,7 +200,7 @@ Pode [criar os alertas](https://docs.microsoft.com/azure/log-analytics/log-analy
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **BBS. Aplicações de Domain.cf** indica se o domínio de aplicativos está atualizado. Isso significa que os pedidos de aplicação CF do controlador de Cloud são sincronizados com bbs. LRPsDesired (AIs Diego desejada) para execução. Não foram recebidos dados significa que domínio cf-aplicações não está atualizado na janela de tempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para as células Diego, 0 significa bom estado de funcionamento e 1 significa mau estado de funcionamento. Defina o alerta se várias células Diego mau estado de funcionamento são detetadas na janela de tempo especificado. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Número de resultados > 0 | 1 significa que o sistema está em bom estado e 0 significa que o sistema não está em bom estado. |
-| Tipo = CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d > 0 | Número de resultados > 0   | Consul emite periodicamente o estado de funcionamento. 0 significa que o sistema está em bom estado e 1 significa que o emissor de rota Deteta que Consul está desativado. |
+| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Número de resultados > 0   | Consul emite periodicamente o estado de funcionamento. 0 significa que o sistema está em bom estado e 1 significa que o emissor de rota Deteta que Consul está desativado. |
 | Tipo = CF_CounterEvent_CL Origin_s = Delta_d DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" ou Name_s="doppler.shedEnvelopes") > 0 | Número de resultados > 0 | O número de delta de mensagens caiu intencionalmente Doppler devido a pressão. |
 | Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Número de resultados > 0   | Loggregator emite **LGR** para indicar problemas com o processo de Registro em log. Um exemplo desse problema é quando o resultado de mensagem do registo é demasiado elevado. |
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Número de resultados > 0   | Quando o Nozzle recebe um alerta de consumo lentos de loggregator, envia os **slowConsumerAlert** ValueMetric ao Log Analytics. |

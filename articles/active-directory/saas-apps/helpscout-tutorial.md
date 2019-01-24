@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a ajuda Scout | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com ajudar Scout | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ajudar a Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0bbdf576c38207349bb45e7b54f3ffc85ecf3d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 367967358d55eda40603b71893333080d7faa81a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816264"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Azure Active Directory com a ajuda Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Active Directory do Azure com ajudar Scout
 
 Neste tutorial, saiba como integrar Scout ajudar com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com ajudar Scout, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um ajuda Scout início de sessão único na subscrição ativado
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
@@ -57,7 +57,7 @@ Para configurar a integração do Scout ajudar com o Azure AD, terá de adiciona
 
 **Para adicionar Scout ajudar a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -155,7 +155,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único](./media/helpscout-tutorial/settings4.png) 
  
-    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
+    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
     
     b. Clique em **carregar certificado** para carregar o **Certificate(Base64)** transferido a partir do portal do Azure.
 
@@ -166,7 +166,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
     e. Clique em **Guardar**.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -236,7 +236,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

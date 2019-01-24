@@ -3,19 +3,20 @@ title: Aplicação .NET multicamadas com o Azure Service Bus | Microsoft Docs
 description: Um tutorial de .NET que ajuda a desenvolver uma aplicação multicamadas no Azure que utiliza as filas do Service Bus para comunicar entre camadas.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855617"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849741"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 

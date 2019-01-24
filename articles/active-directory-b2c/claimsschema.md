@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568647"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849095"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,13 +65,13 @@ O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocolo | 0: n | Nome do tipo de afirmação de lista de protocolos com o respetivo parceiro de predefinição. |
+| Protocolo | 0:n | Nome do tipo de afirmação de lista de protocolos com o respetivo parceiro de predefinição. |
 
 O **protocolo** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
 | PartnerClaimType | Sim | O nome do tipo de afirmação a ser utilizado. |
 
 No exemplo seguinte, quando o Framework de experiência de identidade interage com um fornecedor de identidade SAML2 ou a aplicação da entidade confiadora de terceiros, o **Apelido** afirmação é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a afirmação é mapeado para `family_name`.
@@ -152,7 +152,7 @@ O **restrição** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Enumeração | 1: n | As opções disponíveis na interface do usuário para o utilizador selecionar para uma afirmação, por exemplo, um valor numa lista pendente. |
+| Enumeração | 1:n | As opções disponíveis na interface do usuário para o utilizador selecionar para uma afirmação, por exemplo, um valor numa lista pendente. |
 | Padrão | 1:1 | A expressão regular a utilizar. |
 
 ### <a name="enumeration"></a>Enumeração

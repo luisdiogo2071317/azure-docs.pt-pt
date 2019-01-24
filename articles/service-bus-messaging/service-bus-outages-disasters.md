@@ -2,18 +2,19 @@
 title: Isolando as aplicações do Azure Service Bus contra interrupções e desastres | Documentos da Microsoft
 description: Técnicas para proteger as aplicações em caso de falha possível do Service Bus.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393712"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846715"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para separando aplicativos em relação do Service Bus interrupções e desastres
 
@@ -69,8 +70,8 @@ Em geral, os replicação passivo é mais económico do que a replicação do Ac
 
 Ao usar os replicação passivo, nos seguintes cenários de mensagens são perdidas ou recebidas duas vezes:
 
-* **Atraso de mensagem ou perda**: partem do princípio de que o remetente enviada com êxito um m1 de mensagem para a fila primária e, em seguida, a fila fica indisponível antes do recetor recebe m1. O remetente envia uma mensagem subseqüente m2 para a fila secundária. Se a fila primária está temporariamente indisponível, o destinatário recebe m1 depois da fila fica disponível novamente. Em caso de desastre, o recetor nunca poderá receber m1.
-* **Duplicar receção**: partem do princípio de que o remetente envia uma mensagem m para a fila principal. Do Service Bus com êxito processa m, mas não conseguir enviar uma resposta. Depois da operação de envio exceder o tempo limite, o remetente envia uma cópia idêntica do m para a fila secundária. Se o destinatário é consegue receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe ambas as cópias de m, aproximadamente ao mesmo tempo. Se o recetor não for capaz de receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe inicialmente apenas a segunda cópia da m, mas, em seguida, recebe uma segunda cópia da m quando a fila primária fica disponível.
+* **Atraso de mensagem ou perda**: Partem do princípio de que o remetente enviada com êxito um m1 de mensagem para a fila primária e, em seguida, a fila fica indisponível antes do recetor recebe m1. O remetente envia uma mensagem subseqüente m2 para a fila secundária. Se a fila primária está temporariamente indisponível, o destinatário recebe m1 depois da fila fica disponível novamente. Em caso de desastre, o recetor nunca poderá receber m1.
+* **Duplicar receção**: Partem do princípio de que o remetente envia uma mensagem m para a fila principal. Do Service Bus com êxito processa m, mas não conseguir enviar uma resposta. Depois da operação de envio exceder o tempo limite, o remetente envia uma cópia idêntica do m para a fila secundária. Se o destinatário é consegue receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe ambas as cópias de m, aproximadamente ao mesmo tempo. Se o recetor não for capaz de receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe inicialmente apenas a segunda cópia da m, mas, em seguida, recebe uma segunda cópia da m quando a fila primária fica disponível.
 
 O [georreplicação com o Service Bus mediadas mensagens] [ Geo-replication with Service Bus Brokered Messages] exemplo demonstra os replicação passiva de entidades de mensagens.
 

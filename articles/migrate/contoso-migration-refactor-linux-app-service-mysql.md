@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6dd063f8d6520e3ee18dcb3899c1cca16d732707
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809694"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migração de Contoso: Refatorizar uma aplicação de suporte técnico do serviço de Contoso Linux em várias regiões com o App Service do Azure, o Gestor de tráfego e o MySQL do Azure
 
@@ -146,19 +146,19 @@ Os administradores da Contoso aprovisionar duas aplicações Web (um em cada reg
 1. Se criaram um recurso de aplicação Web na região E.U.A. Leste 2 primária (**osticket eus2**) do Azure Marketplace.
 2. Elas o colocam o recurso no grupo de recursos de produção **ContosoRG**.
 
-    ![Aplicação do Azure](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app1.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app1.png) 
 
 3. Eles criam um novo plano do serviço de aplicações na região primária (**SVP-aplicação-EUS2**), com o tamanho padrão.
 
-     ![Aplicação do Azure](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
+     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
     
 4. Eles selecionam um SO Linux com a pilha de runtime de PHP 7.0, o que é um contentor de Docker.
 
-    ![Aplicação do Azure](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
 
 5. Eles criam uma segunda aplicação web (**osticket cus**) e o plano do serviço de aplicações para a região EUA Central.
 
-    ![Aplicação do Azure](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png) 
+    ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png) 
 
 
 **Precisa de mais ajuda?**
@@ -254,7 +254,7 @@ Os administradores da Contoso migrar a base de dados com cópia de segurança e 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Tney pode verificar o nome do servidor e o início de sessão do **descrição geral** na instância do MySQL no portal do Azure.
+11. Eles podem verificar o nome do servidor e o início de sessão do **descrição geral** na instância do MySQL no portal do Azure.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

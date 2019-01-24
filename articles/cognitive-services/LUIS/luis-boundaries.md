@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b71b62d50f209c033597799dd26f579fcb200cc9
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413382"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820415"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo do LUIS e chaves
 LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-boundaries), que controla o intenções, entidades e recursos do LUIS. É a segunda área [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área dos limites da [combinação de teclado](#keyboard-controls) para controlar o Web site do LUIS. É uma área de quarta a [mapeamento de região do mundo](luis-reference-regions.md) entre o LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -24,30 +24,27 @@ LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-b
 
 ## <a name="model-boundaries"></a>Limites do modelo
 
+
 |Área|Limite|
 |--|:--|--|
 | [Nome da aplicação][luis-get-started-create-app] | * Máximo de carateres de predefinido |
 | [Teste de batch][batch-testing]| conjuntos de dados de 10, expressões de 1000 por conjunto de dados|
-| **[Composição](./luis-concept-entity-types.md)|100 com até 10 crianças |
 | Lista explícita | 50 por aplicação|
-| **[Hierárquica](./luis-concept-entity-types.md) |100 com até 10 crianças |
 | [Objetivos][intents]|500 por aplicação<br>[Com base na expedição](https://aka.ms/dispatch-tool) aplicativo possui origens de expedição 500 correspondente|
 | [Lista de entidades](./luis-concept-entity-types.md) | Principal: 50, filho: 20 000 itens. É o nome canônico * predefinido máx. de caráter. Valores de sinónimos não ter nenhuma restrição de comprimento. |
+| [Ficou a saber de máquina entidades](./luis-concept-entity-types.md):<br> Composição,<br>  Hierárquica<br> Simples|100 <br>A contagem total de entidades aprendidas de máquina (entidades simples, hierárquicas e compostas) não pode exceder os 100. Entidades compostas e hierárquicas não podem ter mais de 10 crianças.  |
 | [Padrões de](luis-concept-patterns.md)|500 padrões por aplicação.<br>Comprimento máximo do padrão é de 400 caracteres.<br>3 Pattern.any entidades, por padrão<br>Máximo de 2 textos de opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicação, 3 pattern.any entidades, por padrão |
 | [Lista de frase][phrase-list]|10 de frase de listas, itens de 5000 por lista|
 | [Entidades pré-concebidas](./luis-prebuilt-entities.md) | sem limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>máximo de 500 carateres. Por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicação. 10 funções por entidade|
-| **[Simples](./luis-concept-entity-types.md)| 100 entidades|
 | [Expressão][utterances] | 500 carateres|
 | [Expressões com][utterances] | 15 000 por aplicação|
 | [Versões](luis-concept-version.md)| sem limite |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restringidas de alfanuméricos e período (.) |
 
 * Máximo de carateres de predefinido é 50 carateres. 
-
-* * A contagem total de entidades simples, hierárquicas e compostas não pode exceder os 100. A contagem total de entidades hierárquicas, entidades compostas, entidades simples e entidades de filhos hierárquica não pode exceder 330. 
 
 ## <a name="intent-and-entity-naming"></a>Objetivo e a atribuição de nomes de entidade
 Não utilize os seguintes carateres em nomes de intenção e entidade:

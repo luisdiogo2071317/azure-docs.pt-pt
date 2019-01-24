@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215274"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828303"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar as redes para cargas de trabalho migradas para o Azure
 
@@ -164,7 +164,7 @@ Para implementar uma VPN de site a site, configurar um gateway de VPN no Azure.
 - Cada VNet pode ter apenas um gateway VPN.
 - Pode criar várias ligações para o mesmo gateway VPN. Quando cria várias ligações, todos os túneis VPN partilham a largura de banda do gateway disponível.
 - Todos os Gateways de VPN do Azure consistem em duas instâncias numa configuração ativa-em espera.
-    - Para a manutenção planeada ou interrupções unplaned à instância do Active Directory, ocorre a ativação pós-falha e a instância em espera assume automaticamente e retoma o site a site ou uma ligação VNet a VNet. 
+    - Para a manutenção planeada ou uma interrupção não planeada para a instância do Active Directory, ocorre a ativação pós-falha e a instância em espera assume automaticamente e retoma o site a site ou uma ligação VNet a VNet. 
     - A alternância de faz com que uma breve interrupção.
     - Para a manutenção planeada, a conectividade deve ser restaurada dentro de 10 a 15 segundos.
     - Para problemas não planeados, a recuperação da ligação será maior, cerca de um-para-1,5 minutos na pior das hipóteses.

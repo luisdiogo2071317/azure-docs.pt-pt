@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344317"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828184"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
@@ -55,7 +55,7 @@ A configuração predefinida permite-lhe extrair várias informações de áudio
 * Moderação de conteúdos Visual – a parte dos vídeos que tenham sido sinalizados como adultos na natureza
 * Anotação – um resultado de anotar os vídeos com base num modelo de objeto predefinidas
 
-##  <a name="insightsjson-elements"></a>elementos de insights.JSON
+##  <a name="insightsjson-elements"></a>insights.json elements
 
 A saída inclui um ficheiro JSON (insights.json) com todas as informações que foram encontradas do vídeo ou áudio. O json pode conter os seguintes elementos:
 
@@ -140,7 +140,7 @@ Exemplo:
   ],
 ```
 
-### <a name="faces"></a>rostos
+### <a name="faces"></a>faces
 
 |Nome|Descrição|
 |---|---|
@@ -148,7 +148,7 @@ Exemplo:
 |nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
 |descrição|Uma descrição da celebridade. |
-|thumbnalId|O ID da miniatura do que enfrentam.|
+|thumbnailId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas o Bing.|
@@ -190,7 +190,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |ID|O ID de captura.|
-|quadros-chave|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
+|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
 |instâncias|Uma lista de intervalos de tempo desta captura (capturas de tem apenas 1 instância).|
 
 ```json
@@ -296,7 +296,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 |---|---|
 |ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
-|language|Idioma de nome etiqueta (quando traduzido). BCP 47|
+|language|Idioma de nome etiqueta (quando traduzido). BCP-47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 

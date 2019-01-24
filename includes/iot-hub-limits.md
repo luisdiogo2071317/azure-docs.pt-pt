@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964631"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841445"
 ---
 A tabela seguinte lista os limites associados aos diferentes escalões de serviço (S1, S2, S3, F1). Para obter informações sobre o custo de cada *unidade* em cada escalão, consulte [IoT Hub Pricing (Preços do Hub IoT)](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -48,6 +48,8 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 | Máximo de tarefas simultâneas | 10 (para S3), 5 (para S2), 1 (para S1) |
 | Máximo de pontos finais adicionais | 10 (para S1, S2, S3) |
 | Regras de encaminhamento máximo de mensagens | 100 (para S1, S2, S3) |
+| Número máximo de fluxos de dispositivos ligados em simultâneo | 50 (para S1, S2, S3 e F1 apenas) |
+| Transferência de dados de transmissão máxima de dispositivo | 300 MB por dia (para S1, S2, S3 e F1 apenas) |
 
 
 > [!NOTE]
@@ -72,3 +74,4 @@ O serviço de IoT Hub limita os pedidos quando as quotas seguintes são ultrapas
 | Atualizações de dispositivo duplo | 50/seg/unidade (para S3), Máximo de 10/seg ou 1/seg/unidade (para S2), 10/seg (para S1) |
 | Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | 83.33/SEC/Unit (5000/min/unidade) (para S3), 1.67/sec/unit (100/min/unidade) (para S2), 1.67/sec/unit (100/min/unidade) (para S1) |
 | Débito de operação tarefas por dispositivo | 50/seg/unidade (para S3), Máximo de 10/seg ou 1/seg/unidade (para S2), 10/seg (para S1) |
+| Taxa de inicialização de fluxo de dispositivo | 5 novos fluxos/seg (para S1, S2, S3 e F1 apenas) |

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826484"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilizar o DNS do Azure para domínios privados
 
@@ -61,12 +61,12 @@ O DNS do Azure fornece as seguintes capacidades:
 
 ## <a name="limitations"></a>Limitações
 
-O DNS do Azure tem limitações a seguir:
+O DNS do Azure tem as seguintes limitações:
 
 * Rede virtual de apenas um registo é permitido por zona privada.
-* Até 10 resolução redes virtuais são permitidas por zona privada.
+* Até 10 resolução redes virtuais são permitidas por zona privada. Este limite será removido quando esta funcionalidade está disponível em geral.
 * Uma rede virtual específica pode ser ligada a apenas uma zona privada como uma rede virtual de registo.
-* Uma rede virtual específica pode ser ligada para zonas privadas do até 10 como uma rede virtual de resolução.
+* Uma rede virtual específica pode ser ligada para zonas privadas do até 10 como uma rede virtual de resolução. Este limite será removido quando esta funcionalidade está disponível em geral.
 * Se especificar uma rede virtual de registo, os registos DNS para as VMs da rede virtual que estão registados para a zona privada não são visíveis ou recuperáveis a partir do Azure Powershell e APIs de CLI do Azure. Os registos VM, de fato, estão registados e serão resolvido com êxito.
 * Inversa de DNS de funciona apenas para o espaço IP privados na rede virtual de registo.
 * DNS inverso para um IP privado que não está registado na zona privada (por exemplo, um IP privado para uma máquina virtual numa rede virtual que está ligada como uma rede virtual de resolução a privada zona) devolve *internal.cloudapp.net* como o sufixo DNS. No entanto, este sufixo não é possível resolver.

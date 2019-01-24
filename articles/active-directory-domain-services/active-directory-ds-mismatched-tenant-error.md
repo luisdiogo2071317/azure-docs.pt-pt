@@ -4,7 +4,7 @@ description: Compreender e resolver erros de diretório sem correspondência par
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955077"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844216"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
 Tem um domínio gerido do Azure AD Domain Services existente. Quando navegar para o portal do Azure e ver o domínio gerido, verá a seguinte mensagem de erro:
@@ -37,11 +37,11 @@ O novo portal do Azure (e especificamente a extensão do Azure AD Domain Service
 
 Em resumo, não é possível ativar um domínio gerido para "contoso.com" do inquilino do Azure AD numa rede virtual que pertencem a uma subscrição do Azure pertencentes a outro inquilino do Azure AD "fabrikam.com". 
 
-**Configuração válida**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. O domínio gerido é exposto numa rede virtual que pertencem a uma subscrição do Azure pertencentes ao inquilino Contoso do Azure AD. Portanto, tanto o domínio gerido, bem como a rede virtual pertence ao mesmo inquilino do Azure AD. Esta configuração é válido e é totalmente suportada.
+**Configuração válida**: Neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. O domínio gerido é exposto numa rede virtual que pertencem a uma subscrição do Azure pertencentes ao inquilino Contoso do Azure AD. Portanto, tanto o domínio gerido, bem como a rede virtual pertence ao mesmo inquilino do Azure AD. Esta configuração é válido e é totalmente suportada.
 
 ![Configuração de inquilinos válido](./media/getting-started/valid-tenant-config.png)
 
-**Configuração do inquilino não correspondentes**: neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. No entanto, o domínio gerido é exposto numa rede virtual que pertence a uma subscrição do Azure pertencentes ao inquilino do Azure AD a Fabrikam. Por conseguinte, o domínio gerido e a rede virtual pertençam a dois diferentes inquilinos do Azure AD. Esta configuração é a configuração do inquilino não correspondentes e não é suportada. A rede virtual têm de ser movida para o mesmo inquilino do Azure AD (ou seja, Contoso) como o domínio gerido. Consulte a [resolução](#resolution) secção para obter detalhes.
+**Configuração do inquilino não correspondentes**: Neste cenário de implementação, o domínio gerido Contoso está ativado para o inquilino Contoso do Azure AD. No entanto, o domínio gerido é exposto numa rede virtual que pertence a uma subscrição do Azure pertencentes ao inquilino do Azure AD a Fabrikam. Por conseguinte, o domínio gerido e a rede virtual pertençam a dois diferentes inquilinos do Azure AD. Esta configuração é a configuração do inquilino não correspondentes e não é suportada. A rede virtual têm de ser movida para o mesmo inquilino do Azure AD (ou seja, Contoso) como o domínio gerido. Consulte a [resolução](#resolution) secção para obter detalhes.
 
 ![Configuração do inquilino não correspondentes](./media/getting-started/mismatched-tenant-config.png)
 

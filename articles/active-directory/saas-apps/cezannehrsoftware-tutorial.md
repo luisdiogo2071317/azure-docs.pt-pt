@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Software de RH Cezanne | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Software de RH Cezanne | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Software de RH Cezanne.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d5edd1335d99c369fa3ef560470edab41276a7a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429911"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819735"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory com o Software de RH Cezanne
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de RH Cezanne
 
 Neste tutorial, saiba como integrar o Software de RH Cezanne com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o Software de RH Cezanne, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Software de RH Cezanne logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração de Software de RH Cezanne com o Azure AD, terá d
 
 **Para adicionar Cezanne RH Software a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -129,11 +129,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Sobre o **configuração de Software de RH Cezanne** secção, clique em **configurar Software de RH Cezanne** para abrir **configurar início de sessão** janela.
 
-    ![Configuração de Software Cezanne RH](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
+    ![Cezanne HR Software Configuration](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
 1. Desloque para baixo para o **referência rápida** secção. Copiar o **SAML único início de sessão no URL do serviço e o ID de entidade de SAML** partir o **secção de referência rápida.**
 
-    ![Configuração de Software Cezanne RH](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+    ![Cezanne HR Software Configuration](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
 
 1. Numa janela do browser web diferente, início de sessão no seu inquilino de Software de RH Cezanne como administrador.
 
@@ -172,7 +172,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configure o lado de início de sessão na aplicação única](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -285,7 +285,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

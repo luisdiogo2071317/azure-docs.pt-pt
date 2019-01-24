@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações de cadeia de caracteres para 
 description: Cadeia de caracteres de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1a382b845b621e47d30869a1081549b7f30348aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121588"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850744"
 ---
 # <a name="string-claims-transformations"></a>Transformações de afirmações de cadeia de caracteres
 
@@ -29,13 +29,13 @@ Comparar duas afirmações e lançar uma exceção se não forem iguais, de acor
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | cadeia | Tipo de primeira afirmação, que é ser comparadas. |
-| InputClaim | inputClaim2 | cadeia | Segundo o tipo da afirmação, que está a ser comparado. |
+| inputClaim | inputClaim1 | cadeia | Tipo de primeira afirmação, que é ser comparadas. |
+| inputClaim | inputClaim2 | cadeia | Segundo o tipo da afirmação, que está a ser comparado. |
 | InputParameter | stringComparison | cadeia | comparação de cadeia de caracteres, um dos valores: Ordinal, OrdinalIgnoreCase. |
 
 O **AssertStringClaimsAreEqual** transformação de declarações é sempre executada a partir de um [perfil técnico de validação](validation-technical-profile.md) que é chamado por um [autodeclarativas perfil técnico](self-asserted-technical-profile.md). O **UserMessageIfClaimsTransformationStringsAreNotEqual** metadados de declaração própria perfil técnico controla a mensagem de erro que é apresentada ao utilizador.
 
-![Execução de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
 Pode usar essa transformação para se certificar de afirmações, dois ClaimTypes têm o mesmo valor. Caso contrário, será gerada uma mensagem de erro. O exemplo a seguir verifica se o **strongAuthenticationEmailAddress** ClaimType é igual a **e-mail** ClaimType. Caso contrário, será gerada uma mensagem de erro. 
 
@@ -81,7 +81,7 @@ O perfil técnico de declaração própria chama a validação **NonInteractive 
     - **inputClaim1**: someone@contoso.com
     - **inputClaim2**: someone@outlook.com
  - Parâmetros de entrada:
-    - **stringComparison**: ordinalIgnoreCase
+    - **stringComparison**:  ordinalIgnoreCase
 - Resultado: Erro gerado
 
 ## <a name="changecase"></a>ChangeCase 
@@ -92,7 +92,7 @@ Altera o caso da afirmação fornecido para reduzir ou maiúsculas consoante o o
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | cadeia | O ClaimType que ser alterado. |
 | InputParameter | toCase | cadeia | Um dos seguintes valores: `LOWER` ou `UPPER`. |
-| outputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
+| OutputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
 Utilize esta transformação de afirmações para alterar qualquer cadeia de caracteres ClaimType para reduzir ou maiúsculas.  
 
@@ -126,7 +126,7 @@ Cria uma afirmação de cadeia de caracteres de parâmetro de entrada fornecido 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | valor | cadeia | A cadeia a ser definido |
-| outputClaim | createdClaim | cadeia | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado, com o valor especificado no parâmetro de entrada. |
+| OutputClaim | createdClaim | cadeia | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado, com o valor especificado no parâmetro de entrada. |
 
 Utilize que este afirmações de transformação para definir uma cadeia de valor de ClaimType.
 
@@ -154,11 +154,11 @@ Determine se uma afirmação de cadeia de caracteres é igual para outro. O resu
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | cadeia | Tipo, o que está a ser comparada de afirmação pela primeira vez. |
-| InputClaim | inputClaim2 | cadeia | Tipo, o que está a ser comparada de afirmação em segundo lugar. |
+| inputClaim | inputClaim1 | cadeia | Tipo, o que está a ser comparada de afirmação pela primeira vez. |
+| inputClaim | inputClaim2 | cadeia | Tipo, o que está a ser comparada de afirmação em segundo lugar. |
 | InputParameter | Operador | cadeia | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cadeias de caracteres está a ser comparado. |
-| outputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
+| OutputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
 Utilize que este afirmações de transformação para verificar se uma afirmação é igual a outra declaração. Por exemplo, as seguintes afirmações verificações de transformação, se o valor do **e-mail** afirmação é igual para o **Verified.Email** de afirmação.
 
@@ -184,10 +184,10 @@ Utilize que este afirmações de transformação para verificar se uma afirmaç�
     - **inputClaim1**: someone@contoso.com
     - **inputClaim2**: someone@outlook.com
 - Parâmetros de entrada:
-    - **Operador**:  NÃO É IGUAL A
+    - **operator**:  NOT EQUAL
     - **ignoreCase**: VERDADEIRO
 - Afirmações de saída:
-    - **outputClaim**: VERDADEIRO
+    - **outputClaim**: true
 
 ## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
@@ -195,11 +195,11 @@ Determina se um valor de afirmação é igual ao valor de parâmetro de entrada.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | cadeia | Tipo da afirmação, que é ser comparadas. |
+| inputClaim | inputClaim1 | cadeia | Tipo da afirmação, que é ser comparadas. |
 | InputParameter | Operador | cadeia | Valores possíveis: `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | compareTo | cadeia | comparação de cadeia de caracteres, um dos valores: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Especifica se esta comparação deve ignorar o caso das cadeias de caracteres está a ser comparado. |
-| outputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
+| OutputClaim | outputClaim | boolean | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
 Pode utilizar este afirmações de transformação para verificar se uma afirmação é igual a um valor que especificou. Por exemplo, as seguintes afirmações verificações de transformação, se o valor do **termsOfUseConsentVersion** afirmação é igual a `v1`.
 
@@ -223,11 +223,11 @@ Pode utilizar este afirmações de transformação para verificar se uma afirma�
 - Afirmações de entrada:
     - **inputClaim1**: v1
 - Parâmetros de entrada:
-    - **CompareTo**: V1
-    - **Operador**: IGUAL A 
+    - **compareTo**: V1
+    - **operator**: EQUAL 
     - **ignoreCase**: VERDADEIRO
 - Afirmações de saída:
-    - **outputClaim**: VERDADEIRO
+    - **outputClaim**: true
 
 ## <a name="createrandomstring"></a>CreateRandomString
 
@@ -240,7 +240,7 @@ Cria uma cadeia de caracteres aleatória usando o gerador de números aleatório
 | InputParameter | base64 | boolean | [Opcional] Converta o valor aleatório para base64. Se o formato de cadeia de caracteres é aplicado, o valor depois de formato de cadeia está codificado para base64. |
 | InputParameter | maximumNumber | int | [Opcional] Para `INTEGER` randomGeneratorType apenas. Especifique o número máximo. |
 | InputParameter | seed  | int | [Opcional] Para `INTEGER` randomGeneratorType apenas. Especifique a semente para o valor aleatório. Nota: a seed mesmo gera a mesma seqüência de números aleatórios. |
-| outputClaim | outputClaim | cadeia | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado. O valor aleatório. |
+| OutputClaim | outputClaim | cadeia | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado. O valor aleatório. |
 
 Exemplo a seguir gera um ID exclusivo global. Este afirmações de transformação é utilizada para criar o aleatório UPN (nome do principal de utilizador).
 
@@ -283,7 +283,7 @@ Exemplo a seguir gera um valor aleatório de número inteiro entre 0 e 1000. O v
     - **randomGeneratorType**: NÚMERO INTEIRO
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
-    - **base64**: Falso
+    - **base64**: false
 - Afirmações de saída: 
     - **outputClaim**: OTP_853
 
@@ -294,9 +294,9 @@ Formato de uma afirmação, de acordo com a cadeia de formato fornecido. Essa tr
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |cadeia |O ClaimType que age como formato de cadeia de caracteres {0} parâmetro. |
+| InputClaim | inputClaim |cadeia |O ClaimType que age como formato de cadeia de caracteres {0} parâmetro. |
 | InputParameter | stringFormat | cadeia | O formato de cadeia de caracteres, incluindo o {0} parâmetro. |
-| outputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
+| OutputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
 Utilize este afirmações de transformação para qualquer cadeia de caracteres com um parâmetro de formato {0}. O exemplo seguinte cria um **userPrincipalName**. Todas as identidades sociais fornecedor perfis técnicos, como `Facebook-OAUTH` chamadas a **CreateUserPrincipalName** para gerar um **userPrincipalName**.   
 
@@ -329,10 +329,10 @@ Formate duas afirmações, de acordo com a cadeia de formato fornecido. Essa tra
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |cadeia | O ClaimType que age como formato de cadeia de caracteres {0} parâmetro. |
-| InputClaim | InputClaim | cadeia | O ClaimType que age como formato de cadeia de caracteres {1} parâmetro. |
+| InputClaim | inputClaim |cadeia | O ClaimType que age como formato de cadeia de caracteres {0} parâmetro. |
+| InputClaim | inputClaim | cadeia | O ClaimType que age como formato de cadeia de caracteres {1} parâmetro. |
 | InputParameter | stringFormat | cadeia | O formato de cadeia de caracteres, incluindo o {0} e {1} parâmetros. |
-| outputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
+| OutputClaim | outputClaim | cadeia | Po vyvolání o ClaimType produzido depois de esta transformação de afirmações. |
 
 Utilize este afirmações de transformação para o formato com dois parâmetros, qualquer cadeia de caracteres {0} e {1}. O exemplo seguinte cria um **displayName** com o formato especificado:
 
@@ -368,7 +368,7 @@ Procurar um item de uma afirmação **restrição** coleção.
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | cadeia | A afirmação que contém o texto a ser pesquisada no **restrictionValueClaim** afirmações com o **restrição** coleção.  |
-| outputClaim | restrictionValueClaim | cadeia | A afirmação que contém o **restrição** coleção. Po vyvolání a transformação de afirmações, o valor desta afirmação contém o valor do item selecionado. |
+| OutputClaim | restrictionValueClaim | cadeia | A afirmação que contém o **restrição** coleção. Po vyvolání a transformação de afirmações, o valor desta afirmação contém o valor do item selecionado. |
 
 O exemplo seguinte procura a descrição da mensagem de erro com base na chave de erro. O **responseMsg** afirmação contém uma coleção de mensagens de erro para apresentar ao usuário final ou para ser enviado à entidade confiadora.
 
@@ -413,7 +413,7 @@ Procure um valor de afirmação de uma lista de valores com base no valor de afi
 | InputClaim | inputParameterId | cadeia | A afirmação que contém o valor de pesquisa |
 | InputParameter | |cadeia | Coleção de inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Controlar se um erro é retornado quando nenhuma pesquisa correspondente. |
-| outputClaim | inputParameterId | cadeia | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado. O valor de ID correspondente. |
+| OutputClaim | inputParameterId | cadeia | Os ClaimTypes que serão produzidos depois de esta transformação de afirmações ser invocado. O valor de ID correspondente. |
 
 O exemplo seguinte procura o nome de domínio em uma das coleções inputParameters. A transformação de declarações procura o nome de domínio no identificador de e retorna seu valor (uma ID da aplicação).
 
@@ -439,12 +439,12 @@ O exemplo seguinte procura o nome de domínio em uma das coleções inputParamet
 - Afirmações de entrada:
     - **inputParameterId**: test.com
 - Parâmetros de entrada:
-    - **contoso.com**: 13c15f79-8FB1-4e29-a6c9-be0d36ff19f1
-    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-    - **Test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: Falso
 - Afirmações de saída:
-    - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -452,7 +452,7 @@ Limpe o valor de uma afirmação de determinado.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| outputClaim | claim_to_null | cadeia | A afirmação de seu valor para ser NULL. |
+| OutputClaim | claim_to_null | cadeia | A afirmação de seu valor para ser NULL. |
 
 Use essa transformação de afirmação para remover dados desnecessários da matriz de propriedades de afirmações. Então, o cookie de sessão serão menor. O exemplo seguinte remove o valor da `TermsOfService` tipo de afirmação.
 
@@ -475,8 +475,8 @@ Obtém a parte do domínio de um endereço de e-mail.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Endereço de correio eletrónico | cadeia | ClaimType que contém o endereço de e-mail. |
-| outputClaim | domínio | cadeia | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado - o domínio. |
+| InputClaim | emailAddress | cadeia | ClaimType que contém o endereço de e-mail. |
+| OutputClaim | domínio | cadeia | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado - o domínio. |
 
 Utilize este afirmações de transformação para analisar o nome de domínio após o símbolo do utilizador @. Isso pode ser útil para remover informações de identificação pessoal (PII) de dados de auditoria. A transformação de declarações seguinte demonstra como analisar o nome de domínio de um **e-mail** de afirmação.
 
@@ -496,7 +496,7 @@ Utilize este afirmações de transformação para analisar o nome de domínio ap
 - Afirmações de entrada:
     - **endereço de correio eletrónico**: joe@outlook.com
 - Afirmações de saída:
-    - **domínio**: outlook.com
+    - **domain**: outlook.com
 
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -504,14 +504,14 @@ Verifica se uma cadeia de caracteres de afirmação e `matchTo` parâmetro de en
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | cadeia | O tipo de afirmação, que está a ser comparado. |
+| inputClaim | inputClaim | cadeia | O tipo de afirmação, que está a ser comparado. |
 | InputParameter | matchTo | cadeia | A cadeia de caracteres a ser comparada ao `inputClaim`. |
 | InputParameter | stringComparison | cadeia | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | cadeia | Primeiro valor a ser definido se as cadeias de caracteres são iguais. |
 | InputParameter | stringMatchMsgCode | cadeia | Segundo valor a ser definido se as cadeias de caracteres são iguais. |
-| outputClaim | outputClaim1 | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `stringMatchMsg` parâmetro de entrada. |
-| outputClaim | outputClaim2 | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `stringMatchMsgCode` parâmetro de entrada. |
-| outputClaim | stringCompareResultClaim | boolean | A saída do resultado de comparação de afirmação de tipo, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
+| OutputClaim | outputClaim1 | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `stringMatchMsg` parâmetro de entrada. |
+| OutputClaim | outputClaim2 | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `stringMatchMsgCode` parâmetro de entrada. |
+| OutputClaim | stringCompareResultClaim | boolean | A saída do resultado de comparação de afirmação de tipo, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
 
 Pode utilizar este afirmações de transformação para verificar se uma afirmação é igual ao valor que especificou. Por exemplo, as seguintes afirmações verificações de transformação, se o valor do **termsOfUseConsentVersion** afirmação é igual a `v1`. Em caso afirmativo, altere o valor para `v2`. 
 
@@ -545,7 +545,7 @@ Pode utilizar este afirmações de transformação para verificar se uma afirma�
 - Afirmações de saída:
     - **outputClaim1**: B2C_V1_90005
     - **outputClaim2**: Os guias de instruções é atualizado para v2
-    - **stringCompareResultClaim**: VERDADEIRO
+    - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
@@ -553,12 +553,12 @@ Verifica se uma cadeia de caracteres de afirmação e `matchTo` parâmetro de en
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | claimToMatch | cadeia | O tipo de afirmação, que está a ser comparado. |
+| inputClaim | claimToMatch | cadeia | O tipo de afirmação, que está a ser comparado. |
 | InputParameter | matchTo | cadeia | A cadeia a ser comparada ao inputClaim. |
 | InputParameter | stringComparison | cadeia | Valores possíveis: `Ordinal` ou `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | cadeia | O valor a ser definido se as cadeias de caracteres são iguais. |
-| outputClaim | outputClaim | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `outputClaimIfMatched` parâmetro de entrada. Ou null, se as cadeias de caracteres não correspondem. |
-| outputClaim | stringCompareResultClaim | boolean | A saída do resultado de comparação de afirmação de tipo, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
+| OutputClaim | outputClaim | cadeia | Se as cadeias de caracteres é igual a, esta afirmação de saída contém o valor da `outputClaimIfMatched` parâmetro de entrada. Ou null, se as cadeias de caracteres não correspondem. |
+| OutputClaim | stringCompareResultClaim | boolean | A saída do resultado de comparação de afirmação de tipo, que deve ser definido como `true` ou `false` com base no resultado da comparação. |
 
 Por exemplo, as seguintes afirmações verificações de transformação, se o valor de **ageGroup** afirmação é igual a `Minor`. Se Sim, devolver o valor a `B2C_V1_90001`. 
 
@@ -589,5 +589,5 @@ Por exemplo, as seguintes afirmações verificações de transformação, se o v
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Afirmações de saída:
     - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: VERDADEIRO
+    - **isMinor**: true
 

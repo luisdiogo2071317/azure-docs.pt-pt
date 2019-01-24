@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Lucidchart | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Lucidchart | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Lucidchart.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 45dbf350bc874d48b077ba8f7d67819eff741df2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b53ddb800bfd2eaf1f85c3a00f55d9f03bdc7c9f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816607"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integração do Azure Active Directory com Lucidchart
+# <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integração do Active Directory do Azure com Lucidchart
 
 Neste tutorial, saiba como integrar Lucidchart com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Lucidchart, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Lucidchart logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Lucidchart com o Azure AD, terá de adicionar 
 
 **Para adicionar Lucidchart a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -126,7 +126,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No menu na parte superior, clique em **equipe**.
    
-    ![Equipe](./media/lucidchart-tutorial/ic791190.png "equipe")
+    ![Team](./media/lucidchart-tutorial/ic791190.png "Team")
 
 1. Clique em **aplicativos \> gerir SAML**.
    
@@ -151,7 +151,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Guardar alterações](./media/lucidchart-tutorial/ic791195.png "guardar alterações")
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.

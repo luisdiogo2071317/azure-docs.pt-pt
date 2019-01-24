@@ -3,24 +3,24 @@ title: Como ligar uma subscrição do Azure para o Azure Active Directory B2C | 
 description: Guia passo a passo para ativar a faturação para o inquilino do Azure AD B2C para uma subscrição do Azure.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100060"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853192"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Ligar uma subscrição do Azure para um inquilino do Azure AD B2C
 
 > [!IMPORTANT]
-> As últimas informações sobre a utilização de faturação e preços do Azure AD B2C é a página seguinte: [preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> As informações mais recentes na utilização, faturação e preços para o Azure AD B2C são a página seguinte: [O Azure AD B2C preços](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Os custos de utilização para o Azure AD B2C são faturados a uma subscrição do Azure. Quando é criado um inquilino do Azure AD B2C, o administrador de inquilino tem de ligar explicitamente o inquilino do Azure AD B2C a uma subscrição do Azure. Este artigo mostra-lhe como.
 

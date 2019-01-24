@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: bdfe06c52a6fd4afa513821923581cd28713d872
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f8f47201149ce2384eb0adcef86936dc9d017c85
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Active Directory do Azure com o FreshDesk
 
@@ -119,7 +119,7 @@ Para configurar o Azure AD início de sessão único com o FreshDesk, execute os
     
     | Nome | Atributo de origem |
     | ---------------| --------------- |
-    | Identificador de Utilizador Exclusivo | User.Mail |
+    | Identificador de Utilizador Exclusivo | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -158,7 +158,7 @@ Para configurar o Azure AD início de sessão único com o FreshDesk, execute os
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 

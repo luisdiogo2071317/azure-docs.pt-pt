@@ -3,9 +3,9 @@ title: Service Bus, preços e faturação | Documentos da Microsoft
 description: Descrição geral da estrutura de preços do Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406844"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852937"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus, preços e faturação
 
@@ -32,8 +32,8 @@ O Azure Service Bus está disponível em Standard e [Premium](service-bus-premiu
 
 O Service Bus utiliza os seguintes medidores de 2 para filas e tópicos/subscrições:
 
-1. **Operações de mensagens**: definidas como chamadas de API em relação a pontos finais de serviço de fila ou tópico/subscrição. Este medidor substitui as mensagens enviadas ou recebidas como a unidade primária de utilização cobrar para filas e tópicos/subscrições.
-2. **Ligações mediadas**: definido como o número máximo de ligações persistentes aberto relativamente a filas, tópicos ou subscrições durante um período de amostragem de uma hora determinada. Este medidor aplica-se apenas no escalão Standard, na qual pode abrir ligações adicionais (anteriormente, eram limitadas a 100 por fila/tópico/subscrição ligações) de uma taxa nominal por conexão.
+1. **Operações de mensagens**: Definido como chamadas de API em relação a pontos finais de serviço de fila ou tópico/subscrição. Este medidor substitui as mensagens enviadas ou recebidas como a unidade primária de utilização cobrar para filas e tópicos/subscrições.
+2. **Ligações mediadas**: Definido como o número máximo de ligações persistentes aberto relativamente a filas, tópicos ou subscrições durante um período de amostragem de uma hora determinada. Este medidor aplica-se apenas no escalão Standard, na qual pode abrir ligações adicionais (anteriormente, eram limitadas a 100 por fila/tópico/subscrição ligações) de uma taxa nominal por conexão.
 
 O **padrão** apresenta o escalão de preços escalonados para operações executadas com filas e tópicos/subscrições, resultando em descontos com base no volume de até 80% com os mais altos níveis de utilização. Também existe uma cobrança de base de escalão Standard de US $10 por mês, o que lhe permitem realizar operações de até 12,5 milhões por mês sem custos adicionais.
 
@@ -95,7 +95,7 @@ Custos do Service Bus para o número máximo de ligações mediadas simultâneas
 
 Por exemplo:
 
-1. Cada 10 000 dispositivos se liga através de uma única ligação AMQP e recebe comandos de um tópico do Service Bus. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos se ligarem durante 12 horas por dia, os seguintes custos de ligação aplicam (além de quaisquer outros custos do Service Bus tópico): 10.000 ligações * 12 horas * 31 dias / dias/744 = 5000 ligações mediadas. Depois do montante mensal de 1000 ligações mediadas, ser--ão cobradas 4000 ligações mediadas, à taxa de US $0.03 por ligação mediada, para um total de US $120.
+1. Cada 10 000 dispositivos se liga através de uma única ligação AMQP e recebe comandos de um tópico do Service Bus. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos se ligarem durante 12 horas por dia, aplicam as seguintes cobranças de ligação (acrescidos de quaisquer outros custos do Service Bus tópico): 10.000 ligações * 12 horas * 31 dias / dias/744 = 5000 ligações mediadas. Depois do montante mensal de 1000 ligações mediadas, ser--ão cobradas 4000 ligações mediadas, à taxa de US $0.03 por ligação mediada, para um total de US $120.
 2. 10.000 dispositivos recebem mensagens de uma fila do Service Bus por HTTP, especificando um tempo limite de diferente de zero. Se todos os dispositivos se ligarem durante 12 horas por dia, verá os seguintes custos de ligação (acrescidos de quaisquer outros custos do Service Bus): 10.000 ligações de receção HTTP * 12 horas por dia * 31 dias / 744 horas = 5000 ligações mediadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aplicam-se custos de ligações mediadas a filas e tópicos/subscrições?

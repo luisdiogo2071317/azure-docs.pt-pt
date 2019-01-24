@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 292a9ecd012be030df8cf792f9991591d43c8db9
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383074"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853821"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: Avaliar cargas de trabalho no local para migração no Azure
 
@@ -206,7 +206,7 @@ Os resultados são apresentados quando eles estão disponíveis. Se a Contoso co
 > [!NOTE]
 > Para obter avaliações de larga escala:
 > - Executar várias avaliações em simultâneo e ver o estado das mesmas na **todas as avaliações** página.
-> - Consolidar avaliações numa [base de dados do SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Consolidar avaliações numa [base de dados do SQL Server](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolidar avaliações numa [relatório do Power BI](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Passo 3: Preparar a avaliação da VM com o Azure Migrate

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com vxMaintain | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com vxMaintain | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819905"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory com vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integração do Active Directory do Azure com vxMaintain
 
 Neste tutorial, saiba como integrar vxMaintain com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [
 
 Para configurar a integração do Azure AD com vxMaintain, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um vxMaintain subscrição SSO ativado
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Nesta secção, vai criar o utilizador de teste Eduarda Almeida no portal do Azu
  
 ### <a name="create-a-vxmaintain-test-user"></a>Criar um utilizador de teste vxMaintain
 
-Nesta secção, vai criar o utilizador de teste Eduarda Almeida na vxMaintain. Para adicionar os utilizadores na plataforma vxMaintain, trabalhar com o [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact). Antes de utilizar SSO, criar e ativar os utilizadores.
+Nesta secção, vai criar o utilizador de teste Eduarda Almeida na vxMaintain. Para adicionar os utilizadores na plataforma vxMaintain, trabalhar com o [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact). Antes de utilizar SSO, criar e ativar os utilizadores.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

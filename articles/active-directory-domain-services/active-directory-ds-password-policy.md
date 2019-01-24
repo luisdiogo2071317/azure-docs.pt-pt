@@ -4,7 +4,7 @@ description: Compreender as políticas de palavra-passe nos domínios geridos
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284613"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852699"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de bloqueio de conta e palavra-passe nos domínios geridos
 Este artigo explica as políticas de palavra-passe predefinido num domínio gerido. Também aborda como configurar estas políticas.
@@ -60,7 +60,7 @@ Num domínio gerido, as seguintes políticas de palavra-passe estão configurada
 Num domínio gerido, as seguintes políticas de bloqueio de conta estão configuradas por predefinição:
 * Duração do bloqueio de conta: 30
 * Número de tentativas de início de sessão permitido: 5
-* Contagem depois de tentativas de reposição de início de sessão: 30 minutos
+* Reposição de início de sessão tenta contagem após: 30 minutos
 
 Efetivamente, contas de utilizador são bloqueadas durante 30 minutos se as palavras-passe inválidas cinco são utilizadas em dois minutos. As contas são automaticamente desbloqueadas após 30 minutos.
 
@@ -113,7 +113,7 @@ Para criar um FGPP personalizado no seu domínio gerido:
   ![FGPP aplicada](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Para aplicar políticas de palavra-passe personalizada para contas de utilizador numa UO personalizada:** podem ser aplicadas políticas de palavra-passe de refinado bem apenas a grupos. Para configurar uma política personalizada de palavra-passe apenas para os utilizadores de uma UO personalizado, crie um grupo que inclui os utilizadores nessa UO.
+> **Para aplicar políticas de palavra-passe personalizada para contas de utilizador numa UO personalizada:** Políticas de palavra-passe de refinado bem podem ser aplicadas apenas a grupos. Para configurar uma política personalizada de palavra-passe apenas para os utilizadores de uma UO personalizado, crie um grupo que inclui os utilizadores nessa UO.
 >
 >
 

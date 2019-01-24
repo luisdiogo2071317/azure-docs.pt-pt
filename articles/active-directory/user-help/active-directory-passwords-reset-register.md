@@ -3,7 +3,7 @@ title: Registe-se para reposição de palavra-passe self-service - Azure Active 
 description: Registar dados de autenticação de palavra-passe self-service do Azure AD repor
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107128"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821673"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registar-se na reposição personalizada de palavra-passe
 
@@ -31,9 +31,9 @@ Como um utilizador final, pode repor a palavra-passe ou desbloquear a conta por 
 1. Abra o browser no seu dispositivo e vá para o [página de registo de reposição de palavra-passe](https://aka.ms/ssprsetup).
 2. Introduza o seu nome de utilizador e a palavra-passe que o administrador fornecido.
 3. Dependendo de como a sua equipa de TI configurou as coisas, uma ou mais das seguintes opções estão disponíveis para configurar e verificar. Se o administrador tem sua permissão para utilizar as suas informações, eles podem preencher algumas das informações para.
-    * **Telefone do escritório**: apenas o administrador pode definir esta opção.
-    * **Telefone de autenticação**: defina esta opção para outro número de telefone que tem acesso. Um exemplo é um telefone celular que podem receber uma mensagem de texto ou de uma chamada.
-    * **E-Mail de autenticação**: defina esta opção para um endereço de correio eletrónico alternativo que pode aceder sem utilizar a palavra-passe que pretende repor.
+    * **Telefone do escritório**: Apenas o administrador pode definir esta opção.
+    * **Telefone de autenticação**: Defina esta opção para outro número de telefone que tem acesso. Um exemplo é um telefone celular que podem receber uma mensagem de texto ou de uma chamada.
+    * **E-Mail de autenticação**: Defina esta opção para um endereço de correio eletrónico alternativo que pode aceder sem utilizar a palavra-passe que pretende repor.
     * **Perguntas de segurança**: O administrador aprovou esta lista de perguntas para que possa responder. Não é possível utilizar a mesma pergunta ou responder a mais de uma vez.
 4. Forneça e verifique se as informações que o administrador necessita. Se mais do que uma opção está disponível, sugerimos que registe vários métodos. Isso lhe dá flexibilidade quando um dos métodos não está disponível. Um exemplo é quando estiver viajando e não for possível aceder ao seu telefone do escritório.
 

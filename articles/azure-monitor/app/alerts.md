@@ -11,14 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121146"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843519"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -89,7 +89,20 @@ Alertas populares incluem:
 * **Tempo de resposta do servidor** no lado do servidor de aplicativos web. Bem como a configuração de alertas, manter a par esta métrica para ver se desproporcional varia com taxas de pedidos de alta: variação pode indicar que a aplicação está a ficar sem recursos. 
 * **Exceções de servidor** - para vê-los, precisa fazer algumas [programa de configuração adicional](../../azure-monitor/app/asp-net-exceptions.md).
 
-Não se esqueça de que [diagnóstico de taxa de falha proativos](../../azure-monitor/app/proactive-failure-diagnostics.md) monitorizar automaticamente a taxa a que a aplicação responde a solicitações com códigos de falha. 
+Não se esqueça de que [diagnóstico de taxa de falha proativos](../../azure-monitor/app/proactive-failure-diagnostics.md) monitorizar automaticamente a taxa a que a aplicação responde a solicitações com códigos de falha.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Quem receberá notificações de alerta (clássicas)?
+
+Esta secção apenas se aplica a alertas clássicos e irá ajudá-lo a otimizar suas notificações de alerta para garantir que apenas os destinatários desejados recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, consulte a [artigo de descrição geral de alertas](../platform/alerts-overview.md). Para controlar o alerta de notificação no novos alertas experiência de utilização [grupos de ação](../platform/action-groups.md).
+
+* Recomendamos a utilização de destinatários específicos para as notificações de alerta clássicas.
+
+* Para alertas em qualquer métricas do Application Insights (incluindo as métricas de disponibilidade), o **em massa/grupo** opção de caixa de verificação, se estiver ativada, envia para os utilizadores com funções de proprietário, contribuinte ou leitor na subscrição. Na verdade, _todos os_ os utilizadores com acesso à subscrição do recurso do Application Insights estão no âmbito e irá receber notificações. 
+
+> [!NOTE]
+> Se utilizar atualmente o **em massa/grupo** opção de caixa de verificação e desativá-la, não será capaz de reverter a alteração.
+
+Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de notificar os utilizadores com base nas suas funções. Com o [grupos de ação](../platform/action-groups.md), pode configurar notificações por e-mail aos utilizadores com qualquer uma das funções Contribuidor/proprietário/leitor (não combinadas em conjunto como uma única opção).
 
 ## <a name="automation"></a>Automatização
 * [Utilize o PowerShell para automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)

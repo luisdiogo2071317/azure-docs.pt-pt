@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226749"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841447"
 ---
 É importante proteger a sua máquina virtual (VM) para as aplicações que executar. Proteger as VMs pode incluir um ou mais serviços do Azure e os recursos que abrangem o acesso seguro às suas VMs e armazenamento seguro dos seus dados. Este artigo fornece informações que lhe permite proteger a sua VM e aplicações.
 
@@ -23,7 +23,7 @@ O Panorama de ameaças modernas para ambientes de nuvem é dinâmico, aumentando
 
 ## <a name="encryption"></a>Encriptação
 
-Para avançada [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) e [VM do Linux](../articles/virtual-machines/linux/encrypt-disks.md) segurança e conformidade, discos virtuais no Azure podem ser encriptados. Discos virtuais em VMs do Windows são encriptados em descanso ao utilizar o Bitlocker. Discos virtuais em VMs do Linux são encriptados em descanso ao utilizar o dm-crypt. 
+Para avançada [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) e [VM do Linux](../articles/virtual-machines/linux/encrypt-disks.md) segurança e conformidade, discos virtuais no Azure podem ser encriptados. Discos virtuais em VMs do Windows são encriptados em descanso ao utilizar o BitLocker. Discos virtuais em VMs do Linux são encriptados em descanso ao utilizar o dm-crypt. 
 
 Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas no Azure Key Vault com a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. Estas chaves criptográficas são utilizados para encriptar e desencriptar os discos virtuais anexados a sua VM. Manter o controlo destas chaves criptográficas e pode auditar o seu uso. Um principal de serviço do Azure Active Directory fornece um mecanismo seguro para a emissão estas chaves criptográficas, como as VMs têm a tecnologia e desativar.
 

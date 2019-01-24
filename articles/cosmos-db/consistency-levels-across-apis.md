@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: a506c696cdb9ca6c6221b54c63d2446b7cb86a69
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430571"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807002"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
@@ -26,196 +26,46 @@ As secções seguintes mostram o mapeamento entre a consistência de dados solic
 
 Esta tabela mostra o mapeamento de consistência entre o Apache Cassandra e níveis de consistência no Azure Cosmos DB. Para cada uma leitura de Cassandra e níveis de consistência de escrita, a consistência nível correspondente do Cosmos DB fornece mais forte, ou seja, mais estritas garantias.
 
+A tabela seguinte mostra os **escrever o mapeamento de consistência** entre o Azure Cosmos DB e Cassandra:
 
-<table>
-<tr> 
-  <th rowspan="2">Nível de consistência de Cassandra</th> 
-  <th rowspan="2">Nível de consistência do cosmos DB</th> 
-  <th colspan="3">Mapeamento de consistência de escrita</th> 
-  <th colspan="3">Mapeamento de consistência de leitura</th> 
-</tr> 
+| Cassandra | Azure Cosmos DB | Garantia |
+| - | - | - |
+|TODOS|Forte  | Transação Atómica |
+| EACH_QUORUM   | Forte    | Transação Atómica | 
+| QUORUM, SERIAL |  Forte |    Transação Atómica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo Consistente |Prefixo consistente global |
+| EACH_QUORUM   | Forte    | Transação Atómica |
+| QUORUM, SERIAL |  Forte |    Transação Atómica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo Consistente | Prefixo consistente global |
+| QUORUM, SERIAL | Forte   | Transação Atómica |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | Prefixo Consistente | Prefixo consistente global |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | Estagnação Limitada | <ul><li>Estagnação limitada.</li><li>Na maioria das versões K ou hora de t por trás.</li><li>Leia mais recente confirmada valor na região.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | Prefixo Consistente | Prefixo consistente de por região |
 
+A tabela seguinte mostra os **mapeamento de consistência de leitura** entre o Azure Cosmos DB e Cassandra:
 
- 
- <tr> 
-  <th>Cassandra</th> 
-  <th>BD do Cosmos</th> 
-  <th>Garantia</th> 
-  <th>Do Cassandra</th> 
-  <th>Para o Cosmos DB</th> 
-  <th>Garantia</th> 
- </tr> 
- 
-  <tr> 
-  <td rowspan="6">TODOS</td> 
-  <td rowspan="6">Forte</td> 
-  <td>TODOS</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Forte</td> 
-  <td rowspan="2">Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL,  LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO</td> 
-  <td>Forte</td> 
-  <td >Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
+| Cassandra | Azure Cosmos DB | Garantia |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Forte  | Transação Atómica|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Forte |   Transação Atómica |
+|LOCAL_ONE, ONE | Prefixo Consistente | Prefixo consistente global |
+| ALL, QUORUM, SERIAL   | Forte    | Transação Atómica |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Prefixo Consistente   | Prefixo consistente global |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    Prefixo Consistente   | Prefixo consistente global |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Forte |   Transação Atómica |
+| LOCAL_ONE, ONE    | Prefixo Consistente | Prefixo consistente global|
+| TUDO, o QUÓRUM, SERIAL forte transação Atómica
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo Consistente  | Prefixo consistente global |
+|TODOS    |Forte |Transação Atómica |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |Prefixo Consistente  |Prefixo consistente global|
+|TUDO, o QUÓRUM, SERIAL forte transação Atómica
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |Prefixo Consistente  |Prefixo consistente global |
+|TODOS    |Forte | Transação Atómica |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo Consistente | Prefixo consistente global |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  Estagnação Limitada   | <ul><li>Estagnação limitada.</li><li>Na maioria das versões K ou hora de t por trás. </li><li>Leia mais recente confirmada valor na região.</li></ul>
+| LOCAL_ONE, ONE |Prefixo Consistente | Prefixo consistente de por região |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | Prefixo Consistente | Prefixo consistente de por região |
 
- <tr> 
-  <td rowspan="2">QUORUM, SERIAL</td> 
-  <td rowspan="2">Forte</td> 
-  <td rowspan="2">Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL</td> 
-  <td>Forte</td> 
-  <td >Transação Atómica</td> 
- </tr> 
-
- <tr>
-   <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-   <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
- 
- <tr> 
- <td>LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, <b>ANY</b></td> 
-  <td>Prefixo Consistente</td> 
-  <td>Prefixo consistente global</td> 
-  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
-  <td>Prefixo Consistente</td> 
-  <td>Prefixo consistente global</td>
- </tr> 
- 
- 
-  <tr> 
-  <td rowspan="6">EACH_QUORUM</td> 
-  <td rowspan="6">Forte</td> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Forte</td> 
-  <td rowspan="2">Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL,  LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
- 
- 
- <tr> 
-  <td rowspan="2">QUORUM, SERIAL</td> 
-  <td rowspan="2">Forte</td> 
-  <td rowspan="2">Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
- 
-  <tr> 
-  <td rowspan="2">LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY</td> 
-  <td rowspan="2">Prefixo Consistente</td> 
-  <td rowspan="2">Prefixo consistente global</td> 
-  <td>TODOS</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
-
-
-  <tr> 
-  <td rowspan="4">QUÓRUM</td> 
-  <td rowspan="4">Forte</td> 
-  <td rowspan="2">QUORUM, SERIAL</td> 
-  <td rowspan="2">Forte</td> 
-  <td rowspan="2">Transação Atómica</td> 
-  <td>ALL, QUORUM, SERIAL</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
- 
- <tr> 
-  <td rowspan="2">LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY</td> 
-  <td rowspan="2">Prefixo Consistente </td> 
-  <td rowspan="2">Prefixo consistente global </td> 
-  <td>TODOS</td> 
-  <td>Forte</td> 
-  <td>Transação Atómica</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente global</td>
- </tr>
- 
- <tr> 
-  <td rowspan="4">LOCAL_QUORUM, THREE, TWO</td> 
-  <td rowspan="4">Estagnação Limitada</td> 
-  <td rowspan="2">LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
-  <td rowspan="2">Estagnação Limitada</td> 
-  <td rowspan="2">Estagnação limitada.<br/>
-Na maioria das versões K ou hora de t por trás.<br/>
-Leia mais recente confirmada valor na região. 
-</td> 
-  
-  <td>QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
-  <td>Estagnação Limitada</td> 
-  <td>Estagnação limitada.<br/>
-Na maioria das versões K ou hora de t por trás. <br/>
-Leia mais recente confirmada valor na região. </td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Prefixo Consistente</td>
-   <td>Prefixo consistente de por região</td>
- </tr>
- 
- 
- <tr> 
-  <td>ONE, LOCAL_ONE, ANY</td> 
-  <td>Prefixo Consistente </td> 
-  <td >Prefixo consistente de por região </td> 
-  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
-  <td>Prefixo Consistente</td> 
-  <td>Prefixo consistente de por região</td> 
- </tr> 
-</table>
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência de invocação MongoDB 3.4 e o Azure Cosmos DB
 

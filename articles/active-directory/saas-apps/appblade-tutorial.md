@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com AppBlade | Microsoft Docs'
-description: Saiba como configurar o início de sessão entre o Azure Active Directory e AppBlade.
+title: 'Tutorial: Integração do Active Directory do Azure com AppBlade | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e AppBlade.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3360d7aa-6518-4f99-88bd-b7f7258183e8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 66c893a89138d7daf7d8118d8e2b1d8389d40ea4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 119647c4aeabc8f4a6dd3a1933fcfafe6b6cf5c2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229303"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813326"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutorial: Integração do Azure Active Directory com AppBlade
+# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutorial: Integração do Active Directory do Azure com AppBlade
 
-Neste tutorial, irá aprender a integrar AppBlade com o Azure Active Directory (Azure AD).
+Neste tutorial, saiba como integrar AppBlade com o Azure Active Directory (Azure AD).
 
-Integrar AppBlade com o Azure AD fornece as seguintes vantagens:
+Integrar AppBlade no Azure AD fornece as seguintes vantagens:
 
 - Pode controlar no Azure AD que tenha acesso ao AppBlade
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para AppBlade (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para AppBlade (Single Sign-On) com as suas contas do Azure AD
+- Pode gerir as suas contas num local central – portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com AppBlade, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
-- Um AppBlade início de sessão único subscrição ativado
+- Uma subscrição do Azure
+- Um AppBlade início de sessão único na subscrição ativado
 
 > [!NOTE]
-> Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar AppBlade a partir da Galeria
-2. Configurar e testar o Azure AD de sessão único-
+1. Adicionando AppBlade da Galeria
+2. Configuração e teste do Azure AD início de sessão único
 
-## <a name="adding-appblade-from-the-gallery"></a>Adicionar AppBlade a partir da Galeria
-Para configurar a integração de AppBlade com o Azure AD, terá de adicionar AppBlade a partir da Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-appblade-from-the-gallery"></a>Adicionando AppBlade da Galeria
+Para configurar a integração do AppBlade com o Azure AD, terá de adicionar AppBlade a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar AppBlade a partir da galeria, execute os seguintes passos:**
 
-1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![Aplicações][2]
     
-3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![Aplicações][3]
 
@@ -75,49 +75,49 @@ Para configurar a integração de AppBlade com o Azure AD, terá de adicionar Ap
 
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/tutorial_appblade_search.png)
 
-5. No painel de resultados, selecione **AppBlade**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **AppBlade**e, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/tutorial_appblade_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com AppBlade com base num utilizador de teste chamado "Britta Simon."
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
+Nesta secção, configure e teste do Azure AD início de sessão único com AppBlade com base num utilizador de teste chamado "Eduarda Almeida."
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no AppBlade é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AppBlade tem de ser estabelecida.
+Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no AppBlade a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AppBlade deve ser estabelecido.
 
-No AppBlade, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
+AppBlade, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD-início de sessão único com AppBlade, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD início de sessão único com AppBlade, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste AppBlade](#creating-an-appblade-test-user)**  - para ter um homólogo de Britta Simon AppBlade que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste AppBlade](#creating-an-appblade-test-user)**  - para ter um equivalente da Eduarda Almeida na AppBlade que está ligado à representação de utilizador do Azure AD.
+4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação AppBlade.
+Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo AppBlade.
 
-**Para configurar o Azure AD-início de sessão único com AppBlade, execute os seguintes passos:**
+**Para configurar o Azure AD início de sessão único com AppBlade, execute os seguintes passos:**
 
-1. No portal do Azure, no **AppBlade** página de integração de aplicações, clique em **de sessão único-**.
+1. No portal do Azure, sobre o **AppBlade** página de integração de aplicação, clique em **início de sessão único**.
 
     ![Configurar o início de sessão único][4]
 
-2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
  
     ![Configurar o início de sessão único](./media/appblade-tutorial/tutorial_appblade_samlbase.png)
 
-3. No **AppBlade domínio e os URLs** secção, execute os seguintes passos:
+3. Sobre o **AppBlade domínio e URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/appblade-tutorial/tutorial_appblade_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.appblade.com/saml/<tenantid>`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.appblade.com/saml/<tenantid>`
 
     > [!NOTE] 
     > Este valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente AppBlade](mailto:support@appblade.com) para obter o valor. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![Configurar o início de sessão único](./media/appblade-tutorial/tutorial_appblade_certificate.png) 
 
@@ -125,20 +125,20 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/appblade-tutorial/tutorial_general_400.png)
 
-6. Para configurar o início de sessão único em **AppBlade** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de AppBlade](mailto:support@appblade.com). Além disso, volte a peça-lhes para configurar o **URL do emissor de SSO** como `https://appblade.com/saml`. Esta definição é necessária para início de sessão trabalhar.
+6. Para configurar o início de sessão único num **AppBlade** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de AppBlade](mailto:support@appblade.com). Além disso, volte a peça-lhe para configurar o **URL de emissor de SSO** como `https://appblade.com/saml`. Esta definição é necessária para início de sessão único trabalhar.
 
 
 > [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 ![Criar utilizador do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/create_aaduser_01.png) 
 
@@ -146,44 +146,44 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/create_aaduser_02.png) 
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
+3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/create_aaduser_03.png) 
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
+4. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
  
     ![Criar um utilizador de teste do Azure AD](./media/appblade-tutorial/create_aaduser_04.png) 
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
  
 ### <a name="creating-an-appblade-test-user"></a>Criar um utilizador de teste AppBlade
 
-O objetivo desta secção consiste em criar um utilizador chamado Britta Simon AppBlade. AppBlade suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. **Certifique-se de que o seu nome de domínio está configurado com AppBlade para aprovisionamento de utilizadores. Após a que apenas o utilizador just-in-time aprovisionamento funciona.**
+O objetivo desta secção é criar um usuário chamado Eduarda Almeida no AppBlade. AppBlade suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. **Certifique-se de que o seu nome de domínio está configurado com AppBlade para aprovisionamento de utilizadores. Depois que apenas o utilizador just-in-time aprovisionamento funciona.**
 
-Se o utilizador tiver um endereço de e-mail que termina com o domínio configurado pelo AppBlade para a sua conta, em seguida, o utilizador irão automaticamente aderir a conta como um membro com o nível de permissões que especificar, que é um "Basic" (um utilizador básico que só pode instalar aplicações) , "Membro de equipa" (um utilizador pode carregar novas versões da aplicação e gerir projetos), ou "Administrador" (privilégios de administrador total para a conta). Normalmente um seria escolha básicas e, em seguida, promova utilizadores manualmente através de um início de sessão de administrador (AppBlade tem de configurar a um início de sessão administração baseada em e-mail antecipadamente ou promover um utilizador em nome de cliente após o início de sessão).
+Se o utilizador tiver um endereço de e-mail que termine com o domínio configurado pelo AppBlade para a sua conta, em seguida, o utilizador irão automaticamente aderir a conta como um membro com o nível de permissão que especificar, o que é um dos "Basic" (um utilizador básico que só pode instalar aplicações) , "Membro da Equipe do" (um utilizador que pode carregar novas versões de aplicações e gerir projetos), ou "Administrador" (privilégios de administrador completo para a conta). Normalmente um seria escolha básica e promover, em seguida, os utilizadores manualmente por meio de um início de sessão de administrador (AppBlade tem de configurar um logon de administração baseada em e-mail antecipadamente ou promover um utilizador em nome do cliente após o início de sessão).
 
-Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante a tentativa de aceder AppBlade se não existir ainda. 
+Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder AppBlade se não existir ainda. 
 
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de AppBlade](mailto:support@appblade.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para AppBlade.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para AppBlade.
 
-![Atribua o utilizador][200] 
+![Atribuir utilizador][200] 
 
-**Para atribuir Britta Simon a AppBlade, execute os seguintes passos:**
+**Para atribuir a Eduarda Almeida a AppBlade, execute os seguintes passos:**
 
-1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribuir utilizador][201] 
 
 2. Na lista de aplicações, selecione **AppBlade**.
 
@@ -191,27 +191,27 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribuir utilizador][202] 
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
 
-6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.  
-Quando clica no mosaico AppBlade no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de AppBlade. 
+O objetivo desta secção é testar a configuração do Azure AD única início de sessão com o painel de acesso.  
+Quando clica no mosaico AppBlade no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo AppBlade. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

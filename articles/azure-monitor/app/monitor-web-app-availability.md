@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359702"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857153"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -186,15 +186,15 @@ Clique num ponto vermelho.
 A partir de um resultado de teste de disponibilidade, pode ver os detalhes de transações em todos os componentes. Aqui, pode:
 
 * Inspecionar a resposta recebida do seu servidor.
-* Diagnosticar falhas com a telemetria de lado do servidor correlacionado recolhida durante o processamento o teste de disponibilidade falhou.
+* Diagnosticar falhas com a telemetria correlacionada do lado do servidor recolhida durante o processamento o teste de disponibilidade falhou.
 * Inicie sessão um problema ou item de trabalho no Git ou do Azure quadros para controlar o problema. O erro irá conter uma ligação para este evento.
 * Abra o resultado do teste da Web no Visual Studio.
 
 Saber mais sobre os diagnósticos de transação de ponta a ponta experiência [aqui](../../azure-monitor/app/transaction-diagnostics.md).
 
-Clique na linha da exceção para ver os detalhes da exceção do lado servidor que causou o teste de disponibilidade sintético efetuar a ativação. Também pode obter o [instantâneo de depuração](../../azure-monitor/app/snapshot-debugger.md) para diagnóstico ao nível de código mais sofisticado.
+Clique na linha da exceção para ver os detalhes da exceção do lado do servidor que causou o teste de disponibilidade sintético efetuar a ativação. Também pode obter o [instantâneo de depuração](../../azure-monitor/app/snapshot-debugger.md) para diagnóstico ao nível de código mais sofisticado.
 
-![Diagnóstico de lado do servidor](./media/monitor-web-app-availability/open-instance-4.png)
+![Diagnóstico do lado do servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
 ## <a name="alerts"></a> Alertas de disponibilidade
 Pode ter os seguintes tipos de regras de alerta em dados de disponibilidade com a experiência de alertas clássicos:
@@ -203,7 +203,7 @@ Pode ter os seguintes tipos de regras de alerta em dados de disponibilidade com 
 3. Aumentos de duração média de teste para além de um limiar
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alerta sobre X fora de geração de relatórios de falhas de locais de Y
-O X fora de localizações de Y regra de alerta está ativada por predefinição no [experiência de novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), ao criar um novo teste de disponibilidade. Pode sair, selecionando a opção "clássica" ou optar por desabilitar a regra de alerta.
+O X fora de localizações de Y regra de alerta está ativada por predefinição no [experiência de novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), ao criar um novo teste de disponibilidade. Pode optar por, selecionando a opção "clássica" ou optar por desabilitar a regra de alerta.
 
 ![Criar experiência](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -297,9 +297,9 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
 
     * O seu teste tem "Analisar pedidos dependentes" ativados? Que resulta numa verificação rigorosa nos recursos, como scripts, imagens, etc. Esses tipos de falhas podem não ser evidentes num navegador. Verifique todas as imagens, scripts, folhas de estilo e outros ficheiros carregados pela página. Se qualquer um deles falhar, o teste é reportado como falhado, mesmo se a página principal HTML carregar corretamente. Para dessensibilizar o teste para tais falhas recursos, basta desmarcar "Analisar Pedidos Dependentes" da configuração do teste. 
 
-    * Para reduzir as probabilidades de ruído de blips de rede transitórios etc., certifique-se de que a configuração "Permitir repetição de falhas de teste" está marcada. Também pode testar a partir de mais localizações e gerir o limiar de regra de alerta em conformidade para evitar problemas específicos de localização que causam alertas indevidos.
+    * Para reduzir as probabilidades de ruído de blips de rede transitórios etc., certifique-se de que a configuração "Permitir repetição de falhas de teste" está marcada. Também pode testar a partir de mais localizações e gerir o limiar de regra de alerta em conformidade para evitar problemas específicos da localização que causam alertas indevidos.
 
-    * Clique em qualquer um dos vermelhos a experiência de disponibilidade do ou qualquer falha de disponibilidade a partir do Explorador de pesquisa para ver os detalhes de por que estamos reportou que a falha. O resultado do teste, juntamente com a telemetria de lado do servidor correlacionado (se ativada) deve ajudar a compreender o motivo pelo qual o teste falhou. Causas comuns de problemas transitórios problemas de rede ou a ligação. 
+    * Clique em qualquer um dos vermelhos a experiência de disponibilidade do ou qualquer falha de disponibilidade a partir do Explorador de pesquisa para ver os detalhes de por que estamos reportou que a falha. O resultado do teste, juntamente com a telemetria correlacionada do lado do servidor (se ativada) deve ajudar a compreender o motivo pelo qual o teste falhou. Causas comuns de problemas transitórios problemas de rede ou a ligação. 
 
     * Foi o limite de tempo de teste? Podemos abortar testes depois de 2 minutos. Se o ping ou o teste com vários passos demora mais de 2 minutos, vamos relatá-lo como uma falha. Considere dividir o teste em vários aqueles que podem ser concluídas em durações mais curtas.
 
@@ -356,6 +356,22 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
 * *Como executar um teste com certificados de cliente?*
 
     Essa função não é suportada.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Quem receberá notificações de alerta (clássicas)?
+
+Esta secção apenas se aplica a alertas clássicos e irá ajudá-lo a otimizar suas notificações de alerta para garantir que apenas os destinatários desejados recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md)e a nova experiência de alertas, consulte a [artigo de descrição geral de alertas](../platform/alerts-overview.md). Para controlar o alerta de notificação no novos alertas experiência de utilização [grupos de ação](../platform/action-groups.md).
+
+* Recomendamos a utilização de destinatários específicos para as notificações de alerta clássicas.
+
+* Para alertas em falhas de X fora de localizações de Y, o **em massa/grupo** opção de caixa de verificação, se estiver ativada, envia para os utilizadores com funções de administrador/coadministrador.  Essencialmente _todos os_ administradores da _subscrição_ irão receber notificações.
+
+* Para alertas em disponibilidade métricas (ou qualquer métricas do Application Insights para esse fim) a **em massa/grupo** opção de caixa de verificação se estiver ativada, envia para os utilizadores com funções de proprietário, contribuinte ou leitor na subscrição. Na verdade, _todos os_ os utilizadores com acesso à subscrição do recurso do Application Insights estão no âmbito e irá receber notificações. 
+
+> [!NOTE]
+> Se utilizar atualmente o **em massa/grupo** opção de caixa de verificação e desativá-la, não será capaz de reverter a alteração.
+
+Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de notificar os utilizadores com base nas suas funções. Com o [grupos de ação](../platform/action-groups.md), pode configurar notificações por e-mail aos utilizadores com qualquer uma das funções Contribuidor/proprietário/leitor (não combinadas em conjunto como uma única opção).
+
 
 
 ## <a name="next"></a>Passos seguintes

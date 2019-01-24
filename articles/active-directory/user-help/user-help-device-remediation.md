@@ -3,7 +3,7 @@ title: Potencial razões para a mensagem de erro "não pode aceder aí a partir 
 description: Resolver problemas relacionados com os possíveis motivos pelos quais esteja tirando a mensagem de erro "não pode aceder aí a partir daqui".
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: c34b096766b6b7dda26c51559bf58e40d95715e7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651589"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825532"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Razões possíveis para a mensagem de erro "não pode aceder aí a partir daqui"
 Ao aceder a aplicações web internas ou serviços da sua organização, poderá receber uma mensagem de erro que diz **não pode aceder aí a partir daqui**. Esta mensagem indica que sua organização colocou uma política que está a impedir o seu dispositivo de acesso a recursos da sua organização. Enquanto acabar, poderá ter de contactar o suporte técnico para corrigir este problema, aqui estão algumas coisas que pode tentar primeiro.
@@ -32,7 +32,7 @@ Para corrigir este problema, tem de instalar e executar um browser suportado, co
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Certifique-se de que está a utilizar um sistema operativo suportado
 Certifique-se de que está a executar uma versão suportada do sistema operacional, incluindo:
 
-- **Cliente do Windows.** Windows 7 ou posterior.
+- **Windows Client.** Windows 7 ou posterior.
 
 - **Windows Server.** Windows Server 2008 R2 ou posterior.
 

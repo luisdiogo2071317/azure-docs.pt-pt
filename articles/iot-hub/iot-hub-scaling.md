@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261723"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810912"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -43,6 +43,7 @@ Apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/
 | [Monitorização e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
 | [Mensagens cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
 | [Dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos de módulo](iot-hub-devguide-module-twins.md), e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
+| [Fluxos de dispositivo (pré-visualização)](iot-hub-device-streams-overview.md) |   | Sim |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sim |
 
 IoT Hub também oferece um escalão gratuito, que serve para teste e avaliação. Ele tem todas as funcionalidades do escalão standard, mas limitados concessões de mensagens. Não é possível atualizar do escalão gratuito para básico ou padrão. 

@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: d2602b79db0950043cc84bbd1626f7c8ec6f402a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714394"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813360"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias dentro da memória na base de dados SQL
 
@@ -70,7 +70,7 @@ Para obter mais informações, consulte:
 
 ## <a name="in-memory-oltp"></a>OLTP dentro da memória
 
-Tecnologia OLTP na memória fornece operações de acesso de dados de resposta extremamente rápidos, manter todos os dados na memória. Ele também usa índices especializados, compilação nativo de consultas e iniciativas de dados sem bloqueios temporários para melhorar o desempenho da carga de trabalho OLTP. Existem duas formas de organizar os dados de OLTP dentro da memória:
+Tecnologia OLTP na memória fornece operações de acesso de dados de resposta extremamente rápidos, manter todos os dados na memória. Ele também usa índices especializados, compilação nativo de consultas e acesso a dados sem bloqueios temporários para melhorar o desempenho da carga de trabalho OLTP. Existem duas formas de organizar os dados de OLTP dentro da memória:
 - **Com otimização de memória rowstore** formato em que cada linha é um objeto de memória em separado. Este é um formato de OLTP dentro da memória clássico otimizado para cargas de trabalho OLTP de alto desempenho. Existem dois tipos de tabelas com otimização de memória que podem ser utilizados no formato rowstore com otimização de memória:
   - *Tabelas duráveis* (SCHEMA_AND_DATA) em que as linhas colocadas na memória são mantidas depois de reiniciar o servidor. Este tipo de tabelas se comporte como uma tabela de rowstore tradicional com as vantagens adicionais das otimizações na memória.
   - *Duradoura não tabelas* (SCEMA_ONLY) onde as linhas são preservados para não após o reinício. Este tipo de tabela foi concebido para dados temporários (por exemplo, a substituição de tabelas temporárias) ou tabelas em que precisa rapidamente carregar os dados antes de movê-lo para alguma tabela persistente (então, a chamada de tabelas de testes).

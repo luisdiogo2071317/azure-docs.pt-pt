@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0dab14e9c8f99a10b1dc26c2adb1e88d3b18ee90
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468168"
+ms.locfileid: "54812459"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
@@ -61,7 +61,7 @@ Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo 
 
 ### <a name="open-a-notebook"></a>Abrir um bloco de notas 
 
-Blocos de notas do Azure fornece uma plataforma de cloud gratuitos para blocos de notas do Jupyter que é pré-configurado com tudo o que precisa para executar o Machine Learning. Na área de trabalho, pode iniciar esta plataforma para começar a utilizar a sua área de trabalho do serviço do Azure Machine Learning.
+[Blocos de notas do Azure](https://notebooks.azure.com) fornece uma plataforma de cloud gratuitos para blocos de notas do Jupyter que é pré-configurado com tudo o que precisa para executar o Machine Learning. Na área de trabalho, pode iniciar esta plataforma para começar a utilizar a sua área de trabalho do serviço do Azure Machine Learning.
 
 1. Na página de área de trabalho, selecione **Explore sua área de trabalho de serviço do Azure Machine Learning**.
 

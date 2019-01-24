@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060218"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819650"
 ---
-# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ligar dispositivos IoT para o Azure: IoT Hub e dos Hubs de eventos
+# <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ligar dispositivos IoT para o Azure: O Hub IoT e dos Hubs de eventos
 
 O Azure oferece serviços especificamente desenvolvidos para diversos tipos de conectividade e comunicação para o ajudar a ligar os seus dados para o poder da cloud. Tanto o IoT Hub do Azure como o Event Hubs do Azure são serviços em nuvem que podem ingerir grandes quantidades de dados e processar ou armazenar esses dados informações empresariais. Os dois serviços são semelhantes em que ambos dão suporte a ingestão de dados com baixa latência e alta fiabilidade, mas eles foram criados para diferentes fins. IoT Hub foi desenvolvido especificamente para lidar com os requisitos exclusivos de ligar dispositivos de IoT, à escala, para a Cloud do Azure, enquanto os Hubs de eventos foi concebido para grandes volumes de dados de transmissão em fluxo. Este é o motivo pelo qual a Microsoft recomenda utilizar o IoT Hub do Azure para ligar dispositivos IoT para o Azure
 
@@ -37,6 +37,7 @@ A tabela seguinte fornece detalhes sobre como as duas camadas do IoT Hub compara
 | Serviço de Aprovisionamento do Dispositivo | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Mensagens cloud para dispositivo | ![Marcar][checkmark] |  |  |
 | Dispositivo duplo e gestão de dispositivos | ![Marcar][checkmark] |  |  |
+| Fluxos de dispositivo (pré-visualização) | ![Marcar][checkmark] |  |  |
 | IoT Edge | ![Marcar][checkmark] |  |  |
 
 Mesmo que o caso de utilização única é ingestão de dados do dispositivo para a cloud, é altamente recomendável através do IoT Hub, pois fornece um serviço que foi concebido para conectividade do dispositivo IoT. 

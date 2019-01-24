@@ -3,21 +3,21 @@ title: Perguntas mais frequentes sobre o Azure Active Directory B2C | Documentos
 description: Perguntas freqüentes (FAQ) sobre o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e5e688fe741fdc4a83ae1a3cf13a6c722064407
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842956"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856303"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas Mais Frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não é possível a aceder a extensão do Azure AD B2C no portal do Azure?
@@ -47,7 +47,7 @@ Comece com as políticas personalizadas ao dar uma olhada em nosso [pacote de in
 Não. Os âmbitos de padrão usados para nosso conjunto de fornecedores de identidade social de suportados são:
 
 * Facebook: e-mail
-* Google +: e-mail
+* Google+: email
 * Conta Microsoft: perfil de e-mail do openid
 * Amazon: perfil
 * LinkedIn: r_emailaddress, r_basicprofile
@@ -61,8 +61,8 @@ Antes de abrir o "Azure AD B2C" no menu do lado esquerdo do portal do Azure, tem
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Como personalizar mensagens de correio eletrónico de verificação (o conteúdo e o "de:" campo) enviada pelo Azure AD B2C?
 Pode utilizar o [funcionalidade de imagem corporativa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo de mensagens de e-mail de verificação. Especificamente, esses dois elementos da mensagem de e-mail podem ser personalizados:
 
-* **Logótipo de faixa**: apresentado no canto inferior direito.
-* **Cor de fundo**: mostrado na parte superior.
+* **Logótipo de faixa**: Apresentado no canto inferior direito.
+* **Cor de fundo**: Mostrado na parte superior.
 
     ![Captura de ecrã de um e-mail de verificação personalizada](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory dos quadros de horários do Pacífico | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure dos quadros de horários do Pacífico | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e dos quadros de horários do Pacífico.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e546e8ba-821a-4942-9545-c84b0670beab
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec300052b00af451003a86a72a7154b1114d5484
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843653"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808199"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory dos quadros de horários do Pacífico
+# <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Active Directory do Azure dos quadros de horários do Pacífico
 
 Neste tutorial, saiba como integrar dos quadros de horários do Pacífico com o Azure Active Directory (Azure AD).
 
@@ -134,7 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **dos quadros de horários do Pacífico** lado, terá de enviar o transferido **certificado (Base64)**, **SAML único início de sessão no URL do serviço**e **ID de entidade de SAML** para [equipa de suporte dos quadros de horários do Pacífico](https://www.pacifictimesheet.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

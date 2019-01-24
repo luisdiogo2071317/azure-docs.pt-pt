@@ -1,5 +1,5 @@
 ---
-title: Consórcio de Recursos de Infraestrutura do Hyperledger
+title: Recursos de infraestrutura Hyperledger Consortium único membro
 description: Utilizar o modelo de solução Hyperledger Consortium de recursos de infraestrutura para implementar e configurar uma rede de membro único
 services: azure-blockchain
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6aa6d925d47ad9d24de68342f4a6e76a1d9d81f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231377"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828235"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rede de membro único Hyperledger recursos de infraestrutura
 
@@ -36,9 +36,9 @@ Este modelo implementa uma topologia para ajudar a testar e simular produção p
 
 A rede é composta por três tipos de nós:
 
-1. **Nó de membro**: um nó a executar o serviço de associação de recursos de infraestrutura que registra e gere os membros da rede. Este nó pode ser em cluster para escalabilidade e elevada disponibilidade; No entanto neste laboratório, será utilizado um nó de membro único.
-2. **Nós orderer**: transações atômicas ou difusão de encomenda de um nó a executar o serviço de comunicação implementando uma garantia de entrega, como o total.
-3. **Configurar o peering entre nós**: um nó em que consolida as transações e mantém o estado e uma cópia do livro razão distribuído.
+1. **Nó de membro**: Um nó a executar o serviço de associação de recursos de infraestrutura que registra e gere os membros da rede. Este nó pode ser em cluster para escalabilidade e elevada disponibilidade; No entanto neste laboratório, será utilizado um nó de membro único.
+2. **Nós orderer**: Um nó a executar o serviço de comunicação implementando uma garantia de entrega, como o total do pedido de difusão ou transações atômicas.
+3. **Configurar o peering entre nós**: Um nó em que consolida as transações e mantém o estado e uma cópia do livro razão distribuído.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -59,7 +59,7 @@ Assim que tiver uma subscrição, vá para o [portal do Azure](https://portal.az
 
 Para começar, selecione o **Hyperledger Fabric único membro Blockchain** e clique em **Create** para abrir o **Noções básicas** painel no assistente.
 
-A implementação do modelo explica como configurar a rede de vários nó. O fluxo de implementação é dividido em três passos: Noções básicas, configuração de rede e a configuração de recursos de infraestrutura.
+A implementação do modelo explica como configurar a rede de vários nó. O fluxo de implementação é dividido em três passos: Noções básicas, a configuração de rede e a configuração de recursos de infraestrutura.
 
 ### <a name="basics"></a>Noções básicas
 
@@ -92,7 +92,7 @@ Nome do Parâmetro| Descrição| Valores Permitidos|Valor Predefinido
 **Número de nós de Orderer** |O número de nós que solicite (organizar) transações num bloco.--> Esta instrução é prolixo e confuso. Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Este valor está atualmente limitado a 1 nó. |1 |1
 **Número de nós de ponto a ponto**| Nós que pertencem os membros de consórcio que executar transações e mantêm o estado e uma cópia do razão.<br /><br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Desempenho de armazenamento**|O tipo de armazenamento de segurança cada um de nós implementados. Para saber mais sobre o armazenamento, visite [introdução ao armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [o armazenamento Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard ou Premium|Standard
-**Tamanho da máquina virtual** |O tamanho de máquina virtual utilizado para todos os nós na rede|Standard A,<br />Standard D,<br />D Standard-v2,<br />Série F Standard,<br />Standard DS,<br />e o Standard FS|D1_v2 padrão
+**Tamanho da máquina virtual** |O tamanho de máquina virtual utilizado para todos os nós na rede|Standard A,<br />Standard D,<br />Standard D-v2,<br />Série F Standard,<br />Standard DS,<br />e o Standard FS|Standard D1_v2
 
 ### <a name="fabric-specific-settings"></a>Definições específicas de recursos de infraestrutura
 
@@ -102,7 +102,7 @@ Por fim, em **definições de recursos de infraestrutura**, especifique as defin
 
 Nome do Parâmetro| Descrição| Valores Permitidos|Valor Predefinido
 ---|---|---|---
-**Nome de utilizador de arranque de configuração**| O utilizador autorizado inicial que será registado com os serviços de membro da rede implementada.|9 ou menos carateres|administrador
+**Nome de utilizador de arranque de configuração**| O utilizador autorizado inicial que será registado com os serviços de membro da rede implementada.|9 ou menos carateres|admin
 **Palavra-passe de utilizador de bootstrap para recursos de infraestrutura de AC**|A palavra-passe de administrador utilizada para proteger a conta de recursos de infraestrutura de AC importada para o nó de associação.<br /><br />A palavra-passe tem de conter uma maiúscula, um caráter em minúsculas e um número.|12 ou mais carateres|ND
 
 ### <a name="deploy"></a>Implementação
@@ -137,7 +137,7 @@ O ecrã de detalhes mostrará a um resumo da implementação, seguido de três p
 - O _PREFIXO_ , também conhecido como _prefixo de implementação_ , exclusivamente identifica os recursos e a implementação. Será utilizado ao utilizar as ferramentas com base da linha de comandos.
 - O _SSH-para-FIRST-VM_ dá a um previamente montado comando ssh com todos os parâmetros corretos necessários para ligar a primeira VM na sua rede; Para recursos de infraestrutura Hyperledger, é o nó do Fabric-CA.
 
-Pode ligar remotamente para as máquinas virtuais para cada nó através de SSH com a sua chave de nome de utilizador e palavra-passe/SSH de administrador fornecida. Uma vez que as VMs de nó não tem seus próprios endereços IP públicos, terá de passar pelo balanceador de carga e especifique o número de porta. O comando SSH para aceder ao primeiro nó de transação é o terceiro resultado de modelo, * * SSH-para-FIRST-VM (para a implementação de exemplo: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Para aceder a nós de transações adicionais, incrementar o número de porta por um (por exemplo, o primeiro nó de transação é na porta 3000, a segunda é no 3001, o terceiro é no 3002, etc.).
+Pode ligar remotamente para as máquinas virtuais para cada nó através de SSH com a sua chave de nome de utilizador e palavra-passe/SSH de administrador fornecida. Uma vez que as VMs de nó não tem seus próprios endereços IP públicos, terá de passar pelo balanceador de carga e especifique o número de porta. O comando SSH para aceder ao primeiro nó de transação é o terceiro resultado de modelo, *SSH-para-FIRST-VM* (para a implementação de exemplo: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Para aceder a nós de transações adicionais, incrementar o número de porta por um (por exemplo, o primeiro nó de transação é na porta 3000, a segunda é no 3001, o terceiro é no 3002, etc.).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

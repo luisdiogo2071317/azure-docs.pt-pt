@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações de conta de redes sociais par
 description: Conta de rede social de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9b592e7f61b87860e4f6fa2aa4d46e253b6257e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9ef8f9c68a09e998c393584ceb6e3be53f91a9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381549"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848806"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformação de declarações de contas de redes sociais
 
@@ -44,7 +44,7 @@ Cria uma representação JSON de propriedade de alternativeSecurityId do utiliza
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | key | cadeia | ClaimType que especifica o identificador de utilizador exclusivo utilizado pelo fornecedor de identidade de redes sociais. |
 | InputClaim | identityProvider | cadeia | ClaimType que especifica o nome de fornecedor de identidade de conta de redes sociais, como facebook.com. |
-| outputClaim | alternativeSecurityId | cadeia | O ClaimType é produzido a ClaimsTransformation po vyvolání. Contém informações sobre a identidade de um utilizador de conta de redes sociais. O **emissor** é o valor da `identityProvider` de afirmação. O **issuerUserId** é o valor da `key` de afirmação no formato base64. |
+| OutputClaim | alternativeSecurityId | cadeia | O ClaimType é produzido a ClaimsTransformation po vyvolání. Contém informações sobre a identidade de um utilizador de conta de redes sociais. O **emissor** é o valor da `identityProvider` de afirmação. O **issuerUserId** é o valor da `key` de afirmação no formato base64. |
 
 Utilize este afirmações de transformação para gerar um `alternativeSecurityId` ClaimType. É utilizada por todas as identidades sociais fornecedor perfis técnicos, como `Facebook-OAUTH`. A transformação de afirmações seguintes recebe o ID de conta de rede social do utilizador e o nome do fornecedor de identidade. A saída deste perfil técnico é um formato de cadeia de caracteres do JSON que pode ser utilizado em serviços de diretório do Azure AD.  
 
@@ -63,10 +63,10 @@ Utilize este afirmações de transformação para gerar um `alternativeSecurityI
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **chave**: 12334
+    - **key**: 12334
     - **identityProvider**: Facebook.com
 - Afirmações de saída:
-    - **alternativeSecurityId**: {"emissor": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
@@ -74,9 +74,9 @@ Adiciona uma `AlternativeSecurityId` para um `alternativeSecurityIdCollection` d
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Item | cadeia | ClaimType sejam adicionados ao afirmações de saída. |
+| InputClaim | item | cadeia | ClaimType sejam adicionados ao afirmações de saída. |
 | InputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações, se disponíveis na política. Se for fornecido, a transformação de declarações adiciona o `item` no final da coleção. |
-| outputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção que contém tanto os itens de entrada `collection` e `item`. |
+| OutputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção que contém tanto os itens de entrada `collection` e `item`. |
 
 O exemplo seguinte liga a uma nova identidade de redes sociais com uma conta existente. Para ligar uma nova identidade de redes sociais: 
 1. Na **AAD UserReadUsingAlternativeSecurityId** e **AAD UserReadUsingObjectId** perfis técnicos, de saída do utilizador **alternativeSecurityIds** de afirmação.
@@ -100,10 +100,10 @@ O exemplo seguinte liga a uma nova identidade de redes sociais com uma conta exi
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **item**: {"emissor": "facebook.com", "issuerUserId": "MTIzNDU ="}
-    - **coleção**: [{"emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]
+    - **item**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" }
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
 - Afirmações de saída:
-    - **coleção**: [{"emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "facebook.com", "issuerUserId": "MTIzNDU ="}]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -112,7 +112,7 @@ Devolve a lista de emissores do **alternativeSecurityIdCollection** afirmação 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | ClaimType a ser utilizado para obter a lista de fornecedores de identidade (emissor). |
-| outputClaim | identityProvidersCollection | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. Lista de fornecedores de identidade associar alternativeSecurityIdCollection de afirmações de entrada |
+| OutputClaim | identityProvidersCollection | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. Lista de fornecedores de identidade associar alternativeSecurityIdCollection de afirmações de entrada |
 
 A seguinte transformação de afirmações lê o usuário **alternativeSecurityIds** afirmação e extrai a lista de nomes do fornecedor de identidade associada à mesma. Utilize a saída **identityProvidersCollection** para mostrar a lista de fornecedores de identidade associado à conta de utilizador. Ou, na página de seleção do fornecedor de identidade, filtrar a lista de fornecedores de identidade com base na saída **identityProvidersCollection** de afirmação. Por isso, o usuário pode selecionar para a nova identidade de redes sociais que já não está associada com a conta de ligação. 
 
@@ -128,9 +128,9 @@ A seguinte transformação de afirmações lê o usuário **alternativeSecurityI
 ```
 
 - Afirmações de entrada:
-    - **alternativeSecurityIdCollection**: [{"emissor": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "facebook.com", "issuerUserId": "MTIzNDU ="}]
+    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Afirmações de saída:
-    - **identityProvidersCollection**: ["facebook.com", "google.com"]
+    - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
 ## <a name="removealternativesecurityidbyidentityprovider"></a>RemoveAlternativeSecurityIdByIdentityProvider
 
@@ -140,7 +140,7 @@ Remove uma **AlternativeSecurityId** de um **alternativeSecurityIdCollection** d
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | cadeia | ClaimType que contém o nome do fornecedor de identidade a ser removido da coleção. |
 | InputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações. A transformação de declarações remove o identityProvider da coleção. |
-| outputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção, depois do identityProvider removido da coleção. |
+| OutputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção, depois do identityProvider removido da coleção. |
 
 O exemplo seguinte ser desvinculada uma identidade de redes sociais com uma conta existente. Para desassociar uma identidade de redes sociais: 
 1. Na **AAD UserReadUsingAlternativeSecurityId** e **AAD UserReadUsingObjectId** perfis técnicos, de saída do utilizador **alternativeSecurityIds** de afirmação.
@@ -165,6 +165,6 @@ O exemplo seguinte ser desvinculada uma identidade de redes sociais com uma cont
 
 - Afirmações de entrada:
     - **identityProvider**: facebook.com
-    - **coleção**: [{"emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "facebook.com", "issuerUserId": "MTIzNDU ="}]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
 - Afirmações de saída:
-    - **coleção**: [{"emissor": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]
+    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]

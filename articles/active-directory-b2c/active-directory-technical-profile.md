@@ -3,19 +3,19 @@ title: Definir um perfil técnico do Azure Active Directory numa política perso
 description: Defina um perfil técnico do Azure Active Directory numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cf7b051703e01493f365c1850ab815747321230b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: dc9cda92ef725bbfc1a12756912656f0c39474cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381504"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846749"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory numa política personalizada do Azure Active Directory B2C
 
@@ -260,7 +260,7 @@ O perfil técnico seguinte elimina uma conta de utilizador de redes sociais com 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Emitir um erro se o objeto de utilizador já existe. Valores possíveis: `true` ou `false`.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro se estiver a ser gerado (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a apresentar ao utilizador se o objeto de utilizador já existe. O valor pode ser [localizada](localization.md).| 
 | ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [atributos personalizados de utilização num perfil personalizado do Editar política](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ID de cliente | Não | O identificador de cliente para aceder ao inquilino como uma aplicação de terceiros. Para obter mais informações, consulte [atributos personalizados de utilização num perfil personalizado do Editar política](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
+| ClientId | Não | O identificador de cliente para aceder ao inquilino como uma aplicação de terceiros. Para obter mais informações, consulte [atributos personalizados de utilização num perfil personalizado do Editar política](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
 
 
 

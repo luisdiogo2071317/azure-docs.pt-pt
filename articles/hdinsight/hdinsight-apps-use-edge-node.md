@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844828"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight
 
@@ -65,8 +65,8 @@ Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade atr
 >
 > Se estiver a utilizar uma tecnologia do Apache, talvez consiga encontrar assistência através do Apache sites de projeto na [ https://apache.org ](https://apache.org), como a [Apache Hadoop](https://hadoop.apache.org/) site.
 
-> [!NOTE]  
-> Como os outros nós do cluster, nós de extremidade também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> Imagens do Ubuntu tornam-se disponível para criação de cluster do HDInsight novo dentro de 3 meses de ser publicada. A partir de Janeiro de 2019, os clusters em execução (incluindo nós periféricos) estão **não** aplicação de patches automática. Os clientes tem de utilizar as ações de script ou de outros mecanismos para corrigir um cluster em execução.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de extremidade a um cluster existente
 Nesta secção, vai utilizar um modelo do Resource Manager para adicionar um nó de extremidade a um cluster do HDInsight existente.  O modelo do Resource Manager pode ser encontrado na [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não executa qualquer ação.  É demonstrar a chamada de ação de script de um modelo do Resource Manager.

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Vodeclic | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Vodeclic | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Vodeclic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444628"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815417"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Azure Active Directory com Vodeclic
+# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Active Directory do Azure com Vodeclic
 
 Neste tutorial, saiba como integrar Vodeclic com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Vodeclic, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma subscrição Vodeclic SSO ativado
 
 > [!NOTE]
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-vodeclic-test-user"></a>Criar um utilizador de teste Vodeclic
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Trabalhar com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com) para adicionar os utilizadores na plataforma Vodeclic. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Trabalhar com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com) para adicionar os utilizadores na plataforma Vodeclic. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 > [!NOTE]
 > De acordo com requisitos de aplicações, poderá ter de obter a lista de permissões de máquina. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
@@ -205,7 +205,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

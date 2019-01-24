@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: e658124dc6db2761fb475597a32e663949edfccf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470754"
+ms.locfileid: "54809535"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -57,6 +57,7 @@ Pode resolver erros encontrados ao utilizando o Azure Backup com as informaçõe
 | Cópia de segurança falha ao cancelar a tarefa: <br>Aguarde até que a tarefa é concluída. |Nenhuma |
 
 ## <a name="restore"></a>Restauro
+
 | Detalhes do erro | Solução |
 | --- | --- |
 | Falha no restauro com um erro interno de cloud. |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se **endereço** estiver configurado, as definições de DNS estão configuradas.<br> <li>O serviço de nuvem para o qual está a tentar restaurar está configurado com **ReservedIP**, e as VMs existentes no serviço cloud estão no estado de paragem. Pode verificar que um serviço em nuvem reservou a um IP utilizando os seguintes cmdlets do PowerShell: **$deployment = Get-AzureDeployment - ServiceName "servicename"-DEP de ranhura "Produção" $. ReservedIPName**. <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especiais para o mesmo serviço cloud: <ul><li>Máquinas de virtuais em configuração de Balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço cloud na interface do Usuário ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
@@ -100,7 +101,7 @@ Normalmente, o agente da VM já está presente nas VMs que são criadas a partir
 * Para atualizar o agente de VM do Linux, siga as instruções no artigo [atualizar o agente de VM do Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
-    > Utilize sempre o repositório de distribuição para atualizar o agente. 
+    > Utilize sempre o repositório de distribuição para atualizar o agente.
 
     Não transferir o código do agente a partir do GitHub. Se o agente mais recente não está disponível para a sua distribuição, contacte o suporte de distribuição para obter instruções para adquirir o agente mais recente. Também pode verificar a versão mais recente [agente do Windows Azure Linux](https://github.com/Azure/WALinuxAgent/releases) informações no repositório do GitHub.
 

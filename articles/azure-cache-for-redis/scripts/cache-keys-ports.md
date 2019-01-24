@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 0c6f7b637e56d2bf39d8f03122ccb28bd7b1c773
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f9a963ec81b78cfcc6ded7d8f35f4066f931e53e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096750"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847321"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obter o nome de anfitrião, portas e as chaves para a Cache do Azure para Redis
 
@@ -39,7 +39,7 @@ Este script utiliza os seguintes comandos para obter o nome de anfitrião, as ch
 
 | Comando | Notas |
 |---|---|
-| [show do AZ redis](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Obter os detalhes de uma Cache do Azure para a instância de Redis. |
+| [show do AZ redis](https://docs.microsoft.com/cli/azure/redis) | Obter os detalhes de uma Cache do Azure para a instância de Redis. |
 | [lista de redis de AZ-chaves](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Obter chaves de acesso para uma Cache do Azure para a instância de Redis. |
 
 

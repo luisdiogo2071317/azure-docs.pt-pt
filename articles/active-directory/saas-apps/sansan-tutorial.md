@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Sansan | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Sansan | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Sansan.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6bd84e42bf46885a9dced363724538cbd4d2066a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872259"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815009"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Azure Active Directory com Sansan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Active Directory do Azure com Sansan
 
 Neste tutorial, saiba como integrar Sansan com o Azure Active Directory (Azure AD).
 

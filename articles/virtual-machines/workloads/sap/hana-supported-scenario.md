@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576498"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855460"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários suportados de instâncias grandes do HANA
 Este documento descreve os cenários suportados, juntamente com os detalhes de arquitetura para instâncias grandes HANA (HLI).
@@ -33,10 +33,10 @@ Vamos entender os termos e definições usadas no documento.
 
 - SID: Identificador de sistema para sistema HANA.
 - HLI: Instâncias grandes do Hana.
-- DR: Um desastre site de recuperação.
-- Normal DR: uma configuração de sistema com um recurso dedicado para fins de DR apenas utilizado.
-- Multipurpose DR: Um sistema de site de DR configurado para utilizar o ambiente de não produção, juntamente com a instância de produção configurada para utilizar para o evento de DR. 
-- SID único: Um sistema com uma instância instalada.
+- DR: Um site de recuperação após desastre.
+- Normal DR: Uma configuração de sistema com um recurso dedicado para fins de DR apenas utilizado.
+- DR de múltiplas finalidades: Um sistema de site de DR configurado para utilizar o ambiente de não produção, juntamente com a instância de produção configurada para utilizar para o evento de DR. 
+- SID único:  Um sistema com uma instância instalada.
 - Múltiplos SID: Um sistema com várias instâncias configuradas. Também chamado de um ambiente de MCOS.
 
 
@@ -56,22 +56,22 @@ Este documento descreve os detalhes dos dois componentes em cada arquitetura sup
 
 Cada servidor aprovisionado vem pré-configurado com os conjuntos de ethernet interfaces. Aqui estão os detalhes das interfaces ethernet configuradas em cada unidade HLI.
 
-- **A**: essa interface é usada para/pelo acesso de cliente.
-- **B**: essa interface é usada para a comunicação de nó para nó. Essa interface é configurada em todos os servidores (independentemente da topologia de pedido), mas só é utilizada para o 
+- **A**: Essa interface é usada pelo/para o acesso de cliente.
+- **B**: Essa interface é usada para a comunicação de nó para nó. Essa interface é configurada em todos os servidores (independentemente da topologia de pedido), mas só é utilizada para o 
 - cenários de escalamento horizontal.
-- **C**: essa interface é usada para o nó para a conectividade de armazenamento.
-- **1!d**: essa interface é usada para o nó para ligação de dispositivos ISCSI para a configuração STONITH. Esta interface está configurada apenas quando a configuração HSR é solicitada.  
+- **C**: Essa interface é utilizada para o nó para a conectividade de armazenamento.
+- **D**: Essa interface é utilizada para o nó para ligação de dispositivos ISCSI para a configuração STONITH. Esta interface está configurada apenas quando a configuração HSR é solicitada.  
 
 | INTERFACES DE LÓGICA DO NIC | TIPO DE SKU | Nome com sistema operacional de SUSE | Nome do SO do RHEL | Caso de utilização|
 | --- | --- | --- | --- | --- |
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nó para nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | STONITH |
+| D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para nó |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | STONITH |
 
 Utilize as interfaces com base na topologia configurada na unidade HLI. Por exemplo, a interface "B" está definida para a comunicação de nó para nó, o que é útil se tiver uma topologia de escalamento horizontal configurada. No caso de configuração de ampliação de nó único, essa interface não é utilizada. Reveja o seu necessários cenários (posteriormente neste documento) para obter mais informações sobre a utilização de interface. 
 
@@ -131,7 +131,7 @@ Esta topologia oferece suporte a um nó numa escala a configuração com um SID.
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![Nó de único com SID.png um](media/hana-supported-scenario/Single-node-with-one-SID.png)
+![Single-node-with-one-SID.png](media/hana-supported-scenario/Single-node-with-one-SID.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -141,21 +141,21 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
-|/Hana/Shared/SID | Instalação do HANA | 
-|/Hana/data/SID/mnt00001 | Instalar ficheiros de dados | 
-|/Hana/log/SID/mnt00001 | Instalar ficheiros de registo | 
-|/Hana/logbackups/SID | Refazer registos |
+|/hana/shared/SID | Instalação do HANA | 
+|/hana/data/SID/mnt00001 | Instalar ficheiros de dados | 
+|/hana/log/SID/mnt00001 | Instalar ficheiros de registo | 
+|/hana/logbackups/SID | Refazer registos |
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
@@ -166,7 +166,7 @@ Esta topologia oferece suporte a um nó numa escala a configuração com vários
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![Single-nó-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
+![single-node-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -176,25 +176,25 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
-|/Hana/Shared/SID1 | Instalação do HANA para SID1 | 
-|/Hana/data/SID1/mnt00001 | Instalar o ficheiros de dados para SID1 | 
-|/Hana/log/SID1/mnt00001 | Instalar o ficheiros de registo para SID1 | 
-|/Hana/logbackups/SID1 | O restauro de registos da SID1 |
-|/Hana/Shared/SID2 | Instalação do HANA para SID2 | 
-|/Hana/data/SID2/mnt00001 | Instalar o ficheiros de dados para SID2 | 
-|/Hana/log/SID2/mnt00001 | Instalar o ficheiros de registo para SID2 | 
-|/Hana/logbackups/SID2 | O restauro de registos da SID2 |
+|/hana/shared/SID1 | Instalação do HANA para SID1 | 
+|/hana/data/SID1/mnt00001 | Instalar o ficheiros de dados para SID1 | 
+|/hana/log/SID1/mnt00001 | Instalar o ficheiros de registo para SID1 | 
+|/hana/logbackups/SID1 | O restauro de registos da SID1 |
+|/hana/shared/SID2 | Instalação do HANA para SID2 | 
+|/hana/data/SID2/mnt00001 | Instalar o ficheiros de dados para SID2 | 
+|/hana/log/SID2/mnt00001 | Instalar o ficheiros de registo para SID2 | 
+|/hana/logbackups/SID2 | O restauro de registos da SID2 |
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
@@ -206,7 +206,7 @@ Esta topologia oferece suporte a um nó numa configuração com um ou vários SI
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![Único nó com dr.png](media/hana-supported-scenario/Single-node-with-dr.png)
+![Single-node-with-dr.png](media/hana-supported-scenario/Single-node-with-dr.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -216,28 +216,28 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
-|/Hana/Shared/SID | Instalação do HANA para o SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID | 
-|/Hana/logbackups/SID | O restauro de registos da SID |
+|/hana/shared/SID | Instalação do HANA para o SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID | 
+|/hana/logbackups/SID | O restauro de registos da SID |
 
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
-- Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes.
+- Para MCOS: Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- A DR: Os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
+- A DR: Os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 
@@ -247,7 +247,7 @@ Esta topologia oferece suporte a um nó numa configuração com um ou vários SI
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![nó de único com multipurpose.png dr](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
+![single-node-with-dr-multipurpose.png](media/hana-supported-scenario/single-node-with-dr-multipurpose.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -257,37 +257,37 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**No site primário**|
-|/Hana/Shared/SID | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared/SID | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 |**No site de DR**|
-|/Hana/Shared/SID | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/shared/SID | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
 |/Hana/Shared/QA-SID | Instalação do HANA para o SID de controle de qualidade | 
-|/Hana/data/QA-SID/mnt00001 | Instalar o ficheiros de dados para o SID de controle de qualidade | 
-|/Hana/log/QA-SID/mnt00001 | Instalar o ficheiros de registo para o SID de controle de qualidade |
-|/Hana/logbackups/QA-SID | Refazer registos para o SID de controle de qualidade |
+|/hana/data/QA-SID/mnt00001 | Instalar o ficheiros de dados para o SID de controle de qualidade | 
+|/hana/log/QA-SID/mnt00001 | Instalar o ficheiros de registo para o SID de controle de qualidade |
+|/hana/logbackups/QA-SID | Refazer registos para o SID de controle de qualidade |
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
-- Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
-- Na DR: os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
+- Para MCOS: Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- A DR: Os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
+- A DR: Os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
+- A DR: Os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR com STONITH
@@ -299,7 +299,7 @@ Esta topologia suporta dois nós para a configuração do HANA System Replicatio
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![HSR com STONITH.png](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR-with-STONITH.png](media/hana-supported-scenario/HSR-with-STONITH.png)
 
 
 
@@ -311,31 +311,31 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Utilizado para STONITH |
+| D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**No nó principal**|
-|/Hana/Shared/SID | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared/SID | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 |**No nó secundário**|
-|/Hana/Shared/SID | Instalar o HANA para o SID secundário | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID secundário | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID secundário | 
-|/Hana/logbackups/SID | O restauro de registos da SID secundário |
+|/hana/shared/SID | Instalar o HANA para o SID secundário | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID secundário | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID secundário | 
+|/hana/logbackups/SID | O restauro de registos da SID secundário |
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, uma utilização STONITH é opcional.
 
 
@@ -349,7 +349,7 @@ No diagrama, multipurpose cenário é descrito em que, no site de DR, unidade HL
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![HSR com DR.png](media/hana-supported-scenario/HSR-with-DR.png)
+![HSR-with-DR.png](media/hana-supported-scenario/HSR-with-DR.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -359,44 +359,44 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Configurado, mas não em utilização |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Configurado, mas não em utilização |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Utilizado para STONITH |
+| D | TIPO I | eth4.tenant | eno4.tenant | Utilizado para STONITH |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Configurado, mas não em utilização |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Utilizado para STONITH |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**No nó principal no site primário**|
-|/Hana/Shared/SID | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared/SID | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 |**No nó secundário no site primário**|
-|/Hana/Shared/SID | Instalar o HANA para o SID secundário | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID secundário | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID secundário | 
-|/Hana/logbackups/SID | O restauro de registos da SID secundário |
+|/hana/shared/SID | Instalar o HANA para o SID secundário | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID secundário | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para o SID secundário | 
+|/hana/logbackups/SID | O restauro de registos da SID secundário |
 |**No site de DR**|
-|/Hana/Shared/SID | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/shared/SID | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
 |/Hana/Shared/QA-SID | Instalação do HANA para o SID de controle de qualidade | 
-|/Hana/data/QA-SID/mnt00001 | Instalar o ficheiros de dados para o SID de controle de qualidade | 
-|/Hana/log/QA-SID/mnt00001 | Instalar o ficheiros de registo para o SID de controle de qualidade |
-|/Hana/logbackups/QA-SID | Refazer registos para o SID de controle de qualidade |
+|/hana/data/QA-SID/mnt00001 | Instalar o ficheiros de dados para o SID de controle de qualidade | 
+|/hana/log/QA-SID/mnt00001 | Instalar o ficheiros de registo para o SID de controle de qualidade |
+|/hana/logbackups/QA-SID | Refazer registos para o SID de controle de qualidade |
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- Para MCOS: Distribuição de tamanho do Volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
+- Para MCOS: Distribuição de tamanho do volume baseia-se desativar o tamanho da base de dados na memória. Consulte a [descrição geral e arquitetura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) secção para saber qual banco de dados os tamanhos em memória são suportadas com o ambiente de multisid.
 - STONITH: Um SBD está configurado para a configuração STONITH. No entanto, uma utilização STONITH é opcional.
-- Na DR: **dois conjuntos de volumes de armazenamento são necessários** para replicação de nó primário e secundário.
-- Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
-- Na DR: os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
+- A DR: **Dois conjuntos de volumes de armazenamento são necessários** para replicação de nó primário e secundário.
+- A DR: Os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
+- A DR: Os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
+- A DR: Os dados, logbackups, log, volumes partilhados para controle de qualidade (marcadas como "Instalação de instância de controle de qualidade") estão configurados para a instalação de instância de controle de qualidade.
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 
@@ -418,28 +418,28 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**Em nós do mestres e de reserva**|
-|/ hana/partilhado | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 
 
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
-- No modo de espera: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação de instância HANA na unidade em espera.
+- No modo de espera: Os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação de instância HANA na unidade em espera.
  
 
 ## <a name="8-scale-out-with-standby"></a>8. Escalamento horizontal com o modo de espera
@@ -449,7 +449,7 @@ Esta topologia suporta vários nós numa configuração de escalamento horizonta
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![aumento horizontal-nm-standby.png](media/hana-supported-scenario/scaleout-nm-standby.png)
+![scaleout-nm-standby.png](media/hana-supported-scenario/scaleout-nm-standby.png)
 
 ### <a name="ethernet"></a>Ethernet
 As seguintes interfaces de rede estão pré-configuradas:
@@ -459,22 +459,22 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**Em nós do mestre, trabalho e de reserva**|
-|/ hana/partilhado | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 
 
 ## <a name="9-scale-out-without-standby"></a>9. Escalamento horizontal sem modo de espera
@@ -484,7 +484,7 @@ Esta topologia suporta vários nós numa configuração de escalamento horizonta
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![nm.png de aumento horizontal](media/hana-supported-scenario/scaleout-nm.png)
+![scaleout-nm.png](media/hana-supported-scenario/scaleout-nm.png)
 
 
 ### <a name="ethernet"></a>Ethernet
@@ -495,22 +495,22 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**Em nós do mestre e de trabalho**|
-|/ hana/partilhado | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 
 
 ### <a name="key-considerations"></a>Considerações principais
@@ -523,7 +523,7 @@ Esta topologia suporta vários nós num Escalamento horizontal com um DR. Normal
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura  
 
-![aumento horizontal com dr.png](media/hana-supported-scenario/scaleout-with-dr.png)
+![scaleout-with-dr.png](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
 ### <a name="ethernet"></a>Ethernet
@@ -534,32 +534,32 @@ As seguintes interfaces de rede estão pré-configuradas:
 | A | TIPO I | eth0.tenant | eno1.tenant | Cliente para HLI |
 | B | TIPO I | eth2.tenant | eno3.tenant | Nó para comunicação de nó |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nó de armazenamento |
-| 1!D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
-| A | TIPO II | VLAN<tenantNo> | team0.tenant | Cliente para HLI |
-| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nó para comunicação de nó |
-| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Nó de armazenamento |
-| 1!D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Configurado, mas não em utilização |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado, mas não em utilização |
+| A | TIPO II | vlan<tenantNo> | team0.tenant | Cliente para HLI |
+| B | TIPO II | VLAN < tenantNo + 2 > | team0.tenant+2 | Nó para comunicação de nó |
+| C | TIPO II | VLAN < tenantNo + 1 > | team0.tenant+1 | Nó de armazenamento |
+| D | TIPO II | VLAN < tenantNo + 3 > | team0.tenant+3 | Configurado, mas não em utilização |
 
 ### <a name="storage"></a>Armazenamento
 As seguintes mountpoints estão pré-configuradas:
 
-| Ponto de montagem | Caso de utilização | 
+| Mountpoint | Caso de utilização | 
 | --- | --- |
 |**No nó principal**|
-|/ hana/partilhado | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
-|/Hana/logbackups/SID | Refazer registos para produção SID |
+|/hana/shared | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/logbackups/SID | Refazer registos para produção SID |
 |**No nó de DR**|
-|/ hana/partilhado | Instalar o HANA para produção SID | 
-|/Hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
-|/Hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
+|/hana/shared | Instalar o HANA para produção SID | 
+|/hana/data/SID/mnt00001 | Instalar o ficheiros de dados para o SID de produção | 
+|/hana/log/SID/mnt00001 | Instalar o ficheiros de registo para produção SID | 
 
 
 ### <a name="key-considerations"></a>Considerações principais
 - /usr/SAP/SID é um link simbólico para /hana/shared/SID.
--  Na DR: os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
-- Na DR: os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) para obter mais detalhes. 
+-  A DR: Os volumes e mountpoints estão configurados (marcadas como "Necessária para a instalação do HANA") para a instalação da instância HANA a unidade de DR HLI de produção. 
+- A DR: Os dados, logbackups e volumes partilhados (marcados como "Armazenamento de replicação") são replicados através de instantâneo do site de produção. Estes volumes são instalados durante o tempo de ativação pós-falha só. Para obter mais informações, leia o documento [procedimento de ativação pós-falha de recuperação após desastre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) para obter mais detalhes. 
 - Volume para de arranque **tipo de SKU que classe** são replicados para o nó de DR.
 
 

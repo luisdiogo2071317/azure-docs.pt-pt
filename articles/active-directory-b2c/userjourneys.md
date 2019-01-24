@@ -3,19 +3,19 @@ title: UserJourneys | Documentos da Microsoft
 description: Especifique o elemento de UserJourneys de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567065"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850644"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -31,7 +31,7 @@ O **UserJourneys** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| UserJourney | 1: n | Um percurso do utilizador que define todas as construções necessárias para um fluxo de utilizador completo. | 
+| UserJourney | 1:n | Um percurso do utilizador que define todas as construções necessárias para um fluxo de utilizador completo. | 
 
 O **UserJourney** elemento contém o atributo seguinte:
 
@@ -43,7 +43,7 @@ O **UserJourney** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| OrchestrationSteps | 1: n | Uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Cada percurso do utilizador consiste numa lista ordenada de etapas da orquestração que são executadas em seqüência. Se falhar qualquer passo, a transação falhar. |
+| OrchestrationSteps | 1:n | Uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Cada percurso do utilizador consiste numa lista ordenada de etapas da orquestração que são executadas em seqüência. Se falhar qualquer passo, a transação falhar. |
 
 ## <a name="orchestrationsteps"></a>OrchestrationSteps
 
@@ -57,7 +57,7 @@ O **OrchestrationSteps** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| OrchestrationStep | 1: n | Um passo de orquestração ordenada. | 
+| OrchestrationStep | 1:n | Um passo de orquestração ordenada. | 
 
 O **OrchestrationStep** elemento contém os seguintes atributos:
 
@@ -73,9 +73,9 @@ O **OrchestrationStep** elemento pode conter os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- | 
-| Pré-condições | 0: n | Uma lista de pré-condições que devem ser satisfeitos para o passo de orquestração executar. | 
-| ClaimsProviderSelections | 0: n | Uma lista de seleções de fornecedor de afirmações para o passo de orquestração. | 
-| ClaimsExchanges | 0: n | Uma lista de trocas de afirmações para o passo de orquestração. | 
+| Pré-condições | 0:n | Uma lista de pré-condições que devem ser satisfeitos para o passo de orquestração executar. | 
+| ClaimsProviderSelections | 0:n | Uma lista de seleções de fornecedor de afirmações para o passo de orquestração. | 
+| ClaimsExchanges | 0:n | Uma lista de trocas de afirmações para o passo de orquestração. | 
 
 #### <a name="preconditions"></a>Pré-condições
 
@@ -83,7 +83,7 @@ O **pré-condições** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- | 
-| Pré-condição | 0: n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com a seleção do fornecedor de afirmações ou faz uma chamada de servidor para a troca de afirmações. | 
+| Pré-condição | 0:n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com a seleção do fornecedor de afirmações ou faz uma chamada de servidor para a troca de afirmações. | 
 
 
 ##### <a name="precondition"></a>Pré-condição
@@ -99,7 +99,7 @@ O **pré-condição** elementos contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1: n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
+| Valor | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
 | Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
 
 ### <a name="preconditions-examples"></a>Exemplos de pré-condições
@@ -166,7 +166,7 @@ O **ClaimsProviderSelection** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsProviderSelection | 0: n | Fornece a lista de fornecedores de afirmações que podem ser selecionadas.|
+| ClaimsProviderSelection | 0:n | Fornece a lista de fornecedores de afirmações que podem ser selecionadas.|
 
 O **ClaimsProviderSelection** elemento contém os seguintes atributos: 
 
@@ -218,7 +218,7 @@ O **ClaimsExchanges** elemento contém o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 0: n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com o ClaimsProviderSelection que foi selecionado ou faz uma chamada de servidor para a troca de afirmações. | 
+| ClaimsExchange | 0:n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com o ClaimsProviderSelection que foi selecionado ou faz uma chamada de servidor para a troca de afirmações. | 
 
 O **ClaimsExchange** elemento contém os seguintes atributos:
 

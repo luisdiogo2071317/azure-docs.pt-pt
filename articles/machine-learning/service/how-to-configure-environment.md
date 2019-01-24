@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413129"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815876"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -55,7 +55,7 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 
 - No Windows, terá da linha de comandos ou prompt Anaconda (por Anaconda e Miniconda instalado).
 
-## <a id="anotebooks"></a>Blocos de notas do Azure
+## <a id="aznotebooks"></a>Blocos de notas do Azure
 
 [Blocos de notas do Azure](https://notebooks.azure.com) (pré-visualização) é um ambiente de desenvolvimento interativo na cloud do Azure. É a maneira mais fácil para começar a utilizar com o desenvolvimento do Azure Machine Learning.
 
@@ -63,6 +63,8 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 * Depois de criar uma área de trabalho do serviço do Azure Machine Learning no portal do Azure, pode clicar num botão para configurar automaticamente o ambiente de bloco de notas do Azure para trabalhar com a área de trabalho.
 
 Para começar a desenvolver com blocos de notas do Azure, veja [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+
+Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
 

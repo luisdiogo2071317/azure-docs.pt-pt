@@ -3,19 +3,19 @@ title: Definir um perfil técnico RESTful numa política personalizada no Azure 
 description: Defina um perfil técnico RESTful numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 930cdddd8a9e039fa9c29a348a0a66eb25d254fe
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9dfef68e35cc07d395bb247af3476e8b73da642
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381464"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843893"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico RESTful em políticas personalizadas do Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ O perfil técnico também retorna afirmações, que não são devolvidas pelo fo
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | O URL do ponto de final de REST API. | 
-| authenticationType | Sim | O tipo de autenticação a ser executada pelo fornecedor de afirmações profundas. Valores possíveis: `None`, `Basic`, ou `ClientCertificate`. O `None` valor indica que a API REST não é anônima. O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Verificar apenas os utilizadores, incluindo o Azure AD B2C, pode aceder à sua API. O `ClientCertificate` (recomendado) valor indica que a API REST restringe o acesso com a autenticação de certificado de cliente. Apenas os serviços que têm os certificados apropriados, como o Azure AD B2C podem acessar seu serviço. | 
+| AuthenticationType | Sim | O tipo de autenticação a ser executada pelo fornecedor de afirmações profundas. Valores possíveis: `None`, `Basic`, ou `ClientCertificate`. O `None` valor indica que a API REST não é anônima. O `Basic` valor indica que a API REST está protegida com autenticação básica HTTP. Verificar apenas os utilizadores, incluindo o Azure AD B2C, pode aceder à sua API. O `ClientCertificate` (recomendado) valor indica que a API REST restringe o acesso com a autenticação de certificado de cliente. Apenas os serviços que têm os certificados apropriados, como o Azure AD B2C podem acessar seu serviço. | 
 | SendClaimsIn | Não | Especifica como as afirmações de entrada são enviadas para o fornecedor de afirmações profundas. Valores possíveis: `Body` (predefinição), `Form`, `Header`, ou `QueryString`. O `Body` valor é a afirmação de entrada que é enviada no corpo do pedido no formato JSON. O `Form` valor é a afirmação de entrada que é enviada no corpo do pedido num e comercial "&" separados o formato do valor da chave. O `Header` valor é a afirmação de entrada que é enviada no cabeçalho do pedido. O `QueryString` valor é a afirmação de entrada que é enviada numa cadeia de caracteres de consulta da solicitação. | 
 | ClaimsFormat | Não | Especifica o formato para as afirmações de saída. Valores possíveis: `Body` (predefinição), `Form`, `Header`, ou `QueryString`. O `Body` valor é a declaração de saída que é enviada no corpo do pedido no formato JSON. O `Form` valor é a declaração de saída que é enviada no corpo do pedido num e comercial "&" separados o formato do valor da chave. O `Header` valor é a declaração de saída que é enviada no cabeçalho do pedido. O `QueryString` valor é a declaração de saída que é enviada numa cadeia de caracteres de consulta da solicitação. | 
 | DebugMode | Não | Executa o perfil técnico no modo de depuração. No modo de depuração, a API REST pode retornar a obter mais informações. Consulte a secção de mensagem de erro devolvidos. | 
@@ -171,13 +171,13 @@ O exemplo seguinte mostra uma API REST que devolve uma mensagem de erro formatad
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 
@@ -200,7 +200,7 @@ public class ResponseContent
 - [Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário](active-directory-b2c-custom-rest-api-netfw.md) 
 - [Proteger os serviços RESTful com autenticação básica HTTP](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Proteger o seu serviço RESTful usando certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Passo a passo: Integrar trocas de afirmações de REST API no seu percurso do utilizador do Azure AD B2C, como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
+- [Passo a passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

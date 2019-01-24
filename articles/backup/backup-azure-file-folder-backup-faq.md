@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827419"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente do Azure Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do agente do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,12 +29,12 @@ Sim, as credenciais do cofre expiram após 48 horas. Se o ficheiro expirar, inic
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>A partir de que tipos de unidades posso criar cópias de segurança de ficheiros e pastas? <br/>
 Não consegue realizar uma cópia de segurança das seguintes unidades/volumes:
 
-* Suporte de Dados Amovível: todas as origens de item de cópia de segurança devem ser comunicadas como fixas.
-* Volumes de Só de Leitura: o volume tem de ser gravável para o serviço de cópia sombra de volumes (VSS) funcionar.
-* Volumes Offline: o volume tem de estar online para que o VSS funcione.
-* Partilha de rede: o volume tem de ser local no servidor para ser efetuada uma cópia de segurança utilizando a cópia de segurança online.
-* Volumes protegidos de BitLocker: o volume tem de ser desbloqueado antes de a cópia de segurança ocorrer.
-* Identificação do Sistema de Ficheiros: o NTFS é o único sistema de ficheiros suportado.
+* Suporte de dados amovível: Todas as origens de item de cópia de segurança tem de ser comunicadas como fixas.
+* Volumes de só de leitura: O volume tem de ser gravável para o serviço de cópia de sombra de volumes (VSS) para funcionar.
+* Offline Volumes: O volume tem de estar online para que o VSS funcione.
+* Partilha de rede: O volume tem de ser local no servidor para ser feita com a cópia de segurança online.
+* Volumes protegidos de BitLocker: O volume tem de ser desbloqueado antes da cópia de segurança ocorrer.
+* Identificação do sistema de ficheiros: O NTFS é o único sistema de ficheiros suportado.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>De que tipos de ficheiros e pastas posso criar cópias de segurança a partir do meu servidor?<br/>
 São suportados os seguintes tipos:
@@ -43,11 +43,11 @@ São suportados os seguintes tipos:
 * Comprimidos
 * Dispersos
 * Comprimidos + dispersos
-* Hiperligações: não suportadas, ignoradas
-* Ponto de Nova Análise: não suportados, ignorados
-* Encriptados + dispersos: não suportados, ignorados
-* Fluxo Comprimido: não suportado, ignorado
-* Fluxo Disperso: não suportado, ignorado
+* Hiperligações: Não suportado, ignorado
+* Ponto de reanálise: Não suportado, ignorado
+* Encriptados + dispersos: Não suportado, ignorado
+* Stream comprimido: Não suportado, ignorado
+* Stream disperso: Não suportado, ignorado
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Pode instalar o agente do Backup do Azure numa VM do Azure cuja cópia de segurança já foi efetuada pelo serviço de Backup do Azure através da extensão da VM? <br/>
 Com certeza. O Backup do Azure fornece uma cópia de segurança ao nível da VM para VMs do Azure com a extensão da VM. Para proteger ficheiros e pastas no SO Windows convidado, instale o agente do Azure Backup no SO Windows convidado.
@@ -94,7 +94,7 @@ Assim que a criação da cópia de segurança tiver sido concluída com êxito n
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Onde posso colocar a pasta da cache do Agente do Azure Backup para funcionar como esperado?<br/>
 As seguintes localizações para a pasta da cache não são recomendadas:
 
-* Suporte de Dados Amovível ou Partilha de Rede: a pasta da cache tem de ser local no servidor que necessita de cópia de segurança criada com cópia de segurança online. Localizações de rede ou mídia removível como unidades USB não é suportada
+* Partilha de rede ou mídia removível: A pasta da cache tem de ser local no servidor que necessita de cópia de segurança utilizando a cópia de segurança online. Localizações de rede ou mídia removível como unidades USB não é suportada
 * Offline Volumes: A pasta da cache tem de estar online para a cópia de segurança esperada com o agente de cópia de segurança do Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existem atributos da pasta cache que não são suportados?<br/>

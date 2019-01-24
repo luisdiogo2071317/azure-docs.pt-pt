@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Klue | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Klue | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Klue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123061"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824801"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com Klue
+# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Active Directory do Azure com Klue
 
 Neste tutorial, saiba como integrar Klue com o Azure Active Directory (Azure AD).
 
@@ -136,8 +136,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo      | Valor do Atributo      |
     | ------------------- | -------------------- |
-    | first_name          | User.givenName |
-    | last_name           | User.Surname |
+    | first_name          | user.givenname |
+    | last_name           | user.surname |
     | e-mail               | user.userprincipalname|
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -206,7 +206,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Klue. Klue suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Klue se não existir ainda.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Klue](mailto:support@klue.com).
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

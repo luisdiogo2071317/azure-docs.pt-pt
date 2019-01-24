@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1ed355e7df6a58096743fd57ca1cbc65578d285
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439141"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846188"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -59,7 +59,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    ![Página Adicionar solução de gestão VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. Sobre o **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho do Log Analytics que está ligada à mesma subscrição do Azure que a conta de automatização faz parte. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. Sobre o **área de trabalho do Log Analytics** página, execute os seguintes passos:
-   - Especifique um nome para a nova **área de trabalho do Log Analytics**.
+   - Especifique um nome para a nova **área de trabalho do Log Analytics**, por exemplo, "ContosoLAWorkspace".
    - Selecione um **subscrição** para ligar ao escolher na lista pendente, se a predefinição selecionada não é apropriada.
    - Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    - Selecione uma **Localização**. Atualmente, as únicas localizações disponíveis são **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **E.U.A. Leste**, **Leste do Japão**, **Sudeste asiático**, **sul do Reino Unido**, e **Europa Ocidental**.

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246216"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848602"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
 O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Blocos de notas do Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de blocos de notas do Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou conhecido por muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformação, simulação numérica, modelação estatística e o desenvolvimento de modelos de Machine learning.
 
@@ -55,9 +55,9 @@ Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais efi
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
 
-Blocos de notas do Azure é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e os dados de 1 GB para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
+Blocos de notas do Azure é um serviço gratuito, mas cada projeto é limitado a 4GB de dados de 1GB de memória e para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
 
-Para disponibilizar todos os limites, inicie sessão em blocos de notas do Azure com uma conta com o Azure Active Directory (por exemplo, uma conta empresarial). Se essa conta estiver associada uma subscrição do Azure, pode utilizar camadas de computação de máquina de Virtual de ciência de dados do Azure.
+Para disponibilizar todos os limites, inicie sessão em blocos de notas do Azure com uma conta com o Azure Active Directory (por exemplo, uma conta empresarial). Se essa conta estiver associada uma subscrição do Azure, pode ligar a quaisquer instâncias de máquina de Virtual de ciência de dados do Azure nessa subscrição. Para obter mais informações, consulte [gerir e configurar projetos - camada de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Kernels disponíveis e ambientes
 

@@ -4,7 +4,7 @@ description: Saiba como configurar o Diagnóstico do Azure para enviar registos 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0560f4a4a815373f86592126b30edcc4ca10ba24
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849400"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825328"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Transmitir registos do Azure Active Directory num hub de eventos do Azure (pré-visualização)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Registos do Azure Active Directory Stream para um hub de eventos do Azure (pré-visualização)
 
 Neste tutorial, saiba como configurar as definições de diagnóstico do Azure Monitor para transmitir os registos de Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
 
@@ -75,11 +75,11 @@ Para utilizar esta funcionalidade, precisa de:
 Quando os dados forem apresentados no hub de eventos, pode aceder e lê-los de duas formas:
 
 * **Configurar uma ferramenta SIEM suportada**. Para ler os dados do hub de eventos, a maioria das ferramentas precisa da cadeia de ligação do hub de eventos e de determinadas permissões para a sua subscrição do Azure. As ferramentas de terceiros com integração do Azure Monitor incluem, entre outras:
-    * **Splunk**: para obter mais informações sobre como integrar registos do Azure AD no Splunk, veja [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk).
+    * **Splunk**: Para obter mais informações sobre como integrar registos do Azure AD com Splunk, consulte [registos de integrar o Azure AD com o Splunk com o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: o DSM e o Protocolo dos Hubs de Eventos do Azure estão disponíveis para transferência no [suporte da IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração no Azure, aceda ao site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+    * **IBM QRadar**: O DSM e o protocolo de Hub de eventos do Azure estão disponíveis para download em [suporte da IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração no Azure, aceda ao site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
-    * **Sumo Logic**: para configurar a Sumo Logic para consumir dados a partir de um hub de eventos, veja [Instalar a aplicação do Azure AD e ver os dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
+    * **Lógica de sumo**: Para definir a lógica do Sumo para consumir dados de um hub de eventos, consulte [instalar a aplicação do Azure AD e ver os dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
 * **Configurar ferramentas personalizadas**. Se a sua SIEM atual ainda não for suportada nos diagnóstico do Azure Monitor, pode configurar as ferramentas personalizadas com a API dos Hubs de Eventos. Para saber mais, veja [Começar a receber mensagens a partir de um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 

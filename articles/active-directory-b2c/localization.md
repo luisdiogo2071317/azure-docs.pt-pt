@@ -3,19 +3,19 @@ title: Localização – o Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de localização de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9442302b8d15a3a6a4c9fe148b48845b3535204
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381507"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854983"
 ---
 # <a name="localization"></a>Localização
 
@@ -47,8 +47,8 @@ O **localização** elemento contém seguintes elementos XML
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1: n | Lista de idiomas suportados. | 
-| LocalizedResources | 0: n | Lista de recursos localizados. |
+| SupportedLanguages | 1:n | Lista de idiomas suportados. | 
+| LocalizedResources | 0:n | Lista de recursos localizados. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -65,7 +65,7 @@ O **SupportedLanguages** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1: n | Apresenta o conteúdo que está em conformidade com a uma etiqueta de idioma por RFC 5646 - etiquetas para identificar idiomas. | 
+| SupportedLanguage | 1:n | Apresenta o conteúdo que está em conformidade com a uma etiqueta de idioma por RFC 5646 - etiquetas para identificar idiomas. | 
 
 ## <a name="localizedresources"></a>LocalizedResources
 
@@ -79,8 +79,8 @@ O **LocalizedResources** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedCollections | 0: n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e as cadeias de caracteres diferentes para várias culturas. Exemplos de coleções incluem as enumerações que aparecem em tipos de afirmação. Por exemplo, é apresentada uma lista de país/região para o usuário numa lista pendente. |
-| LocalizedStrings | 0: n | Define todas as cadeias de caracteres, exceto essas cadeias de caracteres que aparecem em coleções, em várias culturas. |
+| LocalizedCollections | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e as cadeias de caracteres diferentes para várias culturas. Exemplos de coleções incluem as enumerações que aparecem em tipos de afirmação. Por exemplo, é apresentada uma lista de país/região para o usuário numa lista pendente. |
+| LocalizedStrings | 0:n | Define todas as cadeias de caracteres, exceto essas cadeias de caracteres que aparecem em coleções, em várias culturas. |
 
 ### <a name="localizedcollections"></a>LocalizedCollections
 
@@ -88,7 +88,7 @@ O **LocalizedCollections** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedCollection | 1: n | Lista de idiomas suportados. |
+| LocalizedCollection | 1:n | Lista de idiomas suportados. |
 
 #### <a name="localizedcollection"></a>LocalizedCollection
 
@@ -104,7 +104,7 @@ O **LocalizedCollection** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Item | 0: n | Define uma opção disponível para o utilizador selecionar para uma afirmação na interface do usuário, como um valor numa lista pendente. |
+| Item | 0:n | Define uma opção disponível para o utilizador selecionar para uma afirmação na interface do usuário, como um valor numa lista pendente. |
 
 O **Item** elemento contém os seguintes atributos:
 
@@ -140,7 +140,7 @@ O **LocalizedStrings** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1: n | Uma cadeia de caracteres localizada. |
+| LocalizedString | 1:n | Uma cadeia de caracteres localizada. |
 
 O **LocalizedString** elemento contém os seguintes atributos:
 

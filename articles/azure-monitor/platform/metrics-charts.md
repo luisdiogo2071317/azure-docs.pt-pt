@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0e204e945960ddaf452db1907568e4102631c28f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467592"
+ms.locfileid: "54827453"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
@@ -112,7 +112,7 @@ Será conduzido para o painel de criação de regra de alerta com as dimensões 
 
 ![Criar regra de alerta](./media/metrics-charts/016.png)
 
-Check-out isso [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métricas.
+Veja esta [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métricas.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo y do gráfico
 
@@ -138,6 +138,16 @@ Para afixar um gráfico configurado a um dashboard:
 Depois de configurar o seu gráfico, clique nas **ações do gráfico** menu no lado direito principais do gráfico e clique em **afixar ao dashboard**.
 
 ![imagem de métrica](./media/metrics-charts/00013.png)
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+*Não vejo todos os dados no meu gráfico.*
+
+* Filtros de aplicam a todos os gráficos no painel. Certifique-se de que, embora se está a focar um gráfico, não defina um filtro que exclua todos os dados em outro.
+
+* Se pretender definir filtros diferentes em gráficos de diferentes, criá-las nos diferentes painéis, salvá-los separados como favoritos. Se quiser, pode afixá-los ao dashboard para que pode vê-los em conjunto com outro.
+
+* Se um gráfico de segmentar por uma propriedade que não está definida na métrica, em seguida, haverá nada no gráfico. Experimente limpar a segmentação (divisão) ou escolha uma propriedade diferente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

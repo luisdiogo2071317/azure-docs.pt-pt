@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: d871cecda8e7957e3d0d3c37078b8a1fa2ab5214
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451260"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807393"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métricas através do Azure Monitor
 
-Alertas de métricas no Azure Monitor oferecem uma forma de ser notificado quando uma das suas métricas ultrapassam um determinado limiar. Alertas de métricas de trabalho numa variedade de métricas multidimensionais plataforma, métricas personalizadas, padrão do Application Insights e métricas personalizadas. Neste artigo, descreveremos como criar, ver e gerir regras de alerta de métrica, através do portal do Azure e CLI do Azure. Também pode criar regras de alerta de métrica com modelos do Azure Resource Manager que está descrito [um artigo separado](../../azure-monitor/platform/alerts-enable-template.md).
+Alertas de métricas no Azure Monitor oferecem uma forma de ser notificado quando uma das suas métricas ultrapassam um determinado limiar. Alertas de métricas de trabalho numa variedade de métricas multidimensionais plataforma, métricas personalizadas, padrão do Application Insights e métricas personalizadas. Neste artigo, descreveremos como criar, ver e gerir regras de alerta de métrica, através do portal do Azure e CLI do Azure. Também pode criar regras de alerta de métrica com modelos do Azure Resource Manager que está descrito [um artigo separado](alerts-metric-create-templates.md).
 
 Pode saber mais sobre métricas como funcionam os alertas do [descrição geral dos alertas de métrica](alerts-metric-overview.md).
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SmarterU | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com SmarterU | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SmarterU.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c12c55913653e547cce0c42bd06fb55b374a4a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823068"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Azure Active Directory com SmarterU
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Active Directory do Azure com SmarterU
 
 Neste tutorial, saiba como integrar SmarterU com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com SmarterU, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um SmarterU logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do SmarterU com o Azure AD, terá de adicionar Sm
 
 **Para adicionar SmarterU a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -147,7 +147,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
       g. Clique em **Guardar**.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
@@ -199,7 +199,7 @@ Quando SmarterU, aprovisionamento é uma tarefa manual.
 
     a. Clique em **+ utilizador**.
     
-    b. Escreva os valores de atributo relacionado da conta de utilizador do Azure AD para as caixas de texto seguintes: **E-Mail principal**, **ID de funcionário**, **palavra-passe**, **Certifique-se Palavra-passe**, **nome fornecido**, **Apelido**.
+    b. Escreva os valores de atributo relacionado da conta de utilizador do Azure AD para as caixas de texto seguintes: **E-Mail principal**, **identificação do funcionário**, **palavra-passe**, **verificar palavra-passe**, **nome fornecido**, **Apelido**.
     
     c. Clique em **Active Directory**. 
     
@@ -242,7 +242,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
- 
+ 
 Quando clica no mosaico SmarterU no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo SmarterU.
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 

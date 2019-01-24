@@ -3,19 +3,19 @@ title: Personalizar a interface do Usuário de um percurso do utilizador com as 
 description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841630"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855062"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do Usuário de um percurso do utilizador com as políticas personalizadas
 
@@ -111,7 +111,7 @@ Como pré-requisito, tem de criar uma conta de armazenamento. Precisa de uma sub
     c.  O nome do seu contentor de armazenamento de BLOBs de armazenamento *containerName*, por exemplo *b2c*.
     d.  O caminho da *pacote de iniciante* exemplo ficheiros, por exemplo *.... \B2CTemplates\wingtiptoys*.
 
-Se tiver seguido os passos anteriores, os ficheiros de HTML5 e CSS do *pacote de personalização da interface do Usuário* para a empresa fictícia **wingtiptoys** agora está a apontar para a sua conta de armazenamento.  Pode verificar que o conteúdo tiver sido carregado corretamente ao abrir o painel de contentor relacionados no portal do Azure. Em alternativa, pode verificar que o conteúdo tiver sido carregado corretamente ao aceder à página a partir de um browser. Para obter mais informações, consulte [do Azure Active Directory B2C: uma ferramenta de programa auxiliar usada para demonstrar a funcionalidade de personalização de interface (IU) de utilizador de página](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Se tiver seguido os passos anteriores, os ficheiros de HTML5 e CSS do *pacote de personalização da interface do Usuário* para a empresa fictícia **wingtiptoys** agora está a apontar para a sua conta de armazenamento.  Pode verificar que o conteúdo tiver sido carregado corretamente ao abrir o painel de contentor relacionados no portal do Azure. Em alternativa, pode verificar que o conteúdo tiver sido carregado corretamente ao aceder à página a partir de um browser. Para obter mais informações, consulte [Azure Active Directory B2C: Uma ferramenta de programa auxiliar usada para demonstrar a funcionalidade de personalização de interface (IU) de utilizador de página](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Certifique-se de que a conta de armazenamento tem a CORS ativada
 

@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 7612dc441d53f168e4472320c2de1e4431e65e95
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d9f4a616c1f182c3073c0febf2ba5c251655dc5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065431"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integração do Active Directory do Azure com o Canvas
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com o Canvas, execute os se
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD início de sessão único com o Canvas, execute os se
 
 2. Aceda a **cursos \> contas geridas \> Microsoft**.
 
-    ![Tela](./media/canvas-lms-tutorial/ic775990.png "baseadas em telas")
+    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
 3. No painel de navegação à esquerda, selecione **autenticação**e, em seguida, clique em **Adicionar nova configuração de SAML**.
 
@@ -222,7 +222,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão na tela, tem de ser aprov
 
 2. Aceda a **cursos \> contas geridas \> Microsoft**.
 
-   ![Tela](./media/canvas-lms-tutorial/ic775990.png "baseadas em telas")
+   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
 
 3. Clique em **Utilizadores**.
 

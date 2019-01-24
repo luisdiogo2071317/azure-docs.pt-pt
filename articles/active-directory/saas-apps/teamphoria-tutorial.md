@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Teamphoria | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Teamphoria | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439614"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826722"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Azure Active Directory com Teamphoria
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Active Directory do Azure com Teamphoria
 
 Neste tutorial, saiba como integrar Teamphoria com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Teamphoria, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Teamphoria início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -142,13 +142,13 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **NOME a apresentar**: introduza o nome a apresentar do plug-in na página de administração.
+    a. **NOME A APRESENTAR**: Introduza o nome a apresentar do plug-in na página de administração.
 
-    b. **NOME do botão**: O nome do separador que será apresentado na página de início de sessão para iniciar sessão através do SSO.
+    b. **NOME DO BOTÃO**: O nome do separador que será apresentado na página de início de sessão para iniciar sessão através do SSO.
 
-    c. **CERTIFICADO**: abrir o certificado anteriormente transferido a partir do portal do Azure no bloco de notas, copie o conteúdo do mesmo e cole-o aqui na caixa.
+    c. **CERTIFICADO**: Abra o certificado transferido anteriormente a partir do portal do Azure no bloco de notas, copie o conteúdo do mesmo e cole-o aqui na caixa.
 
-    d. **PONTO de entrada**: colar a **SAML único início de sessão no URL do serviço** copiou anteriormente a partir do portal do Azure.
+    d. **PONTO DE ENTRADA**: Colar o **SAML único início de sessão no URL do serviço** copiou anteriormente a partir do portal do Azure.
 
     e. Mude a opção para **ON** e clique em **guardar**.
 

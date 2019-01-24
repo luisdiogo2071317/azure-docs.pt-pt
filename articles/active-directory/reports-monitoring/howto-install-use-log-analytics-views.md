@@ -4,7 +4,7 @@ description: Saiba como instalar e utilizar as vistas do Log Analytics do Azure 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624646"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825209"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e utilizar as vistas do Log Analytics do Azure Active Directory
 
 Os modos de exibição do Azure Active Directory do Log Analytics ajuda a analisar e registos de atividades de pesquisa do Azure AD no inquilino do Azure AD. Atividades do Azure AD registos incluem:
 
 * Registos de auditoria: O [relatório de atividade de registos de auditoria](concept-audit-logs.md) permite-lhe aceder ao histórico de cada tarefa que é executada no seu inquilino.
-* Registos de início de sessão: com o [relatório de atividade de início de sessão](concept-sign-ins.md), pode determinar quem realizou as tarefas que são enviadas nos registos de auditoria.
+* Registos de início de sessão: Com o [relatório de atividade de início de sessão](concept-sign-ins.md), pode determinar quem realizou as tarefas que são enviadas nos registos de auditoria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,8 +50,8 @@ Para utilizar as vistas do Log Analytics, tem de:
 
 2. Quando estiver na área de trabalho, selecione **resumo de área de trabalho**. Deverá ver as seguintes três vistas:
 
-    * **Eventos de aprovisionamento de conta de AD do Azure**: esta vista mostra relatórios relacionados com a auditoria de atividade de aprovisionamento, como o número de novos utilizadores aprovisionado e falhas de aprovisionamento, o número de utilizadores atualizado e atualize a falhas e o número de utilizadores falhas de desaprovisionadas e correspondentes.    
-    * **Eventos de inícios de sessão**: esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
+    * **Conta do AD FS eventos de aprovisionamento**: Esta vista mostra relatórios relacionados com a auditoria de atividade de aprovisionamento, como o número de novos utilizadores aprovisionado e falhas de aprovisionamento, o número de utilizadores atualizados e atualizar falhas e o número de utilizadores desconfigurados e falhas correspondentes.    
+    * **Eventos de inícios de sessão**: Esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
 
 3. Selecione uma destas vistas para avançar para os relatórios individuais. Também pode definir alertas em qualquer um dos parâmetros do relatório. Por exemplo, vamos definir um alerta para sempre que houver um erro de início de sessão. Para tal, primeiro selecione a **inícios de sessão de eventos** visualizar, selecione **erros de início de sessão ao longo do tempo** relatório e, em seguida, selecione **análise** para abrir a página de detalhes, com a consulta real por trás do relatório. 
 

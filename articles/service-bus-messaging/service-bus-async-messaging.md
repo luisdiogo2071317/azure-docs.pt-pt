@@ -3,23 +3,23 @@ title: Mensagens assíncronas do Service Bus | Documentos da Microsoft
 description: Descrição de mensagens assíncronas do Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391468"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845083"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e elevada disponibilidade
 
@@ -109,11 +109,11 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Esses parâmetros têm os significados seguintes:
 
-* *secondaryNamespaceManager*: um inicializado [NamespaceManager] [ NamespaceManager] instância para o espaço de nomes secundário que o [PairNamespaceAsync] [ PairNamespaceAsync] método pode usar para configurar o espaço de nomes secundário. O Gestor de espaço de nomes é utilizado para obter a lista de filas no espaço de nomes e certifique-se de que as filas de registo de segurança necessária existem. Se não existirem nessas filas, são criados. [NamespaceManager] [ NamespaceManager] requer a capacidade de criar um token com o **gerir** de afirmação.
-* *messagingFactory*: A [MessagingFactory] [ MessagingFactory] instância para o espaço de nomes secundário. O [MessagingFactory] [ MessagingFactory] objeto é utilizado para enviar e, se o [EnableSyphon] [ EnableSyphon] propriedade está definida como **true**, receber mensagens das filas de registo de segurança.
+* *secondaryNamespaceManager*: Um inicializado [NamespaceManager] [ NamespaceManager] instância para o espaço de nomes secundário que o [PairNamespaceAsync] [ PairNamespaceAsync] método pode usar para definir Se o espaço de nomes secundário. O Gestor de espaço de nomes é utilizado para obter a lista de filas no espaço de nomes e certifique-se de que as filas de registo de segurança necessária existem. Se não existirem nessas filas, são criados. [NamespaceManager] [ NamespaceManager] requer a capacidade de criar um token com o **gerir** de afirmação.
+* *messagingFactory*: O [MessagingFactory] [ MessagingFactory] instância para o espaço de nomes secundário. O [MessagingFactory] [ MessagingFactory] objeto é utilizado para enviar e, se o [EnableSyphon] [ EnableSyphon] propriedade está definida como **true**, receber mensagens das filas de registo de segurança.
 * *backlogQueueCount*: O número de filas de registo de segurança para criar. Este valor tem de ser, pelo menos, 1. Ao enviar mensagens para o registo de segurança, um destas filas é escolhido aleatoriamente. Se definir o valor como 1, em seguida, apenas uma fila pode nunca ser utilizada. Quando isso acontece e a fila de uma lista de pendências gera erros, o cliente não é possível experimentar uma fila de registo de segurança diferentes e pode não conseguir enviar a mensagem. Recomendamos a definição deste valor para alguns maior valor e padrão, o valor para o 10. Pode alterar isto para um valor superior ou inferior, consoante a quantidade de dados a aplicação envia por dia. Cada fila de registo de segurança pode conter até 5 GB de mensagens.
 * *failoverInterval*: A quantidade de tempo durante o qual irá aceitar falhas no espaço de nomes primário antes de alternar qualquer entidade única para o espaço de nomes secundário. As ativações pós-falha ocorrerem com base numa entidade por entidade. Entidades de um único espaço de nomes com frequência em direto em diferentes nós dentro do Service Bus. Uma falha numa entidade não implica uma falha em outro. Pode definir este valor [System.TimeSpan.Zero] [ System.TimeSpan.Zero] a ativação pós-falha para o secundário imediatamente após a falha em primeiro lugar, não transitórias. Falhas que acionam o timer de ativação pós-falha são qualquer [MessagingException] [ MessagingException] em que o [IsTransient] [ IsTransient] propriedade é false, ou um [ System.TimeoutException][System.TimeoutException]. Outras exceções, tal como [UnauthorizedAccessException] [ UnauthorizedAccessException] não dão origem a ativação pós-falha, porque indicam que o cliente está configurado incorretamente. R [ServerBusyException] [ ServerBusyException] faz não causa ativação pós-falha porque o padrão correto está a aguardar 10 segundos, em seguida, enviar a mensagem novamente.
-* *enableSyphon*: indica que esse emparelhamento específico deve também syphon mensagens do espaço de nomes secundário para o espaço de nomes principal. Em geral, os aplicativos que enviam mensagens devem definir este valor como **false**; os aplicativos que recebem as mensagens devem definir este valor como **verdadeiro**. A razão disso é que com freqüência, há menos recetores de mensagens de remetentes de mensagens. Dependendo do número de recetores, pode optar por ter uma instância de aplicação única lidar com as tarefas de syphon. Usar vários recetores tem implicações de faturas para cada fila de registo de segurança.
+* *enableSyphon*: Indica que esse emparelhamento específico deve também syphon mensagens do espaço de nomes secundário para o espaço de nomes principal. Em geral, os aplicativos que enviam mensagens devem definir este valor como **false**; os aplicativos que recebem as mensagens devem definir este valor como **verdadeiro**. A razão disso é que com freqüência, há menos recetores de mensagens de remetentes de mensagens. Dependendo do número de recetores, pode optar por ter uma instância de aplicação única lidar com as tarefas de syphon. Usar vários recetores tem implicações de faturas para cada fila de registo de segurança.
 
 Para utilizar o código, crie um site primário [MessagingFactory] [ MessagingFactory] instância de uma secundária [MessagingFactory] [ MessagingFactory] de instância, um secundário [ NamespaceManager] [ NamespaceManager] instância e um [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instância. A chamada pode ser tão simples quanto o seguinte:
 

@@ -1,6 +1,6 @@
 ---
 title: Codificar um recurso com o Media Encoder Standard com .NET | Documentos da Microsoft
-description: Este artigo mostra como utilizar o .NET para codificar um recurso com Strandard de codificador de multimédia.
+description: Este artigo mostra como utilizar o .NET para codificar um recurso com o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241094"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809586"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um recurso com o Media Encoder Standard com .NET 
 As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, pode usar o codificador de multimédia incorporada de serviços de multimédia. Também pode usar um codificador fornecido por um parceiro de serviços de multimédia; codificadores de terceiros estão disponíveis através do Azure Marketplace. 

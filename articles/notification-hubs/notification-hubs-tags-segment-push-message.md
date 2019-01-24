@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/23/2019
 ms.author: jowargo
-ms.openlocfilehash: f52900d06049623a0a81e509abdc5e9ef76f95e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451481"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828167"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de encaminhamento e a etiqueta
 
@@ -29,8 +29,7 @@ Expressões de etiqueta permitem a conjuntos específicos do destino de disposit
 
 ## <a name="targeting-specific-registrations"></a>Direcionamento registos específicos
 
-A única forma de destino de notificação específica é associar etiquetas a eles, registos de destino, em seguida, essas marcas. Conforme discutido [gestão de registo](notification-hubs-push-notification-registration-management.md), para receber notificações de uma aplicação tem de registar um dispositivo processam num hub de notificação de push. Depois de criar um registo no hub de notificação, o back-end de aplicação pode enviar notificações push para o mesmo.
-O back-end de aplicação pode escolher os registros de destino com uma notificação específica das seguintes formas:
+A única forma de destino de notificação específica é associar etiquetas a eles, registos de destino, em seguida, essas marcas. Conforme discutido [gestão de registo](notification-hubs-push-notification-registration-management.md), para receber notificações de uma aplicação tem de registar um dispositivo processam num hub de notificação de push. Depois de criar um registo no hub de notificação, o back-end de aplicação pode enviar notificações push para o mesmo. O back-end de aplicação pode escolher os registros de destino com uma notificação específica das seguintes formas:
 
 1. **Difusão**: todos os registos no hub de notificações recebem a notificação.
 2. **Etiqueta**: todos os registos que contêm a marca especificada recebem a notificação.
@@ -71,6 +70,9 @@ Nesta imagem, Alice está interessada em atualizações para dos Beatles e Bob e
 Enquanto pode codificar várias questões em etiquetas (por exemplo, "band_Beatles" ou "follows_Charlie"), as etiquetas são cadeias de caracteres simples e não as propriedades com valores. Um registo é correspondido apenas sobre a presença ou ausência de uma etiqueta específica.
 
 Para obter um tutorial completo passo a passo sobre como utilizar etiquetas para enviar para os grupos de interesses, consulte [notícias de última hora](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+
+> [!NOTE]
+> Os Hubs de notificação do Azure suporta um máximo de 60 etiquetas por registo.
 
 ## <a name="using-tags-to-target-users"></a>Utilizar etiquetas para os utilizadores de destino
 

@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações de número inteiro para a ide
 description: Número inteiro de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 988e25b6a5ef3f99ae7df9076a40e06b403bb029
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36412d16328e757b4c28b0c77638e6d87f83b8e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381519"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855742"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de afirmações de número inteiro
 
@@ -29,8 +29,8 @@ Converte um tipo de dados longos num tipo de dados de cadeia de caracteres.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | longitude | ClaimType para converter uma cadeia de caracteres. |
-| outputClaim | outputClaim | cadeia | ClaimType produzido este ClaimsTransformation po vyvolání. |
+| InputClaim | inputClaim | longa | ClaimType para converter uma cadeia de caracteres. |
+| OutputClaim | outputClaim | cadeia | ClaimType produzido este ClaimsTransformation po vyvolání. |
 
 Neste exemplo, o `numericUserId` afirmação com um tipo de valor de longa duração é convertida numa `UserId` a afirmação com um tipo de valor de cadeia de caracteres.
 

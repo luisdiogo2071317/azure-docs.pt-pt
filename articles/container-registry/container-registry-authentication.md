@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752882"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851730"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
@@ -26,13 +26,15 @@ O registo de contentor do Azure não suporta operações de Docker não autentic
 
 ## <a name="individual-login-with-azure-ad"></a>Início de sessão individual com o Azure AD
 
-Ao trabalhar com o registo diretamente, como extrair imagens e enviar imagens a partir da sua estação de trabalho de desenvolvimento, autenticar com o [início de sessão az acr](/cli/azure/acr?view=azure-cli-latest#az-acr-login) comando no [CLI do Azure](/cli/azure/install-azure-cli):
+Ao trabalhar com o registo diretamente, como extrair imagens e enviar imagens a partir de uma estação de trabalho de desenvolvimento, autenticar com o [início de sessão az acr](/cli/azure/acr?view=azure-cli-latest#az-acr-login) comando no [CLI do Azure](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 Quando iniciar sessão com `az acr login`, a CLI utiliza o token criado quando tiver executado [início de sessão az](/cli/azure/reference-index#az-login) para autenticar facilmente a sua sessão com o registo. Uma vez que já iniciou sessão desse modo, as suas credenciais estão em cache e subsequentes `docker` comandos não necessitam de um nome de utilizador ou palavra-passe. Se o seu token expira, pode atualizá-la utilizando o `az acr login` comando novamente para o autenticar. Usando `az acr login` com identidades do Azure fornece [acesso baseado em funções](../role-based-access-control/role-assignments-portal.md).
+
+Para alguns cenários talvez queira iniciar sessão para um registo com a sua própria identidade individual no Azure AD. Para cenários de serviço cruzado, ou para processar as necessidades de um grupo de trabalho em que não pretende gerir o acesso individual, também pode iniciar sessão com uma [identidade de recursos do Azure gerida](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Principal de serviço
 

@@ -1,10 +1,10 @@
 ---
-title: 'O Azure Active Directory Domain Services: Contacte-nos | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Contacte-nos | Documentos da Microsoft'
 description: Contacte a equipa de produto do Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: ergreenl
-ms.openlocfilehash: cedf09cd9dae23b3ea00d08b4a19ceb496e4958d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: feb3f17268443feddcbecd751c9da4bf16051ee5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155971"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849163"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Serviços de domínio do Azure AD - contacte-nos
 ## <a name="contact-the-product-team"></a>Contacte a equipa de produto
 Se tiver problemas com o seu domínio gerido, certifique-se os passos descritos no [guia de resolução de problemas](active-directory-ds-troubleshooting.md) resolver o problema. Se ainda tiver problemas, pode contactar-nos.
 
-Pode enviar por e-mail para: [aos comentários de serviços de domínio do Azure AD](mailto:aaddsfb@microsoft.com).
+Pode enviar por e-mail para: [Comentários dos serviços de domínio do Azure AD](mailto:aaddsfb@microsoft.com).
 
 Certifique-se de que inclui o seguinte, portanto, vamos investigar o problema.
 

@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321879"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817508"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
@@ -37,7 +37,7 @@ Pode preparar os dados em Python, utilizando o [SDK do Azure Machine Learning Da
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Executar o **regressão-part1-data-prep.ipynb** bloco de notas em blocos de notas do Azure ou no seu próprio servidor de bloco de notas do Jupyter.
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Executar o **regressão-part1-data-prep.ipynb** bloco de notas na [blocos de notas do Azure](https://notebooks.azure.com/) ou no seu próprio servidor de bloco de notas do Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1066,7 +1066,7 @@ package.save(file_path)
 
 Para continuar com a segunda parte do tutorial, terá do **dflows.dprep** ficheiro no diretório atual.
 
-Se não quiser continuar para a parte dois, elimine o **dflows.dprep** ficheiro no seu diretório atual. Elimine este ficheiro se estiver a executar a execução local ou em blocos de notas do Azure.
+Se não quiser continuar para a parte dois, elimine o **dflows.dprep** ficheiro no seu diretório atual. Eliminar este ficheiro, se estiver a executar a execução localmente ou na [blocos de notas do Azure](https://notebooks.azure.com/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

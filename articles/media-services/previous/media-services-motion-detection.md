@@ -1,6 +1,6 @@
 ---
-title: Detetar Motions com a análise de multimédia do Azure | Microsoft Docs
-description: O processador de multimédia Detector de movimento de suporte de dados do Azure (MP) permite-lhe identificar eficientemente secções de interesse num vídeo longo e uneventful caso contrário.
+title: Detetar movimentos com análise de multimédia do Azure | Documentos da Microsoft
+description: O processador de multimédia detetor de movimento de suporte de dados do Azure (MP) permite-lhe com eficiência identificar seções de interesse dentro de um vídeo de longo e rotineira, caso contrário.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,41 +13,41 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788803"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820976"
 ---
-# <a name="detect-motions-with-azure-media-analytics"></a>Detetar Motions com a análise de multimédia do Azure
+# <a name="detect-motions-with-azure-media-analytics"></a>Detetar movimentos com análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
-O **Detector de movimento de suporte de dados do Azure** processador de multimédia (MP) permite-lhe identificar eficientemente secções de interesse num vídeo longo e uneventful caso contrário. Deteção de movimento pode ser utilizada no filmagens de câmaras estático para identificar secções do vídeo onde ocorre o movimento. Gera um ficheiro JSON que contém um metadados com carimbos região e o delimitador onde o evento ocorreu.
+O **detetor de movimento de suporte de dados do Azure** processador de multimédia (MP) permite-lhe com eficiência identificar seções de interesse dentro de um vídeo de longo e rotineira, caso contrário. Deteção de movimento pode ser utilizada no filmagens de câmaras estático para identificar seções do vídeo que ocorre a equipe do motion. Gera um ficheiro JSON que contém uma metadados com carimbos de hora e a região delimitadora onde ocorreu o evento.
 
-Esta tecnologia direcionado para os feeds de vídeo de segurança, é capaz de categorizar movimento eventos relevantes e falsos positivos, tais como sombras e alterações de lighting. Isto permite-lhe gerar alertas de segurança a partir de feeds da câmara sem ser spammed com eventos irrelevantes endless, ao conseguir extrair instantes de interesse de vídeos de vigilância longo.
+Essa tecnologia voltado para transmissões de vídeo de segurança, é possível categorizar o movimento em eventos relevantes e falsos positivos, como sombras e alterações de iluminação. Isto permite-lhe gerar alertas de segurança de feeds de câmera sem a ser spammed com eventos irrelevantes intermináveis, enquanto a capacidade de extrair os momentos de interesse de vídeos de vigilância longo.
 
-O **Detector de movimento de suporte de dados do Azure** MP está atualmente em pré-visualização.
+O **detetor de movimento de suporte de dados do Azure** MP está atualmente em pré-visualização.
 
-Este artigo fornece detalhes sobre **Detector de movimento de suporte de dados do Azure** e mostra como utilizá-la com o SDK de Media Services para .NET
+Este artigo fornece detalhes sobre **detetor de movimento de suporte de dados do Azure** e mostra como utilizá-lo com o SDK de Media Services para .NET
 
-## <a name="motion-detector-input-files"></a>Ficheiros de entrada Detector de movimento
+## <a name="motion-detector-input-files"></a>Ficheiros de entrada de detetor de movimento
 Ficheiros de vídeo. Atualmente, são suportados os seguintes formatos: MP4, MOV e WMV.
 
 ## <a name="task-configuration-preset"></a>Configuração da tarefa (predefinição)
-Quando criar uma tarefa com **Detector de movimento de suporte de dados do Azure**, tem de especificar uma predefinição de configuração. 
+Ao criar uma tarefa com **detetor de movimento de suporte de dados do Azure**, tem de especificar uma predefinição de configuração. 
 
 ### <a name="parameters"></a>Parâmetros
 Pode utilizar os seguintes parâmetros:
 
 | Nome | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
-| sensitivityLevel |Cadeia: 'baixa', 'Média', 'Alta' |Define a sensibilidade nível no quais motions são reportados. Ajuste esta opção para ajustar o número de falsos positivos. |'Média' |
-| frameSamplingValue |Número inteiro positivo |Define a frequência em que executa de algoritmo. cada intervalo de igual a 1, 2 significa cada moldura segundo e assim sucessivamente. |1 |
-| detectLightChange |Booleano: 'true', 'false' |Define se leve alterações são reportadas nos resultados |'False' |
-| mergeTimeThreshold |Tempo de xs: Hh: mm:<br/>Exemplo: 00:00:03 |Especifica o intervalo de tempo entre os eventos de movimento onde 2 eventos são ser combinado e reportado como 1. |00:00:00 |
-| detectionZones |Uma matriz de zonas de Deteção:<br/>-Deteção zona é uma matriz de 3 ou mais pontos<br/>-Ponto é x e y coordenada de 0 a 1. |Descreve a lista das zonas de deteção poligonais na ser utilizado.<br/>Os resultados são reportados com as zonas como um ID, com o primeiro um que está a ser 'id': 0 |Única zona que abrange o intervalo completo. |
+| sensitivityLevel |String:'low', 'medium', 'high' |Define a sensibilidade de nível no qual propostas são comunicadas. Ajuste esta opção para ajustar o número de falsos positivos. |'medium' |
+| frameSamplingValue |número inteiro positivo |Define a frequência no qual o algoritmo é executado. cada quadro de igual a 1, 2 significa que cada quadro segunda e assim por diante. |1 |
+| detectLightChange |Boolean:'true', 'false' |Define se são pequenas alterações são relatadas nos resultados |'False' |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Exemplo: 00:00:03 |Especifica a janela de tempo entre os eventos de movimento em que são 2 eventos ser combinada e reportada como 1. |00:00:00 |
+| detectionZones |Uma matriz de zonas de Deteção:<br/>-Deteção zona é uma matriz de pontos de 3 ou mais<br/>-Ponto é um x e y coordenadas de 0 a 1. |Descreve a lista das zonas de deteção polygonal a ser utilizado.<br/>Os resultados são apresentados com as zonas como um ID, sendo o primeiro "id": 0 |Zona única, que abrange o quadro completo. |
 
-### <a name="json-example"></a>Exemplo JSON
+### <a name="json-example"></a>Exemplo de JSON
 
 ```json
     {
@@ -79,36 +79,36 @@ Pode utilizar os seguintes parâmetros:
     }
 ```
 
-## <a name="motion-detector-output-files"></a>Ficheiros de saída do movimento Detector
-Uma tarefa de deteção de movimento devolve um ficheiro JSON no elemento de saída, que descreve os alertas de movimento e a respetiva categorias, dentro de vídeo. O ficheiro contém informações sobre a hora e a duração de movimento detectada as vídeo.
+## <a name="motion-detector-output-files"></a>Ficheiros de saída de detetor de movimento
+Uma tarefa de deteção de movimento devolve um ficheiro JSON no recurso de saída, que descreve os alertas de movimento e as respetivas categorias, no vídeo. O ficheiro contém informações sobre o tempo e a duração do motion detetada no vídeo.
 
-A API de Detector movimento fornece indicadores assim que não existem objetos em movimento num vídeo em segundo plano fixo (por exemplo, um vigilância vídeo). O movimento Detector está preparado para reduzir alarmes false, tais como iluminação da e alterações de sombra de volumes. Limitações atuais dos algoritmos de incluem vídeos de visão as noites, por transparentes objetos e pequenos objetos.
+A API de detetor de movimento fornece indicadores, uma vez que existem objetos em movimento no plano de fundo fixo vídeo (por exemplo, uma vigilância vídeo). O detetor de movimento é preparado para reduzir falsos alarmes, como iluminação e alterações de cópias de sombra. Limitações atuais dos algoritmos incluem vídeos de visão da noite, objetos semitransparente e objetos pequenos.
 
 ### <a id="output_elements"></a>Elementos do ficheiro de saída JSON
 > [!NOTE]
-> A versão mais recente, o formato JSON de saída foi alterado e pode representar uma alteração inovadora para alguns clientes.
+> Na versão mais recente, o formato JSON de saída foi alterado e pode representar uma alteração de última hora para alguns clientes.
 > 
 > 
 
-A tabela seguinte descreve elementos do ficheiro de saída JSON.
+A tabela seguinte descreve os elementos do ficheiro de saída JSON.
 
 | Elemento | Descrição |
 | --- | --- |
-| Versão |Isto refere-se para a versão da API de vídeo. A versão atual é 2. |
-| escala temporal |"Ticks" por segundo do vídeo. |
-| Desvio |O desvio da hora para carimbos de hora em "ticks". Na versão 1.0 do vídeo APIs, este será sempre 0. No futuro cenários que suportamos, pode alterar este valor. |
-| framerate |Fotogramas por segundo do vídeo. |
-| Largura, Altura |Refere-se a largura e altura do vídeo em pixéis. |
-| Iniciar |O carimbo de início no "ticks". |
+| Versão |Refere-se para a versão da API de vídeo. A versão atual é 2. |
+| Escala temporal |"Ticks" por segundo do vídeo. |
+| Desvio |O desvio de tempo para os carimbos de data / no "ticks". Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
+| Taxa de fotogramas |Fotogramas por segundo do vídeo. |
+| Largura, Altura |Refere-se para a largura e altura do vídeo em pixéis. |
+| Iniciar |O carimbo de hora de início em "ticks". |
 | Duração |O comprimento do evento, em "ticks". |
-| Intervalo |Intervalo de cada entrada no evento, em "ticks". |
-| Eventos |Cada fragmento de evento contém o movimento detetado dentro desse duração de tempo. |
-| Tipo |A versão atual, este é sempre '2' para movimento genérico. Esta etiqueta de fornecem APIs de vídeo a flexibilidade para categorizar de movimento em futuras versões. |
-| RegionID |Tal como explicado anteriormente, este será sempre 0 nesta versão. Esta etiqueta dá-API de vídeo a flexibilidade para localizar o movimento em várias regiões em versões futuras. |
-| Regiões |Refere-se para a área do seu vídeo de onde que mais lhe interessam movimento. <br/><br/>-"id" representa a área de região – nesta versão houver apenas um ID de 0. <br/>-"type" representa a forma da região que mais lhe interessam para movimento. Atualmente, são suportados "retângulo" e "polígono".<br/> Se tiver especificado "retângulo", a região tem dimensões no X, Y, largura e altura. As coordenadas X e Y representam as coordenadas superiores esquerdas de XY da região na escala normalizada de entre 0,0 e 1,0. A largura e altura representam o tamanho da região na escala normalizada de entre 0,0 e 1,0. Na versão atual, os X, Y, largura e altura sempre estiverem corrigidos, 0, 0 e 1, 1. <br/>Se tiver especificado "polígono", a região tem dimensões em pontos. <br/> |
-| fragmentos |Os metadados é partes cópias de segurança em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, a duração, o número do intervalo e o evento (s). Um fragmento com não há eventos significa que nenhum movimento foi detetado durante essa hora de início e a duração. |
-| Parênteses Retos] |Cada Reto representa um intervalo no evento. Foi detetado o Retos vazios para esse intervalo não significa que nenhum movimento. |
-| localizações |Esta nova entrada em eventos apresenta a localização onde ocorreu o movimento. Este é mais específico que as zonas de deteção. |
+| Intervalo |O intervalo de cada entrada no evento, em "ticks". |
+| Eventos |Cada fragmento de evento contém o motion detetado dentro desse período de tempo. |
+| Tipo |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |
+| RegionID |Tal como explicado anteriormente, isso será sempre 0 nesta versão. Esta etiqueta proporciona a flexibilidade para localizar o movimento em várias regiões em futuras versões de API de vídeo. |
+| Regiões |Refere-se para a área no seu vídeo em que se preocupa motion. <br/><br/>-o "id" representa a área de região – nesta versão existe apenas um, ID de 0. <br/>-"tipo" representa a forma da região que mais lhe interessa para movimento. Atualmente, são suportados "retângulo" e "polígono".<br/> Se tiver especificado "retângulo", a região tem dimensões no X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY esquerdas superiores da região numa escala normalizada de 0,0 a 1,0. A largura e altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixa em 0, 0 e 1, 1. <br/>Se tiver especificado "polígono", a região tem dimensões em pontos. <br/> |
+| Fragmentos |Os metadados é segmentado cópias em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento com nenhum evento significa que não foi detetado o movimento de durante essa hora de início e a duração. |
+| Brackets [] |Cada Reto de fecho representa um intervalo no evento. Vazio Retos para esse intervalo significa que não foi detetado o movimento de. |
+| localizações |Essa nova entrada em eventos de lista a localização onde o movimento ocorreu. Isso é mais específico do que as zonas de deteção. |
 
 O exemplo JSON seguinte mostra a saída:
 
@@ -157,16 +157,16 @@ O exemplo JSON seguinte mostra a saída:
 ```
 
 ## <a name="limitations"></a>Limitações
-* Os formatos de vídeos de entrada suportados incluem MP4, MOV e WMV.
-* Deteção de movimento está otimizada para vídeos estacionário em segundo plano. O algoritmo centra-se em reduzir alarmes false, tais como alterações lighting e sombras.
-* Alguns movimento não pode ser detetado devido a dificuldades técnicas; Por exemplo, as noites visão vídeos, objetos por transparentes e pequenos objetos.
+* Os formatos de vídeo de entrada suportados incluem MP4, MOV e WMV.
+* Deteção de movimento é otimizada para vídeos em segundo plano estacionários. O algoritmo se concentra em reduzir falsos alarmes, como alterações de iluminação e sombras.
+* Alguns motion poderão não ser detetado devido a desafios técnicos; Por exemplo, vídeos de visão da noite, objetos semitransparente e objetos pequenos.
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
 O seguinte programa mostra como:
 
-1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
-2. Crie uma tarefa com uma tarefa de deteção de movimento em vídeo baseada num ficheiro de configuração que contém a predefinição de json seguinte: 
+1. Criar um elemento e carregue um ficheiro de multimédia para o elemento.
+2. Crie uma tarefa com uma tarefa de deteção de movimento em vídeo com base num arquivo de configuração que contém a seguinte configuração predefinida de json: 
    
     ```json
             {
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
@@ -382,9 +382,9 @@ namespace VideoMotionDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Blogue de Detector de movimento de serviços de suporte de dados do Azure](https://azure.microsoft.com/blog/motion-detector-update/)
+[Blogue de detetor de movimento de serviços de multimédia do Azure](https://azure.microsoft.com/blog/motion-detector-update/)
 
-[Descrição geral da análise de serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 
 [Demonstrações de análise de multimédia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

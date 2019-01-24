@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5315efbfb94bec5ef810078788623dd105dcf34
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 56ca87f318aa5f1843a3b28480be834df1669c71
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731642"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811014"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saídos no serviço de aplicações do Azure
 
@@ -57,10 +57,18 @@ Pode encontrar as mesmas informações ao executar o seguinte comando na [Cloud 
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 ```
 
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
+```
+
 Para localizar todas as possíveis endereços IP de saída para a sua aplicação, independentemente de preços escalões, execute o seguinte comando [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+```
+
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

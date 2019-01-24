@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2df899e6cb0078cdf949c3f8257719b00554e85b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815725"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para aprovisionamento automático de utilizadores
 
@@ -74,7 +74,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Sob o **credenciais de administrador** secção, de entrada a **segredo de Token** gerados por conta da sua ThousandEyes (pode encontrar o token na sua conta de ThousandEyes: **segurança & Autenticação**). 
+5. Sob o **credenciais de administrador** secção, de entrada a **Token de portador do OAuth** gerados por conta da sua ThousandEyes (pode encontrar e ou gerar um token na sua conta de ThousandEyes  **Perfil** secção).
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

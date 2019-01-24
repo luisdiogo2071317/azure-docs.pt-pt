@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382772"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823441"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -235,7 +235,7 @@ Propriedade |  Descrição | Valor Predefinido
 `model_explainability` | _Opcional_ verdadeiro/falso <br/>  Experimente verdadeiro ativa para executar a importância de funcionalidade para cada iteração. Também pode utilizar o método explain_model() numa iteração específica para ativar a funcionalidade importância sob demanda para aquela iteração após a conclusão da experimentação. | Falso
 `enable_ensembling`|Sinalizador para ativar uma iteração ensembling depois de concluir todas as outras iterações.| Verdadeiro 
 `ensemble_iterations`|Número de iterações durante o qual escolhemos um pipeline ajustado para fazer parte do ensemble final.| 15
-`experiment_timeout_minutes`| Limita a quantidade de tempo (minues) que pode levar a experimentação toda executar | Nenhuma
+`experiment_timeout_minutes`| Limita a quantidade de tempo (minutos) que pode efetuar a experimentação toda executar | Nenhuma
 
 ## <a name="data-pre-processing-and-featurization"></a>Processamento prévio de dados e featurization
 
@@ -275,7 +275,7 @@ As métricas seguintes são salvas em cada iteração de uma tarefa de classific
 |Métrica primária|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 AUC_Macro| AUC é a área sob a curva de característica do Recetor operacional. Macro é a média aritmética de AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "macro"|
-AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. Micro é computada globably ao combinar os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
+AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. Micro é computada globalmente ao combinar os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
 AUC_Weighted  | AUC é a área sob a curva de característica do Recetor operacional. Ponderada é a média aritmética de classificação para cada classe, ponderada pelo número de instâncias verdadeiros em cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média = "ponderado"
 accuracy|A precisão é a porcentagem de etiquetas previstas que correspondam exatamente com as etiquetas verdadeiras. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhuma|
 average_precision_score_macro|Precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisions alcançados em cada limite, com o aumento de Lembre-se de que o limiar anterior utilizado como o peso. Macro é a média aritmética da pontuação média de precisão de cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média = "macro"|
@@ -310,7 +310,7 @@ normalized_median_absolute_error|Erro de absoluto mediano normalizado é mediano
 root_mean_squared_error|Raiz significar um erro ao quadrado é a raiz quadrada da diferença ao quadrado esperada entre o destino e a predição|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhuma|
 normalized_root_mean_squared_error|Raiz normalizado significar um erro ao quadrado é raiz mean erros dividido pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divida por intervalo dos dados|
 root_mean_squared_log_error|Raiz significa de erro do registo ao quadrado é a raiz quadrada do erro logarítmica ao quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
-normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean Noramlized raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
+normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean normalizado raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
 
 ## <a name="explain-the-model"></a>Explicar o modelo
 
@@ -322,7 +322,7 @@ Existem duas formas de gerar a importância de funcionalidade.
 
 *   Depois de uma experimentação estiver concluída, pode usar `explain_model` método em qualquer iteração.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -339,7 +339,7 @@ Existem duas formas de gerar a importância de funcionalidade.
 
 *   Para ver a importância de funcionalidade para todas as iterações, defina `model_explainability` sinalizador para `True` no AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -356,7 +356,7 @@ Existem duas formas de gerar a importância de funcionalidade.
 
     Quando tiver terminado, pode utilizar o método retrieve_model_explanation para recuperar a importância de funcionalidade para uma iteração específica.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

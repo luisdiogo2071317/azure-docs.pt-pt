@@ -3,19 +3,19 @@ title: Manter sessão iniciada no Azure Active Directory B2C | Documentos da Mic
 description: Saiba como configurar a manter-Me com sessão iniciada em (KMSI) no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 517f476853866101cbb33103602494c11cd9e412
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967764"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852461"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Ativar manter sessão iniciada (KMSI) no Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Os utilizadores não devem ativar esta opção em computadores públicos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um inquilino do Azure AD B2C que está configurado para permitir a inscrição e início de sessão de conta local. Se não tiver um inquilino, pode criar um usando as etapas [Tutorial: criar um inquilino do Azure Active Directory B2C](tutorial-create-tenant.md).
+Um inquilino do Azure AD B2C que está configurado para permitir a inscrição e início de sessão de conta local. Se não tiver um inquilino, pode criar um através dos passos no [Tutorial: Criar um inquilino do Azure Active Directory B2C](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>Adicionar um elemento de definição de conteúdo 
 

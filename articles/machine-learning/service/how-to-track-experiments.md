@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99b3a65feb232526cffecac4fec68d56fcd16ccb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189477"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846290"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
@@ -122,16 +122,16 @@ O exemplo seguinte prepara um modelo simples de sklearn Ridge localmente num blo
 
 O script termina com ```run.complete()```, que marca a execução como concluída.  Esta função é normalmente utilizada em cenários de bloco de notas interativo.
 
-## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Utilizar ScriptRunConfig
+## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Use ScriptRunConfig
 
 **ScriptRunConfig** é uma classe para a configuração de configurações para o script é executado. Com esta opção, pode adicionar o código de monitorização para ser notificado da conclusão de ou para obter um widget visual para monitorizar.
 
 Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâmetro simple paramétrico para paramétrico sobre os valores alfabéticos do modelo para capturar métricas com modelos de formação em é executado sob a experimentação. O exemplo é executado localmente em relação a um ambiente gerenciado por utilizador. 
 
-1. Crie um script de treinamento. Esse código usa ```%%writefile%%``` escrever o código de treinamento para a pasta de script como ```train.py```.
+1. Criar um script de treinamento `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -182,10 +182,11 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
   
   ```
 
-2. O ```train.py``` referências de script ```mylib.py```. Este ficheiro permite-lhe obter a lista de valores alfa para utilizar no modelo ridge.
+2. O `train.py` referências de script `mylib.py` que permite-lhe obter a lista de valores alfa para utilizar no modelo ridge.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -216,7 +217,31 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## <a name="cancel-a-run"></a>Cancelar uma execução
+Após uma execução é submetido, pode cancelá-lo, mesmo se perder a referência de objeto, desde que souber o nome de experimentação e id de execução. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can only cancel a run if the status is Running
+if r.get_status() == 'Running':
+    r.cancel()
+```
+Tenha em atenção de que tipos de ScriptRun e PipelineRun atualmente, apenas suportam a operação de cancelamento.
+
 ## <a name="view-run-details"></a>Vista de detalhes da execução
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitor de executar com widgets de bloco de notas do Jupyter

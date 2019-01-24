@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630330"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809196"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -153,7 +153,7 @@ Para exibir os resultados no CSV:
 | Desktop.ini | Específica do sistema de ficheiros |
 | ethumbs.db$ | Ficheiro temporário para miniaturas |
 | ~$\*.\* | Ficheiro temporário do Office |
-| \*. tmp | Ficheiro temporário |
+| \*.tmp | Ficheiro temporário |
 | \*.laccdb | Ficheiro de bloqueio do acesso DB|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Ficheiro de sincronização interno|
 | \\Informações de Volume do sistema | Pasta específica para o volume |
@@ -205,6 +205,9 @@ Se estiver a utilizar uma solução de cópia de segurança no local, as cópias
 
 > [!Note]  
 > Restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.
+
+> [!Note]  
+> Instantâneos do VSS (incluindo a guia Previous Versions) não são atualmente suportados em volumes que tem na cloud em camadas ativado. Se cloud em camadas estiver ativada, utilize os instantâneos de partilha de ficheiros do Azure para restaurar um ficheiro de cópia de segurança.
 
 ### <a name="encryption-solutions"></a>Soluções de encriptação
 Suporte para soluções de encriptação depende de como eles são implementados. O Azure File Sync é conhecido por trabalhar com:

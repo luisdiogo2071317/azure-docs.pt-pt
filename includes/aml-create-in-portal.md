@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489597"
 ---
-Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. 
-
-Dashboard de área de trabalho do portal é suportada nos browsers Microsoft Edge, Chrome e Firefox.
+1. Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. 
 
    ![Portal do Azure](./media/aml-create-in-portal/portal-dashboard.png)
 
-No canto superior esquerdo do portal, selecione **criar um recurso**.
+1. No canto superior esquerdo do portal, selecione **criar um recurso**.
 
    ![Criar um recurso no portal do Azure](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Na barra de pesquisa, introduza **Machine Learning**. Selecione o **área de trabalho do Machine Learning serviço** resultado de pesquisa.
+1. Na barra de pesquisa, introduza **Machine Learning**. Selecione o **área de trabalho do Machine Learning serviço** resultado de pesquisa.
 
    ![Procure uma área de trabalho](./media/aml-create-in-portal/allservices-search.PNG)
 
-Na **área de trabalho do ML service** painel, desloque-se para baixo e selecione **criar** para começar.
+1. Na **área de trabalho do ML service** painel, desloque-se para baixo e selecione **criar** para começar.
 
    ![Criar](./media/aml-create-in-portal/portal-create-button.png)
 
-Na **área de trabalho do ML service** painel, configurar a sua área de trabalho.
+1. Na **área de trabalho do ML service** painel, configurar a sua área de trabalho.
 
    Campo|Descrição
    ---|---
@@ -45,10 +43,10 @@ Na **área de trabalho do ML service** painel, configurar a sua área de trabalh
 
    ![Criar área de trabalho](./media/aml-create-in-portal/workspace-create.png)
 
-Para iniciar o processo de criação, selecione **criar**. Pode demorar alguns minutos a criar a área de trabalho.
+1. Para iniciar o processo de criação, selecione **criar**. Pode demorar alguns minutos a criar a área de trabalho.
 
-Para verificar o estado da implementação, selecione o ícone de notificações **bell**, na barra de ferramentas.
+1. Para verificar o estado da implementação, selecione o ícone de notificações **bell**, na barra de ferramentas.
+
+1. Quando o processo estiver concluído, é apresentada uma mensagem de êxito da implementação. Ele também está presente na secção notificações. Para ver a nova área de trabalho, selecione **Ir para recurso**.
 
    ![Estado de criação da área de trabalho](./media/aml-create-in-portal/notifications.png)
-
-Quando o processo estiver concluído, é apresentada uma mensagem de êxito da implementação. Ele também está presente na secção notificações. Para ver a nova área de trabalho, selecione **Ir para recurso**.

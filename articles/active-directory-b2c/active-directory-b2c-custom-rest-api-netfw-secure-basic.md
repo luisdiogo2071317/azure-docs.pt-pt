@@ -3,19 +3,19 @@ title: Proteger os seus serviços RESTful com autenticação básica HTTP no Azu
 description: Proteja as suas trocas de afirmações de REST API personalizadas no seu Azure AD B2C ao utilizar a autenticação básica HTTP.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409308"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850689"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteger os serviços RESTful com autenticação básica HTTP
 
@@ -54,7 +54,7 @@ Conclua os passos a [trocas no seu percurso do utilizador do Azure AD B2C de afi
     [System.Convert]::ToBase64String($bytes)
     ```
 
-### <a name="step-12-install-owin-libraries"></a>Passo 1.2: Instalar bibliotecas OWIN
+### <a name="step-12-install-owin-libraries"></a>Passo 1.2: Instalar OWIN bibliotecas
 Para começar, adicione os pacotes de NuGet de middleware do OWIN para o projeto, utilizando a consola do Gestor de pacotes do Visual Studio:
 
 ```
@@ -219,7 +219,7 @@ Abra Controllers\IdentityController.cs e adicione o `[Authorize]` etiqueta para 
 ## <a name="step-2-publish-to-azure"></a>Passo 2: Publicar no Azure
 Para publicar o seu projeto, no Explorador de soluções, clique com botão direito a **Contoso.AADB2C.API** projeto e, em seguida, selecione **Publish**.
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Passo 3: Adicionar o segredo de ID e a aplicação da aplicação de serviços RESTful para o Azure AD B2C
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Passo 3: Adicione o segredo de ID e a aplicação da aplicação de serviços RESTful para o Azure AD B2C
 Depois do seu serviço RESTful está protegido pelo ID de cliente (nome de utilizador) e o segredo, tem de armazenar as credenciais no seu inquilino do Azure AD B2C. A diretiva personalizada fornece as credenciais quando invoca os serviços RESTful. 
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Passo 3.1: Adicionar um ID de cliente de serviços RESTful

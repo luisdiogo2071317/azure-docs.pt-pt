@@ -1,7 +1,7 @@
 ---
-title: Executar experimentações e inferência numa rede Virtual
+title: Executar experimentações & inferência de tipos numa rede virtual
 titleSuffix: Azure Machine Learning service
-description: Saiba como executar com segurança inferência dentro de uma rede Virtual do Azure e de experiências de machine learning. Este artigo mostra como criar os destinos de computação utilizados para preparar modelos e realizar a inferência dentro de uma rede Virtual do Azure. Também aborda os requisitos para redes virtuais protegidos, como exigir portas de entrada e saídas.
+description: Executar experimentações de machine learning e inferência proteger dentro de uma rede Virtual do Azure. Saiba como criar destinos de computação de preparação de modelos e como inferência de tipos dentro de uma rede Virtual do Azure. Também aborda os requisitos para redes virtuais protegidos, como exigir portas de entrada e saídas.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248901"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856286"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar com segurança inferência dentro de uma rede Virtual do Azure e de experimentações
 
@@ -149,7 +149,7 @@ Para utilizar uma máquina virtual ou um cluster do HDInsight numa rede Virtual 
 
     * __origem__: Selecione __Etiqueta do Serviço__
 
-    * __Etiqueta de serviço de origem__: Selecione __AzureMachineLearning__
+    * __Etiqueta de serviço de origem__: Select __AzureMachineLearning__
 
     * __Intervalos de portas de origem__: Selecione __*__
 
@@ -200,7 +200,7 @@ Para adicionar o serviço Kubernetes do Azure numa rede Virtual à sua área de 
 
     - __Endereço de bridge do docker__: Selecione o endereço de bridge do Docker. Este endereço IP é atribuído a Bridge do Docker. Não pode estar em quaisquer intervalos de sub-rede IP ou o intervalo de endereços do serviço do Kubernetes. Por exemplo: 172.17.0.1/16
 
-   ![Serviço do Azure Machine Learning: Definições de rede Virtual de computação de aprendizagem automática](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+   ![Azure Machine Learning service: Definições de rede Virtual de computação de aprendizagem automática](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
     > [!TIP]
     > Se já tiver um cluster do AKS numa rede Virtual, pode anexá-lo para a área de trabalho. Para obter mais informações, consulte [como implementar no AKS](how-to-deploy-to-aks.md).

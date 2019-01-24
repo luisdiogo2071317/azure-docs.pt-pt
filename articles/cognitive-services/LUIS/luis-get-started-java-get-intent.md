@@ -8,16 +8,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c55721e803b85c536067a90019f75dd5aa0f7845
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3b50678691342b5b106a375e79380cb8cc1515e4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085353"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855674"
 ---
-# <a name="quickstart-get-intent-using-java"></a>Guia de Início Rápido: obter a intenção com Java
+# <a name="quickstart-get-intent-using-java"></a>Início rápido: Objetivo de GET com Java
 
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 

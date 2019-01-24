@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Optimizely | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Optimizely | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Optimizely.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: be56218e174e5d8b0e6bde394f2dfd40fc91e87d
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 72e0f19a665b1e8cc91939ae24cc71341b5f1674
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056920"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819021"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory com Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Active Directory do Azure com Optimizely
 
 Neste tutorial, saiba como integrar Optimizely com o Azure Active Directory (Azure AD).
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |
-    | e-mail | User.Mail |
+    | e-mail | user.mail |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 

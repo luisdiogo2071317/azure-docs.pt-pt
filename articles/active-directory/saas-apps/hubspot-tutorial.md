@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com HubSpot | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com HubSpot | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e HubSpot.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431608"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814907"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Azure Active Directory com HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Active Directory do Azure com HubSpot
 
 Neste tutorial, saiba como integrar HubSpot com o Azure Active Directory (Azure AD).
 
@@ -164,7 +164,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     d. Na **URL fornecedor de identidade única Sign-On** caixa de texto, colar a **URL de início de sessão** valor que copiou do portal do Azure.
 
-    e. Abra sua transferido **Certificate(Base64)** ficheiro no bloco de notas. Copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X.509** caixa.
+    e. Abra sua transferido **Certificate(Base64)** ficheiro no bloco de notas. Copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X.509** caixa.
 
     f. Clique em **Verificar**.
 

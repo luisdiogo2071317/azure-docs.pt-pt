@@ -3,19 +3,19 @@ title: Autenticação, inscreva-se, Editar perfil no Azure Active Directory B2C 
 description: Como criar um aplicativo de desktop do Windows que inclui o início de sessão, inscreva-se, e a gestão de perfis com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354387"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843128"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Compilar uma aplicação de ambiente de trabalho do Windows
 Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar funcionalidades de gestão de identidade poderosas self-service para seu aplicativo de desktop em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas" do .NET Windows Presentation Foundation (WPF) que inclui a inscrição e início de sessão do utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e início de sessão utilizando um nome de utilizador ou e-mail. Ele também irão incluir o suporte para inscrição e início de sessão através da utilização de contas de redes sociais como o Facebook e Google.

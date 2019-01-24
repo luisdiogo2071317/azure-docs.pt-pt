@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ContentDefinitions de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381600"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849384"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -71,11 +71,11 @@ O **ContentDefinition** elemento contém os seguintes elementos:
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Uma cadeia que contém o URL da página HTML5 para a definição de conteúdo. |
 | RecoveryUri | 0:1 | Uma cadeia que contém o URL da página HTML para exibir um erro relacionadas com a definição de conteúdo. | 
-| URI de dados | 1:1 | Uma cadeia que contém o URL relativo de um arquivo HTML que fornece a experiência do usuário para invocar para o passo. |  
+| DataUri | 1:1 | Uma cadeia que contém o URL relativo de um arquivo HTML que fornece a experiência do usuário para invocar para o passo. |  
 | Metadados | 1:1 | Uma coleção de pares chave/valor que contenha os metadados utilizados pela definição do conteúdo. | 
 | LocalizedResourcesReferences | 0:1 | Uma coleção de referências de recursos localizados. Utilize este elemento para personalizar a localização de um atributo de interface e afirmações de utilizador. |
 
-### <a name="datauri"></a>URI de dados
+### <a name="datauri"></a>DataUri
 
 O **URI de dados** elemento é utilizado para especificar o identificador de página. O Azure AD B2C utiliza o identificador de página para carregar e iniciar os elementos de interface do Usuário e de JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela seguinte apresenta os identificadores de página que pode utilizar.
 
@@ -95,7 +95,7 @@ O **LocalizedResourcesReferences** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1: n | Uma lista de referências de recurso localizado para a definição de conteúdo. | 
+| LocalizedResourcesReference | 1:n | Uma lista de referências de recurso localizado para a definição de conteúdo. | 
 
 O **LocalizedResourcesReferences** elemento contém os seguintes atributos:
 

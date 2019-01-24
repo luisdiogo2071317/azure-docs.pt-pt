@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244589"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849665"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um bloco de notas do Jupyter com Python
 
@@ -128,7 +128,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente de projeto, pode criar e
 1. Uma vez que tem um *Requirements. txt* ficheiro as definições de ambiente, verá a mensagem, "aguardar o seu contentor concluir a ser preparada." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no bloco de notas; não é possível executar células de código, no entanto, até que o ambiente é totalmente configurado.
 1. O bloco de notas abre-se na interface do Jupyter com uma célula de código vazio único como predefinição.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Vista inicial de um novo bloco de notas em blocos de notas do Azure")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Vista inicial de um novo bloco de notas em blocos de notas do Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Realizar uma visita guiada da interface do bloco de notas
 
@@ -144,7 +144,7 @@ Menu de R (C) com os comandos para trabalhar com o bloco de notas.
 (F) indica se o bloco de notas é confiável (a predefinição é **não é fidedigna**).
 (G) o kernel utilizado para executar o bloco de notas, juntamente com um indicador de atividade.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Principais áreas de interface do Usuário da interface do Jupyter")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Principais áreas de interface do Usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter fornece uma apresentação incorporada dos principais elementos da interface do Usuário. Começar a visita guiada ao selecionar o **ajudar** > **Tour de Interface do usuário** comando e ao clicar nos pop-ups.
 

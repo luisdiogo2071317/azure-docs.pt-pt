@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Hackerone | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Hackerone | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Hackerone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e33ad66fe0ced9a426a608f4193ff52dec4f7ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe070505970516efcd4e2ae46dedff2792f95b08
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441838"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817202"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Active Directory com HackerOne
+# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Active Directory do Azure com HackerOne
 
 Neste tutorial, saiba como integrar HackerOne com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com HackerOne, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um HackerOne logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do HackerOne com o Azure AD, terá de adicionar H
 
 **Para adicionar HackerOne a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -148,9 +148,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **domínio de E-Mail** caixa de texto, escreva um domínio registado.
 
-    b. Na **início de sessão único na URL** caixas de texto, cole o valor de **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
+    b. Na  **início de sessão único na URL** caixas de texto, cole o valor de **SAML único início de sessão no URL do serviço** que copiou do portal do Azure.
 
-    c. Abra sua **ficheiro de certificado** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X509** caixa de texto.
+    c. Abra sua **ficheiro de certificado** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X509**  caixa de texto.
     
     d. Clique em **Guardar**.
 
@@ -163,7 +163,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Se o valor do **Status** campo é igual a **pela última vez o status do teste: criado**, contacte seu [HackerOne a equipa de suporte](mailto:support@hackerone.com) para pedir uma revisão da sua configuração.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD

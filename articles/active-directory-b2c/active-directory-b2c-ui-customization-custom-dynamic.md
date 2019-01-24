@@ -3,21 +3,21 @@ title: Personalizar a interface de utilizador (IU) do Azure Active Directory B2C
 description: Suporta várias experiências de identidade visual com conteúdo HTML5/CSS que muda dinamicamente no tempo de execução.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834243"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852104"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a interface do Usuário com conteúdo dinâmico ao utilizar políticas personalizadas
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurar a interface do Usuário com conteúdo dinâmico ao utilizar políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -64,7 +64,7 @@ Nestas instruções,:
 * Definir os recursos de várias origens (CORS) de partilha para a sua aplicação web.
 * Substituir o `LoadUri` elementos para apontar para o ficheiro do HTML5.
 
-## <a name="step-1-create-an-aspnet-web-app"></a>Passo 1: Criar uma aplicação web ASP.NET
+## <a name="step-1-create-an-aspnet-web-app"></a>Passo 1: Criar uma aplicação Web ASP.NET
 
 1. No Visual Studio, crie um projeto, selecionando **arquivo** > **New** > **projeto**.
 
@@ -125,7 +125,7 @@ Localize a `<img>` elemento que contém o `ID` valor *background_background_imag
 
 ![Alterar o plano de fundo de página](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
-### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Passo 2.4: Adicionar a vista para o controlador MVC
+### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Passo 2.4: Adicionar a sua vista para o controlador MVC
 
 1. Open **Controllers\HomeController.cs**e adicionar o seguinte método: 
 
@@ -187,7 +187,7 @@ Localize a `<img>` elemento que contém o `ID` valor *background_background_imag
 
     Depois de selecionar **guardar**, a aplicação API aceita chamadas JavaScript a partir dos URLs especificados. 
 
-## <a name="step-4-html5-template-validation"></a>Passo 4: Validação de modelo HTML5
+## <a name="step-4-html5-template-validation"></a>Passo 4: Validação do modelo HTML5
 O modelo de HTML5 estiver pronto para utilizar. No entanto, não está disponível no `ContentDefinition` código. Antes de poder adicionar `ContentDefinition` a política personalizada, certifique-se de que:
 * O conteúdo é HTML5 acessível e não compatíveis.
 * Seu servidor de conteúdos está ativado para CORS.
@@ -242,7 +242,7 @@ Para configurar `ContentDefinition`, efetue o seguinte procedimento:
 ## <a name="step-8-add-dynamic-content"></a>Passo 8: Adicionar conteúdo dinâmico
 Alterar o plano de fundo com base no parâmetro de cadeia de caracteres de consulta com o nome _campaignId_. Seu aplicativo da RP (aplicações móveis e web) envia o parâmetro para o Azure AD B2C. A política lê o parâmetro e envia seu valor para o modelo HTML5. 
 
-### <a name="step-81-add-a-content-definition-parameter"></a>Passo 8.1: Adicionar um parâmetro de definição de conteúdo
+### <a name="step-81-add-a-content-definition-parameter"></a>Passo 8.1: Adicione um parâmetro de definição de conteúdo
 
 Adicionar o `ContentDefinitionParameters` elemento ao fazer o seguinte:
 1. Abra o *SignUpOrSignin* ficheiro da política (por exemplo, *SignUpOrSignin.xml*).
@@ -259,7 +259,7 @@ Adicionar o `ContentDefinitionParameters` elemento ao fazer o seguinte:
     </UserJourneyBehaviors>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Passo 8.2: Alterar o seu código aceite um parâmetro de cadeia de caracteres de consulta e substituir a imagem de fundo
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Passo 8.2: Alterar o seu código aceite um parâmetro de cadeia de caracteres de consulta e substitua a imagem de fundo
 Modificar o HomeController `unified` método para aceitar o parâmetro campaignId. O método verifica, em seguida, o parâmetro de valor e define o `ViewData["background"]` variável em conformidade.
 
 1. Abra o *Controllers\HomeController.cs* do ficheiro e, em seguida, altere o `unified` método adicionando o seguinte trecho de código:
@@ -292,7 +292,7 @@ Modificar o HomeController `unified` método para aceitar o parâmetro campaignI
 
     ![Alterar o plano de fundo de página](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: carregar as alterações e publicar a política
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: Carregar as alterações e publicar a política
 1. Publicar o seu projeto do Visual Studio App Service do Azure.
 
 2. Carregar o *SignUpOrSignin.xml* política para o Azure AD B2C.

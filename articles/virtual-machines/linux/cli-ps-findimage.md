@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018830"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852206"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como encontrar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como utilizar a CLI do Azure para encontrar imagens de VM no Azure Marketplace. Utilize estas informações para especificar uma imagem do Marketplace, ao criar uma VM através de programação com a CLI, modelos do Resource Manager ou outras ferramentas.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens 
-Outra maneira de encontrar uma imagem numa localização é executar o [lista de imagem de vm de az-publicadores](/cli/azure/vm/image#az_vm_image_list_publishers), [lista-ofertas de imagem de vm az](/cli/azure/vm/image#az_vm_image_list_offers), e [lista de imagem de vm de az-skus](/cli/azure/vm/image#az_vm_image_list_skus) comandos em sequência. Com estes comandos, determinar estes valores:
+Outra maneira de encontrar uma imagem numa localização é executar o [lista de imagem de vm de az-publicadores](/cli/azure/vm/image#az_vm_image_list_publishers), [lista-ofertas de imagem de vm az](/cli/azure/vm/image), e [lista de imagem de vm de az-skus](/cli/azure/vm/image#az_vm_image_list_skus) comandos em sequência. Com estes comandos, determinar estes valores:
 
 1. Listar os publicadores de imagem.
 2. Para um determinado publicador, liste as respetivas ofertas.
@@ -249,7 +249,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 
 Agora pode escolher com precisão a imagem que pretende utilizar por tomar nota do valor URN. Transmite este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
 
-Se implementar uma VM com um modelo do Resource Manager, defina os parâmetros de imagem individualmente no `imageReference` propriedades. Consulte a [referência de modelo](/azure/templates/microsoft.compute/virtualmachines).
+Se implementar uma VM com um modelo do Resource Manager, defina os parâmetros de imagem individualmente no `imageReference` propriedades. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 

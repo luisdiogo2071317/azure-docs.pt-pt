@@ -1,35 +1,35 @@
 ---
-title: Carregar recursos para o Recortador de suporte de dados do Azure | Microsoft Docs
-description: Passos para carregar recursos para o Recortador de suporte de dados do Azure
+title: Carregar recursos para o Azure Media Clipper | Documentos da Microsoft
+description: Passos para carregar recursos para o Azure Media Clipper
 services: media-services
-keywords: Clip; subclip codificação; suporte de dados
+keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a479218ff8bd5addf4273b23c06380859e0ea08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788299"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806898"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Carregar recursos para o Recortador de suporte de dados do Azure
-Ativos podem ser carregados para o Recortador de suporte de dados do Azure por dois métodos:
-1. Estaticamente transmitir numa biblioteca de recursos
-2. Gerar dinamicamente uma lista de recursos através de API
+# <a name="loading-assets-into-azure-media-clipper"></a>Carregamento de recursos no Azure Media Clipper
+Ativos podem ser carregados para o Azure Media Clipper por dois métodos:
+1. Estaticamente passando uma biblioteca de ativos
+2. Gerando dinamicamente uma lista de recursos através da API
 
-## <a name="statically-load-videos-into-clipper"></a>Estaticamente carregar vídeos para Recortador
-Carregue estaticamente vídeos para o Recortador para permitir que os utilizadores finais criar aplicações de clips sem selecionar vídeos a partir do painel de seleção de elemento.
+## <a name="statically-load-videos-into-clipper"></a>Estaticamente carregar vídeos para Clipper
+Estaticamente carregar vídeos para o Clipper para permitir que os utilizadores finais criar clips sem selecionar vídeos a partir do painel de seleção de elemento.
 
-Neste caso, que passa um conjunto de elementos estático para o Recortador. Cada elemento inclui um ID de recurso/filter AMS, nome, publicado URL de transmissão em fluxo. Se aplicável, um token de autenticação de proteção de conteúdos ou uma matriz de miniatura URLs podem ser passados. Se transmitido, as miniaturas são preenchidas na interface do. Em cenários em que a biblioteca de recurso é estático e em pequenos, pode passar no contrato ativo para cada recurso na biblioteca.
+Neste caso, passar um conjunto estático de ativos para o Clipper. Cada ativo inclui um ID de recurso/filtragem do AMS, o URL de transmissão em fluxo do nome, publicado. Se aplicável, um token de autenticação de proteção de conteúdo ou uma matriz de miniatura URLs podem ser passados. Se passado, as miniaturas são preenchidas na interface. Em cenários em que a biblioteca de ativos é estático e pequeno porte, pode passar no contrato de recurso para cada elemento na biblioteca.
 
 > [!NOTE]
-> Quando o carregamento estaticamente recursos para o Recortador, ativos são adicionados **diretamente para a linha cronológica** e **painel de recurso não é composto**. O primeiro elemento é adicionado a linha cronológica e o resto dos ativos são empilhadas no lado direito da linha cronológica).
+> Ao carregar estaticamente ativos para o Clipper, os recursos são adicionados **diretamente para a linha cronológica** e o **painel de recurso não é processado**. O primeiro elemento é adicionado à linha cronológica e o restante dos ativos são empilhadas no lado direito da linha do tempo).
 
-Para carregar uma biblioteca de elemento estático, utilize o **carregar** método para passar uma representação JSON de cada recurso. O exemplo de código seguinte ilustra a representação JSON para um recurso.
+Para carregar uma biblioteca de ativos estático, utilize o **carregar** método passar uma representação JSON de cada ativo. O exemplo de código a seguir ilustra a representação JSON para um recurso.
 
 ```javascript
 var assets = [
@@ -98,10 +98,10 @@ subclipper.ready(function () {
 ```
 
 > [!NOTE]
-> Recomenda-se a cadeia de chamar o método load() com o método de ready(handler) conforme mostrado no exemplo anterior. O exemplo anterior garante que a miniaplicação está preparada antes de carregar os recursos.
+> Recomenda-se para o método load() chamar com o método ready(handler), conforme mostrado no exemplo anterior de cadeia. O exemplo anterior garante que a widget é pronto antes de carregar os ativos.
 
 > [!NOTE]
-> Para a miniatura URLs a funcionar conforme esperado na linha de tempo Recortador tem de ser uniformemente distribuídos entre o vídeo (com base na duração) e por ordem cronológica dentro da matriz. Pode utilizar o seguinte fragmento predefinido de JSON como uma referência de exemplo para a criação de imagens com o processador "Codificador de multimédia Standard":
+> Para a miniatura URLs a funcionar conforme esperado na linha da tempo de Clipper eles devem ser distribuídos uniformemente por vídeo (com base na duração) e, em ordem cronológica dentro da matriz. Pode utilizar o seguinte fragmento predefinido de JSON como uma referência de exemplo para gerar imagens com o processador "Codificador de multimédia Standard":
 
 ```json
 {
@@ -119,13 +119,13 @@ subclipper.ready(function () {
 }
 ```
 
-## <a name="dynamically-load-videos-in-clipper"></a>Dinamicamente, carregar vídeos no Recortador
-Dinamicamente, carregar vídeos para o Recortador para permitir que os utilizadores finais selecionar os vídeos do painel de seleção de recurso para recortar contra.
+## <a name="dynamically-load-videos-in-clipper"></a>Carregar dinamicamente os vídeos no Clipper
+Carregar dinamicamente vídeos para o Clipper para permitir que os utilizadores finais selecionar vídeos a partir do painel de seleção de recurso para recortar contra.
 
-Em alternativa, pode carregar recursos dinamicamente através de uma chamada de retorno. Em cenários onde ativos são gerados dinamicamente ou a biblioteca de grandes dimensões, deverá carregar através de chamada de retorno. Para carregar o recurso dinamicamente, tem de implementar a função de chamada de retorno onLoadAssets opcional. Esta função é passada para o Recortador em inicialização. Os ativos resolver devem cumprir o mesmo contrato que ativos estaticamente carregados. O exemplo de código seguinte ilustra a assinatura do método, a entrada esperada e o resultado esperado.
+Em alternativa, pode carregar recursos dinamicamente por meio de um retorno de chamada. Em cenários em que ativos estão a ser gerados dinamicamente ou a biblioteca é grande, deve carregar por meio do retorno de chamada. Para carregar recursos dinamicamente, deve implementar a função de retorno de chamada onLoadAssets opcional. Esta função é passada para o Clipper na inicialização. Os recursos de resolvido devem seguir o mesmo contrato como ativos estaticamente carregá-lo. O exemplo de código a seguir ilustra a assinatura do método, a entrada esperada e a saída esperada.
 
 > [!NOTE]
-> Quando o carregamento dinamicamente recursos para o Recortador, ativos são apresentados no **painel de seleção de elemento**.
+> Quando o carregamento dinâmico de recursos para o Clipper, os ativos são compostos na **painel de seleção de elemento**.
 
 ```javascript
 // Video Assets Pane Callback
@@ -136,7 +136,7 @@ Em alternativa, pode carregar recursos dinamicamente através de uma chamada de 
     // - take: int value used for pagination in the back-end that allows defining the number of assets to include in the response.
     // - type: ('filter', 'asset') value that will be used in the back-end to filter assets by type.
     //
-    // Returns: a Promise object that, when resolved, retuns an object containing an array of assets (input contract)
+    // Returns: a Promise object that, when resolved, returns an object containing an array of assets (input contract)
     //          that satisfies the filter parameters, plus optionally the total types of files available:
     // {
     //  total: 100,

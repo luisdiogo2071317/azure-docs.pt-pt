@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 487c9cb145000b92a4aa664ea2bd159026104b6b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 981f4d78a351b6d2b61253407e5021dbeb285204
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065159"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Active Directory do Azure com ADP
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com ADP, execute os seguint
     
     | Nome | Atributo de origem | 
     | ---------------| --------------- |
-    | PersonImmutableID  | User.employeeid |
+    | PersonImmutableID  | user.employeeid |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -218,11 +218,11 @@ Após a receção de confirmação do seu representante de ADP, configure os uti
         
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
-    * **ADP privilegiando HCM**
+    * **ADP Vantage HCM**
         
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    * **ADP Enterprise RH**
+    * **ADP Enterprise HR**
 
         `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 

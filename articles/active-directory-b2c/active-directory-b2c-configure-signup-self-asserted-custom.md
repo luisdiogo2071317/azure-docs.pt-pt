@@ -3,21 +3,21 @@ title: Modificar o início de sessão se em políticas personalizadas e configur
 description: Um passo a passo sobre como adicionar afirmações inscrever-se e configurar a entrada do usuário
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 326b0289ebb7aa503d41d556bea15017c28f7a1e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345005"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853722"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>O Azure Active Directory B2C: Modificar o início de sessão cópia de segurança para adicionar nova afirmações e configurar intervenção do utilizador.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Modificar o início de sessão cópia de segurança para adicionar nova afirmações e configurar intervenção do utilizador.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -266,7 +266,7 @@ O ecrã de inscrição no modo de teste deve ser semelhante ao seguinte:
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Opcional: Verificação de e-mail de remover da jornada de inscrição
+## <a name="optional-remove-email-verification-from-signup-journey"></a>Opcional: Remover a verificação de e-mail do percurso de inscrição
 
 Para ignorar a verificação de e-mail, o autor de política pode optar por remover `PartnerClaimType="Verified.Email"`. O endereço de e-mail irá ser necessário, mas não verificado, a menos que "Required" = true é removido.  Considere cuidadosamente se esta opção é adequada para seus casos de uso!
 

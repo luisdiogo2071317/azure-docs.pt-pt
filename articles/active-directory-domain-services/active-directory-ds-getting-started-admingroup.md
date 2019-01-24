@@ -1,10 +1,10 @@
 ---
-title: 'Serviços de domínio do Azure Active Directory: Introdução | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Introdução | Documentos da Microsoft'
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1f4ffed79180db38bdd312e6a610d88f496164
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959857"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849861"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 

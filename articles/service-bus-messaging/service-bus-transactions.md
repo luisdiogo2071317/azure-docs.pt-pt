@@ -3,9 +3,9 @@ title: Descrição geral do processamento de transações no Azure Service Bus |
 description: Visão geral das transações atômicas de Azure Service Bus e envio através de
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6be1605ee1bb385c303d100729238a8eb71605d0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407336"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844590"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Descrição geral do processamento de transações do Service Bus
 
@@ -37,8 +37,8 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 
 As operações que podem ser executadas dentro de um âmbito de transação são os seguintes:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: enviar, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: concluir o procedimento, CompleteAsync, abandono, AbandonAsync, mensagens não entregues, DeadletterAsync, diferir, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
 Receber operações não são incluídas, porque se presume que o aplicativo adquire mensagens utilizando o [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) loop de recebimento de modo, dentro de alguns ou com um [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) retorno de chamada, e só que, em seguida, abre-se um escopo de transação para o processamento da mensagem.
 

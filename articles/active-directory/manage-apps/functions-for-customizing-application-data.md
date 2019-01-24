@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470057"
+ms.locfileid: "54823681"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -37,7 +37,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 * Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch)
+[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -209,6 +209,32 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **chave** |Necessário |Cadeia |**Chave** comparar **origem** com de valor. |
 | **valor** |Necessário |Cadeia |Valor de substituição para o **origem** correspondentes a chave. |
 
+- - -
+### <a name="tolower"></a>ToLower
+**Função:**<br> ToLower (origem, cultura)
+
+**Descrição:**<br> Demora um *origem* valor e converte-o para minúsculas usando a cultura de regras que são especificados de cadeias de caracteres. Se não existir nenhuma *cultura* informações especificada, em seguida, ele usará a cultura invariável.
+
+**Parâmetros:**<br> 
+
+| Nome | Obrigatório / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
+| **culture** |Opcional |Cadeia |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**Função:**<br> ToUpper (origem, cultura)
+
+**Descrição:**<br> Demora um *origem* valor e converte-o para maiúsculas usando a cultura de regras que são especificados de cadeias de caracteres. Se não existir nenhuma *cultura* informações especificada, em seguida, ele usará a cultura invariável.
+
+**Parâmetros:**<br> 
+
+| Nome | Obrigatório / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
+| **culture** |Opcional |Cadeia |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa
 É necessário um nome de domínio conhecidos do e-mail de um utilizador para obter um nome de utilizador de faixa. <br>
@@ -283,6 +309,18 @@ Se o código de estado não corresponder a qualquer uma das opções predefinida
 
 * **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) do gerado em minúsculas
+
+No exemplo abaixo, o valor do UPN é gerado pela concatenação os campos de origem PreferredFirstName e PreferredLastName e a função de ToLower funciona sobre a cadeia de caracteres gerada para converter todos os carateres em minúsculas. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Exemplo de entrada/saída:**
+
+* **INPUT** (PreferredFirstName): "João"
+* **INPUT** (PreferredLastName): "Smith"
+* **SAÍDA**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
 

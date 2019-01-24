@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9768e7945a94c5b28a1f28ea0264108cd47865d6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e77bd2abcb5810810debc7782b717db47620baaa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104718"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847463"
 ---
-# <a name="quickstart-get-intent-using-go"></a>Guia de Início Rápido: Obter a intenção com Go
+# <a name="quickstart-get-intent-using-go"></a>Início rápido: Objetivo de GET com Go
 
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 

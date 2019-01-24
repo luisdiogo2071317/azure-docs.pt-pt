@@ -1,5 +1,5 @@
 ---
-title: Criação de um sistema de proteção de conteúdo multi-DRM com controlo de iniciativas - serviços de multimédia do Azure | Documentos da Microsoft
+title: Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso - serviços de multimédia do Azure | Documentos da Microsoft
 description: Saiba mais sobre licenciamento Microsoft Smooth Streaming cliente portar Kit.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191246"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813003"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso 
 
@@ -145,7 +145,7 @@ A tabela seguinte mostra o mapeamento.
 | **Gestão de chaves** |Não é necessária para a implementação de referência |
 | **Gestão de conteúdos** |Uma aplicação de consola c# |
 
-Em outras palavras, o IDP e o STS são fornecidos pelo Azure AD. O [API de leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/) é utilizado para o jogador. Serviços de multimédia do Azure e o leitor de multimédia do Azure suportam CENC sobre DASH, FairPlay sobre HLS, PlayReady através de smooth streaming e ecnryption AES-128 para DASH, HLS e smooth.
+Em outras palavras, o IDP e o STS são fornecidos pelo Azure AD. O [API de leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/) é utilizado para o jogador. Serviços de multimédia do Azure e o leitor de multimédia do Azure suportam CENC em DASH, FairPlay sobre HLS, PlayReady, através de transmissão em fluxo uniforme de mensagens em fila e a encriptação de AES-128 para DASH, HLS e smooth.
 
 O diagrama seguinte mostra a estrutura geral e o fluxo com o mapeamento de tecnologia anterior:
 

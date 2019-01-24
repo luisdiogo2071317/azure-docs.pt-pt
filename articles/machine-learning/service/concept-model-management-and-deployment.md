@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302974"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852325"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -39,7 +39,7 @@ Cada passo pode ser efetuado de forma independente ou como parte de um comando d
 
 Registo do modelo permite-lhe armazenar e versão seus modelos na cloud do Azure, na sua área de trabalho. O registo de modelo torna mais fácil organizar e manter o controle de seus modelos de formação.
  
-Modelos registrados são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. O serviço Azure Machine Learning suporta modelos armazenados em qualquer modelo que pode ser carregado usando o Python 3. 
+Modelos registrados são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. O serviço do Azure Machine Learning suporta qualquer modelo que pode ser carregado usando o Python 3. 
 
 Não é possível eliminar modelos que estão a ser utilizados por uma imagem.
 
@@ -63,13 +63,13 @@ A imagem também pode incluir os componentes do SDK para o registo e monitoriza�
 O Azure Machine Learning suporta as estruturas mais populares, mas em geral pode trabalhar qualquer arquitetura que pode ser o pip instalados.
 
 Em sua área de trabalho foi criada, por isso, foram outros vários outros recursos do Azure utilizados por essa área de trabalho.
-Todos os objetos usados para criar a imagem são armazenados na conta de armazenamento do Azure na sua área de trabalho. A imagem é criada e armazenada no Azure Container Registry. Pode fornecer as marcas de metadados adicionais durante a criação de imagem, que também são armazenados pelo registo de imagem e pode ser consultada para localizar a sua imagem.
+Todos os objetos usados para criar a imagem são armazenados na conta de armazenamento do Azure na sua área de trabalho. Pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registo de imagem e podem ser consultadas para localizar a sua imagem.
 
 Para obter mais informações, consulte a configurar e registar a secção de imagem do [implementar modelos](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>Passo 3: Implementar a imagem
 
-Pode implantar imagens registadas para a cloud ou para dispositivos periféricos. O processo de implantação cria todos os recursos necessários para monitorizar, balanceamento de carga e dimensionamento automático seu modelo. Acesso aos serviços implementados pode ser protegido com autenticação baseada em certificado ao fornecer os recursos de segurança durante a implementação. Também é possível atualizar uma implementação existente para utilizar uma imagem mais recente.
+Pode implantar imagens registadas para a cloud ou para dispositivos periféricos. O processo de implantação cria o modelo de todos os recursos necessários para monitorizar, balanceamento de carga e dimensionamento automático. Acesso aos serviços implementados pode ser protegido com a autenticação baseada em certificados, fornecendo os recursos de segurança durante a implementação. Também é possível atualizar uma implementação existente para utilizar uma imagem mais recente.
 
 Implementações de serviços da Web também podem ser pesquisadas. Por exemplo, pode procurar todas as implementações de um modelo específico ou a imagem.
 

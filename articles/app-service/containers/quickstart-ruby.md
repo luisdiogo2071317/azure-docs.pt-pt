@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 01/23/2019
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 13686951324a10c1de621f0fe507be062c9d2095
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3ddf98abf0c52d3bc1fb0a6ce43755d5adcf87fa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252478"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848636"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
 [O Serviço de Aplicações do Azure no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este início rápido mostra como criar uma aplicação básica no [Ruby on Rails](https://rubyonrails.org/) que possa ser implementada no Azure como uma Aplicação Web no Linux.
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se quiser utilizar uma plataforma diferente, como o Sinatra, veja o de guia de início rápido [Aplicação Web para Contentores](https://docs.microsoft.com/azure/app-service/containers/).
+> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se pretender utilizar uma plataforma diferente, como Sinatra, ou se pretender utilizar um [versão não suportada do Ruby](app-service-linux-intro.md), consulte o guia de introdução para [aplicação Web para contentores](https://docs.microsoft.com/azure/app-service/containers/).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 

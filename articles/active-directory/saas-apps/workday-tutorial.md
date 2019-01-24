@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Workday | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Workday | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Workday.
 services: active-directory
 documentationCenter: na
 author: cmmdesai
-manager: mtillman
+manager: daveba
 ms.reviewer: jeedes
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d44d44b47420e2e05c351e5c607cc71b1c7e1247
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824445"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Azure Active Directory com o Workday
+# <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
 Neste tutorial, saiba como integrar o dia de trabalho com o Azure Active Directory (Azure AD).
 
@@ -204,7 +204,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Chave pública do Vista x509](./media/workday-tutorial/IC782930.png "vista x509 de chave pública")
 
-    a. Na **Name** caixa de texto, escreva um nome para o seu certificado (por exemplo: *PPE\_SP*).
+    a. Na **nome** caixa de texto, escreva um nome para o seu certificado (por exemplo: *PPE\_SP*).
 
     b. Na **válido de** caixa de texto, escreva a partir do valor de atributo do seu certificado válido.
 

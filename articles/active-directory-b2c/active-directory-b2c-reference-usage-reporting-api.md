@@ -3,19 +3,19 @@ title: Exemplos de API relatórios de utilização e as definições no Azure Ac
 description: Guia e exemplos sobre como obter relatórios no inquilino do Azure AD B2C, os utilizadores, as autenticações e autenticações multi-factor Authentication.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445539"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844362"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Aceder a relatórios de utilização no Azure AD B2C através da API de geração de relatórios
 
@@ -100,7 +100,7 @@ if ($oauth.access_token -ne $null) {
 * **tenantUserCount**: O número de utilizadores no inquilino por tipo de fornecedor de identidade, por dia nos últimos 30 dias. (Opcionalmente, um `TimeStamp` filtro fornece contagens de utilizadores a partir de uma data especificada para a data atual). O relatório fornece:
   * **TotalUserCount**: O número de todos os objetos de utilizador.
   * **OtherUserCount**: O número de utilizadores do Azure Active Directory (não os utilizadores do Azure AD B2C).
-  * **LocalUserCount**: O número de contas de utilizador do Azure AD B2C criado com as credenciais local para o inquilino do Azure AD B2C.
+  * **LocalUserCount**: O número de contas de utilizador do Azure AD B2C criado com as credenciais locais para o inquilino do Azure AD B2C.
 
 * **AlternateIdUserCount**: O número de utilizadores do Azure AD B2C registado com fornecedores de identidade externo (por exemplo, Facebook, uma conta Microsoft ou outro inquilino do Azure Active Directory, também conhecido como um `OrgId`).
 
