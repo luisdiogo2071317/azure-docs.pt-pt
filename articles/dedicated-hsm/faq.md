@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310296"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451753"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -56,7 +56,7 @@ Neste momento, o HSM do Azure dedicado fornece apenas HSMs com autenticação ba
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>P: HSM do Azure dedicado hospedará meu HSMs para mim?
 
-A Microsoft apenas oferece o HSM de rede do Gemalto SafeNet Luna através do serviço de HSM dedicados e não é possível alojar qualquer pelo dispositivos de cliente.
+A Microsoft apenas oferece o HSM de rede do Gemalto SafeNet Luna através do serviço de HSM dedicados e não é possível alojar quaisquer dispositivos fornecidos pelo cliente.
 
 ### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>P: HSM dedicada do Azure suportam funcionalidades PIN/ETF ou cumprir requisitos de certificação de HSM de PCI v1 ou v2?
 
@@ -235,7 +235,7 @@ Aplicações de provisões 7 de HSM de rede SafeNet do serviço HSM dedicadas. E
   * CAST
   * Hash/mensagem de texto implícita/HMAC: SHA-1, SHA-2, SM3
   * Derivação de chaves: Modo de contador de SP800 108
-  * Encapsulamento principais: SP800 38F
+  * Encapsulamento principais: SP800-38F
   * Geração de números aleatórios: O FIPS 140-2 aprovado DRBG (modo de SP 800 90 CTR), o cumprimento BSI DRG.4
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>P: É dedicado HSM FIPS 140-2 nível 3 validada?

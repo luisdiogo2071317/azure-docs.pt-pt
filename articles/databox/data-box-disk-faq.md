@@ -1,6 +1,6 @@
 ---
 title: FAQ do Microsoft Azure Data Box Disk | Microsoft Docs em dados
-description: Contém perguntas frequentes e respostas sobre o Azure Data Box Disk, uma solução na cloud que lhe permite transferir grandes quantidades de dados para o Azure
+description: Contém perguntas freqüentes e respostas para o disco do Azure Data Box, uma solução de cloud que permite-lhe transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158793"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448334"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -125,7 +125,7 @@ A.  Não. Atualmente, só é suportada uma conta de armazenamento, geral ou clá
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P. O que é o conjunto de ferramentas disponível para os meus dados com discos de caixa de dados?
 R. O conjunto de ferramentas disponível com o disco do Data Box contém três ferramentas:
  - **A ferramenta de disco de caixa desbloquear dados**: Utilize esta ferramenta para desbloquear os discos encriptados que são fornecidos pela Microsoft. Desbloquear os discos com a ferramenta, terá de fornecer uma chave de acesso disponível pela ordem de disco de caixa de dados no portal do Azure. 
- - **Ferramenta de validação do disco de caixa de dados**: Utilize esta ferramenta para validar o tamanho, formato e blob nomes de acordo com o Azure convnetions de nomenclatura. Ele também gera as somas de verificação para os dados copiados que, em seguida, são utilizados para verificar os dados carregados para o Azure.
+ - **Ferramenta de validação do disco de caixa de dados**: Utilize esta ferramenta para validar o tamanho, formato e blob nomes de acordo com as convenções de nomenclatura do Azure. Ele também gera as somas de verificação para os dados copiados que, em seguida, são utilizados para verificar os dados carregados para o Azure.
  - **Ferramenta de cópia de divisão de disco de caixa de dados**: Utilize esta ferramenta se estiver a utilizar vários discos e tem um grande conjunto de dados que precisa ser dividida e copiados entre todos os discos. Essa ferramenta está atualmente disponível para Windows.
 
 O conjunto de ferramentas está disponível para Windows e Linux. Pode baixar o conjunto de ferramentas aqui:

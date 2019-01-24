@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470567"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração de diagnóstico 1.2 do Azure
 > [!NOTE]
@@ -130,7 +130,7 @@ Define as configurações para os dados de telemetria recolha. A tabela seguinte
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Origens de dados**|Uma lista de diretórios a monitorizar.|  
+|**DataSources**|Uma lista de diretórios a monitorizar.|  
 |**FailedRequestLogs**|Incluindo esse elemento na configuração permite a recolha de registos de pedidos falhados para um aplicativo ou site do IIS. Também tem de ativar as opções de rastreamento em **system. Servidor Web** no **Web. config**.|  
 |**IISLogs**|Incluindo esse elemento na configuração permite que a coleção de registos do IIS:<br /><br /> **containerName** -o nome do contentor de BLOBs na sua conta de armazenamento do Azure a ser utilizado para armazenar os registos IIS.|  
 
@@ -199,4 +199,5 @@ Define as configurações para os dados de telemetria recolha. A tabela seguinte
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especificar "*".|
+|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especificar "*".|
+

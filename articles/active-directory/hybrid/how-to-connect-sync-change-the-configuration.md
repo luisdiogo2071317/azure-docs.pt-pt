@@ -4,7 +4,7 @@ description: Explica como fazer uma alteração à configuração na sincroniza�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190640"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463376"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração predefinida
 O objetivo deste artigo é para orientá-lo como fazer alterações à configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece passos para alguns cenários comuns. Com esse conhecimento, deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócio.
@@ -65,7 +65,7 @@ O [agendador](how-to-connect-sync-feature-scheduler.md) é executado a cada 30 m
    * **Tipo de objeto de sistema/Metaverso ligado**: Selecione **usuário** e **pessoa**, respectivamente.
    * **Tipo de ligação**: Alterar este valor para **associar**.
    * **Precedência**: Forneça um valor que seja exclusivo no sistema. Um valor numérico inferior indica precedência superior.
-   * **Etiqueta**: Deixe vazio. Apenas as regras de out-of-box da Microsoft devem ter esta caixa preenchida com um valor.
+   * **Tag**: Deixe vazio. Apenas as regras de out-of-box da Microsoft devem ter esta caixa preenchida com um valor.
 3. Sobre o **filtro Scoping** página, introduza **givenName ISNOTNULL**.  
    ![Regra de filtro de âmbito de entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta secção é usada para definir a quais objetos deve aplicar a regra. Se for deixado vazio, a regra seria aplicada a todos os objetos de utilizador. No entanto, que incluem salas de conferência, contas de serviço e outros objetos de utilizador não pessoas.
@@ -287,13 +287,13 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
-    | Direto | userType | extensionAttribute1 | Desmarcada | Atualizar |
+    | Direto | UserType | extensionAttribute1 | Desmarcada | Atualizar |
 
     Noutro exemplo, pretende derivar o valor para o atributo UserType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se suas instalações atributo userPrincipalName do AD acaba com parte do domínio <em>@partners.fabrikam123.org</em>. Pode implementar uma expressão como esta:
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
-    | Direto | userType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
+    | Direto | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
 
 7. Clique em **adicionar** para criar a regra de entrada.
 
@@ -321,7 +321,7 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL A | Utilizador |
+    | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
     O filtro de âmbito determina a que a do Azure AD objetos que esta regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de âmbito do *fora para o AD – a identidade do usuário* regra de sincronização de out-of-box. Ela impede que a regra de sincronização a ser aplicada a objetos de utilizador que não estão sincronizados do Active Directory no local. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
@@ -330,7 +330,7 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
-    | Direto | userType | userType | Desmarcada | Atualizar |
+    | Direto | UserType | UserType | Desmarcada | Atualizar |
 
 7. Clique em **adicionar** para criar a regra de saída.
 

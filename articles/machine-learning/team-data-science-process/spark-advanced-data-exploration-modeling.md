@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 422c0477accab65b53071d22d067d96547bfeb8a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135479"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450577"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
@@ -47,16 +47,16 @@ Modelagem de exemplos que utilizam o CV e hiper-parâmetros paramétrico são ap
 > 
 > 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Configuração: Os clusters do Spark e blocos de notas
+## <a name="setup-spark-clusters-and-notebooks"></a>Programa de configuração: Os clusters do Spark e blocos de notas
 Passos de configuração e de código são fornecidos esta explicação passo a passo para utilizar um HDInsight Spark 1.6. Mas blocos de notas do Jupyter são fornecidos para os clusters do HDInsight Spark 1.6 e Spark 2.0. Uma descrição dos blocos de notas e links para eles são fornecidos na [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que contém-los. Além disso, o código aqui e em blocos de notas ligados é genérico e deve trabalhar em qualquer cluster do Spark. Se não estiver a utilizar o Spark do HDInsight, os passos de configuração e o gerenciamento de cluster podem ser ligeiramente diferentes do que é mostrado aqui. Para sua comodidade, aqui estão os links para os blocos de notas do Jupyter para Spark 1.6 e 2.0 para ser executado no kernel do pyspark, do servidor de notas do Jupyter:
 
 ### <a name="spark-16-notebooks"></a>Blocos de notas do Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): inclui tópicos no bloco de notas #1 e desenvolvimento de modelos usando a otimização de hiper-parâmetros e a validação cruzada.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Inclui tópicos no bloco de notas #1 e desenvolvimento de modelos usando a otimização de hiper-parâmetros e a validação cruzada.
 
 ### <a name="spark-20-notebooks"></a>Blocos de notas do Spark 2.0
 
-[Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este ficheiro fornece informações sobre como efetuar a exploração de dados, modelação e a classificação em clusters do Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar uma exploração de dados, modelação e a classificação em clusters do Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -403,7 +403,7 @@ Aqui está o código para indexar e codificar as funcionalidades de texto para c
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -998,9 +998,9 @@ Esses modelos foram descritos na introdução. Cada modelo de criação de seç�
 2. **Avaliação de modelo** num conjunto de dados de teste com a métrica
 3. **A guardar modelo** no blob para o consumo futuro   
 
-> Nota do AZURE: A validação cruzada não é utilizada com os modelos de três regressão nesta secção, uma vez que isso foi mostrado em detalhes para os modelos de regressão logística. Um exemplo que mostra como utilizar o CV com elástico Net para regressão linear é disponibilizado no anexo deste tópico.
+> NOTA DO AZURE: A validação cruzada não é utilizada com os modelos de três regressão nesta secção, uma vez que isso foi mostrado em detalhes para os modelos de regressão logística. Um exemplo que mostra como utilizar o CV com elástico Net para regressão linear é disponibilizado no anexo deste tópico.
 > 
-> Nota do AZURE: Na nossa experiência, podem existir problemas com a convergência dos modelos de LinearRegressionWithSGD e parâmetros têm de ser alterado/otimizada com cuidado para obtenção de um modelo válido. Dimensionamento significativamente de variáveis de ajuda com a convergência. Regressão net elástica, mostrado no apêndice a esse tópico, também pode ser utilizado em vez de LinearRegressionWithSGD.
+> NOTA DO AZURE: Na nossa experiência, podem existir problemas com a convergência dos modelos de LinearRegressionWithSGD e parâmetros têm de ser alterado/otimizada com cuidado para obtenção de um modelo válido. Dimensionamento significativamente de variáveis de ajuda com a convergência. Regressão net elástica, mostrado no apêndice a esse tópico, também pode ser utilizado em vez de LinearRegressionWithSGD.
 > 
 > 
 
@@ -1198,7 +1198,7 @@ Aqui está o código para desenhar os dados a utilizar o servidor do Jupyter.
 
 ![Real-vs-previsto-sugestão-quantidades](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Apêndice: Tarefas de regressão adicionais com a validação cruzada com varrimentos
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Apêndice: Tarefas de regressão adicionais com validação cruzada com varrimentos
 Este anexo contém código que mostra como fazer o CV com o net elástico para regressão linear e como fazer o CV com varrimentos com código personalizado para regressão de floresta aleatório.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Utilizar o Elastic net para regressão linear de validação cruzada
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>Passos seguintes?
 Agora que criou os modelos de regressão e de classificação com o Spark MlLib, está pronto para aprender a pontuação e avaliar esses modelos.
 
-**Consumo de modelo:** para saber como classificar e avaliar os modelos de classificação e regressão criados neste tópico, consulte [pontuação e avaliar modelos de aprendizagem automática criados com o Spark](spark-model-consumption.md).
+**Consumo de modelo:** Para saber como classificar e avaliar os modelos de classificação e regressão criados neste tópico, veja [pontuação e avaliar modelos de aprendizagem automática criados com o Spark](spark-model-consumption.md).
 

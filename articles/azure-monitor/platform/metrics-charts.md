@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.subservice: metrics
+ms.openlocfilehash: 0e204e945960ddaf452db1907568e4102631c28f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467592"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
@@ -142,3 +142,4 @@ Depois de configurar o seu gráfico, clique nas **ações do gráfico** menu no 
 ## <a name="next-steps"></a>Passos Seguintes
 
   Leia [criar dashboards de KPI personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de dashboards passíveis de ação com a métrica.
+

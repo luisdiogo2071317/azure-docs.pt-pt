@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613431"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466861"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Redimensionar uma VM
 
-Depois de implementar uma VM, esta pode ser redimensionada para aumentar ou diminuir a alocação de recursos. Pode ver o tamanho atual de uma VM com [az vm show](/cli/azure/vm#az_vm_show):
+Depois de implementar uma VM, esta pode ser redimensionada para aumentar ou diminuir a alocação de recursos. Pode ver o tamanho atual de uma VM com [az vm show](/cli/azure/vm):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ Se o tamanho pretendido estiver disponível, a VM pode ser redimensionada de um 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Se o tamanho pretendido não estiver no cluster atual, a VM tem de ser desalocada antes de a operação de redimensionamento poder ocorrer. Utilize o comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) para parar e desalocar a VM. Tenha em atenção que, quando a VM for novamente ligada, quaisquer dados no disco temporário poderão ser removidos. O endereço IP público também é alterado, a menos que esteja a ser utilizado um endereço IP estático. 
+Se o tamanho pretendido não estiver no cluster atual, a VM tem de ser desalocada antes de a operação de redimensionamento poder ocorrer. Utilize o comando [az vm deallocate]( /cli/azure/vm) para parar e desalocar a VM. Tenha em atenção que, quando a VM for novamente ligada, quaisquer dados no disco temporário poderão ser removidos. O endereço IP público também é alterado, a menos que esteja a ser utilizado um endereço IP estático. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

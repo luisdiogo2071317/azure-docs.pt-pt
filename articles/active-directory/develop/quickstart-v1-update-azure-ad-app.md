@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977251"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447467"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início Rápido: Atualizar uma aplicação no Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: Atualizar uma aplicação no Azure Active Directory
 
 Os programadores empresariais e os fornecedores de software como serviço (SaaS) que tenham registado aplicações no Azure Active Directory (Azure AD) poderão ter de configurar as aplicações para acederem a outros recursos, como APIs Web, as disponibilizar noutras organizações, etc.
 
@@ -44,8 +44,8 @@ Para que uma aplicação cliente Web/confidencial possa participar num fluxo de 
 
 Antes de um cliente poder aceder a uma API Web exposta por uma aplicação de recurso (como a Microsoft Graph API), a arquitetura de consentimento garante que o cliente obtém a concessão de permissão necessária, com base nas permissões pedidas. Por predefinição, todas as aplicações podem escolher as permissões do**Azure Active Directory** (Graph API) e do modelo de implementação clássica do Azure. A [permissão “Iniciar e ler perfil de utilizador” da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o seu cliente estiver a ser registado num inquilino que tenha contas subscritas no Office 365, estarão disponíveis para seleção APIs Web e permissão para o SharePoint e o Exchange Online. Pode escolher de entre dois tipos de permissões para cada API Web pretendida:
 
-- Permissões da aplicação: a aplicação cliente tem de aceder à API Web diretamente como a própria (sem contexto de utilizador). Este tipo de permissão requer consentimento do administrador e também não está disponível para aplicações cliente nativas.
-- Permissões delegadas: a aplicação cliente tem de aceder à API Web como o utilizador com sessão iniciada, mas com acesso limitado pela permissão selecionada. Este tipo de permissão pode ser concedido por um utilizador, a não ser que exija consentimento do administrador.
+- Permissões de aplicação: A aplicação cliente precisa acessar a API web diretamente em nome próprio (nenhum contexto de usuário). Este tipo de permissão requer consentimento do administrador e também não está disponível para aplicações cliente nativas.
+- Permissões delegadas: A aplicação cliente precisa de aceder a API web, como o utilizador com sessão iniciada, mas com acesso limitado pela permissão selecionada. Este tipo de permissão pode ser concedido por um utilizador, a não ser que exija consentimento do administrador.
 
   > [!NOTE]
   > Adicionar uma permissão delegada a uma aplicação não concede automaticamente consentimento aos utilizadores no inquilino. Os utilizadores continuam a ter de consentir manualmente as permissões delegadas adicionadas no runtime, a não ser que o administrador conceda acesso em nome de todos eles.
@@ -111,7 +111,7 @@ A secção seguinte mostra-lhe como expor os âmbitos de acesso mediante a modif
   ```
 
   > [!NOTE]
-  > O valor de `id` tem de ser gerado programaticamente ou com uma ferramenta de geração de GUID, como o [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa um identificador exclusivo para o âmbito conforme é exposto pela API Web. Após um cliente ser devidamente configurado com permissões para aceder à sua API Web, o Azure AD emite um token de acesso OAuth2.0 ao mesmo. Quando o cliente chamar a API Web, apresenta o token de acesso que tem a afirmação de âmbito (scp) definida como as permissões pedidas no registo da aplicação.
+  > O `id` valor tem de ser gerado por meio de programação ou usando uma GUID geração ferramenta, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representa um identificador exclusivo para o âmbito conforme é exposto pela API Web. Após um cliente ser devidamente configurado com permissões para aceder à sua API Web, o Azure AD emite um token de acesso OAuth2.0 ao mesmo. Quando o cliente chamar a API Web, apresenta o token de acesso que tem a afirmação de âmbito (scp) definida como as permissões pedidas no registo da aplicação.
   >
   > Se necessário, pode expor âmbitos adicionais mais tarde. Considere que a API Web poderá expor vários âmbitos associados a diversas funções diferentes. O seu recurso pode controlar o acesso à API Web no runtime ao avaliar a afirmação ou afirmações do âmbito (`scp`) no token de acesso OAuth 2.0 recebido.
 
@@ -188,9 +188,9 @@ A sua aplicação Web pode também oferecer:
 
 Para obter mais informações sobre as alterações à aplicação que são necessárias para suportar as experiências de acesso multi-inquilinos e de início de sessão/inscrição, veja:
 
-- [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md) (Como iniciar sessão de um utilizador do Azure Active Directory (AD) com o padrão de aplicação multi-inquilinos)
+- [Como iniciar sessão de qualquer utilizador do Azure Active Directory (AD) utilizando o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 - A lista de [exemplos de código multi-inquilinos](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
-- [Quickstart: Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md) (Início Rápido: Adicionar a marca da empresa à página de início de sessão no Azure AD)
+- [Quickstart: Adicionar imagem corporativa à sua página de início de sessão no Azure AD](../fundamentals/customize-branding.md)
 
 ## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Permitir a concessão implícita de OAuth 2.0 para aplicações de página única.
 
@@ -215,7 +215,7 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas ap
   ```
 5. Guarde o manifesto atualizado. Depois de guardado, a API Web passa a estar configurada para utilizar a concessão implícita de OAuth 2.0 para autenticar os utilizadores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados que utilizam o ponto final do Azure AD v1.0:
 - [Adicionar uma aplicação ao Azure AD](quickstart-v1-integrate-apps-with-azure-ad.md)

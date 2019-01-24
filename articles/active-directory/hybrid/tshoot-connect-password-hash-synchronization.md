@@ -4,7 +4,7 @@ description: Este artigo fornece informações sobre como solucionar problemas d
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314847"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470448"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este tópico fornece os passos sobre como resolver problemas com a sincronização de hash de palavra-passe. Se as palavras-passe não estão sincronizado como esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.
@@ -233,7 +233,7 @@ Siga estes passos para determinar por que são sincronizadas sem palavras-passe:
 3. Se a funcionalidade não está ativada no Azure AD, ou se o estado de canal de sincronização não estiver ativado, execute o Assistente de instalação do Connect. Selecione **personalizar as opções de sincronização**e anule a seleção de sincronização de palavra-passe. Esta alteração desativa temporariamente a funcionalidade. Em seguida, execute novamente o assistente e volte a ativar a sincronização de palavra-passe. Execute o script novamente para verificar se a configuração está correta.
 
 4. Procure no registo de eventos para erros. Procure os eventos seguintes, que poderia indicar um problema:
-    * Origem: "Sincronização de diretórios" ID: 0, 611, 652, 655 se vir estes eventos, tem um problema de conectividade. A mensagem de registo de eventos contém informações de floresta em que tem um problema. Para obter mais informações, consulte [problema de conectividade](#connectivity problem).
+    * Origem: ID de "Sincronização de diretórios": 0, 611, 652, 655 se vir estes eventos, tem um problema de conectividade. A mensagem de registo de eventos contém informações de floresta em que tem um problema. Para obter mais informações, consulte [problema de conectividade](#connectivity problem).
 
 5. Não se vir nenhum heartbeat ou se nada mais funciona, execute [acionar uma sincronização completa de todas as senhas](#trigger-a-full-sync-of-all-passwords). Execute o script apenas uma vez.
 
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md)
-* [Sincronização do Azure AD Connect: Personalizar as opções de sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

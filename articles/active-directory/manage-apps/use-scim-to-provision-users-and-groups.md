@@ -4,7 +4,7 @@ description: O Azure Active Directory podem aprovisionar automaticamente os util
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 13491b10096e651b40a83e072057250e856d4ef1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583481"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469540"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
@@ -463,11 +463,11 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
    ```
 
    No seguinte exemplo de uma consulta para um utilizador com um valor especificado para o atributo externalId, valores de argumentos transmitidos para o método de consulta são: 
-   * parâmetros. AlternateFilters.Count: 1
+   * parameters.AlternateFilters.Count: 1
    * parâmetros. AlternateFilters.ElementAt(0). AttributePath: externalId""
-   * parâmetros. AlternateFilters.ElementAt(0). ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
    * parâmetros. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Se a resposta a uma consulta para o serviço web para um utilizador com um valor de atributo externalId que corresponde ao valor de atributo mailNickname de um utilizador não devolver quaisquer utilizadores, em seguida, Azure Active Directory solicita que o serviço aprovisionamento de um utilizador correspondente ao no Azure Active Directory.  Eis um exemplo de pedido: 
 
@@ -569,14 +569,14 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
 
    Se o serviço foi criado com as bibliotecas de infra-estrutura de linguagem comum fornecidas pela Microsoft para implementar os serviços SCIM, em seguida, o pedido é convertido numa chamada para o método de consulta do fornecedor do serviço. O valor das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   
-   * parâmetros. AlternateFilters.Count: 2
-   * parâmetros. AlternateFilters.ElementAt(x). AttributePath: "ID"
-   * parâmetros. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
-   * parâmetros. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * parâmetros. AlternateFilters.ElementAt(y). AttributePath: "manager"
-   * parâmetros. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
-   * parâmetros. AlternateFilter.ElementAt(y). ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
-   * parâmetros. RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
    * parâmetros. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
    Aqui, o valor do índice x pode ser 0 e o valor de y o índice pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões de parâmetro de consulta de filtro.   
@@ -695,7 +695,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "manager"
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.Count: 1
    * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Valor: 2819c223-7f76-453A-919d-413861904646
+   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
 
 6. Desaprovisionar um utilizador de um arquivo de identidade apoiado por um serviço SCIM, do Azure AD envia um pedido, tais como: 
 

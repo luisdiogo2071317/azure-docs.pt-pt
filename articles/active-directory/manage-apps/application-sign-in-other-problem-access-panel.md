@@ -4,7 +4,7 @@ description: Como resolver problemas de acesso à aplicação a partir do painel
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 834656791592921ce6059904d7c10a0305107069
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189835"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466838"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas ao iniciar sessão a uma aplicação a partir do painel de acesso
 
