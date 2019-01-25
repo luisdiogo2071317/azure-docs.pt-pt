@@ -19,7 +19,7 @@ ms.locfileid: "34600634"
 
 Encaminhamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo vehicle específicos.
 Dependendo do valor de **vehicleEngineType**, são suportados dois modelos de consumo principal: _Combustion_ e _Electric_. Especificar os parâmetros que pertencem a modelos diferentes no mesmo pedido é um erro.
-Não é possível utilizar o modelo de consumo com **travelMode** valores _bicicletas_ e _pedestrian_.
+Não é possível utilizar o Modelo de Consumo com os valores _bicycle_ e _pedestrian_ de **travelMode**.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro de modelo de consumo
 
