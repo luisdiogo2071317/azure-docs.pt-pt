@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b8ce3cdb55d164cefc8b85314a2fa79b4f901a08
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025084"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887347"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Database Managed Instance com o Azure Data Factory
 
@@ -33,9 +33,13 @@ Especificamente, este conector de instância gerida da base de dados SQL do Azur
 - Como origem, obter dados com a consulta SQL ou procedimento armazenado.
 - Como sink, acrescentando dados a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não é suportado agora. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar dados de cópia de um Azure SQL Database Managed Instance que está localizado na VNET, terá de configurar um Runtime de integração autoalojado na mesma VNET que pode aceder na base de dados. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+Para utilizar dados de cópia de um Azure SQL Database Managed Instance que está localizado na VNET, terá de configurar um Runtime de integração autoalojado que podem aceder a base de dados. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+
+Se aprovisionar o ir Autoalojado na mesma rede virtual que sua instância gerida, certifique-se de que sua máquina de Runtime de integração não está numa sub-rede diferente, a sua instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente do que a sua instância gerida, pode utilizar um peering de rede virtual ou uma rede virtual para a ligação de rede virtual. Ver [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -502,7 +506,7 @@ Ao copiar dados de/para instância gerida da base de dados SQL do Azure, os segu
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimal |
-| sql_variant |Objeto * |
+| sql_variant |Object |
 | texto |Cadeia de caracteres, Char [] |
 | hora |Período de tempo |
 | carimbo de data/hora |Byte[] |
@@ -511,6 +515,9 @@ Ao copiar dados de/para instância gerida da base de dados SQL do Azure, os segu
 | varbinary |Byte[] |
 | varchar |Cadeia de caracteres, Char [] |
 | xml |Xml |
+
+>[!NOTE]
+> Para mapas de tipos de dados para o tipo Decimal de provisório, atualmente ADF suporta precisão até 28. Se tiver dados com precisão maior que 28, considere converter a cadeia de caracteres na consulta SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

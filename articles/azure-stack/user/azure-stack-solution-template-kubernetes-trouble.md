@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com a implementação para o Kubernetes no Azure Stack | Documentos da Microsoft
-description: Saiba como resolver problemas de sua implementação no Kubernetes para o Azure Stack.
+title: Resolver problemas relacionados com a implementação de Kubernetes para Stackk do Azure | Documentos da Microsoft
+description: Saiba como resolver problemas relacionados com a implementação de Kubernetes no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390681"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904221"
 ---
-# <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Resolver problemas relacionados com a implementação para o Kubernetes no Azure Stack
+# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
