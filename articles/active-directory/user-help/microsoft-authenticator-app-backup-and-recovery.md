@@ -8,15 +8,15 @@ ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd15189a9aa70ab99971be9da1bcd1ff243c60d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821707"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904357"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -39,11 +39,11 @@ Antes de pode criar cópias de segurança as suas credenciais, tem de ter ambos:
 Exigir que iniciar sessão ambas as contas em conjunto proporciona uma segurança reforçada para sua informação de cópia de segurança.
 
 **Para ativar cópia de segurança na Cloud**
--   No seu dispositivo iOS, selecione **configurações**, selecione **cópia de segurança**e, em seguida, ative **cópia de segurança automática**.
+-   No seu dispositivo iOS, selecione **configurações**, selecione **cópia de segurança**e, em seguida, ative **cópia de segurança de iCloud**.
 
     As credenciais da conta são uma cópia de segurança à sua conta do iCloud.
 
-    ![ecrã de definições do iOS, que mostra a localização a auto as definições de cópia de segurança](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![ecrã de definições do iOS, que mostra a localização do iCloud as definições de cópia de segurança](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Recuperar as credenciais da conta no seu dispositivo novo
 Pode recuperar as credenciais da conta da conta do iCloud, com a mesma conta de recuperação do Microsoft que configurou quando criou cópias suas informações de segurança.
@@ -101,7 +101,6 @@ Agora que ter uma cópia de segurança e recuperar as credenciais da conta para 
 
 ## <a name="related-topics"></a>Tópicos relacionados
 - [Introdução à aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md)  
-
 - [FAQ da aplicação Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632862"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888996"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -45,7 +45,7 @@ A extensão DSC Linux oferece suporte a todos os [do extensão suportada SO](htt
 | Distribuição | Versão |
 |---|---|
 | CentOS Linux | 6.5 e versões posteriores |
-| Ubuntu| 12.04 LTS, 14.04 LTS E 16.04 LTS  |
+| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
 | RHEL| 6.5 e versões posteriores  |
 | openSUSE| 13.1 e superior  |
 | SUSE Linux Enterprise Server| 11 SP3 e superior  |
@@ -64,11 +64,11 @@ Seguem-se todos os parâmetros de configuração pública suportados:
 
 * `FileUri`: (opcional, cadeia de caracteres) o uri do ficheiro ZIP de recursos de arquivo/personalizado MOF Meta/ficheiro MOF.
 * `ResourceName`: (opcional, cadeia de caracteres) o nome do módulo de recurso personalizado
-* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. valores válidos: registar, enviar por Push, obter, instalar, remover. Se não for especificado, é considerado como ação Push por predefinição.
+* `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. Valores válidos: Registar, enviar por Push, obter, instalar, remover. Se não for especificado, é considerado como ação Push por predefinição.
 * `NodeConfigurationName`: (opcional, cadeia de caracteres) o nome de uma configuração de nó para aplicar.
 * `RefreshFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) tenta obter a configuração do servidor de solicitação do DSC. 
        Se a configuração no servidor de solicitação é diferente do atual no nó de destino, é copiado para o arquivo pendente e aplicada.
-* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como o DSC deve aplicar a configuração. Os valores válidos são: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como o DSC deve aplicar a configuração. Valores válidos são: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC garante que a configuração está no estado pretendido.
 
 > [!NOTE]
@@ -88,14 +88,14 @@ Seguem-se todos os parâmetros de configuração protegida suportados:
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="register-to-azure-automation-account"></a>Registre-se para a conta de automatização do Azure
-Protected.JSON
+protected.json
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-Public
+public.json
 ```json
 {
   "ExtensionAction" : "Register",
@@ -124,7 +124,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Aplicar um arquivo de configuração do MOF (na conta de armazenamento do Azure) para a VM
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -132,7 +132,7 @@ Protected.JSON
 }
 ```
 
-Public
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -156,7 +156,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicar um arquivo de configuração do MOF (em armazenamento público) à VM
 
-Public
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -172,7 +172,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Aplicam-se um ficheiro de configuração de MOF meta (na conta de armazenamento do Azure) para a VM
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -180,7 +180,7 @@ Protected.JSON
 }
 ```
 
-Public
+public.json
 ```json
 {
   "ExtensionAction": "Pull",
@@ -202,7 +202,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Aplicam-se um ficheiro de configuração de MOF meta (em armazenamento público) à VM
-Public
+public.json
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -218,14 +218,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>Instalar um módulo de recurso personalizado (arquivo ZIP na conta de armazenamento do Azure) para a VM
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-Public
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -247,7 +247,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>Instalar um módulo de recurso personalizado (arquivo ZIP no armazenamento público) para a VM
-Public
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -263,7 +263,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Remover um módulo de recurso personalizado a partir da VM
-Public
+public.json
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -424,8 +424,8 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Código de erro: 51 representa distro não suportada ou ação de extensão não suportado.
-Em alguns casos, o Linux DSC extensão não consegue instalar OMI, quando uma versão posterior da OMI é já existe na máquina. [resposta de erro: (000003) de mudança para versão anterior não permitida]
+Código do erro: 51 representa distro não suportada ou ação de extensão não suportado.
+Em alguns casos, o Linux DSC extensão não consegue instalar OMI, quando uma versão posterior da OMI é já existe na máquina. [resposta de erro: (000003) Mudança para versão anterior não permitida]
 
 
 

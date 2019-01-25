@@ -5,15 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 6c1a0a4a13a70daec157ede98f850f87150f8d93
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/23/2019
+ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383529"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902666"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Como criar e gerir ler réplicas no portal do Azure
+
+> [!IMPORTANT]
+> A funcionalidade de réplica de leitura está em pré-visualização pública.
+
+
 Neste artigo, aprenderá como criar e gerir réplicas de leitura na base de dados do Azure para o serviço PostgreSQL no portal do Azure. Para obter mais informações acerca de réplicas de leitura [leia a documentação de conceitos](concepts-read-replicas.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -41,6 +46,7 @@ O **azure.replication_support** parâmetro tem de ser definido para a RÉPLICA n
    ![Base de dados do Azure para PostgreSQL – guardar notificação](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
 6. Reinicie o servidor para aplicar a alteração depois de guardar. Ver [a documentação de reinício](howto-restart-server-portal.md) para saber como reiniciar um servidor.
+
 
 ## <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 Réplicas de leitura podem ser criadas através dos seguintes passos:

@@ -3,7 +3,7 @@ title: Configurar o MySQL numa VM do Linux no Azure | Documentos da Microsoft
 description: Saiba como instalar a pilha de MySQL numa máquina virtual do Linux (Ubuntu ou Red Hat família de SO) no Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469576"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888435"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Como instalar o MySQL no Azure
 Neste artigo, aprenderá como instalar e configurar o MySQL numa máquina virtual do Azure em execução no Linux.
@@ -42,7 +42,7 @@ Nós usaremos o pacote do repositório para instalar MySQL5.6 como um exemplo de
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Como instalar MySQL5.6 no Ubuntu
 Nós usaremos VM do Linux com o Ubuntu do Azure aqui.
 
-* Passo 1: Instalar MySQL 5.6 do servidor mudar para a `root` utilizador:
+* Passo 1: Instalar MySQL Server 5.6 comutador para `root` utilizador:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -59,7 +59,7 @@ Nós usaremos VM do Linux com o Ubuntu do Azure aqui.
 
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
-* Passo 2: O servidor MySQL início de sessão
+* Passo 2: Servidor MySQL de início de sessão
   
     Quando terminar a instalação do servidor MySQL, o serviço de MySQL será iniciado automaticamente. Pode iniciar sessão com o servidor MySQL `root` utilizador.
     Utilize o comando a palavra-passe de início de sessão e de entrada abaixo.
@@ -112,7 +112,7 @@ Nós usaremos VM do Linux com o CentOS ou Oracle Linux aqui.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* Passo 3: Instalar MySQL MySQL repositório instalar MySQL:
+* Passo 3: Instale o MySQL a partir do repositório de MySQL instalar MySQL:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   

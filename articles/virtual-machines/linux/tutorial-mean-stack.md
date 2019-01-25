@@ -3,7 +3,7 @@ title: Tutorial – Criar uma pilha MEAN numa máquina virtual do Linux no Azure
 description: Neste tutorial, vai aprender a criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa VM do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a223cb9be7c381c2f64648b32ef9bca69ebeddb5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465686"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883216"
 ---
-# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa máquina virtual do Linux no Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e node. js (MEAN) numa máquina virtual do Linux no Azure
 
 Este tutorial mostra como criar uma pilha MongoDB, Express, AngularJS e Node.js (MEAN) numa máquina virtual (VM) do Linux no Azure. A pila MEAN que cria permite adicionar, eliminar e listar livros numa base de dados. Saiba como:
 
@@ -338,7 +338,7 @@ O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vist
 
 5. Pode clicar em **Eliminar** e remover o registo de livros da base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma aplicação Web que acompanha os registos de livros através de uma pilha MEAN numa VM do Linux. Aprendeu a:
 

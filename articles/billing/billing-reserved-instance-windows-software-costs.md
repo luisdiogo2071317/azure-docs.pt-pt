@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: cwatson
-ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584423"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902674"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos de software do Windows não são incluídos com instâncias de VM reservadas do Azure
 
@@ -40,14 +40,14 @@ Se não tiver um benefício de utilização híbrida do Azure nas suas instânci
 | 603f58d1-1e96-460b-a933-ce3775ac7e2e | Windows de instâncias reservadas do Windows Server (8 núcleos) | Tudo, exceto a série B |
 | 36aaadda-da86-484a-b465-c8b5ab292d71 | Windows de instâncias reservadas do Windows Server (12 núcleos) | Tudo, exceto a série B |
 | 02968a6b-1654-4495-ada6-13f378ba7172 | Windows de instâncias reservadas do Windows Server (16 núcleos) | Tudo, exceto a série B |
-| 175434d8-75f9-474b-9906-5d151b6bed84 | Windows de instâncias reservadas do Windows Server (20 núcleos) | Tudo, exceto a série B |
+| 175434d8-75f9-474b-9906-5d151b6bed84 | Reservation-Windows Svr (20 Core) | Tudo, exceto a série B |
 | 77eb6dd0-88f5-4a16-ab39-05d1742efb25 | Windows de instâncias reservadas do Windows Server (24 núcleos) | Tudo, exceto a série B |
 | 0d5bdf46-b719-4b1f-a780-b9bdfffd0591 | Windows de instâncias reservadas do Windows Server (32 núcleos) | Tudo, exceto a série B |
 | f1214b5c-cc16-445f-be6c-a3bb75f8395a | Windows de instâncias reservadas do Windows Server (40 núcleos) | Tudo, exceto a série B |
 | 637b7c77-65ad-4486-9cc7-dc7b3e9a8731 | Windows de instâncias reservadas do Windows Server (64 núcleos) | Tudo, exceto a série B |
 | da612742-e7cc-4ca3-9334-0fb7234059cd | Windows de instâncias reservadas do Windows Server (72 núcleos) | Tudo, exceto a série B |
 | a485cb8c-069b-4cf3-9a8e-ddd84b323da2 | Windows de instâncias reservadas do Windows Server (128 núcleos) | Tudo, exceto a série B |
-| 904c5c71-1eb7-43a6-961c-d305a9681624 | Windows de instâncias reservadas do Windows Server (256 núcleos) | Tudo, exceto a série B |
+| 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 Core) | Tudo, exceto a série B |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Windows de instâncias reservadas do Windows Server (96 núcleos) | Tudo, exceto a série B |
 
 Pode obter o custo de cada um destes medidores pela API de RateCard do Azure. Para obter informações sobre como obter as taxas de para um medidor do azure, consulte [Obtenha informações sobre o preço e os metadados de recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).

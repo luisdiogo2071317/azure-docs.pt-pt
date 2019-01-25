@@ -3,7 +3,7 @@ title: Utilizar a extensão de VM do Azure Docker | Documentos da Microsoft
 description: Saiba como utilizar a extensão Docker VM para rapidamente e com segurança implementar um ambiente do Docker no Azure com modelos do Resource Manager e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 75959225d6fcc5487466ed26a21ba2d26c55cde9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465938"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882768"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente do Docker no Azure com a extensão Docker VM
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre os métodos de implementação diferentes, i
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementar um modelo com a extensão de VM do Azure Docker
-Vamos utilizar um modelo existente de início rápido para criar uma VM do Ubuntu que utiliza a extensão de VM do Azure Docker para instalar e configurar o anfitrião do Docker. Pode ver o modelo aqui: [implementação simples de uma VM do Ubuntu com o Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Vamos utilizar um modelo existente de início rápido para criar uma VM do Ubuntu que utiliza a extensão de VM do Azure Docker para instalar e configurar o anfitrião do Docker. Pode ver o modelo aqui: [Implementação simples de uma VM do Ubuntu com o Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
 
 Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 

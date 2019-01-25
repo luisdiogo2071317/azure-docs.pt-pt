@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794010"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886217"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -48,13 +48,18 @@ Aqui está uma lista de sistemas operativos suportados para a operação de cóp
 
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
-Aqui está uma lista dos tipos de armazenamento suportadas para o dispositivo do Data Box.
+Aqui está uma lista de contas de armazenamento suportadas e os tipos de armazenamento para o dispositivo do Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e as respetivas funcionalidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Conta de armazenamento** | **Notas** |
-| --- | --- |
-| Clássica | Standard |
-| Fins gerais  |Standard; ambos o V1 e V2 são suportadas. |
-| Blobs |São suportadas frequente e esporádico. |
+| **Conta de armazenamento / suportado tipos de armazenamento** | **Blob de blocos** |**BLOBs de páginas*** |**Ficheiros do Azure** |**Notas**|
+| --- | --- | -- | -- | -- |
+| Standard clássico | S | S | S |
+| Standard para fins gerais v1  | S | S | S | São suportadas frequente e esporádico.|
+| Premium para fins gerais v1  |  | S| | |
+| Para fins gerais v2 Standard  | S | S | S | São suportadas frequente e esporádico.|
+| Premium para fins gerais v2  |  |S | | |
+| Armazenamento de BLOBs Standard |S | | |São suportadas frequente e esporádico. |
+
+\* *-Dados carregados para blobs de páginas tem de ser alinhados, como vhds de 512 bytes.*
 
 >[!NOTE]
 > Contas de armazenamento Gen 2 do Azure Data Lake não são suportadas.
@@ -85,7 +90,7 @@ Aqui está uma lista dos browsers suportados para a IU da web local.
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
-O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de GbE 10, uma ligação de dados 1 GbE pode ser usada para copiar dados, mas as velocidades de cópia são afetadas.
+O seu datacenter tem de ter uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, uma ligação de dados de 1 GbE pode ser utilizada para copiar dados, mas a cópia velocidades são afetadas.
 
 ## <a name="next-step"></a>Passo seguinte
 

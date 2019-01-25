@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b9dd4beccbe8bc872c46976f490400daa200c3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086424"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888843"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerir os autores e colaboradores 
 
@@ -67,7 +67,12 @@ Se o administrador de inquilino não irá iniciar sessão no LUIS, o administrad
 
 ![Permissão do Azure active directory ao Web site da aplicação](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Se o administrador de inquilinos apenas desejar determinados utilizadores para utilizar o LUIS, consulte este [blog sobre identidades](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Se o administrador de inquilinos apenas desejar determinados utilizadores para utilizar o LUIS, existem duas soluções possíveis:
+* Dar "consentimento do admin" (de consentir a todos os utilizadores do Azure AD), mas, em seguida, definido como "Sim" a "atribuição utiliz. necessária" nas propriedades de aplicativo empresarial e, finalmente atribuir/adicione apenas os utilizadores desejados para a aplicação. Com esse método, o administrador ainda está a fornecer o "consentimento do admin" para a aplicação, no entanto, é possível controlar os utilizadores que possam acessá-la.
+* Uma segunda solução, é através de [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento a cada utilizador específico. 
+
+Saiba mais sobre os utilizadores do Active Directory do Azure e o consentimento: 
+* [Restringir a sua aplicação](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) para um conjunto de utilizadores
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Contas de utilizador com várias mensagens de e-mail para funcionários
 

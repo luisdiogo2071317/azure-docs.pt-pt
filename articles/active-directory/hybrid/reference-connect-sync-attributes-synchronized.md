@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 13ff2c817e13337da51bb9ad40ce16838af601d9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468630"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901382"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -45,6 +45,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | displayName |X | |
 | objectSID |X |propriedade mecânica. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | pwdLastSet |X |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
+|samAccountName|X| |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | usageLocation |X |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |

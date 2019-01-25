@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807878"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904459"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
@@ -29,13 +29,13 @@ O Azure disponibiliza diagnósticos incorporados para ajudar a depurar uma [apli
 Este artigo utiliza a [portal do Azure](https://portal.azure.com) e CLI do Azure para trabalhar com registos de diagnóstico. Para obter informações sobre como trabalhar com registos de diagnóstico com o Visual Studio, consulte [resolução de problemas do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnóstico do servidor Web e ao application diagnostics
-Serviço de aplicações fornecer funcionalidade Diagnóstico de informações de registo do servidor web e a aplicação web. Estes são logicamente separados em **diagnóstico do servidor da web** e **diagnóstico de aplicação**.
+Serviço de aplicações fornece funcionalidade de diagnóstico para informações de registo do servidor web e a aplicação web. Estes são logicamente separados em **diagnóstico do servidor da web** e **diagnóstico de aplicação**.
 
 ### <a name="web-server-diagnostics"></a>Diagnóstico do servidor Web
 Pode ativar ou desativar os seguintes tipos de registos:
 
 * **Detalhadas de registo de erro** -erro informações detalhadas de códigos de estado HTTP que indicam uma falha (código de estado 400 ou superior). Pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro.
-* **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se está a tentar aumentar o desempenho do site ou isolar o que está a causar um erro HTTP específico a ser devolvido.
+* **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se pretender melhorar o desempenho do site ou isolar um erro HTTP específico.
 * **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
@@ -45,7 +45,7 @@ Diagnóstico de aplicação permite-lhe capturar informações produzidas por um
 
 No tempo de execução, pode obter estes registos para ajudar a resolver problemas. Para obter mais informações, consulte [resolução de problemas do serviço de aplicações do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-Serviço de aplicações também registar informações de implementação quando publicar conteúdo para uma aplicação. Isso acontece automaticamente e não há nenhuma definição de configuração para o registo de implementação. Registo de implementação permite-lhe determinar o motivo pelo qual uma implementação falhou. Por exemplo, se estiver a utilizar um script de implementação personalizado, poderá utilizar o registo de implementação para determinar por que o script está a falhar.
+Serviço de aplicações também regista informações de implementação quando publicar conteúdo para uma aplicação. Isso acontece automaticamente e não há nenhuma definição de configuração para o registo de implementação. Registo de implementação permite-lhe determinar o motivo pelo qual uma implementação falhou. Por exemplo, se usar um script de implementação personalizada, poderá utilizar o registo de implementação para determinar por que o script está a falhar.
 
 ## <a name="enablediag"></a>Como ativar o diagnóstico
 Para ativar o diagnóstico na [portal do Azure](https://portal.azure.com), vá para a página para a sua aplicação e clique em **definições > os registos de diagnóstico**.
@@ -53,12 +53,16 @@ Para ativar o diagnóstico na [portal do Azure](https://portal.azure.com), vá p
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de registos](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Quando ativa **diagnóstico de aplicação**, também é escolher o **nível**. Esta definição permite-lhe filtrar as informações capturadas para **informativa**, **aviso**, ou **erro** informações. Defini-la como **verboso** regista todas as informações produzidas pela aplicação.
+Quando ativa **diagnóstico de aplicação**, também é escolher o **nível**. A tabela seguinte mostra as categorias de registos de que cada nível inclui:
 
-> [!NOTE]
-> Ao contrário de alterar o arquivo Web. config, ativar os diagnósticos de aplicação ou alterar os níveis de registo de diagnóstico não reciclar o domínio de aplicativo que o aplicativo é executado dentro.
->
->
+| Nível| Categorias de registo incluídos |
+|-|-|
+|**Desativado** | Nenhuma |
+|**Error** | Erro, crítico |
+|**Aviso** | Aviso, erro, críticos|
+|**Informações** | Informação, aviso, erro, críticos|
+|**Verbose** | Rastreio, Debug, Info, aviso, erro, crítico (todas as categorias) |
+|-|-|
 
 Para **registo de aplicações**, pode ativar a opção de sistema de ficheiros temporariamente para fins de depuração. Esta opção se desligar automaticamente em 12 horas. Pode também ativar a opção de armazenamento de BLOBs para selecionar um contentor de BLOBs para escrever os registos.
 
@@ -114,7 +118,7 @@ Para transferir os ficheiros de registo utilizando a Interface de linha de coman
 Este comando guarda os registos para a aplicação com o nome "appname" num ficheiro denominado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se não tiver instalado a CLI do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Se ainda não instalou a CLI do Azure, ou ainda não configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -157,7 +161,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Se não tiver instalado a CLI do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](../cli-install-nodejs.md).
+> Se ainda não instalou a CLI do Azure, ou ainda não configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -165,7 +169,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
 ### <a name="application-diagnostics-logs"></a>Registos de diagnóstico de aplicações
 Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o armazenamento de BLOBs ou de sistema de ficheiros. 
 
-O conjunto base de dados armazenados é a mesma em ambos os tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento. Utilizar o sistema de ficheiros para o armazenamento de registo é útil quando precisa ter acesso imediato ao solucionar um problema porque os ficheiros de registo são atualizados quase instantaneamente. Armazenamento de BLOBs é o uso para fins de arquivamento, porque os ficheiros são colocados em cache e, em seguida, libertados para o contentor de armazenamento com base numa agenda.
+O conjunto base de dados armazenados é a mesma em ambos os tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento. Utilizar o sistema de ficheiros para o armazenamento de registo é útil quando precisa ter acesso imediato ao solucionar um problema porque os ficheiros de registo são atualizados quase instantaneamente. Armazenamento de BLOBs é utilizado para fins de arquivamento, porque os ficheiros são colocados em cache e, em seguida, libertados para o contentor de armazenamento com base numa agenda.
 
 **Sistema de Ficheiros**
 

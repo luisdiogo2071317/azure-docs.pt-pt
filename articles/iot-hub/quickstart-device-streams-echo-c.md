@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 149d3e3515c8bbc10798ad26e58dcefbe830f9bc
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830222"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887959"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo em C, por meio de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -82,7 +82,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -91,10 +91,10 @@ No Windows, execute os seguintes comandos na linha de comandos do programador pa
 ```
     # In Windows
     # For VS2015
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -177,7 +177,7 @@ Para executar a aplicação do lado do dispositivo, terá de efetuar os seguinte
 
 ### <a name="run-the-service-side-application"></a>Executar a aplicação do lado do serviço
 
-Conforme mencionado anteriormente, o SDK de C do Hub IoT suporta apenas fluxos de dispositivo do lado do dispositivo. Para a aplicação do lado do serviço, utilize os programas de serviço accompaying disponíveis no [ C# início rápido](./quickstart-device-streams-echo-csharp.md) ou [guia de introdução do node. js](./quickstart-device-streams-echo-nodejs.md) guias.
+Conforme mencionado anteriormente, o SDK de C do Hub IoT suporta apenas fluxos de dispositivo do lado do dispositivo. Para a aplicação do lado do serviço, utilize os programas de serviço que acompanha este artigo disponíveis no [ C# início rápido](./quickstart-device-streams-echo-csharp.md) ou [guia de introdução do node. js](./quickstart-device-streams-echo-nodejs.md) guias.
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

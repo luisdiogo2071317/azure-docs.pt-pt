@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c84af250a9e8dbff578f58abc7e3558d95ecbe93
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310849"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904544"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos do Policy
 
@@ -257,6 +257,11 @@ O **detalhes** propriedade dos efeitos DeployIfNotExists tem todos os subpropert
   - Por exemplo, poderia ser usado para validar que o recurso principal (no **se** condição) está na mesma localização de recursos que o recurso relacionado correspondente.
 - **roleDefinitionIds** [necessário]
   - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
+- **Escopo** (opcional)
+  - Valores permitidos são _subscrição_ e _ResourceGroup_.
+  - Define o tipo de implementação que deve ser executada. _Subscrição_ indica um [implementação ao nível da subscrição]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ indica uma implementação para um grupo de recursos.
+  - Uma _localização_ propriedade deve ser especificada no _implementação_ quando utilizar implementações ao nível da subscrição.
+  - A predefinição é _ResourceGroup_.
 - **Implementação** [necessário]
   - Esta propriedade deve incluir a implementação do modelo completo, como ele foi transmitido para o `Microsoft.Resources/deployments` colocar API. Para obter mais informações, consulte a [API do REST de implementações](/rest/api/resources/deployments).
 

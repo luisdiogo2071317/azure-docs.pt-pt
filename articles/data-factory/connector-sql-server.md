@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306170"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885137"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-sqlserver-connector.md)
 > * [Versão atual](connector-sql-server.md)
 
@@ -36,6 +36,8 @@ Especificamente, este conector do SQL Server suporta:
 - Copiar dados utilizando **SQL** ou **Windows** autenticação.
 - Como origem, obter dados com a consulta SQL ou procedimento armazenado.
 - Como sink, acrescentando dados a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não é suportado agora.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -506,7 +508,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimal |
-| sql_variant |Objeto * |
+| sql_variant |Object |
 | texto |Cadeia de caracteres, Char [] |
 | hora |Período de tempo |
 | carimbo de data/hora |Byte[] |
@@ -515,6 +517,9 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | varbinary |Byte[] |
 | varchar |Cadeia de caracteres, Char [] |
 | xml |Xml |
+
+>[!NOTE]
+> Para mapas de tipos de dados para o tipo Decimal de provisório, atualmente ADF suporta precisão até 28. Se tiver dados com precisão maior que 28, considere converter a cadeia de caracteres na consulta SQL.
 
 ## <a name="troubleshooting-connection-issues"></a>Resolução de problemas de ligação
 

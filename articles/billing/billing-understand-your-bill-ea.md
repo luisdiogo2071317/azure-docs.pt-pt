@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584473"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902708"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Compreender a sua fatura para clientes do Azure com um contrato Enterprise
 
@@ -31,11 +31,11 @@ Crédito da sua organização inclui seu compromisso monetário. A alocação mo
 
 Obter uma ou mais notas fiscais quando ocorre o seguinte:
 
-- **Utilização excedida do serviço**: os custos de utilização da sua organização excederem seu saldo de crédito.
-- **Encargos faturados em separado**: os serviços utilizado pela sua organização não são abrangidos pelo crédito. São faturadas para os seguintes serviços, independentemente do seu saldo de crédito:
+- **Utilização excedida do serviço**: Os custos de utilização da sua organização excederem seu saldo de crédito.
+- **Encargos faturados em separado**: Os serviços utilizado pela sua organização não são abrangidos pelo crédito. São faturadas para os seguintes serviços, independentemente do seu saldo de crédito:
     - Canónico
     - Citrix XenApp Essentials
-    - O Citrix XenDesktop 
+    - Citrix XenDesktop 
     - Utilizador registado
     - Openlogic
     - Utilizador registado de direitos de acesso remoto o XenApp Essentials
@@ -44,7 +44,7 @@ Obter uma ou mais notas fiscais quando ocorre o seguinte:
     - Visual Studio Enterprise (anual)
     - Visual Studio Professional (mensal)
     - Visual Studio Professional (anual)
-- **Encargos do Marketplace**: compras no Azure Marketplace e a utilização não são abrangidos por crédito da sua organização e são faturadas separadamente. O administrador de empresa tem a capacidade de ativar e desativar as compras no Marketplace para a sua organização no Portal da empresa. 
+- **Encargos do Marketplace**: As compras no Marketplace e utilização do Azure não são abrangidos por crédito da sua organização e são faturadas separadamente. O administrador de empresa tem a capacidade de ativar e desativar as compras no Marketplace para a sua organização no Portal da empresa. 
 
 Quando tem custos devido para utilização excedida do serviço e encargos faturados em separado, durante o período de faturação, obtém uma nota fiscal que inclui os dois tipos de custos. Custos de marketplaces sempre são faturados separadamente.
 

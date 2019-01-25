@@ -6,20 +6,20 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554525"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883879"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights
 
-Depois de implementar a sua instância de duplos Digital do Azure, aprovisionar os seus espaços e implementar uma função personalizada para monitorizar a condições específicas, pode ver os eventos e os dados provenientes de seus espaços para procurar tendências e anomalias. 
+Depois de implementar a sua instância de duplos Digital do Azure, aprovisionar os seus espaços e implementar uma função personalizada para monitorizar a condições específicas, pode ver os eventos e os dados provenientes de seus espaços para procurar tendências e anomalias.
 
-Na [o primeiro tutorial](tutorial-facilities-setup.md), configurou o gráfico geográfico de um edifício imaginário, com um espaço que contém os sensores de temperatura, dióxido de carbono e movimento. No [segundo tutorial](tutorial-facilities-udf.md), aprovisionou o gráfico e uma função definida pelo utilizador. A função monitoriza estes valores de sensor e dispara notificações para as condições adequadas. Ou seja, o espaço está vazio e os níveis de temperatura e as emissões de dióxido de carbono são normais. 
+Na [o primeiro tutorial](tutorial-facilities-setup.md), configurou o gráfico geográfico de um edifício imaginário, com um espaço que contém os sensores de temperatura, dióxido de carbono e movimento. No [segundo tutorial](tutorial-facilities-udf.md), aprovisionou o gráfico e uma função definida pelo utilizador. A função monitoriza estes valores de sensor e dispara notificações para as condições adequadas. Ou seja, o espaço está vazio e os níveis de temperatura e as emissões de dióxido de carbono são normais.
 
 Este tutorial mostra-lhe como integrar as notificações e dados provenientes da sua configuração de duplos Digital do Azure com o Azure Time Series Insights. Em seguida, é possível visualizar seus valores de sensor ao longo do tempo. Pode procurar tendências, como o espaço é obter o máximo partido e quais são as mais ocupadas horas do dia. Também pode detetar anomalias, como se sentir que os ambientes de stuffier e muita ou se está a enviar valores de temperatura consistentemente alta, uma área em sua criação com a indicação de falha ar-condicionado.
 
@@ -32,43 +32,44 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Neste tutorial, parte-se do princípio de que [configurou](tutorial-facilities-setup.md) e [aprovisionou](tutorial-facilities-udf.md) a sua configuração do Azure Digital Twins. Antes de avançar, confirme que tem:
+
 - Uma [conta do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uma instância do Digital Twins em execução.
 - Os [exemplos do Digital Twins em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp) transferidos e extraídos para o computador de trabalho.
-- [.NET core SDK versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para executar o exemplo. Executar `dotnet --version` para verificar se a versão correta está instalada. 
-
+- [.NET core SDK versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para executar o exemplo. Executar `dotnet --version` para verificar se a versão correta está instalada.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Dados de Stream ao utilizar os Hubs de eventos
+
 Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço para criar um pipeline para transmitir os seus dados. Esta secção mostra-lhe como criar o seu hub de eventos como conector entre as instâncias de duplos Digital do Azure e o Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **criar um recurso**. 
+1. No painel esquerdo, selecione **criar um recurso**.
 
 1. Procure e selecione **Hubs de Eventos**. Selecione **Criar**.
 
-1. Introduza um **nome** para o espaço de nomes de Hubs de eventos. Escolher **padrão** para **escalão de preço**, o seu **subscrição**, o **grupo de recursos** que utilizou para a sua instância de duplos Digital, e o **localização**. Selecione **Criar**. 
+1. Introduza um **nome** para o espaço de nomes de Hubs de eventos. Escolher **padrão** para **escalão de preço**, o seu **subscrição**, o **grupo de recursos** que utilizou para a sua instância de duplos Digital, e o **localização**. Selecione **Criar**.
 
 1. Numa implementação de espaço de nomes dos Hubs de eventos, selecione o espaço de nomes em **recursos**.
 
     ![Espaço de nomes de Hubs de eventos após a implementação](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-
-1. No espaço de nomes dos Hubs de eventos **descrição geral** painel, selecione a **Hub de eventos** botão na parte superior. 
+1. No espaço de nomes dos Hubs de eventos **descrição geral** painel, selecione a **Hub de eventos** botão na parte superior.
     ![Botão de Hub de eventos](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. Introduza um **Name** para o seu hub de eventos e selecione **criar**. 
+1. Introduza um **Name** para o seu hub de eventos e selecione **criar**.
 
    Depois do hub de eventos é implementado, é apresentado na **os Hubs de eventos** painel do espaço de nomes dos Hubs de eventos com um **Active Directory** estado. Selecione este hub de eventos para abrir o respetivo **descrição geral** painel.
 
 1. Selecione o **grupo de consumidores** botão na parte superior e introduza um nome, tal como **tsievents** para o grupo de consumidores. Selecione **Criar**.
+
     ![Grupo de consumidor do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Depois de criar o grupo de consumidores, ele aparece na lista na parte inferior do hub de eventos **descrição geral** painel. 
+   Depois de criar o grupo de consumidores, ele aparece na lista na parte inferior do hub de eventos **descrição geral** painel.
 
-1. Abra o **políticas de acesso partilhado** painel para o seu hub de eventos e selecione o **Add** botão. Introduza **ManageSend** como o nome da política, certifique-se de que todas as caixas de verificação estão selecionadas e selecione **criar**. 
+1. Abra o **políticas de acesso partilhado** painel para o seu hub de eventos e selecione o **Add** botão. Introduza **ManageSend** como o nome da política, certifique-se de que todas as caixas de verificação estão selecionadas e selecione **criar**.
 
     ![Cadeias de ligação do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
@@ -100,13 +101,13 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 
 1. Substitua os marcadores de posição `Primary_connection_string_for_your_event_hub` com o valor de **cadeia de ligação – chave primária** para o hub de eventos. Certifique-se de que o formato desta cadeia de ligação é o seguinte:
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Substitua os marcadores de posição `Secondary_connection_string_for_your_event_hub` com o valor de **cadeia de ligação – chave secundária** para o hub de eventos. Certifique-se de que o formato desta cadeia de ligação é o seguinte: 
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -115,13 +116,12 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
     > [!IMPORTANT]
     > Introduza todos os valores, sem aspas. Certificar-se de que existe caráter de espaço, pelo menos, uma após a vírgula no ficheiro YAML. Também pode validar o seu conteúdo do ficheiro YAML, utilizando qualquer validador YAML online, como [essa ferramenta](https://onlineyamltools.com/validate-yaml).
 
-
 1. Guarde e feche o ficheiro. Na janela de comandos, execute o comando seguinte e inicie sessão com a sua conta do Azure quando lhe for pedido.
 
     ```cmd/sh
     dotnet run CreateEndpoints
     ```
-   
+
    Ele cria dois pontos de extremidade para o seu hub de eventos.
 
    ![Pontos finais dos Hubs de Eventos](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
@@ -165,12 +165,11 @@ Se pretender parar a explorar duplos Digital do Azure para além deste ponto, fi
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
 
-2. Se necessário, elimine os aplicativos de exemplo no seu computador de trabalho. 
-
+2. Se necessário, elimine os aplicativos de exemplo no seu computador de trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Vá para o artigo seguinte para saber mais sobre os gráficos de inteligência geográficos e modelos de objeto no duplos Digital do Azure. 
+Vá para o artigo seguinte para saber mais sobre os gráficos de inteligência geográficos e modelos de objeto no duplos Digital do Azure.
+
 > [!div class="nextstepaction"]
 > [Understanding Digital Twins object models and spatial intelligence graph](concepts-objectmodel-spatialgraph.md) (Compreender os modelos de objetos e o gráfico de inteligência espacial do Digital Twins)
-

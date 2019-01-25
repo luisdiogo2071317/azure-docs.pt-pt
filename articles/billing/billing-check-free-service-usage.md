@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: banders
+ms.openlocfilehash: e4dbcc9bad7e4912318931e9f91d311b8b058501
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315626"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903711"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar a utilização de serviços gratuitos incluídos na sua conta gratuita do Azure 
 
@@ -53,7 +53,7 @@ Não lhe serem cobrados serviços incluídos gratuitamente com a conta gratuita 
 
 * **Nome do medidor:** Identifica a unidade de medida para o medidor de consumo. Para saber mais sobre o serviço para o mapeamento de medidores, veja [compreender o serviço gratuito para o mapeamento de medidores](billing-understand-free-service-meter-mapping.md).
 * **Utilização/limite:** Utilização e limite para o Medidor do mês atual. Também pode encontrar estas informações na barra de status.
-* **Estado:** Estado do medidor de utilização. Com base no seu padrão de utilização, pode ter um destes statutes.
+* **Status:** Estado do medidor de utilização. Com base no seu padrão de utilização, pode ter um destes statutes.
   * **Não está em utilização:** Ainda não utilizou o medidor ou a utilização para o contador ainda não atingiu o sistema de faturação.
   * **Foi excedido em \<data >:** Excedeu o limite para o medidor no \<data >.
   * **Pouco provável de exceder:** É pouco provável de exceder o limite para o medidor.

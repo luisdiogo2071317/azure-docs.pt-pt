@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636681"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903507"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -33,7 +33,7 @@ Para simplificar algumas das etapas envolvidas na configuração do Azure AD com
 > [!NOTE]
 > Tem de concluir os seguintes passos antes de criar o cluster. Porque os scripts esperam que os nomes de cluster e pontos de extremidade, os valores devem ser planeadas e não os valores que já tenha criado.
 
-1. [Transferir os scripts] [ sf-aad-ps-script-download] para o seu computador.
+1. [Transferir os scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) para o seu computador.
 2. O ficheiro zip com o botão direito, selecione **propriedades**, selecione a **desbloqueio** caixa de verificação e, em seguida, clique em **aplicar**.
 3. Extraia o ficheiro zip.
 4. Executar `SetupApplications.ps1`e forneça o TenantId, ClusterName e WebApplicationReplyUrl como parâmetros. Por exemplo:
@@ -56,7 +56,7 @@ https://&lt;cluster_domain&gt;:19080/Explorer
 São-lhe pedido para iniciar sessão a uma conta que tenha privilégios administrativos para o inquilino do Azure AD. Depois de iniciar sessão, o script cria o web e aplicativos nativos para representar o cluster do Service Fabric. Se olhar de aplicações do inquilino no [portal do Azure][azure-portal], deverá ver duas novas entradas:
 
    * *ClusterName*\_Cluster
-   * *ClusterName*\_cliente
+   * *ClusterName*\_Client
 
 O script imprime o JSON necessário para o modelo Azure Resource Manager, quando criar o cluster na secção seguinte, pelo que é uma boa idéia mantenha a janela do PowerShell aberta.
 
@@ -108,16 +108,16 @@ O utilizador não foi atribuído uma função na aplicação de cluster do Azure
 #### <a name="solution"></a>Solução
 Siga as instruções para a configuração do Azure AD e atribuir funções de utilizador. Além disso, recomendamos que ative "Atribuição de utilizador necessária para aceder à aplicação," como `SetupApplications.ps1` faz.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Falha de ligação com o PowerShell com um erro: "as credenciais especificadas são inválidas"
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Ligação com o PowerShell pode falhar com um erro: "As credenciais especificadas são inválidas"
 #### <a name="problem"></a>Problema
-Quando utilizar o PowerShell para ligar ao cluster com o modo de segurança de "AzureActiveDirectory", depois de iniciar sessão com êxito para o Azure AD, a ligação falhar com um erro: "as credenciais especificadas são inválidas."
+Quando utilizar o PowerShell para ligar ao cluster com o modo de segurança de "AzureActiveDirectory", depois de iniciar sessão com êxito para o Azure AD, a ligação falhar com um erro: "As credenciais especificadas são inválidas."
 
 #### <a name="solution"></a>Solução
 Esta solução é o mesmo que a anterior.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer devolve uma falha ao iniciar sessão: "AADSTS50011"
 #### <a name="problem"></a>Problema
-Ao tentar iniciar sessão Azure AD no Service Fabric Explorer, a página devolve uma falha: "AADSTS50011: O endereço de resposta &lt;url&gt; não coincide com o endereço de resposta configurado para a aplicação: &lt;guid&gt;."
+Ao tentar iniciar sessão Azure AD no Service Fabric Explorer, a página devolve uma falha: "AADSTS50011: O endereço de resposta &lt;url&gt; não coincide com o endereço de resposta configurado para a aplicação: &lt;guid&gt;. "
 
 ![Não corresponde ao endereço de resposta SFX][sfx-reply-address-not-match]
 

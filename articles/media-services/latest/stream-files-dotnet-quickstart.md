@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4bea0dd38e1bfb05ba13a298c5ea3a1a62e35cd2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612225"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887395"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir ficheiros de vídeo – .NET
+# <a name="quickstart-stream-video-files---net"></a>Início rápido: Ficheiros de vídeo do Stream - .NET
 
 Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
@@ -52,12 +52,12 @@ O exemplo está localizado na pasta [EncodeAndStreamFiles](https://github.com/Az
 
 O exemplo realiza as seguintes ações:
 
-1. Cria uma Transformação (primeiro, verifica se existe a Transformação especificada). 
-2. Cria um Elemento de saída que é utilizado como saída da Tarefa de codificação.
-3. Cria a entrada da Tarefa com base num URL HTTPS.
-4. Submete a Tarefa de codificação através da entrada e saída criada anteriormente.
+1. Cria um **transformar** (primeiro, verifica se existe a transformação especificada). 
+2. Cria uma saída **Asset** que é utilizado como a codificação **tarefa**de saída.
+3. Cria o **tarefa**entrada do que se baseia-se um URL HTTPS.
+4. Envia a codificação **tarefa** usando a entrada e saída que foi criada anteriormente.
 5. Verifica o estado da Tarefa.
-6. Cria um StreamingLocator.
+6. Cria um **localizador de transmissão em fluxo**.
 7. Cria os URLs de transmissão.
 
 Para obter uma explicação sobre o que faz cada função no exemplo, examine o código e observe os comentários [neste ficheiro de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).

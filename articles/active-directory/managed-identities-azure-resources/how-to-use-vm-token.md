@@ -3,7 +3,7 @@ title: Como utilizar identidades geridas para recursos do Azure numa máquina vi
 description: Instruções passo a passo instruções e exemplos de utilização geridos identidades para recursos do Azure numa máquina virtual para adquirir um token de acesso de OAuth.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: d737f1b17322d4b2ea0ab00a8e0bd386e8cb1747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 8c554ad96b0f73d1e7bbc61f03c547a3191d5303
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422413"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904255"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 
@@ -33,7 +33,7 @@ Este artigo fornece vários exemplos de código e script para a aquisição do t
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Se planeja usar os exemplos do Azure PowerShell neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+Se planeja usar os exemplos do Azure PowerShell neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 > [!IMPORTANT]

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b26a1fa3f61c7836bbe3466e4d95f406d16eb31e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052041"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902521"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
 
@@ -198,20 +198,18 @@ Em primeiro lugar, um dispositivo subscreve `$iothub/twin/res/#`, para receber r
 
 ID do pedido pode ser qualquer valor válido para um valor de propriedade da mensagem, de acordo [mensagens guia para programadores do IoT Hub][lnk-messaging], e o estado é validado como um número inteiro.
 
-O corpo da resposta contém a secção de propriedades do dispositivo duplo. O fragmento seguinte mostra o corpo da entrada de registo de identidade limitado para o membro de "Propriedades", por exemplo:
+O corpo da resposta contém a secção de propriedades do dispositivo duplo, conforme mostrado no exemplo seguinte resposta:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -228,7 +226,7 @@ Para obter mais informações, consulte [Guia do programador do dispositivo twin
 
 ### <a name="update-device-twins-reported-properties"></a>Atualizar propriedades comunicadas do dispositivo duplo
 
-Para atualizar propriedades comunicadas, o dispositivo emite um pedido para o IoT Hub através de uma publicação através de um tópico MQTT designado. Depois de processar o pedido, o IoT Hub responde o estado de êxito ou falha da operação de atualização por meio de uma publicação mudar de tópico. Este tópico pode ser subscrita pelo dispositivo para notificá-lo sobre o resultado de sua solicitação de atualização de duplo. Implment este tipo de interação de solicitação/resposta em MQTT, podemos aproveitar a noção de id do pedido (`$rid`) fornecido inicialmente pelo dispositivo no seu pedido de atualização. Este id de pedido também está incluído na resposta do IoT Hub para permitir que o dispositivo correlacionar a resposta ao seu pedido anterior específico.
+Para atualizar propriedades comunicadas, o dispositivo emite um pedido para o IoT Hub através de uma publicação através de um tópico MQTT designado. Depois de processar o pedido, o IoT Hub responde o estado de êxito ou falha da operação de atualização por meio de uma publicação mudar de tópico. Este tópico pode ser subscrita pelo dispositivo para notificá-lo sobre o resultado de sua solicitação de atualização de duplo. Para implementar este tipo de interação de solicitação/resposta no MQTT, podemos aproveitar a noção de id do pedido (`$rid`) fornecido inicialmente pelo dispositivo no seu pedido de atualização. Este id de pedido também está incluído na resposta do IoT Hub para permitir que o dispositivo correlacionar a resposta ao seu pedido anterior específico.
 
 A sequência seguinte descreve como um dispositivo atualiza as propriedades reportadas no dispositivo duplo no IoT Hub:
 

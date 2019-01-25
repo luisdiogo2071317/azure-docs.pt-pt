@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 01/23/2019
 ms.author: glenga
-ms.openlocfilehash: 7057f6a9652244f84754e29af738b7e0c5f1da4f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: e330f5ecbfc240b048d887289224c164a91215bd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134284"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904714"
 ---
-Saiba como criar funções com outros tipos de acionadores ou como integrar funções com outros serviços do Azure.
+Agora que tem um criada sua primeira função, vamos adicionar um enlace de saída para a função que escreve uma mensagem numa fila de armazenamento.
 
-+ [Create a function that runs on a schedule](../articles/azure-functions/functions-create-scheduled-function.md) (Criar uma função que é executada de acordo com uma agenda) 
-+ [Add messages to an Azure Storage queue using Functions](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md) (Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure)
+> [!div class="nextstepaction"]
+> [Add messages to an Azure Storage queue using Functions](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md) (Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure)

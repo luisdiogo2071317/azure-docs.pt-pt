@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438240"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888146"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
-O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
+O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./diagnostic-logs-schema.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativa
 Esta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
@@ -274,8 +274,8 @@ Esta categoria contém o registo de quaisquer eventos de estado de funcionamento
 | submissionTimestamp |Timestamp quando o evento se tornou disponível para consulta. |
 | subscriptionId |ID de subscrição do Azure. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento.|
-| properties.title | Uma cadeia de amigável de utilizador que descreve o estado de funcionamento do recurso. |
-| properties.details | Uma cadeia de amigável de utilizador que descreve mais detalhes sobre o evento. |
+| properties.title | Uma cadeia de caracteres amigável que descreve o estado de funcionamento do recurso. |
+| properties.details | Uma cadeia de caracteres amigável que descreve mais detalhes sobre o evento. |
 | properties.currentHealthStatus | O estado de funcionamento atual do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degradado" e "Desconhecido". |
 | properties.previousHealthStatus | O estado de funcionamento anterior do recurso. Um dos seguintes valores: "Disponível", "Indisponível", "Degradado" e "Desconhecido". |
 | properties.type | Uma descrição do tipo de evento de estado de funcionamento de recursos. |
@@ -356,9 +356,9 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 | descrição |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do evento de alerta. |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
-| resourceGroupName |Nome do grupo de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do grupo de recursos que contém o alerta em si. |
-| resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o nome do fornecedor de recursos para o alerta em si. |
-| resourceId | Nome do ID do recurso para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, este é o ID de recurso do próprio recurso do alerta. |
+| resourceGroupName |Nome do grupo de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, é o nome do grupo de recursos que contém o alerta em si. |
+| resourceProviderName |Nome do fornecedor de recursos para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, é o nome do fornecedor de recursos para o alerta em si. |
+| resourceId | Nome do ID do recurso para o recurso afetado se se trata de um alerta de métrica. Para outros tipos de alerta, é o ID de recurso do próprio recurso do alerta. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, um dicionário), que descreve os detalhes do evento. |
@@ -570,7 +570,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | subscriptionId |ID de subscrição do Azure. |
 
 ## <a name="recommendation"></a>Recomendação
-Esta categoria contém o registo de quaisquer novas recomendações que são gerados para os seus serviços. Um exemplo de uma recomendação seria "conjuntos de disponibilidade de utilização para tolerância de falhas melhorada." Existem 4 tipos de eventos de recomendação que podem ser gerados: Elevada disponibilidade, desempenho, segurança e otimização de custo. 
+Esta categoria contém o registo de quaisquer novas recomendações que são gerados para os seus serviços. Um exemplo de uma recomendação seria "conjuntos de disponibilidade de utilização para tolerância de falhas melhorada." Existem quatro tipos de eventos de recomendação que podem ser gerados: Elevada disponibilidade, desempenho, segurança e otimização de custo. 
 
 ### <a name="sample-event"></a>Evento de exemplo
 ```json
@@ -757,7 +757,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 | resourceType | Para novos recursos, é o tipo a ser avaliado. Para obter recursos existentes, devolve "Microsoft.Resources/checkPolicyCompliance". |
 | resourceId | ID de recurso do recurso avaliado. |
 | status | A cadeia de caracteres que descreve o estado do resultado da avaliação da política. A maioria das avaliações de política retornam "Com êxito", mas um efeito de recusa devolve "Falhado". Erros no auditIfNotExists ou deployIfNotExists também retornam "Falhado". |
-| subStatus | Este campo está em branco para eventos de política. |
+| subStatus | O campo está em branco, eventos de políticas. |
 | submissionTimestamp | Timestamp quando o evento se tornou disponível para consulta. |
 | subscriptionId | ID de subscrição do Azure. |
 | properties.isComplianceCheck | Devolve "False" quando um novo recurso está implementado ou propriedades do Gestor de recursos de um recurso existente são atualizadas. Todos os outros [acionadores de avaliação](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) resultar em "True". |
@@ -768,7 +768,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mapeamento de esquema de registos de diagnóstico
 
-Quando o registo de atividades do Azure para uma conta de armazenamento ou o espaço de nomes de Hubs de eventos de transmissão em fluxo, os dados seguem os [esquema de registos de diagnóstico do Azure](./tutorial-dashboards.md). Este é o mapeamento das propriedades do esquema acima para o esquema de registos de diagnóstico:
+Quando o registo de atividades do Azure para uma conta de armazenamento ou o espaço de nomes de Hubs de eventos de transmissão em fluxo, os dados seguem os [esquema de registos de diagnóstico do Azure](./diagnostic-logs-schema.md). Este é o mapeamento das propriedades do esquema acima para o esquema de registos de diagnóstico:
 
 | Propriedade de esquema de registos de diagnóstico | Propriedade de esquema da API REST do Log de atividade | Notas |
 | --- | --- | --- |

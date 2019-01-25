@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: b39c56e8dcae6cdac45160240a6b0f12a1ac0f2e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580376"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902555"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Compreender a forma como um desconto de reserva do Azure é aplicado às bases de dados SQL
 
@@ -32,13 +32,13 @@ Para as instâncias de Máquina Virtual reservadas, consulte [compreender Azure 
 
 Os exemplos seguintes mostram como o desconto de capacidade de reserva de base de dados SQL aplica-se consoante o número de núcleos comprou e, quando estiver em execução.
 
-- Cenário 1: Compra uma capacidade de base de dados de SQL reservadas para uma base de dados SQL de 8 núcleos. Executar uma base de dados do SQL que correspondem aos rest dos atributos da reserva de 16 núcleos. É-lhe cobrado o preço pay as you go de 8 núcleos de utilização de computação de base de dados SQL. Obter o desconto de reserva de uma hora de 8 núcleos de utilização de computação de base de dados SQL.
+- Cenário 1: Comprar uma capacidade de base de dados de SQL reservadas para uma base de dados SQL de 8 núcleos. Executar uma base de dados do SQL que correspondem aos rest dos atributos da reserva de 16 núcleos. É-lhe cobrado o preço pay as you go de 8 núcleos de utilização de computação de base de dados SQL. Obter o desconto de reserva de uma hora de 8 núcleos de utilização de computação de base de dados SQL.
 
 No restante destes exemplos, partem do princípio de que a capacidade de base de dados de SQL reservadas que comprar é para uma base de dados SQL de 16 núcleos e o restante dos atributos de reserva correspondem aos bancos de dados SQL em execução.
 
-- Cenário 2: Executar duas bases de dados SQL com 8 núcleos por uma hora. O desconto de reserva de 16 núcleos é aplicado a utilização para as duas de 8 núcleos de bases de dados SQL de computação.
-- Cenário 3: Executar uma de 16 núcleos de base de dados SQL do pm de 1 para 1 17:30. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. Ambos estão abrangidas pelo desconto de reserva.
-- Cenário 4: Executar uma de 16 núcleos de base de dados SQL do pm de 1 para 1 às 17:45. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. É-lhe cobrado o preço pay as you go para a sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação para o resto do tempo.
+- Cenário 2: Execute duas bases de dados SQL com 8 núcleos por uma hora. O desconto de reserva de 16 núcleos é aplicado a utilização para as duas de 8 núcleos de bases de dados SQL de computação.
+- Cenário 3: Execução de uma de 16 núcleos de base de dados SQL do pm de 1 para 1 17:30. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. Ambos estão abrangidas pelo desconto de reserva.
+- Cenário 4: Execução de uma de 16 núcleos de base de dados SQL do pm de 1 para 1 às 17:45. Executar outro 16 núcleos base de dados SQL a partir 1:30 para 2 pm. É-lhe cobrado o preço pay as you go para a sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação para o resto do tempo.
 
 Para compreender e ver a aplicação das reservas de Azure no relatórios de utilização de faturação, veja [utilização de reserva de compreender o Azure](https://go.microsoft.com/fwlink/?linkid=862757).
 

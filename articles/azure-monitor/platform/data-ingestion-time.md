@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213132"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900447"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
 O Azure Log Analytics é um serviço de dados de grande escala no Azure Monitor, que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para os dados fiquem disponíveis no Log Analytics depois de serem recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -45,8 +45,15 @@ Soluções de gestão e agentes use estratégias diferentes para recolher dados 
 ### <a name="agent-upload-frequency"></a>Frequência de carregamento do agente
 Para garantir que o agente do Log Analytics é simples, o agente coloca na memória intermédia registos e carrega periodicamente para o Log Analytics. Carregar frequência varia entre 30 segundos e dois minutos consoante o tipo de dados. A maioria dos dados são carregados em menos de 1 minuto. Condições de rede podem afetar negativamente a latência destes dados para alcançar o ponto de ingestão do Log Analytics.
 
-### <a name="azure-logs-and-metrics"></a>Métricas e registos do Azure 
-Dados de registo de atividade irão demorar cerca de 5 minutos fique disponível no Log Analytics. Dados de registos de diagnóstico e métricas podem demorar 1 a 15 minutos para se tornar disponível para processar, dependendo do serviço do Azure. Assim que estiver disponível, em seguida, irá demorar um adicionais 30 a 60 segundos para os registos e 3 minutos, para as métricas para os dados sejam enviados para o ponto de ingestão do Log Analytics.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Registos de atividades do Azure, os registos de diagnóstico e métricas
+Dados do Azure adiciona mais tempo para se tornar disponível no ponto de ingestão do Log Analytics para o processamento:
+
+- Dados de registos de diagnóstico demorar 2 a 15 minutos, dependendo do serviço do Azure. Consulte a [consulta abaixo](#checking-ingestion-time) para examinar esta latência no seu ambiente
+- Métricas de plataforma do Azure demorar 3 minutos a serem enviados para o ponto de ingestão do Log Analytics.
+- Dados de registo de atividade irão demorar cerca de 10 a 15 minutos a serem enviados para o ponto de ingestão do Log Analytics.
+
+Uma vez disponível no ponto de ingestão, dados demora adicionais 2 a 5 minutos a estar disponível para consulta.
+
 
 ### <a name="management-solutions-collection"></a>Coleção de soluções de gestão
 Algumas soluções não recolher os dados de um agente e podem utilizar um método de coleção que cria latência adicional. Algumas soluções de recolhem dados em intervalos regulares, sem tentar coleção quase em tempo real. Exemplos específicos incluem o seguinte:

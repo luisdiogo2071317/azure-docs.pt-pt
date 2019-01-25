@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: c3a25f69424d56e77022a89580ace59259af0e47
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452960"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888622"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB suporta itens de consultas com o SQL (Structured Query Languag
 
 * O Azure Cosmos DB utiliza o modelo de programação do JavaScript como a base para a linguagem de consulta. A API de SQL está enraizada no sistema de tipos do JavaScript, avaliação de expressões e invocação de função. No folheio fornece um modelo de programação natural para as projeções relacionais, a navegação hierárquica entre itens JSON, associações automáticas, consultas espaciais e invocação de funções definidas pelo utilizador (UDFs) escritos inteiramente no JavaScript, entre outros recursos.
 
-Este artigo explica alguns exemplos de consultas SQL através da utilização de itens JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-query-reference.md) artigo.
+Este artigo explica algumas consultas de SQL de exemplo ao utilizar itens JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-query-reference.md) artigo.
 
 ## <a id="GettingStarted"></a>Começar a utilizar com os comandos SQL
 

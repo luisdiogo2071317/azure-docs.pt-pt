@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dc979e4aa9882960b86d902266793910ce6fe8b3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972337"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902963"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -49,6 +49,11 @@ Utilize as seguintes ligações para transferir o Service Fabric Explorer, como 
 Service Fabric Explorer também está alojado no ponto final de gestão de HTTP de um cluster Service Fabric. Para iniciar SFX num browser, navegue para o ponto final de gestão de HTTP do cluster a partir de qualquer browser - por exemplo https://clusterFQDN:19080.
 
 Para a configuração de estação de trabalho do desenvolvedor, pode iniciar Service Fabric Explorer no seu cluster local ao navegar para https://localhost:19080/Explorer. Veja este artigo para [preparar o ambiente de desenvolvimento](service-fabric-get-started.md).
+
+> [!NOTE]
+> Se o cluster estiver protegido por um certificado autoassinado, que receberá uma mensagem de erro do navegador da web "deste site não é seguro". Simplesmente pode continuar através de browsers mais modernos, substituindo o aviso. Num ambiente de produção do cluster deve ser protegido com o nome comum e um certificado de autoridade emitido de certificado. 
+>
+>
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ligar a um cluster do Service Fabric
 Para ligar a um cluster do Service Fabric, terá do ponto de final de gestão de clusters (FQDN/IP) e a porta de ponto final de gestão HTTP (19080 por predefinição). Por exemplo, https://mysfcluster.westus.cloudapp.azure.com:19080. Utilize a caixa de verificação "Ligar ao localhost" para ligar a um cluster local na estação de trabalho.
@@ -118,6 +123,18 @@ Também pode utilizar o Service Fabric Explorer para criar instâncias da aplica
 >
 >
 
+## <a name="event-store"></a>Evento Store
+EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e através da REST API. Pode ver uma vista de instantâneo do que está acontecendo no seu cluster para cada entidade por exemplo, nó, serviço, aplicação e a consulta com base na hora do evento. Pode também Saiba mais sobre o EventStore no [descrição geral do EventStore](service-fabric-diagnostics-eventstore.md).   
+
+![EventStore][sfx-eventstore]
+
+>[!NOTE]
+>A partir da versão 6.4 do Service Fabric. EventStore não está ativada por predefinição e tem de estar ativada no modelo do resource manager
+
+>[!NOTE]
+>A partir da versão 6.4 do Service Fabric. as APIs de EventStore só estão disponíveis para os clusters do Windows em execução no Azure apenas. Estamos a trabalhar no portar essa funcionalidade para Linux, bem como nossos clusters autónomos.
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 * [Gestão das suas aplicações do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementação de aplicação do Service Fabric com o PowerShell](service-fabric-deploy-remove-applications.md)
@@ -129,3 +146,4 @@ Também pode utilizar o Service Fabric Explorer para criar instâncias da aplica
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png

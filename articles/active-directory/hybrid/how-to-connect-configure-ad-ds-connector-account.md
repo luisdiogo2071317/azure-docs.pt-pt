@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bae80a63db480d6399c7d192561435494e183844
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463394"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900651"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -205,21 +205,21 @@ Este cmdlet irá definir as seguintes permissões:
 Para definir permissões para a conta do conector do AD DS ao utilizar a repetição de escrita do grupo, execute: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 Ou; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Este cmdlet irá definir as seguintes permissões: 
 
 |Tipo |Nome |Access |Aplica-se A|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Leitura/gravação genérica |Objetos de grupo descendente| 
-|Permitir |Conta do conector do AD DS |Criar/eliminar objeto subordinado |Este objeto e todos os objetos descendentes| 
-|Permitir |Conta do conector do AD DS |Criar/eliminar um objeto e todos os filhos de |Este objeto e todos os objetos descendentes|
+|Permitir |Conta do conector do AD DS |Leitura/gravação genérica |Todos os atributos do grupo de tipo de objeto e subobjetos| 
+|Permitir |Conta do conector do AD DS |Criar/eliminar objeto subordinado |Todos os atributos do grupo de tipo de objeto e subobjetos| 
+|Permitir |Conta do conector do AD DS |Objetos da árvore de eliminação/eliminação|Todos os atributos do grupo de tipo de objeto e subobjetos|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Permissões para implementação híbrida do Exchange 
 Para definir permissões para a conta do conector do AD DS ao utilizar a implementação híbrida do Exchange, execute: 

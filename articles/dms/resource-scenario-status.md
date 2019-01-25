@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320060"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904085"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure
 O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração atualmente suportados pelo serviço de migração de base de dados do Azure e o estado (privada [ou limitado] pré-visualização, pré-visualização pública ou em disponibilidade geral) ou a cada cenário.
@@ -47,7 +47,7 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 |   | Oracle  | ✔  |
 | **VM do SQL do Azure**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **BD do Cosmos**  | MongoDB | ✔ |
+| **BD do Cosmos para o Azure**  | MongoDB | ✔ |
 | **BD do Azure para MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **BD do Azure para PostgresSQL**  | PostgreSQL |  |
@@ -66,7 +66,7 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 |   | Oracle  | ✔  |
 | **VM do SQL do Azure**  | SQL Server  |   |
 |   | Oracle  | ✔  |
-| **BD do Cosmos**  | MongoDB  | ✔ |
+| **BD do Cosmos para o Azure**  | MongoDB  | ✔ |
 | **BD do Azure para MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **BD do Azure para PostgresSQL**  | PostgreSQL | ✔ |

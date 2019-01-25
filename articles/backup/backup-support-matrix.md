@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360224"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883709"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte de cópia de segurança do Azure
 
@@ -30,13 +30,13 @@ Número de cofres | Até 500 cofres de serviços de recuperação numa única su
 Máquinas num cofre | Até 1000 VMs do Azure num único cofre.<br/><br/> Até 50 no local, máquinas que executem o agente de cópia de segurança do Azure (agente de serviços de recuperação do Microsoft Azure (MABS)) podem ser registadas num único cofre.
 Origem de dados no armazenamento do Cofre | GB 54400 máximo. Não existe nenhum limite para cópias de segurança de VM do Azure.
 Cópias de segurança para o Cofre | VMs do Azure: uma vez por dia; As máquinas protegidas pelo DPM/MABS: duas vezes por dia; Máquinas feita diretamente com o agente MARS: três vezes por dia.  
-Mover o Cofre | Pode mover cofres dos serviços de recuperação de cópia de segurança entre subscrições e grupos de recursos. [Saiba mais](backup-azure-move-recovery-services-vault.md).
+Mover o Cofre | Para mover um cofre dos serviços de recuperação, tem de se inscrever numa pré-visualização privada. Para experimentá-lo, escrever para AskAzureBackupTeam@microsoft.com.
 Mover dados entre cofres | Não é possível mover a segurança dos dados entre cofres.
 Tipo de replicação de armazenamento | Pode modificar o tipo de replicação de armazenamento (GRS/LRS) para um cofre, antes de cópias de segurança são armazenadas. Depois de iniciar as cópias de segurança no cofre, não é possível modificar o tipo de replicação.
 
 
 
-## <a name="on-premises-backup-support"></a>Suporte de cópia de segurança no local 
+## <a name="on-premises-backup-support"></a>Suporte de cópia de segurança no local
 
 Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas no local.
 
@@ -77,8 +77,8 @@ Eis o que é suportado se quiser fazer uma cópia de segurança de VMs do Azure.
 Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas do Linux.
 
 **Cópia de segurança** | **Linux (aprovado pelo Azure)**
---- | --- 
-**Máquina do Linux no local (sem o DPM ou MABS)**. | Não. O agente de MARS só pode ser instalado em máquinas do Windows. 
+--- | ---
+**Máquina do Linux no local (sem o DPM ou MABS)**. | Não. O agente de MARS só pode ser instalado em máquinas do Windows.
 **VM do Azure (sem o DPM ou MABS)** | A utilizar a cópia de segurança consistente com a aplicação [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação ao nível do ficheiro.<br/><br/> Restaure ao criar uma VM a partir de um ponto de recuperação ou disco.
 **No local. o computador/Azure VM com o DPM** | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restauro de VMs de Convidado do Linux do Hyper-V e do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure
 **Máquina/Azure VM com o MABS locais** | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restaurar a VM de Hyper-V e VMs de convidado de Linux do VMWare</br></br> Ficheiro de cópia de segurança consistente não está disponível para VMs do Azure.
@@ -110,7 +110,7 @@ Segurança de dados:
 **Machine** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 Máquinas do Windows sem DPM/MABS no local | ![Sim][green] | ![Sim][green]
-VMs do Azure | ![Sim][green] | ![Sim][green] 
+VMs do Azure | ![Sim][green] | ![Sim][green]
 VMs no local/Azure com o DPM | ![Sim][green] | ![Sim][green]
 VMs no local/Azure com o MABS | ![Sim][green] | ![Sim][green]
 
@@ -121,7 +121,7 @@ VMs no local/Azure com o MABS | ![Sim][green] | ![Sim][green]
 Cópia de segurança suporta a compactação do tráfego de cópia de segurança, conforme resumido na tabela abaixo. Tenha em atenção que:
 
 - Para VMs do Azure, a extensão da VM lê os dados diretamente a partir da conta de armazenamento do Azure através da rede de armazenamento, pelo que não é necessário comprimir este tráfego.
-- Se estiver a utilizar o DPM ou MABS, é possível compactar os dados antes de ele cópia de segurança para DPM/MABS, para poupar largura de banda. 
+- Se estiver a utilizar o DPM ou MABS, é possível compactar os dados antes de ele cópia de segurança para DPM/MABS, para poupar largura de banda.
 
 **Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir (HTTPS) para o Cofre**
 --- | --- | ---
@@ -134,8 +134,8 @@ VMs no local/Azure com o MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
-**Definição** | **Limites** 
---- | --- 
+**Definição** | **Limites**
+--- | ---
 Máximo de pontos de recuperação por instância protegida (máquina/carga de trabalho | 9999
 Hora de expiração máximo para um ponto de recuperação | Sem limite
 Frequência de cópia de segurança máxima para o DPM/MABS | A cada 15 minutos para o SQL Server<br/><br/> Uma vez a uma hora para outras cargas de trabalho.

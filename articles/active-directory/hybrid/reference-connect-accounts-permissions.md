@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 784599d682ab05b599f32b3fb502ed840f031ce8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478608"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902012"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -136,7 +136,7 @@ As permissões que necessita depende das funcionalidades opcionais ativa. Se tiv
 | Pasta de públicas de correio do Exchange |Permissões de leitura para os atributos documentados em [pastas públicas de correio Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para as pastas públicas. | 
 | Repetição de escrita de palavras-passe |Permissões de escrita para os atributos documentados em [introdução à gestão de palavra-passe](../authentication/howto-sspr-writeback.md) para os utilizadores. |
 | Repetição de escrita do dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [repetição de escrita do dispositivo](how-to-connect-device-writeback.md). |
-| Repetição de escrita do grupo |Ler, criar, atualizar e eliminar grupo objetos para sincronizados **grupos do Office 365**.  Para obter mais informações, consulte [repetição de escrita do grupo](how-to-connect-preview.md#group-writeback).|
+| Repetição de escrita do grupo |Permite-lhe a repetição de escrita **grupos do Office 365** para uma floresta com o Exchange instalado.  Para obter mais informações, consulte [repetição de escrita do grupo](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Atualizar
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, tem as seguintes permissões:

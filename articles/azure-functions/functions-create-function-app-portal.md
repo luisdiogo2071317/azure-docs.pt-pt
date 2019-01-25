@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1e27fb26b00502b63d6023b41b6a26b179b453be
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094047"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900771"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar uma aplicação de funções a partir do portal do Azure
 
@@ -35,7 +35,7 @@ Depois da aplicação de funções estar criada, pode criar funções individuai
 
 ## <a name="service-plans"></a>Planos do serviço
 
-As Funções do Azure têm dois planos de serviço diferentes: o plano de Consumo e o plano do Serviço de aplicações. O plano de Consumo aloca automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, reduz horizontalmente quando o código não está em execução. O plano do Serviço de Aplicações concede acesso à aplicação de funções a todas as instalações do Serviço de Aplicações. Tem de escolher o plano de serviço quando a aplicação de funções é criada e não pode ser alterada atualmente. Para obter mais informações, veja [Choose an Azure Functions hosting plan (Escolher um plano de alojamento das Funções do Azure)](functions-scale.md) .
+As funções do Azure tem dois planos de serviço diferentes: Plano de consumo e plano de serviço de aplicações. O plano de Consumo aloca automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, reduz horizontalmente quando o código não está em execução. O plano do Serviço de Aplicações concede acesso à aplicação de funções a todas as instalações do Serviço de Aplicações. Tem de escolher o plano de serviço quando a aplicação de funções é criada e não pode ser alterada atualmente. Para obter mais informações, veja [Choose an Azure Functions hosting plan (Escolher um plano de alojamento das Funções do Azure)](functions-scale.md) .
 
 Se estiver a planear executar funções do JavaScript num plano do Serviço de Aplicações, deve escolher um plano com menos núcleos. Para obter mais informações, veja [JavaScript reference for Functions (Referência do JavaScript para Funções)](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
@@ -50,9 +50,6 @@ Quando criar uma aplicação de funções no Serviço de Aplicações, tem de cr
 
 Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

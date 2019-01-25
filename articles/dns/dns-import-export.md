@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956358"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888656"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure 
 
@@ -68,7 +68,7 @@ As notas de seguintes fornecem detalhes técnicos adicionais sobre a zona de imp
 * O `$TTL` diretiva é opcional e é suportado. Quando não existe nenhum `$TTL` diretiva é fornecida, os registos sem um valor de TTL explícita são importado definido como um TTL predefinido de 3600 segundos. Quando dois registos no mesmo conjunto de registo especificar TTLs diferentes, é utilizado o valor mais baixo.
 * O `$ORIGIN` diretiva é opcional e é suportado. Quando não existe nenhum `$ORIGIN` é definido, o valor predefinido utilizado é o nome da zona conforme especificado na linha de comando (além da terminação ".").
 * O `$INCLUDE` e `$GENERATE` diretivas não são suportadas.
-* Estes tipos de registo são suportados: A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
+* Estes tipos de registo são suportados: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * O registo SOA é criado automaticamente pelo DNS do Azure quando é criada uma zona. Quando importa um ficheiro de zona, todos os parâmetros SOA são obtidos a partir do ficheiro de zona *, exceto* o `host` parâmetro. Este parâmetro utiliza o valor fornecido pelo DNS do Azure. Isso é porque este parâmetro tem de referenciar o nome principal do servidor fornecido pelo DNS do Azure.
 * Também, o nome servidor conjunto de registos no vértice da zona é criado automaticamente pelo DNS do Azure quando a zona é criada. Apenas o valor de TTL deste conjunto de registos é importado. Estes registos incluem os nomes de servidor de nome fornecidos pelo DNS do Azure. Os dados de registo não são substituídos pelos valores contidos no ficheiro de zona importados.
 * Durante a pré-visualização pública, o DNS do Azure suporta apenas os registos TXT cadeia única. Os registos TXT multistring são ser concatenado e truncados de 255 carateres.

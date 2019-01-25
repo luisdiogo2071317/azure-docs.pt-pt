@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: f1c2cd037539b3cf33f6c58c4ac8a3a1e8c304ce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830158"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886276"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início rápido: SSH/RDP sobre fluxos de dispositivo do IoT Hub com C do proxy de aplicações (pré-visualização)
 
@@ -37,7 +37,7 @@ A figura abaixo ilustra a configuração de como os programas de proxy local do 
 
 3. Proxy de dispositivo local liga-se para o daemon SSH (SSHD) à escuta na porta 22 no dispositivo (isto é configurável, conforme descrito [abaixo](#run-the device-local-proxy-application)).
 
-4. Proxy de serviço local awaits em novas ligações de SSH do utilizador através da escuta numa porta designada, que neste caso é porta 2222 (isso também é configurável, conforme descrito [abaixo](#run-the-device-local-proxy-application)). Quando o usuário se conecta por meio de cliente SSH, o túnel permite o tráfego de aplicativo de SSH ser trasferred entre os programas de cliente e servidor SSH.
+4. Proxy de serviço local awaits em novas ligações de SSH do utilizador através da escuta numa porta designada, que neste caso é porta 2222 (isso também é configurável, conforme descrito [abaixo](#run-the-device-local-proxy-application)). Quando o usuário se conecta por meio de cliente SSH, o túnel permite o tráfego de aplicativo de SSH a serem transferidos entre os programas de cliente e servidor SSH.
 
 > [!NOTE]
 > Tráfego SSH que está a ser enviado através de um fluxo de dispositivo serão serem em túnel através de ponto final de transmissão em fluxo do IoT Hub, em vez de que está a ser enviadas diretamente entre o serviço e dispositivo. Isso fornece [esses benefícios](./iot-hub-device-streams-overview.md#benefits). Além disso, a figura ilustra o daemon SSH está em execução no mesmo dispositivo (ou na máquina) como o proxy de dispositivo local. Neste início rápido, fornecendo o endereço IP de daemon SSH permite que o proxy de dispositivo local e o daemon para ser executado em computadores diferentes, bem.
@@ -95,7 +95,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -104,10 +104,10 @@ No Windows, execute os seguintes comandos na linha de comandos do programador pa
 ```
     # In Windows
     # For VS2015
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    $ cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    $ cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -179,7 +179,6 @@ No Windows, execute os seguintes comandos na linha de comandos do programador pa
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     $ ./iothub_client_c2d_streaming_proxy_sample
 
-
     # In Windows
     # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
@@ -194,14 +193,14 @@ Como discutido [acima](#how-it-works) estabelecimento de um fluxo de ponto-a-pon
 
 Partindo do princípio que ambos os proxies do local do dispositivo e do serviço estiver a executar, agora, use o seu programa de cliente SSH e estabelecer ligação ao proxy de serviço local na porta 2222 (em vez do daemon diretamente de SSH). 
 
-```azurecli-interactive
+```
 ssh <username>@localhost -p 2222
 ```
 
 Neste ponto, será apresentada com o pedido de início de sessão SSH para introduzir as suas credenciais.
 
 
-Consola de saída no proxy do dispositivo local que o liga para o daemon de SSH em <code>IP_address:22</code>: ![Texto alternativo](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "saída de proxy local do dispositivo")
+Consola de saída no proxy do dispositivo local que o liga para o daemon de SSH em `IP_address:22`: ![Texto alternativo](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "saída de proxy local do dispositivo")
 
 Saída do programa de cliente SSH da consola (cliente SSH comunica com o daemon de SSH ao ligar-se a porta 22, em que o proxy de serviço local está a escutar): ![Texto alternativo](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "saída do cliente SSH")
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439073"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883777"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -45,7 +45,7 @@ O registo de atividade contém várias categorias de dados. Para obter detalhes 
 * **Dimensionamento automático** -nesta categoria contém o registo de quaisquer eventos relacionados com a operação do mecanismo de dimensionamento automático com base em quaisquer definições de dimensionamento automático que definiu na sua subscrição. Um exemplo do tipo de evento, que veria nesta categoria é "Aumento do dimensionamento automático a ação falhou." Utilizo o dimensionamento automático, pode automaticamente aumentar ou reduzir horizontalmente o número de instâncias num tipo de recurso suportados com base na hora do dia e/ou carga dados (métricas) através de uma definição de dimensionamento automático. Quando as condições são cumpridas para aumento ou redução vertical, o início e de eventos com êxito ou falhados são registrados nesta categoria.
 * **Recomendação** -nesta categoria contém eventos de recomendação do Assistente do Azure.
 * **Segurança** -nesta categoria contém o registo de todos os alertas gerados pelo centro de segurança do Azure. Um exemplo do tipo de evento, que veria nesta categoria é "ficheiro de extensão dupla suspeito executado".
-* **Política** -esta categoria não contém quaisquer eventos; está reservado para utilização futura. 
+* **Política** -nesta categoria contém registos de todas as operações de ação de efeito efetuadas pelo Azure Policy. Os tipos de eventos que veria nesta categoria exemplos de auditoria e negar. Cada ação tomada pela política é modelada como uma operação num recurso.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
 [Consulte este artigo para compreender o esquema de eventos de registo de atividades por categoria.](../../azure-monitor/platform/activity-log-schema.md)

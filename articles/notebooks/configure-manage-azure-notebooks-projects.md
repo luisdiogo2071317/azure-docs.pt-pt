@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847548"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904374"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
@@ -41,9 +41,9 @@ O **executar** na lista pendente no dashboard do projeto é onde seleciona o esc
 
 ![Lista pendente de camada no dashboard do projeto de computação](media/project-compute-tier-list.png)
 
-Pode ignorar estas limitações ao utilizar uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Tem de instalar também o Jupyter nessa máquina virtual. As imagens de máquina de Virtual de ciência de dados são boas opções, pois eles incluem o Jupyter por predefinição.
+Pode ignorar estas limitações ao utilizar uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Tem de instalar e executar JupyterHub nessa máquina virtual. As imagens de máquina de Virtual de ciência de dados (qualquer sistema operativo) são boas opções, pois eles incluem JupyterHub por predefinição.
 
-Pode ligar a qualquer máquina virtual do Azure já convenientemente configurada utilizando o **computação direto** opção na lista pendente. A seleção desta opção pede-lhe um nome (para mostrar na lista), endereço IP da VM e porta (normalmente, a porta predefinida para o qual escuta JupyterHub, 8000) e as credenciais VM:
+Assim que tiver uma máquina virtual do Azure configurada convenientemente, selecione o **computação direto** opção na lista pendente, que pede-lhe uma porta (normalmente 8000, a porta predefinida para o qual e endereço IP da VM, nome (para mostrar na lista) JupyterHub escuta) e as credenciais VM:
 
 ![Linha de comandos para recolher informações do servidor para a opção de computação direto](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Se as seguintes condições forem verdadeiras, também mostra a lista pendente [
 
 - Tem sessão iniciada em blocos de notas do Azure com uma conta que utiliza o Azure Active Directory (AAD), como uma conta da empresa.
 - Sua conta está ligada a uma subscrição do Azure.
-- Tiver uma ou mais máquinas virtuais nessa subscrição, com, pelo menos, acesso de leitor, o que utilizar a máquina de Virtual de ciência de dados para a imagem do Linux (Ubuntu).
+- Tiver uma ou mais máquinas virtuais nessa subscrição, com, pelo menos, acesso de leitor, o que utilizar a máquina de Virtual de ciência de dados para a imagem do Linux (Ubuntu).)
 
 ![Instâncias de Máquina Virtual de ciência de dados na lista pendente no dashboard do projeto](media/project-compute-tier-dsvm.png)
 
 Quando seleciona uma instância DSVM, blocos de notas do Azure pode solicitar-lhe as credenciais de máquina específica que utilizou quando criou a VM.
 
-Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). *Tem* utilizar o **Máquina Virtual de ciência de dados para Linux (Ubuntu)** porque os blocos de notas do Azure não apresenta as DSVMs que utilizam as imagens do Windows ou CentOS de imagem.
+Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Utilize o **Máquina Virtual de ciência de dados para Linux (Ubuntu)** de imagem se pretender que a DSVM a apareça na lista pendente em blocos de notas do Azure.  Se por outros motivos, tem de utilizar a imagem do Windows ou CentOS, pode utilizar o **computação direto** opção para ligar ao DSVM manualmente.
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 

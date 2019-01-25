@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811643"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883522"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Um ficheiro remoto com base no URL de codificar e transmitir o vídeo - REST
 
@@ -101,10 +101,10 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
 
 1. Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço
 2. Criar um elemento de saída
-3. Criar uma transformação
-4. Criar uma tarefa 
-5. Criar um localizador de transmissão
-6. Listar caminhos do localizador de transmissão
+3. Criar um **transformar**
+4. Criar um **tarefa**
+5. Criar um **localizador de transmissão em fluxo**
+6. Lista de caminhos do **localizador de transmissão em fluxo**
 
 > [!Note]
 >  Este tutorial assume que está a criar todos os recursos com nomes exclusivos.  
@@ -151,7 +151,7 @@ A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o re
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novas Tarefas para cada vídeo novo, está a aplicar essa receita a todos os vídeos na biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transformações e tarefas](transform-concept.md). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao enviar novas tarefas para cada novo vídeo, está aplicando essa fórmula para todos os vídeos na sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, consulte [transforma e tarefas](transform-concept.md). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
 Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
 
@@ -232,16 +232,16 @@ O **tarefa** normalmente atravessa os seguintes Estados: **Agendado**, **em fila
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão
 
-Depois de concluída a codificação da tarefa, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução para os clientes. Pode conseguir isto em dois passos: primeiro, crie um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e, segundo, crie os URLs de transmissão em fluxo que os clientes podem utilizar. 
+Depois de concluída a tarefa de codificação, a próxima etapa é tornar o vídeo no resultado **Asset** disponível para os clientes para a reprodução. Isso pode ser feito em duas etapas: primeiro, crie uma [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators)e em segundo lugar, criar os URLs de transmissão em fluxo que os clientes podem utilizar. 
 
-O processo de criação de um **StreamingLocator** denomina-se publicação. Por predefinição, o **StreamingLocator** é válido imediatamente depois de efetuar as chamadas de API e dura até serem eliminadas, a menos que configure as horas de início e de fim opcionais. 
+O processo de criação de um **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o **StreamingPolicyName** pretendido. Neste exemplo, vai transmitir conteúdo pronto a enviar (ou não encriptado), por isso é utilizada a política de transmissão de pronto a enviar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
+Ao criar um [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o pretendido **StreamingPolicyName**. Neste exemplo, vai transmitir conteúdo pronto a enviar (ou não encriptado), por isso é utilizada a política de transmissão de pronto a enviar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
 
 > [!IMPORTANT]
 > Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. 
 
-A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não deve criar uma nova StreamingPolicy para cada StreamingLocator.
+A conta de serviço de suporte de dados tem uma quota para o número de **política de transmissão em fluxo** entradas. Deve não ser a criar uma nova **política de transmissão em fluxo** para cada **localizador de transmissão em fluxo**.
 
 1. Na janela da esquerda do Postman, selecione "Políticas de Transmissão".
 2. Em seguida, selecione "Criar um Localizador de Transmissão".
@@ -267,7 +267,7 @@ A conta dos Serviços de Multimédia tem uma quota para o número de entradas de
 
 #### <a name="list-paths"></a>Listar caminhos
 
-Agora que o [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URL de transmissão
+Agora que o [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) tiver sido criado, pode obter os URLs de transmissão em fluxo
 
 1. Na janela da esquerda do Postman, selecione "Políticas de Transmissão".
 2. Em seguida, selecione "Listar Caminhos".
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Certifique-se de que o ponto final de transmissão a partir do qual deseja transmitir está em execução.
+> Certifique-se de que o **ponto final de transmissão em fluxo** do qual pretende o fluxo está em execução.
 
 Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure. 
 
@@ -350,7 +350,7 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
 
-Em geral, deve limpar tudo exceto os objetos que está a planear reutilizar (normalmente, reutiliza as Transformações e mantém os StreamingLocators, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  
+Em geral, deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, irá reutilizar **transforma**, e serão mantidos **localizadores de transmissão em fluxo**, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  
 
 Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que pretende eliminar.
 

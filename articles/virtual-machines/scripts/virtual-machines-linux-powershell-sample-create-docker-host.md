@@ -3,7 +3,7 @@ title: Exemplo de Script do Azure PowerShell – Docker | Microsoft Docs
 description: Exemplo de Script do Azure PowerShell – Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ba58c2ddabc59bd0432bdc1740071bdb1795f322
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 7dd83311dffe70b0f44f7a57b65d239c00a8f3c2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465853"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888542"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>Criar um anfitrião do Docker com o PowerShell
 
@@ -62,7 +62,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Adicione uma extensão de VM à máquina virtual. Neste exemplo, a extensão do Docker é utilizada para configurar o Docker e executar um contentor Docker NGINX. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

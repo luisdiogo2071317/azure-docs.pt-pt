@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582754"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904493"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Compreender como o desconto de reserva é aplicado ao Azure Cosmos DB
 
@@ -51,16 +51,16 @@ O desconto de reserva é aplicado aos custos de débito do Azure Cosmos DB com b
 |Azure Cosmos DB - 100 RU/s/hora - e.u.a. centro-oeste|   E.U.A. Centro-Oeste      |       1  |
 |Azure Cosmos DB - 100 RU/s/hora - E.U. a leste|   E.U.A Leste      |  1       |
 |Norte da África do Azure Cosmos DB - 100 RU/s/hora-|     Norte da África do    |   1      |
-|Azure Cosmos DB - 100 RU/s/hora - África do Sul Ocidental |    África do Sul Ocidental      |    1     |
+|Azure Cosmos DB - 100 RU/s/Hour - SA West |    África do Sul Ocidental      |    1     |
 |Azure Cosmos DB - 100 RU/s/hora - sul da Índia|    IN Sul     |    1.0375    |
 |Azure Cosmos DB - 100 RU/s/hora - AC leste|   Leste do Canadá      |    1.1      |
 |Azure Cosmos DB - 100 RU/s/hora - JA leste|   Este JA      |    1.125     |
-|Azure Cosmos DB - 100 RU/s/hora - JA oeste|     Oeste JA    |   1.125       |
+|Azure Cosmos DB - 100 RU/s/Hour - JA West|     Oeste JA    |   1.125       |
 |Azure Cosmos DB - 100 RU/s/hora - Índia Ocidental|     Índia Ocidental    |    1.1375     |
 |Azure Cosmos DB - 100 RU/s/hora - Índia Central|    IN Central     |  1.1375       |
 |Azure Cosmos DB - 100 RU/s/hora - AU leste|     AU Leste    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/hora - Canadá Central|  Canadá Central       |   1.2       |
-|Azure Cosmos DB - 100 RU/s/hora - França Central|   FR Central      |    1,25      |
+|Azure Cosmos DB - 100 RU/s/hora - França Central|   FR Central      |    1.25      |
 |Sul do Brasil do Azure Cosmos DB - 100 RU/s/hora-|  Sul BR       |   1.5      |
 |Azure Cosmos DB - 100 RU/s/hora - Austrália Central|   AU Central      |   1.5      |
 |Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2| AU Central 2        |    1.5     |

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165080"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900329"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a sua própria chave de Cofre de chaves do Azure
 
@@ -32,7 +32,7 @@ Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dad
    - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-get-started.md)
    - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [eliminação de forma recuperável](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
@@ -186,8 +186,8 @@ Verifique o seguinte se ocorrer um problema:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como rodar o Protetor de TDE de um servidor para atender aos requisitos de segurança: [rodar a encriptação de dados transparente protetor através do PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- Em caso de um risco de segurança, saiba como remover um Protetor de TDE potencialmente comprometidos: [remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Saiba como rodar o Protetor de TDE de um servidor para atender aos requisitos de segurança: [Rodar para a encriptação de dados transparente protetor através do PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- Em caso de um risco de segurança, saiba como remover um Protetor de TDE potencialmente comprometidos: [Remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Pré-requisitos para a CLI
 
@@ -198,7 +198,7 @@ Verifique o seguinte se ocorrer um problema:
    - [Gerir o Cofre de chaves com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
    - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
-   - [eliminação de forma recuperável](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - A chave tem de ter os seguintes atributos a ser utilizado para TDE:
    - Sem data de expiração
@@ -208,7 +208,7 @@ Verifique o seguinte se ocorrer um problema:
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Passo 1. Criar um servidor e atribuir uma identidade do Azure AD ao seu servidor
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

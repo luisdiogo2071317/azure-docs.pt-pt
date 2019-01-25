@@ -8,15 +8,15 @@ manager: cgronlun
 ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d353f37b89f9932827a07fc8079aa606d425ed38
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598507"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882876"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do utilizador de expressões
 
@@ -24,19 +24,7 @@ Adicione [intenções](luis-concept-intent.md) à sua aplicação LUIS para iden
 
 Objetivos são geridos a partir da barra de navegação superior **crie** secção, em seguida, a partir do painel esquerdo **intenções**. 
 
-## <a name="create-an-app"></a>Criar uma aplicação
-
-1. Inicie sessão para o [LUIS](https://www.luis.ai) portal.
-
-1. Selecione **Create new app** (Criar nova aplicação). 
-
-1. Nomeie a nova aplicação `MyHumanResourcesApp`. Selecione o **inglês** cultura. A descrição é opcional. 
-
-1. Selecione **Done** (Concluído). 
-
 ## <a name="add-intent"></a>Adicionar intenções
-
-1. A aplicação abre-se para o **intenções** lista.
 
 1. Na página **Intents** (Intenções), selecione **Create new intent** (Criar nova intenção).
 

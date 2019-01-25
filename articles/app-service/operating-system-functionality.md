@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653514"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901790"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve a funcionalidade de sistema operativo de linha de base comum, que está disponível para todas as aplicações do Windows em execução no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui o ficheiro, rede e acesso ao Registro e os registos de diagnóstico e eventos. 
@@ -128,6 +128,10 @@ Numa veia semelhante, informações de diagnóstico em tempo real a partir de ap
 As aplicações têm acesso só de leitura a muitas (embora não todos) do registro da máquina virtual em que são executadas. Na prática, isso significa que as chaves de registo que permitem acesso só de leitura ao grupo de usuários locais podem ser acedidas por aplicações. Uma área do Registro que não é atualmente suportado para leitura ou acesso de gravação é o HKEY\_atual\_seção do USUÁRIO.
 
 Acesso de escrita para o registo é bloqueado, incluindo o acesso a quaisquer chaves de Registro por usuário. Da perspectiva da aplicação, acesso de escrita para o registo deve nunca é confiável no ambiente Azure, uma vez que aplicações podem (e fazer) são migrados entre diferentes máquinas virtuais. O armazenamento gravável apenas persistente que pode ser dependente-se de uma aplicação é a estrutura de diretório de conteúdo por aplicação armazenada nas partilhas de UNC do serviço de aplicações. 
+
+## <a name="remote-desktop-access"></a>Acesso de ambiente de trabalho remoto
+
+Serviço de aplicações não fornece acesso de ambiente de trabalho remoto para as instâncias de VM.
 
 ## <a name="more-information"></a>Mais informações
 

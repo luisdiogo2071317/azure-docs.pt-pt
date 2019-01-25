@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 11508c1f65ddfc7e43ef2301f32d67da3f0a4584
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473474"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904272"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de aplicações e mensagens de erro
 Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -54,7 +54,7 @@ Depois de localizar o erro do conector de registo de eventos, utilize esta tabel
 | Falha no registo do conector: Certifique-se de que ativou o Proxy de aplicações no Portal de gestão do Azure e que introduziu corretamente o nome de utilizador do Active Directory e a palavra-passe. Erro: 'AADSTS50059: Não existem informações de identificação de inquilino encontrado na solicitação explícita ou implícita por qualquer, desde que as credenciais e procurar por serviço de principal URI falhou. | Está a tentar iniciar sessão com uma Account Microsoft e não um domínio que faz parte do ID de organização do diretório que está a tentar aceder. Certifique-se de que o administrador faz parte do mesmo nome de domínio como o domínio de inquilino, por exemplo, se o domínio do Azure AD for contoso.com, o administrador deve ser admin@contoso.com. |
 | Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, verifique para se certificar de que a política de execução do PowerShell não está desativada. <br><br>1. Abra o Editor de diretiva de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **Enabled**, certifique-se de que em Opções, a diretiva de execução está definida como **permitir que scripts locais e remotos scripts assinados** ou a **permitir que todos os scripts**. |
 | Não foi possível transferir a configuração do conector. | Certificado de cliente do conector, o que é utilizado para autenticação, expirou. Também pode ocorrer se tiver o conector instalado atrás de um proxy. Neste caso, o conector não é possível aceder à Internet e não será capaz de fornecer aplicativos a usuários remotos. Renovar a confiança manualmente usando o `Register-AppProxyConnector` cmdlet no Windows PowerShell. Se o seu conector for atrás de um proxy, é necessário conceder acesso à Internet para as contas de conector "serviços de rede" e "local system". Isso pode ser feito por conceder-lhes acesso ao Proxy ou configurando-os para ignorar o proxy. |
-| Falha no registo do conector: Certifique-se de que um Administrador Global do seu Active Directory para registar o conector. Erro: "O pedido de registo foi negado." | O alias que está a tentar iniciar a sessão com não é um administrador deste domínio. O conector é sempre instalado para o diretório que detém o domínio do utilizador. Certifique-se de que está a tentar iniciar sessão com a conta de administrador tem permissões globais para o inquilino do Azure AD. |
+| Falha no registo do conector: Certifique-se de que um administrador da aplicação do Active Directory para registar o conector. Erro: "O pedido de registo foi negado." | O alias que está a tentar iniciar a sessão com não é um administrador deste domínio. O conector é sempre instalado para o diretório que detém o domínio do utilizador. Certifique-se de que está a tentar iniciar sessão com a conta de administrador tem, pelo menos, permissões de administrador de aplicativo para o inquilino do Azure AD. |
 
 ## <a name="kerberos-errors"></a>Erros de Kerberos
 

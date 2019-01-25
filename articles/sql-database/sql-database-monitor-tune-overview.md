@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602351"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884356"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
-Base de dados SQL do Azure é gerida automaticamente e serviço de dados flexível, onde pode facilmente monitorizar a utilização, adicionar ou remover recursos (CPU, memória, e/s), localizar recomendações que podem melhorar o desempenho da base de dados ou permitir que a base de dados se adaptar a sua carga de trabalho e automaticamente a otimizar o desempenho.
+Base de dados SQL do Azure é um serviço de dados automaticamente geridos e flexível onde pode facilmente monitorizar a utilização, adicionar ou remover recursos (CPU, memória, e/s), localizar recomendações que podem melhorar o desempenho da base de dados ou permitir que a base de dados se adaptar a sua carga de trabalho e automaticamente a otimizar o desempenho.
 
 ## <a name="monitoring-database-performance"></a>Monitorização do desempenho de base de dados
 
@@ -189,7 +189,7 @@ Consulta Store e vistas de gestão de dinâmica de controlo de estatísticas de 
 Conforme mostrado no gráfico anterior, as esperas mais comuns são:
 
 - Bloqueios (bloqueio)
-- E/S
+- I/O
 - `tempdb`-relacionados com a contenção
 - Esperas de concessão de memória
 

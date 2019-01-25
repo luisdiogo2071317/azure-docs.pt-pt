@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: cwatson
-ms.openlocfilehash: 6062e54f0fb584dec4c2db540565c5860ae92a2d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: kfollis
+ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394969"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884733"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
 Pode criar vários dashboards e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo aborda as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.

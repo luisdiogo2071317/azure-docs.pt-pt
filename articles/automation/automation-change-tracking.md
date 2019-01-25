@@ -10,12 +10,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433021"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901144"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -155,7 +155,6 @@ Outras limitações:
 A solução de controlo de alterações está atualmente com os seguintes problemas:
 
 * Atualizações de correção não são recolhidas para máquinas de atualização para criativos do Windows 10 e Windows Server 2016 Core RS3.
-* Para os ficheiros do Windows, controlo de alterações não atualmente detetar quando um novo ficheiro tiver sido adicionado a um caminho de pasta controlada
 
 ## <a name="change-tracking-data-collection-details"></a>Alterar detalhes de recolha de dados de controlo
 

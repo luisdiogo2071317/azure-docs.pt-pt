@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852393"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904408"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -180,6 +180,19 @@ Este comportamento não é aplicável a qualquer outro utilizador que inicia ses
 
 ---
 
+**P: quais são os certificados de MS-organização-P2P-acesso presentes em nossos dispositivos Windows 10?**
+
+**R:** Os MS-organização-P2P-acesso os certificados são emitidos pelo Azure AD para ambos, associado ao Azure AD e dispositivos associados ao Azure AD híbrido. Estes certificados são utilizados para ativar a fidedignidade entre os dispositivos no mesmo inquilino para cenários de área de trabalho remotos. Um certificado é emitido para o dispositivo e o outro é emitido para o usuário. O certificado do dispositivo está presente no `Local Computer\Personal\Certificates` e é válido durante um dia. Este certificado é renovado (ao emitir um novo certificado) se o dispositivo ainda está ativo no Azure AD. O certificado de utilizador está presente no `Current User\Personal\Certificates` e este certificado também é válido durante um dia, mas ele é emitido por demanda, quando um utilizador tenta uma sessão de área de trabalho remota para outro dispositivo de associado ao Azure AD. Não será renovado no expiração. Ambos estes certificados são emitidos com o certificado de MS-organização-P2P-acesso presente no `Local Computer\AAD Token Issuer\Certificates`. Este certificado é emitido pelo Azure AD durante o registo do dispositivo. 
+
+---
+
+**Q:Why vejo vários certificados expirados emitidos pela MS-organização-P2P-acesso nos nossos dispositivos Windows 10? Como posso exclui-los?**
+
+**R:** Ocorreu um problema identificado no Windows 10 versão 1709 ou inferior, onde certificados expirados do MS-organização-P2P-acesso continuaram a existir no arquivo do computador devido a problemas de criptografia. Os utilizadores podem aparecer problemas com a conectividade de rede, se estiver a utilizar quaisquer clientes VPN (por exemplo, o Cisco AnyConnect) que não é possível processar o elevado número de certificados expirados. Este problema foi corrigido na versão do Windows 10 1803 eliminar automaticamente esses certificados MS-organização-P2P-acesso expirados. Pode resolver este problema atualizando seus dispositivos Windows 10 1803. Se não é possível atualizar, pode eliminar estes certificados sem qualquer impacto negativo.  
+
+---
+
+
 ## <a name="hybrid-azure-ad-join-faq"></a>Perguntas frequentes sobre a associação do Azure AD híbrido
 
 **P: Onde posso encontrar a resolução de problemas de informações para diagnosticar falhas de associação do Azure AD híbrido?**
@@ -217,15 +230,3 @@ Associação ao Azure AD híbrido tem precedência sobre o estado do Azure AD re
 
 - Durante a primeira tentativa de acesso, os utilizadores são-lhe pedidos para inscrever o dispositivo com o portal da empresa.
 
----
-
-
-**P: quais são os certificados de MS-organização-P2P-acesso presentes em nossos dispositivos Windows 10?**
-
-**R:** Os MS-organização-P2P-acesso os certificados são emitidos pelo Azure AD para ambos, associado ao Azure AD e dispositivos associados ao Azure AD híbrido. Estes certificados são utilizados para ativar a fidedignidade entre os dispositivos no mesmo inquilino para cenários de área de trabalho remotos. Um certificado é emitido para o dispositivo e o outro é emitido para o usuário. O certificado do dispositivo está presente no `Local Computer\Personal\Certificates` e é válido durante um dia. Este certificado é renovado (ao emitir um novo certificado) se o dispositivo ainda está ativo no Azure AD. O certificado de utilizador está presente no `Current User\Personal\Certificates` e este certificado também é válido durante um dia, mas ele é emitido por demanda, quando um utilizador tenta uma sessão de área de trabalho remota para outro dispositivo de associado ao Azure AD. Não será renovado no expiração. Ambos estes certificados são emitidos com o certificado de MS-organização-P2P-acesso presente no `Local Computer\AAD Token Issuer\Certificates`. Este certificado é emitido pelo Azure AD durante o registo do dispositivo. 
-
----
-
-**Q:Why vejo vários certificados expirados emitidos pela MS-organização-P2P-acesso nos nossos dispositivos Windows 10? Como posso exclui-los?**
-
-**R:** Ocorreu um problema identificado no Windows 10 versão 1709 ou inferior, onde certificados expirados do MS-organização-P2P-acesso continuaram a existir no arquivo do computador devido a problemas de criptografia. Os utilizadores podem aparecer problemas com a conectividade de rede, se estiver a utilizar quaisquer clientes VPN (por exemplo, o Cisco AnyConnect) que não é possível processar o elevado número de certificados expirados. Este problema foi corrigido na versão do Windows 10 1803 eliminar automaticamente esses certificados MS-organização-P2P-acesso expirados. Pode resolver este problema atualizando seus dispositivos Windows 10 1803. Se não é possível atualizar, pode eliminar estes certificados sem qualquer impacto negativo.  

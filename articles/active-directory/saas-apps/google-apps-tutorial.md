@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f37873fdbc26e1c82b6c1d9e6be8132641d94773
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809178"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -75,11 +75,11 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
     R: Para esta configuração, o atributo de correio eletrónico é necessário para os utilizadores ser capazes de início de sessão. Este atributo não pode ser definido manualmente.
 
-    O atributo de correio eletrónico é preenchido automaticamente para qualquer utilizador com uma licença válida do Exchange. Se o utilizador não está ativada por e-mail, este erro será recebido como a aplicação tem de obter este atributo para dar acesso.
+    O atributo de correio eletrónico é preenchido automaticamente para qualquer utilizador com uma licença válida do Exchange. Se o utilizador não tem capacidade de correio, este erro será recebido como a aplicação tem de obter este atributo para dar acesso.
 
-    Pode ir para portal.office.com com uma conta de administrador, em seguida, clique no Centro de administração, faturação, as subscrições, selecione a subscrição do Office 365 e, em seguida, clique em atribuir para utilizadores, selecione os utilizadores que pretende verificar a sua subscrição e no painel da direita, clique em Edite licenças.
+    Para atribuir uma licença do Exchange,. Vá para portal.office.com com uma conta de administrador e clique no Centro de administração, faturação, as subscrições, selecione a sua subscrição do Office 365 e, em seguida, clique em atribuir aos utilizadores, selecionar os utilizadores que pretende verificar seus subscrição e no painel da direita, clique em licenças de edição.
 
-    Assim que é atribuída a licença do Office 365, poderá demorar alguns minutos a ser aplicado. Depois disso, o atributo user.mail será preenchido automaticamente e o problema deve ser resolvido.
+    Assim que é atribuída a licença do Exchange, poderá demorar alguns minutos a ser aplicado. Depois disso, o atributo user.mail será preenchido automaticamente e o problema deve ser resolvido.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

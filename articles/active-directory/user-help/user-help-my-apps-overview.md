@@ -11,19 +11,19 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: fdfb917a925352d0be58f8fc66c379291dad3195
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6c5801f3abbb81ccf1547d3ed886b48014dce1c8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815128"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904187"
 ---
 # <a name="my-apps-portal-overview"></a>Descrição geral do portal My Apps
 
+Se tiver uma conta escolar ou profissional e o seu administrador lhe tiver dado acesso, pode utilizar o portal My Apps para ver e iniciar aplicações baseadas na cloud.
+
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Se tiver uma conta escolar ou profissional e o seu administrador lhe tiver dado acesso, pode utilizar o portal My Apps para ver e iniciar aplicações baseadas na cloud.
 
 |Artigo |Descrição |
 |------|------------|

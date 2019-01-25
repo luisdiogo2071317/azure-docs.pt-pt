@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230463"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886155"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -29,7 +29,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 - Monitorizar atividades de administrador para controlar as alterações de configuração ou operações de alto privilégio.
 - Detete e investigue o comportamento dos utilizadores indesejados, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstre a conformidade e auditoria. Por exemplo, pode monitorizar operações de acesso de arquivos em ficheiros confidenciais, o que podem ajudá-lo com o processo de auditoria e conformidade.
-- Resolver os problemas operacionais usando [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
+- Resolver os problemas operacionais usando [pesquisas de registos](../log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes desta solução a ser instalado e configurado.
@@ -40,7 +40,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
  
 
 ## <a name="management-packs"></a>Pacotes de gestão
-Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../../azure-monitor/platform/om-agents.md).
+Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Instalar e configurar
 Comece por adicionar o [solução do Office 365 à sua subscrição](solutions.md#install-a-management-solution). Assim que for adicionado, tem de efetuar os passos de configuração nesta secção para fornecer acesso à sua subscrição do Office 365.
@@ -476,7 +476,7 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="supported-agents"></a>Agentes suportados
-A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Obtém dados diretamente a partir do Office 365.
+A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../platform/agent-data-sources.md).  Obtém dados diretamente a partir do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Log Analytics sempre que é criado um registo. Este registo está disponível no Log Analytics dentro de alguns minutos após a ser recebidos.
@@ -519,7 +519,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcial ou com falhas. Para a atividade de administrador do Exchange, o valor é True ou False. |
 | UserId | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o ID exclusivo do passport (PUID) para eventos realizadas por utilizadores no SharePoint, OneDrive para empresas e o Exchange. Esta propriedade também pode especificar o mesmo valor da propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados por contas do sistema|
-| userType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
@@ -662,7 +662,7 @@ Estas propriedades são comuns a todos os registos do SharePoint.
 | UserAgent | Informações sobre o cliente ou browser do utilizador. Estas informações são fornecidas pelo cliente ou browser. |
 
 
-### <a name="sharepoint-schema"></a>Esquema do SharePoint
+### <a name="sharepoint-schema"></a>SharePoint Schema
 Estes registos são criados quando forem feitas alterações de configuração para o SharePoint.
 
 | Propriedade | Descrição |
@@ -708,6 +708,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilizar as Pesquisas de Registos no [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver dados de atualizações detalhados.
-* [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
-* [Criar alertas](../../azure-monitor/platform/alerts-overview.md) para ser notificado proativamente das atividades do Office 365 importantes.  
+* Utilizar as Pesquisas de Registos no [Log Analytics](../log-query/log-query-overview.md) para ver dados de atualizações detalhados.
+* [Criar seus próprios dashboards](../learn/tutorial-logs-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
+* [Criar alertas](../platform/alerts-overview.md) para ser notificado proativamente das atividades do Office 365 importantes.  

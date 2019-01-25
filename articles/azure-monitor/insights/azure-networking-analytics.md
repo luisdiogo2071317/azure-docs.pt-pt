@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191719"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900294"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções do Log Analytics de monitorização da rede do Azure
 
 O log Analytics oferece as seguintes soluções para monitorização de suas redes:
 * Monitor de desempenho de rede (NPM) para
- * Monitorizar o estado de funcionamento da sua rede
+    * Monitorizar o estado de funcionamento da sua rede
 * Análise de Gateway de aplicação do Azure para rever
- * Registos do Gateway de aplicação do Azure
- * Métricas de Gateway de aplicação do Azure
+    * Registos do Gateway de aplicação do Azure
+    * Métricas de Gateway de aplicação do Azure
 * Soluções para monitorizar e auditar a atividade na sua rede de nuvem de rede
-* [Análise de tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Análise do Grupo de Segurança de Rede do Azure
+    * [Análise de tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Análise do Grupo de Segurança de Rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de desempenho de rede (NPM)
 
@@ -219,9 +219,9 @@ Para utilizar as soluções atualizadas:
 
     | Em vez de: | Utilização: |
     | --- | --- |
-    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; onde ResourceType = "APPLICATIONGATEWAYS" e OperationName = = "ApplicationGatewayAccess" |
-    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; onde ResourceType = = "APPLICATIONGATEWAYS" e OperationName = ApplicationGatewayPerformance |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; onde ResourceType = = "NETWORKSECURITYGROUPS" |
+    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
    + Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados.

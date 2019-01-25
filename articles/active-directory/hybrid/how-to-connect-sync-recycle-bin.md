@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4836ffc8c6ab013ef5ad7a661db0df3254b6d4e1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85b05766e99c68fa7054b04cc7d174e5ad24a15d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468792"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882418"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: Ativar a reciclagem do AD
 Recomenda-se que ative a funcionalidade de reciclagem do AD para os diretórios de Active Directory no local, que são sincronizados com o Azure AD. 
@@ -39,9 +39,6 @@ Esta funcionalidade ajuda com o restauro de objetos de utilizador do Azure AD, f
 
 > [!NOTE]
 > Por predefinição, o Azure AD mantém eliminados objetos de utilizador do Azure AD num Estado eliminado de forma recuperável durante 30 dias antes de serem eliminados permanentemente. No entanto, os administradores podem acelerar a eliminação de tais objetos. Depois dos objetos são eliminados permanentemente, já não podem ser recuperados, mesmo no local a funcionalidade de reciclagem do AD está ativada.
-
->[!NOTE]
->Anteriormente quando um utilizador foi removido do âmbito de sincronização no local e eliminado na cloud, o estado de DirSyncEnabled da conta foi incorretamente definido como "False". Se, posteriormente, esse utilizador manualmente foi restaurado da Reciclagem do Azure AD, este era um Estado incorreto da conta de "Apenas na Cloud". Isso agora foi corrigido e o valor do Estado DirSyncEnabled é sempre mantido "True" quando um utilizador é removido do âmbito de sincronização, em seguida, eliminados de forma recuperável e manualmente restaurada da Reciclagem do Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**

@@ -3,7 +3,7 @@ title: Como atribuir acesso uma identidade gerida a um recurso do Azure no porta
 description: Instruções passo a passo para atribuir uma identidade gerida no acesso a recursos um ao outro recurso, com o portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: daveba
-ms.openlocfilehash: ae01087e0430049036da74a36d6155826c02aa00
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 9054df33ea520bfb5d384ef6d3dc6d678e96a6db
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436370"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885478"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerida a um recurso com o portal do Azure
 

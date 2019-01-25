@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338809"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887415"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -34,13 +34,13 @@ A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para en
 ## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Adicionar a solução de monitorização de VMware para sua assinatura usando o processo descrito em [instalar uma solução de gestão](../../azure-monitor/insights/solutions.md#install-a-management-solution).
+* Adicionar a solução de monitorização de VMware para sua assinatura usando o processo descrito em [instalar uma solução de gestão](../insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Anfitriões do VMware ESXi suportados
 vSphere anfitrião ESXi 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparar um servidor do Linux
-Crie um sistema de operativo Linux VM receba todos os dados do syslog dos anfitriões ESXi. O [agente Linux do Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md) é o ponto de coleção para todos os dados de syslog do anfitrião ESXi. Pode usar vários anfitriões ESXi para reencaminhar os registos para um único servidor do Linux, como no exemplo seguinte.
+Crie um sistema de operativo Linux VM receba todos os dados do syslog dos anfitriões ESXi. O [agente Linux do Log Analytics](../learn/quick-collect-linux-computer.md) é o ponto de coleção para todos os dados de syslog do anfitrião ESXi. Pode usar vários anfitriões ESXi para reencaminhar os registos para um único servidor do Linux, como no exemplo seguinte.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -129,7 +129,7 @@ Na **VMware** vista do dashboard, os painéis são organizados por:
 
 Clique em qualquer painel para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específico para o painel.
 
-A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos de anfitrião ESXi
 Um único anfitrião do ESXi gera vários registos, com base em seus processos. A solução de monitorização de VMware centraliza-los e resume as contagens de eventos. Esta vista centralizada ajuda a compreender qual anfitrião ESXi tem um grande volume de eventos e quais eventos com mais frequência ocorrem no seu ambiente.
@@ -158,12 +158,12 @@ A solução inclui outras consultas útil que podem ajudar a gerir os seus anfit
 
 
 #### <a name="save-queries"></a>Guardar consultas
-A guardar consultas de pesquisa é uma funcionalidade padrão do Log Analytics e pode ajudar a manter todas as consultas que encontrar útil. Depois de criar uma consulta que ser úteis, guarde-o clicando a **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir da [meu painel](../../azure-monitor/platform/dashboards.md) página onde pode criar seus próprios dashboards personalizados.
+A guardar consultas de pesquisa é uma funcionalidade padrão do Log Analytics e pode ajudar a manter todas as consultas que encontrar útil. Depois de criar uma consulta que ser úteis, guarde-o clicando a **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir da [meu painel](../learn/tutorial-logs-dashboards.md) página onde pode criar seus próprios dashboards personalizados.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas a partir de consultas
-Depois de criar as suas consultas, pode querer utilizar as consultas para o alertar quando ocorrem eventos específicos. Ver [alertas no Log Analytics](../../azure-monitor/platform/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas e outros exemplos de consulta de alerta, consulte a [VMware de Monitor de utilizar o Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) postagem de blog.
+Depois de criar as suas consultas, pode querer utilizar as consultas para o alertar quando ocorrem eventos específicos. Ver [alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas e outros exemplos de consulta de alerta, consulte a [VMware de Monitor de utilizar o Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) postagem de blog.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que é necessário no ESXi alojar definição? O impacto que ela terá no meu ambiente atual?
@@ -204,6 +204,6 @@ Pode haver vários motivos:
     d. Se o ficheiro não existe ou o utilizador e a definição de grupo é errado, tomar medidas corretivas pela [preparar o servidor Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para ver o VMware detalhada alojar os dados.
-* [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) a mostrar dados de anfitrião do VMware.
-* [Criar alertas](../../azure-monitor/platform/alerts-overview.md) quando ocorrem eventos específicos de anfitriões de VMware.
+* Uso [registar as consultas](../log-query/log-query-overview.md) no Log Analytics para ver o VMware detalhada alojar os dados.
+* [Criar seus próprios dashboards](../learn/tutorial-logs-dashboards.md) a mostrar dados de anfitrião do VMware.
+* [Criar alertas](../platform/alerts-overview.md) quando ocorrem eventos específicos de anfitriões de VMware.

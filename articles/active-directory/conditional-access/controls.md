@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 57290384b31b868deb9e285fb05fec8ebe10a53f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452518"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902742"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory?
 
@@ -71,9 +71,15 @@ Utilizar multi-factor authentication ajuda a proteger os recursos de que está s
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional com base no dispositivo é conceder acesso aos recursos configurados apenas a partir [dispositivos geridos](require-managed-devices.md). Exigir um dispositivo em conformidade é uma opção que precisa definir é que um dispositivo gerido. Se esta opção estiver selecionada, a sua política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](../devices/overview.md) para o seu Azure Active Directory e está marcado como compatíveis pelo Intune (para qualquer SO do dispositivo) ou por seu sistema MDM de terceiros para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10 não são suportados.
+Pode configurar políticas de acesso condicional com base no dispositivo. O objetivo de uma política de acesso condicional com base no dispositivo é só conceder acesso às aplicações em nuvem selecionado da [dispositivos geridos](require-managed-devices.md). Exigir um dispositivo seja marcado como conforme é uma opção que tem para limitar o acesso a dispositivos geridos. Um dispositivo pode ser marcado como conforme pelo Intune (para qualquer SO do dispositivo) ou ao seu sistema MDM de terceiros para dispositivos Windows 10. Sistemas MDM de terceiros para tipos de SO do dispositivo que não seja o Windows 10 não são suportados. 
 
-Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
+O dispositivo tem de ser registado para o Azure AD antes de poder ser marcado como compatível. Para registar um dispositivo, tem três opções: 
+
+- [Dispositivos do Azure AD registado](../devices/overview.md#azure-ad-registered-devices)
+- [Dispositivos associados ao Azure AD](../devices/overview.md#azure-ad-joined-devices)  
+- [Dispositivos associados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Para obter mais informações, consulte [como exigir que os dispositivos geridos para aceder à aplicação de cloud com o acesso condicional](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo de associado ao Azure AD híbrido
 

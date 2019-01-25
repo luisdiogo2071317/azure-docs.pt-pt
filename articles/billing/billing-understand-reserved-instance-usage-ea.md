@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582060"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904306"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de reserva do Azure para a inscrição da sua empresa
 
@@ -59,7 +59,7 @@ Partem do princípio de que está a executar uma base de dados SQL Gen 4 na regi
 
 | Campo | Valor |
 |---| --- |
-|ReservationId |8244e673-83e9-45ad-B54B-3f5295d37cae|
+|ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Quantidade |2|
 |Produto| Base de dados SQL Gen 4 (2 núcleos)|
 |Região | eualeste |
@@ -76,7 +76,7 @@ Filtrar **informações adicionais** e escreva na sua **ID de reserva**e escolha
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Página de resumo de utilização no portal da empresa
 
-A utilização de reserva do Azure, também aparece na secção de resumo de utilização do portal da empresa: ![resumo de utilização de Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+A utilização de reserva do Azure também apresentada na secção de resumo de utilização do portal da empresa: ![Resumo de utilização de Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. Não é cobrada para o componente de hardware da VM como está abrangido por reserva. Para uma reserva de base de dados SQL, verá uma linha com **nome do serviço** como base de dados do Azure SQL reservadas utilização da capacidade.
 2. Neste exemplo, não tem o benefício híbrido do Azure, para que lhe é cobrada para o software do Windows utilizado com a VM.

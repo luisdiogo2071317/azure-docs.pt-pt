@@ -3,7 +3,7 @@ title: Instruções de infraestrutura do Azure de exemplo | Documentos da Micros
 description: Saiba mais sobre as diretrizes de design e implementação de chave para implementar uma infraestrutura de exemplo no Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469855"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888965"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Infraestrutura do Azure de exemplo passo a passo para VMs do Linux
 Este artigo explica-criar uma infraestrutura de aplicativo de exemplo. Vamos detalhar a estruturar uma infraestrutura para uma loja online simple, que reúne todas as diretrizes e as decisões sobre as convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e realmente implantar suas máquinas virtuais (VMs).
@@ -73,13 +73,13 @@ Uma vez que a rede virtual não necessita de conectividade em curso para a rede 
 Criaram uma rede virtual apenas na cloud com as seguintes definições no portal do Azure:
 
 * Nome: AZOS-USE-VN01
-* Localização: E.U.A. Leste 2
-* Espaço de endereços de rede virtual: 10.0.0.0/8
+* Localização: EUA Leste 2
+* espaço de endereços de rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
-  * Nome: front-end
+  * Nome: FrontEnd
   * Espaço de endereços: 10.0.1.0/24
 * Segunda sub-rede:
-  * Nome: back-end
+  * Nome: BackEnd
   * Espaço de endereços: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

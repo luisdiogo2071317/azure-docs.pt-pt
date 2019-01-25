@@ -3,7 +3,7 @@ title: Como gerir uma identidade gerida atribuído ao utilizador com o portal do
 description: Instruções passo a passo instruções sobre como criar, listar, eliminam e atribuir uma função para uma identidade gerida atribuído ao utilizador.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: a8fd6fedb83d61541746ea4204e8fcab3d3d7bab
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: ea7a495fc7e39afeaab4e27c97b950704995e2db
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428754"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886633"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 

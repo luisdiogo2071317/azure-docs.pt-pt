@@ -4,14 +4,14 @@ description: Mostra os tipos de recursos do Azure suportam etiquetas. Fornece de
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267458"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884950"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md).
@@ -1107,6 +1107,16 @@ Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-us
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
+| managedInstances | Sim |
+| managedInstances/databases | Sim |
+| managedInstances/databases/backupShortTermRetentionPolicies | Não |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Não |
+| managedInstances/databases/vulnerabilityAssessments | Não |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Não |
+| managedInstances/encryptionProtector | Não |
+| managedInstances/keys | Não |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não |
+| managedInstances/vulnerabilityAssessments | Não |
 | servidores | Sim | 
 | servidores/administradores | Não | 
 | servers/communicationLinks | Não | 

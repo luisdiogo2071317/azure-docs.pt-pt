@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76db86f8ddaee43654689e78437d3cdbd1c211f6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601972"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883029"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar a sua aplicação LUIS no portal do LUIS
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601972"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Uma expressão de teste
 
 1. Aceder à sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601972"
 
     ![O teste interativo identifica a intenção de errado](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Painel de teste clara
-Para limpar todas as expressões de teste inseridos e seus resultados a partir da consola de teste, selecione **recomeçar** no canto superior esquerdo dos **painel de teste**. 
-
-## <a name="close-test-panel"></a>Painel de teste fechar
-Para fechar a **teste** painel, selecione a **teste** novamente no botão.
-
 ## <a name="inspect-score"></a>Inspecionar a pontuação
+
 Inspecionar os detalhes do resultado do teste nos **Inspect** painel. 
  
 1. Com o **teste** deslizantes painel aberto, selecione **Inspect** para uma expressão que pretende comparar. 
@@ -72,9 +68,11 @@ Se **a análise de sentimentos** está configurado no **[publicar](luis-how-to-p
 ![Imagem do painel de teste com a análise de sentimentos](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corrija a intenção de padrão correspondente
+
 Se estiver a utilizar [padrões](luis-concept-patterns.md) e a expressão correspondido um padrão, mas foi prever a intenção de errado, selecione a **editar** ligue, o padrão, em seguida, selecione a intenção correta.
 
 ## <a name="compare-with-published-version"></a>Comparar com a versão publicada
+
 Pode testar a versão do Active Directory da sua aplicação com o publicados [ponto final](luis-glossary.md#endpoint) versão. Na **Inspect** painel, selecione **Compare com publicado**. Qualquer teste com base no modelo publicado é deduzido do saldo da sua quota de subscrição do Azure. 
 
 ![Compare com publicado](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Pode ver o ponto final JSON devolvido para a comparação, selecionando o **vist
 ## <a name="additional-settings-in-test-panel"></a>Definições adicionais no painel de teste
 
 ### <a name="luis-endpoint"></a>Ponto final de LUIS
+
 Se tiver vários pontos de extremidade do LUIS, utilize o **definições adicionais** link o teste de publicação do painel para alterar o ponto final utilizado para fins de teste. Se não tiver a certeza de qual ponto final a utilizar, selecione a predefinição **Starter_Key**. 
 
 ![Painel de teste com a ligação de definições adicionais realçada](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Ver as correções de verificação ortográfica do Bing no painel de teste
+
 Requisitos para ver as correções de ortografia: 
 
 * Aplicação publicada
@@ -124,6 +124,7 @@ Utilize o procedimento seguinte para incluir o [verificação ortográfica do Bi
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Testes em lote
 Consulte o teste do batch [conceitos](luis-concept-batch-test.md) e Aprenda [como](luis-how-to-batch-test.md) testar um lote de expressões.
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 8a6993f19f32e1bdb0bd10013f8f7e3dde844edd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581592"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903932"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Compreender o serviço gratuito para o mapeamento de medidor
 
@@ -44,8 +44,8 @@ Cada serviço do Azure emite utilização relativamente indicadores, o que o sis
 | Armazenamento de BLOBs de blocos de acesso frequente | E/s padrão - operações de escrita de BLOBs de blocos de acesso frequente (em 10 000s) | E/s padrão - blocos de acesso frequente operações de escrita de BLOBs (em 10 000s) - gratuito | b34bbb76-edce-4c2d-a288-81a2db1fea53
 | Armazenamento de BLOBs de blocos de acesso frequente  | E/s padrão - operações de escrita/lista de BLOBs de blocos de acesso frequente (em 10 000s) | E/s padrão - blocos de acesso frequente operações de escrita/lista de BLOBs (em 10 000s) - gratuito | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
 | Disco gerido *  | Disco gerido Standard/instantâneos (GB) - localmente redundante | Disco gerido Standard/instantâneos (GB) - gratuito | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Disco gerido *  | Operações de disco gerido Standard (em 10 000s) | Operações de disco gerido Standard (em 10 000s) - gratuito | 82cc6ea4-0abd-43ac-ACC0-ec34edf0f14c
-| Disco gerido *  | Armazenamento Premium - Blob de páginas/P6 (unidades) - localmente redundante | Armazenamento Premium - Blob de páginas/P6 (unidades) - gratuito | 2b98c168-27CA-4cc1-b509-e887dec87657
+| Disco gerido *  | Operações de disco gerido Standard (em 10 000s) | Operações de disco gerido Standard (em 10 000s) - gratuito | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Disco gerido *  | Armazenamento Premium - Blob de páginas/P6 (unidades) - localmente redundante | Armazenamento Premium - Blob de páginas/P6 (unidades) - gratuito | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Database | Dias de base de dados Standard S0 - base de dados SQL | Dias de base de dados Standard S0 - gratuitos | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Partilhado - largura de banda * * | Transferências de Dados de Saída (GB) | Transferência de dados de saída (GB) - gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823492"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881874"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Criar um pipeline CI/CD para o IoT Edge com projetos de DevOps do Azure (pré-visualização)
 
@@ -38,7 +38,7 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Pode criar uma nova o
 
    ![Selecione o idioma para criar uma nova aplicação](./media/how-to-devops-project/select-language.png)
 
-2. Selecione **simples IoT (pré-visualização)** como a sua aplicação framwork e, em seguida, selecione **próxima**.
+2. Selecione **simples IoT (pré-visualização)** como a estrutura de aplicativo e, em seguida, selecione **próxima**.
 
    ![Selecione o framework de IoT simples](media/how-to-devops-project/select-iot.png)
 
@@ -93,7 +93,7 @@ Projetos de DevOps criado um repositório de Git para o seu projeto no Azure rep
 
 ## <a name="examine-the-cicd-pipeline"></a>Examine o pipeline de CI/CD
 
-Nas seções anteriores, os projetos de DevOps do Azure configurado automaticamente um pipeline CI/CD completo para a sua aplicação do IoT Edge. Em seguida, testou o que criar o pipeline, a consolidar as alterações a um dos ficheiros. Agora, explore e personalizar o pipeline, conforme necessário. Siga os passos seguintes para familiarizar-se com a compilação de DevOps do Azure e lançar pipelines.
+Nas seções anteriores, os projetos de DevOps do Azure configurado automaticamente um pipeline CI/CD completo para a sua aplicação do IoT Edge. Em seguida, testou desse pipeline de compilação, a confirmando alterações para um dos ficheiros. Agora, explore e personalizar o pipeline, conforme necessário. Siga os passos seguintes para familiarizar-se com a compilação de DevOps do Azure e lançar pipelines.
 
 1. Para ver os pipelines de compilação no seu projeto de DevOps, selecione **criar Pipelines** no menu do seu dashboard do projeto. Esse link abre um separador do browser e o Azure DevOps criar pipeline para o novo projeto.
 

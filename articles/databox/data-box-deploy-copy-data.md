@@ -6,25 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0501ca031fbe6f1d1f16b4db55fde6a1662286f3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359294"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904119"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
-Este tutorial descreve como ligar e copiar dados do computador anfitrião através da IU Web local e preparar para enviar o Data Box.
+Este tutorial descreve como ligar e copiar dados do computador anfitrião com a IU web local.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Ligar ao Data Box
 > * Copiar dados para o Data Box
-> * Preparar para enviar o Data Box.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +35,7 @@ Antes de começar, certifique-se de que:
 2. Que recebeu o Data Box e é o estado da encomenda no portal **entregues**.
 3. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
-    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, utilize uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
+    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, utilize uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
 
 ## <a name="connect-to-data-box"></a>Ligar ao Data Box
 
@@ -87,7 +88,7 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
     
     ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
 
-    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
+    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
     
      
 
@@ -103,7 +104,7 @@ Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar d
     - Copie os mesmos dados para o mesmo destino final no Azure. 
      
   Nestes casos, não é possível determinar o resultado final.
-- Sempre crie uma pasta para os ficheiros que pretende copiar abaixo da partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *$root* pasta na conta de armazenamento.
+- Sempre crie uma pasta para os ficheiros que pretende copiar abaixo da partilha e, em seguida, copie os ficheiros para essa pasta. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
 
 Depois de se ligar à partilha de SMB, iniciar a cópia de dados. Pode utilizar qualquer ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy, para copiar os dados. É possível iniciar várias tarefas com o Robocopy. Utilize o seguinte comando:
     
@@ -203,19 +204,16 @@ Para garantir a integridade dos dados, a soma de verificação é calculada inli
    ![Verificar o espaço livre e utilizado no dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Ligar ao Data Box
 > * Copiar dados para o Data Box
-> * Preparar para enviar o Data Box
+
 
 Avance para o próximo tutorial para saber como enviar o Data Box para a Microsoft.
 

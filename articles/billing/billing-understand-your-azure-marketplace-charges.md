@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 44e1930ec4d82593580bfc3a7c3e19439436752e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581923"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904340"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Compreender a faturação do Azure para encargos de serviços externos
 Serviços externos são publicados por fornecedores de software de terceiros no Azure marketplace. Por exemplo, o SendGrid é um serviços externos, que pode comprar no Azure, mas não está publicado pela Microsoft.
@@ -84,7 +84,7 @@ Atualizar os métodos de pagamento para pedidos de serviço externo a partir da 
 ## <a name="cancel-an-external-service-order"></a>Cancelar um pedido de serviço externo
 Se quiser cancelar o seu pedido de serviço externo, eliminar o recurso a [portal do Azure](https://portal.azure.com).
 
-![Eliminar recurso](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+![Eliminar Recurso](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

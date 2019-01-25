@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885852"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -31,7 +31,7 @@ Estes registos são diferentes do [registo de atividades](activity-logs-overview
 
 Estes registos também diferem dos registos de diagnóstico de nível de sistema operacional convidado. Os registos de diagnóstico do SO convidado são esses recolhidos por um agente em execução numa máquina virtual ou outros suportado o tipo de recurso. Os registos de diagnóstico ao nível de recursos exigem sem agente e captura dados de recursos específicos da plataforma do Azure em si, enquanto os registos de diagnóstico de nível de sistema operacional convidado capturar os dados do sistema operativo e aplicações em execução numa máquina virtual.
 
-Nem todos os serviços suportam os registos de diagnóstico descritos aqui. [Este artigo contém uma lista de secção quais os serviços que suportam registos de diagnóstico](./../../azure-monitor/platform/tutorial-dashboards.md).
+Nem todos os serviços suportam os registos de diagnóstico descritos aqui. [Este artigo contém uma lista de secção quais os serviços que suportam registos de diagnóstico](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>O que pode fazer com os registos de diagnóstico
 Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
@@ -229,7 +229,7 @@ Adicionar uma definição de diagnóstico abre a vista de definições de diagn�
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Serviços suportados, categorias e esquemas para os registos de diagnóstico
 
-[Veja este artigo](../../azure-monitor/platform/tutorial-dashboards.md) para uma lista completa dos serviços suportados e as categorias de registo e os esquemas usados por esses serviços.
+[Veja este artigo](../../azure-monitor/platform/diagnostic-logs-schema.md) para uma lista completa dos serviços suportados e as categorias de registo e os esquemas usados por esses serviços.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

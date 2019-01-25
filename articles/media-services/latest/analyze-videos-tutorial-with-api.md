@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c3205163cf8796441e676e1775e4300d44a4012e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133898"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884916"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3 com APIs
 
@@ -65,8 +65,8 @@ Esta secção examina funções definidas no ficheiro [Program.cs](https://githu
 
 O exemplo realiza as seguintes ações:
 
-1. Cria uma transformação e uma tarefa que analisa o vídeo.
-2. Cria um elemento de entrada e carrega o vídeo para ele. O elemento é utilizado como entrada da tarefa.
+1. Cria um **transformar** e uma **tarefa** que analisa o seu vídeo.
+2. Cria uma entrada **Asset** e carrega o vídeo para o mesmo. O elemento é utilizado como entrada da tarefa.
 3. Cria um elemento de saída que armazena a saída da tarefa. 
 4. Submete a tarefa.
 5. Verifica o estado da tarefa.

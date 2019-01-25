@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: cwatson
+ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: de79e1ea91b7d30eb550cb078bbb257e2f924dfb
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393830"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881176"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
@@ -28,8 +28,8 @@ Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure
 ## <a name="actions"></a>Ações
 |Para fazê-lo |Prima |
 | --- | --- |
-|Criar um novo recurso|G + N|
-|Abrir o painel de "Todos os serviços"|G + B|
+|Criar um novo recurso|G+N|
+|Abrir o painel de "Todos os serviços"|G+B|
 |Procurar recursos|G+/| 
 |Itens de menu de recursos de pesquisa|CTRL C++ /CLI |
 |Mover o item do painel esquerdo selecionado para cima |ALT + Shift + seta para cima|
@@ -38,13 +38,13 @@ Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure
 ## <a name="navigation"></a>Navegação
 |Para fazê-lo |Prima |
 | --- | --- |
-|Mover o foco para a barra de comando |G +, |
-|Alternar foco entre barra superior e barra lateral | G +. |
+|Mover o foco para a barra de comando |G+, |
+|Alternar foco entre barra superior e barra lateral | G+. |
 
 ## <a name="go-to"></a>Ir para
 |Para fazê-lo |Prima |
 | --- | --- |
-|Ir para o dashboard |G + D |
+|Ir para o dashboard |G+D |
 |Ir para Todos os recursos|G+A |
-|Ir para Grupos de Recursos|G + R |
+|Ir para Grupos de Recursos|G+R |
 |Abra o item do painel esquerdo nesta posição |G+número|

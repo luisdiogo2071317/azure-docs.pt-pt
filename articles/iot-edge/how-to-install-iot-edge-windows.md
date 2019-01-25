@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970666"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902810"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -26,7 +26,7 @@ Para saber mais sobre o runtime do IoT Edge, veja [compreender o tempo de execu�
 Este artigo lista os passos para instalar o runtime do Azure IoT Edge no seu Windows x64 (AMD/Intel) system. Suporte do Windows está atualmente em pré-visualização.
 
 >[!NOTE]
-Através de contentores de Linux no Windows sytems não é uma configuração de produção recomendada ou suportado para o Azure IoT Edge. No entanto, ele pode ser usado para fins de testes e de desenvolvimento.
+Através de contentores de Linux em sistemas Windows não é uma configuração de produção recomendada ou suportado para o Azure IoT Edge. No entanto, ele pode ser usado para fins de testes e de desenvolvimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ O Azure IoT Edge suporta versões diferentes do Windows, dependendo se estiver a
 
 A versão mais recente do Azure IoT Edge com contentores do Windows pode ser executado nas seguintes versões do Windows:
 * Windows 10 ou IoT Core, com Outubro de 2018 update (compilação 17763)
-* Windows Server 2019 (compilação 17763)
+* Windows Server 2019 (build 17763)
 
 A versão mais recente do Azure IoT Edge com contentores do Linux pode ser executado nas seguintes versões do Windows: 
 * Atualização de aniversário do Windows 10 (compilação 14393) ou mais recente
@@ -172,7 +172,7 @@ Para instalar o IoT Edge com uma configuração existente, o comando de instala�
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
 | **Manual** | Nenhuma | **Mudar o parâmetro**. Cada instalação tem de ser declarada de qualquer manual, DPS, ou existingconfig.<br><br>Declara que irá fornecer uma cadeia de ligação do dispositivo para aprovisionar o dispositivo manualmente |
-| **Pontos de distribuição** | Nenhuma | **Mudar o parâmetro**. Cada instalação tem de ser declarada de qualquer manual, DPS, ou existingconfig.<br><br>Declara que irá fornecer um dispositivo de aprovisionamento DPS (serviço) ID de âmbito e o ID de registo do seu dispositivo para aprovisionar através de pontos de distribuição.  |
+| **Dps** | Nenhuma | **Mudar o parâmetro**. Cada instalação tem de ser declarada de qualquer manual, DPS, ou existingconfig.<br><br>Declara que irá fornecer um dispositivo de aprovisionamento DPS (serviço) ID de âmbito e o ID de registo do seu dispositivo para aprovisionar através de pontos de distribuição.  |
 | **ExistingConfig** | Nenhuma | **Mudar o parâmetro**. Cada instalação tem de ser declarada de qualquer manual, DPS, ou existingconfig.<br><br>Declara que já existe um ficheiro de config.yaml no dispositivo com as informações de aprovisionamento. |
 | **DeviceConnectionString** | Uma cadeia de ligação de um dispositivo IoT Edge registado num IoT Hub, aspas | **Necessário** para instalação manual. Se não fornecer uma cadeia de ligação nos parâmetros do script, será solicitado para um durante a instalação. |
 | **ScopeId** | Um ID de âmbito de uma instância do serviço de aprovisionamento de dispositivos associados ao seu IoT Hub. | **Necessário** para a instalação de pontos de distribuição. Se não fornecer um ID de âmbito nos parâmetros do script, será solicitado para um durante a instalação. |

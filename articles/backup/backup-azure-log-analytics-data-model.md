@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 09f7d4c5e76d4f74d447f8e8760e1f348462c769
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877586"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887024"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do log Analytics para dados de cópia de segurança do Azure
 Utilize o modelo de dados do Log Analytics para criar relatórios. Com o modelo de dados, pode criar consultas personalizadas e dashboards ou personalizar os dados de cópia de segurança do Azure, no entanto, o que quiser.
@@ -281,4 +281,4 @@ Esta tabela fornece detalhes sobre os campos relacionados com o cofre.
 | ResourceType |Texto |Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Após analisar o modelo de dados para a criação de relatórios do Azure Backup, pode começar [criar o dashboard](../azure-monitor/platform/dashboards.md) no Log Analytics.
+Após analisar o modelo de dados para a criação de relatórios do Azure Backup, pode começar [criar o dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) no Log Analytics.

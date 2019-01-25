@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440198"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902384"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Tutorial: Utilizar o serviço de cópia de dados para diretamente ingerir dados no Azure Data Box (pré-visualização)
 
@@ -24,11 +24,12 @@ Utilize o serviço de cópia de dados:
 - Nos ambientes de armazenamento ligados à rede (NAS) em que os anfitriões intermédios podem não estar disponíveis.
 - Com arquivos pequenos que levam semanas para ingestão e carregamento de dados. Este serviço melhora significativamente o tempo de carregamento e da ingestão.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, ficará a saber mais sobre:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Copiar dados para o Data Box
-> * Preparar para enviar o Data Box.
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,13 +61,13 @@ Para copiar dados com o serviço de cópia de dados, terá de criar uma tarefa. 
     |-------------------------------|---------|
     |Nome da tarefa                       |Um único nome de menos de 230 carateres para a tarefa. Estes carateres não são permitidos no nome da tarefa - \<, \>, \|, \?, \*, \\, \:, \/, e \\\.         |
     |Localização de origem                |Forneça o caminho SMB para a origem de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |Nome de utilizador                       |Nome de utilizador para aceder à origem de dados.        |
+    |Nome de utilizador                       |Nome de utilizador no `\\<DomainName><UserName>` formato para aceder à origem de dados.        |
     |Palavra-passe                       |Palavra-passe para aceder à origem de dados.           |
     |Conta de armazenamento de destino    |Selecione a conta de armazenamento de destino para carregar dados na lista pendente.         |
     |Tipo de armazenamento de destino       |Selecione o tipo de armazenamento de destino a partir do blob de blocos, BLOBs de páginas ou ficheiros do Azure.        |
     |Contentor/partilha de destino    |Introduza o nome do contentor ou partilhar para carregar dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de contentor. Por exemplo, `myshare` ou `mycontainer`. Também pode introduzir no formato `sharename\directory_name` ou `containername\virtual_directory_name` na cloud.        |
     |Copiar ficheiros correspondentes ao padrão    | Introduza o padrão de correspondência do nome de ficheiro das seguintes duas formas.<ul><li>**Utilize expressões com carateres universais** apenas `*` e `?` são suportados em expressões de caráter universal. Por exemplo, esta expressão `*.vhd` corresponde a todos os ficheiros que tenham a extensão. vhd. Da mesma forma, `*.dl?` corresponde a todos os ficheiros cuja extensão seja `.dl` ou `.dll`. Além disso, `*foo` irá corresponder a todos os arquivos cujos nomes terminam com `foo`.<br>Pode introduzir diretamente expressão com carateres universais no campo. Por predefinição, o valor inserido no campo é tratado como expressão com carateres universais.</li><li>**Usar expressões regulares** -baseadas em POSIX expressões regulares são suportadas. Por exemplo, uma expressão regular `.*\.vhd` irá corresponder a todos os ficheiros que tenham `.vhd` extensão. Para a expressão regular, forneça o `<pattern>` diretamente como `regex(<pattern>)`. <li>Para obter mais informações sobre expressões regulares, aceda a [linguagem de expressão Regular - uma referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Otimização de ficheiro              |Quando ativada, os ficheiros são incluídos na ingestão. Isso acelera a cópia de dados para ficheiros pequenos.        |
+    |Otimização de ficheiro              |Quando ativada, os ficheiros são incluídos inferior a 1 MB na ingestão. Isso acelera a cópia de dados para ficheiros pequenos. Economia de tempo significativa é vista quando o número de ficheiros muito excede o número de diretórios.        |
  
 4. Clique em **Iniciar**. As entradas são validadas e se a validação for bem-sucedida, em seguida, uma tarefa é iniciada. Pode demorar alguns minutos para que a tarefa iniciar.
 
@@ -106,9 +107,7 @@ Para copiar dados com o serviço de cópia de dados, terá de criar uma tarefa. 
     - Nesta versão, não é possível eliminar uma tarefa.
     
     - Pode criar tarefas ilimitadas mas executar um máximo de 10 tarefas em paralelo num dado momento.
-    - Se a otimização de ficheiros está ativado, os arquivos pequenos são incluídos na ingestão para melhorar o desempenho de cópia. Nesses casos, verá um arquivo compactado (GUID como nome) conforme mostrado na captura de ecrã seguinte.
-
-        ![Exemplo de um arquivo compactado](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - Se a otimização de ficheiros está ativado, os arquivos pequenos são incluídos na ingestão para melhorar o desempenho de cópia. Nesses casos, verá um arquivo compactado (GUID como nome). Não elimine este ficheiro, este ficheiro será descompactado durante o carregamento.
 
 6. Enquanto a tarefa está em curso, a ser o **copiar dados** página:
 
@@ -139,18 +138,14 @@ Quando a tarefa de cópia for concluída, pode aceder à **preparação para env
 >[!NOTE]
 > Preparação para envio não é possível executar enquanto as tarefas de cópia estão em curso.
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
+> * Pré-requisitos
 > * Copiar dados para o Data Box
-> * Preparar para enviar o Data Box
+
 
 Avance para o próximo tutorial para saber como enviar o Data Box para a Microsoft.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853600"
+ms.locfileid: "54881601"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligente do Application Insights com modelos Azure Resource Manager
 
@@ -157,7 +157,7 @@ Abaixo é uma tabela de nomes da regra de deteção inteligente, tal como aparec
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem receberá notificações de alerta (clássicas)?
 
-Esta secção apenas se aplica a alertas clássicos de deteção inteligente e irá ajudá-lo a otimizar suas notificações de alerta para garantir que apenas os destinatários desejados recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos] (... /Platform/Alerts-Classic.Overview.MD e a nova experiência de alertas consulte a [artigo de descrição geral de alertas](../platform/alerts-overview.md). Atualmente, deteção inteligente alerta apenas os alertas clássicos de experiência de suporte. A única exceção é [serviços cloud de alertas de deteção inteligente no Azure](./proactive-cloud-services.md). Para controlar o alerta de utilização dos serviços de notificação de alertas de deteção inteligente na cloud do Azure [grupos de ação](../platform/action-groups.md).
+Esta secção apenas se aplica a alertas clássicos de deteção inteligente e irá ajudá-lo a otimizar suas notificações de alerta para garantir que apenas os destinatários desejados recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, consulte a [artigo de descrição geral de alertas](../platform/alerts-overview.md). Atualmente, deteção inteligente alerta apenas os alertas clássicos de experiência de suporte. A única exceção é [serviços cloud de alertas de deteção inteligente no Azure](./proactive-cloud-services.md). Para controlar o alerta de utilização dos serviços de notificação de alertas de deteção inteligente na cloud do Azure [grupos de ação](../platform/action-groups.md).
 
 * Recomendamos a utilização de destinatários específicos para as notificações de alerta de deteção inteligente/clássico.
 

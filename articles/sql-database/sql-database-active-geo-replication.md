@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602974"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884627"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar legíveis bases de dados secundárias com georreplicação ativa
 
 Georreplicação ativa é a funcionalidade de base de dados do Azure SQL permite-lhe criar bases de dados secundárias legíveis de bases de dados individuais num servidor lógico no Centro de dados de idêntica ou diferente (região).
 
 > [!NOTE]
-> Replicação geográfica activa não é suportada por instância gerida.
+> Replicação geográfica activa não é suportada por instância gerida. Para a ativação pós-falha geográfica de instâncias geridas, utilize [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
 
 Replicação geográfica activa foi concebida como uma solução de continuidade de negócio que permite que o aplicativo efetuar a recuperação após desastre rápida de bases de dados individuais em caso de um desastre regional ou interrupções de grande escala. Se a georreplicação está ativada, o aplicativo pode iniciar a ativação pós-falha para uma base de dados secundária numa região diferente do Azure. Até quatro bases de dados secundárias são suportados nas regiões idêntica ou diferentes e as bases de dados secundárias também podem ser utilizados para consultas de acesso só de leitura. A ativação pós-falha tem de ser iniciada manualmente pelo aplicativo ou pelo utilizador. Após a ativação pós-falha, a nova principal tem um ponto de final de ligação diferente. O diagrama seguinte ilustra uma configuração típica de um aplicativo de cloud com redundância geográfica usando a georreplicação ativa.
 
@@ -40,7 +40,7 @@ Pode gerir a replicação e ativação pós-falha de uma base de dados individua
 - O [portal do Azure](sql-database-geo-replication-portal.md)
 - [PowerShell: Base de dados](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Conjunto elástico](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- [O Transact-SQL: Base de dados ou conjunto elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
+- [Transact-SQL: Base de dados ou conjunto elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Base de dados](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 Após a ativação pós-falha, certifique-se de que os requisitos de autenticação para o seu servidor e base de dados são configurados na nova principal. Para obter detalhes, consulte [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md).

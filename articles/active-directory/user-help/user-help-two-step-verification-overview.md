@@ -11,21 +11,21 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0e7dbf853c19bcd7281cbe6699728e246ec36108
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809110"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903694"
 ---
 # <a name="two-step-verification-overview"></a>Descrição geral da verificação de dois passos
-
->[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Recebeu um e-mail de uma pessoa do departamento de TI ou do seu chefe a dizer que a organização acrescentou uma verificação de segurança adicional à sua conta. O que é que isso significa? Significa que a organização está a tomar medidas extra para garantir que os utilizadores são quem dizem ser quando iniciam sessão. Esta verificação extra, também conhecida como verificação de dois passos, é feita através de uma combinação do nome de utilizador, da palavra-passe e de um dispositivo móvel ou telefone.
 
 A verificação de dois passos é mais segura do que utilizar apenas uma palavra-passe, porque depende de duas formas de autenticação: algo que os utilizadores sabem e algo que têm com eles. O algo que os utilizadores sabem é a palavra-passe. O algo que têm é um telefone ou dispositivo que costumam utilizar. A verificação de dois passos ajuda a impedir os hackers maliciosos de se fazerem passar por si, porque, mesmo que tenham a sua palavra-passe, é pouco provável que tenham também o seu dispositivo.
+
+>[!Important]
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 |Artigo |Descrição |
 |------|------------|

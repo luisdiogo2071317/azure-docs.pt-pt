@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ac5dbb0aed9ff8aec632ffa285ad0f26a859b9f4
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451311"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901654"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
@@ -120,6 +120,15 @@ Pode demorar até 24 horas para a política para entrar em vigor.
 Pode selecionar todos os controlos de concessão disponíveis para a outra condição de clientes; No entanto, a experiência de utilizador final é sempre o mesmo - bloqueou o acesso.
 
 Pode configurar todas as outras condições junto a outra condição de clientes.
+Por exemplo, se apenas pretender bloquear antigos de autenticação para dispositivos móveis, defina o **plataformas de dispositivos** condição ao selecionar:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Configuração de política não é suportada](./media/block-legacy-authentication/06.png)
 
 
 

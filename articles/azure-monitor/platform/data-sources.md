@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020137"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889064"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origens de dados no Azure Monitor
 Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](data-collection.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.
@@ -26,7 +26,7 @@ A monitorização dos dados no Azure provém de uma variedade de origens que pod
 
 ![Camadas de dados de monitorização](media/data-sources/monitoring-tiers.png)
 
-## <a name="azure-tenant"></a>Inquilino do Azure
+## <a name="azure-tenant"></a>Azure Tenant
 Telemetria relacionados com o seu inquilino do Azure é recolhida a partir de serviços de ao nível do inquilino, como o Azure Active Directory.
 
 ![Coleção de inquilino do Azure](media/data-sources/tenant-collection.png)
@@ -61,7 +61,7 @@ Serviços do Azure mais irão gerar [métricas de plataforma](data-collection.md
 
 
 ### <a name="resource-diagnostic-logs"></a>Registos de diagnóstico de recursos
-Embora o registo de atividades fornece informações sobre as operações executadas num recursos do Azure, ao nível de recursos [registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) fornecem informações sobre o funcionamento do recurso em si.   Os requisitos de configuração e conteúdo estes registos [varia consoante o tipo de recurso](../../azure-monitor/platform/tutorial-dashboards.md).
+Embora o registo de atividades fornece informações sobre as operações executadas num recursos do Azure, ao nível de recursos [registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) fornecem informações sobre o funcionamento do recurso em si.   Os requisitos de configuração e conteúdo estes registos [varia consoante o tipo de recurso](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../../azure-monitor/platform/archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../../event-hubs/event-hubs-about.md) para o redirecionamento para outros serviços, ou [para registo Análise](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

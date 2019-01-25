@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974369"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888571"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -414,15 +414,19 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 }
 ```
 
-> [!IMPORTANT]
-> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenha em atenção os seguintes pontos:
 
 * Dados complexos tipos não são suportados (mapa, lista).
 * Espaço em branco no nome da coluna não é suportado.
 * Ficheiro parquet tem as seguintes opções relacionadas com a compressão: Nenhum, SNAPPY, GZIP e LZO. Fábrica de dados suporta a leitura de dados do ficheiro Parquet em qualquer uma dessas comprimidos formatos, exceto LZO – ele usa o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
+
+> [!IMPORTANT]
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o **64-bit JRE 8 (Java Runtime Environment) ou OpenJDK** no seu computador do Runtime de integração. Veja o parágrafo a seguir com mais detalhes.
+
+Para obter uma cópia em execução no runtime de integração autoalojado com ficheiros de Parquet serialização/desserialização, o ADF localiza o tempo de execução Java verificando o registo em primeiro lugar *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, a verificação em segundo lugar de variável do sistema *`JAVA_HOME`* para OpenJDK. 
+
+- **Para utilizar o JRE**: O runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrá-lo partir [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para utilizar OpenJDK**: é suportado desde a versão 3.13 de Runtime de integração. Pacote jvm.dll com todos os outros necessário assemblies de OpenJDK em Ir Autoalojado máquina e variável de ambiente de sistema do conjunto JAVA_HOME em conformidade.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento para ficheiros Parquet
 
@@ -460,15 +464,19 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 }
 ```
 
-> [!IMPORTANT]
-> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Tenha em atenção os seguintes pontos:
 
 * Dados complexos tipos não são suportados (estrutura, mapa, lista, União).
 * Espaço em branco no nome da coluna não é suportado.
 * Ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
+
+> [!IMPORTANT]
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o **JRE 8 (Java Runtime Environment) ou OpenJDK de 64 bits**  no seu computador do Runtime de integração. Veja o parágrafo a seguir com mais detalhes.
+
+Para obter uma cópia em execução no runtime de integração autoalojado com ficheiros ORC serialização/desserialização, o ADF localiza o tempo de execução Java verificando o registo em primeiro lugar *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* para JRE, se não for encontrado, a verificação em segundo lugar de variável do sistema *`JAVA_HOME`* para OpenJDK. 
+
+- **Para utilizar o JRE**: O runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrá-lo partir [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para utilizar OpenJDK**: é suportado desde a versão 3.13 de Runtime de integração. Pacote jvm.dll com todos os outros necessário assemblies de OpenJDK em Ir Autoalojado máquina e variável de ambiente de sistema do conjunto JAVA_HOME em conformidade.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Tipo de dados de mapeamento para ficheiros ORC
 

@@ -3,7 +3,7 @@ title: Como utilizar identidades geridas para recursos do Azure numa VM do Azure
 description: Instruções passo a passo instruções e exemplos de utilização de uma VM do Azure geridos identidades para o principal de serviço de recursos do Azure para o início de sessão de cliente de script e acesso a recursos.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,24 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: fd62bd74f0200ffca2926879e76744be0dfe68d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423192"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900226"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para início de sessão 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Este artigo fornece exemplos de script do PowerShell e a CLI para início de sessão com identidades geridas para o principal de serviço de recursos do Azure e obter orientações sobre tópicos importantes, como o tratamento de erros.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Se planeja usar os exemplos do Azure PowerShell ou a CLI do Azure neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se planeja usar os exemplos do Azure PowerShell ou a CLI do Azure neste artigo, certifique-se de que instala a versão mais recente do [do Azure PowerShell](/powershell/azure/install-az-ps) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Todos os script de exemplo neste artigo supõe que o cliente de linha de comando está em execução numa VM com identidades geridas para recursos do Azure ativados. Utilize a funcionalidade de "Ligar" de VM no portal do Azure, para ligar remotamente à VM. Para obter detalhes sobre como ativar identidades geridas para recursos do Azure numa VM, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (com o PowerShell, CLI, um modelo ou um Azure SDK). 
@@ -67,10 +69,10 @@ O script a seguir demonstra como:
 2. Chame um cmdlet do Azure Resource Manager para obter informações sobre a VM. PowerShell se encarrega de gerir a utilização de token para automaticamente.  
 
    ```azurepowershell
-   Add-AzureRmAccount -identity
+   Add-AzAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's managed identity for Azure resources. 
-   $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+   $vmInfoPs = Get-AzVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
    $spID = $vmInfoPs.Identity.PrincipalId
    echo "The managed identity for Azure resources service principal ID is $spID"
    ```

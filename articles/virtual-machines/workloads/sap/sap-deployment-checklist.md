@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439158"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884933"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
 
@@ -47,7 +47,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
     3.  Arquitetura de continuidade do negócio e recuperação após desastre
     4.  Detalhadas SO, DB, Kernel e SAP suportam versões de pacote. Não é uma vez que qualquer versão de SO suportada pelo SAP NetWeaver ou S/4HANA é suportada em VMs do Azure. Mesmo se aplica para versões do DBMS. É obrigatório que as seguintes origens são verificadas para alinhar e se for necessário atualizar versões SAP, DBMS versões ou versões do SO para estar num SAP e janela suportados pelo Azure. É obrigatório que estão dentro do SAP e combinações de versão para obter suporte completo ao SAP e a Microsoft suportados pelo Azure. Se necessário, terá de planear a atualização alguns dos componentes de software. Obter mais detalhes sobre software SAP, o sistema operacional e o DBMS suportado está documentado nestas localizações:
         1.  Suporte a nota SAP [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Esta nota define as versões de SO mínimas suportadas em VMs do Azure. Também define versões de base de dados mínimo necessários para a maioria das bases de dados não HANA. A nota também apresenta o dimensionamento de SAP de diferentes tipos VM do Azure do SAP suportado.
-        2.  Suporte a nota SAP [#2039619](https://launchpad.support.sap.com/#/notes/2039619). A nota define a matriz de suporte da Oracle no Azure. Tenha em atenção que Oracle suporta apenas Windows e o Oracle Linux como o SO de convidado no Azure para a carga de trabalho do SAP. Esta declaração de suporte aplica-se para a camada de aplicação SAP também instâncias SAP em execução. No entanto, o Oracle suporta elevada disponibilidade para SAP Central Services no Oracle Linux. Para Windows, o SAP suportadas solução de ativação pós-falha de Cluster de ativação pós-falha do Windows para o SAP Central Services é suportada em conjunto com a Oracle como camada do DBMS. 
+        2.  Suporte a nota SAP [#2039619](https://launchpad.support.sap.com/#/notes/2039619). A nota define a matriz de suporte da Oracle no Azure. Tenha em atenção que Oracle suporta apenas Windows e o Oracle Linux como o SO de convidado no Azure para a carga de trabalho do SAP. Esta declaração de suporte aplica-se para a camada de aplicação SAP também instâncias SAP em execução. No entanto, o Oracle suporta elevada disponibilidade para SAP Central Services no Oracle Linux através de Pacemaker. Se necessitar de elevada disponibilidade para ASCS no Oracle Linux, terá de tirar partido do SIOS Protection Suite para Linux. Para dados detalhados de certificação SAP, consulte a nota de suporte do SAP [#1662610 - detalhes de suporte do SIOS Protection Suite para Linux](https://launchpad.support.sap.com/#/notes/1662610). Para Windows, o SAP suportadas solução de ativação pós-falha de Cluster de ativação pós-falha do Windows para o SAP Central Services é suportada em conjunto com a Oracle como camada do DBMS. 
         3.  Suporte a nota SAP [#2235581](https://launchpad.support.sap.com/#/notes/2235581) para obter a matriz de suporte para versões do SAP HANA no sistema operacional diferente
         4.  SAP HANA suportadas VMs do Azure e [instâncias grandes do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) estão listados [aqui](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
         5.  [Matriz de disponibilidade do produto SAP](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ Nesta fase, que pretende recolher todas as experiências e lições aprendidas d
     2.  Utilize a cópia de segurança/restauro para bases de dados mais pequenos
     3.  Utilização SAP migração Monitor implementadas em ferramenta SAP SWPM para executar migrações heterogêneas
     4.  Utilize o [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) processar se tiver de combinar com uma atualização de versão do SAP. Tenha em mente que nem todas as combinações entre a origem e destino DBMS são suportadas. Podem encontrar mais informações nas notas de suporte SAP específicas para as várias versões do DMO. Por exemplo, [opção de migração da base de dados (DMO) de soma 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
-    5.  Se a transferência de dados através da internet ou através do ExpressRoute é melhor na taxa de transferência no caso de precisa de mover as cópias de segurança ou SAP exportar ficheiros de teste. Lembre-se de que para o caso de mover dados através da internet, poderá ter de alterar algumas das suas regras de segurança NSG/ASG que tem de ter no local para sistemas de produção futuras
+    5.  Se a transferência de dados através da internet ou através do ExpressRoute é melhor na taxa de transferência no caso de precisa de mover as cópias de segurança ou SAP exportar ficheiros de teste. Para o caso de mover dados através da internet, poderá ter de alterar algumas das suas regras de segurança NSG/ASG que tem de ter no local para sistemas de produção futuras
 3.  Antes de passar sistemas da plataforma antigo para o Azure recolhem dados de consumo de recursos, como dados de IOPS, débito de armazenamento e utilização de CPU. Especialmente das unidades de camada DBMS, mas também a partir de unidades de camada de aplicativo. Também medir a latência de rede e armazenamento.
 4.  Validar os recursos em notas de suporte do SAP, diretório de hardware do SAP HANA e novamente a PAM SAP para se certificar de que não havia alterações nas VMs suportadas para o Azure, versões do SO suportado nesses VMs e SAP e DBMS suportadas versões 
 4.  Adaptar scripts de implantação para as alterações mais recentes que decidiu sobre tipos de VM e a funcionalidade do Azure
@@ -224,7 +224,7 @@ Nesta fase, que pretende recolher todas as experiências e lições aprendidas d
     
 
 ## <a name="go-live-phase"></a>Aceda a fase em direto
-Para a fase de Go-Live, terá de certificar-se de que siga os playbooks desenvolvido em fases anteriores. Execute os passos que testadas e treinado. Não aceite as alterações de última hora no processo e configurações. Além disso, aplica o seguinte:
+Para a fase de Go-Live, terá de certificar-se de que siga os playbooks desenvolvido em fases anteriores. Execute os passos que testadas e treinado. Não aceite as alterações de última hora no processo e configurações. Além disso, aplique as seguintes medidas:
 
 1. Certifique-se de que a monitorização de portal do Azure e outras ferramentas de monitorização estão a funcionar.  Ferramentas recomendadas são Perfmon (Windows) ou Kong (Linux): 
     1.  Contadores de CPU 
