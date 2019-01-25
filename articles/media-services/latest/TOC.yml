@@ -29,10 +29,10 @@ items:
     href: cli-samples.md
 - name: Conceitos
   items:
-  - name: Migrar a partir da v2 para v3
-    href: migrate-from-v2-to-v3.md
   - name: Contas
     items:
+    - name: Migrar a partir da v2 para v3
+      href: migrate-from-v2-to-v3.md
     - name: Quotas e limitações
       href: limits-quotas-constraints.md
     - name: Contas de armazenamento
@@ -66,8 +66,9 @@ items:
   - name: A processar eventos do Event Grid
     href: reacting-to-media-services-events.md
   - name: A proteger conteúdo
-    href: content-protection-overview.md
     items:
+    - name: Descrição geral
+      href: content-protection-overview.md
     - name: Sistema multi-DRM com controlo de acesso
       href: design-multi-drm-system-with-access-control.md
   - name: Analisar conteúdo
@@ -203,9 +204,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca6afadf1141e60d4436178ef45fccfdc48f97a5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810861"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382104"
