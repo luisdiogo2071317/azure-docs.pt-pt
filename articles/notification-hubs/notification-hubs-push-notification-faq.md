@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478591"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888163"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -194,7 +194,7 @@ Haverá um período de tempo quando os dispositivos com aplicações não aberto
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade do registo de auditoria?
 
-Todas as operações de gestão de Hubs de notificação Ir para os registos de operações, que são expostos no [portal do Azure].
+Sim. Atualização de operações de gerenciamento de Hubs de notificação todos os registo de atividades do Azure para o qual é exposto na [portal do Azure]. O registo de atividades do Azure disponibiliza informações aprofundadas sobre as operações executadas em recursos nas suas subscrições. Utilizar o registo de atividades, pode determinar a quê, quem e quando, por qualquer escrita (PUT, POST, DELETE) efetuadas para os recursos na sua subscrição. Também é possível compreender o estado de operações e outras propriedades relevantes. No entanto. o registo de Atividades não inclui a operação de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorização e resolução de problemas
 

@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807461"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guia para programadores de R para o Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -37,10 +37,10 @@ Este artigo abrange os seguintes serviços do Azure que suportam a linguagem R d
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[Máquina de Virtual de ciência de dados](#data-science-virtual-machine)    |uma VM personalizada para utilizar como uma estação de trabalho de ciência de dados ou como um destino de computação personalizada|
 |[Serviços de ML no HDInsight](#ml-services-on-hdinsight)            |sistema baseado em cluster para executar análises de R em grandes conjuntos de dados por muitos nós   |
-|[O Azure Databricks](#azure-databricks)                            |ambiente de colaboração do Spark que suporte o R e outros idiomas               |
+|[Azure Databricks](#azure-databricks)                            |ambiente de colaboração do Spark que suporte o R e outros idiomas               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |executar scripts personalizados do R no experimentações de machine do Azure learning                      |
-|[O Azure Batch](#azure-batch)                                      |oferece uma variedade de opções para a execução, de forma económica, código R por muitos nós num cluster|
-|[Blocos de notas do Azure](#azure-notebooks)                              |uma sem custos (mas limitada) versão baseada na cloud de blocos de notas do Jupyter                  |
+|[Azure Batch](#azure-batch)                                      |oferece uma variedade de opções para a execução, de forma económica, código R por muitos nós num cluster|
+|[Azure Notebooks](#azure-notebooks)                              |uma versão de com base na cloud sem custos de blocos de notas do Jupyter                  |
 |[Base de Dados SQL do Azure](#azure-sql-database)                        |executar scripts R dentro do motor de base de dados do SQL Server                            |
 
 ## <a name="data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados
@@ -73,7 +73,7 @@ Esta capacidade de dimensionar torna os serviços de ML no HDInsight uma ótima 
 Para um passo a passo sobre como criar um cluster de serviços de ML, consulte a ["Comece com serviços de ML no Azure HDInsight"](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-get-started) artigo.
 
 ## <a name="azure-databricks"></a>Azure Databricks
-[O Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços do Microsoft Azure na cloud.  Concebida com os fundadores do Apache Spark, o Databricks está integrado com o Azure para prestar configurações com um clique, fluxos de trabalho fluídos e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas empresariais.
+O [Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure.  Concebida com os fundadores do Apache Spark, o Databricks está integrado com o Azure para prestar configurações com um clique, fluxos de trabalho fluídos e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas empresariais.
 
 A colaboração no Databricks está ativada por sistema de bloco de notas da plataforma.  Os utilizadores podem criar, partilhar e editar blocos de notas com outros utilizadores dos sistemas.  Estes blocos de notas permitem aos utilizadores escrever código que é executado em relação a clusters do Spark geridos no ambiente do Databricks.  Estes blocos de notas totalmente suportam R e dar aos utilizadores acesso ao Spark através de ambos os `SparkR` e `sparklyr` pacotes.
 
@@ -104,16 +104,17 @@ Este pacote torna muito mais fácil de utilizar o Azure ML como uma plataforma d
 ## <a name="azure-batch"></a>Azure Batch
 Para as tarefas de R em grande escala, pode usar [do Azure Batch](https://azure.microsoft.com/services/batch/).  Este serviço fornece gestão de computação e agendamento de tarefa de escala da cloud, pelo que pode dimensionar a sua carga de trabalho de R em dezenas, centenas ou milhares de máquinas virtuais.  Uma vez que é uma plataforma de computação generalizada, existem algumas opções para tarefas de R em execução no Azure Batch.
 
-Uma opção é utilizar da Microsoft <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> pacote.  Este pacote de R é um back-end paralelo para o `foreach` pacote.  Ele permite que cada iteração do `foreach` loop para executar em paralelo num nó no cluster do Azure Batch.  Para obter uma introdução ao pacote, leia os ["doAzureParallel: tirar partido da computação de flexível do Azure diretamente a partir de sua sessão de R"](https://azure.microsoft.com/blog/doazureparallel/) postagem de blog.
+Uma opção é utilizar da Microsoft <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> pacote.  Este pacote de R é um back-end paralelo para o `foreach` pacote.  Ele permite que cada iteração do `foreach` loop para executar em paralelo num nó no cluster do Azure Batch.  Para obter uma introdução ao pacote, leia o ["doAzureParallel: Tire partido da computação de flexível do Azure diretamente a partir de sua sessão de R"](https://azure.microsoft.com/blog/doazureparallel/) postagem de blog.
 
 Outra opção para executar um script R no Azure Batch é agrupar o seu código com "RScript.exe" como uma aplicação do Batch no portal do Azure.  Para instruções detalhadas, consulte ["R cargas de trabalho no Azure Batch".](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)
 
 Uma terceira opção é utilizar o [Toolkit do Azure distribuídas dados engenharia](https://github.com/Azure/aztk) (AZTK), que permite-lhe aprovisionar clusters do Spark a pedido com contentores do Docker no Azure Batch.  Isso fornece uma forma económica para executar tarefas do Spark no Azure.  Usando [SparklyR com AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), os scripts R podem ser aumentados horizontalmente na cloud facilmente e de forma económica.
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Blocos de notas do Azure](https://notebooks.azure.com) é um método de baixo custo, de baixa fricção para desenvolvedores de R que preferem trabalhar com blocos de notas para utilizar código próprio para o Azure.  É um serviço gratuito para qualquer pessoa desenvolver e executar código no seu navegador usando [Jupyter](https://jupyter.org/), que é um projeto de código-fonte aberto que permite que combinam prosa de markdown, código executável e gráficos para uma única tela.
 
-Embora os blocos de notas do Azure é uma opção viável para projetos de pequena escala, ele tem algumas limitações que o tornam inadequados para projetos de ciência de dados em grande escala.  Atualmente, o serviço limita o processo de cada bloco de anotações para 4 GB de memória e conjuntos de dados só pode ser de 1 GB.  No entanto, para a publicação de análises mais pequenos, esta é uma opção fácil, sem custos.
+O escalão de serviço gratuito de blocos de notas do Azure é uma opção viável para projetos de pequena escala, como ela limita o processo de cada bloco de anotações para 4GB de memória e 1GB de conjuntos de dados. Se precisar de energia de dados e computação além destas limitações, no entanto, pode executar blocos de notas numa instância de máquina de Virtual de ciência de dados. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) é o serviço de base de dados do Microsoft cloud relacional completamente gerido inteligente.  Pode usar toda a potência do SQL Server sem qualquer necessidade de configurar a infraestrutura.  Isto inclui [Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), que é uma das adições mais recentes para o serviço do SQL.
