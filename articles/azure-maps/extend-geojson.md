@@ -47,7 +47,7 @@ Uma `Circle` geometry representada usando o `GeoJSON Feature` objeto __tem__ con
    >O círculo `radius` é representado através de `GeoJSON Feature`de propriedades. O valor de radius está num _medidores_ e tem de ser do tipo `double`.
 
 3. Subtipo
-   >A geometria de círculo também tem de conter o `subType` propriedade. Esta propriedade tem de ser uma parte da `GeoJSON Feature`do propriedades e respetivo valor deve ser _círculo_
+   >A geometria de círculo também tem de conter a propriedade `subType`. Esta propriedade tem de fazer parte das propriedades de `GeoJSON Feature` e o respetivo valor deverá ser _Circle_
 
 
 #### <a name="example"></a>Exemplo
