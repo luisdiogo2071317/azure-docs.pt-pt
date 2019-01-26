@@ -97,7 +97,7 @@ Depois de ter preparado o seu classificador, obter a chave de predição e o URL
 
 ## <a name="create-reviews-for-review-tool"></a>Criar as revisões de ferramenta de revisão
 
-Nas seções anteriores, observar os métodos que analise imagens de entrada para o conteúdo para adultos (Content Moderator), celebridades (visão do computador) e vários outros objetos (visão personalizada). Em seguida, veja a **CreateReview** método, que carrega as imagens, com todas as respetivas etiquetas aplicadas (transmitido como _Metadata_), a ferramenta de revisão de moderador de conteúdo para que possam estar disponíveis para revisão humana. 
+Nas secções anteriores foram-lhe apresentados os métodos que analisam as imagens recebidas de forma a encontrar conteúdos para adultos (Content Moderator), celebridades (Imagem Digitalizada) e vários outros objetos (Visão Personalizada). Em seguida, vamos mostrar o método **CreateReview**, que carrega as imagens, com todas as respetivas etiquetas aplicadas (transmitidas como _Metadata_), para a ferramenta Revisão do Content Moderator para que possam estar disponíveis para revisão humana. 
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
