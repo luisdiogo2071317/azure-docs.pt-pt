@@ -25,7 +25,7 @@ Para começar a utilizar o serviço de voz personalizada do Azure, primeiro tem 
 ## <a name="get-a-subscription-key"></a>Obter uma chave de subscrição
 1. Pode obter uma chave de assinatura do portal do Azure de uma de duas formas:
 
-    * Vá para o [portal do Azure](https://ms.portal.azure.com), e adicione uma nova API de serviços cognitivos, pesquisando _dos serviços cognitivos_ e, em seguida, selecionando **APIs serviços cognitivos**.
+    * Aceda ao [portal do Azure](https://ms.portal.azure.com). Em seguida, adicione uma nova API dos Serviços Cognitivos ao procurar _Serviços Cognitivos_ e selecionar **APIs Serviços Cognitivos**.
 
       ![Pesquisa de serviços cognitiva](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
