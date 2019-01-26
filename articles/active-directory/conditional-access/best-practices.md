@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911936"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078955"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -47,9 +47,9 @@ Para tornar a sua política de trabalho, tem de configurar:
 
 |O quê           | Como                                  | Por que motivo|
 |:--            | :--                                  | :-- |
-|**Aplicações na cloud** |Tem de selecionar uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é que lhe permite controlar os utilizadores autorizados como podem aceder a aplicações na cloud.|
-| **Utilizadores e grupos** | Tem de selecionar pelo menos um utilizador ou grupo que está autorizado a aceder às suas aplicações na nuvem selecionada. | Uma política de acesso condicional que tenha de não utilizadores e grupos atribuídos, nunca é acionado. |
-| **Controlos de acesso** | Tem de selecionar o controlo de acesso de pelo menos um. | Se forem satisfeitas as condições, o processador de política tem de saber o que fazer.|
+|**Aplicações na cloud** |Selecione uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é que lhe permite controlar os utilizadores autorizados como podem aceder a aplicações na cloud.|
+| **Utilizadores e grupos** | Selecione pelo menos um utilizador ou grupo que está autorizado a aceder às suas aplicações na nuvem selecionada. | Uma política de acesso condicional que tenha de não utilizadores e grupos atribuídos, nunca é acionado. |
+| **Controlos de acesso** | Selecione o controlo de acesso de pelo menos um. | Se forem satisfeitas as condições, o processador de política tem de saber o que fazer.|
 
 
 
@@ -60,11 +60,11 @@ Para tornar a sua política de trabalho, tem de configurar:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Como são aplicadas políticas de acesso condicional?
 
-Mais de uma política de acesso condicional pode ser aplicadas quando um utilizador acede a uma aplicação. Neste caso, todas as políticas que aplicarem devem ser satisfeitas. Por exemplo, se um políticas requer para um utilizador MFA e o segundo requer um dispositivo em conformidade, o utilizador tem a MFA e ter um dispositivo em conformidade. 
+Mais de uma política de acesso condicional pode aplicar-se ao aceder a uma aplicação na cloud. Neste caso, devem ser satisfeitas todas as políticas que se aplicam. Por exemplo, se uma política exige a MFA e o segundo requer um dispositivo em conformidade, deve passar por MFA e utilizar um dispositivo em conformidade. 
 
 Todas as políticas são impostas em duas fases:
 
-- Na **primeiro** fase, todas as políticas são avaliadas e todos os controles de acesso que não estão cumpridos são recolhidos. 
+- Na **primeiro** fase, todas as políticas são avaliadas e todos os controles de acesso que não forem satisfeitos são recolhidos. 
 
 - Na **segundo** fase, lhe for pedido para satisfazer os requisitos que ainda não a cumpriu. Se uma das políticas bloqueia o acesso, são bloqueados e não lhe for pedido para satisfazer outros Controles de política. Se nenhuma das políticas bloquear, lhe for pedido para atender a outros controlos de política na seguinte ordem:
 
@@ -88,7 +88,7 @@ Se precisar de configurar uma condição de localização que se aplica a todas 
 
 Se estiver impedido de aceder ao portal do Azure AD devido a uma definição incorreta numa política de acesso condicional:
 
-- Verifique se existem outros administradores na sua organização que não estão bloqueadas ainda. Um administrador com acesso ao portal do Azure pode desativar a política que está a afetar o seu início de sessão. 
+- Verificação é que existem outros administradores na sua organização que não são bloqueadas ainda. Um administrador com acesso ao portal do Azure pode desativar a política que está a afetar o seu início de sessão. 
 
 - Se nenhum dos administradores na sua organização pode atualizar a política, tem de submeter um pedido de suporte. Suporte da Microsoft pode rever e atualizar as políticas de acesso condicional que estão a impedir o acesso.
 
@@ -140,13 +140,13 @@ No seu ambiente, deve evitar as seguintes configurações:
 
 Como primeiro passo, deve avaliar sua política através da [e se a ferramenta](what-if-tool.md).
 
-Quando estiver pronto para implementar uma nova política para o seu ambiente, deve fazê-lo nas fases:
+Quando as novas políticas são prontas para o seu ambiente, implantá-los em fases:
 
 1. Aplicar uma política a um pequeno conjunto de utilizadores e certifique-se de que funciona conforme o esperado. 
 
-2.  Quando expande uma política para incluir mais usuários, continue excluir todos os administradores da política. Isso garante que os administradores ainda tem acesso de colunas e podem atualizar uma política, se for necessária uma alteração.
+2.  Ao expandir uma política para incluir mais usuários. Continue excluir todos os administradores da política para se certificar de que ainda tem acesso e pode atualizar uma política, se for necessária uma alteração.
 
-3. Aplica uma política a todos os utilizadores só se isso for realmente necessário. 
+3. Aplica uma política a todos os utilizadores apenas se for necessário. 
 
 Como melhor prática, crie uma conta de utilizador que seja:
 
