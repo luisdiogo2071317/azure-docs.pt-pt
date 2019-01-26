@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Sobre o Azure Search
+  - name: O que é o Azure Search
     href: search-what-is-azure-search.md
+  - name: O que é a pesquisa cognitiva
+    href: cognitive-search-concept-intro.md
 - name: Inícios rápidos
   items:
   - name: Criar um serviço
@@ -52,8 +54,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Conceitos
   items:
-  - name: Pesquisa cognitiva (Pré-visualização)
-    href: cognitive-search-concept-intro.md
   - name: Pesquisa em texto completo
     href: search-lucene-query-architecture.md
 - name: Guias de procedimentos
@@ -249,7 +249,7 @@ items:
       href: cognitive-search-skill-language-detection.md
     - name: Reconhecimento de Entidades Nomeadas
       href: cognitive-search-skill-named-entity-recognition.md
-    - name: Reconhecimento de entidades
+    - name: Reconhecimento de entidade
       href: cognitive-search-skill-entity-recognition.md
     - name: Fusão de Texto
       href: cognitive-search-skill-textmerger.md
@@ -289,9 +289,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: cc618fc015cc3b6596d9e5fca84fe943ebae45ae
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fe70b70005de7f70d00c505adbce4665e41981dd
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199107"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412153"
