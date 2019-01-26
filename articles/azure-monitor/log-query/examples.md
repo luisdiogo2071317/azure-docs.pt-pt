@@ -28,7 +28,7 @@ Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/
 ## <a name="events"></a>Eventos
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos de nível de aplicativo descritos como "Criptográficos utilizados"
-Neste exemplo procura a **eventos** tabela de registos em que **registo de eventos** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registos das últimas 24 horas.
+Este exemplo pesquisa a tabela **Events** para encontrar registos em que **EventLog** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registos das últimas 24 horas.
 
 ```Kusto
 Event
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Estado da proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com a duração do Estado de proteção sem relatórios
-Este exemplo apresenta uma lista de computadores que tinha um Estado de proteção de _Not Reporting_ e a duração fossem neste estado.
+Este exemplo apresenta uma lista dos computadores que tiveram o estado de proteção _Not Reporting_ e durante quanto tempo estiveram nesse estado.
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Contagem de eventos de segurança relacionados com as permissões
-Este exemplo mostra o número de **securityEvent** registos, no qual o **atividade** coluna contém o termo todo _Permissions_. A consulta aplica-se para registos criados nos últimos 30 minutos.
+Este exemplo mostra o número de registos **securityEvent** em que a coluna **Activity** contém o termo _Permissions_ completo. A consulta aplica-se a registos criados nos últimos 30 minutos.
 
 ```Kusto
 SecurityEvent
