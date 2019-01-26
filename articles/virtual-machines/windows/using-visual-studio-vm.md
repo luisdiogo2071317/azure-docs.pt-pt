@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437576"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911916"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Com o Visual Studio numa máquina de virtual do Azure (VM) pré-configurada é uma maneira rápida e fácil para ir de nada para um ambiente de desenvolvimento de segurança e execução. Imagens do sistema com configurações diferentes do Visual Studio estão disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,7 +34,7 @@ Imagens para as versões mais recentes principais para Visual Studio 2017 e o Vi
 
 | Versão de lançamento                                              | Edições                     |     Versão do produto      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Pré-visualização (pré-visualização 1)                   |           Enterprise         | Pré-visualização de versão 16.0.0 1 |
+|    Visual Studio 2019: Pré-visualização (pré-visualização 2)                   |           Enterprise         | Versão 16.0.0 Preview 2 |
 | Visual Studio 2017: Versão mais recente (versão 15.9)                    |    Enterprise, da Comunidade     |      Versão 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, da Comunidade     |      Versão 15.0.20     |
 |   Visual Studio 2015: Versão mais recente (atualização 3)                      |    Enterprise, da Comunidade     |  Versão 14.0.25431.01   |

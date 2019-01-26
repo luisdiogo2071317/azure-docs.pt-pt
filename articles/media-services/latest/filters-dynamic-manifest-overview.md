@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728045"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912038"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e dos manifestos dinâmicos
 
@@ -113,7 +113,7 @@ Utilize as seguintes propriedades para descrever os filtros.
 |Nome|Descrição|
 |---|---|
 |firstQuality|A primeira qualidade velocidade de transmissão do filtro.|
-|PresentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é utilizada para filtragem de pontos de início/fim manifesto, duração da janela de apresentação e a posição inicial em direto. <br/>Para obter mais informações, consulte [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é utilizada para filtragem de pontos de início/fim manifesto, duração da janela de apresentação e a posição inicial em direto. <br/>Para obter mais informações, consulte [PresentationTimeRange](#PresentationTimeRange).|
 |roteiros|As condições de seleção de faixas. Para obter mais informações, consulte [roteiros](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
@@ -124,10 +124,10 @@ Use essa propriedade com o **Asset filtros**. Não é recomendado para definir a
 |---|---|
 |**endTimestamp**|O limite de tempo absoluto final. Aplica-se para vídeo a pedido (VoD). Para a apresentação em direto, é ignorada e aplicada automaticamente quando as extremidades de apresentação e o fluxo de se tornar VoD.<br/><br/>O valor representa um ponto final absoluto da transmissão em fluxo. -É arredondado para o próximo início de GOP mais próximo.<br/><br/>Utilize StartTimestamp e EndTimestamp para cortar a lista de reprodução (manifesto). Por exemplo, StartTimestamp = 40000000 e EndTimestamp = 100000000 irá gerar uma lista de reprodução que contém o suporte de dados entre StartTimestamp e EndTimestamp. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto.<br/><br/>Além disso, veja a **forceEndTimestamp** definição que se segue.|
 |**forceEndTimestamp**|Aplica-se aos filtros em direto.<br/><br/>**forceEndTimestamp** é um valor booleano que indica se é ou não **endTimestamp** foi definido para um valor válido. <br/><br/>Se o valor for **true**, o **endTimestamp** deve ser especificado qualquer valor. Se não for especificada, em seguida, é devolvido um pedido incorreto.<br/><br/>Se, por exemplo, pretende definir um filtro que começa em 5 minutos para o vídeo de entrada e dura até ao final da transmissão em fluxo, definiria **forceEndTimestamp** como falso e omitir a definição **endTimestamp**.|
-|**liveBackoffDuration**|Aplica-se em direto apenas. A propriedade é usada para definir a posição de reprodução em direto. Com esta regra, pode atrasar a posição de reprodução em direto e criar uma memória intermédia do lado do servidor para jogadores. LiveBackoffDuration é relativo a posição em direto. A duração máxima de término em direto é de 60 segundos.|
-|**presentationWindowDuration**|Aplica-se em direto. Uso **presentationWindowDuration** para aplicar uma janela deslizante para a lista de reprodução. Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Suporte de dados em dois minutos de borda em direto serão incluídos na playlist. Se um fragmento faz a ponte do limite, o fragmento todo será incluído na playlist. Duração da janela de apresentação mínimo é de 120 segundos.|
+|**liveBackoffDuration**|Aplica-se em direto apenas. A propriedade é usada para definir a posição de reprodução em direto. Com esta regra, pode atrasar a posição de reprodução em direto e criar uma memória intermédia do lado do servidor para jogadores. LiveBackoffDuration é relativo a posição em direto. A duração máxima de término em direto é de 300 segundos.|
+|**presentationWindowDuration**|Aplica-se em direto. Uso **presentationWindowDuration** para aplicar uma janela deslizante para a lista de reprodução. Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Suporte de dados em dois minutos de borda em direto serão incluídos na playlist. Se um fragmento faz a ponte do limite, o fragmento todo será incluído na playlist. Duração da janela de apresentação mínimo é de 60 segundos.|
 |**startTimestamp**|Aplica-se aos fluxos VoD ou em direto. O valor representa um ponto de início absoluto da transmissão em fluxo. O valor é arredondado para o próximo início de GOP mais próximo.<br/><br/>Uso **startTimestamp** e **endTimestamp** para cortar a lista de reprodução (manifesto). Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 irá gerar uma lista de reprodução que contém o suporte de dados entre StartTimestamp e EndTimestamp. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto.|
-|**escala temporal**|Aplica-se aos fluxos VoD ou em direto. A escala temporal utilizado pelos carimbos e durações especificadas acima. A escala temporal padrão é 10000000. Pode ser utilizada uma escala temporal alternativo. A predefinição é 10000000 HNS (nanossegundos centenas).|
+|**timescale**|Aplica-se aos fluxos VoD ou em direto. A escala temporal utilizado pelos carimbos e durações especificadas acima. A escala temporal padrão é 10000000. Pode ser utilizada uma escala temporal alternativo. A predefinição é 10000000 HNS (nanossegundos centenas).|
 
 ### <a name="tracks"></a>roteiros
 

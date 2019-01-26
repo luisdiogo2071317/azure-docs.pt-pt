@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 77d1cf75017b369bb18aa890d63a45be49c0afb5
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157977"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912582"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -65,7 +65,7 @@ Para configurar o manifesto do aplicativo:
 | `name` | cadeia | O nome a apresentar para a aplicação. | `MyRegisteredApp` |
 | `oauth2AllowImplicitFlow` | boolean | Especifica se esta aplicação web pode pedir tokens de acesso do fluxo implícito de OAuth2.0. A predefinição é falso. Este sinalizador é utilizado para aplicações baseadas no browser, como as aplicações de página única de Javascript. Para obter mais informações, introduza `OAuth 2.0 implicit grant flow` no índice e consulte os tópicos sobre o fluxo implícito. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | boolean | Especifica se esta aplicação web pode pedir tokens de ID de fluxo implícito de OAuth2.0. A predefinição é falso. Este sinalizador é utilizado para aplicações baseadas no browser, como as aplicações de página única de Javascript. | `false` |
-| `oauth2Permissions` | Tipo de matriz | Especifica a coleção de âmbitos de permissão do OAuth 2.0 que a aplicação de API (recurso) do web expõe a aplicações de cliente. Estes âmbitos de permissão podem ser concedidos às aplicações de cliente durante o consentimento. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| Especifica a coleção de âmbitos de permissão do OAuth 2.0 que a aplicação de API (recurso) do web expõe a aplicações de cliente. Estes âmbitos de permissão podem ser concedidos às aplicações de cliente durante o consentimento. ser_impersonation"<br>&nbsp;&nbsp;}<br>]</code> |
+| `oauth2Permissions` | Tipo de matriz | Especifica a coleção de âmbitos de permissão do OAuth 2.0 que a aplicação de API (recurso) do web expõe a aplicações de cliente. Estes âmbitos de permissão podem ser concedidos às aplicações de cliente durante o consentimento. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
 | `oauth2RequiredPostResponse` | boolean | Especifica se, como parte de pedidos de token de OAuth 2.0, do Azure AD irá permitir pedidos POST, em vez de solicitações GET. A predefinição é false, o que especifica que apenas os pedidos GET serão permitidos. | `false` |
 | `parentalControlSettings` | cadeia | `countriesBlockedForMinors` Especifica os países em que a aplicação é bloqueada para os menores.<br>`legalAgeGroupRule` Especifica a regra de grupo etário legal que se aplica aos utilizadores da aplicação. Pode ser definido como `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, ou `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
 | `passwordCredentials` | Tipo de matriz | Consulte a descrição para o `keyCredentials` propriedade. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |

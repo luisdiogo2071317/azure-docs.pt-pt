@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743710"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912423"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Utilizar vários clusters do HDInsight com uma conta de armazenamento do Azure Data Lake
 
@@ -37,9 +37,9 @@ Para ativar esta estrutura de pastas para ser usado com eficiência pelos cluste
 
 |Pasta  |Permissões  |Utilizador proprietário  |Grupo proprietário  | Utilizador nomeado | Permissões de utilizador nomeado | Grupo nomeado | Permissões de grupo nomeado |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |administrador |administrador  |Principal de serviço |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |administrador |administrador |Principal de serviço |--x  |FINGRP |r-x         |
-|/ clusters/Finanças | rwxr-x--t |administrador |FINGRP  |Principal de serviço |rwx  |-  |-     |
+|/ | rwxr-x--x  |admin |admin  |Principal de serviço |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |admin |admin |Principal de serviço |--x  |FINGRP |r-x         |
+|/clusters/finance | rwxr-x--t |admin |FINGRP  |Principal de serviço |rwx  |-  |-     |
 
 Na tabela,
 
@@ -93,5 +93,5 @@ Conjunto de leitura-permissões de execução para **outras pessoas** através d
 
 ## <a name="see-also"></a>Consulte também
 
-* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
+* [Quickstart: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md)

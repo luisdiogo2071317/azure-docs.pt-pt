@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255266"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075708"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -52,6 +52,8 @@ Para ver as dependências de um grupo, terá de transferir e instalar agentes em
 
 ### <a name="install-the-mma"></a>Instalar o MMA
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Instalar o agente num computador Windows
+
 Para instalar o agente num computador Windows:
 
 1. Faça duplo clique no agente transferido.
@@ -60,6 +62,9 @@ Para instalar o agente num computador Windows:
 4. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**.
 5. Clique em **adicionar** para adicionar uma nova área de trabalho do Log Analytics. Cole o ID de área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
 
+Pode instalar o agente a partir da linha de comando ou usando um método automatizado, como o DSC de automatização do Azure, System Center Configuration Manager, ou com um modelo Azure Resource Manager, se tiver implementado o Microsoft Azure Stack no seu datacenter. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como utilizar estes métodos para instalar o agente MMA.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Instalar o agente num computador com Linux
 
 Para instalar o agente num computador Linux:
 
@@ -76,6 +81,8 @@ Para instalar o agente num computador Linux:
 
 Saiba mais sobre o suporte de agente de dependência para o [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) sistemas operativos.
 
+[Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como pode utilizar scripts para instalar o agente de dependência.
+
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Refinar o grupo com base na visualização de dependências
 Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as dependências do grupo e refiná-la ao seguir os passos abaixo.
 
@@ -91,6 +98,10 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
      ![Ver dependências de grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Para ver dependências mais granulares, clique no intervalo de tempo de modificá-lo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
+
+    > [!NOTE]
+      Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilizar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group#query-dependency-data-from-log-analytics) ao longo de um período mais longo.
+
 4. Verifique se as máquinas dependentes, o processo em execução dentro de cada máquina e identificar as máquinas que devem ser adicionadas ou removidas do grupo.
 5. Utilize Ctrl + clique para selecionar máquinas no mapa para adicionar ou removê-los do grupo.
     - Só é possível adicionar máquinas que tenham sido detetadas.
@@ -101,6 +112,20 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
     ![Adicionar ou remover máquinas](./media/how-to-create-group-dependencies/add-remove.png)
 
 Se pretender verificar as dependências de uma máquina específica que aparece no mapa de dependências de grupo, a [configurar o mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md).
+
+## <a name="query-dependency-data-from-log-analytics"></a>Dados de dependência de consulta do Log Analytics
+
+Dados de dependência capturados pelo mapa de serviço estão disponíveis para a consulta do Log Analytics. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
+
+Para executar as consultas do Log Analytics:
+
+1. Depois de instalar os agentes, vá para o portal e clique em **descrição geral**.
+2. No **descrição geral**, aceda à **Essentials** secção do projeto e clique no nome de área de trabalho fornecido junto a **área de trabalho OMS**.
+3. Na página de área de trabalho do Log Analytics, clique em **gerais** > **registos**.
+4. Escreva a consulta para recolher dados de dependência com o Log Analytics. Consultas de exemplo para recolher dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Execute a consulta ao clicar em execução. 
+
+[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

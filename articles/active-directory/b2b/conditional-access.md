@@ -3,19 +3,19 @@ title: Acesso condicional para utilizadores de colaboração do Azure Active Dir
 description: A colaboração B2B do Active Directory do Azure suporta a autenticação multifator (MFA) para acesso seletivo às suas aplicações empresariais
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d692392ba28899924ca42f7df47311d949633862
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432052"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080026"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 

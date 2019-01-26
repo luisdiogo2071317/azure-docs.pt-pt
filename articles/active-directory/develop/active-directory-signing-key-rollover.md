@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423767"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076337"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
 Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que esses rollover de chaves periodicamente e, em caso de emergências, foi implementado imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
@@ -286,7 +286,7 @@ Siga os passos abaixo para verificar se a lógica de rollover da chave está fun
           </keys>
    ```
 2. Na **<add thumbprint="">** definir, altere o valor do thumbprint substituindo qualquer caractere com um diferente. Guardar a **Web. config** ficheiro.
-3. Criar a aplicação e, em seguida, executá-lo. Se pode concluir o processo de início de sessão, com êxito o seu aplicativo está a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do diretório. Se estiver a ter problemas ao iniciar sessão, certifique-se das alterações na sua aplicação estão corretas, lendo o [adicionar início de sessão na sua utilização de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artigo, ou baixar e inspecionar o seguinte código de exemplo: [ Aplicação de Cloud multi-inquilino para o Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Criar a aplicação e, em seguida, executá-lo. Se pode concluir o processo de início de sessão, com êxito o seu aplicativo está a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do diretório. Se estiver a ter problemas ao iniciar sessão, certifique-se das alterações na sua aplicação estão corretas, lendo o [adicionar início de sessão na sua utilização de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artigo, ou baixar e inspecionar o código de exemplo seguinte: [Aplicação de Cloud multi-inquilino para o Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Aplicações Web de proteger os recursos e criado com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 do .NET 3.5
 Se criou uma aplicação no WIF v1.0, não existe nenhum mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para utilizar uma nova chave.

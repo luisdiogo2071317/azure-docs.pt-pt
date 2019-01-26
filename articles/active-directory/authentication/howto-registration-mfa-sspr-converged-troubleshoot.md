@@ -3,19 +3,19 @@ title: Desativar o registo convergido para SSPR do Azure AD e MFA (pré-visualiz
 description: Desativar o AD multi-factor Authentication do Azure e o registo (pré-visualização pública) de reposição de palavra-passe self-service
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 6a51b1a3050b37fdcc822006f9e25d6662c65fb2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c7cdd2e62c76011f2ff4ada33353b85dcf564ef5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426357"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076660"
 ---
 # <a name="disable-azure-ad-converged-registration-public-preview"></a>Registo (pré-visualização pública) de convergência de desativação do Azure AD
 

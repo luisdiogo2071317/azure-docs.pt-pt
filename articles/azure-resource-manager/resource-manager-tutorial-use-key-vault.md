@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b8e7f429cbe9ff8e71432ac8038c8ad15114711
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093204"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080911"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager
 
-Saiba como obter valores secretos do Azure Key Vault e transmiti-los como parâmetros durante a implementação do Resource Manager. O valor nunca está exposto porque só faz referência ao respetivo ID do Cofre de Chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
+Saiba como obter segredos a partir do Azure Key Vault e transmitir os segredos como parâmetros durante a implementação do Resource Manager. O valor nunca está exposto porque só fazem referência a sua ID de Cofre de chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
 
-No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, vai personalizar o modelo para obter a palavra-passe de administrador de uma máquina virtual do Azure Key Vault.
+No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, personalizar o modelo para recuperar a palavra-passe de administrador de máquina virtual de um cofre de chaves.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Preparar o Key Vault
+> * Preparar um cofre de chaves
 > * Abrir um modelo de Início rápido
 > * Editar o ficheiro de parâmetros
 > * Implementar o modelo
@@ -49,18 +49,18 @@ Para concluir este artigo, precisa de:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
+    Verifique se a palavra-passe gerada cumpre os requisitos de palavra-passe da máquina virtual. Cada serviço do Azure tem requisitos de palavra-passe específicos. Para obter os requisitos de palavra-passe de VM, veja [Quais são os requisitos de palavra-passe quando criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-## <a name="prepare-the-key-vault"></a>Preparar o Key Vault
+## <a name="prepare-a-key-vault"></a>Preparar um cofre de chaves
 
-Nesta secção, vai utilizar um modelo do Resource Manager para criar um Cofre de Chaves e um segredo. Este modelo:
+Nesta secção, vai utilizar um modelo do Resource Manager para criar um cofre de chaves e um segredo. Este modelo:
 
-* Criar um Key Vault com a propriedade `enabledForTemplateDeployment` ativada. Esta propriedade tem de ser verdadeira antes de o processo de implementação do modelo poder aceder aos segredos definidos neste Cofre de Chaves.
-* Adiciona um segredo ao Cofre de Chaves.  O segredo armazena a palavra-passe de administrador da máquina virtual.
+* Criar um cofre de chaves com o `enabledForTemplateDeployment` ativa de propriedade. Esta propriedade tem de ser verdadeira antes do processo de implementação do modelo pode acessar os segredos definidos neste Cofre de chaves.
+* Adicione um segredo ao Cofre de chaves.  O segredo armazena a palavra-passe de administrador da máquina virtual.
 
-Se, como o utilizador para implementar o modelo de máquina virtual, não for o proprietário ou o contribuidor do Cofre de Chaves, o Proprietário ou o Contribuidor do Cofre de Chaves deve conceder-lhe o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o Cofre de Chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
+Se (como o utilizador para implementar o modelo de máquina virtual) não for o proprietário ou contribuinte do Cofre de chaves, o proprietário ou contribuinte do Cofre de chaves deve conceder-lhe o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o Cofre de chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
 
-O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permissões. O procedimento seguinte obtém o ID de objeto (GUID) e gera a palavra-passe de administrador. Para impedir um ataque de "password spray", é recomendada a utilização de palavras-passe geradas.
+O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permissões. O procedimento seguinte obtém o objeto de ID (GUID).
 
 1. Execute o comando seguinte do Azure PowerShell ou da CLI do Azure.  
 
@@ -68,19 +68,16 @@ O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permi
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    openssl rand -base64 32
     ```
     ```azurepowershell-interactive
     $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
-    (Get-AzureADUser -ObjectId $upn).ObjectId
-    openssl rand -base64 32
+    (Get-AzADUser -UserPrincipalName $upn).Id
     ```
-2. Anote o ID de objeto e a palavra-passe gerada. Vai precisar deles mais tarde.
-3. Verifique se a palavra-passe gerada cumpre os requisitos de palavra-passe da máquina virtual. Cada serviço do Azure tem requisitos de palavra-passe específicos. Para obter os requisitos de palavra-passe de VM, veja [Quais são os requisitos de palavra-passe quando criar uma VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+2. Anote o ID de objeto. Precisar dele mais tarde no tutorial.
 
-Para criar um Cofre de Chaves:
+Para criar um cofre de chaves:
 
-1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um Cofre de Chaves e um segredo.
+1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria um cofre de chaves e um segredo.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
@@ -89,34 +86,35 @@ Para criar um Cofre de Chaves:
     ![Portal de implementação de integração de Cofres de Chaves de modelos do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
 
     * **Subscrição**: selecione uma subscrição do Azure.
-    * **Grupo de recursos**: atribua um nome exclusivo. Anote este nome, uma vez que vai utilizar o mesmo grupo de recursos para implementar a máquina virtual na próxima sessão. Colocar o Cofre de Chaves e a máquina virtual no mesmo grupo de recursos facilita a limpeza do recurso no final do tutorial.
+    * **Grupo de recursos**: atribua um nome exclusivo. Anote este nome, uma vez que vai utilizar o mesmo grupo de recursos para implementar a máquina virtual na próxima sessão. Colocar o Cofre de chaves e a máquina virtual no mesmo grupo de recursos facilita limpar o recurso no final do tutorial.
     * **Localização**: selecione uma localização.  A localização predefinida é **E.U.A. Central**.
     * **Nome do Cofre de Chaves**: atribua um nome exclusivo. 
     * **ID do inquilino**: a função de modelo obtém automaticamente o ID do inquilino.  Não altere o valor predefinido
     * **ID de utilizador do AD**: introduza o ID de objeto de utilizador do Azure AD obtido no último procedimento.
     * **Nome do segredo**: O nome predefinido é **vmAdminPassword**. Se alterar o nome do segredo aqui, tem de atualizá-lo quando implementar a máquina virtual.
-    * **Valor do Segredo**: introduza o segredo.  O segredo é a palavra-passe utilizada para iniciar sessão na máquina virtual. É recomendado utilizar a palavra-passe gerada que criou no último procedimento.
-    * **Aceito os termos e condições acima apresentados**: selecione.
+    * **Valor secreto**: Introduza o seu segredo.  O segredo é a palavra-passe utilizada para iniciar sessão na máquina virtual. É recomendado utilizar a palavra-passe gerada que criou no último procedimento.
+    * **Eu concordo com o estado de termos e condições acima**: Selecione.
 3. Selecione **Editar parâmetros** na parte superior para ver o modelo.
-4. Navegue para a linha 28 do ficheiro JSON do modelo. Esta é a definição do recurso do Cofre de Chaves.
+4. Navegue para a linha 28 do ficheiro JSON do modelo. Esta é a definição do recurso de Cofre de chaves.
 5. Navegue para a linha 35:
 
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` é uma propriedade do Cofre de Chaves. Esta propriedade tem de ser verdadeira antes de poder obter os segredos a partir deste Cofre de Chaves durante a implementação.
+    `enabledForTemplateDeployment` é uma propriedade do Cofre de Chaves. Esta propriedade tem de ser verdadeira antes de pode obter os segredos a partir deste cofre de chaves durante a implementação.
 6. Navegue para a linha 89. Esta é a definição do segredo do Cofre de Chaves.
 7. Selecione **Eliminar** na parte inferior da página. Não efetue alterações.
 8. Verifique se forneceu todos os valores, conforme mostrado na captura de ecrã anterior, e clique em **Comprar** na parte inferior da página.
 9. Selecione o ícone de campainha (notificação) na parte superior da página para abrir o painel **Notificações**. Aguarde até o recurso ser implementado com êxito.
 10. Selecione **Ir para o grupo de recursos** no painel **Notificações**. 
-11. Selecione o nome do Cofre de Chaves para abri-lo.
-12. Selecione **Políticas de acesso** no painel esquerdo. O seu nome (Active Directory) deve ser apresentado, caso contrário, não tem permissão para aceder ao cofre de chaves.
-13. Selecione **Clicar para mostrar as políticas de acesso avançadas**. Verifique se a opção **Ativar o acesso ao Azure Resource Manager para implementação de modelos** está selecionada. Trata-se de outra condição para o Cofre de Chaves funcionar.
+11. Selecione o nome do Cofre de chaves para abri-lo.
+12. Selecione **segredos** no painel à esquerda. **vmAdminPassword** listada aqui.
+13. Selecione **Políticas de acesso** no painel esquerdo. O seu nome (Active Directory) deve ser apresentado, caso contrário, não tem permissão para aceder ao cofre de chaves.
+14. Selecione **Clicar para mostrar as políticas de acesso avançadas**. Verifique se a opção **Ativar o acesso ao Azure Resource Manager para implementação de modelos** está selecionada. Esta definição é outra condição tornar a integração do Cofre de chaves para trabalhar.
 
     ![Políticas de acesso de integração de Cofres de Chaves de modelos do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-14. Selecione **Propriedades** no painel esquerdo.
-15. Faça uma cópia do **ID do Recurso**. Vai precisar deste ID quando implementar a máquina virtual.  O formato do ID do Recurso é:
+15. Selecione **Propriedades** no painel esquerdo.
+16. Faça uma cópia do **ID do Recurso**. Vai precisar deste ID quando implementar a máquina virtual.  O formato do ID do Recurso é:
 
     ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -166,7 +164,7 @@ Não precisa de fazer quaisquer alterações ao ficheiro de modelo.
         }
     },
     ```
-    Substitua **id** pelo ID do recurso do Cofre de Chaves criado no último procedimento.  
+    Substitua a **id** com o ID de recurso do seu Cofre de chaves criado no último procedimento.  
 
     ![Integrar o cofre de chaves e o ficheiro de parâmetros de implementação de máquinas virtuais de modelos do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Atribua valores para:
@@ -180,22 +178,27 @@ Não precisa de fazer quaisquer alterações ao ficheiro de modelo.
 Siga as instruções em [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para implementar o modelo. Tem de carregar **azuredeploy.json** e **azuredeploy.parameters.json** para o Cloud Shell e, em seguida, utilize o seguinte script do PowerShell para implementar o modelo:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name of the Key Vault"
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
-New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile azuredeploy.json `
+    -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-Quando implementar o modelo, utilize o mesmo grupo de recursos do Cofre de Chaves. Facilita a limpeza dos recursos. Apenas tem de eliminar um grupo de recursos em vez de dois.
+Quando implementar o modelo, utilize o mesmo grupo de recursos como o Cofre de chaves. Facilita a limpeza dos recursos. Apenas tem de eliminar um grupo de recursos em vez de dois.
 
 ## <a name="valid-the-deployment"></a>Validar a implementação
 
-Depois de ter implementado com êxito a máquina virtual, teste o início de sessão com a palavra-passe armazenada no Cofre de Chaves.
+Depois de ter implementado com êxito a máquina virtual, teste o início de sessão com a palavra-passe armazenada no Cofre de chaves.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **Grupos de recursos**/**NomedoGrupodeRecursos>**/**simpleWinVM**
 3. Selecione **ligar** na parte superior.
-4. Selecione **Transferir ficheiro RDP** e, em seguida, siga as instruções para iniciar sessão na máquina virtual com a palavra-passe armazenada no Cofre de Chaves.
+4. Selecione **baixar arquivo RDP** e, em seguida, siga as instruções para iniciar sessão na máquina virtual utilizando a palavra-passe armazenada no Cofre de chaves.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

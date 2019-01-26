@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 739e1637eaeef86028848e5b8c8a453fcbc6195e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: 7911f652341c4448a6fa5fbe88f5838389c228b2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543806"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912440"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de dados do Azure para MySQL proteção avançada contra ameaças
 
@@ -22,6 +22,9 @@ Proteção avançada contra ameaças faz parte da oferta de segurança de dados 
 > [!NOTE]
 > A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 > 
+
+> [!NOTE]
+> Esta funcionalidade está disponível em todas as regiões do Azure em que a base de dados do Azure para MySQL é implementada para os servidores de fins gerais e memória otimizada.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
 

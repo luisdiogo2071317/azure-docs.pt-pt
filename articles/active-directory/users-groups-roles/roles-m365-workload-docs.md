@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f44f7167cff316b15124448678c4cae90b384ed9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8408d620ba78fed07c44feae74c607a555d5563b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890085"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910590"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Funções de administrador para cargas de trabalho do Microsoft 365
 
-Este artigo fornece uma lista de cargas de trabalho do Microsoft 365 acompanhado por ligações para conteúdo de função e conteúdo de API de área de funcionalidade. Discussão geral dos problemas de delegação pode ser encontrado na [delegação de funções no Azure Active Directory de planeamento](roles-concept-delegation.md).
+Todos os produtos no Microsoft 365 podem ser geridos com funções administrativas no Azure AD. Alguns produtos também fornecem funções adicionais que são específicas para esse produto. Para obter informações sobre as funções suportadas por cada produto, consulte a tabela abaixo. Discussão geral dos problemas de delegação pode ser encontrado na [delegação de funções no Azure Active Directory de planeamento](roles-concept-delegation.md).
 
 ## <a name="where-to-find-content"></a>Onde encontrar o conteúdo
 

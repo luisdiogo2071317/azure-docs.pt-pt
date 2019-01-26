@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/30/2018
-ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1da2278eee6fcea5c013e9c2f5f4ad3e3013b590
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742240"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906337"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -33,10 +33,10 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 - O desconto de reserva não se aplica para as VMs seguintes:
   - As VMs clássicas e serviços em nuvem
   - Série VM: Série A, série Av2 ou série G
-  - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização
-- Nuvens: Não reservas estão disponíveis para compra em regiões da Alemanha ou China.
-- Quota insuficiente: uma reserva de que tem um âmbito a uma subscrição individual tem de ter a quota de vCPU disponível na subscrição para a nova RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 
-- Restrições de capacidade: limites em raras circunstâncias, a compra de reservas de novo para o subconjunto de tamanhos VM, devido à baixa capacidade numa região do Azure.
+  - VMs em pré-visualização: Qualquer série de VM ou o tamanho que está em pré-visualização
+- Nuvens: As reservas não estão disponíveis para compra em regiões da Alemanha ou China.
+- Quota insuficiente: Quota de vCPU disponível na subscrição para a nova RI tem de ter uma reserva de que tem um âmbito a uma subscrição individual. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 
+- Restrições de capacidade: Em raras circunstâncias, a compra de reservas de novo para o subconjunto de tamanhos VM, devido à baixa capacidade numa região limites do Azure.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma instância VM reservadas
 
@@ -48,7 +48,7 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
     | Campo      | Descrição|
     |:------------|:--------------|
     |Nome        |O nome desta reserva.| 
-    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um Contrato Enterprise (número da oferta: MS-AZR-0017P) ou o modelo Pay As You Go (número da oferta: MS-AZR-0003P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
+    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (número da oferta: MS-AZR-0017P) ou pay as you go (número da oferta: MS-AZR-0003P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
     |Âmbito       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva é aplicada a VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado a VMs em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de desenvolvimento/teste) na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
     |Região    |A região do Azure que é abrangida pela reserva.|    
     |Tamanho da VM     |O tamanho das instâncias de VM.|

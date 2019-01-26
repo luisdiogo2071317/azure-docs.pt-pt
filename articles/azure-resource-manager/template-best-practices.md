@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd54ae2c82d3baf716784c39951c5cad7ec364b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731708"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077949"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure práticas recomendadas de modelo do Resource Manager
 
@@ -82,7 +82,7 @@ As informações nesta secção podem ser úteis quando trabalha com [parâmetro
 
 * Utilize `allowedValues` com moderação. Utilize-o apenas quando deve certificar-se de que alguns valores não estão incluídos nas opções permitidas. Se usar `allowedValues` amplamente, poderão bloquear implementações válidas ao manter a sua lista não atualizados.
 
-* Quando um nome de parâmetro no seu modelo corresponde a um parâmetro no comando de implementação do PowerShell, o Resource Manager resolve este conflito de nomes, adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro denominado **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro no [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Quando um nome de parâmetro no seu modelo corresponde a um parâmetro no comando de implementação do PowerShell, o Resource Manager resolve este conflito de nomes, adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro denominado **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro no [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Recomendações de segurança para os parâmetros
 

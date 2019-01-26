@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077747"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075589"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -32,11 +32,17 @@ Como um parceiro da Microsoft, pode associar a utilização do Azure com todos o
 - Modelos do Azure Resource Manager: Modelos do Resource Manager ou modelos de soluções para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
 - APIs do Resource Manager do Azure: Parceiros podem chamar as APIs do Resource Manager diretamente a implementar um modelo do Resource Manager ou a gerar as chamadas à API para aprovisionar diretamente os serviços do Azure. 
 
-Atribuição de utilização do cliente é necessária em todos os [modelos de soluções](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas no Azure Marketplace. 
+É necessária a atribuição de utilização do cliente [oferta de aplicação do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas no Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 
-Muitas soluções de parceiros são implementadas na subscrição de um cliente, utilizando modelos do Resource Manager. Se tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub, ou como um guia de introdução, o processo para modificar o modelo para ativar o novo método de rastreamento deve ser simples. Para obter mais informações, consulte [criar e implementar o modelo do Resource Manager primeira](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+Muitas soluções de parceiros são implementadas na subscrição de um cliente, utilizando modelos do Resource Manager. Se tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub, ou como um guia de introdução, o processo para modificar o modelo para ativar o novo método de rastreamento deve ser simples.
+
+Para obter mais informações sobre como criar e publicar modelos de solução, consulte
+
+* [Criar e implementar o modelo do Resource Manager primeira](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Oferta de aplicação do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Vídeo: [Criação de modelos de soluções e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Adicionar um GUID ao seu modelo

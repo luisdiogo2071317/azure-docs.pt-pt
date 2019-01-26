@@ -3,19 +3,19 @@ title: Servidor MFA do Azure ou o serviço, no local ou na cloud?
 description: Como num administrador do Azure AD, eu precise saber qual versão do MFA, deve implementar?
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 50340218f80dfb0b443075a3a4f85e7a5ed86159
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 783564f8c924cc0b7f94d94748ead35300250ded
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433281"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075572"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Qual é a versão do MFA do Azure é adequada para a minha organização?
 

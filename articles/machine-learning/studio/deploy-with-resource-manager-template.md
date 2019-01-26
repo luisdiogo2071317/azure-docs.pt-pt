@@ -64,7 +64,7 @@ Guarde este modelo como ficheiro mlworkspace.json em c:\temp\.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Implementar o grupo de recursos, com base no modelo
 * Abrir o PowerShell
-* Instalar módulos para o Azure Resource Manager e gestão de serviço do Azure  
+* Instalar módulos para o Azure Resource Manager e gestão de serviço do Azure
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -74,9 +74,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Estes passos transferirem e instalar os módulos necessários para concluir os passos restantes. Só precisa ser feito uma vez no ambiente em que está a executar os comandos do PowerShell.   
+   Estes passos transferirem e instalar os módulos necessários para concluir os passos restantes. Só precisa ser feito uma vez no ambiente em que está a executar os comandos do PowerShell.
 
-* Autenticar para o Azure  
+* Autenticar para o Azure
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -110,22 +110,22 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 Depois de concluída a implementação, é simples para propriedades de acesso da área de trabalho que implementou. Por exemplo, pode acessar o Token de chave primária.
 
 ```
-# Access Azure ML Workspace Token after its deployment.
+# Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 Outra forma de obtenção de tokens de área de trabalho existente é utilizar o comando Invoke-AzureRmResourceAction. Por exemplo, pode listar os tokens primários e secundários de todas as áreas de trabalho.
 
-```  
+```
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Depois da área de trabalho é aprovisionada, pode também automatizar muitas tarefas de Azure Machine Learning Studio com o [módulo do PowerShell para o Azure Machine Learning](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Próximos Passos
-* Saiba mais sobre [criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
-* Veja a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
-* Assista a este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
+* Saiba mais sobre [criar modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Veja a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+* Assista a este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Consulte a [ajuda de referência de modelo do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
  <!--Image references--> [1]: [2] de./media/deploy-with-resource-manager-template/azuresubscription.png: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.png
 

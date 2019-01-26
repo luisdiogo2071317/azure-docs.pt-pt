@@ -1,6 +1,6 @@
 ---
-title: Ver quem tem funções de recursos do Azure no PIM | Documentos da Microsoft
-description: Ver quem tem funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
+title: Ver histórico de atividade e auditoria para funções de recursos do Azure no PIM | Documentos da Microsoft
+description: Ver a atividade e auditar o histórico para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,54 +13,103 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 01/24/2019
 ms.author: rolyon
-ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 21decb8260abfe98df913763a2338b34aacb1f91
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465236"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911461"
 ---
-# <a name="view-who-has-azure-resource-roles-in-pim"></a>Ver quem tem funções de recursos do Azure no PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Ver histórico de atividade e auditoria para funções de recursos do Azure no PIM
 
-Com o Azure Active Directory Privileged Identity Management (PIM), pode gerir, controlar e monitorizar o acesso aos recursos do Azure na sua organização. Isto inclui as subscrições, grupos de recursos e até mesmo máquinas de virtuais. Qualquer recurso no portal do Azure, que aproveita a funcionalidade de controlo (RBAC) de acesso baseado em função do Azure pode aproveitar a segurança e o ciclo de vida das capacidades de gestão no Azure AD PIM. 
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), pode ver atividade, ativações e histórico de auditoria para funções de recursos do Azure na sua organização. Isto inclui as subscrições, grupos de recursos e até mesmo máquinas de virtuais. Qualquer recurso no portal do Azure, que aproveita a funcionalidade de controlo (RBAC) de acesso baseado em função do Azure pode aproveitar a segurança e o ciclo de vida das capacidades de gestão no PIM.
 
-## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM para recursos do Azure ajuda os administradores de recursos
+## <a name="view-activity-and-activations"></a>Ver a atividade e ativações
 
-- Veja os utilizadores e grupos são atribuídos a funções para os recursos do Azure que administra
-- Ativar a pedido, "just-in-time" acesso para gerir os recursos, tais como as subscrições, grupos de recursos e muito mais
-- Expirar acesso aos recursos de utilizadores/grupos atribuídos automaticamente com as novas definições de atribuição de limite de tempo
-- Atribuir acesso a recursos temporário para tarefas rápidas ou na chamada agendas
-- Impor o multi-factor Authentication para acesso a recursos em qualquer função interna ou personalizada 
-- Obter relatórios sobre a atividade de recursos de recursos de acesso correlacionado durante uma sessão de utilizador Active Directory
-- Obtenha alertas quando os novos utilizadores ou grupos são atribuídos acesso a recursos e quando ativam atribuições elegíveis
+Para ver as ações realizou de um utilizador específico em vários recursos, pode ver a atividade de recursos do Azure que está associada um período de ativação fornecido.
 
-## <a name="view-activation-and-azure-resource-activity"></a>Ativação do modo de exibição e a atividade de recursos do Azure
+1. Open **do Azure AD Privileged Identity Management**.
 
-No caso de precisar de ver as ações realizou de um utilizador específico em vários recursos, pode rever a atividade de recursos do Azure associada a um período de ativação de determinado (para os utilizadores elegíveis). Comece por selecionar um utilizador, da vista de membros ou na lista de membros numa função específica. O resultado mostra uma visão gráfica das ações do usuário em recursos do Azure por data e as ativações de função recente no mesmo período de tempo.
+1. Clique em **recursos do Azure**.
 
-![](media/azure-pim-resource-rbac/user-details.png)
+1. Clique em recursos que pretende ver a atividade e ativações para.
 
-Selecionar uma ativação de função específica irá mostrar os detalhes de ativação de função e atividade de recursos do Azure correspondente que ocorreu enquanto que o utilizador esteve ativo.
+1. Clique em **funções** ou **membros**.
 
-![](media/azure-pim-resource-rbac/audits.png)
+1. Clique num utilizador.
 
-## <a name="review-who-has-access-in-a-subscription"></a>Revisão de quem tem acesso uma subscrição
+    Consulte uma visão gráfica das ações do usuário em recursos do Azure por data. Ela também mostra as ativações de função recente no mesmo período de tempo.
 
-Para rever atribuições de funções na sua subscrição, selecione o separador de membros no painel de navegação esquerda, ou selecionar funções e escolha uma função específica para rever os membros. 
+    ![Detalhes do utilizador](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-Selecione a revisão da barra de ação para ver as revisões de acesso existente e selecione Add para criar uma nova revisão.
+1. Clique numa ativação de função específica para ver detalhes e a atividade de recursos do Azure correspondente que ocorreu enquanto que o utilizador esteve ativo.
 
-![](media/azure-pim-resource-rbac/owner.png)
+    ![Selecione a ativação de função](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
-[Saiba mais sobre as revisões de acesso](pim-how-to-perform-security-review.md)
+## <a name="export-role-assignments-with-children"></a>Exportar as atribuições de função com subordinados
 
->[!NOTE]
-Revisões só são suportadas para tipos de recursos de subscrição neste momento.
+Talvez tenha um requisito de conformidade em que tem de fornecer uma lista completa das atribuições de funções para auditores. PIM permite-lhe as atribuições de funções de consulta num recurso específico, que inclui atribuições de funções para todos os recursos subordinados. Anteriormente, era difícil para os administradores obter uma lista completa das atribuições de funções para uma subscrição e teve de exportar as atribuições de função para cada recurso específico. Utilizar o PIM, pode consultar para todas as atribuições de função elegível e Active Directory numa subscrição incluindo atribuições de funções para todos os grupos de recursos e recursos.
+
+1. Open **do Azure AD Privileged Identity Management**.
+
+1. Clique em **recursos do Azure**.
+
+1. Clique em recursos que pretende exportar as atribuições de funções para, por exemplo, uma subscrição.
+
+1. Clique em **membros**.
+
+1. Clique em **exportar** para abrir o painel de associação de exportação.
+
+    ![Painel de associação de exportação](media/azure-pim-resource-rbac/export-membership.png)
+
+1. Clique em **exportar todos os membros** para exportar todas as atribuições de função num arquivo CSV.
+
+    ![Exportar o ficheiro CSV](media/azure-pim-resource-rbac/export-csv.png)
+
+## <a name="view-resource-audit-history"></a>Ver histórico de auditoria do recurso
+
+Auditoria de recurso dá-lhe uma vista de todas as atividades de função para um recurso.
+
+1. Open **do Azure AD Privileged Identity Management**.
+
+1. Clique em **recursos do Azure**.
+
+1. Clique em recursos que pretende ver o histórico de auditoria para.
+
+1. Clique em **auditoria de recurso**.
+
+1. Filtre o histórico com uma data predefinida ou um intervalo personalizado.
+
+    ![Auditoria de recurso de filtro](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+1. Para **tipo de auditoria**, selecione **Activate (atribuído + Activated)**.
+
+    ![Detalhe da atividade](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+
+1. Sob **ação**, clique em **(atividade)** para um utilizador ver detalhes de atividade do usuário em recursos do Azure.
+
+    ![Detalhe de atividade do utilizador](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+
+## <a name="view-my-audit"></a>Ver a minha auditoria
+
+A minha auditoria permite-lhe ver a sua atividade de funções pessoais.
+
+1. Open **do Azure AD Privileged Identity Management**.
+
+1. Clique em **recursos do Azure**.
+
+1. Clique em recursos que pretende ver o histórico de auditoria para.
+
+1. Clique em **minha auditoria**.
+
+1. Filtre o histórico com uma data predefinida ou um intervalo personalizado.
+
+    ![Atividade de funções pessoais](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Atribuir funções de recursos do Azure no PIM](pim-resource-roles-assign-roles.md)
 - [Aprovar ou recusar pedidos para funções de recursos do Azure no PIM](pim-resource-roles-approval-workflow.md)
-- [Funções incorporadas no Azure](../../role-based-access-control/built-in-roles.md)
+- [Ver o histórico de auditoria para funções de diretório do Azure AD no PIM](pim-how-to-use-audit-log.md)

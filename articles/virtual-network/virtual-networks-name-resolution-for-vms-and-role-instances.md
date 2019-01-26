@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025101"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913169"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
@@ -34,7 +34,7 @@ O tipo de resolução de nomes que utiliza depende de como os seus recursos prec
 > Dependendo do seu cenário, pode querer utilizar a funcionalidade zonas privadas do DNS do Azure, que está atualmente em pré-visualização pública. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
 >
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nomes entre as VMs localizadas na mesma rede virtual ou serviços Cloud do Azure instâncias de função no mesmo serviço cloud. | [As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou [resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution) |Nome de anfitrião ou FQDN |
 | Resolução de nomes entre VMs nas redes virtuais em diferentes ou instâncias de função nos serviços cloud diferentes. |[As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou, servidores DNS geridos pelo cliente reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy do DNS). Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
@@ -195,6 +195,11 @@ Quando estiver a utilizar seus próprios servidores DNS, o Azure fornece a capac
 > 
 
 Quando estiver a utilizar o modelo de implementação Azure Resource Manager, pode especificar servidores DNS para uma rede virtual e uma interface de rede. Para obter detalhes, consulte [gerir uma rede virtual](manage-virtual-network.md) e [gerir uma interface de rede](virtual-network-network-interface.md).
+
+> [!NOTE]
+> Se optar pelo servidor DNS personalizado para a rede virtual, tem de especificar o endereço IP do servidor DNS, pelo menos, um; caso contrário, rede virtual irá ignorar a configuração e utilização do DNS fornecida pelo Azure em vez disso.
+> 
+> 
 
 Quando estiver a utilizar o modelo de implementação clássica, pode especificar servidores DNS para a rede virtual no portal do Azure ou o [ficheiro de configuração de rede](https://msdn.microsoft.com/library/azure/jj157100). Serviços cloud, pode especificar servidores DNS via o [ficheiro de configuração de serviço](https://msdn.microsoft.com/library/azure/ee758710) ou com o PowerShell, com [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 

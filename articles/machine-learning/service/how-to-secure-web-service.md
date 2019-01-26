@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: adac36bd0d1798bf0bc9c2e2671c2482c6fcb84c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101211"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076490"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utilizar o SSL para proteger serviços da web com o serviço Azure Machine Learning
 
@@ -37,7 +37,7 @@ Se implementar um serviço web habilitado com SSL ou ativar SSL para o serviço 
 
 4. Atualize o DNS para apontar para o serviço web.
 
-Existem pequenas diferenças quando protegendo serviços da web entre as [destinos de implementação](how-to-deploy-and-where.md). 
+Existem pequenas diferenças quando protegendo serviços da web entre as [destinos de implementação](how-to-deploy-and-where.md).
 
 ## <a name="get-a-domain-name"></a>Obter um nome de domínio
 
@@ -50,7 +50,7 @@ Existem várias formas de obter um certificado SSL. A mais comum é comprar um d
 * R __certificado__. O certificado tem de conter a cadeia de certificados completa e tem de ser PEM codificado.
 * R __chave__. A chave tem de ser PEM codificado.
 
-Quando pedir um certificado, tem de fornecer o nome de domínio completamente qualificado (FQDN) do endereço que pretende utilizar para o serviço web. Por exemplo, www.contoso.com. O endereço marcados para o certificado e o endereço utilizado pelos clientes são comparados ao validar a identidade do serviço web. Se os endereços não corresponderem, os clientes irão receber um erro. 
+Quando pedir um certificado, tem de fornecer o nome de domínio completamente qualificado (FQDN) do endereço que pretende utilizar para o serviço web. Por exemplo, www.contoso.com. O endereço marcados para o certificado e o endereço utilizado pelos clientes são comparados ao validar a identidade do serviço web. Se os endereços não corresponderem, os clientes irão receber um erro.
 
 > [!TIP]
 > Se a autoridade de certificação não é possível fornecer o certificado e chave, como ficheiros PEM codificado, pode utilizar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
@@ -60,25 +60,25 @@ Quando pedir um certificado, tem de fornecer o nome de domínio completamente qu
 
 ## <a name="enable-ssl-and-deploy"></a>Ativar o SSL e implementar
 
-Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o `ssl_enabled` parâmetro `True`, sempre que aplicável. Definir o `ssl_certificate` parâmetro para o valor da __certificado__ ficheiro e o `ssl_key` para o valor da __chave__ ficheiro. 
+Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o `ssl_enabled` parâmetro `True`, sempre que aplicável. Definir o `ssl_certificate` parâmetro para o valor da __certificado__ ficheiro e o `ssl_key` para o valor da __chave__ ficheiro.
 
 + **Implementar no serviço Kubernetes do Azure (AKS)**
-  
+
   Durante o aprovisionamento do cluster do AKS, fornece valores para parâmetros relacionados com SSL, conforme mostrado no fragmento de código:
 
     ```python
     from azureml.core.compute import AksCompute
-    
+
     provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
 + **Implementar no Azure Container Instances (ACI)**
- 
+
   Durante a implementação no ACI, fornece valores para parâmetros relacionados com SSL, conforme mostrado no fragmento de código:
 
     ```python
     from azureml.core.webservice import AciWebservice
-    
+
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
@@ -88,17 +88,17 @@ Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o 
 
     ```python
     from amlrealtimeai import DeploymentClient
-    
+
     subscription_id = "<Your Azure Subscription ID>"
     resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your AzureML Model Management Account Name>"
+    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
     location = "eastus2"
-    
+
     model_name = "resnet50-model"
     service_name = "quickstart-service"
-    
+
     deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-    
+
     with open('cert.pem','r') as cert_file:
         with open('key.pem','r') as key_file:
             cert = cert_file.read()
@@ -110,17 +110,17 @@ Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o 
 
 Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
-+ **Para o ACI e FPGA**:  
++ **Para o ACI e FPGA**:
 
-  Utilize as ferramentas fornecidas pelo sua entidade de registo de nome de domínio para atualizar o registo DNS para o seu nome de domínio. O registo tem de apontar para o endereço IP do serviço.  
+  Utilize as ferramentas fornecidas pelo sua entidade de registo de nome de domínio para atualizar o registo DNS para o seu nome de domínio. O registo tem de apontar para o endereço IP do serviço.
 
   Consoante a entidade de registo e a hora para live (TTL) configurada para o nome de domínio, pode demorar vários minutos a várias horas para que os clientes podem resolver o nome de domínio.
 
-+ **Para o AKS**: 
++ **Para o AKS**:
 
   Atualize o DNS no separador "Configuração" das "Endereço IP público" do cluster AKS conforme mostrado na imagem. Pode encontrar o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
-  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning service: Protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

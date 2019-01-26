@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f5d51a0e806f132cea94e00e04255bb325cc560
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904527"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077460"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -57,6 +57,9 @@ R. O Data Box é suportado em todas as regiões dos E.U.A., da Europa Ocidental,
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>P. Quem devo contactar se me deparar com problemas com o Data Box?
 R. Se se deparar com problemas com o Data Box, contacte o [Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
+
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>P. Posso ter perdido meu Data Box. Existe um custo de dispositivo perdido?
+R. Sim. Existe uma cobrança de dispositivo perdido ou danificado. Esta cobrança é abordada o [página de preços](https://azure.microsoft.com/pricing/details/storage/databox/) e na [produto termos de serviço](https://www.microsoft.com/licensing/product-licensing/products).
 
 
 ## <a name="order-device"></a>Encomendar dispositivo

@@ -16,12 +16,12 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962186"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076796"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamento da capacidade de computação do Azure Stack
 O [tamanhos VM suportados no Azure Stack](./user/azure-stack-vm-sizes.md) são um subconjunto desses suportado no Azure. Azure impõe limites de recursos ao longo de muitos vetores para evitar o consumo excessivo de recursos (servidor local e o nível de serviço). Sem gerar alguns limites no consumo de inquilino, as experiências de inquilino irão afetado quando outros inquilinos overconsume recursos. Para funcionamento em rede de saída da VM, existem limites de largura de banda no local no Azure Stack que correspondem a limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico consumo excessivo de recursos por inquilinos para acesso de armazenamento.  
@@ -29,10 +29,7 @@ O [tamanhos VM suportados no Azure Stack](./user/azure-stack-vm-sizes.md) são u
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Colocação de VMS e núcleo virtual físico para aprovisionar em excesso
 No Azure Stack, não é possível para um inquilino especificar um servidor específico para utilizar para a colocação de VM. A única preocupação quando a colocação de VMs é se existe memória suficiente no anfitrião para esse tipo VM. O Azure Stack não confirmar em excesso memória; No entanto, é permitido um overcommit do número de núcleos. Uma vez que os algoritmos de posicionamento não observar o existente para a taxa de excesso de núcleos físicos como um fator virtual, cada anfitrião pode ter um rácio diferente. 
 
-No Azure, para assegurar elevada disponibilidade de um sistema de produção de várias VMS, as VMs são colocadas num conjunto de disponibilidade para serem distribuídos por vários domínios de falha. Isso significaria que VMs colocadas num conjunto de disponibilidade estão fisicamente isoladas umas das outras num bastidor para permitir para resiliência de falha, conforme mostrado no diagrama seguinte:
-
-![Domínios de falha e atualização](media/azure-stack-capacity-planning/domains.png)
-
+No Azure, para assegurar elevada disponibilidade de um sistema de produção de várias VMS, as VMs são colocadas num conjunto de disponibilidade para serem distribuídos por vários domínios de falha. No Azure Stack, um domínio de falha num conjunto de disponibilidade é definido como um único nó a unidade de escala.
 
 Enquanto a infraestrutura do Azure Stack é resiliente a falhas, a tecnologia subjacente (clustering de ativação pós-falha) ainda incorre num período de indisponibilidade para as VMs num servidor físico afetado em caso de falha de hardware. Atualmente, o Azure Stack suporta ter um conjunto de disponibilidade com um máximo de três domínios de falha para ser consistente com o Azure. Serão fisicamente isoladas umas das outras VMs colocadas num conjunto de disponibilidade ao propagá-los de forma mais uniforme possível através de vários domínios de falha (nós do Azure Stack). Se houver uma falha de hardware, VMs a partir do domínio de falha com falha irão ser reiniciadas nos outros nós, mas, se possível, mantidas em domínios de falha de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware estiver online novamente, as VMs vão ser reequilibradas para manter uma elevada disponibilidade.
 

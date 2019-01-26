@@ -8,7 +8,7 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20
 
 Pode desenvolver um modelo preditivo e implementá-la como um serviço web do Azure ao utilizar:
 - Azure Machine Learning Studio.
-- Ferramentas como o R ou Python. 
+- Ferramentas como o R ou Python.
 
 Depois disso, pode acessar o modelo operacionalizado com uma API de REST.
 
@@ -23,10 +23,10 @@ Modelos de aplicações web disponíveis no Azure Marketplace, podem criar uma a
 
 Dois modelos estão disponíveis:
 
-* [Modelo de aplicação Web de serviço do Azure ML de solicitação-resposta](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Modelo de aplicação de Web de serviço de execução de lote do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [O Azure Machine Learning studio modelo de aplicação de Web de serviço de solicitação-resposta](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [O Azure Machine Learning studio modelo de aplicação de Web de serviço de execução de Batch](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Cada modelo cria um exemplo de aplicação de ASP.NET com o URI de API e a chave para o seu serviço web. O modelo, em seguida, implementa a aplicação como um Web site para o Azure. 
+Cada modelo cria um exemplo de aplicação de ASP.NET com o URI de API e a chave para o seu serviço web. O modelo, em seguida, implementa a aplicação como um Web site para o Azure.
 
 O modelo de serviço de solicitação-resposta (RRS) cria uma aplicação web que pode utilizar para enviar uma única linha de dados para o serviço web para obter um resultado único. O modelo de serviço de execução de lote (BES) cria uma aplicação web que pode utilizar para enviar o número de linhas de dados para obter vários resultados.
 
@@ -51,33 +51,33 @@ Siga estas etapas para usar o modelo de aplicativo de web RRS, conforme mostrado
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **New**, procure e selecione **aplicação de Web do serviço de solicitação-resposta do Azure ML**e, em seguida, selecione **criar**. 
+2. Selecione **New**, procure e selecione **aplicação de Web do serviço de solicitação-resposta do Azure ML**e, em seguida, selecione **criar**.
 3. Na **criar** painel:
-   
+
    * Dê um nome exclusivo ao seu aplicativo web. O URL da aplicação web será este nome seguido **. azurewebsites.net**. Um exemplo é **http://carprediction.azurewebsites.net**.
    * Selecione a subscrição do Azure e serviços na qual o seu serviço web está a ser executada.
    * Selecione **Criar**.
-     
+
    ![Criar aplicação Web][image5]
 
 4. Quando o Azure tiver concluído a implementação da aplicação web, selecione o **URL** nas definições da aplicação web página no Azure, ou introduza o URL num navegador da web. Por exemplo, introduza **http://carprediction.azurewebsites.net**.
 5. Quando a aplicação web é executada pela primeira vez, ele solicita que para o **URL de publicação de API** e **chave de API**. Introduza os valores que guardou anteriormente (solicitar chave do URI e a API, respectivamente). Selecione **submeter**.
-     
+
    ![Após introduzir chave de URI e a API][image6]
 
 6. A aplicação de web apresenta seus **configuração da aplicação Web** página com as definições do serviço web atual. Aqui pode efetuar alterações às definições de que a aplicação web utiliza.
-   
+
    > [!NOTE]
    > Alterar as configurações só podem ser alterados-los para esta aplicação web. Ele não altera as configurações padrão do seu serviço web. Por exemplo, se alterar o texto na **Descrição** aqui, ele não altera a descrição apresentada no dashboard do serviço web no Machine Learning Studio.
-   > 
-   > 
-   
+   >
+   >
+
     Quando tiver terminado, selecione **guardar alterações**e, em seguida, selecione **vá para a Home Page**.
 
 7. Na home page, pode introduzir valores para enviar ao seu serviço web. Selecione **submeter** quando tiver terminado, e o resultado será devolvido.
@@ -93,11 +93,11 @@ Os valores de entrada para um web service de execução do batch podem vir de ar
 
 ![Processo para utilizar o modelo de web BES][image2]
 
-1. Siga o mesmo procedimento para criar a aplicação de web BES como para o modelo RRS. Mas nesse caso, aceda a [modelo de aplicação ao Web do serviço de execução do Azure ML Batch](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir o modelo de BES no Azure Marketplace. Selecione **Criar aplicação Web**.
+1. Siga o mesmo procedimento para criar a aplicação de web BES como para o modelo RRS. Mas nesse caso, aceda a [modelo de aplicação de Web de serviço de execução de lote do Azure Machine Learning studio](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir o modelo de BES no Azure Marketplace. Selecione **Criar aplicação Web**.
 
 2. Para especificar onde pretende que os resultados armazenados, introduza as informações de contentor de destino na home page da aplicação web. Também especificar em que a aplicação web pode obter os valores de entrada: num arquivo local ou num contentor de armazenamento do Azure.
    Selecione **submeter**.
-   
+
    ![Informações de armazenamento][image7]
 
 A aplicação web apresenta uma página com o estado da tarefa. Quando a tarefa é concluída, obtém a localização dos resultados no armazenamento de Blobs do Azure. Tem também a opção de transferir os resultados num ficheiro local.

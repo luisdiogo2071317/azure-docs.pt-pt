@@ -4,13 +4,13 @@ services: machine-learning ms.service: machine-learning ms.component: studio 
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importar dados para o Azure Machine Learning Studio a partir de origens de dados online 
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importar dados para o Azure Machine Learning Studio a partir de origens de dados online
 Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
 
 > [!NOTE]
 > Este artigo fornece informações gerais sobre o [importar dados] [ import-data] módulo. Para obter mais informações sobre os tipos de dados pode aceder, formatos, parâmetros e respostas a perguntas comuns, consulte o tópico de referência de módulo para o [importar dados] [ import-data] módulo.
-> 
-> 
+>
+>
 
 ## <a name="introduction"></a>Introdução
 Ao utilizar o [importar dados] [ import-data] módulo, pode acessar dados de uma das várias origens de dados online durante a execução sua experimentação [Azure Machine Learning Studio](https://studio.azureml.net/Home):
@@ -29,14 +29,14 @@ Para aceder a origens de dados online na sua experimentação do Studio, adicion
 Tenha em atenção que uma vez que estes dados de treinamento são acedidos durante a execução de sua experiência, só está disponível desse experimento. Por comparação, os dados que tenham sido armazenados num módulo de conjunto de dados estão disponíveis para qualquer experimentação na sua área de trabalho.
 
 > [!IMPORTANT]
-> Atualmente, o [importar dados] [ import-data] e [exportar dados] [ export-data] módulos podem ler e escrever dados apenas a partir de armazenamento do Azure criado com clássica modelo de implementação. Em outras palavras, o novo tipo de conta de armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento frequente ou de uma camada de acesso de armazenamento esporádico não ainda é suportado. 
-> 
-> Em geral, as contas de armazenamento do Azure que pode ter criado antes desta opção de serviço se tornar disponível não deve ser afetado. 
-> Se precisar de criar uma nova conta, selecione **clássica** para a implementação de modelo, ou utilizar o Resource manager e selecione **fins gerais** vez **armazenamento de BLOBs** para  **Tipo de conta**. 
-> 
+> Atualmente, o [importar dados] [ import-data] e [exportar dados] [ export-data] módulos podem ler e escrever dados apenas a partir de armazenamento do Azure criado com clássica modelo de implementação. Em outras palavras, o novo tipo de conta de armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento frequente ou de uma camada de acesso de armazenamento esporádico não ainda é suportado.
+>
+> Em geral, as contas de armazenamento do Azure que pode ter criado antes desta opção de serviço se tornar disponível não deve ser afetado.
+> Se precisar de criar uma nova conta, selecione **clássica** para a implementação de modelo, ou utilizar o Resource manager e selecione **fins gerais** vez **armazenamento de BLOBs** para  **Tipo de conta**.
+>
 > Para obter mais informações, consulte [armazenamento de Blobs do Azure: Acesso frequente e esporádico camadas de armazenamento](../../storage/blobs/storage-blob-storage-tiers.md).
-> 
-> 
+>
+>
 
 ## <a name="supported-online-data-sources"></a>Origens de dados online suportadas
 O Azure Machine Learning **importar dados** módulo suporta as seguintes origens de dados:
@@ -53,7 +53,7 @@ O Azure Machine Learning **importar dados** módulo suporta as seguintes origens
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Implantando serviços de web do Azure ML que utilizam módulos importar dados e exportação de dados](web-services-that-use-import-export-modules.md)
+[Implementar serviços web do Azure Machine Learning studio que utilizam a importação de dados e módulos de exportação de dados](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

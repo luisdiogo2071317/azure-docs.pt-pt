@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247269"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913177"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorizar aplicações no serviço de aplicações do Azure
 [Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade interna de monitorização para aplicações web, móveis back-ends e aplicações API no [portal do Azure](https://portal.azure.com).
@@ -73,19 +73,37 @@ Para uma aplicação, as métricas disponíveis são:
 | --- | --- |
 | **Tempo médio de resposta** | O tempo médio despendido para a aplicação atender a solicitações, em milissegundos. |
 | **Conjunto de trabalho de memória média** | A quantidade média de memória utilizada pela aplicação, em megabytes (MiB). |
+| **Ligações** | O número de sockets vinculadas existentes na área de segurança (w3wp.exe e os processos filho).  Um soquete vinculado é criado chamando bind()/connect() APIs e permanece até que disse soquete é fechado com CloseHandle()/closesocket(). |
 | **Tempo de CPU** | A quantidade de CPU consumida pela aplicação, em segundos. Para obter mais informações sobre esta métrica, consulte [percentagem de CPU do vs de tempo de CPU](#cpu-time-vs-cpu-percentage). |
+| **Assemblagens actuais** | O número atual de Assemblies carregados em todos os AppDomains nesta aplicação. |
 | **Dados em** | A quantidade de largura de banda de entrada consumida pela aplicação, no MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pela aplicação, no MiB. |
-| **2xx de HTTP** | Contagem de pedidos, resultando num código de estado HTTP ≥ 200 mas < 300. |
+| **Coletas de Gen 0** | O número de vezes que os objetos de geração 0 são lixo coletado desde o início do processo de aplicação. GCs de geração superior incluem todos os GCs de geração inferior.|
+| **Coletas de lixo da geração 1** | O número de vezes que os objetos de geração 1 são lixo coletado desde o início do processo de aplicação. GCs de geração superior incluem todos os GCs de geração inferior.|
+| **Coletas de lixo da geração 2** | O número de vezes que os objetos de geração 2 são lixo coletado desde o início do processo de aplicação.|
+| **Contagem de identificadores** | O número total de identificadores atualmente abertas pelo processo de aplicação.|
+| **Http 2xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 200 mas < 300. |
 | **Http 3xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 300 mas < 400. |
 | **HTTP 401** | Contagem de pedidos, resultando em código de estado HTTP 401. |
 | **HTTP 403** | Contagem de pedidos, resultando em código de estado HTTP 403. |
 | **HTTP 404** | Contagem de pedidos, resultando em código de estado de HTTP 404. |
-| **HTTP 406** | Contagem de pedidos, resultando em código de estado HTTP 406. |
+| **Http 406** | Contagem de pedidos, resultando em código de estado HTTP 406. |
 | **Http 4xx** | Contagem de pedidos, resultando num código de estado HTTP ≥ 400 mas < 500. |
 | **Erros de servidor HTTP** | Contagem de pedidos, resultando num código de estado HTTP ≥ 500 mas < 600. |
+| **E/s outros Bytes por segundo** | A velocidade a que o processo de aplicação está a emitir bytes para operações de e/s não envolvem dados, como operações de controle.|
+| **E/s outras operações por segundo** | A velocidade a que o processo de aplicação está a emitir operações de e/s que não são de leitura nem operações de escrita.|
+| **Bytes de leitura de e/s por segundo** | A velocidade a que o processo de aplicação é leitura de bytes de operações de e/s.|
+| **Operações de leitura de e/s por segundo** | A taxa a que o processo de aplicação está a emitir a operações de e/s de leitura.|
+| **Bytes por segundo de escrita de e/s** | A velocidade a que o processo de aplicação está a escrever bytes para operações de e/s.|
+| **Operações por segundo de escrita de e/s** | A velocidade a que o processo de aplicação está a emitir operações de e/s de escrita.|
 | **Conjunto de trabalho de memória** | A quantidade atual de memória utilizada pela aplicação, no MiB. |
+| **Bytes privados** | Bytes privados é o tamanho atual, em bytes, da memória que atribuiu o processo de aplicação que não pode ser compartilhada com outros processos.|
 | **Pedidos** | O número total de pedidos, independentemente do seu código de estado HTTP resultante. |
+| **Pedidos na fila de aplicação** | O número de pedidos na fila de pedido de aplicação.|
+| **Contagem de threads** | O número de threads atualmente ativos no processo de aplicação.|
+| **Domínios de aplicação totais** | O número atual de AppDomains carregados nesta aplicação.|
+| **Domínios de aplicação totais descarregados** | O número total de AppDomains descarregado desde o início do aplicativo.|
+
 
 Para um plano de serviço de aplicações, as métricas disponíveis são:
 

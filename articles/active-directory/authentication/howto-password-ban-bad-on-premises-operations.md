@@ -3,19 +3,19 @@ title: Operações do pré-visualização de proteção de palavra-passe do Azur
 description: Operações do Azure AD palavra-passe proteção pré-visualização pós-implementação e relatórios
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: c19275f096191a2d55c939cbc9b76e7ffc6e1b8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8d7002a014fc6cfab1888a6bc97c0f864de1d99d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424443"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080876"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Pré-visualização: O Azure AD palavra-passe proteção procedimentos operacionais
 

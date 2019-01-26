@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822879"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913313"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Registos de fluxo do grupo de segurança de rede visualizing com o Power BI
 
@@ -46,7 +46,7 @@ O modelo fornecido é editável para que possa modificá-lo para adicionar novos
 
 ## <a name="setup"></a>Configurar
 
-Antes de começar, tem de ter a rede segurança grupo fluxo o registo ativado num ou vários grupos de segurança de rede na sua conta. Para obter instruções sobre como ativar a segurança de rede de registos de fluxo, veja o artigo seguinte: [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
+Antes de começar, tem de ter a rede segurança grupo fluxo o registo ativado num ou vários grupos de segurança de rede na sua conta. Para obter instruções sobre como ativar os registos de fluxo de segurança de rede, consulte o artigo seguinte: [Introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
 
 Também tem de ter o cliente do Power BI Desktop instalado no seu computador e o espaço livre suficiente no seu computador para transferir e carregar os dados de registo que exista na sua conta de armazenamento.
 
@@ -123,7 +123,7 @@ Fique à vontade personalizar este modelo para as suas necessidades. Existem vá
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Saiba como visualizar os seus registos de fluxo do NSG com a pilha de Elastick visitando [os registos de fluxo de NSG de observador de rede do Azure visualizar utilizando ferramentas open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Saiba como visualizar os seus registos de fluxo NSG com a pilha elástica, visite a página [os registos de fluxo de NSG de observador de rede do Azure visualizar utilizando ferramentas open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

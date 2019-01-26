@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7df9086fa5ffc6273a6cb063bdee3cfdfa73e34
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7852ff20a7f6528546063365ede10ad5536319a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013320"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079142"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Utilizar o Visual Studio Code para preparar e implementar modelos de machine learning
 
@@ -45,15 +45,15 @@ Esta extensão oferece suporte a vários destinos de computação remota diferen
 
 1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. É apresentada a barra lateral do Azure Machine Learning.
 
-2. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. Na imagem animada, o nome da subscrição é "Versão de avaliação" e a área de trabalho é 'TeamWorkspace'. 
+2. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. Na imagem animada, o nome da subscrição é "Versão de avaliação" e a área de trabalho é 'TeamWorkspace'.
 
 3. Sob o nó de área de trabalho, clique com botão direito a **computação** nó e escolha **criar computação**.
 
-4. Escolha o tipo de destino de computação da lista. 
+4. Escolha o tipo de destino de computação da lista.
 
 5. Na paleta de comandos, selecione um tamanho de Máquina Virtual.
 
-6. Na paleta de comandos, introduza um nome para o destino de computação no campo. 
+6. Na paleta de comandos, introduza um nome para o destino de computação no campo.
 
 7. Especifique quaisquer propriedades avançadas no ficheiro de configuração JSON que se abre num novo separador. Pode especificar as propriedades, como uma contagem máxima de nós....
 
@@ -63,12 +63,12 @@ Eis um exemplo para a criação de uma computação do Azure Machine Learning (A
 
 #### <a name="the-run-configuration-file"></a>O ficheiro de configuração de execução
 
-A extensão do VS Code criará automaticamente um destino de computação local e executar configurações para a sua **local** e **docker** ambientes no seu computador local. Os ficheiros de configuração de execução podem ser encontrados no destino de computação associado. 
+A extensão do VS Code criará automaticamente um destino de computação local e executar configurações para a sua **local** e **docker** ambientes no seu computador local. Os ficheiros de configuração de execução podem ser encontrados no destino de computação associado.
 
 Este é um trecho do arquivo de configuração de execução local padrão. Por predefinição, `userManagedDependencies: True` para que tem de instalar todas as suas bibliotecas/dependências por conta própria e, em seguida, execuções da experimentação local irão utilizar o seu ambiente de Python padrão como especificado pela extensão do VS código Python.
 
 ```yaml
-# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that Azure Machine Learning service will manage the user environment.
     userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
@@ -84,19 +84,19 @@ Este é um trecho do arquivo de configuração de execução local padrão. Por 
 
 ## <a name="train-and-tune-models"></a>Dar formação e otimizar modelos
 
-Utilize o Azure Machine Learning para o VS Code (pré-visualização) para rapidamente reanalisa o seu código, siga os passos e depurar e utilizar a solução de controlo de código de origem à escolha. 
+Utilize o Azure Machine Learning para o VS Code (pré-visualização) para rapidamente reanalisa o seu código, siga os passos e depurar e utilizar a solução de controlo de código de origem à escolha.
 
 **Para executar localmente a sua experimentação com o Azure Machine Learning:**
 
 1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. É apresentada a barra lateral do Azure Machine Learning.
 
-1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. 
+1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning.
 
-1. Sob o nó de área de trabalho, expanda o **de computação** nó e o botão direito do mouse sobre o **executar configuração** de computação que pretende utilizar. 
+1. Sob o nó de área de trabalho, expanda o **de computação** nó e o botão direito do mouse sobre o **executar configuração** de computação que pretende utilizar.
 
 1. Selecione **execute experimentação**.
 
-1. Selecione o script a executar a partir do Explorador de ficheiros. 
+1. Selecione o script a executar a partir do Explorador de ficheiros.
 
 1. Clique em **veja a execução da experimentação** para ver o portal do Azure Machine Learning integrado para monitorizar as execuções e ver os modelos de formação.
 
@@ -120,13 +120,13 @@ name: project_environment
 dependencies:
   # The python interpreter version.
 
-  # Currently Azure ML only supports 3.5.2 and later.
+  # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
 - tensorflow
 
 - pip:
-    # Required packages for AzureML execution, history, and data preparation.
+    # Required packages for Azure Machine Learning service execution, history, and data preparation.
 
   - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
@@ -138,15 +138,15 @@ dependencies:
 
 1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. É apresentada a barra lateral do Azure Machine Learning.
 
-1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. 
+1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning.
 
-1. Com o botão direito no seu script de python na janela do editor e selecione **AML: Executar como experimentação no Azure**. 
+1. Com o botão direito no seu script de python na janela do editor e selecione **AML: Executar como experimentação no Azure**.
 
-1. Na paleta de comandos, selecione o destino de computação. 
+1. Na paleta de comandos, selecione o destino de computação.
 
-1. Na paleta de comandos, introduza o nome de configuração de execução no campo. 
+1. Na paleta de comandos, introduza o nome de configuração de execução no campo.
 
-1. Edite o ficheiro de conda_dependencies.yml para especificar dependências de tempo de execução da experimentação, em seguida, clique em **submeter** no canto inferior direito da tela. 
+1. Edite o ficheiro de conda_dependencies.yml para especificar dependências de tempo de execução da experimentação, em seguida, clique em **submeter** no canto inferior direito da tela.
 
 1. Clique em **veja a execução da experimentação** para ver o portal do Azure Machine Learning integrado para monitorizar as execuções e ver os modelos de formação.
 
@@ -154,7 +154,7 @@ Eis um exemplo para a execução de uma experimentação num destino de computa�
 
 
 ## <a name="deploy-and-manage-models"></a>Implementar e gerir modelos
-O Azure Machine Learning permite implementar e gerir os seus modelos de machine learning na cloud e no edge. 
+O Azure Machine Learning permite implementar e gerir os seus modelos de machine learning na cloud e no edge.
 
 ### <a name="register-your-model-to-azure-machine-learning-from-vs-code"></a>Registar o seu modelo para o Azure Machine Learning a partir do código de VS
 
@@ -169,13 +169,13 @@ Modelos de registado podem ser monitorizados e implementados.
 
 1. Sob o nó de área de trabalho, clique com botão direito **modelos** e escolha **modelo registar**.
 
-1. Na paleta de comandos, introduza um nome de modelo no campo. 
+1. Na paleta de comandos, introduza um nome de modelo no campo.
 
-1. Na lista, escolha se pretende carregar um **ficheiro de modelo** (para modelos de únicos) um **pasta modelo** (para modelos com vários ficheiros, como o Tensorflow). 
+1. Na lista, escolha se pretende carregar um **ficheiro de modelo** (para modelos de únicos) um **pasta modelo** (para modelos com vários ficheiros, como o Tensorflow).
 
 1. Selecione o ficheiro ou pasta.
 
-1. Quando tiver concluído a configurar as propriedades de seu modelo, clique em **submeter** no canto inferior direito da tela. 
+1. Quando tiver concluído a configurar as propriedades de seu modelo, clique em **submeter** no canto inferior direito da tela.
 
 Eis um exemplo para registar o seu modelo de AML: [![Registar um modelo de AML](./media/vscode-tools-for-ai/RegisteringAModel.gif)](./media/vscode-tools-for-ai/RegisteringAModel.gif#lightbox)
 
@@ -184,9 +184,9 @@ Eis um exemplo para registar o seu modelo de AML: [![Registar um modelo de AML](
 
 Utilizar o VS Code, pode implementar o serviço web para:
 + Instância de contentor do Azure (ACI): para fins de teste
-+ O Azure Kubernetes Service (AKS): para produção 
++ O Azure Kubernetes Service (AKS): para produção
 
-Não é necessário criar um contentor do ACI para testar com antecedência, uma vez que são criados dinamicamente. No entanto, os clusters do AKS é necessário ser configurado com antecedência. 
+Não é necessário criar um contentor do ACI para testar com antecedência, uma vez que são criados dinamicamente. No entanto, os clusters do AKS é necessário ser configurado com antecedência.
 
 Saiba mais sobre [implementação com o Azure Machine Learning](how-to-deploy-and-where.md) em geral.
 
@@ -200,9 +200,9 @@ Saiba mais sobre [implementação com o Azure Machine Learning](how-to-deploy-an
 
 1. Com o botão direito do modelo que pretende implementar e escolha **implementar o serviço do modelo registado** comando no menu de contexto.
 
-1. Na paleta de comandos, escolha o destino de computação para a implementação da lista. 
+1. Na paleta de comandos, escolha o destino de computação para a implementação da lista.
 
-1. Na paleta de comandos, introduza um nome para este serviço no campo.  
+1. Na paleta de comandos, introduza um nome para este serviço no campo.
 
 1. Na paleta de comandos, prima a tecla Enter no teclado para procurar e selecione o ficheiro de script.
 

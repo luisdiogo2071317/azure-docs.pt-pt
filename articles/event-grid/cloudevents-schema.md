@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755092"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079873"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
@@ -65,13 +65,13 @@ Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 | eventType          | Cadeia   | "com.example.someevent"          | Tipo de ocorrência que tenham acontecido                                   | eventType
 | eventTypeVersion   | Cadeia   | "1.0"                            | A versão do eventType (opcional)                            | dataVersion
 | cloudEventsVersion | Cadeia   | "0.1"                            | A versão da especificação do CloudEvents que utiliza o evento        | *passar por*
-| source             | URI      | "/ mycontext"                     | Descreve o produtor de eventos                                       | tópico #subject
+| source             | URI      | "/mycontext"                     | Descreve o produtor de eventos                                       | topic#subject
 | eventID            | Cadeia   | "1234-1234-1234"                 | ID do evento                                                    | ID
 | eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Timestamp de quando o evento ocorreu (opcional)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
 | contentType        | Cadeia   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
-| Extensões         | Mapa      | {"extA": "vA", "extB", "vB"}  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
-| dados               | Object   | {"objA": "vA", "objB", "vB"}  | O payload do evento (opcional)                                       | dados
+| Extensões         | Mapa      | { "extA": "vA", "extB", "vB" }  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
+| dados               | Object   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados
 
 Para obter mais informações, consulte a [especificação do CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

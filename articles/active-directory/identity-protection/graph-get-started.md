@@ -8,40 +8,44 @@ author: MarkusVi
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
-ms.component: conditional-access
+ms.component: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: d1703df524976bac4880975585e9d2e4f8af72fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 335d7638565512502b61c9d3227a85ff6137658f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475276"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912770"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
-Microsoft Graph é o Microsoft unified ponto final de API e a casa dos [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. A primeira API **identityRiskEvents**, permite-lhe consultar o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações de associados. Este artigo permite-lhe começar a consultar esta API. Para uma introdução aprofundada, a documentação completa e acesso para a API do Graph, consulte a [site do Microsoft Graph](https://developer.microsoft.com/graph/).
 
+Microsoft Graph é o Microsoft unified ponto final de API e a casa dos [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. Existem três APIs que expõem as informações sobre utilizadores de risco e inícios de sessão. A primeira API **identityRiskEvents**, permite-lhe consultar o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações de associados. A segunda API, **riskyUsers**, permite-lhe para consultar o Microsoft Graph para obter informações sobre os utilizadores detetados como o risco de proteção de identidade. A API de terceiro **signIn**, permite-lhe consultar o Microsoft Graph para obter informações sobre inícios de sessão do Azure AD com as propriedades específicas relacionadas com o estado de risco, de detalhe e de nível. Este artigo permite-lhe começar com [ligar para o Microsoft Graph](#Connect-to-Microsoft-Graph) e [consultar essas APIs](#Query-the-APIs). Para uma introdução aprofundada, a documentação completa e acesso para a API do Graph, consulte a [site do Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específicas para essas APIs:
+
+* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
+* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
+* [início de sessão da API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+
+
+## <a name="connect-to-microsoft-graph"></a>Ligar para o Microsoft graph
 
 Existem quatro passos para aceder aos dados de proteção de identidade através do Microsoft Graph:
 
 1. Obter o seu nome de domínio.
 2. Crie um novo registo de aplicação. 
-2. Utilize este segredo e algumas outras partes de informações para autenticar para o Microsoft Graph, onde recebe um token de autenticação. 
-3. Utilize este token para fazer pedidos para o ponto final de API e obter dados de proteção de identidade.
+3. Utilize este segredo e algumas outras partes de informações para autenticar para o Microsoft Graph, onde recebe um token de autenticação. 
+4. Utilize este token para fazer pedidos para o ponto final de API e obter dados de proteção de identidade.
 
 Antes de começar, terá de:
 
-- Um inquilino do Azure AD P2
-
-- Privilégios de administrador para criar a aplicação no Azure AD
-
-- O nome de domínio do seu inquilino (por exemplo, contoso.onmicrosoft.com)
+* Privilégios de administrador para criar a aplicação no Azure AD
+* O nome de domínio do seu inquilino (por exemplo, contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Obter o seu nome de domínio 
@@ -52,14 +56,12 @@ Antes de começar, terá de:
    
     ![Criar uma aplicação](./media/graph-get-started/41.png)
 
-3. Clique em **nomes de domínio personalizado**.
 
-    ![Nomes de domínio personalizados](./media/graph-get-started/71.png)
+3. Na **Manage** secção, clique em **propriedades**.
 
-4. Na lista de nomes de domínio, copie o nome de domínio que é sinalizado como primário.
+    ![Criar uma aplicação](./media/graph-get-started/42.png)
 
-    ![Nomes de domínio personalizados](./media/graph-get-started/72.png)
-
+4. Copie o seu nome de domínio.
 
 
 ## <a name="create-a-new-app-registration"></a>Criar um novo registo de aplicação
@@ -79,7 +81,7 @@ Antes de começar, terá de:
 
     a. Na **nome** caixa de texto, escreva um nome para a sua aplicação (por exemplo: AADIP risco API aplicação de eventos).
    
-    b. Como **tipo de aplicação**, selecione **aplicação Web e / ou Web API**.
+    b. Como **tipo**, selecione **aplicação Web e / ou Web API**.
    
     c. Na **URL de início de sessão** caixa de texto, tipo `http://localhost`.
 
@@ -161,7 +163,7 @@ Neste ponto, deve ter:
 
 Para se autenticar, enviar um pedido post para `https://login.microsoft.com` com os seguintes parâmetros no corpo:
 
-- grant_type: "**client_credentials**"
+- grant_type: “**client_credentials**”
 
 -  recurso: "**https://graph.microsoft.com**"
 
@@ -173,7 +175,7 @@ Para se autenticar, enviar um pedido post para `https://login.microsoft.com` com
 Se tiver êxito, esta ação devolve um token de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
-    `Authorization`="<token_type> <access_token>"
+    `Authorization`=”<token_type> <access_token>"
 
 
 Durante a autenticação, pode encontrar o tipo de token e o token de acesso no token retornado.
@@ -213,13 +215,44 @@ Basta adicione o seu ID de cliente, a chave secreta e o domínio de inquilino.
         Write-Host "ERROR: No Access Token"
     } 
 
+## <a name="query-the-apis"></a>As APIs de consulta
 
-## <a name="next-steps"></a>Passos Seguintes
+Essas três APIs proporcionam diversas oportunidades para obter informações sobre utilizadores de risco e inícios de sessão na sua organização. Seguem-se alguns casos de utilização comuns para essas APIs e os pedidos de exemplo associado. Pode executar essas consultas usando o código de exemplo acima, ou utilizando [API do Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
+
+### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Obter os eventos de alto risco e de médio risco (identityRiskEvents API)
+
+Eventos de médios e alto risco representam os que pode ter a capacidade de Acionador de início de sessão no Identity Protection ou políticas de risco de utilizador. Uma vez que eles têm uma probabilidade média ou alta que o utilizador tentar iniciar sessão não é o proprietário legítimo de identidade, corrigir esses eventos deve ser uma prioridade. 
+
+```
+GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
+```
+
+### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Obter todos os utilizadores que são passados com êxito um desafio MFA acionado pela política de inícios de sessão arriscados (riskyUsers API)
+
+Para compreender o impacto de proteção de identidade baseado no risco políticas têm na sua organização pode consultar todos os utilizadores que são passados com êxito um desafio MFA acionado por uma política de risco de inícios de sessão. Estas informações podem ajudar a compreender que os utilizadores Identity Protection tenha incorretamente detetado em como o risco e quais dos usuários legítimos poderão estar a executar ações que a IA considera duvidoso.
+
+```
+GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+```
+
+### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Obter todo os risco inícios de sessão para um utilizador específico (início de sessão da API)
+
+Quando considerar que um utilizador poderá ter sido comprometido, possa entender melhor o estado dos seus riscos ao recuperar todos os inícios de sessão arriscados. 
+```
+https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
+```
+
+
+
+
+# <a name="next-steps"></a>Passos Seguintes
 
 Parabéns, acabou de criar a primeira chamada para o Microsoft Graph!  
 Agora pode consultar os eventos de risco de identidade e utilizar os dados, no entanto, o que considere adequado.
 
-Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://developer.microsoft.com/graph/docs) e muito mais sobre o [site do Microsoft Graph](https://developer.microsoft.com/graph/). Além disso, certifique-se aos Favoritos para o [API do Azure AD Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) página que apresenta uma lista de todas as APIs de proteção de identidade disponíveis no gráfico. À medida que adicionamos novas formas de trabalhar com a proteção de identidade através da API, irá vê-los nessa página.
+
+Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://graph.microsoft.io/docs) e muito mais sobre o [site do Microsoft Graph](https://graph.microsoft.io/). 
+
 
 Para obter informações relacionadas, consulte:
 
@@ -232,4 +265,3 @@ Para obter informações relacionadas, consulte:
 - [Descrição Geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
 
 - [Raiz de serviço do Azure AD Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
-

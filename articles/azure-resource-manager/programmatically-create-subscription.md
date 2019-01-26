@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6a4dedc2478b2f8c5fa754e3736dbfb983cfb7a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715895"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079822"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)
 
@@ -75,10 +75,10 @@ Azure responde com uma lista de todas as contas de inscrição que tem acesso a:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize o [comando Get-AzureRmEnrollmentAccount](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) para listar todas as contas de inscrição tiver acesso a.
+Utilize o [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet para listar todas as contas de inscrição que tem acesso.
 
 ```azurepowershell-interactive
-Get-AzureRmEnrollmentAccount
+Get-AzEnrollmentAccount
 ```
 
 Azure responde com uma lista os endereços de e-mail e IDs de objeto de contas.
@@ -161,24 +161,24 @@ Em resposta, recebe um `subscriptionOperation` objeto para monitorização. Quan
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para utilizar este módulo de pré-visualização, instale-o executando `Install-Module AzureRM.Subscription -AllowPrerelease` primeiro. Para se certificar `-AllowPrerelease` funciona, instalar uma versão recente do PowerShellGet partir [obter o módulo PowerShellGet](/powershell/gallery/installing-psget).
+Para utilizar este módulo de pré-visualização, instale-o executando `Install-Module Az.Subscription -AllowPrerelease` primeiro. Para se certificar `-AllowPrerelease` funciona, instalar uma versão recente do PowerShellGet partir [obter o módulo PowerShellGet](/powershell/gallery/installing-psget).
 
-Utilize o [New-AzureRmSubscription](/powershell/module/azurerm.subscription) juntamente com `enrollmentAccount` ID como de objeto a `EnrollmentAccountObjectId` parâmetro para criar uma nova subscrição. 
+Utilize o [New-AzSubscription](/powershell/module/az.subscription) juntamente com `enrollmentAccount` ID como de objeto a `EnrollmentAccountObjectId` parâmetro para criar uma nova subscrição. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Não      | Cadeia | O nome a apresentar da subscrição. Se não for especificado, ele é definido como o nome da oferta, como "Microsoft Azure Enterprise."                                 |
 | `OfferType`   | Sim      | Cadeia | A oferta da subscrição. São as duas opções para EA [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (utilização de produção) e [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (programador/teste, tem de ser [ativada com o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Sim       | Cadeia | O ID de objeto do que a subscrição é criada em e cobrada para a conta de inscrição. Este valor é um GUID que obtém da `Get-AzureRmEnrollmentAccount`. |
+| `EnrollmentAccountObjectId`      | Sim       | Cadeia | O ID de objeto do que a subscrição é criada em e cobrada para a conta de inscrição. Este valor é um GUID que obtém da `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Não       | Cadeia | O ID de objeto de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado.  |
 | `OwnerSignInName`    | Não       | Cadeia | O endereço de e-mail de qualquer utilizador que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `OwnerObjectId`.|
 | `OwnerApplicationId` | Não       | Cadeia | O ID de aplicação de qualquer principal de serviço que pretende adicionar como um proprietário do RBAC na subscrição quando é criado. Pode utilizar este parâmetro, em vez de `OwnerObjectId`. Ao utilizar este parâmetro, o principal de serviço tem de ter [acesso de leitura para o diretório](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
-Para ver uma lista completa de todos os parâmetros, consulte [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
+Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription.preview).
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

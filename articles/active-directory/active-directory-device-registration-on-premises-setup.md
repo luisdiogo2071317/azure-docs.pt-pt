@@ -6,7 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248763"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079074"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 
@@ -76,7 +76,7 @@ Este guia assume que tiver configurado o Windows Server Active Directory e tiver
 
 Para implementar o serviço de registo de dispositivos do Azure Active Directory com o seu inquilino do Azure Active Directory, conclua as tarefas da lista de verificação seguintes na ordem. Se uma ligação de referência leva-o para um tópico conceptual, volte a esta lista de verificação depois disso, para que possa prosseguir com as tarefas restantes. Algumas tarefas incluem um passo de validação de cenário que pode ajudar a confirmar se a etapa foi concluída com êxito.
 
-## <a name="part-1-enable-azure-active-directory-device-registration"></a>Parte 1: Registo de dispositivos ativar Azure Active Directory
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>Parte 1: Ativar o registo de dispositivos do Azure Active Directory
 
 Siga os passos da lista de verificação para ativar e configurar o serviço de registo de dispositivos do Azure Active Directory.
 
@@ -93,17 +93,17 @@ Siga os passos da lista de verificação para ativar e configurar o serviço de 
 | Implemente serviços de domínio do Active Directory com as extensões de esquema do Windows Server 2012 R2. Não é necessário atualizar qualquer um dos seus controladores de domínio para o Windows Server 2012 R2. Atualizar o esquema é o único requisito. |[Atualizar o esquema do Active Directory Domain Services](#upgrade-your-active-directory-domain-services-schema) |
 | Dispositivos detetar o serviço do registo de dispositivos do Azure Active Directory, procurando registos DNS conhecidos. Configure o DNS da sua empresa para que os dispositivos possam detetar o serviço do registo de dispositivos do Azure Active Directory. |[Preparar os seus dispositivos de suporte do Active Directory](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: Repetição de escrita ativar dispositivo no Azure AD
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: Ativar a repetição de escrita do dispositivo no Azure AD
 
 | Tarefa | Referência |
 | --- | --- |
 | Concluir a parte dois de "Ativar dispositivo repetição de escrita no Azure AD Connect." Depois de concluir a ele, retornar a este guia. |[Ativar a repetição de escrita do dispositivo no Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
-## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Ativar a autenticação Multifator
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Ativar a multi-factor Authentication
 
 Recomendamos vivamente que configure uma das várias opções para o multi-factor Authentication. Se quiser exigir multi-factor Authentication, consulte [escolher a solução de segurança da multi-factor Authentication para si](authentication/concept-mfa-whichversion.md). Ele inclui uma descrição de cada solução e ligações para ajudar a configurar a solução da sua preferência.
 
-## <a name="part-5-verification"></a>Parte 5: verificação
+## <a name="part-5-verification"></a>Parte 5: Verificação
 
 A implementação está agora concluída e pode experimentar alguns cenários. Utilize as seguintes ligações para experimentar o serviço e se familiarizar com os seus recursos.
 
@@ -158,7 +158,7 @@ No servidor de Federação, abra uma janela de comando do Windows PowerShell e, 
 
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Preparar o Azure AD Connect para a repetição de escrita do dispositivo
 
-Preencha a parte 1: preparar o Azure AD Connect.
+Preencha a parte 1: Preparar o Azure AD Connect.
 
 ## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Associar dispositivos ao seu local de trabalho com o serviço de registo de dispositivos do Azure Active Directory
 
@@ -197,7 +197,7 @@ Por predefinição, os objetos de dispositivo que são escritos de volta do Azur
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Criar uma política de acesso da aplicação e a mensagem de acesso negado personalizada
 
-Considere o seguinte cenário: criar um aplicativo de confiança da entidade Confiadora no AD FS e configurar uma regra de autorização de emissão que permite apenas a dispositivos registados. Agora apenas os dispositivos que estejam registados têm permissão para aceder à aplicação. 
+Considere o seguinte cenário: Criar um aplicativo de confiança da entidade Confiadora no AD FS e configurar uma regra de autorização de emissão que permite apenas a dispositivos registados. Agora apenas os dispositivos que estejam registados têm permissão para aceder à aplicação. 
 
 Para facilitar para os seus utilizadores obter acesso à aplicação, configure uma mensagem de acesso negado personalizada que inclui instruções sobre como associar os seus dispositivos. Agora os utilizadores têm uma forma totalmente integrada para registar os respetivos dispositivos para que possam aceder uma aplicação.
 

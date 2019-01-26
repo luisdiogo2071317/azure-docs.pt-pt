@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 26133dbfe6b8e11128393957c377c1827e0d2a6e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904408"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076507"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -128,6 +128,12 @@ Os utilizadores desativados ou eliminados que não iniciem sessão anteriormente
 
 ---
 
+**P: Por que meus usuários tiverem problemas em dispositivos associados ao Azure AD depois de alterar o respetivo UPN?**
+
+**R:** Atualmente, as alterações UPN totalmente não são suportadas em dispositivos associados ao Azure AD. Portanto, a autenticação com o Azure AD falha depois das alterações UPN. Como resultado, os utilizadores têm o SSO e problemas de acesso condicional nos respetivos dispositivos. Neste momento, os utilizadores têm de iniciar sessão no Windows através do mosaico "Outro utilizador" com o respetivo UPN novo para resolver este problema. Estamos atualmente a trabalhar sobre como solucionar este problema. No entanto, os utilizadores iniciar sessão com o Windows Hello para empresas se deparam este problema. 
+
+---
+
 **P: Os meus utilizadores não consegue pesquisar impressoras a partir de dispositivos associados ao Azure AD. Como posso ativar a impressão a partir desses dispositivos?**
 
 **R:** Para implantar impressoras para o Azure AD associado dispositivos, consulte [implementar o Windows Server Hybrid Cloud Print com pré-autenticação](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). É necessário um servidor de Windows no local para implementar a impressão de cloud híbrida. Atualmente, serviço de impressão baseado na nuvem não está disponível. 
@@ -209,7 +215,15 @@ Este comportamento não é aplicável a qualquer outro utilizador que inicia ses
 
 Associação ao Azure AD híbrido tem precedência sobre o estado do Azure AD registado. Portanto, o dispositivo é considerado associados para qualquer autenticação e a avaliação de acesso condicional do Azure AD híbrido. Pode eliminar em segurança ao registo do dispositivo do Azure AD registado a partir do portal do Azure AD. Aprenda a [evitar ou limpar este estado duplo na máquina do Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**P: Por que meus usuários tiverem problemas em dispositivos do Windows 10 híbridos associados ao Azure AD depois de alterar o respetivo UPN?**
+
+**R:** Atualmente as alterações do UPN não são totalmente suportadas com os dispositivos associados ao Azure AD híbrido. Embora os utilizadores podem iniciar sessão no dispositivo e acesso às suas aplicações no local, a autenticação com o Azure AD falha depois de alterar um UPN. Como resultado, os utilizadores têm o SSO e problemas de acesso condicional nos respetivos dispositivos. Neste momento, precisa desassocie o dispositivo do Azure AD (execute "dsregcmd /leave" com privilégios elevados) e voltar a associar (ocorre automaticamente) para resolver o problema. Estamos atualmente a trabalhar sobre como solucionar este problema. No entanto, os utilizadores iniciar sessão com o Windows Hello para empresas se deparam este problema. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>FAQ de Registro do Azure AD
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 22cb3b908301c298bd7d37f39fbcb1ffa1d0d3ce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b4e784e7d249976b95c5f70986ba007351d2abb4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816998"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076978"
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe profissional ou escolar
 
@@ -32,7 +32,7 @@ Se esqueceu-se a sua palavra-passe, nunca recebeu uma do suporte da empresa, est
 
 Poderá não conseguir aceder à sua conta do Azure Active Directory (Azure AD) devido a uma das seguintes razões:
 
-* A palavra-passe não está a funcionar e se pretender repô-lo.
+* A palavra-passe não está a funcionar e pretende repô-lo.
 * Sabe a palavra-passe, mas sua conta está bloqueada e quiser desbloqueá-lo.
 
 Utilize os seguintes passos para aceder a reposição de palavra-passe self-service do Azure AD (SSPR) e aceder novamente à sua conta.

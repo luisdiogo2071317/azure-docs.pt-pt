@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 90cfb766e98bfa9706cd88342f8374269bc69d76
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478149"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911630"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Restrições de inquilino de utilização para gerir o acesso ao SaaS na nuvem
 
@@ -89,7 +89,7 @@ Esta secção mostra a experiência para os utilizadores finais e os administrad
 
 ### <a name="end-user-experience"></a>Experiência do utilizador final
 
-Um utilizador de exemplo é na rede da Contoso, mas está a tentar aceder à instância da Fabrikam de SaaS aplicação partilhada, como o Outlook online. Se a Contoso é um inquilino não é permitida para essa instância, o utilizador verá a seguinte página:
+Um utilizador de exemplo é na rede da Contoso, mas está a tentar aceder à instância da Fabrikam de SaaS aplicação partilhada, como o Outlook online. Se Fabricam é um inquilino não é permitido para a instância de Contoso, este verá a seguinte página:
 
 ![Acesso negado a página para os utilizadores nos inquilinos não permitido](./media/tenant-restrictions/end-user-denied.png)
 

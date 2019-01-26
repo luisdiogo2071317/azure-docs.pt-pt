@@ -3,19 +3,19 @@ title: Serviço Web da Aplicação Móvel do Servidor MFA do Azure | Microsoft D
 description: Configure o servidor MFA para enviar notificações de push para os utilizadores com a Aplicação Microsoft Authenticator.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 26c227d96c3d951a5140b94a4597a4d76405fe63
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6d14d74e78f99e4969f53521b9a9248ffcd25306
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429213"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077605"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Ativar a autenticação de aplicação móvel com o Servidor Multi-Factor Authentication do Azure
 

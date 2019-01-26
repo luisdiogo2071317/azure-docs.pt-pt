@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fe28eda7571bf95d1e86419f5caf3cf65e4020b3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463342"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078649"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar de Federação para a sincronização de hash de palavra-passe do Azure Active Directory
 
@@ -30,7 +30,8 @@ Os seguintes pré-requisitos são necessários para migrar a partir do AD FS par
 
 ### <a name="update-azure-ad-connect"></a>Atualização do Azure AD Connect
 
-Para concluir com êxito os passos que demora a migrar para utilizar a sincronização de hash de palavra-passe, tem de ter [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 ou uma versão posterior. No Azure AD Connect 1.1.819.0, a forma como a conversão de início de sessão é efetuado alterações significativamente. O tempo geral para migrar do AD FS para autenticação em nuvem nesta versão é reduzido de potencialmente horas e minutos.
+Mínimo para realizar com êxito os passos para migrar para a sincronização de hash de palavra-passe, deverá ter [do Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Esta versão contém alterações significativas na forma como o início de sessão de conversão é executada e reduz o tempo geral para migrar de Federação para autenticação em nuvem de potencialmente horas e minutos.
+
 
 > [!IMPORTANT]
 > Pode ler na documentação desatualizada, ferramentas e blogs que a conversão do utilizador é necessário quando converter domínios de identidades federadas para identidade gerida. *Conversão dos usuários* já não é necessário. Microsoft está trabalhando para atualizar a documentação e ferramentas para refletir esta alteração.

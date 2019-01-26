@@ -3,19 +3,19 @@ title: Obter suporte para colaboração do Azure Active Directory B2B | Document
 description: O que é a experiência de suporte para a colaboração do Azure Active Directory B2B?
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7e1c40af9a3a923d8158b2f333d21b880a07f101
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438563"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073940"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Obter suporte para colaboração B2B
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0d058dc1875c69fe3c582c4d68da81c09ab92fcb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476908"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079712"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: Extensões de diretórios
 Pode utilizar extensões de diretório para expandir o esquema no Azure Active Directory (Azure AD) com seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB ao consumo de atributos que continua a gerir no local. Estes atributos podem ser consumidos por meio [extensões de diretório do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://developer.microsoft.com/graph/). Pode ver os atributos disponíveis utilizando [do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
@@ -42,7 +42,7 @@ A instalação mostra os seguintes atributos, são candidatos válidos:
 
 
 >[!NOTE]
-> Azure AD Connect suporta sincronizar atributos com múltiplos valores do Active Directory para o Azure AD como extensões de diretório com múltiplos valores. Mas não existem recursos no Azure AD atualmente suportam a utilização de extensões de diretório com múltiplos valores.
+> Embora o Azure AD Connect suporta a sincronização do Active Directory com múltiplos valores de atributos para o Azure AD como extensões de diretório com múltiplos valores, não é atualmente possível obter/consumir os dados carregados em atributos de extensão de diretório com múltiplos valores.
 
 A lista de atributos é lidos a partir da cache do esquema que é criada durante a instalação do Azure AD Connect. Se tiver expandido o esquema do Active Directory com atributos adicionais, terá [atualizar o esquema](how-to-connect-installation-wizard.md#refresh-directory-schema) antes destes novos atributos estão visíveis.
 

@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345492"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077256"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: fornecer afirmações opcionais para a sua aplicação do Azure AD (pré-visualização pública)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD (pré-visualização pública)
 
 Esta funcionalidade é utilizada por desenvolvedores de aplicativos para especificar quais as afirmações que desejam nos tokens enviados para a respetiva aplicação. Pode utilizar afirmações opcionais aos:
 - Selecione afirmações adicionais para incluir nos tokens para a sua aplicação.
@@ -37,9 +37,9 @@ Para obter a lista de afirmações padrão e como elas são usadas em tokens, co
 
 Um dos objetivos do [ponto final v2.0 do Azure AD](active-directory-appmodel-v2-overview.md) é tamanhos menores de token para garantir um desempenho ideal pelos clientes. Como resultado, várias afirmações incluídas anteriormente no acesso e tokens de ID já não estão presentes nos tokens de v2.0 e devem ser-lhe pedidas para especificamente numa base por aplicação.
 
-**Tabela 1: aplicabilidade**
+**Tabela 1: Aplicabilidade**
 
-| Tipo de conta | Ponto final V1.0 | Ponto final v2.0  |
+| Tipo de Conta | V1.0 Endpoint | Ponto final v2.0  |
 |--------------|---------------|----------------|
 | Conta Microsoft pessoal  | N/d – pedidos de suporte do RPS são utilizados em vez disso | Suporte a chegar |
 | Conta do Azure AD          | Suportadas                          | Suportado com avisos |
@@ -54,7 +54,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 > [!NOTE]
 > A maioria dessas declarações pode ser incluída numa JWTs para v1.0 e v2.0 tokens, mas não os tokens SAML, exceto em que anotou na coluna de tipo de Token. Além disso, embora afirmações opcionais só são suportadas para utilizadores do AAD atualmente, está a ser adicionado suporte MSA. Quando MSA tem afirmações opcionais no ponto final v2.0 de suporte, a coluna de tipo de utilizador irá indicar se uma afirmação está disponível para um utilizador do AAD ou MSA. 
 
-**Tabela 2: Conjunto de afirmações de opcional padrão**
+**Tabela 2: Conjunto de afirmações opcionais padrão**
 
 | Nome                        | Descrição   | Tipo de token | Tipo de Utilizador | Notas  |
 |-----------------------------|----------------|------------|-----------|--------|
@@ -82,7 +82,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 
 Essas declarações são sempre incluídas na v1.0 tokens, mas não incluídas nos tokens de versão 2.0, a menos que o pedido. Essas declarações apenas são aplicáveis para JWTs (tokens de ID e Tokens de acesso). 
 
-**Tabela 3: Só de V2.0 afirmações opcionais**
+**Tabela 3: Só de v2.0 afirmações opcionais**
 
 | Afirmação do JWT     | Nome                            | Descrição                                | Notas |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -93,7 +93,7 @@ Essas declarações são sempre incluídas na v1.0 tokens, mas não incluídas n
 | `in_corp`     | Rede empresarial interior        | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída.   |       |
 | `nickname`    | Alcunha                        | Um nome adicional para o utilizador, separado do primeiro ou último nome. |       |                                                                                                                |       |
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto de utilizador do Azure AD. <br>"family_name": "Santos" |       |
-| `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Francisco"                   |       |
+| `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Frank"                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de afirmações opcionais
 
@@ -166,7 +166,7 @@ Pode configurar afirmações opcionais para a sua aplicação ao modificar o man
 
 Declara as afirmações opcionais solicitadas por um aplicativo. Um aplicativo pode configurar afirmações opcionais a serem retornados em cada um dos três tipos de tokens (ID token, token, 2 de SAML token de acesso) pode receber do serviço de token de segurança. O aplicativo pode configurar um conjunto diferente de afirmações opcionais a serem retornados em cada tipo de token. A propriedade OptionalClaims da entidade de aplicativo é um objeto de OptionalClaims.
 
-**5 de tabela: Propriedades do tipo de OptionalClaims**
+**Tabela 5: Propriedades do tipo de OptionalClaims**
 
 | Nome        | Tipo                       | Descrição                                           |
 |-------------|----------------------------|-------------------------------------------------------|
@@ -209,7 +209,7 @@ Existem várias opções disponíveis para atualização das propriedades na con
 -   Pode modificar o manifesto do aplicativo. O exemplo abaixo irá utilizar este método para executar a configuração. Leitura a [Noções básicas sobre o documento de manifesto de aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para obter uma introdução para o manifesto.
 -   Também é possível escrever uma aplicação que utiliza a [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar a sua aplicação. O [referência de tipo complexo e entidade](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) na referência do Graph API guia o pode ajudar a configurar as afirmações opcionais.
 
-**Exemplo:** no exemplo abaixo, irá modificar o manifesto de um aplicativo para adicionar afirmações para acesso, o ID e o SAML se destina a aplicação de tokens.
+**Exemplo:** No exemplo abaixo, irá modificar o manifesto de um aplicativo para adicionar afirmações para acesso, o ID e o SAML se destina a aplicação de tokens.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Depois de autenticado, escolha o seu inquilino do Azure AD ao selecioná-la a partir do canto superior direito da página.

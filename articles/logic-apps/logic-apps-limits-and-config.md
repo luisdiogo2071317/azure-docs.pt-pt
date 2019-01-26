@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469754"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912787"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -119,9 +119,9 @@ Para passar destes limites no processamento normal ou executar o teste de carga 
 
 | Nome | Limite | Notas |
 |------|-------|-------|
-| FTP | 50 MB | Exceder este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
-| SFTP | 50 MB | Para exceder este limite, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
-| SFTP-SSH | 1 GB | Este conector manipula até 1 GB, mas que transfere dados em partes de 50 MB, não de 1 GB partes. | 
+| FTP | 50 MB | Para exceder este limite para ações apenas, veja [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: Segmentação não se aplica a acionadores. Além disso, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP | 50 MB | Para exceder este limite para ações apenas, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: Segmentação não se aplica a acionadores. Além disso, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
+| SFTP-SSH | 1 GB | Este conector manipula até 1 GB, mas que transfere dados em partes de 50 MB, não de 1 GB partes. Para exceder este limite para ações apenas, veja [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: Segmentação não se aplica a acionadores. | 
 |||| 
 
 <a name="request-limits"></a>

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354200"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082202"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -5387,7 +5387,7 @@ Tenha em atenção os seguintes pontos:
 - O **tipo** estiver definida como **HDInsightSpark**.
 - O **rootPath** está definida como **adfspark\\pyFiles** onde adfspark é o contentor de Blobs do Azure e pyFiles é uma pasta bem nesse contentor. Neste exemplo, o armazenamento de Blobs do Azure é o que está associado ao cluster do Spark. Pode carregar o ficheiro para um armazenamento do Azure diferente. Se fizer isso, crie um serviço ligado do armazenamento do Azure para ligar essa conta de armazenamento à fábrica de dados. Em seguida, especifique o nome do serviço ligado como um valor para o **sparkJobLinkedService** propriedade. Ver [propriedades de atividade do Spark](#spark-activity-properties) para obter detalhes sobre esta propriedade e outras propriedades compatíveis com a atividade do Spark.
 - O **entryFilePath** está definido para o **test.py**, que é o ficheiro de python.
-- O **getDebugInfo** estiver definida como **sempre**, que significa que os ficheiros de registo são sempre gerado (êxito ou falha).  
+- O **getDebugInfo** estiver definida como **sempre**, que significa que os ficheiros de registo são sempre gerado (êxito ou falha).
 
     > [!IMPORTANT]
     > Recomendamos que não definir esta propriedade para sempre num ambiente de produção, a menos que esteja a resolver um problema.
@@ -5396,13 +5396,13 @@ Tenha em atenção os seguintes pontos:
 Para obter mais informações sobre a atividade, consulte [atividade do Spark](data-factory-spark.md) artigo.
 
 ## <a name="machine-learning-batch-execution-activity"></a>Atividade de Execução em Lote do Machine Learning
-Pode especificar as seguintes propriedades numa definição de JSON de atividade de execução do Azure ML Batch. A propriedade de tipo para a atividade tem de ser: **AzureMLBatchExecution**. Tem de criar uma máquina do Azure pela primeira vez o serviço ligado de aprendizagem e especificar o nome do mesmo como um valor para o **linkedServiceName** propriedade. As seguintes propriedades são suportadas os **typeProperties** secção ao definir o tipo de atividade como AzureMLBatchExecution:
+Pode especificar as seguintes propriedades num definição JSON de atividade de execução de lote do Azure Machine Learning studio. A propriedade de tipo para a atividade tem de ser: **AzureMLBatchExecution**. Tem de criar uma máquina do Azure pela primeira vez o serviço ligado de aprendizagem e especificar o nome do mesmo como um valor para o **linkedServiceName** propriedade. As seguintes propriedades são suportadas os **typeProperties** secção ao definir o tipo de atividade como AzureMLBatchExecution:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-webServiceInput | O conjunto de dados a serem passados como entrada para o serviço web do Azure ML. Este conjunto de dados também deve ser incluído nas entradas para a atividade. |Utilize webServiceInput ou webServiceInputs. |
-webServiceInputs | Especifica os conjuntos de dados a serem passados como entradas para o serviço web do Azure ML. Se o serviço web tem várias entradas, utilize a propriedade webServiceInputs em vez de usar a propriedade webServiceInput. Conjuntos de dados que são referenciados pela **webServiceInputs** também têm de ser incluídos na atividade **entradas**. | Utilize webServiceInput ou webServiceInputs. |
-webServiceOutputs | Os conjuntos de dados que foram atribuídos como saídas para o serviço web do Azure ML. O web service retorna dados de saída este conjunto de dados. | Sim |
+webServiceInput | O conjunto de dados a serem passados como entrada para o serviço de web do Azure Machine Learning studio. Este conjunto de dados também deve ser incluído nas entradas para a atividade. |Utilize webServiceInput ou webServiceInputs. |
+webServiceInputs | Especifica os conjuntos de dados a serem passados como entradas para o serviço de web do Azure Machine Learning studio. Se o serviço web tem várias entradas, utilize a propriedade webServiceInputs em vez de usar a propriedade webServiceInput. Conjuntos de dados que são referenciados pela **webServiceInputs** também têm de ser incluídos na atividade **entradas**. | Utilize webServiceInput ou webServiceInputs. |
+webServiceOutputs | Os conjuntos de dados que foram atribuídos como saídas para o serviço de web do Azure Machine Learning studio. O web service retorna dados de saída este conjunto de dados. | Sim |
 globalParameters | Especifique valores para os parâmetros de serviço web nesta secção. | Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
@@ -5452,7 +5452,7 @@ O exemplo de JSON, o serviço Azure Machine Learning Web implementado utiliza um
 > Apenas entradas e saídas da atividade AzureMLBatchExecution podem ser passadas como parâmetros para o serviço Web. Por exemplo, no fragmento JSON acima, MLSqlInput for uma entrada para a atividade de AzureMLBatchExecution, que é passada como entrada para o serviço Web via parâmetro webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Atividade de Recursos de Atualização de Machine Learning
-Pode especificar as seguintes propriedades numa definição de JSON de atividade do recurso de atualização do Azure ML. A propriedade de tipo para a atividade tem de ser: **AzureMLUpdateResource**. Tem de criar uma máquina do Azure pela primeira vez o serviço ligado de aprendizagem e especificar o nome do mesmo como um valor para o **linkedServiceName** propriedade. As seguintes propriedades são suportadas os **typeProperties** secção ao definir o tipo de atividade como AzureMLUpdateResource:
+Pode especificar as seguintes propriedades num definição JSON de atividade de recursos de atualização do Azure Machine Learning studio. A propriedade de tipo para a atividade tem de ser: **AzureMLUpdateResource**. Tem de criar uma máquina do Azure pela primeira vez o serviço ligado de aprendizagem e especificar o nome do mesmo como um valor para o **linkedServiceName** propriedade. As seguintes propriedades são suportadas os **typeProperties** secção ao definir o tipo de atividade como AzureMLUpdateResource:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
@@ -5460,7 +5460,7 @@ trainedModelName | Nome do modelo retrained. | Sim |
 trainedModelDatasetName | O conjunto de dados que aponte para o ficheiro iLearner devolvido pela operação de reparametrização. | Sim |
 
 ### <a name="json-example"></a>Exemplo de JSON
-O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução de lote do Azure ML usa os dados de treinamento como entrada e produz um ficheiro iLearner como saída. A atividade invoca o serviço web de treinamento (experimentação de preparação exposto como um serviço web) com os dados de entrada de treinamento e recebe o ficheiro ilearner a partir do serviço Web. O placeholderBlob é apenas um dataset de saída fictício que é necessário pelo serviço do Azure Data Factory para executar o pipeline.
+O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. O atividade de execução de lote do Azure Machine Learning studio usa os dados de treinamento como entrada e produz um ficheiro iLearner como saída. A atividade invoca o serviço web de treinamento (experimentação de preparação exposto como um serviço web) com os dados de entrada de treinamento e recebe o ficheiro ilearner a partir do serviço Web. O placeholderBlob é apenas um dataset de saída fictício que é necessário pelo serviço do Azure Data Factory para executar o pipeline.
 
 
 ```json

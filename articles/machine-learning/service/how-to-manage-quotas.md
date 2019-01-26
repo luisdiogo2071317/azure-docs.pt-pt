@@ -11,18 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2f7eeab8f9d2265cf0f6cfa28499a078ba9cb108
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475072"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077374"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 
 Como com outros serviços do Azure, existem limites em certos recursos associados com o serviço Azure Machine Learning. Estes limites de intervalo de um limite no número de áreas de trabalho, pode criar limites na computação subjacente real que é utilizado para treinamento ou inferência seus modelos. Este artigo fornece mais detalhes sobre os limites previamente configurados em vários recursos do Azure para a sua subscrição e também contém ligações úteis para aprimoramentos de quota de pedido para cada tipo de recurso. Estes limites são colocados em vigor para impedir que o orçamento execuções excessiva devido a fraude e que respeite as restrições de capacidade do Azure.
 
-Tenha presentes estas quotas em mente à medida que, design e aumentar verticalmente os recursos do Azure ML para cargas de trabalho de produção. Por exemplo, se o número de destino de nós que especificou não chega ao seu cluster, em seguida, poderá ter atingido um limite de núcleos de computação do Azure Machine Learning para a sua subscrição. Se quiser aumentar o limite ou quota acima do limite predefinido, abra um pedido de suporte do cliente online sem encargos. Os limites não podem ser aumentados acima do valor de limite máximo mostrado nas tabelas seguintes devido a restrições de capacidade do Azure. Se não houver nenhuma coluna de limite máximo, em seguida, o recurso não tem limites ajustável. 
+Tenha presentes estas quotas em mente à medida que, design e aumentar verticalmente os recursos de serviço do Azure Machine Learning para cargas de trabalho de produção. Por exemplo, se o número de destino de nós que especificou não chega ao seu cluster, em seguida, poderá ter atingido um limite de núcleos de computação do Azure Machine Learning para a sua subscrição. Se quiser aumentar o limite ou quota acima do limite predefinido, abra um pedido de suporte do cliente online sem encargos. Os limites não podem ser aumentados acima do valor de limite máximo mostrado nas tabelas seguintes devido a restrições de capacidade do Azure. Se não houver nenhuma coluna de limite máximo, em seguida, o recurso não tem limites ajustável.
 
 ## <a name="special-considerations"></a>Considerações especiais
 
@@ -34,12 +34,12 @@ Tenha presentes estas quotas em mente à medida que, design e aumentar verticalm
 
 ## <a name="default-resource-quotas"></a>Quotas de recursos padrão
 
-Aqui está uma divisão os limites de quota por vários tipos de recursos na sua subscrição do Azure. 
+Aqui está uma divisão os limites de quota por vários tipos de recursos na sua subscrição do Azure.
 
 > [!Important]
 > Limites estão sujeitos a alterações. A versão mais recente sempre pode ser encontrado na quota do nível de serviço [documento](https://docs.microsoft.com/azure/azure-subscription-service-limits/) para todas as do Azure.
 
-### <a name="virtual-machines"></a>Máquinas virtuais 
+### <a name="virtual-machines"></a>Máquinas virtuais
 Existe um limite no número de máquinas virtuais, que pode aprovisionar uma subscrição do Azure em todos os seus serviços ou de forma autónoma. Este limite é no nível de região no total de núcleos e também numa base por família.
 
 É importante enfatizar que núcleos de máquina virtual tem um limite total regional e um regional por limite de série (Dv2, F, etc.) de tamanho são impostos em separado. Por exemplo, considere uma subscrição com um limite total de núcleos de VM na região EUA Leste de 30, um limite de núcleos de série A de 30 e um limite de núcleos de série D de 30. Esta subscrição poderá implementar 30 VMs A1, 30 VMs D1 ou uma combinação de ambas que não excedam um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
@@ -91,8 +91,8 @@ Ver a sua quota para vários recursos, como máquinas virtuais, armazenamento, r
 
 1. Na lista de subscrições, selecione a subscrição cujo quota que procura.
 
-   **Há uma limitação:**, especificamente para ver a quota de computação do Azure Machine Learning. Conforme mencionado acima, esse quota é separada da quota de computação na sua subscrição. 
-   
+   **Há uma limitação:**, especificamente para ver a quota de computação do Azure Machine Learning. Conforme mencionado acima, esse quota é separada da quota de computação na sua subscrição.
+
 1. No painel esquerdo, selecione **serviço Machine Learning** e, em seguida, selecione qualquer área de trabalho na lista apresentada
 
 1. No painel seguinte, sob o **suporte + resolução de problemas de seção** selecionar **utilização + quotas** para ver os limites de quota atual e o uso.

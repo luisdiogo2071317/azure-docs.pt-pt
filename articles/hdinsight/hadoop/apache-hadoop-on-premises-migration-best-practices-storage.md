@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013712"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911749"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de armazenamento
 
@@ -99,24 +99,25 @@ Um recurso fundamental de geração 2 de armazenamento do Data Lake é a adiçã
 
 No passado, análise baseada na cloud tinha de comprometer nas áreas de desempenho, gerenciamento e segurança. Os principais recursos de geração 2 do Azure Data Lake Storage (ADLS) são os seguintes:
 
-- **Acesso compatível do Hadoop**: geração 2 de armazenamento do Azure Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop que estão incluídos na [Azure HDInsight](../index.yml). Este controlador permite-lhe aceder aos dados armazenados na geração 2 de armazenamento do Data Lake.
+- **Acesso compatível do Hadoop**: Geração de armazenamento 2 do Azure Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop que estão incluídos na [Azure HDInsight](../index.yml). Este controlador permite-lhe aceder aos dados armazenados na geração 2 de armazenamento do Data Lake.
 
 - **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake é totalmente compatível permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas por meio de ferramentas de administração ou estruturas como o Hive e do Spark.
 
-- **Custo-eficiência**: geração 2 de armazenamento do Data Lake inclui a capacidade de armazenamento de baixo custo e transações. Como as transições de dados por meio de seu ciclo de vida completo, taxas de faturação, alterar para minimizar os custos por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Custo-eficiência**: Geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como as transições de dados por meio de seu ciclo de vida completo, taxas de faturação, alterar para minimizar os custos por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Funciona com aplicações, estruturas e ferramentas de armazenamento de BLOBs**: geração 2 de armazenamento do Data Lake continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicativos que existem hoje mesmo para o armazenamento de Blobs.
+- **Funciona com aplicações, estruturas e ferramentas de armazenamento de BLOBs**: Geração 2 de armazenamento do Data Lake continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicativos que existem hoje mesmo para o armazenamento de Blobs.
 
-- **Controlador otimizada**: o driver de sistema de ficheiros de Blob do Azure (ABFS) está [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
+- **Controlador otimizada**: O driver de sistema de ficheiros do Azure Blob (ABFS) esteja [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
 
 Um dos formatos seguintes pode ser utilizado para aceder aos dados armazenados no ADLS Gen2:
-- `abfs:///`: O acesso a predefinição de armazenamento do Data Lake para o cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Utilizado ao se comunicar com um armazenamento do Data Lake não predefinido.
+- `abfs:///`: Acesso a predefinição de armazenamento do Data Lake para o cluster.
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Utilizado quando estão a comunicar com um armazenamento do Data Lake não predefinido.
 
 Para obter mais informações, veja os artigos seguintes:
 
 - [Introdução à pré-visualização do Azure Data Lake Storage geração 2](../../storage/data-lake-storage/introduction.md)
 - [O driver de sistema de ficheiros do Azure Blob (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Chaves de armazenamento do Azure seguras na configuração de cluster de Hadoop no local
 
@@ -173,7 +174,7 @@ HDInsight por predefinição tem acesso total aos dados nas contas de armazename
 
 6. Utilize os seguintes valores para o **chave** e **valor** campos:
 
-    **Chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valor**: A chave de SAS devolvido pelo passo FROM da aplicação Python 4 acima.
+    **chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor**: A chave de SAS devolvido pelo passo FROM da aplicação Python 4 acima.
 
 7. Clique nas **Add** botão para guardar esta chave e valor, em seguida, clique nas **guardar** botão para guardar as alterações de configuração. Quando lhe for pedido, adicione uma descrição da alteração ("adicionar acesso do armazenamento SAS" por exemplo) e, em seguida, clique em **guardar**.
 

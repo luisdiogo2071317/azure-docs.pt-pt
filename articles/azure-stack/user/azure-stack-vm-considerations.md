@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651508"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913466"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre a utilização de máquinas virtuais no Azure Stack
 
@@ -104,8 +104,8 @@ A lista de tipos de recurso suportados e as versões de API pode variar se o ope
 
 Produtos do Windows tem de ser utilizados em conformidade com direitos de uso do produto e os termos de licenciamento da Microsoft. Utiliza o Azure Stack [ativação automática de VM](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) para ativar máquinas virtuais do Windows Server (VMs).
 
-- Anfitrião de pilha do Azure ativa o Windows com chaves AVMA para o Windows Server 2016. Todas as VMs que executam o Windows Server 2012 ou posterior serão automaticamente ativadas.
-- As VMs que a execução do Windows Server 2008 R2 não são automaticamente ativados e tem de ser ativado ao utilizar [a ativação da MAK](https://technet.microsoft.com/library/ff793438.aspx). Para utilizar a ativação da MAK, tem de fornecer sua própria chave de produto.
+- Anfitrião de pilha do Azure ativa o Windows com chaves AVMA para o Windows Server 2016. Todas as VMs que executam o Windows Server 2012 R2 ou posterior serão automaticamente ativadas.
+- As VMs que executam o Windows Server 2012 ou anterior não são automaticamente ativadas e tem de ser ativadas ao utilizar [a ativação da MAK](https://technet.microsoft.com/library/ff793438.aspx). Para utilizar a ativação da MAK, tem de fornecer sua própria chave de produto.
 
 Microsoft Azure utiliza a ativação do KMS para ativar VMs do Windows. Se mover uma VM a partir do Azure Stack para o Azure e encontro ativar problemas, consulte [problemas de ativação de máquina virtual do Windows do Azure de resolução de problemas](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informações adicionais podem ser encontradas no [falhas de ativação de resolução de problemas do Windows em VMs do Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) post do blogue de equipa de suporte do Azure.
 

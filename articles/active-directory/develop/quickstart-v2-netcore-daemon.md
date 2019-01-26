@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 22486bf507d5b40521fceabd7569728c45beae3d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727613"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911766"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -107,7 +107,7 @@ Este início rápido requer [.NET Core 2.1](https://www.microsoft.com/net/downlo
     
 #### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de admin
 
-Qualquer *permissão só de aplicação* necessita de consentimento de administrador - o que significa que ele precisa de um administrador global do seu diretório para dar consentimento à sua aplicação. Selecione uma das opções abaixo dependendo de sua função:
+Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Proibido* erro: `Insufficient privileges to complete the operation`. Isto acontece porque qualquer *permissão só de aplicação* necessita de consentimento de administrador, o que significa que um administrador global do seu diretório tem de dar consentimento à sua aplicação. Selecione uma das opções abaixo dependendo de sua função:
 
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilinos global
 
@@ -145,9 +145,12 @@ dotnet run
 ```
 
 > Em que:
-> * *{ProjectFolder}*  é a pasta onde extraiu o ficheiro zip. Exemplo **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
+> * *{ProjectFolder}*  é a pasta onde extraiu o ficheiro zip. Example **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Deverá ver uma lista de utilizadores no diretório do Azure AD, como resultado.
+
+> [!IMPORTANT]
+> Esta aplicação de início rápido utiliza um segredo do cliente para identificar a próprio como confidencial de cliente. Uma vez que o segredo do cliente é adicionado como um texto sem formatação para os ficheiros de projeto, por motivos de segurança, recomenda-se que utilize um certificado em vez de um segredo do cliente antes de considerar a aplicação como o aplicativo de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) no repositório do GitHub para este exemplo.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -158,7 +161,13 @@ A MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ide
  Pode instalar MSAL.NET executando o seguinte comando no Visual Studio **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+Em alternativa, se não estiver a utilizar o Visual Studio, pode executar o seguinte comando para adicionar a MSAL ao seu projeto:
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### <a name="msal-initialization"></a>Inicialização da MSAL

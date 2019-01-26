@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979459"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910289"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros de SFTP ao utilizar o Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para automatizar as tarefas que monitorizarem, criarem, enviarem e recebem arqui
 * Obter conteúdo do ficheiro e metadados.
 * Extraia os arquivos para pastas.
 
-Em comparação com o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md), pode ler o conector do SFTP ou escrita ficheiros até 50 MB de tamanho, a menos que utilize [segmentação para lidar com mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). Para ficheiros até 1 GB de tamanho, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para ficheiros maiores do que 1GB, pode usar o SFTP-SSH conector adição [segmentação para mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
+Em comparação com o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md), pode ler o conector do SFTP ou escrita ficheiros até 50 MB de tamanho, a menos que utilize [mensagem divisão na ações](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, não é possível utilizar a segmentação para acionadores. Para ficheiros até 1 GB de tamanho, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para ficheiros maiores do que 1GB, pode usar o SFTP-SSH conector adição [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). 
 
 Pode usar acionadores que monitorar eventos em seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações que executar diversas tarefas no seu servidor SFTP. Pode também ter outras ações na sua aplicação lógica a utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar alertas por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com.
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -40,7 +40,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
   > [!NOTE]
   > 
-  > O conector do SFTP suporta esses formatos de chave privados: OpenSSH, ssh.com e PuTTY
+  > O conector do SFTP oferece suporte a esses formatos de chave privados: OpenSSH, ssh.com e PuTTY
   > 
   > Quando estiver a criar a aplicação lógica, depois de adicionar o acionador SFTP ou a ação que pretende, terá de fornecer informações de ligação para o seu servidor SFTP. 
   > Se estiver a utilizar uma chave privada SSH, certifique-se de que ***cópia*** a chave do seu ficheiro de chave privada, e ***cole*** essa chave os detalhes de ligação, ***manualmente não introduzir ou editar a chave***, que pode fazer com que a ligação falha. 
@@ -102,17 +102,39 @@ O trabalho de acionadores SFTP, o sistema de ficheiros SFTP de consulta e está 
 
 Quando um acionador localiza um novo ficheiro, o acionador verifica que o novo ficheiro é completa e não parcialmente escrito. Por exemplo, um ficheiro pode ter as alterações em curso quando o acionador verifica o servidor de ficheiros. Para evitar o retorno de um arquivo parcialmente escrito, o acionador anota o carimbo de hora para o ficheiro que tem alterações recentes, mas não retorna imediatamente esse arquivo. O acionador devolver o ficheiro apenas quando consulta o servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o acionador intervalo de consulta. 
 
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+
+* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Exemplos
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Acionador SFTP: quando um ficheiro é adicionado ou modificado
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Acionador SFTP: Quando um ficheiro é adicionado ou modificado
 
 Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo cumpre uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esses conteúdos numa pasta no servidor SFTP. 
 
-**Exemplo de Enterprise**: pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
+**Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
 
-### <a name="sftp-action-get-content"></a>Ação de SFTP: obter o conteúdo
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+
+* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>Ação de SFTP: Obter o conteúdo
 
 Esta ação obtém o conteúdo de um arquivo num servidor SFTP. Por exemplo, pode adicionar o acionador do exemplo anterior e uma condição que o conteúdo do ficheiro tem de cumprir. Se a condição for verdadeira, pode executar a ação que obtém o conteúdo. 
+
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+
+* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Referência do conector
 

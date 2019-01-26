@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8be4274f2f971202172b09bbab2e6529fd5a8070
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412823"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075691"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
@@ -89,7 +89,7 @@ Se a caixa de verificação para repetição de escrita do dispositivo não esti
 
 Comecemos primeiro:
 
-* Certifique-se de que tem, pelo menos, uma floresta do Windows Server 2012R2. O tipo de objeto de dispositivo tem de estar presente.
+* A floresta em que os dispositivos estão presentes tem de ter o esquema de floresta atualizado para o nível do Windows 2012 R2 para que o objeto de dispositivo e atributos associados estão presentes.
 * Se o Assistente de instalação já está em execução, em seguida, quaisquer alterações não serão detetadas. Neste caso, conclua o Assistente de instalação e executá-lo novamente.
 * Certifique-se a conta fornecida no script de inicialização é, na verdade, o usuário correto utilizado pelo conector do Active Directory. Para verificar isto, siga estes passos:
   * A partir do menu Iniciar, abra **serviço de sincronização**.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438103"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912668"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extração, transformação e carregamento (ETL) em escala
 
@@ -32,7 +32,7 @@ Orquestração abrange todas as fases do pipeline ETL. Tarefas ETL no HDInsight 
 
 Orquestração é necessário para executar a tarefa de adequado no momento adequado.
 
-### <a name="apache-oozie"></a>O Apache Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie é um sistema de coordenação do fluxo de trabalho que gere as tarefas do Hadoop. Oozie é executado dentro de um cluster do HDInsight e está integrada com a pilha do Hadoop. Oozie suporta tarefas do Hadoop para MapReduce do Apache Hadoop, Apache Pig, Apache Hive e Apache Sqoop. Oozie também pode ser utilizado para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
@@ -118,7 +118,7 @@ Cubos do Analysis podem Dimensionar ao alterar as camadas para cada cubo individ
 
 Depois que os dados de existem no Azure, pode utilizar vários serviços para extrair e carregá-los para outros produtos.  HDInsight suporta Sqoop e Flume. 
 
-### <a name="apache-sqoop"></a>O Apache Sqoop
+### <a name="apache-sqoop"></a>Apache Sqoop
 
 Apache Sqoop é uma ferramenta projetada para transferência de dados com eficiência entre origens de dados estruturados, semiestruturados e não estruturados. 
 
@@ -138,3 +138,4 @@ Depois de dados existem na localização escolhida, terá de limpá-lo, combiná
 
 * [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Utilizar o Apache Hive como uma ferramenta ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

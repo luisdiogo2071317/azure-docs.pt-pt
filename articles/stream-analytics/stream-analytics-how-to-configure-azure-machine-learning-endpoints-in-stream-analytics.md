@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8d5e3060d31a260ddba2e7b23d468568ea9569c0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451043"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078037"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração de aprendizagem do Stream Analytics do computador
 Stream Analytics suporta funções definidas pelo utilizador que chamam pontos finais do Azure Machine Learning. Suporte da REST API para esta funcionalidade está detalhado na [biblioteca de API de REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação com êxito desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -26,7 +26,7 @@ Microsoft Azure Machine Learning fornece uma ferramenta de colaboração, de arr
 * **Ponto final**: *Pontos de extremidade* são o objeto do Azure Machine Learning, utilizado para necessitam de funcionalidades como entrada, aplicar um modelo de aprendizagem de máquina especificada e devolve dados com a pontuação.
 * **Serviço Web de classificação**: R *classificação webservice* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
-Cada ponto de extremidade tem apis para execução de lote e execução síncrona. Stream Analytics utiliza execução síncrona. O serviço específico é denominado um [serviço de solicitação/resposta](../machine-learning/studio/consume-web-services.md) no AzureML studio.
+Cada ponto de extremidade tem apis para execução de lote e execução síncrona. Stream Analytics utiliza execução síncrona. O serviço específico é denominado um [serviço de solicitação/resposta](../machine-learning/studio/consume-web-services.md) no Azure Machine Learning studio.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Aprendizagem automática recursos necessários para tarefas do Stream Analytics
 Para efeitos do Stream Analytics da tarefa de processamento, um ponto de extremidade de solicitação/resposta, um [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md), e uma definição de swagger são necessária para a execução bem-sucedida. Stream Analytics tem um ponto de final adicional que constrói a url para o ponto final de swagger, procura a interface e retorna uma definição de UDF padrão para o utilizador.
@@ -45,10 +45,10 @@ Ao utilizar REST APIs só pode configurar o seu trabalho para chamar funções d
 Por exemplo, o código de exemplo seguinte cria uma UDF escalar chamado *newudf* que liga a um ponto de final do Azure Machine Learning. Tenha em atenção que o *ponto final* (URI de serviço) pode ser encontrada na página de ajuda da API para o serviço escolhido e o *apiKey* podem ser encontradas na página principal dos serviços.
 
 ````
-    PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
+    PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 ````
 
-Corpo do pedido de exemplo:  
+Corpo do pedido de exemplo:
 
 ```json
     {
@@ -75,7 +75,7 @@ Assim que o esqueleto UDF for criado é necessária a definição completa do UD
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 ````
 
-Corpo do pedido de exemplo:  
+Corpo do pedido de exemplo:
 
 ```json
     {
@@ -87,7 +87,7 @@ Corpo do pedido de exemplo:
     }
 ```
 
-Um exemplo de saída isso seria procure algo, conforme mostrado abaixo.  
+Um exemplo de saída isso seria procure algo, conforme mostrado abaixo.
 
 ```json
     {
@@ -175,7 +175,7 @@ Corpo do pedido (saída de RetrieveDefaultDefinition):
 ```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementar a transformação do Stream Analytics para chamar a UDF
-Agora, consultar a UDF (aqui com o nome scoreTweet) para todos os eventos de entrada e escrever uma resposta para esse evento para uma saída.  
+Agora, consultar a UDF (aqui com o nome scoreTweet) para todos os eventos de entrada e escrever uma resposta para esse evento para uma saída.
 
 ```json
     {

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8ca316b9d2f87e2d5540c81b0865381109f889d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264313"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080077"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 
@@ -48,7 +48,7 @@ Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho 
 
   * Na **learning não supervisionado**, pontos de dados têm sem etiquetas associadas a eles. Em vez disso, o objetivo de um algoritmo de aprendizado não supervisionado é para organizar os dados de alguma forma ou para descrever a sua estrutura. Isso pode significar agrupando-lo em clusters, como faz de K-means ou de diferentes formas de ver dados complexos para que seja apresentado mais simples de localizar.
 
-  * Na **aprendizagem por reforço**, o algoritmo obtém para escolher uma ação em resposta a cada ponto de dados. É uma abordagem comum a robótica, onde o conjunto das leituras dos sensores num ponto no tempo é um ponto de dados e o algoritmo tem de escolher a ação de seguinte o robô. Também é um natural para aplicativos de Internet das coisas. O algoritmo de aprendizagem também recebe um sinal de recompensa um curto período de tempo mais tarde, que indica o quão bom a decisão era. Com base nisso, o algoritmo modifica sua estratégia de forma a alcançar a recompensa mais alta. Atualmente, não há nenhum por reforço módulos de algoritmo no Azure ML de aprendizagem.
+  * Na **aprendizagem por reforço**, o algoritmo obtém para escolher uma ação em resposta a cada ponto de dados. É uma abordagem comum a robótica, onde o conjunto das leituras dos sensores num ponto no tempo é um ponto de dados e o algoritmo tem de escolher a ação de seguinte o robô. Também é um natural para aplicativos de Internet das coisas. O algoritmo de aprendizagem também recebe um sinal de recompensa um curto período de tempo mais tarde, que indica o quão bom a decisão era. Com base nisso, o algoritmo modifica sua estratégia de forma a alcançar a recompensa mais alta. Atualmente, não há nenhum por reforço módulos de algoritmo no Azure Machine Learning studio de aprendizagem.
 
 * **Métodos de Bayesianos** partem do princípio de pontos de dados estatisticamente independentes. Isso significa que a variabilidade unmodeled num ponto de dados é uncorrelated com outras pessoas, ou seja, não é possível prever. Por exemplo, se os dados a ser registados o número de minutos até o próximo comboio de metrô chega, duas medidas tomadas por dia de diferença são estatisticamente independentes. No entanto, duas medidas tomadas um minuto diferença não são estatisticamente independentes – o valor de um é altamente preditivo do valor das outras.
 

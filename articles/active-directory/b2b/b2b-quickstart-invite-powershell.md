@@ -3,20 +3,20 @@ title: Guia de Início Rápido para adicionar um utilizador convidado com o Powe
 description: Neste guia de início rápido, irá aprender a utilizar o PowerShell para enviar um convite para um utilizador externo de colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 9b615498f2e3d6df3b285d2e50215f15372dcad6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986567"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076062"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Guia de Início Rápido: Adicionar um utilizador convidado com o PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: Adicionar um utilizador convidado com o PowerShell
 
 Existem várias formas de convidar parceiros externos para as aplicações e serviços com a colaboração B2B do Azure Active Directory. No guia de início rápido anterior, viu como adicionar utilizadores convidados diretamente no portal de administrador do Azure Active Directory. Pode também utilizar o PowerShell para adicionar utilizadores convidados, um de cada vez ou em lote. Neste guia de início rápido, irá utilizar o comando New-AzureADMSInvitation para adicionar um utilizador convidado ao seu inquilino do Azure.
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ### <a name="install-the-latest-azureadpreview-module"></a>Instalar o módulo do AzureADPreview mais recente
 Certifique-se de que instala a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). 
 
-Primeiro, verifique quais os módulos que instalou. Abra o Windows PowerShell como um utilizador com privilégios elevados (Executar como administrador) e execute o seguinte comando:
+Primeiro, verifique quais foram os módulos que instalou. Abra o Windows PowerShell como um utilizador com privilégios elevados (Executar como administrador) e execute o seguinte comando:
  
 ````powershell  
 Get-Module -ListAvailable AzureAD*
@@ -102,8 +102,8 @@ Quando já não precisar da conta de utilizador de teste no diretório, pode eli
 Por exemplo: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste guia de início rápido, convidou e adicionou um único utilizador convidado para o seu diretório com o PowerShell. Em seguida, aprenda a convidar utilizadores em lote com o PowerShell.
 
 > [!div class="nextstepaction"]
-> [Tutorial: convidar utilizadores de colaboração B2B do Azure AD em lote](tutorial-bulk-invite.md)
+> [Tutorial: Em massa convidar utilizadores de colaboração B2B do Azure AD](tutorial-bulk-invite.md)

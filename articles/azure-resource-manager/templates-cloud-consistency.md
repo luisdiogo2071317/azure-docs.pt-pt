@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135632"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076534"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -59,14 +59,14 @@ Capacidades do Gestor de recursos do Azure serão sempre introduzidas para o glo
 
 1. Assim que tiver um clone local do repositório, ligue para o destino do Azure Resource Manager com o PowerShell.
 
-1. Importe o módulo de psm1 e execute o cmdlet Test-AzureRmTemplateFunctions:
+1. Importe o módulo de psm1 e execute o cmdlet Test-AzTemplateFunctions:
 
   ```powershell
   # Import the module
-  Import-module <path to local clone>\AzureRmTemplateFunctions.psm1
+  Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzTemplateFunctions cmdlet
+  Test-AzTemplateFunctions -path <path to local clone>
   ```
 
 O script implementa vários minimizado modelos, cada um contendo as funções de modelo apenas exclusivo. A saída do script reporta as funções de modelo suportada e está indisponível.
@@ -230,7 +230,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 Também pode utilizar o seguinte cmdlet do PowerShell para ver os fornecedores de recursos disponíveis:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Verificar a versão de todos os tipos de recursos
@@ -248,7 +248,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 Também pode utilizar o seguinte cmdlet do PowerShell:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>Fazer referência a recursos locais com um parâmetro
@@ -491,10 +491,10 @@ Para obter uma lista das imagens de VM disponíveis numa localização, execute 
 az vm image list -all
 ```
 
-Pode recuperar a mesma lista com o cmdlet do Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) e especifique a localização que quiser com o `-Location` parâmetro. Por exemplo:
+Pode recuperar a mesma lista com o cmdlet do Azure PowerShell [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) e especifique a localização que quiser com o `-Location` parâmetro. Por exemplo:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRMVMImage
+Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
 ```
 
 Este comando demora alguns minutos para retornar todas as imagens disponíveis na região Europa ocidental da cloud do Azure global.
@@ -527,7 +527,7 @@ az vm list-sizes --location "West Europe"
 Para o Azure PowerShell, utilize:
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "West Europe"
+Get-AzVMSize -Location "West Europe"
 ```
 
 Para obter uma lista completa de serviços disponíveis, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
@@ -594,10 +594,10 @@ Para obter uma lista das extensões de VM que estão disponíveis para uma regi�
 az vm extension image list --location myLocation
 ```
 
-Também pode executar o Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) cmdlet e utilizar `-Location` para especificar a localização da imagem de máquina virtual. Por exemplo:
+Também pode executar o Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet e utilizar `-Location` para especificar a localização da imagem de máquina virtual. Por exemplo:
 
 ```azurepowershell-interactive
-Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>Certifique-se de que estão disponíveis versões
@@ -615,16 +615,16 @@ Uma vez que as extensões de VM são recursos do Resource Manager original, eles
 
 A versão de API do recurso de extensão VM tem de estar presente em todas as localizações que pretende direcionar com seu modelo. A dependência de localização funciona como o fornecedor de recursos de versão de API disponibilidade discutido anteriormente na secção "Verificar a versão de todos os tipos de recursos".
 
-Para obter uma lista das versões de API disponíveis para o recurso de extensão VM, utilize o [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) cmdlet com o **Microsoft. Compute** fornecedor de recursos, conforme mostrado:
+Para obter uma lista das versões de API disponíveis para o recurso de extensão VM, utilize o [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet com o **Microsoft. Compute** fornecedor de recursos, conforme mostrado:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 Também pode utilizar as extensões de VM em conjuntos de dimensionamento de máquina virtual. Aplicarem as mesmas condições de localização. Para desenvolver o seu modelo de consistência de nuvem, certifique-se de que as versões de API estão disponíveis em todas as localizações que planeia implementar para. Para obter as versões de API do recurso de extensão VM para conjuntos de dimensionamento, utilize o mesmo cmdlet como antes, mas especifique o que tipo de recurso de conjuntos de dimensionamento de máquina virtual conforme mostrado:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 Cada extensão específica também tem a mesma versão. Esta versão é mostrada no `typeHandlerVersion` propriedade de extensão de VM. Certifique-se de que a versão especificada no `typeHandlerVersion` elemento das seu modelo extensões de VM estão disponíveis nos locais onde planeia implementar o modelo. Por exemplo, o código a seguir especifica a versão 1.7:
@@ -645,13 +645,13 @@ Cada extensão específica também tem a mesma versão. Esta versão é mostrada
         ...   
 ```
 
-Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage) cmdlet. O exemplo seguinte obtém as versões disponíveis para a extensão VM de PowerShell DSC (Desired State Configuration do) partir **myLocation**:
+Para obter uma lista das versões disponíveis para uma extensão VM específica, utilize o [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. O exemplo seguinte obtém as versões disponíveis para a extensão VM de PowerShell DSC (Desired State Configuration do) partir **myLocation**:
 
 ```azurepowershell-interactive
-Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Para obter uma lista de publicadores, utilize o [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) comando. Para o tipo de pedido, utilize o [Get-AzureRmVMExtensionImageType](/powershell/module/azurerm.compute/get-azurermvmextensionimagetype) Command.
+Para obter uma lista de publicadores, utilize o [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) comando. Para o tipo de pedido, utilize o [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) Command.
 
 ## <a name="tips-for-testing-and-automation"></a>Dicas para teste e automatização
 

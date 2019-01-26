@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452841"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911936"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -55,6 +55,24 @@ Para tornar a sua política de trabalho, tem de configurar:
 
 
 ## <a name="what-you-should-know"></a>O que deve saber
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Como são aplicadas políticas de acesso condicional?
+
+Mais de uma política de acesso condicional pode ser aplicadas quando um utilizador acede a uma aplicação. Neste caso, todas as políticas que aplicarem devem ser satisfeitas. Por exemplo, se um políticas requer para um utilizador MFA e o segundo requer um dispositivo em conformidade, o utilizador tem a MFA e ter um dispositivo em conformidade. 
+
+Todas as políticas são impostas em duas fases:
+
+- Na **primeiro** fase, todas as políticas são avaliadas e todos os controles de acesso que não estão cumpridos são recolhidos. 
+
+- Na **segundo** fase, lhe for pedido para satisfazer os requisitos que ainda não a cumpriu. Se uma das políticas bloqueia o acesso, são bloqueados e não lhe for pedido para satisfazer outros Controles de política. Se nenhuma das políticas bloquear, lhe for pedido para atender a outros controlos de política na seguinte ordem:
+
+    ![Encomenda](./media/best-practices/06.png)
+    
+    Externo fornecedores MFA e os termos de utilização vêm seguintes.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Como são avaliadas as atribuições?
 
@@ -154,4 +172,7 @@ Para obter mais informações, consulte [migrar políticas clássicas no portal 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+Se quiser saber:
+
+- Como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+- Como planear as suas políticas de acesso condicional, consulte [como planear a implementação de acesso condicional no Azure Active Directory](plan-conditional-access.md).

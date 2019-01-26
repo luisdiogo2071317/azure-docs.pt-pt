@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572572"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906336"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure
 
@@ -24,11 +24,11 @@ Unidades de estado sólido padrão (SSD) Managed Disks do Azure são uma opção
 **Discos geridos**: Standard SSDs só estão disponíveis como Managed Disks. Blobs de páginas e discos não geridos não são suportados em Standard SSD. Ao criar o disco gerido, especifique o tipo de disco como Standard SSD e indicar o tamanho do disco é necessário, e o Azure cria e gere o disco por si.
 Standard SSDs suportam todas as operações de modelo de implementação clássica oferecidas pelo Managed Disks. Por exemplo, pode criar, copiar ou instantâneo SSD Managed Disks Standard da mesma forma que fazer com o Managed Disks.
 
-**Máquinas virtuais**: SSDs padrão pode ser utilizados com todas as VMs do Azure, incluindo os tipos VM que não suporta discos Premium. Por exemplo, se estiver a utilizar uma VM de série, ou VMS de série N ou série DS, ou qualquer outra série de VM do Azure, pode utilizar SSDs padrão com essa VM. Com a introdução do padrão de SSD, estamos a ativar uma vasta gama de cargas de trabalho que tenha utilizado os discos baseados em HDD para fazer a transição para discos baseado em SSD e experimentar o desempenho consistente, maior disponibilidade, latência melhor e um melhor geral experiência que acompanham o SSDs.
+**Máquinas virtuais**: SSDs padrão podem ser utilizados com todas as VMs do Azure, incluindo os tipos VM que não suporta discos Premium. Por exemplo, se estiver a utilizar uma VM de série, ou VMS de série N ou série DS, ou qualquer outra série de VM do Azure, pode utilizar SSDs padrão com essa VM. Com a introdução do padrão de SSD, estamos a ativar uma vasta gama de cargas de trabalho que tenha utilizado os discos baseados em HDD para fazer a transição para discos baseado em SSD e experimentar o desempenho consistente, maior disponibilidade, latência melhor e um melhor geral experiência que acompanham o SSDs.
 
 **Elevada disponibilidade e durabilidade**: SSDs padrão baseiam-se na mesma plataforma de discos do Azure, que forneceu consistentemente elevada disponibilidade e durabilidade para discos. Discos do Azure foram concebidos para disponibilidade de 99,999%. Como todos os discos geridos, SSDs padrão também oferece armazenamento com redundância Local (LRS). Com o LRS, a plataforma mantém várias réplicas de dados para cada disco e forneceu consistentemente a nível empresarial durabilidade para IaaS discos, com um líder do setor ZERO taxa de falhas anuais a percentagem.
 
-**Instantâneos**: como todos os discos geridos, SSDs padrão também suporta a criação de instantâneos. Tipo de instantâneo pode ser Standard (HDD) ou Premium (SSD). Para economia de custo, recomendamos que o tipo de instantâneo do Standard (HDD) para todos os tipos de disco do Azure. Isto acontece porque quando cria um disco gerido a partir de um instantâneo, sempre pode escolher um escalão mais elevado, como Standard SSD ou Premium SSD.
+**Instantâneos**: Como todos os discos geridos, Standard SSDs suporta também a criação de instantâneos. Tipo de instantâneo pode ser Standard (HDD) ou Premium (SSD). Para economia de custo, recomendamos que o tipo de instantâneo do Standard (HDD) para todos os tipos de disco do Azure. Isto acontece porque quando cria um disco gerido a partir de um instantâneo, sempre pode escolher um escalão mais elevado, como Standard SSD ou Premium SSD.
 
 ## <a name="scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho
 
@@ -36,6 +36,8 @@ A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente p
 
 |Tipo de disco Standard SSD  |Tamanho do Disco  |IOPS por disco  |Débito por disco  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |Até 120         |Até 25 MiB por segundo         |
+|E6     |64 GiB         |Até 240         |Máximo de 50 MiB por segundo         |
 |E10     |128 GiB         |Até 500         |MiB até 60 por segundo         |
 |E15     |256 GiB         |Até 500         |MiB até 60 por segundo         |
 |E20     |512 GiB         |Até 500         |MiB até 60 por segundo         |
@@ -61,13 +63,13 @@ Ao utilizar o padrão do SSDs, aplicam-se as seguintes considerações de fatura
 - Transferências de dados de saída
 - Transações
 
-**Geridos pelo tamanho do disco**: os discos geridos são cobrados no tamanho aprovisionado. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e são faturadas em conformidade. Por exemplo, se tiver aprovisionado um 200 GiB Standard SSD, vai mapear para a oferta de tamanho de disco de E15 (256gib). Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco de E10 e eliminado depois de 20 horas, é cobrado para a oferta de E10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
+**Geridos pelo tamanho do disco**: Discos geridos são cobrados no tamanho aprovisionado. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e são faturadas em conformidade. Por exemplo, se tiver aprovisionado um 200 GiB Standard SSD, vai mapear para a oferta de tamanho de disco de E15 (256gib). Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco de E10 e eliminado depois de 20 horas, é cobrado para a oferta de E10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
 
-**Instantâneos**: instantâneos de Managed Disks são cobradas a capacidade utilizada pelos instantâneos, o destino e na origem, se houver. Para obter mais informações sobre instantâneos, consulte [instantâneos de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Instantâneos**: Os instantâneos de discos geridos são cobrados a capacidade utilizada pelos instantâneos, o destino e na origem, se houver. Para obter mais informações sobre instantâneos, consulte [instantâneos de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Transferências de dados de saída**: [transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
+**Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
 
-**Transações**: transações SSDs padrão semelhante ao padrão HDD, implicar faturação. Transações incluem as opções de leitura e escrita no disco. Tamanho da unidade de e/s utilizado para as transações de gestão de contas no padrão de SSD é 256 KiB. Tamanhos de e/s maiores são contabilizados como várias e/SS de tamanho 256 KiB.
+**Transações**: Semelhante ao padrão HDD, transações SSDs padrão incorrem a faturação. Transações incluem as opções de leitura e escrita no disco. Tamanho da unidade de e/s utilizado para as transações de gestão de contas no padrão de SSD é 256 KiB. Tamanhos de e/s maiores são contabilizados como várias e/SS de tamanho 256 KiB.
 
 Para obter mais informações sobre os preços para máquinas virtuais e Managed Disks, consulte:
 

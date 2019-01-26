@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: a06eb35850c12c2813a395ee8c64e16c2a8a5bce
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f472503d43d82209c765a331ba3922a2f25ca327
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156719"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077068"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
@@ -323,8 +323,8 @@ Também pode utilizar o Azure AD para autenticação de servidor para servidor u
 | Como registar-se um serviço web | Criar uma entidade confiadora no portal de gestão do controlo de acesso | Criar uma aplicação web do Azure AD no portal do Azure |
 | Como registar-se um cliente | Criar uma identidade de serviço no portal de gestão de controlo de acesso | Criar outra aplicação de web do Azure AD no portal do Azure |
 | Protocolo utilizado |-Protocolo de OAuth WRAP<br />-Concessão de credenciais de cliente de 13 de rascunho OAuth 2.0 | Concessão de credenciais de cliente OAuth 2.0 |
-| Métodos de autenticação de cliente |-Palavra-passe simples<br />-SWT assinado<br />-Token SAML de um fornecedor de identidade federada |-Palavra-passe simples<br />-JWT assinado |
-| Formatos de token |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT apenas |
+| Métodos de autenticação de cliente |-Palavra-passe simples<br />-SWT assinado<br />-Token SAML de um fornecedor de identidade federada |-Palavra-passe simples<br />- Signed JWT |
+| Formatos de token |- JWT<br />-SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT apenas |
 | Transformação de token |-Adicionar declarações personalizadas<br />-Lógica de emissão de afirmação de if-then simples | Adicionar declarações personalizadas | 
 | Automatizar tarefas de configuração e gestão | Suportado através do serviço de gestão de controle de acesso | Suportado através do Microsoft Graph e do Azure AD Graph API |
 

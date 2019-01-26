@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6b5679a8d3f8cf449b9539e8595e14a87e882ac7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818188"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912889"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -43,34 +43,36 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Gestão de Diretórios|Add administrative unit|
-|Gestão de Diretórios|Adicionar membro a unidade administrativa|
-|Gestão de Diretórios|Eliminar unidade administrativa|
-|Gestão de Diretórios|Remover membro de unidade administrativa|
-|Gestão de Diretórios|Atualizar unidade administrativa|
-|Gestão de Diretórios|Administração|
-|Gestão de Utilizadores|Operação de diretório|
-|Gestão de Utilizadores|Exportar|
-|Gestão de Utilizadores|Importar|
-|Gestão de Utilizadores|Outros|
-|Gestão de Utilizadores|Depósito de processos|
-|Gestão de Utilizadores|Ação de regra de sincronização|
-|Gestão de Utilizadores|Adicionar aplicação|
-|Gestão de Utilizadores|Eliminar aplicação|
-|Gestão de Utilizadores|Atualizar a aplicação|
-|Gestão de Utilizadores|Atualizar o Modo de Início de Sessão Única de aplicação|
-|Gestão de Utilizadores|Rollover de Palavra-passe Automatizada|
-|Gestão de Utilizadores|Adicionar permissões de aplicação V2|
-|Gestão de Utilizadores|Criar aplicação V1|
-|Gestão de Utilizadores|Criar aplicação V2|
-|Gestão de Utilizadores|Eliminar aplicação V1|
-|Gestão de Utilizadores|Eliminar aplicação V2|
-|Gestão de Utilizadores|Eliminar concessão de permissões de aplicação V2|
-|Gestão de Utilizadores|Obter aplicações V1 e V2|
-|Gestão de Utilizadores|Obter aplicação V1|
-|Gestão de Utilizadores|Obter aplicações V1|
-|Gestão de Utilizadores|Obter aplicação V2|
-|Gestão de Utilizadores|Obter aplicações V2|
+|Revisões de Acesso|Revisão de acesso terminada|
+|Revisões de Acesso|Adicionar aprovador para aprovação de pedidos|
+|Revisões de Acesso|Adicionar revisor à revisão de acesso|
+|Revisões de Acesso|Aplicar revisão de acesso|
+|Revisões de Acesso|Criar revisão de acesso|
+|Revisões de Acesso|Criar programa|
+|Revisões de Acesso|Criar aprovação de pedidos|
+|Revisões de Acesso|Eliminar revisão de acesso|
+|Revisões de Acesso|Eliminar programa|
+|Revisões de Acesso|Associar controlo de programa|
+|Revisões de Acesso|Integrar nas Revisões de Acesso do Azure AD|
+|Revisões de Acesso|Remover revisor da revisão de acesso|
+|Revisões de Acesso|Requerer Paragem da Revisão|
+|Revisões de Acesso|Requerer aplicação do resultado da revisão|
+|Revisões de Acesso|Rever associação da função RBAC|
+|Revisões de Acesso|Rever atribuição de aplicações|
+|Revisões de Acesso|Rever associação ao grupo|
+|Revisões de Acesso|Rever pedido de aprovação de pedidos|
+|Revisões de Acesso|Desassociar controlo de programa|
+|Revisões de Acesso|Atualizar Revisão de Acesso|
+|Revisões de Acesso|Atualizar estado da inclusão de revisões de acesso do Azure AD|
+|Revisões de Acesso|Atualizar definições de notificação de correio da revisão de acesso|
+|Revisões de Acesso|Atualizar definição da contagem de recorrências da revisão de acesso|
+|Revisões de Acesso|Atualizar definição da duração de dias das recorrências da revisão de acesso|
+|Revisões de Acesso|Atualizar definição do tipo de fim das recorrências da revisão de acesso|
+|Revisões de Acesso|Atualizar definição do tipo de recorrência da revisão de acesso|
+|Revisões de Acesso|Atualizar definições de lembrete da revisão de acesso|
+|Revisões de Acesso|Atualizar programa|
+|Revisões de Acesso|Atualizar aprovação de pedidos|
+|Revisões de Acesso|Utilizador desativado|
 
 ## <a name="account-provisioning"></a>Aprovisionamento de contas
 
@@ -526,23 +528,27 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Gestão de Funções|Atualizar definições de lembrete da revisão de acesso|
-|Gestão de Funções|Atualizar aprovação de pedidos|
-|Gestão de Funções|Adicionar concessão de atribuição de função de aplicação ao utilizador|
-|Gestão de Funções|Adicionar utilizador|
-|Gestão de Funções|Adicionar detalhe de aplicação de telemóvel de autenticação forte de utilizadores|
-|Gestão de Funções|Alterar licença de utilizador|
-|Gestão de Funções|Alterar palavra-passe do utilizador|
-|Gestão de Funções|Converter utilizador federado em gerido|
-|Gestão de Funções|Criar palavra-passe de aplicação para o utilizador|
-|Gestão de Funções|Eliminar palavra-passe de aplicação do utilizador|
-|Gestão de Funções|Eliminar utilizador|
-|Gestão de Funções|Desativar conta|
-|Gestão de Funções|Ativar a Autenticação Forte|
-|Gestão de Funções|Eliminação completa do utilizador|
-|Gestão de Funções|Remover atribuição de função de aplicação do utilizador|
-|Gestão de Funções|Remover detalhe de aplicação de telemóvel de autenticação forte de utilizadores|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Adicionou|
+|PIM|AddedOutsidePIM|
+|PIM|Atribuir|
+|PIM|DismissAlert|
+|PIM|Elevar|
+|PIM|ReactivateAlert|
+|PIM|Removido|
+|PIM|RemovedOutsidePIM|
+|PIM|Requerer Paragem da Revisão|
+|PIM|Alterações das definições da função|
+|PIM|ScanAlertsNow|
+|PIM|Inscrever-se|
+|PIM|Anular a atribuição|
+|PIM|Anular elevação|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Gestão de grupos self-service
@@ -580,13 +586,16 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 |Categoria de Auditoria|Atividade|
 |---|---|
-|Gestão de Políticas|Alterar palavra-passe (personalizada)|
-|Gestão de Políticas|Repor palavra-passe (por administrador)|
-|Gestão de Políticas|Repor palavra-passe (personalizada)|
-|Gestão de Políticas|Progresso da atividade de fluxo de reposição de palavras-passe personalizada|
-|Gestão de Políticas|Progresso da atividade de fluxo de reposição de palavras-passe personalizada|
-|Gestão de Políticas|Desbloquear conta de utilizador (personalizado)|
-|Gestão de Políticas|Utilizador registado na reposição de palavra-passe personalizada|
+|Termos de Utilização|Editar os Termos de Utilização|
+|Termos de Utilização|Criar os Termos de Utilização|
+|Termos de Utilização|Rejeitar Termos de Utilização|
+|Termos de Utilização|Eliminar consentimento|
+|Termos de Utilização|Eliminar Termos de Utilização|
+|Termos de Utilização|Editar Termos de Utilização|
+|Termos de Utilização|Termos de utilização de expirar|
+|Termos de Utilização|Eliminar disco rígido de termos de utilização|
+|Termos de Utilização|Publicar Termos de Utilização|
+|Termos de Utilização|Anular publicação dos Termos de Utilização|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

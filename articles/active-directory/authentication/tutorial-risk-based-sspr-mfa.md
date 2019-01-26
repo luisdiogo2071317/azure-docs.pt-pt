@@ -3,19 +3,19 @@ title: MFA e SSPR baseadas no risco com o Azure Identity Protection
 description: Neste tutorial, vai ativar as integrações do Azure Identity Protection para o Multi-Factor Authentication e a reposição personalizada de palavra-passe, para reduzir o comportamento de risco.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434925"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075487"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para o acionador multi-factor Authentication e alterações de palavra-passe
 

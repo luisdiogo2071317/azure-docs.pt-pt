@@ -3,19 +3,19 @@ title: Ativar um piloto do Multi-Factor Authentication do Azure
 description: Neste tutorial, vai ativar a Multi-Factor Authentication do Azure AD para um grupo piloto de utilizadores
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6a8ccc79267dcc01b0d11ba176a64d125a2caad4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427615"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080774"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma implementação piloto do Azure multi-factor Authentication
 

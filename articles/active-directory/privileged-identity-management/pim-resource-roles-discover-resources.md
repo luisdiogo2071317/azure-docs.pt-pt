@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/30/2018
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e81aab8268266c99c9f08e165a98df31f2106123
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306694"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912276"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descubra os recursos do Azure para gerir no PIM
 
@@ -52,12 +52,16 @@ Quando configura primeiro a PIM para recursos do Azure, tem de detetar e selecio
 
 1. Adicione uma marca de verificação junto a quaisquer recursos não gerenciados que pretende gerir.
 
+1. Clique em **gerir recurso** para começar a gerir os recursos selecionados.
+
     > [!NOTE]
     > Assim que uma subscrição ou grupo de gestão é definida gerida, não pode ser gerido. Isto impede o outro administrador de recursos e remover as definições do PIM.
 
     ![Deteção - gerir recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Clique em **gerir recurso** para começar a gerir os recursos selecionados.
+1. Se vir uma mensagem para confirmar a inclusão do recurso selecionado para a gestão, clique em **Sim**.
+
+    ![Deteção - gerir a mensagem de recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

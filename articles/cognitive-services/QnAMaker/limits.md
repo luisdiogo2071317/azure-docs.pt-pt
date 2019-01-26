@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51e494101b13b3020f79c9acfc4d853cee995d7b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084793"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911427"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 Lista completa dos limites entre a ferramenta QnA Maker.
@@ -27,11 +27,13 @@ Lista completa dos limites entre a ferramenta QnA Maker.
 
 |**Escalão de pesquisa do Azure** | **Gratuito** | **Básica** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Número máximo de bases de dados de conhecimento publicados permitido (máx. de índices - 1 (reservado para teste)|2|14|49|199|199|2,999|
+|Número máximo de bases de dados de conhecimento publicados permitido|2|14|49|199|199|2,999|
+
+ Por exemplo, se o seu escalão tem 15 índices permitidos, pode publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicado). O índice décimo quinto, `testkb`, é utilizado para todas as bases de dados de conhecimento para criação e teste. 
 
 ## <a name="extraction-limits"></a>Limites de extração
-* Número máximo de ficheiros que podem ser extraídos e o tamanho máximo do ficheiro: veja [preços QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Número máximo de ligações profunda que podem ser pesquisados para extração de QnAs de páginas HTML de FAQ: 20
+* Número máximo de ficheiros que podem ser extraídos e o tamanho máximo do ficheiro: Consulte [preços QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
+* Número máximo de ligações profunda que podem ser pesquisados para extração de QnAs de páginas HTML de perguntas frequentes: 20
 
 ## <a name="metadata-limits"></a>Limites de metadados
 * Número máximo de campos de metadados por base de dados de conhecimento, com base em [limites do escalão de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
@@ -42,15 +44,15 @@ Lista completa dos limites entre a ferramenta QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo de Base de dados de conhecimento
 Limites geral para o conteúdo na base de dados de conhecimento:
-* Comprimento do texto de resposta: 25.000
-* Comprimento do texto da pergunta: 1000
+* Comprimento do texto de resposta: 25,000
+* Comprimento do texto da pergunta: 1,000
 * Comprimento do texto de chave/valor de metadados: 100
-* Carateres suportados pelo nome de metadados: letras do alfabeto, dígitos e _  
-* Carateres suportados pelo valor de metadados: todos, exceto: e | 
+* Carateres suportados para o nome de metadados: Letras do alfabeto, dígitos e _  
+* Carateres suportados para o valor de metadados: Tudo, exceto: e | 
 * Comprimento do nome de ficheiro: 200
 * Formatos de ficheiro suportados: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".
 * Número máximo de perguntas alternativos: 100
-* Número máximo de pares de perguntas respostas: depende da [escalão do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhido 
+* Número máximo de pares de perguntas respostas: Depende da [escalão do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhido 
 
 ## <a name="create-knowledge-base-call-limits"></a>Crie limites de chamada de base de dados de conhecimento:
 Estes representam os limites para cada criar ação de base de dados; ou seja, clicar *KB criar* ou chamar a API de CreateKnowledgeBase.
@@ -64,3 +66,11 @@ Estes representam os limites para cada ação de atualização; ou seja, clicar 
 * Número máximo de perguntas alternativos adicionados ou excluídos: 100
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizados: 5
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Saiba quando e como alterar os escalões de serviço:
+
+* [A ferramenta QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): quando é necessário ter mais perguntas e respostas na sua base de dados de conhecimento, para além do escalão atual, atualizar o serviço QnA Maker escalão de preço.
+* [Pesquisa](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - quando precisa de sua base de dados de conhecimento servir mais pedidos a partir da sua aplicação de cliente, atualizar o escalão de preço do serviço de aplicações.
+* [Serviço de aplicações](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): quando planeia ter muitas bases de dados de conhecimento, atualizar o serviço de Azure Search escalão de preço.

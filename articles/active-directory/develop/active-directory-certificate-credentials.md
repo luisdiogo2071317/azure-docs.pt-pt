@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578675"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076320"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação de aplicação
 
@@ -50,7 +50,7 @@ Para computar a asserção, pode utilizar um dos muitos [JSON Web Token](https:/
 | `iss` | Emissor: deve ser o client_id (ID de aplicação do serviço de cliente) |
 | `jti` | GUID: o ID do JWT |
 | `nbf` | Não antes: a data antes do qual o token não pode ser utilizado. O tempo é representado como o número de segundos a partir de 1 de Janeiro de 1970 (1970-01-01T0:0:0Z) UTC até o momento o token foi emitido. |
-| `sub` | Assunto: como para `iss`, deve ser o client_id (ID de aplicação do serviço de cliente) |
+| `sub` | Requerente: Como para `iss`, deve ser o client_id (ID de aplicação do serviço de cliente) |
 
 ### <a name="signature"></a>Assinatura
 

@@ -3,19 +3,19 @@ title: Licença do Azure Active Directory palavras-passe personalizada
 description: Requisitos de licenciamento de redefinição de senha de autoatendimento de AD do Azure
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: b558a494a87b9d176888f6e21d3153d921cd590f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f7e539b2f444109e902f4b85d0a879183217f262
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422138"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076252"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 

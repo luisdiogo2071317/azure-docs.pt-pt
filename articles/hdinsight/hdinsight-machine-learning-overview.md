@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743005"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077731"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning no HDInsight
 
@@ -42,13 +42,13 @@ O Azure Machine Learning fornece ferramentas para Análise Preditiva do modelo, 
 
 ![Tomada de advanced analytics acessível ao Hadoop com o Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Criar características para dados num Hadoop do HDInsight cluster usando [consultas do Hive](../machine-learning/team-data-science-process/create-features-hive.md). *"Feature Engineering"* tenta aumentam a capacidade de previsão de algoritmos de aprendizagem através da criação de recursos de dados não processados que facilitam o processo de aprendizado. Pode executar consultas de HiveQL a partir do Azure ML e aceder a dados processados no Hive e armazenados no armazenamento de BLOBs, utilizando o [módulo importar dados](../machine-learning/studio/import-data.md).
+Criar características para dados num Hadoop do HDInsight cluster usando [consultas do Hive](../machine-learning/team-data-science-process/create-features-hive.md). *"Feature Engineering"* tenta aumentam a capacidade de previsão de algoritmos de aprendizagem através da criação de recursos de dados não processados que facilitam o processo de aprendizado. Pode executar consultas de HiveQL a partir do Azure Machine Learning studio e aceder a dados processados no Hive e armazenados no armazenamento de BLOBs, utilizando o [módulo importar dados](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
 [Aprendizagem profunda](https://www.microsoft.com/en-us/research/group/dltc/) é um ramo do machine learning que utiliza as redes neurais, inspiradas pelos processos biológicos do cérebro humano. Pesquisadores de muitos aprendizagem profunda, consulte como uma abordagem promissor para aprimorar a inteligência artificial. Exemplos de aprendizagem profunda são conversores de um idioma falado, sistemas de reconhecimento de imagem e raciocínio de máquina.
 
-Para ajudar a desenvolver a sua própria trabalho na aprendizagem profunda, a Microsoft desenvolveu o gratuito, fácil de usar, código-fonte aberto [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Esse Kit de ferramentas está a ser utilizado por uma grande variedade de produtos da Microsoft, as empresas em todo o mundo com a necessidade de implementar a aprendizagem profunda à escala e estudantes interessados nos algoritmos e as técnicas mais recentes. 
+Para ajudar a desenvolver a sua própria trabalho na aprendizagem profunda, a Microsoft desenvolveu o gratuito, fácil de usar, código-fonte aberto [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Esse Kit de ferramentas está a ser utilizado por uma grande variedade de produtos da Microsoft, as empresas em todo o mundo com a necessidade de implementar a aprendizagem profunda à escala e estudantes interessados nos algoritmos e as técnicas mais recentes.
 
 ## <a name="see-also"></a>Consulte também
 

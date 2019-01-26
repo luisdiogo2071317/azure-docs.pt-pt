@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436896"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913160"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
@@ -56,7 +56,7 @@ Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar
 ## <a name="encryption"></a>Encriptação
 Proteção de dados é importante para os requisitos de segurança e conformidade organizacionais no reunião. Além de restringir o acesso aos dados de empregados não autorizados, deve criptografá-lo. 
 
-Ambos os arquivos de dados para os clusters do HDInsight – armazenamento de Blobs do Azure e Gen1 de armazenamento do Azure Data Lake – suporte transparente lado do servidor [encriptação de dados](../../storage/common/storage-service-encryption.md) inativos. Clusters seguros do HDInsight funcionará sem problemas com esta capacidade de encriptação do lado do servidor de dados em repouso.
+Ambos os arquivos de dados para os clusters do HDInsight – armazenamento de Blobs do Azure e Azure Data Lake Storage Gen1/Gen2 – suporte transparente lado do servidor [encriptação de dados](../../storage/common/storage-service-encryption.md) inativos. Clusters seguros do HDInsight funcionará sem problemas com esta capacidade de encriptação do lado do servidor de dados em repouso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

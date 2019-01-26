@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f8a4e7dcaa1bc2df71246f67d06fc63ae4fcd06
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883505"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076384"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorizar um serviço de Azure Search no portal do Azure
 
 Na página de descrição geral do seu serviço Azure Search, pode ver dados de sistema sobre a utilização de recursos, além de métricas de consulta, como consultas por segundo (QPS), a latência da consulta e a percentagem de pedidos que foram limitados. Além disso, pode utilizar o portal para tirar partido de uma gama de capacidades na plataforma do Azure para a recolha de dados mais aprofundada de monitorização. 
 
-Este artigo identifica e compara as opções disponíveis para o registo de operações de pesquisa do Azure. Ele inclui instruções para habilitar o Registro em log e de registo de armazenamento e como expandir as informações recolhidas.
+Este artigo identifica e compara as opções disponíveis para o registo de operações de pesquisa do Azure. Ele inclui instruções para habilitar o Registro em log e de registo de armazenamento e como aceder a informações atividade de utilizador e serviço.
 
-Se estiver a preencher um pedido de suporte, não são tarefas específicas ou informações de que precisa para fornecer. Engenheiros de suporte de ter as informações necessárias para investigar problemas específicos.  
+A definição dos registos é útil para self-diagnostics e preservar um histórico das operações de serviço. Internamente, os registos existe durante um curto período de tempo, suficiente para investigação e análise, se enviar um pedido de suporte. Se pretender controlar o armazenamento de informações de registo para o seu serviço, deve configurar uma das soluções descritas neste artigo.
 
 ## <a name="metrics-at-a-glance"></a>Indicadores de relance
 
@@ -39,6 +39,8 @@ O **utilização** Guia mostra-lhe a disponibilidade de recursos em relação ao
 
 O **monitorização** separador mostra médias móveis para métricas, como pesquisa *consultas por segundo* (QPS), agregados por minuto. 
 *Latência de pesquisa* é a quantidade de tempo o serviço de pesquisa necessária para processar consultas de pesquisa, agregadas por cada minuto. *Percentagem de consulta de pesquisa limitada* (não mostrado) é a porcentagem de consultas de pesquisa que eram limitados, também agregados por cada minuto.
+
+Esses números são aproximados e foram concebidos para lhe dar uma ideia geral de como seu sistema está a servir pedidos. QPS real pode ser superior ou inferior ao número comunicado no portal.
 
 ![Consultas por segundo atividade](./media/search-monitor-usage/monitoring-tab.png "consultas por segundo atividade")
 
@@ -58,19 +60,20 @@ A tabela seguinte compara as opções para armazenar os registos e a adição de
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | [Análise de tráfego de pesquisa](search-traffic-analytics.md). Esta é a única solução que captura informações adicionais sobre pedidos, além dos valores identificados nos esquemas de registo e as métricas abaixo. Com esta abordagem, copiar-colar o código de instrumentação em seus arquivos de origem para encaminhar as informações de pedido para o Application Insights para análise nas entradas de termo de consulta, consultas com zero correspondências e assim por diante. Recomendamos que o Power BI como o front-end de análise aos dados armazenados no Application Insights.  |
-| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Pedidos e métricas, com base nos esquemas abaixo. Os eventos registados para um contentor de Blobs. É recomendável Excel ou Power BI como o front-end de análise de dados armazenados no armazenamento de Blobs do Azure.|
-| [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Os pedidos e métricas, com base em esquemas documentados neste artigo. Escolha esta opção como um serviço de recolha de dados alternativo para os registos de muito grandes. |
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo, correlacionadas com eventos de utilizador na sua aplicação. Esta é a única solução que considera ações do usuário ou sinais, eventos de mapeamento a partir da Pesquisa iniciada pelo usuário, em oposição ao filtrar pedidos submetidos por código do aplicativo. Para utilizar esta abordagem, copiar-colar o código de instrumentação nos seus arquivos de origem a informações de pedido de rota para o Application Insights. Para obter mais informações, consulte [a análise de tráfego de pesquisa](search-traffic-analytics.md). |
+| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados numa área de trabalho do Log Analytics. Pode executar consultas em relação a uma área de trabalho para devolver informações detalhadas do log. Para obter mais informações, consulte [introdução ao Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados para um contentor de BLOBs e armazenados em ficheiros JSON. Utilize um editor de JSON para ver o conteúdo do ficheiro.|
+| [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados e métricas de consulta, com base em esquemas documentados neste artigo. Escolha esta opção como um serviço de recolha de dados alternativo para os registos de muito grandes. |
 
-O Azure search fornece uma monitorização [o pacote de conteúdos do Power BI](https://app.powerbi.com/getdata/services/azure-search) para que pode analisar dados de registo. O pacote de conteúdos é composta por relatórios configurados para ligar automaticamente aos seus dados e fornecem informações visuais sobre o serviço de pesquisa. Para obter mais informações, consulte a [página de ajuda do pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
-A opção de armazenamento de Blobs está disponível como serviço partilhado gratuito para que pode experimentar, sem encargos durante o tempo de vida da sua subscrição do Azure. A secção seguinte explica os passos para ativar e utilizar o armazenamento de Blobs do Azure para recolher e aceder aos dados de log criados por operações de pesquisa do Azure.
+
+O Log Analytics e o armazenamento de BLOBs estão disponíveis como serviço partilhado gratuito para que pode experimentar, sem encargos durante o tempo de vida da sua subscrição do Azure. A secção seguinte explica os passos para ativar e utilizar o armazenamento de Blobs do Azure para recolher e aceder aos dados de log criados por operações de pesquisa do Azure.
 
 ## <a name="enable-logging"></a>Ativar registo
 
-Para cargas de trabalho de indexação e consulta o registo está desativada por predefinição e depende de soluções de suplemento para a infra-estrutura de log e de armazenamento externo. Por si só, os únicos dados persistentes no Azure Search são índices, para que os registos devem ser armazenados em outro lugar.
+Para cargas de trabalho de indexação e consulta o registo está desativada por predefinição e depende de soluções de suplemento para a infra-estrutura de log e de armazenamento externo de longo prazo. Por si só, os únicos dados persistentes no Azure Search são índices, para que os registos devem ser armazenados em outro lugar.
 
-Nesta secção, irá aprender como utilizar o armazenamento de BLOBs para conter dados de métricas e eventos registados.
+Nesta secção, irá aprender como utilizar o armazenamento de BLOBs para armazenar dados de métricas e eventos registados.
 
 1. [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se ainda não tiver uma. Pode colocá-lo no mesmo grupo de recursos do Azure Search para simplificar de limpeza do wsu mais tarde se pretender eliminar todos os recursos utilizados neste exercício.
 
@@ -86,18 +89,20 @@ Nesta secção, irá aprender como utilizar o armazenamento de BLOBs para conter
 
 4. Guarde o perfil.
 
-5. Teste o registo ao criar ou a exclusão de objetos (gera um registo operacional) e, ao submeter consultas (gera métricas). 
+5. Teste o registo ao criar ou a exclusão de objetos (cria eventos de registo) e, ao submeter consultas (gera métricas). 
 
-O registo está ativado depois de guardar o perfil, contentores, apenas são criados quando existe um evento para o registo ou medida. Pode demorar alguns minutos para que os contentores a aparecer. Pode [visualize os dados no Power BI](#analyze-with-power-bi) depois de ficar disponível.
-
-Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois contêineres:
+O registo está ativado depois de guardar o perfil, contentores, apenas são criados quando existe um evento para o registo ou medida. Pode demorar alguns minutos para que os contentores a aparecer. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois contêineres:
 
 * insights-logs-operationlogs: para os registos de tráfego de pesquisa
 * as métricas-insights-pt1m: para métricas
 
-Há um blob, por hora, por contentor.
+Pode usar [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) ou outro editor de JSON para ver os ficheiros. Há um blob, por hora, por contentor.
 
-Caminho de exemplo: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json`
+### <a name="example-path"></a>Caminho de exemplo
+
+```
+resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
+```
 
 ## <a name="log-schema"></a>Esquema de registo
 Os BLOBs que contém os seus registos de tráfego do serviço de pesquisa são estruturados, conforme descrito nesta secção. Cada blob tem um objeto de raiz chamado **registos** que contenha uma matriz de objetos de registo. Cada blob contém registos para todas as operações que ocorreu durante a mesma hora.
@@ -146,25 +151,17 @@ Pense neste cenário, durante um minuto: um segundo alta isto é carregar o máx
 
 Para ThrottledSearchQueriesPercentage, mínimo, máximo, média e total, todos têm o mesmo valor: a percentagem de consultas de pesquisa que eram limitados, do número total de consultas de pesquisa durante um minuto.
 
-## <a name="analyze-with-power-bi"></a>Analisar com o Power BI
+## <a name="download-and-open-in-visual-studio-code"></a>Transfira e abra no Visual Studio Code
 
-Recomendamos que utilize [Power BI](https://powerbi.microsoft.com) para explorar e visualizar os seus dados, especialmente se ativou [análise de tráfego de pesquisa](search-traffic-analytics.md). Para obter mais informações, consulte a [página de ajuda do pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+Pode utilizar qualquer editor de JSON para ver o ficheiro de registo. Se não tiver uma, é recomendável [Visual Studio Code](https://code.visualstudio.com/download).
 
-As ligações requerem a conta acesso e o nome de armazenamento, que pode ser obtido a partir de páginas do portal do Azure no **chaves de acesso** página do seu dashboard de conta de armazenamento.
+1. No portal do Azure, abra a sua conta de armazenamento. 
 
-1. Instalar o [pacote de conteúdos de BI de energia](https://app.powerbi.com/getdata/services/azure-search). O pacote de conteúdos adiciona predefinidos de gráficos e tabelas útil para analisar os dados adicionais capturados para análise de tráfego de pesquisa. 
+2. No painel de navegação à esquerda, clique em **Blobs**. Verá **insights-logs-operationlogs** e **insights-métricas-pt1m**. Estes contentores são criados pelo Azure Search, quando os dados de registo são exportados para o armazenamento de Blobs.
 
-   Se estiver a utilizar o armazenamento de BLOBs ou outro mecanismo de armazenamento, e não adicionou instrumentação ao código, pode ignorar o pacote de conteúdos e utilize visualizações do Power BI incorporadas.
+3. Clique para baixo a hierarquia de pastas até alcançar o ficheiro. JSON.  Utilize o menu de contexto para transferir o ficheiro.
 
-2. Open **Power BI**, clique em **obter dados** > **serviços** > **Azure Search**.
-
-3. Introduza o nome da conta de armazenamento, selecione **chave** para autenticação e, em seguida, cole uma chave de acesso.
-
-4. Importar os dados e, em seguida, clique em **ver dados**.
-
-Captura de ecrã seguinte mostra os relatórios incorporados e análise de tráfego de pesquisa de gráficos para análise.
-
-![Dashboard do Power BI para o Azure Search](./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png "dashboard do Power BI para o Azure Search")
+Depois do ficheiro é transferido, abra-o num editor de JSON para exibir o conteúdo.
 
 ## <a name="get-sys-info-apis"></a>Obter APIs de sys-info
 A API de REST do Azure Search e o SDK do .NET fornecem acesso programático às informações de métricas, índice e indexador de serviço e contagem de documentos.
@@ -179,6 +176,3 @@ Para ativar a utilizar o PowerShell ou a CLI do Azure, consulte a documentação
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Gerir o seu serviço de pesquisa no Microsoft Azure](search-manage.md) para obter mais informações sobre a administração de serviços e [desempenho e otimização](search-performance-optimization.md) para o guia de sintonização.
-
-Saiba mais sobre a criação de relatórios incríveis. Ver [introdução ao Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) para obter detalhes.
-

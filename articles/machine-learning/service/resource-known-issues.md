@@ -11,33 +11,33 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb79465bd5af0b3172b12b692a90c6b5d133f89a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381829"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078717"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
- 
-Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning. 
+
+Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning.
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
-**Mensagem de erro: Não é possível desinstalar 'PyYAML'** 
+**Mensagem de erro: Não é possível desinstalar 'PyYAML'**
 
 Azure Machine Learning SDK para Python: PyYAML é um projeto instalado distutils. Por conseguinte, não é possível com precisão determinar quais os ficheiros que pertencem ao mesmo em caso de uma desinstalação parcial. Para continuar a instalação do SDK ao ignorar este erro, utilize:
-```Python 
+```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problemas ao criar a computação do Azure Machine Learning
 
-Há uma chance de rara que alguns usuários que criou a sua área de trabalho do Azure Machine Learning do portal do Azure antes do lançamento de DG poderão não conseguir criar a computação do Azure Machine Learning nessa área de trabalho. Pode emitir um pedido de suporte com o serviço ou criar uma nova área de trabalho através do Portal ou o SDK para desbloquear-se imediatamente. 
+Há uma chance de rara que alguns usuários que criou a sua área de trabalho do Azure Machine Learning do portal do Azure antes do lançamento de DG poderão não conseguir criar a computação do Azure Machine Learning nessa área de trabalho. Pode emitir um pedido de suporte com o serviço ou criar uma nova área de trabalho através do Portal ou o SDK para desbloquear-se imediatamente.
 
 ## <a name="image-building-failure"></a>Falha de criação de imagem
 
-Imagem de criação Falha ao implementar o serviço web. Solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência de pip Conda ficheiro para a configuração de imagem.  
+Imagem de criação Falha ao implementar o serviço web. Solução alternativa é adicionar "pynacl = = 1.2.1" como uma dependência de pip Conda ficheiro para a configuração de imagem.
 
 ## <a name="deployment-failure"></a>Falha de implementação
 
@@ -49,10 +49,10 @@ Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e 
 ## <a name="databricks"></a>Databricks
 
 Problemas de Databricks e o Azure Machine Learning.
- 
+
 1. SDK de AML instalar falha no Databricks quando mais pacotes são instalados.
 
-   Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema é relacionados com o Databricks e não relacionadas com o SDK do Azure ML – pode encarar os fatos com outras bibliotecas demasiado. Exemplo:
+   Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema está relacionado com Databricks e não o Azure Machine Learning SDK do serviço - pode encarar os fatos com outras bibliotecas demasiado. Exemplo:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
@@ -67,7 +67,8 @@ Problemas de Databricks e o Azure Machine Learning.
 Se vá diretamente para ver a sua área de trabalho a partir de uma ligação de partilha do SDK ou o portal, não será capaz de exibir a página de descrição geral normal com informações de subscrição na extensão. Também não será capaz de alternar para outra área de trabalho. Se precisar de ver a outra área de trabalho, a solução é ir diretamente para o [portal do Azure](https://portal.azure.com) e procure o nome de área de trabalho.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda. É aqui onde residem os ficheiros de registo:
+Por vezes, pode ser útil se pode fornecer informações de diagnóstico quando pedir ajuda.
+É aqui onde residem os ficheiros de registo:
 
 ## <a name="resource-quotas"></a>Quotas de recursos
 

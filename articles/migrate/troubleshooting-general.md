@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: 8ec580c31901cdbb28fc3a66877f5b0f320f1f7f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827946"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912599"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -153,8 +153,12 @@ Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. 
 Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
 
 1. Se não estiver conectado a versão mais recente da aplicação de recoletor [atualizar o Recoletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema está resolvido.
-2. Se já tiver a versão mais recente do recoletor, instalar manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema está resolvido.
-3. Se o procedimento acima não resolver o problema, navegue para a pasta C:\Program Files\ProfilerService e remover o VMware.dll e VimService65.dll ficheiros presentes na pasta e, em seguida, reinicie o serviço de "Recoletor do Azure Migrate" em gerir de serviços do Windows (Open ' Execute "e o tipo"Services. msc"para abrir o Gestor de serviço do Windows).
+2. Se já tiver a versão mais recente do recoletor, siga os passos abaixo para fazer uma instalação limpa do PowerCLI: um. Feche o navegador da web na aplicação.
+   b. Pare o serviço de "Recoletor do Azure Migrate" indo para o Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em parar, c. Elimine todas as pastas a partir do VMware das seguintes localizações: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
+   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor automaticamente deve transferir e instalar a versão necessária fo PowerCLI.
+
+3. Se o procedimento acima não resolverem o problema, instale manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema está resolvido.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

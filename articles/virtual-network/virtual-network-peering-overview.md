@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1085be57583762e8f1d419e2aacc699032340d90
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 348a37c4b2d23d7c58e0599b4717b97e83b683ea
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054559"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081539"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -72,6 +72,8 @@ Quando as redes virtuais que partilham uma única ligação ExpressRoute do Azur
 Para confirmar o peering de uma rede virtual peering, pode [verificar as rotas efetivas](diagnose-network-routing-problem.md) para uma interface de rede em qualquer sub-rede numa rede virtual. Se um peering de rede virtual existe, todas as sub-redes na rede virtual têm rotas com o tipo de salto seguinte *VNet peering*, para cada espaço de endereços em cada virtual rede peered.
 
 Também pode resolver problemas relacionados com a conectividade a uma máquina virtual numa rede virtual em modo de peering através da [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede. A verificação da conectividade permite-lhe ver como o tráfego é encaminhado da interface de rede de uma máquina de virtual de origem para a interface de rede de uma máquina de virtual de destino.
+
+[Também pode tentar nosso troucleshooter para problemas de VNet Peering](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues)
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 

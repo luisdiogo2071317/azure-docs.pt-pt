@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055018"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913619"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer uma prova de posse para os certificados X.509 de AC com o serviço de aprovisionamento de dispositivos
 
@@ -54,7 +54,7 @@ Agora, tem de iniciar sessão a *código de verificação* com a chave privada a
 A Microsoft fornece ferramentas e exemplos que podem ajudá-lo a criar um certificado de verificação assinado: 
 
 - O **SDK C do Azure IoT Hub** fornece PowerShell (Windows) e scripts de Bash (Linux) para ajudar a criar certificados de AC e folha para desenvolvimento e para realizar uma prova de posse com um código de verificação. Pode transferir o [arquivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevantes para o sistema para uma pasta de trabalho e siga as instruções no [Leiame de certificados de AC Managing](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para efetuar uma prova de posse num certificado de AC. 
-- O **do Azure IoT Hub c# SDK** contém o [exemplo de verificação de certificado do grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), que pode utilizar para fazer uma prova de posse.
+- O **do Azure IoT Hub c# SDK** contém o [exemplo de verificação de certificado do grupo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), que pode utilizar para fazer uma prova de posse.
  
 > [!IMPORTANT]
 > Além de efetuar uma prova de posse, os scripts do PowerShell e o Bash citados anteriormente também permitem que criar certificados de raiz e certificados de folha que podem ser utilizados para autenticar e aprovisionar dispositivos certificados intermédios. Estes certificados devem ser usados apenas para programação. Nunca deve ser utilizadas num ambiente de produção. 

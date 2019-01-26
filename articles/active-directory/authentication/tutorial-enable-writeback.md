@@ -3,19 +3,19 @@ title: Ativar repetição de escrita de palavras-passe do Azure AD
 description: Neste tutorial, irá ativar a repetição de escrita de palavras-passe para obter alterações de palavra-passe de cloud iniciada para o AD no local como parte do Azure AD Connect.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5143b59028b3894d3b9a10add594dd91743a4196
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437186"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078887"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavra-passe
 

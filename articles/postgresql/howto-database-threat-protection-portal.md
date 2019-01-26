@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbc0eadebec849dde47cecaf6e3718eb6673a22f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536156"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912821"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL
 
@@ -22,6 +22,9 @@ Proteção avançada contra ameaças faz parte da oferta de segurança de dados 
 > [!NOTE]
 > A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 >
+
+> [!NOTE]
+> Esta funcionalidade está disponível em todas as regiões do Azure em que a base de dados do Azure para PostgreSQL é implementada para os servidores de fins gerais e memória otimizada.
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
 1. Iniciar o portal do Azure no [ https://portal.azure.com ](https://portal.azure.com).

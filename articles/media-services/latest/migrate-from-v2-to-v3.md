@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808736"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912389"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -35,7 +35,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 
 ### <a name="api-is-more-approachable"></a>A API é mais acessível
 
-*  A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, LiveEvents e muito mais.
+*  A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, os eventos em direto e muito mais.
 * [Abra a API (também conhecido como Swagger) especificação](https://aka.ms/ams-v3-rest-sdk) documento.
     Expõe o esquema para todos os componentes de serviço, incluindo a codificação baseada em ficheiros.
 * SDKs disponíveis para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [node. js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [ir](https://aka.ms/ams-v3-go-ref)e Ruby.
@@ -45,14 +45,14 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 
 * Para o trabalho baseados em ficheiros de processamento, pode utilizar um URL de HTTP (S) como entrada.<br/>Não é necessário ter o conteúdo já armazenado no Azure, nem precisa criar recursos.
 * Apresenta o conceito de [transforma](transforms-jobs-concept.md) para processamento de tarefas baseada em ficheiros. Uma transformação pode ser utilizada para configurações de compilação reutilizáveis, para criar modelos do Azure Resource Manager e isolar as definições de processamento entre vários clientes ou inquilinos.
-* Pode ter um elemento [StreamingLocators vários](streaming-locators-concept.md) cada uma com diferentes configurações de empacotamento dinâmico e a encriptação dinâmica.
+* Um elemento pode ter vários [localizadores de transmissão em fluxo](streaming-locators-concept.md) cada uma com diferentes configurações de empacotamento dinâmico e a encriptação dinâmica.
 * [Proteção de conteúdo](content-key-policy-concept.md) oferece suporte a recursos com múltiplos principais.
-* Pode transmitir em fluxo eventos em direto que estão até 24 horas longas quando utilizar os serviços de mídia à transcodificação uma contribuição de velocidade de transmissão única para alimentar num fluxo de saída que tenha múltiplas velocidades de transmissão.
-* Novo baixa latência em direto a suporte de transmissão em fluxo LiveEvents. Para obter mais informações, consulte [latência](live-event-latency.md).
-* Pré-visualização do LiveEvent suporta o empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
-* LiveOutput é mais simples de usar do que a entidade de programa nas v2 APIs. 
+* Pode transmitir em fluxo eventos em direto, que são até 24 horas longas quando utilizar os serviços de mídia à transcodificação uma contribuição de velocidade de transmissão única para alimentar num fluxo de saída que tenha múltiplas velocidades de transmissão.
+* Novo baixa latência em direto a suporte de transmissão em fluxo eventos em direto. Para obter mais informações, consulte [latência](live-event-latency.md).
+* A visualização dinâmica do evento suporta o empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
+* Saída em direto é mais simples de usar do que a entidade de programa nas v2 APIs. 
 * Suporte RTMP aprimorado (maior estabilidade e mais suporte do codificador de origem).
-* Ingerir RTMPS seguro.<br/>Quando cria um LiveEvent, obter 4 URLs de inserção. O 4 ingerir URLs são quase idênticos, ter o mesmo token de transmissão em fluxo (AppId), apenas a parte do número de porta é diferente. Dois dos URLs são principais e cópia de segurança para RTMPS.   
+* Ingerir RTMPS seguro.<br/>Quando cria um evento em direto, obtém 4 URLs de inserção. O 4 ingerir URLs são quase idênticos, ter o mesmo token de transmissão em fluxo (AppId), apenas a parte do número de porta é diferente. Dois dos URLs são principais e cópia de segurança para RTMPS.   
 * Tem o controlo de acesso baseado em funções (RBAC) sobre as entidades. 
 
 ## <a name="changes-from-v2"></a>Alterações do v2
@@ -67,11 +67,11 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * ContentKeys já não é uma entidade, agora é uma propriedade do StreamingLocator.
 * Suporte a eventos Grid substitui NotificationEndpoints.
 * As seguintes entidades foram renomeadas
-    * JobOutput substitui a tarefa e agora é parte de uma tarefa.
-    * StreamingLocator substitui o localizador.
-    * LiveEvent substitui o canal.<br/>LiveEvents a faturação baseia-se a medidores de canal em direto. Para obter mais informações, consulte [descrição geral de transmissão em direto](live-streaming-overview.md#billing) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
-    * LiveOutput substitui o programa.
-* LiveOutputs não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
+    * Resultado da tarefa substitui a tarefa e agora é parte de uma tarefa.
+    * Localizador de transmissão em fluxo substitui o localizador.
+    * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [descrição geral de transmissão em direto](live-streaming-overview.md#billing) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
+    * Saída em direto substitui o programa.
+* Saídas em direto não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Intervalos de funcionalidades em relação a v2 APIs
 
@@ -84,7 +84,7 @@ A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2
     * Sobreposições
     * Corte
     * Sprites em miniatura
-* LiveEvents com transcodificação atualmente não suportam Slate inserção médio stream e o ad inserção de marcadores por meio de chamada de API. 
+* Eventos em direto com transcodificação atualmente não suportam Slate inserção médio stream e o ad inserção de marcadores por meio de chamada de API. 
 
 > [!NOTE]
 > . Este artigo de marcador e manter a verificação de atualizações.
@@ -102,11 +102,11 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 * Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
-* Terá de aprovisionar unidades reservadas de multimédia (MRUs) na sua conta para controlar a simultaneidade e o desempenho das suas tarefas, especialmente aqueles envolvendo vídeo ou áudio de análise. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir os MRUs usando [CLI 2.0 para serviços de multimédia v3](media-reserved-units-cli-how-to.md), utilizando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md), ou utilizando o[ v2 APIs](../previous/media-services-dotnet-encoding-units.md). Terá de aprovisionar MRUs, se estiver a utilizar os serviços de multimédia v2 ou v3 APIs.
+* Terá de aprovisionar unidades reservadas de multimédia (MRUs) na sua conta para controlar a simultaneidade e o desempenho das suas tarefas, especialmente aqueles envolvendo vídeo ou áudio de análise. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir os MRUs usando [CLI 2.0 para serviços de multimédia v3](media-reserved-units-cli-how-to.md), utilizando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md), ou utilizando o [v2 APIs](../previous/media-services-dotnet-encoding-units.md). Terá de aprovisionar MRUs, se estiver a utilizar os serviços de multimédia v2 ou v3 APIs.
 * Entidades de serviços de suporte de dados criadas com a v3 que API não pode ser gerida pela v2 API.  
 * Não é recomendado para gerir as entidades que foram criadas com as APIs do v2 por meio das APIs v3. Seguem-se exemplos das diferenças que tornam as entidades em duas versões incompatíveis:   
     * Trabalhos e tarefas que criou no v2 não aparecem na v3 à medida que não estiverem associados uma transformação. Recomenda-se mudar para a v3 transformações e tarefas. Haverá um período de tempo relativamente curto da necessidade de monitor a v2 em utilização tarefas durante a alternância de.
-    * Canais e programas criados com o v2 (que são mapeados para LiveEvents e LiveOutputs na v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para v3 LiveEvents e LiveOutputs num conveniente parar de canal.<br/>Atualmente, não é possível migrar canais continuamente em execução.  
+    * Canais e programas criados com o v2 (que são mapeados para eventos em direto e Live saídas da v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para eventos em direto de v3 e Live saídas numa parada de canal conveniente.<br/>Atualmente, não é possível migrar canais continuamente em execução.  
 
 > [!NOTE]
 > Esta página será mantida à medida que a equipe de serviços de multimédia faz melhorias contínuas para as APIs v3 e aborda as lacunas entre as versões.

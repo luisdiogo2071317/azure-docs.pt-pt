@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5f43dba09544d870d9cecc8de34abc4f60554104
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134799"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079125"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Do Machine Learning API de deteção de anomalias
 ## <a name="overview"></a>Descrição geral
@@ -24,9 +24,9 @@ ms.locfileid: "53134799"
 
 Esta API pode detetar os seguintes tipos de padrões anómalos nos dados de séries de tempo:
 
-* **Tendências positivas e negativas**: por exemplo, quando monitorizar a utilização de memória na computação uma tendência de subida pode ser de interesse como que pode ser indicativo de um vazamento de memória
-* **Alterações no intervalo dinâmico de valores**: por exemplo, ao monitorizar exceções acionadas por um serviço em nuvem, quaisquer alterações no intervalo dinâmico de valores podem indicar instabilidade no estado de funcionamento do serviço, e
-* **Picos e quedas**: por exemplo, ao monitorizar o número de falhas de início de sessão num serviço ou um número de finalizações de compras num site de comércio eletrônico, picos ou as quedas anormais podem indicar um comportamento anormal.
+* **Tendências positivas e negativas**: Por exemplo, ao monitorizar a utilização de memória numa tendência de subida de computação pode ser de interesse como que pode ser indicativo de um vazamento de memória
+* **Alterações no intervalo dinâmico de valores**: Por exemplo, ao monitorizar exceções acionadas por um serviço em nuvem, quaisquer alterações no intervalo dinâmico de valores podem indicar instabilidade no estado de funcionamento do serviço, e
+* **Picos e quedas**: Por exemplo, ao monitorizar o número de falhas de início de sessão num serviço ou um número de finalizações de compras num site de comércio eletrônico, picos ou as quedas anormais podem indicar comportamento anormal.
 
 Estes detectores de aprendizado de máquina controlam essas alterações em valores ao longo do tempo e o relatório de alterações em curso em seus valores como pontuações de anomalias. Não necessitam de ajuste de limiar do ad hoc e suas classificações podem ser utilizadas para controlar a taxa de falsos positivos. A deteção de anomalias API é útil em vários cenários, como a monitorização do serviço através da monitorização de KPIs ao longo do tempo, monitoramento de uso por meio de métricas, como o número de pesquisas, números de cliques, monitorização do desempenho através de contadores, como memória, CPU, lê o arquivo, etc. ao longo do tempo.
 
@@ -36,25 +36,25 @@ A oferta de deteção de anomalias vem com ferramentas úteis para começar.
 
 > [!NOTE]
 > Tente **solução IT Anomaly Insights** com tecnologia [esta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
-> 
+>
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
---> 
+-->
 
 ## <a name="api-deployment"></a>Implementação de API
-Para utilizar a API, tem de implementá-la à sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-lo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços de Web do AzureML (e os recursos relacionados) à sua subscrição do Azure - um para deteção de anomalias com deteção de sazonalidade e outro sem deteção de sazonalidade.  Depois de concluída a implementação, será capaz de gerir as suas APIs do [serviços da web AzureML](https://services.azureml.net/webservices/) página.  Nesta página, será possível localizar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Para utilizar a API, tem de implementá-la à sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-lo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços da Web do Azure Machine Learning studio (e os recursos relacionados) à sua subscrição do Azure - um para deteção de anomalias com deteção de sazonalidade e outro sem deteção de sazonalidade.  Depois de concluída a implementação, será capaz de gerir as suas APIs do [serviços da web do Azure Machine Learning studio](https://services.azureml.net/webservices/) página.  Nesta página, será possível localizar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>A API de dimensionamento
 Por predefinição, a sua implementação terá um plano de faturação do programador/teste gratuito que inclui 1000 transações/mês e computação de 2 horas/mês.  Pode atualizar para o outro plano de acordo com suas necessidades.  Detalhes sobre os preços de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/pricing/details/machine-learning/) em "API Web de produção de preços".
 
-## <a name="managing-aml-plans"></a>Planos de gestão de AML 
+## <a name="managing-aml-plans"></a>Planos de gestão de AML
 Pode gerir o seu plano de faturação [aqui](https://services.azureml.net/plans/).  O nome do plano irá basear-se o nome do grupo de recursos que escolheu quando implementar a API, além de uma cadeia de caracteres que seja exclusiva para a sua subscrição.  Estão disponíveis instruções sobre como atualizar o seu plano [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) na secção "Gerir planos de faturação".
 
 ## <a name="api-definition"></a>Definição da API
 O serviço web fornece uma API baseada em REST através de HTTPS, que podem ser consumidos de formas diferentes, incluindo um aplicativo web ou móvel, R, Python, Excel, etc.  Enviar dados de séries de tempo para este serviço por meio de uma chamada à REST API, e é executado uma combinação de tipos de três anomalias descritos abaixo.
 
 ## <a name="calling-the-api"></a>Chamar a API
-Para chamar a API, terá de conhecer a localização do ponto final e a chave de API.  Ambos, juntamente com o código de exemplo para chamar a API, estão disponíveis a partir da [serviços da web AzureML](https://services.azureml.net/webservices/) página.  Navegue para a API pretendida e, em seguida, clique no separador de "Consume" para encontrá-los.  Tenha em atenção de que pode chamar a API como uma API do Swagger (ou seja, com o parâmetro de URL `format=swagger`) ou como um não - API do Swagger (ou seja, sem o `format` parâmetro de URL).  O código de exemplo utiliza o formato de Swagger.  Segue-se um exemplo de solicitação e resposta no formato não Swagger.  Esses exemplos são para o ponto final de sazonalidade.  O ponto de extremidade não sazonalidade é semelhante.
+Para chamar a API, terá de conhecer a localização do ponto final e a chave de API.  Ambos, juntamente com o código de exemplo para chamar a API, estão disponíveis a partir da [serviços da web do Azure Machine Learning studio](https://services.azureml.net/webservices/) página.  Navegue para a API pretendida e, em seguida, clique no separador de "Consume" para encontrá-los.  Tenha em atenção de que pode chamar a API como uma API do Swagger (ou seja, com o parâmetro de URL `format=swagger`) ou como um não - API do Swagger (ou seja, sem o `format` parâmetro de URL).  O código de exemplo utiliza o formato de Swagger.  Segue-se um exemplo de solicitação e resposta no formato não Swagger.  Esses exemplos são para o ponto final de sazonalidade.  O ponto de extremidade não sazonalidade é semelhante.
 
 ### <a name="sample-request-body"></a>Corpo do pedido de exemplo
 O pedido contém dois objetos: `Inputs` e `GlobalParameters`.  O pedido de exemplo abaixo, alguns parâmetros são enviados explicitamente e outros não (role para baixo para uma lista completa de parâmetros para cada ponto de extremidade).  Parâmetros que não são enviados explicitamente no pedido irão utilizar os valores predefinidos, indicados abaixo.
@@ -100,7 +100,8 @@ Tenha em atenção que, para ver os `ColumnNames` campo, tem de incluir `details
 
 
 ## <a name="score-api"></a>API de pontuação
-A API de pontuação é utilizada para executar a deteção de anomalias em dados de séries de tempo não sazonais. A API é executada um número de detectores de anomalias nos dados e retorna suas pontuações de anomalias. A figura abaixo mostra um exemplo de anomalias pode detetar a API de pontuação. Esta série de tempo tem alterações no nível de distintas 2 e 3 picos. Os pontos vermelhos mostram o tempo em que a alteração do nível é detectada, embora os pontos de pretas mostram os picos detetados.
+A API de pontuação é utilizada para executar a deteção de anomalias em dados de séries de tempo não sazonais. A API é executada um número de detectores de anomalias nos dados e retorna suas pontuações de anomalias.
+A figura abaixo mostra um exemplo de anomalias pode detetar a API de pontuação. Esta série de tempo tem alterações no nível de distintas 2 e 3 picos. Os pontos vermelhos mostram o tempo em que a alteração do nível é detectada, embora os pontos de pretas mostram os picos detetados.
 ![API de pontuação][1]
 
 ### <a name="detectors"></a>Detectores
@@ -127,7 +128,7 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | postprocess.tailRows |Número de pontos de dados mais recentes de ser mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados), ou especificar o número de pontos a ter em resultados |N/A |
 
 ### <a name="output"></a>Saída
-A API é executado detectores de todos os seus dados de séries de tempo e devolve as pontuações de anomalias e indicadores de pico de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
+A API é executado detectores de todos os seus dados de séries de tempo e devolve as pontuações de anomalias e indicadores de pico de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | Saídas | Descrição |
 | --- | --- |
@@ -141,7 +142,7 @@ A API é executado detectores de todos os seus dados de séries de tempo e devol
 | talert |valor de 1/0 que indica que existem é uma anomalia de tendência positiva, com base na confidencialidade entrada |
 
 ## <a name="scorewithseasonality-api"></a>ScoreWithSeasonality API
-A API de ScoreWithSeasonality é utilizada para executar a deteção de anomalias em série de tempo que têm padrões de sazonais. Esta API é útil para detetar os desvios em padrões sazonais.  
+A API de ScoreWithSeasonality é utilizada para executar a deteção de anomalias em série de tempo que têm padrões de sazonais. Esta API é útil para detetar os desvios em padrões sazonais.
 A figura a seguir mostra um exemplo de anomalias detetadas numa série de tempo sazonais. Série de tempo tem um pico (o ponto preto 1), dois dips (o ponto de preto 2nd e um no final) e uma alteração ao nível (ponto vermelho). Observe que tanto o dip no meio da série de tempo e a alteração do nível apenas são discernable depois sazonais componentes são removidas da série.
 ![API de sazonalidade][2]
 
@@ -170,7 +171,7 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | postprocess.tailRows |Número de pontos de dados mais recentes de ser mantidos nos resultados da saída |0 |inteiro |0 (manter todos os pontos de dados), ou especificar o número de pontos a ter em resultados |N/A |
 
 ### <a name="output"></a>Saída
-A API é executado detectores de todos os seus dados de séries de tempo e devolve as pontuações de anomalias e indicadores de pico de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
+A API é executado detectores de todos os seus dados de séries de tempo e devolve as pontuações de anomalias e indicadores de pico de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API.
 
 | Saídas | Descrição |
 | --- | --- |

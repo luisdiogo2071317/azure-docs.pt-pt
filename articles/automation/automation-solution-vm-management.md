@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cc0ffc0a209dab0e8610966cb24596d95b7927c3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846188"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913432"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -34,7 +34,7 @@ Seguem-se limitações para a solução atual:
 > [!NOTE]
 > Se estiver a utilizar a solução para as VMs clássicas, em seguida, todas as suas VMs serão processadas sequencialmente por serviço cloud. Máquinas virtuais ainda são processadas em paralelo em serviços cloud diferentes.
 >
-> Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando executa a solução iniciar/parar poderá receber erros porque esta tem cmdlets para gerir recursos clássicos. Para saber mais sobre o CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+> Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando executa a solução iniciar/parar poderá receber erros porque esta tem cmdlets para gerir recursos clássicos. Para saber mais sobre o CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se utilizar uma subscrição do CSP, deve modificar a [ **External_EnableClassicVMs** ](#variables) variável à **False** após a implementação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,6 +90,9 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 
 8. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar a **parâmetros** página e selecione **criar**. Depois de todas as definições são validadas, a solução é implementada na sua subscrição. Este processo pode demorar vários segundos a concluir, e pode acompanhar o progresso em **notificações** no menu.
 
+> [!NOTE]
+> Se tiver uma subscrição do fornecedor de soluções de Cloud do Azure (Azure CSP), após a implementação estiver concluída, na sua conta de automatização, aceda a **variáveis** sob **recursos partilhados** e defina o [ **External_EnableClassicVMs** ](#variables) variável à **falso**. Isso deixa a solução da procura recursos de VM clássica.
+
 ## <a name="scenarios"></a>Cenários
 
 A solução contém três cenários distintos. Estes cenários são:
@@ -108,8 +111,8 @@ Pode habilitar o direcionamento a ação em relação a uma subscrição e grupo
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>As ações de início e fim em relação a um grupo de recursos e subscrição de destino
 
 1. Configurar o **External_Stop_ResourceGroupNames** e **External_ExcludeVMNames** variáveis para especificar o destino de VMs.
-1. Ativar e atualizar o **agendada-StartVM** e **agendada StopVM** agendas.
-1. Executar o **ScheduledStartStop_Parent** runbook com o parâmetro de ação definido como **iniciar** e o parâmetro WHATIF definido como **verdadeiro** para pré-visualizar as alterações.
+2. Ativar e atualizar o **agendada-StartVM** e **agendada StopVM** agendas.
+3. Executar o **ScheduledStartStop_Parent** runbook com o parâmetro de ação definido como **iniciar** e o parâmetro WHATIF definido como **verdadeiro** para pré-visualizar as alterações.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>A ação de início e fim de destino pela lista VM
 
@@ -205,6 +208,7 @@ A tabela seguinte lista as variáveis criadas na sua conta de automatização. S
 |External_AutoStop_Threshold | O limiar para a regra de alerta do Azure especificado na variável _External_AutoStop_MetricName_. Valores de percentagem podem variar entre 1 e 100.|
 |External_AutoStop_TimeAggregationOperator | O operador de agregação da hora, que é aplicado para o tamanho da janela selecionados para avaliar a condição. Os valores aceitáveis são **médio**, **mínimo**, **máxima**, **Total**, e **última**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa as métricas selecionadas para acionar um alerta. Este parâmetro aceita entradas no formato de intervalo de tempo. Valores possíveis são de 5 minutos a seis horas.|
+|External_EnableClassicVMs| Especifica se as VMs clássicas são visadas pela solução. O valor predefinido é True. Isso deve ser definido como falso para subscrições de CSP.|
 |External_ExcludeVMNames | Introduza nomes de VMS a serem excluídos, separando os nomes com uma vírgula, sem espaços.|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, a separação de valores com uma vírgula, direcionada para ações de início.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, a separação de valores com uma vírgula, direcionada para ações de paragem.|

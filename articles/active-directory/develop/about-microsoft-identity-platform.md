@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: d2220071a87fdc2ca49cce3cffdcb58a1a5aa68f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987601"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079943"
 ---
 # <a name="about-microsoft-identity-platform"></a>Acerca da plataforma de identidade da Microsoft
 
@@ -57,7 +57,7 @@ A plataforma de identidade da Microsoft tem dois pontos finais (v1.0 e v2.0) e d
 
     A MSAL é adequada para ser utilizada num ambiente de produção. Fornecemos o mesmo suporte de nível de produção para MSAL que fornecemos nas atuais bibliotecas de produção. Durante a pré-visualização, podemos fazer alterações à API, ao formato de cache interna e a outros mecanismos desta biblioteca, o que precisará de levar juntamente com as correções de erros ou as melhorias de funcionalidades. Isto pode afetar a sua aplicação. Por exemplo, uma alteração ao formato de cache pode afetar os seus utilizadores, como, por exemplo, exigir que voltem a iniciar sessão. Uma alteração à API pode exigir que atualize o seu código. Quando fornecermos a versão de disponibilidade geral (GA), iremos solicitar que faça a atualização para a versão GA no prazo de seis meses, uma vez que as aplicações escritas com uma versão de pré-visualização da biblioteca podem deixar de funcionar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre v1.0 e v2.0.
 

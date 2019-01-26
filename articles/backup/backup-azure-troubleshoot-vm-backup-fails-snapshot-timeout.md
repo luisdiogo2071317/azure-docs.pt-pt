@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816760"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912567"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -59,7 +59,7 @@ Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repi
 **Passo 1: [Remova o bloqueio do grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [Limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas
 
 **Código de erro**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: Cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
@@ -105,7 +105,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: O Azure Backup não suporta atualmente tamanhos de disco superiores a 1023 GB <br>
 
-A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md).  
+A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
 
@@ -114,7 +114,7 @@ A operação de cópia de segurança poderá falhar quando a cópia de seguranç
 
 Atualmente o Azure Backup suporta discos de Standard SSD apenas para os cofres que são atualizados para o [restaurar instantâneas](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso
 
 **Código de erro**: UserErrorBackupOperationInProgress <br>
 **Mensagem de erro**: Não é possível iniciar a cópia de segurança como outra operação de cópia de segurança está atualmente em curso<br>
@@ -132,7 +132,6 @@ Sua tarefa de cópia de segurança recente falhou porque existe uma tarefa de c�
 4. Repita a operação de cópia de segurança.
 
 Se a operação de cópia de segurança agendada está a demorar mais tempo em conflito com a seguinte configuração de cópia de segurança, em seguida, reveja os [melhores práticas](backup-azure-vms-introduction.md#best-practices), [desempenho de cópia de segurança](backup-azure-vms-introduction.md#backup-performance) e [restaurar consideração ](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Causas e soluções

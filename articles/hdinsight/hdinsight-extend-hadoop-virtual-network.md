@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725971"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076831"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -308,7 +308,7 @@ Para obter mais informações, consulte a [controlar o tráfego da rede](#networ
 
 ## <a id="hdinsight-ports"></a> Portas necessárias
 
-Se pretender utilizar uma rede **firewall de aplicação virtual** para proteger a rede virtual, tem de permitir tráfego de saída nas seguintes portas:
+Se pretender utilizar um **firewall** para proteger a rede virtual e aceder ao cluster em determinadas portas, deve permitir tráfego nas portas necessárias para o seu cenário. Por predefinição, não terá de lista de permissões destas portas:
 
 * 53
 * 443

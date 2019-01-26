@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 68027526fb98db4cb5b7eaf75f117692222c6039
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549025"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910717"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Base de dados do Azure para PostgreSQL proteção avançada contra ameaças
 
@@ -22,6 +22,9 @@ Proteção contra ameaças faz parte da oferta de proteção contra ameaças ava
 > [!NOTE]
 > A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 >
+
+> [!NOTE]
+> Esta funcionalidade está disponível em todas as regiões do Azure em que a base de dados do Azure para PostgreSQL é implementada para os servidores de fins gerais e memória otimizada.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
 

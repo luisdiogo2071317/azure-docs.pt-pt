@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 606234096314eb73cb32f8fbcc2d5e6e79c25573
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264365"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077102"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -39,10 +39,10 @@ Não existe nenhuma programação necessária, basta ligar visualmente os conjun
 
 > [!TIP]
 > Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+>
+>
 
-![Diagrama de ML Studio do Azure: Criar experimentações, ler dados de várias origens, escrever dados classificados, escrever modelos.][ml-studio-overview]
+![Diagrama de studio do Azure Machine Learning: Criar experimentações, ler dados de várias origens, escrever dados classificados, escrever modelos.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
 Quando entrar pela primeira vez no[Machine Learning Studio](https://studio.azureml.net), verá a página **inicial**. A partir daqui, pode ver a documentação, vídeos, webinars e localizar outros recursos importantes.
@@ -104,7 +104,7 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O Machine Learning 
 * [Regressão linear][linear-regression] - cria um modelo de regressão linear online descendente.
 * [Modelo de pontuação][score-model] - Pontua um modelo de classificação ou regressão preparado.
 
-À medida que cria uma experimentação, pode escolher a partir de uma lista de módulos disponíveis à esquerda da tela.  
+À medida que cria uma experimentação, pode escolher a partir de uma lista de módulos disponíveis à esquerda da tela.
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando seleciona um módulo na tela, os parâmetros do módulo são apresentados no painel **Propriedades** à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo.
 
@@ -162,7 +162,7 @@ Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes
 * **sample**: Uma parte de um conjunto de dados que se destina a ser representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Pode saber as noções básicas de análise preditiva e do Machine Learning utilizando um [tutorial passo a passo](create-experiment.md) e [tendo amostras](sample-experiments.md).  
+Pode saber as noções básicas de análise preditiva e do Machine Learning utilizando um [tutorial passo a passo](create-experiment.md) e [tendo amostras](sample-experiments.md).
 
 
 <!-- Module References -->
