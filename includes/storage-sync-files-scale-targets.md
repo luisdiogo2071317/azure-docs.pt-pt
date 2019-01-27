@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638782"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084775"
 ---
 | Recurso | Destino | Limite de disco rígido |
 |----------|--------------|------------|
-| Serviços de sincronização de armazenamento por subscrição | 15 Serviços de sincronização de armazenamento por região | Não |
+| Serviços de sincronização de armazenamento por região | 15 Serviços de sincronização de armazenamento | Sim |
 | Grupos de sincronização por serviço de sincronização de armazenamento | 100 grupos de sincronização | Sim |
 | Servidores registados por serviço de sincronização de armazenamento | servidores de 99 | Sim |
 | Pontos finais da cloud por grupo de sincronização | ponto final da 1 cloud | Sim |
