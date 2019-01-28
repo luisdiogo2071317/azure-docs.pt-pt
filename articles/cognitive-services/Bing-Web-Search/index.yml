@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 69fa31efe9044ca6dbbc2c6229fdaa328437a046
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0dbbf1e5b3f80f1dce188e38f3e0ff2d12cce07b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792119"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912259"
 documentType: LandingData
 title: Documentação da API de Pesquisa na Web do Bing
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
   title: Documentação da API de Pesquisa na Web do Bing – Tutoriais, inícios rápidos, referências de API | Microsoft Docs
-  description: Saiba como utilizar a API de Pesquisa na Web do Bing para obter resultados da Web relevantes para as consultas dos utilizadores. Os tutoriais mostram-lhe como criar aplicações que utilizam o serviço.
+  description: Saiba como utilizar a API de Pesquisa na Web do Bing para pesquisar páginas Web, imagens, vídeos, notícias e muito mais na Web.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,7 +22,7 @@ metadata:
   ms.date: 9/24/2018
   ms.author: nitinme
 abstract:
-  description: A API de Pesquisa na Web do Bing fornece uma experiência parecida ao Bing ao devolver resultados da pesquisa parecidos aos que o Bing determina serem relevantes para a consulta de um utilizador. Os resultados incluem páginas da Web e também podem incluir imagens, vídeos e muito mais.
+  description: A API de Pesquisa na Web do Bing permite-lhe integrar as capacidades de pesquisa do Bing nas suas aplicações. Ao enviar consultas de pesquisa com a API, pode obter páginas Web, imagens, vídeos, notícias e muito mais relevantes para si.
 sections:
 - items:
   - type: list
@@ -48,13 +48,13 @@ sections:
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
-    text: 'Comece a utilizar a API de Pesquisa na Web do Bing. Para tal, faça uma consulta e veja a resposta JSON:'
+    text: 'Pesquise na Web com:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: web-search-sdk-quickstart
       text: C&#35;
     - image:
         src: https://docs.microsoft.com/media/logos/logo_gopher.svg
@@ -62,11 +62,11 @@ sections:
       text: Ir
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: web-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: web-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -74,7 +74,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: web-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg

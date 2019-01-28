@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103694"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913075"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -40,13 +40,13 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.
 
 ### <a name="v2"></a>Versão 2.x
 
-Versão 2.x das ferramentas utiliza o runtime das funções do Azure 2.x está incorporada no .NET Core. Esta versão é suportada em todas as plataformas suporta de 2.x do .NET Core, incluindo [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux).
+Versão 2.x das ferramentas utiliza o runtime das funções do Azure 2.x está incorporada no .NET Core. Esta versão é suportada em todas as plataformas suporta de 2.x do .NET Core, incluindo [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Primeiro tem de instalar o .NET Core 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 Os seguintes passos utilizam npm para instalar as ferramentas de núcleo no Windows. Também pode utilizar [Chocolatey](https://chocolatey.org/). Para obter mais informações, consulte a [Leiame de ferramentas de núcleo](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Instale [2.1 do .NET Core para Windows](https://www.microsoft.com/net/download/windows).
+1. Instale [2.x SDK para .NET Core para Windows](https://www.microsoft.com/net/download/windows).
 
 2. Instale [Node.js], que inclui o npm. Para a versão 2.x das ferramentas, apenas 8.5 de node. js e versões posteriores são suportados.
 
@@ -60,7 +60,7 @@ Os seguintes passos utilizam npm para instalar as ferramentas de núcleo no Wind
 
 Os passos seguintes utilizam o Homebrew para instalar as ferramentas de núcleo no macOS.
 
-1. Instale [.NET Core 2.1 para macOS](https://www.microsoft.com/net/download/macos).
+1. Instale [.NET Core SDK 2.x para macOS](https://www.microsoft.com/net/download/macos).
 
 2. Instale [Homebrew](https://brew.sh/), se ainda não estiver instalado.
 
@@ -75,7 +75,7 @@ Os passos seguintes utilizam o Homebrew para instalar as ferramentas de núcleo 
 
 Os passos seguintes utilizam [APT](https://wiki.debian.org/Apt) para instalar as ferramentas de núcleo na sua distribuição Ubuntu/Debian Linux. Para outras distribuições do Linux, consulte a [Leiame de ferramentas de núcleo](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Instale [2.1 do .NET Core para Linux](https://www.microsoft.com/net/download/linux).
+1. Instale [2.x SDK para .NET Core para Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registe-se a chave de produto da Microsoft como fidedigna:
 
