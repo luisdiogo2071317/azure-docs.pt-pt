@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900855"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075470"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -75,7 +75,7 @@ Lançou o SO de convidado de Junho.
 .NET framework instalado: 3.5, 4.7.2
 
 > [!NOTE]
-> O Windows Azure SDK para .NET 3.0 pode ser baixado [aqui][Windows Azure SDK].
+> O Windows Azure SDK para .NET - 3.0 pode ser baixado [aqui][Windows Azure SDK].
 >
 
 | Cadeia de configuração | Data da versão | Desativar data |
@@ -155,6 +155,7 @@ Apesar do [política de reforma para o Azure SDK] [ retire policy sdk] indica qu
 
 | Família de SO convidado | Versões compatíveis do SDK |
 | --- | --- |
+| 6 |Versão 2.9.6+ |
 | 5 |Versão 2.9.5.1+ |
 | 4 |Versão 2.1 + |
 | 3 |Versão 1.8 + |
