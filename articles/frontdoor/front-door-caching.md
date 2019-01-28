@@ -26,7 +26,7 @@ O serviço de porta de entrada do Azure fornece ficheiros grandes sem um limite 
 
 </br>Depois do bloco chega ao ambiente de porta de entrada, é colocado em cache e servido imediatamente para o utilizador. Em seguida, a porta da frente pré-busca o próximo bloco em paralelo. Este obtenção prévia garante que o conteúdo permanece um trecho de um passo à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro é transferido (se requerido), todos os intervalos de byte estão disponíveis (se requerido), ou o cliente encerra a conexão.
 
-</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Porta de entrada armazena em cache quaisquer partes à medida que estão a receber e para que todo o arquivo não precisa ser colocado em cache na cache de porta de entrada. Pedidos subsequentes para os intervalos de bytes ou ficheiro são servidos a partir da cache. Se não todos os segmentos são colocadas em cache, obtenção prévia é utilizado para pedir a segmentos de back-end. Essa otimização baseia-se à capacidade de back-end para suportar pedidos de intervalo de bytes; Se o back-end não suportar pedidos de intervalo de bytes, essa otimização não é eficaz.
 
 ## <a name="file-compression"></a>Compressão de ficheiros
