@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 08108863d7b6348e3ab26d7040c70f29ed641ebe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191546"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -998,8 +998,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/operationStatuses/read | Lê o estado da operação dos gateways de redes virtuais. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | Obtém o pacote do gateway da rede virtual. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/read | Obtém os gateways da rede virtual. |
-> | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Inicia o diagnóstico do gateway da rede virtual. |
-> | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Para o diagnóstico do gateway da rede virtual. |
+> | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Inicia o diagnóstico para o gateway de rede virtual. |
+> | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Interrompe o diagnóstico para o gateway de rede virtual. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/gateways/write | Adiciona um gateway da rede virtual. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/join/action | Associa à rede virtual. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | Lê o estado da operação das redes virtuais. |
@@ -1255,7 +1255,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a definição do diagnóstico para o grupo de contentores. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para o grupo de recursos. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o grupo de contentores. |
-> | Ação | Microsoft.ContainerInstance/containerGroups/read | Obtenha todos os grupos de contentores. |
+> | Ação | Microsoft.ContainerInstance/containerGroups/read | Obter todos os grupos de contentores. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/restart/action | Reinicia um grupo de contentor específico. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/start/action | Inicia um grupo de contentores específico. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/stop/action | Deixa de um grupo de contentores específico. Serão possível desalocar a recursos e a faturação irá parar de computação. |
@@ -1537,8 +1537,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém o ArmApiRes_roles |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém o ArmApiRes_roles |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Cria ou atualiza o ArmApiRes_roles |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Verificar a existência de atualizações |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Atualizar as definições de segurança |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Procurar atualizações |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Atualizar definições de segurança |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Elimina as partilhas |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Apresenta uma lista ou obtém as partilhas |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Apresenta uma lista ou obtém as partilhas |
@@ -1836,7 +1836,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | --- | --- | --- |
 > | Ação | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Devolve a lista de escalões de desempenho disponíveis. |
 > | Ação | Microsoft.DBforPostgreSQL/performanceTiers/read | Devolve a lista de escalões de desempenho disponíveis. |
-> | Ação | Microsoft.DBforPostgreSQL/servers/advisors/read | Devolver a lista de advisros |
+> | Ação | Microsoft.DBforPostgreSQL/servers/advisors/read | Devolver a lista de consultores |
 > | Ação | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Devolver a lista de ações recomendadas |
 > | Ação | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Fazer recomendações |
 > | Ação | Microsoft.DBforPostgreSQL/servers/configurations/read | Devolve a lista de configurações para um servidor ou obtém as propriedades para a configuração especificada. |
@@ -2198,12 +2198,12 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.EventHub/checkNameAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. |
-> | Ação | Microsoft.EventHub/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida, utilize CheckNameAvailabiltiy. |
+> | Ação | Microsoft.EventHub/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida utilize CheckNameAvailability em vez disso. |
 > | Ação | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Obter a lista de descrições de recursos do Cluster métricas |
 > | Ação | Microsoft.EventHub/clusters/read | Obtém a Descrição de Recurso de Cluster |
 > | Ação | Microsoft.EventHub/clusters/write | Obtém a Descrição de Recurso de Cluster |
 > | Ação | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet no Fornecedor de Recursos de EventHub para a VNet especificada |
-> | Ação | Microsoft.EventHub/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API está preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
+> | Ação | Microsoft.EventHub/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API foi preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/delete | Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido.  |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Obter Cadeia de Ligação para o Espaço de nomes |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/read | Obter a lista de descrição das Regras de Autorização de Espaços de nomes. |
@@ -2609,7 +2609,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.IoTSpaces/Graph/delete | Elimina o recurso de gráfico Microsoft.IoTSpaces |
 > | Ação | Microsoft.IoTSpaces/Graph/read | Obtém os recursos de Microsoft.IoTSpaces Graph |
 > | Ação | Microsoft.IoTSpaces/Graph/write | Criar recurso Microsoft.IoTSpaces Graph |
-> | Ação | Microsoft.IoTSpaces/register/action | Registar subscrição para o fornecedor de recursos de Microsoft.IoTSpaces gráfico ativar creationg de recursos |
+> | Ação | Microsoft.IoTSpaces/register/action | Registar subscrição para o fornecedor de recursos de gráfico Microsoft.IoTSpaces permitir a criação de recursos |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -3326,7 +3326,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/checkTrafficManagerNameAvailability/action | Verifica a disponibilidade de um nome DNS do Gestor de tráfego relativo. |
 > | Ação | Microsoft.Network/connections/delete | Elimina o VirtualNetworkGatewayConnection |
 > | Ação | Microsoft.Network/connections/read | Obtém o VirtualNetworkGatewayConnection |
-> | Ação | Microsoft.Network/connections/revoke/action | Marca um Estado de ligação de Expressroute Exprress como revogadas |
+> | Ação | Microsoft.Network/connections/revoke/action | Marca um Estado de ligação de Expressroute como revogadas |
 > | Ação | Microsoft.Network/connections/sharedkey/action | Obter VirtualNetworkGatewayConnection SharedKey |
 > | Ação | Microsoft.Network/connections/sharedKey/read | Obtém o VirtualNetworkGatewayConnection SharedKey |
 > | Ação | Microsoft.Network/connections/sharedKey/write | Cria ou atualiza uma existente SharedKey de VirtualNetworkGatewayConnection |
@@ -3543,7 +3543,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/operations/read | Obter operações disponíveis |
 > | Ação | Microsoft.Network/p2sVpnGateways/delete | Elimina um P2SVpnGateway. |
 > | Ação | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Gerar o perfil de Vpn para P2SVpnGateway |
-> | Ação | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Obtém um ligação de Vpn de P2S de funcionamento para P2SVpnGateway |
+> | Ação | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Obtém um Estado de funcionamento da ligação de Vpn P2S para P2SVpnGateway |
 > | Ação | Microsoft.Network/p2sVpnGateways/read | Obtém um P2SVpnGateway. |
 > | Ação | Microsoft.Network/p2sVpnGateways/write | Coloca um P2SVpnGateway. |
 > | Ação | Microsoft.Network/privateLinkServices/delete | Elimina um recurso de serviço de ligação privada. |
@@ -3567,14 +3567,14 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/routeFilters/routeFilterRules/delete | Elimina uma definição de regra de filtro de rota |
 > | Ação | Microsoft.Network/routeFilters/routeFilterRules/read | Obtém uma definição de regra de filtro de rota |
 > | Ação | Microsoft.Network/routeFilters/routeFilterRules/write | Cria uma regra de filtro de rota ou atualiza uma regra de filtro de rota existente |
-> | Ação | Microsoft.Network/routeFilters/write | Cria um filtro de rota ou atualiza um filtro de rotue existente |
+> | Ação | Microsoft.Network/routeFilters/write | Cria um filtro de rota ou atualiza um filtro de rota existente |
 > | Ação | Microsoft.Network/routeTables/delete | Elimina uma definição de tabela de rota |
 > | Ação | Microsoft.Network/routeTables/join/action | Junta-se a uma tabela de rotas |
 > | Ação | Microsoft.Network/routeTables/read | Obtém uma definição de tabela de rota |
 > | Ação | Microsoft.Network/routeTables/routes/delete | Elimina uma definição de rota |
 > | Ação | Microsoft.Network/routeTables/routes/read | Obtém uma definição de rota |
 > | Ação | Microsoft.Network/routeTables/routes/write | Cria uma rota ou atualiza uma rota existente |
-> | Ação | Microsoft.Network/routeTables/write | Cria uma tabela de rotas ou atualiza uma tabela de rotue existente |
+> | Ação | Microsoft.Network/routeTables/write | Cria uma tabela de rotas ou atualiza uma tabela de rota existente |
 > | Ação | Microsoft.Network/securegateways/delete | Eliminar Gateway seguro |
 > | Ação | Microsoft.Network/securegateways/read | Obter o Gateway seguro |
 > | Ação | Microsoft.Network/securegateways/write | Cria ou atualiza um Gateway seguro |
@@ -3583,7 +3583,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | É associado uma sub-rede para políticas de ponto final de serviço |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/read | Obtém uma descrição de política de ponto final de serviço |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete | Elimina uma definição de política de ponto final de serviço |
-> | Ação | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Obtém um Decription de definição de política de ponto final de serviço |
+> | Ação | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Obtém uma descrição de definição de política de ponto final de serviço |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write | Cria uma definição de política de ponto final de serviço ou atualiza uma definição de política de ponto final de serviço existente |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/write | Cria uma política de ponto final de serviço ou atualiza uma política de ponto final de serviço existente |
 > | Ação | Microsoft.Network/trafficManagerGeographicHierarchies/read | Obtém a hierarquia de Geographic Traffic Manager que contém regiões em que podem ser utilizados com o método de encaminhamento de tráfego geográfico |
@@ -3626,7 +3626,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Defina parâmetros para o cliente de VirtualNetworkGateway P2S de Vpnclient Ipsec. |
 > | Ação | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Suporte de listas de dispositivos Vpn |
 > | Ação | Microsoft.Network/virtualNetworkGateways/write | Cria ou atualiza um VirtualNetworkGateway |
-> | Ação | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtém o anfitrião de bastião refrences numa rede Virtual. |
+> | Ação | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtém as referências de anfitrião de bastião numa rede Virtual. |
 > | Ação | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Verifique se o endereço Ip está disponível na rede virtual especificada |
 > | Ação | Microsoft.Network/virtualNetworks/delete | Elimina uma rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/peer/action | Elementos de uma rede virtual com outra rede virtual |
@@ -3700,8 +3700,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.NotificationHubs/Namespaces/write | Criar um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e a capacidade do espaço de nomes são propriedades que podem ser atualizadas. |
 > | Ação | Microsoft.NotificationHubs/operationResults/read | Devolve os resultados da operação para o fornecedor de Hubs de Notificação |
 > | Ação | Microsoft.NotificationHubs/operations/read | Devolve uma lista de operações suportadas para o fornecedor de Hubs de Notificação |
-> | Ação | Microsoft.NotificationHubs/register/action | Regista a subscrição do fornecedor de recursos de NotificationHubs e ativa a criação de Espaços de nomes e NotificationHubs |
-> | Ação | Microsoft.NotificationHubs/unregister/action | Anula o registo da subscrição para o fornecedor de recursos NotifciationHubs e permite a criação de Espaços de nomes e NotificationHubs |
+> | Ação | Microsoft.NotificationHubs/register/action | Regista a subscrição para o fornecedor de recursos de Notification hubs e permite a criação de espaços de nomes e os Notification hubs |
+> | Ação | Microsoft.NotificationHubs/unregister/action | Anula o registo da subscrição para o fornecedor de recursos de Notification hubs e permite a criação de espaços de nomes e os Notification hubs |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -3995,7 +3995,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.OperationsManagement/managementAssociations/delete | Eliminar a associação de gestão existente |
 > | Ação | Microsoft.OperationsManagement/managementAssociations/read | Obtenha a associação de gestão existente |
 > | Ação | Microsoft.OperationsManagement/managementAssociations/write | Criar uma nova associação de gestão |
-> | Ação | Microsoft.OperationsManagement/managementConfigurations/delete | Eliminar a configuração de gestão existente |
+> | Ação | Microsoft.OperationsManagement/managementConfigurations/delete | Eliminar configuração de gestão existente |
 > | Ação | Microsoft.OperationsManagement/managementConfigurations/read | Obter configuração de gestão existente |
 > | Ação | Microsoft.OperationsManagement/managementConfigurations/write | Criar uma nova configuração de gestão |
 > | Ação | Microsoft.OperationsManagement/register/action | Registe uma subscrição de um fornecedor de recursos. |
@@ -4233,8 +4233,8 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Relay/checkNameAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. |
-> | Ação | Microsoft.Relay/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida, utilize CheckNameAvailabiltiy. |
-> | Ação | Microsoft.Relay/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API está preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
+> | Ação | Microsoft.Relay/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida utilize CheckNameAvailability em vez disso. |
+> | Ação | Microsoft.Relay/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API foi preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.Relay/namespaces/authorizationRules/delete | Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido.  |
 > | Ação | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | Obter Cadeia de Ligação para o Espaço de nomes |
 > | Ação | Microsoft.Relay/namespaces/authorizationRules/read | Obter a lista de descrição das Regras de Autorização de Espaços de nomes. |
@@ -4444,9 +4444,9 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.ServiceBus/checkNameAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. |
-> | Ação | Microsoft.ServiceBus/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida, utilize CheckNameAvailabiltiy. |
+> | Ação | Microsoft.ServiceBus/checkNamespaceAvailability/action | Verifica a disponibilidade do espaço de nomes em determinada subscrição. Esta API foi preterida utilize CheckNameAvailability em vez disso. |
 > | Ação | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Elimina as regras de VNet no Fornecedor de Recursos de ServiceBus para a VNet especificada |
-> | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API está preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
+> | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/action | Regra de autorização de espaço de nomes de atualizações. Esta API foi preterida. Utilize uma chamada PUT para atualizar a regra de autorização de espaço de nomes em vez disso,.... Esta operação não é suportada na versão 2017-04-01 de API. |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido.  |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Obter Cadeia de Ligação para o Espaço de nomes |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/read | Obter a lista de descrição das Regras de Autorização de Espaços de nomes. |
@@ -4883,7 +4883,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Tipos de métricas que estão disponíveis para os servidores de retorno |
 > | Ação | Microsoft.Sql/servers/read | Devolve a lista de servidores ou obtém as propriedades para o servidor especificado. |
 > | Ação | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Obter métricas para os conjuntos de bases de dados elásticas recomendados para um determinado servidor |
-> | Ação | Microsoft.Sql/servers/recommendedElasticPools/read | Obter a recomendação para conjuntos de bases de dados elásticas reduzir o custo ou melhorar o desempenho com base na utilização de recursos de historica |
+> | Ação | Microsoft.Sql/servers/recommendedElasticPools/read | Obter a recomendação para conjuntos de bases de dados elásticas reduzir o custo ou melhorar o desempenho com base na utilização de recursos histórica |
 > | Ação | Microsoft.Sql/servers/recoverableDatabases/read | Esta operação é utilizada para recuperação após desastre da base de dados em direto para restaurar a base de dados para o último conhecido bom ponto de cópia de segurança. Devolve informações sobre a última cópia de segurança de boa, mas ele doesn\u0027t realmente restaurar a base de dados. |
 > | Ação | Microsoft.Sql/servers/replicationLinks/read | Devolve a lista de replicação liga ou obtém as propriedades para as ligações de replicação especificada. |
 > | Ação | Microsoft.Sql/servers/restorableDroppedDatabases/read | Obter uma lista de bases de dados que foram ignorados num determinado servidor ainda dentro de política de retenção. |
@@ -4892,7 +4892,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Sql/servers/securityAlertPolicies/write | Alterar a política de deteção de ameaças do servidor para um determinado servidor |
 > | Ação | Microsoft.Sql/servers/serviceObjectives/read | Obter a lista de serviço os objetivos de nível (também conhecido como escalões de desempenho) disponíveis num determinado servidor |
 > | Ação | Microsoft.Sql/servers/syncAgents/delete | Elimina um agente de sincronização existente. |
-> | Ação | Microsoft.Sql/servers/syncAgents/generateKey/action | Gerar chave de registo do agente de sincronização |
+> | Ação | Microsoft.Sql/servers/syncAgents/generateKey/action | Gerar a chave de registo do agente de sincronização |
 > | Ação | Microsoft.Sql/servers/syncAgents/linkedDatabases/read | Devolver a lista de sincronizar bases de dados do agente ligado |
 > | Ação | Microsoft.Sql/servers/syncAgents/read | Devolve a lista de agentes de sincronização ou obtém as propriedades para o agente de sincronização especificado. |
 > | Ação | Microsoft.Sql/servers/syncAgents/write | Cria um agente de sincronização com os parâmetros especificados ou atualiza as propriedades para o agente de sincronização especificado. |

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913075"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094251"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -371,7 +371,7 @@ Para passar dados de teste para o ponto final de administrador de uma função, 
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 O `<trigger_input>` valor contém dados num formato esperado pela função. O exemplo cURL seguinte é uma POSTAGEM a uma `QueueTriggerJS` função. Neste caso, a entrada é uma cadeia que é equivalente a mensagem esperada para ser encontrada na fila.
 
