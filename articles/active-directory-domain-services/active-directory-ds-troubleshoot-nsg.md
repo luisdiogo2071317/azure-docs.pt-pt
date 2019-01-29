@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Configuração de resolução de problemas do grupo de segurança de rede | Documentos da Microsoft'
+title: 'Azure Active Directory Domain Services: Configuração do grupo de segurança de rede de resolução de problemas | Documentos da Microsoft'
 description: Resolução de problemas de configuração de NSG para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,25 +8,25 @@ manager: ''
 editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957543"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181899"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de rede inválida para o seu domínio gerido
 Este artigo ajuda-o a resolver erros de configuração relacionadas com a rede que resultam na mensagem de alerta seguinte:
 
-## <a name="alert-aadds104-network-error"></a>AADDS104 alerta: Erro de rede
-**Mensagem de alerta:** *Microsoft não poderá aceder aos controladores de domínio para este domínio gerido. Isto pode acontecer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloqueia o acesso ao domínio gerido. Outra razão possível é se houver uma rota definida pelo utilizador que bloqueia o tráfego de entrada da internet.*
+## <a name="alert-aadds104-network-error"></a>Alerta AADDS104: Erro de rede
+**Mensagem de alerta:** *A Microsoft é não é possível alcançar os controladores de domínio para este domínio gerido. Isto pode acontecer se um grupo de segurança de rede (NSG) configurado na sua rede virtual bloqueia o acesso ao domínio gerido. Outra razão possível é se houver uma rota definida pelo utilizador que bloqueia o tráfego de entrada da internet.*
 
 Configurações de NSG inválidas são a causa mais comum de erros de rede para serviços de domínio do Azure AD. O grupo de segurança de rede (NSG) configurado para a rede virtual tem de permitir o acesso ao [portas específicas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Se estas portas são bloqueadas, a Microsoft não é possível monitorizar ou atualizar o seu domínio gerido. Além disso, a sincronização entre o diretório do Azure AD e o seu domínio gerido é afetada. Ao criar o seu NSG, mantém estas portas abertas para evitar interrupções no serviço.
 
@@ -41,7 +41,7 @@ Configurações de NSG inválidas são a causa mais comum de erros de rede para 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um NSG que seria manter seu domínio gerido segura, permitindo que a Microsoft para monitorizar, gerir e atualizar as informações de exemplo.
 
-![Exemplo de NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
+![sample NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > O Azure AD Domain Services requer acesso sem restrições de saída da rede virtual. Recomendamos que não para criar qualquer regra NSG adicional, que restringe o acesso de saída para a rede virtual.

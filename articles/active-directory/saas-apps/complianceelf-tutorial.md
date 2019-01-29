@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o ELF de conformidade | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o ELF de conformidade | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o ELF de conformidade.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042865"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189430"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Active Directory com o ELF de conformidade
+# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Active Directory do Azure com o ELF de conformidade
 
 Neste tutorial, saiba como integrar o ELF de conformidade com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com conformidade ELF, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um conformidade ELF logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do ELF de conformidade no Azure AD, terá de adic
 
 **Para adicionar ELF de compatibilidade a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -106,22 +106,22 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Caixa de diálogo de início de sessão único](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. Sobre o **conformidade ELF domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+3. Sobre o **conformidade ELF domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Conformidade ELF domínio e URLs únicas início de sessão em informações](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     Na **identificador** caixa de texto, escreva um URL como: `https://sso.cordium.com`
 
-4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação no **SP** iniciada pelo modo:
 
     ![Conformidade ELF domínio e URLs de início de sessão único](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.complianceelf.com`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Este valor não é real. Atualize esta valores com o URL de início de sessão real. Contacte [equipa de suporte de conformidade ELF](mailto:support@complianceelf.com) para obter este valor.
 
-5. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+5. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
     
     ![Configurar o início de sessão único](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -197,7 +197,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -207,7 +207,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

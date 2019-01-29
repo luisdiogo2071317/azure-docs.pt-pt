@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory da Palo Alto Networks - abertura | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - abertura | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e da Palo Alto Networks - abertura.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a5ea18d3-3aaf-4bc6-957c-783e9371d0f1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 7bb4782fa390ad2cc324a79a1f544c3db062c921
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7f94921126900c8e124cd41bd2e4f913b28396a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421554"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153679"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Azure Active Directory da Palo Alto Networks - abertura
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - abertura
 
 Neste tutorial, saiba como integrar da Palo Alto Networks - abertura com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com da Palo Alto Networks - abertura, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Da Palo Alto redes – abertura de logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração da Palo Alto Networks - abertura para o Azure AD,
 
 **Para adicionar da Palo Alto Networks - abertura a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -161,7 +161,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     f. Clique em **Guardar**.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -197,7 +197,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-palo-alto-networks---aperture-test-user"></a>Criar da Palo Alto Networks - utilizador de teste de abertura
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida da Palo Alto Networks - abertura. Trabalhar com [Palo Alto Networks - equipa de suporte de cliente de abertura](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) para adicionar os utilizadores da Palo Alto Networks - plataforma de abertura. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida da Palo Alto Networks - abertura. Trabalhar com [Palo Alto Networks - equipa de suporte de cliente de abertura](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) para adicionar os utilizadores da Palo Alto Networks - plataforma de abertura. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -229,7 +229,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

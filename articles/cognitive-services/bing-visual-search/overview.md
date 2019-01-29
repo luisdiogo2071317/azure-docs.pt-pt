@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aab17f8a0213c213920ebdfc2b2fe31248657a91
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 61a851b0efbcc4fdb55308e47447d218014ef9e0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742852"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154359"
 ---
-# <a name="what-is-the-bing-visual-search-api"></a>O que é a API de pesquisa Visual do Bing?
+# <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
-A API de pesquisa Visual do Bing fornece os detalhes da imagem semelhantes às mostradas no Bing.com/images. Ao carregar uma imagem ou fornecer um URL para um, esta API pode identificar uma variedade de detalhes sobre o mesmo, incluindo imagens visualmente similares, fontes, páginas da Web que incluem a imagem e muito mais de compras. Se utilizar o [API de pesquisa de imagens do Bing](../bing-image-search/overview.md), é possível utilizar tokens de informações anexadas para os resultados da pesquisa a API em vez de carregar uma imagem.
+A API de Pesquisa Visual do Bing fornece detalhes de imagens semelhantes aos mostrados em Bing.com/images. Ao carregar uma imagem ou fornecer um URL para um, esta API pode identificar uma variedade de detalhes sobre o mesmo, incluindo imagens visualmente similares, fontes, páginas da Web que incluem a imagem e muito mais de compras. Se utilizar o [API de pesquisa de imagens do Bing](../bing-image-search/overview.md), é possível utilizar tokens de informações anexadas para os resultados da pesquisa a API em vez de carregar uma imagem.
 
 ## <a name="insights"></a>Informações
 
@@ -57,7 +57,7 @@ Esta demonstração mostra como pode rapidamente personalizar uma consulta de pe
 
 Quando estiver pronto para chamar a API, crie uma [conta dos serviços cognitivos da API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Se não tiver uma subscrição do Azure, pode [criar uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
 
-Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para começar rapidamente com o primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 
 ## <a name="see-also"></a>Consulte também

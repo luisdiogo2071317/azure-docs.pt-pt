@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Mercell | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Mercell | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Mercell.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e2ca2d4f4a93f6c4bbfdacb6f25185cd59586964
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1763a022487f0a6b01a59156960e59a0bb8663f3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041145"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183599"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Azure Active Directory com Mercell
+# <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Active Directory do Azure com Mercell
 
 Neste tutorial, saiba como integrar Mercell com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Mercell, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Mercell logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Mercell com o Azure AD, terá de adicionar Mer
 
 **Para adicionar Mercell a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     Na **identificador** caixa de texto, escreva o URL: `https://my.mercell.com/`
 
-4. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+4. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
     
     ![Configurar o início de sessão único](./media/mercell-tutorial/tutorial_metadataurl.png)
      
@@ -156,7 +156,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Mercell. Mercell suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Mercell se não existir ainda.
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Mercell](mailto:webmaster@mercell.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Mercell](mailto:webmaster@mercell.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -188,7 +188,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -198,7 +198,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

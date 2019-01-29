@@ -72,7 +72,7 @@ Pode criar uma variável e declarar o tipo de dados e o valor inicial - tudo den
 
 4. Forneça estas informações para a variável:
 
-   | Propriedade | Necessário | Valor |  Descrição |
+   | Propriedade | Necessário | Value |  Descrição |
    |----------|----------|-------|--------------|
    | Name | Sim | <*nome da variável*> | O nome para a variável incrementar | 
    | Type | Sim | <*tipo de variável*> | O tipo de dados para a variável | 
@@ -208,7 +208,7 @@ Para aumentar ou *incremento* adicionar uma variável por um valor constante, o 
 
 3. Forneça estas informações para incrementar a variável:
 
-   | Propriedade | Necessário | Valor |  Descrição |
+   | Propriedade | Necessário | Value |  Descrição |
    |----------|----------|-------|--------------|
    | Name | Sim | <*nome da variável*> | O nome para a variável incrementar | 
    | Value | Não | <*valor de incremento*> | O valor utilizado para incrementar a variável. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática, para que saiba sempre o valor específico por incrementar a variável. | 
@@ -328,7 +328,7 @@ Para diminuir ou *diminuir* uma variável por um valor constante, siga os passos
 
 Aqui estão as propriedades para o **variável de diminuição** ação:
 
-| Propriedade | Necessário | Valor |  Descrição |
+| Propriedade | Necessário | Value |  Descrição |
 |----------|----------|-------|--------------|
 | Name | Sim | <*nome da variável*> | O nome para a variável diminuir | 
 | Value | Não | <*valor de incremento*> | O valor para a variável de diminuição. O valor predefinido é um. <p><p>**Sugestão**: Embora seja opcional, defina este valor como melhor prática, para que sempre sabe o valor específico para a diminuição da variável. | 
@@ -363,7 +363,7 @@ O valor é necessário porque esta ação não tem um valor predefinido.
 
 Aqui estão as propriedades para o **definir variável** ação:
 
-| Propriedade | Necessário | Valor |  Descrição | 
+| Propriedade | Necessário | Value |  Descrição | 
 |----------|----------|-------|--------------| 
 | Name | Sim | <*nome da variável*> | O nome para a variável alterar | 
 | Value | Sim | <*novo valor*> | O valor que pretende atribuir a variável. Ambos tem de ter os mesmo tipo de dados. | 
@@ -421,7 +421,7 @@ Para as variáveis que armazenam cadeias de caracteres ou matrizes, pode inserir
 
 Aqui estão as propriedades para o **acrescentar a...**  ações:
 
-| Propriedade | Necessário | Valor |  Descrição | 
+| Propriedade | Necessário | Value |  Descrição | 
 |----------|----------|-------|--------------| 
 | Name | Sim | <*nome da variável*> | O nome para a variável alterar | 
 | Value | Sim | <*valor de acréscimo*> | O valor que pretende anexar, que pode ter qualquer tipo | 

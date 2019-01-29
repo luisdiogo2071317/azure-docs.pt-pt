@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432767"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104447"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola de série de máquina virtual para Windows
 
@@ -136,6 +136,13 @@ Teclas de função estão ativadas para utilização para a consola de série em
 
 ### <a name="use-wsl-in-serial-console"></a>Utilizar WSL na consola de série
 O subsistema Windows para Linux (WSL) foi ativado para o Windows Server 2019 ou posterior, pelo que também é possível ativar WSL para uso dentro da consola de série, se estiver a executar o Windows Server 2019 ou posterior. Isso pode ser benéfico para os utilizadores que também tem uma familiaridade com os comandos de Linux. Para obter instruções ativar WSL para o Windows Server, consulte a [guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Reinicie a VM do Windows na consola de série
+Pode reiniciar a VM dentro da consola de série ao navegar para o botão de energia e clicar em "VM reiniciar". Isto irá iniciar um reinício VM, e verá uma notificação no portal do Azure sobre o reinício.
+
+Isto é útil em situações nas quais poderá desejar para aceder ao menu de arranque da sua VM sem deixar a experiência de consola de série.
+
+![Reinício de consola de série do Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série ao nível da subscrição ou o nível VM.

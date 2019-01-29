@@ -1,29 +1,29 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing, Node.js'
+title: 'Início rápido: NODE. js, API de sugestão automática do Bing'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 498953625907aad85d8ea5999905cad21bf245da
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: 4fc2fc93adbd4620a05c4d248ada45ded278021b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829992"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196587"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Início Rápido da API de Sugestão Automática do Bing com Node.js
 
-Este artigo mostra-lhe como utilizar a API de [Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com Node.js. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
+Este artigo mostra-lhe como utilizar o [a API de sugestão automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com node. js. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
 Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Sugestão Automática do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
@@ -154,7 +154,7 @@ get_suggestions ();
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)

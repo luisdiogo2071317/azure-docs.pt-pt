@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199583"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096964"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Como resolver problemas de Cache do Azure para Redis
 Este artigo fornece orientações para resolução de problemas seguintes categorias de Cache do Azure para problemas de Redis.
@@ -187,11 +187,11 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 | Métrica de mensagem de erro | Detalhes |
 | --- | --- |
 | portamento da instalação |No último intervalo de tempo: 0 comandos foram emitidos |
-| Gestor |O Gestor de socket está a efetuar `socket.select`, que significa que pede o sistema operacional para indicar um soquete que tem algo a fazer; basicamente: o leitor não está lendo ativamente da rede porque ele não pensa que há algo a ver |
+| mgr |O Gestor de socket está a efetuar `socket.select`, que significa que pede o sistema operacional para indicar um soquete que tem algo a fazer; basicamente: o leitor não está lendo ativamente da rede porque ele não pensa que há algo a ver |
 | fila |Existem 73 total de operações em curso |
 | qu |6 das operações em curso estão na fila de mensagens e ainda não foram escritos para a rede de saída |
-| Se considerássemos |67 das operações em curso foram enviados para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
-| QC |0 das operações em curso viu respostas, mas ainda não foi marcada como concluída devido a aguardando o loop de conclusão |
+| qs |67 das operações em curso foram enviados para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
+| qc |0 das operações em curso viu respostas, mas ainda não foi marcada como concluída devido a aguardando o loop de conclusão |
 | wR |Existe um escritor Active Directory (ou seja, que não estão a ser ignorados os 6 pedidos não enviados) bytes/activewriters |
 | pol. |Não há nenhum leitores Active Directory e zero bytes estão disponíveis para ser continue a ler os bytes/activereaders NIC |
 
@@ -212,7 +212,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
             return lazyConnection.Value;
         }
     }
-    ````
+    ```
 
     Para obter mais informações, consulte [ligar à cache a utilizar o stackexchange. redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 

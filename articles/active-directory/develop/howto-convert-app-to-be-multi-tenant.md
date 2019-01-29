@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425348"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097049"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
 Se oferecer um Software como um aplicativo de serviço (SaaS) a muitas organizações, pode configurar a sua aplicação para aceitar inícios de sessão de qualquer inquilino do Azure Active Directory (Azure AD). Esta configuração denomina *tornando sua multi-inquilino de aplicativo*. Os utilizadores em qualquer inquilino do Azure AD poderão iniciar sessão na sua aplicação depois de consentir utilizar a respetiva conta com a sua aplicação. 
 
@@ -59,7 +59,7 @@ Num aplicativo de inquilino único, os pedidos de início de sessão são enviad
 
 Com uma aplicação multi-inquilino, o aplicativo não sabe com antecedência quais inquilino, o utilizador é de, pelo que não é possível enviar pedidos ao ponto final de um inquilino. Em vez disso, as solicitações são enviadas para um ponto final que multiplexes em inquilinos de contas do Azure AD: `https://login.microsoftonline.com/common`
 
-Quando o Azure AD recebe um pedido no /common ponto final,-lo se o utilizador e, como conseqüência, Deteta que o usuário é a partir de inquilino. O/ponto de extremidade comum funciona com todos os protocolos de autenticação suportados pelo Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
+Quando o Azure AD recebe um pedido no /common ponto final,-lo se o utilizador e, como conseqüência, Deteta que o usuário é a partir de inquilino. O/ponto de extremidade comum funciona com todos os protocolos de autenticação suportados pelo Azure AD:  OpenID Connect, OAuth 2.0 e WS-Federation SAML 2.0.
 
 A resposta de início de sessão para a aplicação, em seguida, contém um token que representa o usuário. O valor de emissor no token indica uma aplicação que é o utilizador a partir de inquilino. Quando uma resposta devolve a partir do /common ponto final, o valor de emissor no token corresponde ao inquilino do utilizador. 
 

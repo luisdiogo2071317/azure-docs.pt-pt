@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 2a4f55ea15c933094befb8855185c4b7e353dee3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 26e902cb31a77ffb1516f084bb71b5a99a89fba9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061474"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188648"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilizar o PowerShell para ativar o Diagnóstico do Azure numa máquina virtual com o Windows
 
@@ -84,13 +84,13 @@ A configuração tem de ser atualizado para incluir o seguinte:
   * O ID de recurso pode ser construído utilizando o seguinte padrão: "/ subscrições / {*ID de subscrição para a subscrição com a VM*} /resourceGroups/ {*o nome de resourcegroup para a VM*} / providers/Microsoft.Compute/virtualMachines/ {*o nome da VM*} ".
   * Por exemplo, se o ID de subscrição para a subscrição em que a VM está em execução será **11111111-1111-1111-1111-111111111111**, o nome do grupo de recursos para o grupo de recursos é **MyResourceGroup**e o Nome da VM é **MyWindowsVM**, em seguida, o valor de *resourceID* seria:
     
-      ```
+      ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
   * Para obter mais informações sobre como as métricas são geradas com base na configuração de contadores e métricas de desempenho, consulte [tabela de métricas de diagnóstico do Azure no armazenamento](diagnostics-template.md#wadmetrics-tables-in-storage).
 * O **StorageAccount** elemento tem de ser atualizado com o nome da conta de armazenamento de diagnóstico.
   
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
         <WadCfg>

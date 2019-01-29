@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467490"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180369"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
@@ -30,13 +30,13 @@ Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/i
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual e recursos de rede virtual. Criar o grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual e recursos de rede virtual. Criar o grupo de recursos com [criar grupo az](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Por predefinição, a saída dos comandos da CLI do Azure é em JSON (JavaScript Object Notation). Para alterar a predefinição de saída a uma lista ou tabela, por exemplo, utilize [configurar a az - saída](/cli/azure/reference-index#az_configure). Também pode adicionar `--output` para qualquer comando por um tempo de alterar no formato de saída. O exemplo seguinte mostra a saída JSON do `az group create` comando:
+Por predefinição, a saída dos comandos da CLI do Azure é em JSON (JavaScript Object Notation). Para alterar a predefinição de saída a uma lista ou tabela, por exemplo, utilize [configurar a az - saída](/cli/azure/reference-index). Também pode adicionar `--output` para qualquer comando por um tempo de alterar no formato de saída. O exemplo seguinte mostra a saída JSON do `az group create` comando:
 
 ```json                       
 {
@@ -559,7 +559,7 @@ Para ver site NGINX predefinido em ação, abra o browser e introduza o FQDN:
 ![Site predefinido do NGINX na sua VM](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportar como modelo
-E se pretende agora criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou a um ambiente de produção que corresponda ao-lo? Gestor de recursos usa os modelos JSON que definem a todos os parâmetros para o seu ambiente. Crie os ambientes completos fazendo referência este modelo JSON. Pode [criar manualmente os modelos JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para. Uso [exportação de grupo az](/cli/azure/group#az_group_export) para exportar o seu grupo de recursos da seguinte forma:
+E se pretende agora criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou a um ambiente de produção que corresponda ao-lo? Gestor de recursos usa os modelos JSON que definem a todos os parâmetros para o seu ambiente. Crie os ambientes completos fazendo referência este modelo JSON. Pode [criar manualmente os modelos JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para. Uso [exportação de grupo az](/cli/azure/group) para exportar o seu grupo de recursos da seguinte forma:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

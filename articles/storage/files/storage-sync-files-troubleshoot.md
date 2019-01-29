@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157637"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095162"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -246,15 +246,15 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 **Registo de ItemResults - erros de sincronização por item**  
 | HRESULT | HRESULT (decimal) | Cadeia do erro | Problema | Remediação |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | É necessária nenhuma ação. |
-| 0x7B | 123 | ERROR_INVALID_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
+| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | Nenhuma ação necessária. |
+| 0x7b | 123 | ERROR_INVALID_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | É necessária nenhuma ação. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | Nenhuma ação necessária. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer se o ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS) ou o ficheiro tem uma exclusão estado pendente. | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | É necessária nenhuma ação. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | Nenhuma ação necessária. |
 
 #### <a name="handling-unsupported-characters"></a>Carateres de tratamento não suportado
 Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a carateres não suportados (0x7b de códigos de erro e 0x8007007b), deve remover ou mudar o nome de carateres com falha, os respetivo dos nomes de ficheiro. PowerShell provavelmente irá imprimir esses caracteres como pontos de interrogação ou retângulos vazios uma vez que a maior parte desses caracteres não têm nenhuma codificação visual padrão. O [ferramenta de avaliação](storage-sync-files-planning.md#evaluation-tool) pode ser utilizado para identificar os carateres que não são suportadas.
@@ -283,7 +283,7 @@ Sessões de sincronização poderão falhar por vários motivos, incluindo o ser
 <a id="-2147012889"></a>**Não foi possível estabelecer uma ligação com o serviço.**    
 | | |
 |-|-|
-| **HRESULT** | 0x80072EE7 |
+| **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
 | **Cadeia de erro** | WININET_E_NAME_NOT_RESOLVED |
 | **Remediação necessária** | Sim |
@@ -434,7 +434,7 @@ Se este erro persistir durante mais de algumas horas, crie um pedido de suporte 
 <a id="-2146762487"></a>**O servidor não conseguiu estabelecer uma ligação segura. O serviço em nuvem recebeu um certificado inesperado.**  
 | | |
 |-|-|
-| **HRESULT** | 0x800B0109 |
+| **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
 | **Cadeia de erro** | CERT_E_UNTRUSTEDROOT |
 | **Remediação necessária** | Sim |
@@ -458,7 +458,7 @@ Ao definir este valor de registo, o agente do Azure File Syn vai aceitar qualque
 <a id="-2147012894"></a>**Não foi possível estabelecer uma ligação com o serviço.**  
 | | |
 |-|-|
-| **HRESULT** | 0x80072EE2 |
+| **HRESULT** | 0x80072ee2 |
 | **HRESULT (decimal)** | -2147012894 |
 | **Cadeia de erro** | WININET_E_TIMEOUT |
 | **Remediação necessária** | Sim |
@@ -804,24 +804,19 @@ Existem duas classes principais de falhas que podem acontecer por meio de qualqu
 As secções seguintes indicam como resolver problemas de disposição em camadas na cloud e determinar se um problema é um problema de armazenamento na cloud ou um problema do servidor.
 
 <a id="monitor-tiering-activity"></a>**Como monitorizar a atividade de disposição em camadas num servidor**  
-Para monitorizar a atividade de disposição em camadas num servidor, utilize 9002 de ID de evento, 9003, 9016 e 9029 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos).
-
-- ID de evento 9002 fornece estatísticas de à conversão em fantasma para um ponto final do servidor. Por exemplo, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+Para monitorizar a atividade de disposição em camadas num servidor, utilize 9003 de ID de evento, 9016 e 9029 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos).
 
 - ID de evento 9003 fornece distribuição de erros para um ponto final do servidor. Por exemplo, Contagem Total de erros, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
-
 - ID de evento 9016 fornece resultados à conversão em fantasma para um volume. Por exemplo, o espaço livre é de %, número de ficheiros fantasma na sessão, o número de ficheiros não conseguiu ghost, etc.
-
-- ID de evento 9029 fornece informações de sessão à conversão em fantasma. Por exemplo, o número de ficheiros tentada a sessão, o número de ficheiros em camadas na sessão, número de ficheiros já em camadas, etc.
+- ID de evento 9029 fornece informações de sessão à conversão em fantasma para um ponto final do servidor. Por exemplo, o número de ficheiros tentada a sessão, o número de ficheiros em camadas na sessão, número de ficheiros já em camadas, etc.
 
 <a id="monitor-recall-activity"></a>**Como monitorizar a atividade de recolhimento num servidor**  
-Para monitorizar a atividade de recolhimento num servidor, utilize 9005 de ID de evento, 9006, 9007 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos). Tenha em atenção que estes eventos são registados por hora.
+Para monitorizar a atividade de recolhimento num servidor, utilize 9005 de ID de evento, 9006, 9009 e 9059 no registo de eventos de telemetria (localizado em Applications and Services\Microsoft\FileSync\Agent no Visualizador de eventos).
 
 - ID de evento 9005 fornece confiabilidade de recolhimento de um ponto de final do servidor. Por exemplo, Total de ficheiros exclusivos acedidos, Total de ficheiros exclusivo com acesso falhadas, etc.
-
 - ID de evento 9006 fornece distribuição de erros de recolhimento de um ponto de final do servidor. Por exemplo, Total de pedidos falhados, código de erro, etc. Tenha em atenção de que um evento é registado por código de erro.
-
-- ID de evento 9007 fornece desempenho de recolhimento de um ponto de final do servidor. Por exemplo, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- ID de evento 9009 fornece informações de sessão de recolhimento de um ponto de final do servidor. Por exemplo, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- ID de evento 9059 fornece distribuição de solicitação de recolhimento de aplicativo para um ponto final do servidor. Por exemplo, ShareId, nome da aplicação e TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Resolver problemas de ficheiros que não obedeçam a uma camada**  
 Se falharem ficheiros a uma camada para ficheiros do Azure:

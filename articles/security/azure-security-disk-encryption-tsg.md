@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103170"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092137"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -33,7 +33,23 @@ Este erro pode ocorrer quando a encriptação de disco do SO é tentasse num amb
 - Unidades de dados são recursivamente montada no diretório /mnt/ ou de outro (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Outros Azure Disk Encryption [pré-requisitos](azure-security-disk-encryption-prerequisites.md) para Linux não forem cumpridas.
 
-## <a name="unable-to-encrypt"></a>Não é possível encriptar
+## <a name="bkmk_Ubuntu14"></a> Atualizar o kernel de padrão para Ubuntu 14.04 LTS
+
+A imagem de Ubuntu 14.04 LTS é fornecido com uma versão de kernel predefinida de 4.4. Esta versão de kernel tem um problema conhecido no qual de memória Matador termina incorretamente o comando de dd durante o processo de criptografia do sistema operacional. Esse bug foi corrigido no mais recente Azure ajustado kernel do Linux. Para evitar este erro, antes de ativar a encriptação na imagem, atualize para o [Azure ajustado kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) ou posteriormente utilizando os seguintes comandos:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+Depois da VM reiniciou-se para o novo kernel, a nova versão de kernel pode ser confirmada usando:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Não é possível encriptar discos Linux
 
 Em alguns casos, a encriptação de disco parece estar bloqueada em "Iniciada de encriptação de disco de SO" de Linux e SSH está desativada. O processo de encriptação pode demorar entre horas de 3-16 a terminar numa imagem da Galeria das ações. Se forem adicionados discos de dados de tamanho de terabytes de transmissões, o processo pode demorar dias.
 

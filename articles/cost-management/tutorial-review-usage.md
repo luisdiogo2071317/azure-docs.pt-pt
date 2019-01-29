@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849979"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098651"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -104,7 +104,7 @@ Este exemplo utiliza a **custo Efetivo ao longo do tempo** relatório para envia
 5. Selecione o **limiar** separador e, em seguida, selecione **custo Efetivo vs. Limiar**. 
    1. Na **alerta vermelho** caixa limiar introduza 10000. 
    2. Na **alerta amarelo** caixa limiar introduza 9000. 
-   3. Na **número de alertas consecutivos** , introduza o número de alertas consecutivos para receber. Quando receber o número total de alertas que especificou, não existem alertas adicionais são enviadas. 
+   3. Na **número de alertas consecutivos** , introduza o número de alertas consecutivos para receber. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. 
 6. Selecione **Guardar**.
 
 ![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)

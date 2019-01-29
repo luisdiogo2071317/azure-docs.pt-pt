@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pré-visualização do URL do Projeto, Node.js'
+title: 'Início rápido: URL do projeto pré-visualização, node. js'
 titlesuffix: Azure Cognitive Services
 description: Comece a utilizar a Pré-visualização do URL nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 38cfb0957acf5fb986e16a64d2c9730dc10fcf7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465054"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104369"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Início Rápido: Pré-visualização do URL com o Node.js 
+# <a name="quickstart-url-preview-with-nodejs"></a>Início rápido: Pré-visualização de URL com node. js 
 
 O exemplo de Node seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
@@ -37,7 +37,7 @@ O código seguinte obtém os dados da Pré-visualização do URL.
 
 Segue-se o código completo para esta demonstração:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -83,9 +83,9 @@ let Search = function () {
 
 Search();
 
-````
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Código de exemplo de C#](csharp.md)
 - [Início rápido do Java](java-quickstart.md)
 - [Início rápido do JavaScript](javascript.md)

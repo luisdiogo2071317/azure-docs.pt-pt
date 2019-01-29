@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902336"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187305"
 ---
 # <a name="evaluate-method"></a>Avalie o método
 
@@ -33,9 +33,9 @@ Nome     | Valor | Necessário?  | Descrição
 **expr**       | Cadeia de texto | Sim | Uma expressão de consulta que especifica quais entidades devem ser devolvidas.
 **Modelo**      | Cadeia de texto | Não  | Nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.        
 **Atributos** | Cadeia de texto | Não<br>predefinição: Id | Uma lista delimitada por vírgulas que especifica os valores de atributos que estão incluídos na resposta. Nomes de atributo diferenciam maiúsculas de minúsculas.
-**Contagem**        | Number | Não<br>Predefinição: 10 | Número de resultados a devolver.
-**deslocamento**     | Number |   Não<br>Predefinição: 0    | Índice do primeiro resultado a devolver.
-**OrderBy** |   Cadeia de texto | Não<br>Predefinição:, diminuindo prob | Nome de um atributo que é utilizado para ordenação as entidades. Opcionalmente, ascendente/descendente pode ser especificado. O formato é: *name: asc* ou *nome: desc*.
+**count**        | Number | Não<br>Predefinição: 10 | Número de resultados a devolver.
+**offset**     | Number |   Não<br>Predefinição: 0    | Índice do primeiro resultado a devolver.
+**orderby** |   Cadeia de texto | Não<br>Predefinição:, diminuindo prob | Nome de um atributo que é utilizado para ordenação as entidades. Opcionalmente, ascendente/descendente pode ser especificado. O formato é: *name: asc* ou *nome: desc*.
   
  <br>
 ## <a name="response-json"></a>Resposta (JSON)
@@ -43,7 +43,7 @@ Nome | Descrição
 -------|-----   
 **expr** |  O *expr* parâmetro no pedido.
 **Entidades** |  Uma matriz de 0 ou mais entidades que correspondem a expressão de consulta. Cada entidade contém um valor de probabilidade de registo natural e os valores de outros atributos solicitados.
-**abortada** | VERDADEIRO se o pedido excedeu o limite de tempo.
+**aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
 
 <br>
 #### <a name="example"></a>Exemplo:

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 5a5fbcb4cd2e073192ec7032bdbed15ab49798ad
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075429"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102130"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -153,9 +153,17 @@ Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. 
 Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
 
 1. Se não estiver conectado a versão mais recente da aplicação de recoletor [atualizar o Recoletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema está resolvido.
-2. Se já tiver a versão mais recente do recoletor, siga os passos abaixo para fazer uma instalação limpa do PowerCLI: um. Feche o navegador da web na aplicação.
-   b. Pare o serviço de "Recoletor do Azure Migrate" indo para o Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em parar, c. Elimine todas as pastas a partir do VMware das seguintes localizações: C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program Files (x86)\WindowsPowerShell\Modules d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
+2. Se já tiver a versão mais recente do recoletor, siga os passos abaixo para fazer uma instalação limpa do PowerCLI:
+
+   a. Feche o navegador da web na aplicação.
+
+   b. Pare o serviço de "Recoletor do Azure Migrate" indo para o Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em parar.
+
+   c. Elimine todas as pastas a partir do VMware das seguintes localizações: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program ficheiros (x86) \WindowsPowerShell\Modules
+
+   d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
+   
    e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor automaticamente deve transferir e instalar a versão necessária fo PowerCLI.
 
 3. Se o procedimento acima não resolverem o problema, instale manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema está resolvido.
@@ -214,7 +222,7 @@ A lista de sistemas de operativos do Windows suportados pelo agente de dependên
 A lista dos sistemas de operativos Linux suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo me visualize as dependências no Azure Migrate para obter mais informações à duração de uma hora?
-O Azure Migrate permite que visualize as dependências de duração do até uma hora. Embora o Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora. No entanto, pode utilizar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) ao longo de um período mais longo. 
+O Azure Migrate permite que visualize as dependências de duração do até uma hora. Embora o Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora. No entanto, pode utilizar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) ao longo de um período mais longo.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo me visualize as dependências para grupos com mais de 10 VMs?
 Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm cópia de segurança para 10 VMs, se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.

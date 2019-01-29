@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Implementar a Pilha LAMP num Conjunto de Dimensionamento de Máquinas Virtuais com Balanceamento de Carga | Microsoft Docs
+title: CLI do Azure exemplo do Script - implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga | Documentos da Microsoft
 description: Utilize uma extensão de script personalizado para implementar a Pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461150"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155175"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implementar a pilha LAMP num conjunto de dimensionamento de máquinas virtuais com balanceamento de carga
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 23216df139ba3bc4023d3a01c8e7b9914cccfba5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a31a9db62c220e0c1bd3709a37ee662693b07511
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261530"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096930"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Dicas de solução de problemas para suportar o serviço QnA Maker e o tempo de execução
 QnAMaker é composto por componentes alojados na conta de utilizador do Azure. Depuração pode exigir que os utilizadores manipular seus recursos do Azure do QnAMaker ou fornecer a equipa de suporte do QnAMaker com informações adicionais sobre sua configuração.
@@ -54,4 +54,4 @@ O nome de anfitrião do QnAMaker serviço é útil para fins de depuração quan
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilizar a API do QnAMaker](./upgrade-qnamaker-service.md)
+> [Melhorar as perguntas de base de dados de conhecimento com aprendizagem ativa](./improve-knowledge-base.md)

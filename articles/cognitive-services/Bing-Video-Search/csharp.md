@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: API da Pesquisa de Vídeos do Bing, C#'
+title: 'Início rápido: API de pesquisa de vídeos do BingC#'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: aae2658f26c0e47d0030c67c4bc691d53e07dbbb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 59bb0f49b58c20b6a1b9d38eb596492397b16ed9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157046"
 ---
-# <a name="quickstart-bing-video-search-api-with-c"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com C#
+# <a name="quickstart-bing-video-search-api-with-c"></a>Início rápido: Vídeo de pesquisa do Bing API comC#
 
 Este artigo mostra como utilizar a API da Pesquisa de Vídeos do Bing, que faz parte dos Serviços Cognitivos do Azure. Embora este artigo utilize C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 

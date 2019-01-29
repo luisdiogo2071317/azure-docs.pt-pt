@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468800"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171801"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -178,7 +178,7 @@ Para repor a palavra-passe de um utilizador, siga estes passos:
 
 Para ativar a reposição de palavra-passe self-service, siga os passos de implementação abaixo:
 
--   [Permitir que os utilizadores reponham as palavras-passe do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que os utilizadores reponham as palavras-passe do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [Permitir que os utilizadores reponham ou alterem as respetivas palavras-passe do Active Directory no local](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

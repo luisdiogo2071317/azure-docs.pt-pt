@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f95be8a9d75065deedd3bd7c92907145e966494
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913059"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094840"
 ---
 # <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
 
@@ -32,27 +32,19 @@ Este artigo mostra como usar [dos serviços de multimédia v3 CLI](https://aka.m
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-+ Instale a [CLI do Azure]( /cli/azure/install-azure-cli). Este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. 
+[Criar uma conta de Media Services](create-account-cli-how-to.md).
 
-    Pode também utilizar o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
-+ [Criar uma conta de Media Services](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Unidades com a CLI reservadas de multimédia de dimensionamento
 
-1. Execute o comando `login`. Execute este comando, se estiver a utilizar o Azure cloud shell ou a shell CLI local.
+Execute o comando `mru`.
 
-    ```azurecli
-    az login
-    ```
-    
-    Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carrega uma página de início de sessão. Caso contrário, terá de abrir uma página do browser e siga as instruções na linha de comandos para introduzir um código de autorização depois de navegar para [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) no seu browser.
-2. Execute o comando `mru`.
+O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) comando conjuntos de unidades reservadas de multimédia "amsaccount" conta utilizando o **contagem** e **tipo** parâmetros.
 
-    O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) comando conjuntos de unidades reservadas de multimédia "amsaccount" conta utilizando o **contagem** e **tipo** parâmetros.
-
-    ```azurecli
-    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-    ```
+```azurecli
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+```
 
 ## <a name="billing"></a>Faturação
 

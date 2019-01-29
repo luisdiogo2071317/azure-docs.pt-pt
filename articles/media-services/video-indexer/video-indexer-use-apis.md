@@ -1,5 +1,5 @@
 ---
-title: Utilizar a API do Video Indexer
+title: Utilizar a API do Video Indexer - Azure
 titlesuffix: Azure Media Services
 description: Este artigo mostra como pode começar a utilizar a API do Video Indexer.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292388"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190501"
 ---
-# <a name="use-the-video-indexer-api"></a>Utilizar a API do Video Indexer
+# <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
 > [!Note]
 > A API do Video Indexer V1 foi preterida no dia 1 de agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções que se encontram [aqui](https://api-portal.videoindexer.ai/). 

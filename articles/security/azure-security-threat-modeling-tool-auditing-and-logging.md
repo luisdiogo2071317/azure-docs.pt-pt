@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307003"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092178"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e registo | Atenuações 
 | Produtos/serviços | Artigo |
@@ -35,7 +35,7 @@ ms.locfileid: "43307003"
 
 ## <a id="sensitive-entities"></a>Identificar as entidades sensíveis na sua solução e implementar a auditoria de alteração
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -46,7 +46,7 @@ ms.locfileid: "43307003"
 
 ## <a id="auditing"></a>Certifique-se de que a auditoria e Registro é aplicada a aplicação
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -57,7 +57,7 @@ ms.locfileid: "43307003"
 
 ## <a id="log-rotation"></a>Certifique-se de que a rotação do registo e a separação estão em vigor
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -68,7 +68,7 @@ ms.locfileid: "43307003"
 
 ## <a id="log-sensitive-data"></a>Certifique-se de que o aplicativo não regista dados de utilizador confidenciais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -79,7 +79,7 @@ ms.locfileid: "43307003"
 
 ## <a id="log-restricted-access"></a>Certifique-se de que a auditoria e de ficheiros de registo têm acesso restrito
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -90,7 +90,7 @@ ms.locfileid: "43307003"
 
 ## <a id="user-management"></a>Certifique-se de que os eventos de gestão de utilizador registados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -101,7 +101,7 @@ ms.locfileid: "43307003"
 
 ## <a id="inbuilt-defenses"></a>Certifique-se de que o sistema tem incorporadas defesas contra utilização indevida
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -112,7 +112,7 @@ ms.locfileid: "43307003"
 
 ## <a id="diagnostics-logging"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -123,7 +123,7 @@ ms.locfileid: "43307003"
 
 ## <a id="identify-sensitive-entities"></a>Certifique-se de que a auditoria de início de sessão está ativada no SQL Server
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -134,7 +134,7 @@ ms.locfileid: "43307003"
 
 ## <a id="threat-detection"></a>Ativar a deteção de ameaças em SQL do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -145,7 +145,7 @@ ms.locfileid: "43307003"
 
 ## <a id="analytics"></a>Utilizar a análise de armazenamento do Azure para auditar o acesso do armazenamento do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -156,7 +156,7 @@ ms.locfileid: "43307003"
 
 ## <a id="sufficient-logging"></a>Implementar o Registro em log suficiente
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -185,7 +185,7 @@ Segue-se um exemplo de configuração com a auditoria ativada
 
 ## <a id="audit-failure-handling"></a>Implementar o tratamento da falha de auditoria suficientes
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -196,7 +196,7 @@ Segue-se um exemplo de configuração com a auditoria ativada
 
 ### <a name="example"></a>Exemplo
 O `<behavior/>` elemento do ficheiro de configuração de WCF abaixo Instrua o WCF não notificar o aplicativo quando o WCF não consegue escrever um log de auditoria.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,12 +207,12 @@ O `<behavior/>` elemento do ficheiro de configuração de WCF abaixo Instrua o W
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Configure o WCF para notificar o programa sempre que for não é possível escrever um log de auditoria. O programa deve ter um esquema de notificação alternativo para alerta não estão a ser mantido a organização que registos de auditoria. 
 
 ## <a id="logging-web-api"></a>Certifique-se de que a auditoria e Registro é aplicada a Web API
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -223,7 +223,7 @@ Configure o WCF para notificar o programa sempre que for não é possível escre
 
 ## <a id="logging-field-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de campo
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -234,7 +234,7 @@ Configure o WCF para notificar o programa sempre que for não é possível escre
 
 ## <a id="logging-cloud-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de Cloud
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  

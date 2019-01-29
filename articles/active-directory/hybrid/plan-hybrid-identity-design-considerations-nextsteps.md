@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37c89771823649f6a2590911ba41eaf64c6ccbd8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab11783d48756796beae7485d65da73e58d0b71e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474426"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161325"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Passos do Azure do Active Directory hybrid identity design considerações sobre a próxima
 Agora que concluiu a definir seus requisitos e analisou todas as opções para a sua solução de gestão de dispositivos móveis, está pronto para siga os passos seguintes para implementar a infraestrutura de suporte que é adequada para si e a sua organização.

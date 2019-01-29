@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-jan
+ms.openlocfilehash: ec1f36bee1a764f98473d7a6d1a6d7359dde9ea7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156161"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se de um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](directory-self-service-signup.md)
@@ -131,42 +131,42 @@ cmdlet | Utilização
 ### <a name="powershell-example"></a>Exemplo do PowerShell
 
 1. Ligar ao Azure AD com as credenciais que foram usadas para responder à oferta self-service:
-  ````
+  ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ````
+  ```
 2. Obter uma lista de domínios:
   
-  ````
+  ```
     Get-MsolDomain
-  ````
+  ```
 3. Execute o cmdlet Get-MsolDomainVerificationDns para criar um desafio:
-  ````
+  ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ````
+  ```
 
 4. Copie o valor (o desafio), que é devolvido a partir deste comando. Por exemplo:
-  ````
+  ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ````
+  ```
 5. No espaço de nomes DNS público, crie um registo txt DNS que contém o valor que copiou no passo anterior. O nome para este registo é o nome do domínio pai, portanto, se criar este registo de recursos ao utilizar a função DNS do Windows Server, deixe colar registo nome em branco e apenas o valor na caixa de texto.
 6. Execute o cmdlet Confirm-MsolDomain para verificar o desafio:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ````
+  ```
   
   Por exemplo:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ````
+  ```
 
 Um desafio com êxito retorna à linha de comandos sem erros.
 

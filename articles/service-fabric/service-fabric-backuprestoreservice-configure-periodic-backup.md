@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193737"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
@@ -219,9 +219,9 @@ Assim que a necessidade de suspensão terminar, em seguida, a cópia de seguran�
 * Se a suspensão foi aplicada num _partição_, em seguida, deve ser retomada utilizando [retomar cópia de segurança de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Diferença entre suspender e desative as cópias de segurança
-Desativar cópia de segurança deve ser usada quando as cópias de segurança já não são necessárias para uma determinada aplicação, serviço ou partição. Um pode infact invocar desativar pedido cópia de segurança, juntamente com o parâmetro de cópias de segurança limpa para ser verdade significaria que se todas as cópias de segurança existentes também são eliminadas. No entanto, suspender deve ser usado em cenários em que quer desativar as cópias de segurança temporariamente, como quando fica cheio disco local ou carregar a cópia de segurança está a falhar devido a problema de rede conhecido etc. 
+Desativar cópia de segurança deve ser usada quando as cópias de segurança já não são necessárias para uma determinada aplicação, serviço ou partição. Um pode invocar desativar pedido cópia de segurança, juntamente com o parâmetro de cópias de segurança limpa para ser verdade significaria que se todas as cópias de segurança existentes também são eliminadas. No entanto, suspender deve ser usado em cenários em que quer desativar as cópias de segurança temporariamente, como quando fica cheio disco local ou carregar a cópia de segurança está a falhar devido a problema de rede conhecido etc. 
 
-Enquanto desativar pode ser invocado apenas num nível que era anteriormente ativado para explicilty cópia de segurança no entanto suspensão pode ser aplicada em qualquer nível, que está atualmente ativada para cópia de segurança seja diretamente ou através de herança / hierarquia. Por exemplo, se a cópia de segurança é ativada ao nível da aplicação, um pode invocar desativar entretanto suspender apenas ao nível da aplicação pode ser invocado na aplicação, qualquer serviço ou a partição sob essa aplicação. 
+Enquanto desativar pode ser invocado apenas num nível que era anteriormente ativado para cópia de segurança explicitamente no entanto suspensão pode ser aplicada em qualquer nível, que está atualmente ativada para cópia de segurança seja diretamente ou através de herança / hierarquia. Por exemplo, se a cópia de segurança é ativada ao nível da aplicação, um pode invocar desativar entretanto suspender apenas ao nível da aplicação pode ser invocado na aplicação, qualquer serviço ou a partição sob essa aplicação. 
 
 ## <a name="auto-restore-on-data-loss"></a>Restauro de automática na perda de dados
 A partição de serviço pode perder dados devido a falhas inesperadas. Por exemplo, o disco para duas de três réplicas para uma partição (incluindo a réplica primária) obtém danificado ou eliminado.

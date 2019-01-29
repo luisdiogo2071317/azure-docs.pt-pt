@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a740a2e26e0f2dd6e4f6d8ea039b107dce65066
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461319"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158116"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de objetos com o Azure AD Connect sync
 Este artigo fornece passos de resolução de problemas com sincronização de objetos, utilizando a tarefa de resolução de problemas. Para ver a resolução de problemas de funcionamento no Azure Active Directory (Azure AD) Connect, assista [este breve vídeo](https://aka.ms/AADCTSVideo).

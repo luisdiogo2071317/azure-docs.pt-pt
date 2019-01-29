@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447219"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095724"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -58,7 +58,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|cabeçalho de verificação|Elemento raiz.|Sim|  
+|check-header|Elemento raiz.|Sim|  
 |valor|Valor de cabeçalho HTTP permitido. Quando forem especificados vários elementos de valor, a verificação é considerada um sucesso se qualquer um dos valores uma correspondência.|Não|  
   
 ### <a name="attributes"></a>Atributos  
@@ -67,8 +67,8 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Mensagem de erro a devolver no corpo da resposta HTTP, se o cabeçalho não existe ou tem um valor inválido. Esta mensagem tem de ter carateres especiais escritos corretamente.|Sim|N/A|  
 |failed-check-httpcode|Código de estado HTTP a devolver se o cabeçalho não existe ou tem um valor inválido.|Sim|N/A|  
-|nome do cabeçalho|O nome do cabeçalho HTTP para verificar.|Sim|N/A|  
-|caso ignorar|Pode ser definido como True ou False. Se definido como verdadeiro caso é ignorado quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|Sim|N/A|  
+|header-name|O nome do cabeçalho HTTP para verificar.|Sim|N/A|  
+|ignore-case|Pode ser definido como True ou False. Se definido como verdadeiro caso é ignorado quando o valor do cabeçalho é comparado com o conjunto de valores aceitáveis.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -113,7 +113,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|limite de conjunto|Elemento raiz.|Sim|  
+|set-limit|Elemento raiz.|Sim|  
 |api|Adicione um ou mais destes elementos para impor um limite de taxa de chamada com as APIs do produto. Produto e a API de limites são aplicados de forma independente de taxa de chamadas. API pode ser referenciada através de `name` ou `id`. Se os dois atributos são fornecidos, `id` será utilizado e `name` serão ignoradas.|Não|  
 |operação|Adicione um ou mais destes elementos para impor um limite de taxa de chamada nas operações dentro de uma API. Produto, API e operação de limites são aplicados de forma independente de taxa de chamadas. Operação pode ser referenciada através de `name` ou `id`. Se os dois atributos são fornecidos, `id` será utilizado e `name` serão ignoradas.|Não|  
   
@@ -173,15 +173,15 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|limite de conjunto|Elemento raiz.|Sim|  
+|set-limit|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/A|  
-|chave contra-argumentação|A chave a utilizar para a política de limite de taxa.|Sim|N/A|  
-|condição de incremento|Expressão booleana, especificando se a solicitação deve ser contada em direção a quota (`true`).|Não|N/A|  
+|counter-key|A chave a utilizar para a política de limite de taxa.|Sim|N/A|  
+|increment-condition|Expressão booleana, especificando se a solicitação deve ser contada em direção a quota (`true`).|Não|N/A|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
@@ -216,7 +216,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|filtro de IP|Elemento raiz.|Sim|  
+|ip-filter|Elemento raiz.|Sim|  
 |Endereço|Especifica um endereço IP único no qual pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
 |intervalo de endereços de = "endereço" para "endereço" de =|Especifica um intervalo de endereços IP em que pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
   
@@ -225,7 +225,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |intervalo de endereços de = "endereço" para "endereço" de =|Um intervalo de endereços IP para permitir ou negar o acesso de.|É necessário quando o `address-range` elemento é usado.|N/A|  
-|ação de filtro de IP = "permitir &#124; proibir"|Especifica se devem ser permitidas chamadas ou não para os intervalos e endereços IP especificados.|Sim|N/A|  
+|ip-filter action="allow &#124; forbid"|Especifica se devem ser permitidas chamadas ou não para os intervalos e endereços IP especificados.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -339,8 +339,8 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |----------|-----------------|--------------|-------------|  
 |Largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
-|chave contra-argumentação|A chave a utilizar para a política de quota.|Sim|N/A|  
-|condição de incremento|Expressão booleana, especificando se a solicitação deve ser contada em direção a quota (`true`)|Não|N/A|  
+|counter-key|A chave a utilizar para a política de quota.|Sim|N/A|  
+|increment-condition|Expressão booleana, especificando se a solicitação deve ser contada em direção a quota (`true`)|Não|N/A|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
@@ -350,11 +350,12 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **Âmbitos de política:** global, produto, API, operação  
   
 ##  <a name="ValidateJWT"></a> Validar JWT  
- O `validate-jwt` política impõe a existência e a validade de um JWT extraídos de qualquer um de uma determinada cabeçalho de HTTP ou um parâmetro de consulta especificada.  
+ O `validate-jwt` política impõe a existência e a validade de um JWT extraídos de qualquer um de uma determinada cabeçalho de HTTP ou um parâmetro de consulta especificada.
   
 > [!IMPORTANT]
 >  O `validate-jwt` política requer que o `exp` registada afirmação está incluída no JWT token, a menos que `require-expiration-time` atributo é especificado e definido como `false`.  
-> O `validate-jwt` política suporta HS256 e RS256 algoritmos de assinatura. Para HS256 a chave deve ser fornecida inline a política na forma codificada em base64. Para RS256 a chave tem de ser fornecer por meio de um ponto de extremidade de configuração de ID aberto.  
+> O `validate-jwt` política suporta HS256 e RS256 algoritmos de assinatura. Para HS256 a chave deve ser fornecida inline a política na forma codificada em base64. Para RS256 a chave tem de ser fornecer por meio de um ponto de extremidade de configuração de ID aberto.
+> O `validate-jwt` tokens criptografados com chaves simétricas usando os seguintes algoritmos de encriptação A128CBC-HS256 A192CBC-HS384 A256CBC HS512 oferece suporte a política.
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -370,7 +371,11 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>Autorizar o acesso às operações com base em declarações do token  
- Este exemplo mostra como utilizar o [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política para autorizar previamente o acesso às operações com base nas afirmações de token. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 13:50. Voltando para 15:00 para ver as políticas configuradas no editor de políticas e, em seguida, a 18:50 para uma demonstração de chamar uma operação a partir do portal do desenvolvedor com e sem o token de autorização necessário.  
+ Este exemplo mostra como utilizar o [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política para autorizar previamente o acesso às operações com base nas afirmações de token. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 13:50. Voltando para 15:00 para ver as políticas configuradas no editor de políticas e, em seguida, a 18:50 para uma demonstração de chamar uma operação a partir do portal do desenvolvedor com e sem o token de autorização necessário.  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -488,11 +493,12 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|jwt validar|Elemento raiz.|Sim|  
+|validate-jwt|Elemento raiz.|Sim|  
 |públicos-alvo|Contém uma lista das declarações de público-alvo aceitável que pode estar presente no token. Se existirem vários valores de audiência, então cada valor é experimentada até ser todos ficam esgotados (caso em que validação falhar) ou até uma ter êxito. Tem de ser especificado pelo menos um público.|Não|  
-|chaves emissor de assinatura|Uma lista das chaves de segurança com codificação Base64 utilizado para validar tokens assinados. Se existirem várias chaves de segurança, então cada chave é experimentada até ser todos ficam esgotados (caso em que validação falhar) ou até uma ter êxito (útil para rollover de token). Principais elementos tem opcional `id` atributo utilizado para correspondência `kid` de afirmação.|Não|  
+|issuer-signing-keys|Uma lista das chaves de segurança com codificação Base64 utilizado para validar tokens assinados. Se existirem várias chaves de segurança, então cada chave é experimentada até ser todos ficam esgotados (caso em que validação falhar) ou até uma ter êxito (útil para rollover de token). Principais elementos tem opcional `id` atributo utilizado para correspondência `kid` de afirmação.|Não|  
+|decryption-keys|Uma lista de chaves com codificação Base64 utilizado para desencriptar os tokens. Se existirem várias chaves de segurança, em seguida, cada chave é experimentada até que ambos todas as chaves são esgotadas (caso em que validação falhar) ou até ter êxito de uma chave. Principais elementos tem opcional `id` atributo utilizado para correspondência `kid` de afirmação.|Não|  
 |emissores|Uma lista de principais aceitáveis que emitiu o token. Se existirem vários valores de emissor, então cada valor é experimentada até ser todos ficam esgotados (caso em que validação falhar) ou até uma ter êxito.|Não|  
-|configuração de openid|O elemento usado para especificar um em conformidade com ID aberto configuração ponto final do qual a assinatura de chaves e o emissor pode ser obtido.|Não|  
+|openid-config|O elemento usado para especificar um em conformidade com ID aberto configuração ponto final do qual a assinatura de chaves e o emissor pode ser obtido.|Não|  
 |declarações necessárias|Contém uma lista das declarações deve estar presente no token para o mesmo ser considerado válido. Quando o `match` atributo está definido como `all` cada valor de afirmação na política tem de estar presente no token para a validação com êxito. Quando o `match` atributo está definido como `any` , pelo menos, uma afirmação tem de estar presente no token para a validação com êxito.|Não|  
 |zumo-master-key|Chave mestra para tokens emitidos pelo Mobile Services do Azure|Não|  
   
@@ -502,14 +508,14 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |----------|-----------------|--------------|-------------|  
 |defasagem|Período de tempo. Utilize para especificar a diferença de tempo esperado máximo entre os relógios de sistema do emissor de tokens e a instância de gestão de API.|Não|0 segundos|  
 |failed-validation-error-message|Mensagem de erro a devolver no corpo da resposta HTTP, se o JWT não passar na validação. Esta mensagem tem de ter carateres especiais escritos corretamente.|Não|Mensagem de erro padrão depende do problema de validação, por exemplo "JWT não está presente."|  
-|Falha-validação-httpcode:{0|Código de estado HTTP a devolver se a JWT não passa na validação.|Não|401|  
-|nome do cabeçalho|O nome do cabeçalho HTTP que contém o token.|Seja `header-name` ou `query-parameter-name` tem de ser especificado; mas não ambos.|N/A|  
+|failed-validation-httpcode|Código de estado HTTP a devolver se a JWT não passa na validação.|Não|401|  
+|header-name|O nome do cabeçalho HTTP que contém o token.|Seja `header-name` ou `query-parameter-name` tem de ser especificado; mas não ambos.|N/A|  
 |ID|O `id` atributo a `key` elemento permite-lhe especificar a cadeia de caracteres que serão matched relativamente a `kid` afirmações no token (caso exista) obter informações sobre a chave adequada a utilizar para a validação de assinatura.|Não|N/A|  
 |Correspondência|O `match` atributo o `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para a validação com êxito. Os valores possíveis são:<br /><br /> -                          `all` -todos os valores de afirmação na política tem de estar presente no token para a validação com êxito.<br /><br /> -                          `any` -pelo menos uma declaração valor tem de estar presente no token para a validação com êxito.|Não|all|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|Seja `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
-|exigir--hora de expiração|Valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
-|esquema de exigir|O nome do token de esquema, por exemplo "Bearer". Quando este atributo estiver definido, a política irá garantir que o esquema especificado está presente no valor de cabeçalho de autorização.|Não|N/A|
-|exigir-assinados-tokens|Valor booleano. Especifica se um token é necessário ter sessão iniciada.|Não|true|  
+|require-expiration-time|Valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
+|require-scheme|O nome do token de esquema, por exemplo "Bearer". Quando este atributo estiver definido, a política irá garantir que o esquema especificado está presente no valor de cabeçalho de autorização.|Não|N/A|
+|require-signed-tokens|Valor booleano. Especifica se um token é necessário ter sessão iniciada.|Não|true|  
 |separador|cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/A| 
 |url|Abra o URL de ponto final de configuração de ID de onde os metadados de configuração de Open ID podem ser obtidos. A resposta deve ser de acordo com especificações conforme definido no URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do inquilino do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/A|  
   

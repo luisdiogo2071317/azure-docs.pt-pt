@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d882ad89e68936d07ae4d76218c6e3ac450185a8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579367"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151333"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detetar os esquemas de cores em imagens
 
@@ -61,9 +61,9 @@ A tabela seguinte descreve o primeiro plano dominante, em segundo plano e cores 
 
 | Imagem | Cor de destaque |
 |-------|--------------|
-|![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | N. º BB6D10 |
-|![Uma flor branca com um plano de fundo verde](./Images/flower.png) | N. º C6A205 |
-|![Comboio em execução por meio de uma estação](./Images/train_station.png) | N. º 474A84 |
+|![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | #BB6D10 |
+|![Uma flor branca com um plano de fundo verde](./Images/flower.png) | #C6A205 |
+|![Comboio em execução por meio de uma estação](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Exemplos de deteção de preto e branco
 

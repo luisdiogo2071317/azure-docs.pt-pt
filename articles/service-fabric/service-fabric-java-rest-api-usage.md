@@ -1,6 +1,6 @@
 ---
-title: APIs de cliente de Java de recursos de infraestrutura de serviço do Azure | Microsoft Docs
-description: Gerar e utilizar as APIs do cliente de Java de recursos de infraestrutura de serviço com a especificação de REST API do cliente de Service Fabric
+title: As APIs do cliente de Java de recursos de infraestrutura do serviço do Azure | Documentos da Microsoft
+description: Gerar e utilizar APIs de cliente de Java do Service Fabric com a especificação de REST API de cliente do Service Fabric
 services: service-fabric
 documentationcenter: java
 author: rapatchi
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111189"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182035"
 ---
-# <a name="azure-service-fabric-java-client-apis"></a>APIs de cliente de Java de recursos de infraestrutura de serviço do Azure
+# <a name="azure-service-fabric-java-client-apis"></a>APIs do cliente de Java de recursos de infraestrutura do serviço do Azure
 
-APIs de cliente de Service Fabric permite implementar e gerir micro-serviços com base em aplicações e contentores num cluster de Service Fabric no Azure, no local, na máquina de desenvolvimento local ou na outra nuvem. Este artigo descreve como gerar e utilizar o Service Fabric Java APIs cliente sobre o cliente de Service Fabric REST APIs
+APIs de cliente do Service Fabric permite a implementação e gestão de microsserviços com base em aplicações e os contentores no cluster do Service Fabric no Azure, no local, na máquina de desenvolvimento local ou em outra cloud. Este artigo descreve como gerar e utilizar APIs de cliente de Java do Service Fabric sobre o cliente do Service Fabric REST APIs
 
-## <a name="generate-the-client-code-using-autorest"></a>Gerar o código de cliente utilizando o AutoRest
+## <a name="generate-the-client-code-using-autorest"></a>Gerar o código de cliente com o AutoRest
 
-[AutoRest](https://github.com/Azure/autorest) é uma ferramenta que gera bibliotecas de cliente para aceder aos serviços RESTful web. A entrada para AutoRest é uma especificação que descrevem a API de REST utilizando o formato de especificação de OpenAPI. [Cliente de Service Fabric REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) siga esta especificação.
+[AutoRest](https://github.com/Azure/autorest) é uma ferramenta que gera bibliotecas de cliente para acessar serviços RESTful web. A entrada para AutoRest é uma especificação que descreve a API de REST com o formato de especificação de OpenAPI. [APIs de REST de cliente do Service Fabric](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) siga essa especificação.
 
-Siga os passos mencionados abaixo para gerar código de cliente de Java de recursos de infraestrutura de serviço utilizando a ferramenta de AutoRest.
+Siga os passos mencionados abaixo para gerar o código de cliente de Java do Service Fabric com a ferramenta de AutoRest.
 
 1. Instalar nodejs e NPM no seu computador
 
@@ -48,7 +48,7 @@ Siga os passos mencionados abaixo para gerar código de cliente de Java de recur
     npm install -g autorest
     ```
 
-3. Bifurcação e clone [azure-rest-api-especificações](https://github.com/Azure/azure-rest-api-specs) repositório no seu computador local e vá para a localização clonada no terminal da sua máquina.
+3. Bifurcar e clonar [azure-rest-api-especificações](https://github.com/Azure/azure-rest-api-specs) repositório no seu computador local e vá para a localização clonada a partir do terminal da sua máquina.
 
 
 4. Vá para a localização mencionada abaixo no seu repositório clonado.
@@ -57,34 +57,34 @@ Siga os passos mencionados abaixo para gerar código de cliente de Java de recur
     ```
 
     > [!NOTE]
-    > Se a sua versão do cluster não for 6.0. *, em seguida, vá para o diretório adequado na pasta estável.
+    > Se a sua versão do cluster não é 6.0. *, em seguida, vá para o diretório adequado na pasta estável.
     >   
 
-5. Execute o seguinte comando autorest para gerar o código de cliente de java.
+5. Execute o seguinte comando do autorest para gerar o código de cliente java.
     
     ```bash
     autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
     ```
-   Abaixo está um exemplo que demonstra a utilização de autorest.
+   Segue-se um exemplo que demonstram a utilização do autorest.
    
     ```bash
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   O seguinte comando demora ``servicefabric.json`` especificação do ficheiro como entrada e gera o código de cliente de java no ``java-rest-api-     code`` pasta e encloses o código no ``servicefabricrest`` espaço de nomes. Após este passo poderia localizar duas pastas ``models``, ``implemenation`` e dois ficheiros ``ServiceFabricClientAPIs.java`` e ``package-info.java`` gerados pelo ``java-rest-api-code`` pasta.
+   O seguinte comando demora ``servicefabric.json`` especificação do ficheiro como entrada e gera um código de cliente de java no ``java-rest-api-     code`` pasta e engloba o código na ``servicefabricrest`` espaço de nomes. Após este passo encontraria duas pastas ``models``, ``implementation`` e dois arquivos ``ServiceFabricClientAPIs.java`` e ``package-info.java`` gerada na ``java-rest-api-code`` pasta.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Incluir e utilizar o cliente gerado no seu projeto
 
-1. Adicione o código gerado corretamente no seu projeto. Recomendamos que crie uma biblioteca com o código gerado e incluir esta biblioteca no seu projeto.
-2. Se estiver a criar uma biblioteca de incluir a seguinte dependência no projeto da biblioteca. Se estiver a seguir uma abordagem diferente, em seguida, inclua a dependência adequadamente.
+1. Adicione o código gerado adequadamente para o seu projeto. Recomendamos que crie uma biblioteca com o código gerado e incluir esta biblioteca no seu projeto.
+2. Se estiver a criar uma biblioteca, inclua a seguinte dependência no projeto de sua biblioteca. Se estiver a seguir uma abordagem diferente, em seguida, inclua a dependência adequadamente.
 
     ```
         GroupId:  com.microsoft.rest
         Artifactid: client-runtime
         Version: 1.2.1
     ```
-    Por exemplo, se estiver a utilizar Maven sistema de compilação incluem o seguinte na sua ``pom.xml`` ficheiro:
+    Por exemplo, se estiver a utilizar o Maven, sistema de compilação incluem o seguinte no seu ``pom.xml`` ficheiro:
 
     ```xml
         <dependency>
@@ -94,7 +94,7 @@ Siga os passos mencionados abaixo para gerar código de cliente de Java de recur
         </dependency>
     ```
 
-3. Crie um RestClient utilizando o seguinte código:
+3. Crie um RestClient usando o seguinte código:
 
     ```java
         RestClient simpleClient = new RestClient.Builder()
@@ -104,7 +104,7 @@ Siga os passos mencionados abaixo para gerar código de cliente de Java de recur
             .build();
         ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
     ```
-4. Utilize o objeto de cliente e efetuar as chamadas adequadas conforme necessário. Seguem-se alguns exemplos que demonstram a utilização de objeto de cliente. Iremos partem do princípio de que o pacote de aplicação é criado e carregado para o arquivo de imagens antes de utilizar a abaixo da API.
+4. Usar o objeto de cliente e fazer chamadas adequadas conforme necessário. Aqui estão alguns exemplos que demonstram a utilização de objeto cliente. Partimos do princípio de que o pacote de aplicação é criado e carregado para armazenamento de imagens antes de utilizar a abaixo da API.
     * Aprovisionar uma aplicação
     
         ```java
@@ -122,17 +122,17 @@ Siga os passos mencionados abaixo para gerar código de cliente de Java de recur
             client.createApplication(applicationDescription);
         ```
 
-## <a name="understanding-the-generated-code"></a>Noções sobre o código gerado
-Para cada API encontrará quatro sobrecargas de implementação. Se existirem parâmetros opcionais poderia localizar quatro variações mais, incluindo os parâmetros opcionais. Por exemplo, considere a API ``removeReplica``.
- 1. **removeReplica void público (cadeia nodeName, UUID partitionId, cadeia replicaId, forceRemove booleano, tempo limite de tempo)**
+## <a name="understanding-the-generated-code"></a>Compreender o código gerado
+Cada API, encontrará quatro sobrecargas de implementação. Se existirem parâmetros opcionais, em seguida, encontraria variações de mais quatro, incluindo desses parâmetros opcionais. Por exemplo, considere a API ``removeReplica``.
+ 1. **público removeReplica void (nodeName de cadeia de caracteres, UUID partitionId, replicaId de cadeia, booleano forceRemove, tempo limite de tempo)**
     * Esta é a variante síncrona da chamada removeReplica API
- 2. **ServiceFuture pública<Void> removeReplicaAsync (cadeia nodeName, UUID partitionId, cadeia replicaId, forceRemove booleano, tempo limite de tempo, final ServiceCallback<Void> serviceCallback)**
-    * Este variante de chamada à API pode ser utilizado se pretender utilizar futura programação assíncrona com base e utilizar as chamadas de retorno
- 3. **Observable pública<Void> removeReplicaAsync (cadeia nodeName, UUID partitionId, replicaId de cadeia)**
-    * Este variante de chamada à API pode ser utilizado se quiser utilizar reativa programação assíncrona
- 4. **Observable pública < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (cadeia nodeName, UUID partitionId, replicaId de cadeia)**
-    * Este variante de chamada à API pode ser utilizado se pretender utilizar programação assíncrona reativa e lidar com a resposta de rest não processados
+ 2. **público ServiceFuture<Void> removeReplicaAsync (nodeName, UUID partitionId, replicaId de cadeia, booleano forceRemove, tempo limite de comprimento, final ServiceCallback de cadeias de caracteres<Void> serviceCallback)**
+    * Essa variante da chamada de API pode ser usado se quiser usar futura programação assíncrona com base e usar retornos de chamada
+ 3. **Observable pública<Void> removeReplicaAsync (nodeName de cadeia de caracteres, UUID partitionId, replicaId de cadeia de caracteres)**
+    * Essa variante da chamada de API pode ser usado se quiser usar a programação assíncrona reativa
+ 4. **Observable público < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (nodeName de cadeia de caracteres, UUID partitionId, replicaId de cadeia de caracteres)**
+    * Essa variante da chamada de API pode ser usado se quiser usar a programação assíncrona reativa e lidar com a resposta do rest não processados
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)
+* Saiba mais sobre [do Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)
 

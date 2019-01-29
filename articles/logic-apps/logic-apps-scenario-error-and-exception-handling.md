@@ -10,14 +10,14 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124040"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098668"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: A manipulação de exceção e registo de erros para o logic apps
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Registo de erros para o logic apps e manipulação de exceção
 
 Este cenário descreve como é possível estender uma aplicação lógica para suportar melhor a manipulação de exceção. Usamos um caso de uso na vida real para responder à pergunta: "O Azure Logic Apps suporta exceção e tratamento de erros?"
 
@@ -57,7 +57,7 @@ Uma vez, vamos iniciar o registo oriundo de Dynamics CRM Online, vamos começar 
 
 Estamos a utilizar um **pedir** acionar conforme mostrado no exemplo a seguir:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Estamos a utilizar um **pedir** acionar conforme mostrado no exemplo a seguir:
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Passos
@@ -402,7 +402,7 @@ Nossa solução adicionado capacidades com [do Azure Cosmos DB](https://azure.mi
 Para ver os erros, pode criar uma aplicação web MVC para apresentar os registos de erro do Cosmos DB. O **lista**, **detalhes**, **editar**, e **eliminar** operações estão incluídas na versão atual.
 
 > [!NOTE]
-> Operação de edição: Cosmos DB substitui o documento inteiro. Os registos que mostra o **lista** e **detalhes** exibições são apenas exemplos. Eles não forem os registros de compromisso de pacientes real.
+> Operação de edição: O cosmos DB substitui o documento inteiro. Os registos que mostra o **lista** e **detalhes** exibições são apenas exemplos. Eles não forem os registros de compromisso de pacientes real.
 
 Seguem-se exemplos de nossa detalhes da aplicação MVC criados com a abordagem descrita anteriormente.
 

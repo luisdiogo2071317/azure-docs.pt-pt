@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044574"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102194"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -68,7 +68,7 @@ Pode configurar bases de dados do Azure SQL e bancos de dados na instância geri
 | [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta como a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado), como CPU, o registo e o bloqueio. | Sim | Sim |
-| [Erros](sql-database-metrics-diag-logging.md#errors-dataset): Contém informações sobre erros do SQL na base de dados. | Sim | Não |
+| [Erros](sql-database-metrics-diag-logging.md#errors-dataset): Contém informações sobre erros do SQL na base de dados. | Sim | Sim |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contém informações sobre quanto tempo a base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
 | [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): Contém informações sobre tempos limite na base de dados. | Sim | Não |
 | [Blocos](sql-database-metrics-diag-logging.md#blockings-dataset): Contém informações sobre o bloqueio de eventos na base de dados. | Sim | Não |
@@ -415,7 +415,7 @@ Consulte a tabela seguinte para obter detalhes sobre os registos para a instânc
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: ResourceUsageStats |
 |Recurso|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
@@ -444,11 +444,11 @@ Consulte as tabelas seguintes para obter detalhes sobre os registos para bases d
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -495,11 +495,11 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -537,7 +537,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -562,11 +562,11 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -591,11 +591,11 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -614,11 +614,11 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -638,11 +638,11 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Impasses |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
@@ -659,10 +659,10 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Tipo|Sempre: AzureDiagnostics |
-|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT. SQL |
+|ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: AutomaticTuning |
 |Recurso|Nome do recurso |
-|ResourceType|Nome do tipo de recurso. Sempre: BASES DE DADOS/SERVIDORES |
+|ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
 |ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |

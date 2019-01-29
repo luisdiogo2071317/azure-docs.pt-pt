@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436405"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096709"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gestão de configuração de estado de automatização do Azure
 
@@ -168,7 +168,7 @@ Máquinas do Linux no local, máquinas Linux no Azure e máquinas do Linux não 
 1. Certifique-se a versão mais recente do [PowerShell Desired State Configuration para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) está instalado nas máquinas que pretende integrar a configuração de estado de automatização do Azure.
 1. Se o [predefinições do Gestor de configuração Local do PowerShell DSC](/powershell/dsc/metaconfig4) corresponde ao seu caso de utilização e que pretende carregar máquinas como que eles **ambos** retirará e reportar a configuração de estado de automatização do Azure:
 
-   - Em cada máquina Linux para carregar para a configuração de estado de automatização do Azure, utilize `Register.py` integrar com as predefinições do Gestor de configuração de Local de DSC de PowerShell:
+   - Em cada máquina Linux para carregar a configuração de estado de automatização do Azure, utilize `Register.py` integrar com as predefinições do Gestor de configuração de Local de DSC de PowerShell:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

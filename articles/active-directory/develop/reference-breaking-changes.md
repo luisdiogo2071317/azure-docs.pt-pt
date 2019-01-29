@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3da99506d50ec12140c188cd86cde2556be4a308
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282389"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099146"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação? 
 
@@ -48,9 +48,9 @@ Nenhum agendada neste momento.
 
 **Data efetiva**: 15 de Novembro de 2018
 
-**Pontos finais afetados**: as versões v1.0 e v2.0
+**Pontos finais afetados**: V1.0 e v2.0
 
-**Protocolo afetado**: [fluxo de código](v2-oauth2-auth-code-flow.md)
+**Protocolo afetado**: [Fluxo de código](v2-oauth2-auth-code-flow.md)
 
 A partir de 15 de Novembro de 2018, do Azure AD irá parar abertos ao recebimento de códigos de autenticação utilizados anteriormente para aplicações. Esta alteração de segurança ajuda a trazer do Azure AD em conformidade com a especificação de OAuth e será imposta em pontos finais de ambos o v1 e v2.
 
@@ -64,9 +64,9 @@ Para obter mais informações sobre os tokens de atualização, consulte [atuali
 
 **Data**: 1 de Maio de 2018
 
-**Pontos finais afetados**: as versões v1.0 e v2.0
+**Pontos finais afetados**: V1.0 e v2.0
 
-**Protocolos afetados**: fluxo implícito e [fluxo OBO](v1-oauth2-on-behalf-of-flow.md)
+**Protocolos afetados**: Fluxo implícito e [fluxo OBO](v1-oauth2-on-behalf-of-flow.md)
 
 Após 1 de Maio de 2018, id_tokens não pode ser utilizado como a asserção num fluxo de OBO novos aplicativos. Tokens de acesso devem ser utilizados em vez disso, para proteger APIs, até mesmo entre um cliente e a camada intermediária do mesmo aplicativo. Aplicações registadas antes de 1 de Maio de 2018 continuarão a funcionar e ser capaz de id_tokens para um token de acesso do exchange No entanto, esse padrão não é considerado uma prática recomendada.
 

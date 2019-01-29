@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 191d384d51fe3aecbd967586516cfb198256af81
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180216"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Ver o histórico de auditoria para funções de diretório do Azure AD no PIM
 Pode utilizar o histórico de auditoria do Privileged Identity Management (PIM) para ver todas as atribuições de utilizador e ativações dentro de um determinado período de tempo para funções de contas com privilégios. Se pretender ver o histórico de auditoria de atividade no seu inquilino, incluindo administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de acesso e utilização do Azure Active Directory.](../reports-monitoring/overview-reports.md)

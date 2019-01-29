@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725937"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153968"
 ---
-# <a name="liveevent-types-comparison"></a>Comparação de tipos de LiveEvent
+# <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
-Nos serviços de multimédia do Azure, um [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação em tempo real e pass-through. 
+Nos serviços de multimédia do Azure, um [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação em tempo real e pass-through. 
 
 ## <a name="types-comparison"></a>Comparação de tipos 
 
-A tabela seguinte compara as funcionalidades dos dois tipos de LiveEvent.
+A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 
-| Funcionalidade | LiveEvent pass-through | LiveEvent padrão |
+| Funcionalidade | Evento em direto de pass-through | Padrão de eventos em direto |
 | --- | --- | --- |
 | Velocidade de transmissão única entrada é codificada em múltiplas velocidades de transmissão na cloud |Não |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 em 60 quadros por segundo) |1080p (1920 x 1088 em 30 quadros por segundo)|
@@ -40,7 +40,7 @@ A tabela seguinte compara as funcionalidades dos dois tipos de LiveEvent.
 | Codecs de vídeo de entrada suportado |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codecs de vídeo de saída suportados|Mesmo que a entrada|H.264/AVC|
 | Suportado vídeo bitová hloubka, entrada e saída|Até 10 bits incluindo HDR 10/HLG|8 bits|
-| Codecs de áudio de entrada suportadas|AAC-LC, HE-AAC v1, v2 HE-AAC|AAC-LC, HE-AAC v1, v2 HE-AAC|
+| Codecs de áudio de entrada suportadas|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Codecs de áudio de saída suportados|Mesmo que a entrada|AAC-LC|
 | Resolução máxima de vídeo de vídeo de saída|Mesmo que a entrada|720p (em 30 quadros por segundo)|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
@@ -50,10 +50,10 @@ A tabela seguinte compara as funcionalidades dos dois tipos de LiveEvent.
 | Suporte para a inserção de slates|Não|Não|
 | Suporte para ad sinalização através da API| Não|Não|
 | Suporte para ad sinalização por meio de mensagens do SCTE 35 em banda|Sim|Sim|
-| Capacidade de recuperar de paralisações breves no feed de contribuição|Sim|Não (LiveEvent começará slating após 6 + segundos sem dados de entrada)|
+| Capacidade de recuperar de paralisações breves no feed de contribuição|Sim|Não (evento em direto começará slating após 6 + segundos sem dados de entrada)|
 | Suporte para não-uniforme GOPs de entrada|Sim|Não – entrada deve ter resolvido duração GOP|
 | Suporte para entrada de taxa de quadros de variável|Sim|Não – entrada deve ser corrigida taxa de quadros. Secundárias variações são pela tolerar, por exemplo, durante o plano de movimento elevada. Mas o feed de contribuição não é possível remover a taxa de quadros (por exemplo, para 15 quadros por segundo).|
-| Auto-shutoff de LiveEvent quando a introdução do feed é perdido|Não|Após 12 horas, se não houver nenhum LiveOutput em execução|
+| Auto-shutoff de evento em direto quando a introdução do feed é perdido|Não|Após 12 horas, se não houver nenhum LiveOutput em execução|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

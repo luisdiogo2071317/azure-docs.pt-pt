@@ -10,12 +10,12 @@ ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: eeb68ef869e3249ec86ecc8763aa1f136617e6d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465819"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101707"
 ---
 # <a name="what-is-project-url-preview"></a>O que é a Pré-visualização do URL do Projeto?
 O ponto final de Pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação para uma imagem a apresentar numa pré-visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica se o URL contém conteúdo para adultos, pirateado ou outro conteúdo ilícito. 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 A resposta: 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>Cenários 
 
 A API de Pré-visualização do URL suporta descrições breves de recursos da Web. Os programadores utilizam-na para criar experiências de pré-visualização avançadas.  Os utilizadores podem partilhar ou marcar páginas Web, notícias, blogues, fóruns, etc. Esta API também pode ser utilizada para moderação de conteúdos.    
@@ -60,8 +60,8 @@ O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, 
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](csharp.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Início rápido do C#](csharp.md)
 - [Início rápido do Java](java-quickstart.md)
 - [Início Rápido do JavaScript](javascript.md)
 - [Início Rápido do Node](node-quickstart.md)

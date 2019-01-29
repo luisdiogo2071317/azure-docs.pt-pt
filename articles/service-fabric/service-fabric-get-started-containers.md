@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063833"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172958"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -350,8 +350,8 @@ Pode ativar ou desativar a funcionalidade ao adicionar o `UseDefaultRepositoryCr
 
 O Service Fabric, em seguida, utiliza as credenciais de repositório predefinidas que pode ser especificada em ClusterManifest sob o `Hosting` secção.  Se `UseDefaultRepositoryCredentials` é `true`, Service Fabric lê os seguintes valores do ClusterManifest:
 
-* DefaultContainerRepositoryAccountName (cadeia)
-* DefaultContainerRepositoryPassword (cadeia)
+* DefaultContainerRepositoryAccountName (string)
+* DefaultContainerRepositoryPassword (string)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (cadeia)---suportada ao iniciar com o tempo de execução 6.4
 
@@ -414,7 +414,7 @@ A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEAL
 
 ![HealthCheckHealthy][3]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnhealthyApp][4]
 
 ![HealthCheckUnhealthyDsp][5]
 
@@ -441,7 +441,7 @@ No **Ponto Final da Ligação**, introduza o ponto final de gestão para o clust
 
 Clique em **Publicar**.
 
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implementação da aplicação. A aplicação implementada, mas fica em estado de erro até que a imagem é transferida em nós de cluster (o que podem demorar algum tempo, consoante o tamanho da imagem): ![Erro][1]
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implementação da aplicação. A aplicação implementada, mas fica em estado de erro até que a imagem é transferida em nós de cluster (o que podem demorar algum tempo, consoante o tamanho da imagem): ![Error][1]
 
 A aplicação está pronta quando estiver a ser ```Ready``` Estado: ![Pronto][2]
 
@@ -548,7 +548,7 @@ Seguem-se os manifestos completos do serviço e da aplicação utilizados neste 
 
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 

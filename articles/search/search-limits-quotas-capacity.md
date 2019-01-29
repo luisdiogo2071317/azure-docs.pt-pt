@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5187052316e229273aa49eb784bf200c0f16a0f7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165392"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço do Azure Search
 Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índices, documentos, e outros objetos dependem se [aprovisionar o Azure Search](search-create-service-portal.md) na **gratuito**, **básica**, ou **Padrão** escalões de preço.
@@ -124,6 +124,10 @@ Operações com muitos recursos, como a análise de imagem na indexação de Blo
 As estimativas de QPS devem ser desenvolvidas de forma independente por cada cliente. Tamanho do índice e o complexidade, o tamanho da consulta e a complexidade e a quantidade de tráfego são determinants primários de QPS. Não é possível oferecer estimativas significativas quando esses fatores são desconhecidos.
 
 As estimativas são mais previsíveis quando calculado em serviços executados em recursos dedicados (escalões básico e Standard). Pode estimar QPS mais de perto, porque tem controle sobre mais dos parâmetros. Para obter orientações sobre como a estimativa de abordagem, consulte [desempenho de pesquisa do Azure e a otimização de](search-performance-optimization.md).
+
+## <a name="data-limits-cognitive-search"></a>Limites de dados (pesquisa cognitiva)
+
+R [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), [extração de expressões da chave](cognitive-search-skill-keyphrases.md), [análise de sentimentos ](cognitive-search-skill-sentiment.md), e [deteção de idioma](cognitive-search-skill-language-detection.md) estão sujeitas a limites de dados. O tamanho máximo de um registo deve ser 50.000 carateres conforme medido pela `String.Length`. Se tiver de dividir os dados antes de os enviar para o analisador de sentimentos, utilize o [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>Limites de pedido de API
 * Máximo de 16 MB por pedido <sup>1</sup>

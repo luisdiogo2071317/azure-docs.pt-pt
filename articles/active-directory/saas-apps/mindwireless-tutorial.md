@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com mindWireless | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com mindWireless | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e mindWireless.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 6c6fe0a720795c67a7062f5a5971c699472fca07
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: deb7cf8368c5830bd575c617adf857448cfe2e48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434351"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166498"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: Integração do Azure Active Directory com mindWireless
+# <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: Integração do Active Directory do Azure com mindWireless
 
 Neste tutorial, saiba como integrar mindWireless com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com mindWireless, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um mindWireless logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do mindWireless com o Azure AD, terá de adiciona
 
 **Para adicionar mindWireless a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -125,7 +125,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     | Nome do Atributo | Valor do Atributo | Valor de espaço de nomes |
     | -------------- | --------------- | ----------------|
-    | ID do Empregado | User.employeeid | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | ID do Empregado | user.employeeid | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -189,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-mindwireless-test-user"></a>Criar um utilizador de teste mindWireless
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no mindWireless. Trabalhar com [equipa de suporte de mindWireless](mailto:sdulloor@mindwireless.com) para adicionar os utilizadores na plataforma mindWireless. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no mindWireless. Trabalhar com [equipa de suporte de mindWireless](mailto:sdulloor@mindwireless.com) para adicionar os utilizadores na plataforma mindWireless. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -221,7 +221,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

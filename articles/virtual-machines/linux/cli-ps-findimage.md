@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f3b9815b8e2836b3ee87f969efdc52aca5f5db6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077253"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169697"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Encontrar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
 
@@ -286,7 +286,7 @@ Se implementar uma VM com um modelo do Resource Manager, defina os parâmetros d
 
 ### <a name="view-plan-properties"></a>Ver as propriedades do plano
 
-Para ver informações de plano de compra de uma imagem, execute o [show de imagem de vm de az](/cli/azure/image#az_image_show) comando. Se o `plan` propriedade na saída não é `null`, a imagem tem termos tem de aceitar antes de implementação programática.
+Para ver informações de plano de compra de uma imagem, execute o [show de imagem de vm de az](/cli/azure/image) comando. Se o `plan` propriedade na saída não é `null`, a imagem tem termos tem de aceitar antes de implementação programática.
 
 Por exemplo, a imagem do Canonical Ubuntu Server 18.04 LTS não tem termos adicionais, uma vez que o `plan` informações são `null`:
 

@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8bcca60299cae01bed00a4730f78bf53809ab187
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584280"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178788"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>API de imagem digitalizada perguntas mais frequentes
 
@@ -43,7 +43,7 @@ ms.locfileid: "53584280"
 | | | Idiomas Suportados | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
 | Dinamarquês (da-DK)  | Holandês (nl-NL)     | Português           | Finlandês (fi-FI)            |Francês (fr-FR)
-| Alemão (Alemanha-DE)  | Grego (el-GR)     | Húngaro (hu-HU) | Italiano (it-IT)            | Japonês (ja-JP)
+| Alemão (Alemanha-DE)  | Grego (el-GR)     | Hungarian (hu-HU) | Italiano (it-IT)            | Japonês (ja-JP)
 | Coreano (ko-KR)  | Norueguês (não-nb) | Polonês (pl-PL)    | Português (pt-BR) (pt-PT) | Russo (ru-RU)
 | Espanhol (es-ES)   | Sueco (sv-SV)     | Turco (tr-TR)   |                            |
 
