@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119752"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094534"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -148,7 +148,7 @@ Por predefinição `ServerTelemetryChannel` utiliza a pasta de dados de uma apli
 
 
 Através do ficheiro de configuração:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Por meio do código:
 
 - Remover ServerTelemetryChannel do ficheiro de configuração
 - Adicione este trecho de código à sua configuração:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ Por predefinição `ServerTelemetryChannel` utiliza a pasta de dados de uma apli
 
 O fragmento de código seguinte mostra como definir `ServerTelemetryChannel.StorageFolder` no `ConfigureServices()`  método de sua `Startup.cs` classe:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -244,7 +244,7 @@ Os SDKs variam entre plataformas e existem vários componentes que podem instala
 | [Adicionar o Application Insights SDK para um projeto de web do .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
 | [Instale o Monitor de estado no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
 | [Adicionar o Application Insights SDK para uma aplicação web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
-| [Adicionar o SDK de JavaScript para a página da web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>AJAX |
+| [Adicionar o SDK de JavaScript para a página da web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades predefinidas][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
 | [Controle de chamada *][api] |Nome do evento<br/>**Propriedades** |
@@ -266,7 +266,7 @@ Para [SDKs para outras plataformas][platforms], veja os seus documentos.
 | Eventos |Nome do evento e o valor |
 | PageViews |Nome de URL e página ou o nome do ecrã |
 | Desempenho do cliente |Nome da URL/página, o tempo de carregamento do browser |
-| AJAX |Chamadas HTTP da página da web para servidor |
+| Ajax |Chamadas HTTP da página da web para servidor |
 | Pedidos |URL, duração, o código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), a cadeia de ligação ou URI, sincronização/async, duração, sucesso, instrução de SQL (com o Monitor de estado) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, id de thread number, ficheiros e de linha de origem |

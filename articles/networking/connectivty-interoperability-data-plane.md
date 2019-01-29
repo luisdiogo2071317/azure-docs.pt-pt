@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: análise do plano de dados | Documentos da Microsoft'
+title: 'Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: Análise do plano de dados | Documentos da Microsoft'
 description: Este artigo fornece a análise de plano de dados da configuração do teste, que pode usar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e da rede virtual peering no Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 8b9e5b2b073309f177fa0ce4bb2a2d08009a06ff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5e648c1f1b051d7b65d9b007a69aece2d99d9df4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176187"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: análise do plano de dados
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: Análise de plano de dados
 
 Este artigo descreve a análise de plano de dados do [configuração de teste][Setup]. Também pode rever o [configuração do programa de configuração de teste] [ Configuration] e o [controlar a análise de plano] [ Control-Analysis] da configuração do teste.
 
@@ -496,7 +496,7 @@ O VNet peering dentro de uma região, spoke VNets pode utilizar gateways de VNet
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Ramificar a conectividade VNet através da VPN site a site
 
-Pode desejar ramo VNets, que estão em diferentes regiões e redes no local para comunicar entre si através de uma VNet do hub. A solução nativa do Azure para este cofiguration é a conectividade VPN de site a site com uma VPN. Uma alternativa é usar uma aplicação virtual de rede (NVA) para o encaminhamento no hub.
+Pode desejar ramo VNets, que estão em diferentes regiões e redes no local para comunicar entre si através de uma VNet do hub. A solução nativa do Azure para esta configuração é a conectividade VPN de site a site com uma VPN. Uma alternativa é usar uma aplicação virtual de rede (NVA) para o encaminhamento no hub.
 
 Para obter mais informações, consulte [o que é o Gateway de VPN?] [ VPN] e [implementar uma NVA altamente disponível][Deploy-NVA].
 

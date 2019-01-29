@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Vídeos do Bing, Java'
+title: 'Início rápido: Pesquisa de vídeo Bing SDK, Java'
 titleSuffix: Azure Cognitive Services
 description: Saiba como configurar a aplicação de consola do SDK de Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
-ms.openlocfilehash: a50771fddc15ab0ec284fa7f42539f1f8dcce40d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7a388f977092d157867955ff05292888e05053e4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308652"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168716"
 ---
-# <a name="quickstart-bing-video-search-sdk-java"></a>Início Rápido: Java SDK de Pesquisa de Vídeos do Bing
+# <a name="quickstart-bing-video-search-sdk-java"></a>Início rápido: Java SDK de pesquisa de vídeos do Bing
 
 O SDK de Pesquisa de Vídeos do Bing disponibiliza a funcionalidade de API REST para consultas de vídeo e resultados de análise.
 

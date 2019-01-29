@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046659"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170424"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados nas coleções de área de trabalho do Power BI
 
@@ -32,7 +32,7 @@ Ao criar um relatório do Embedded, são os tokens emitidos para um conjunto de 
 
 As coleções de área de trabalho do Power BI utilizar uma incorporação token, que é HMAC assinado os JSON Web Tokens. Os tokens são assinados com a chave de acesso da sua coleção de área de trabalho do Power BI. Incorpore tokens, por predefinição, são utilizados para fornecer acesso só de leitura a um relatório para incorporar numa aplicação. Incorpore tokens emitidos para um relatório específico e devem ser associados um URL de incorporação.
 
-Tokens de acesso devem ser criados no servidor, como as chaves de acesso são utilizadas para início de sessão/encriptar os tokens. Para obter informações sobre como criar um token de acesso, consulte [autenticação e autorização com coleções de área de trabalho do Power BI](app-token-flow.md). Também pode rever o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) método. Eis um exemplo de como isso ficaria utilizando o SDK .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor, como as chaves de acesso são utilizadas para início de sessão/encriptar os tokens. Para obter informações sobre como criar um token de acesso, consulte [autenticação e autorização com coleções de área de trabalho do Power BI](app-token-flow.md). Também pode rever o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) método. Eis um exemplo de como isso ficaria utilizando o SDK .NET para o Power BI.
 
 Neste exemplo, temos nossa ID de conjunto de dados que queremos criar um novo relatório no. Também precisamos de adicionar os âmbitos para *Dataset.Read e Workspace.Report.Create*.
 

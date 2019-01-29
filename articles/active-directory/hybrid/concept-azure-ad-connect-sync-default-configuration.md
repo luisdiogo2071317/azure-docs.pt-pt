@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 493dc834319d8f5842a7f9f5c4ca568742264df9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180471"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. Ele documenta as regras e como estas regras afetam a configuração. Ele também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende como o modelo de configuração, com o nome aprovisionamento declarativo, está a funcionar num exemplo real. Este artigo pressupõe que já instalou e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.

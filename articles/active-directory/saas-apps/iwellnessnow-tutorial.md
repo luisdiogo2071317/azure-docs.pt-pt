@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com iWellnessNow | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com iWellnessNow | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e iWellnessNow.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 24ffc841-7a77-481c-9cc4-6f8bda58fe66
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e5c7a578320beb57858ff93c848345f7f5a21caf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871700"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183497"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutorial: Integração do Azure Active Directory com iWellnessNow
+# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutorial: Integração do Active Directory do Azure com iWellnessNow
 
 Neste tutorial, saiba como integrar iWellnessNow com o Azure Active Directory (Azure AD).
 

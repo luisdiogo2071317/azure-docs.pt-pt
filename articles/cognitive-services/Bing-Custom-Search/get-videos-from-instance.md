@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5394f86e8a5d167830cb4061800f4cbf9a521713
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5b73acb633512960d7aa6d6eea9b1d6e10dd3c22
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174300"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenha vídeos da sua vista personalizada
 
-Pesquisa de vídeos personalizada do Bing permite-lhe aprimorar sua experiência de pesquisa personalizada com vídeos. Semelhante para os resultados da web, suporta a pesquisa personalizada a procurar vídeos na lista de sua instância dos Web sites. Pode obter os vídeos com a API de pesquisa de vídeos de personalizada do Bing ou através da IU hospedado de recursos. Utilizar a funcionalidade de hospedado da interface do Usuário é simples de usar e recomendados para colocar sua experiência de pesquisa em funcionamento, em Resumo, ordem. Para obter informações sobre como configurar a sua interface do Usuário alojadas para incluir vídeos, consulte [configurar a sua experiência de interface do Usuário alojada](hosted-ui.md).
+Pesquisa de vídeos personalizada do Bing permite-lhe aprimorar sua experiência de pesquisa personalizada com vídeos. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de vídeos na lista de sites da sua instância. Pode obter os vídeos com a API de pesquisa de vídeos de personalizada do Bing ou através da IU hospedado de recursos. Utilizar a funcionalidade de hospedado da interface do Usuário é simples de usar e recomendados para colocar sua experiência de pesquisa em funcionamento, em Resumo, ordem. Para obter informações sobre como configurar a sua interface do Usuário alojadas para incluir vídeos, consulte [configurar a sua experiência de interface do Usuário alojada](hosted-ui.md).
 
 Se quiser mais controle sobre exibindo os resultados de pesquisa, pode utilizar a API de pesquisa de vídeos de personalizada do Bing. Como chamar a API é semelhante a chamar a API de pesquisa de vídeos do Bing, Check-out [pesquisa de vídeos do Bing](../Bing-Video-Search/search-the-web.md) para chamar a API de exemplos. Mas antes de o fazer, familiarize-se com o [referência da API de pesquisa de vídeos de personalizado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference) conteúdo. As principais diferenças são os parâmetros de consulta suportados (tem de incluir o parâmetro de consulta customConfig) e envia pedidos para o ponto de extremidade.
 

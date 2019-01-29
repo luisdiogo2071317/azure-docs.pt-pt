@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5c7a1c56d9df28b8132f240dc3872314f029f78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461047"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155333"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
 O documento seguinte é uma referência técnica sobre as portas e protocolos necessários para implementar uma solução de identidade híbrida. Utilize a seguinte ilustração e consulte a tabela correspondente.
@@ -36,7 +36,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | Kerberos |88 (TCP/UDP) |Autenticação Kerberos para a floresta do AD. |
 | MS-RPC |135 (TCP/UDP) |Usado durante a configuração inicial do Assistente do Azure AD Connect, quando ele liga à floresta do AD e também durante a sincronização de palavra-passe. |
 | LDAP |389 (TCP/UDP) |Utilizado para importação de dados do AD. Dados são encriptados com o início de sessão do Kerberos & selar. |
-| RPC | 445 (TCP/UDP) |Utilizada pelo SSO totalmente integrado para criar uma conta de computador na floresta do AD. |
+| SMB | 445 (TCP/UDP) |Utilizada pelo SSO totalmente integrado para criar uma conta de computador na floresta do AD. |
 | LDAP/SSL |636 (TCP/UDP) |Utilizado para importação de dados do AD. A transferência de dados é assinada e criptografada. Utilizado apenas se estiver a utilizar SSL. |
 | RPC |49152 a 65535 (Random elevada RPC Port)(TCP/UDP) |Usado durante a configuração inicial do Azure AD Connect, quando ele liga para as florestas do AD e durante a sincronização de palavra-passe. Ver [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), e [KB224196](https://support.microsoft.com/kb/224196) para obter mais informações. |
 

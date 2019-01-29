@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Entidades do Bing, C#'
+title: 'Início rápido: Pesquisa de entidades do Bing SDK,C#'
 titleSuffix: Azure Cognitive Services
 description: Configure a aplicação de consola do SDK de Pesquisa de Entidades com C#.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3b4f38d8e2cb32758253fe4d121e6b2505f792c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152948"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com C#
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Início rápido: SDK com de pesquisa de entidades do BingC#
 
 A API de Pesquisa de Entidades do Bing contém a funcionalidade da API REST para pesquisa de entidades e análise dos resultados.
 
