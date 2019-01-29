@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Spacio | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Spacio | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Spacio.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9df8d199-b955-483c-aa4e-cabad1a0b9d6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: aa5c91265a832ef8a66948086b407688fdcbbbc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 76507fab4050f3ff762713081d2e588dc04f3f1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435479"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integração do Azure Active Directory com Spacio
+# <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integração do Active Directory do Azure com Spacio
 
 Neste tutorial, saiba como integrar Spacio com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Spacio, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Spacio logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Spacio com o Azure AD, terá de adicionar Spac
 
 **Para adicionar Spacio a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -159,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-spacio-test-user"></a>Criar um utilizador de teste Spacio
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Spacio. Trabalhar com [equipa de suporte de Spacio](mailto:support@spac.io) para adicionar os utilizadores na plataforma Spacio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Spacio. Trabalhar com [equipa de suporte de Spacio](mailto:support@spac.io) para adicionar os utilizadores na plataforma Spacio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -191,7 +191,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

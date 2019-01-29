@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Gestor de serviço de Ivanti (ISM) | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Gestor de serviço de Ivanti (ISM) | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Gestor de serviço Ivanti (ISM).
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 14297c74-0d57-4146-97fa-7a055fb73057
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b394ff8e3638a9663e756fd6db866b0c3e5d2ef
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7a125ea70a891d8db0ec652844a99153f19253bd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52449984"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150296"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Azure Active Directory com o Gestor de serviço de Ivanti (ISM)
+# <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de serviço de Ivanti (ISM)
 
 Neste tutorial, saiba como integrar o Gestor de serviço Ivanti (ISM) com o Azure Active Directory (Azure AD).
 

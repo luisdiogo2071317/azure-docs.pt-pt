@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438087"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098464"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola de série de máquina virtual para Linux
 
@@ -89,7 +89,7 @@ Regras de firewall incorreta | Aceder à consola de série e corrigir iptables.
 Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros.
 Problemas de configuração de SSH/RDP | Aceder à consola de série e alterar as definições.
 Bloqueio de rede para baixo do sistema| Aceda à consola de série do portal do Azure para gerir o sistema.
-Interagir com o carregador de inicialização | Acesso GRUB a partir da consola de série. Para obter mais informações, consulte [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
+Interagir com o carregador de inicialização | Reinicie a sua VM a partir do painel da consola de série para acessar o GRUB na sua VM do Linux. Para obter mais informações, consulte [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000526"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099311"
 ---
 # <a name="creating-filters-with-cli"></a>Criar filtros com o CLI 
 
@@ -29,11 +29,10 @@ Este tópico mostra como configurar um filtro para um ativo do vídeo a pedido e
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
 - Revisão [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
+
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-filter"></a>Definir um filtro 
 
@@ -80,13 +79,6 @@ O seguinte procedimento [filtro de conta do ams az](https://docs.microsoft.com/c
 
 O comando permite que passe opcional `--tracks` parâmetro que contém o JSON que representa as seleções de controle.  Utilize @{file} para carregar o JSON de um arquivo. Se estiver a utilizar a CLI do Azure localmente, especifique o caminho de ficheiro completo:
 
-
-```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
-```
-
-Se estiver a utilizar o Azure Cloud Shell, carregar o ficheiro para o Cloud Shell (localizar o botão de ficheiros de carregamento/transferência na parte superior da janela do shell). Em seguida, pode referenciar o ficheiro como este:
-
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
@@ -96,9 +88,6 @@ Além disso, veja [exemplos JSON para filtros](https://docs.microsoft.com/rest/a
 ## <a name="create-asset-filters"></a>Criar filtros de elemento
 
 O seguinte [filtro de elemento do ams az](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) comando cria um filtro de elemento com o filtro seleções de controle que foram [definidas anteriormente](#define-a-filter). 
-
-> [!TIP]
-> Veja as informações sobre como especificar a localização do nome do ficheiro na secção anterior.
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json

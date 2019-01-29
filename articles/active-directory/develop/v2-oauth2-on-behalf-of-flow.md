@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0fc81a75e79d7f570bd55c9c30a464e5bbb9ad1c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e7c393f1eb654d30c5e06869f404c8523c56a21e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423437"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093172"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v 2.0 e o fluxo do OAuth 2.0 On-Behalf-Of
 
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Existem dois casos, dependendo se o aplicativo cliente escolhe a ser protegido por um segredo partilhado ou um certificado.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Em primeiro lugar de caso: pedido de token de acesso com um segredo partilhado
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Pedido de token de acesso com um segredo partilhado
 Ao usar um segredo partilhado, um pedido de token de acesso de serviço para serviço contém os seguintes parâmetros:
 
 | Parâmetro |  | Descrição |
@@ -94,7 +94,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: pedido de token de acesso com um certificado
+### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de token de acesso com um certificado
 Um pedido de token de acesso de serviço para serviço com um certificado contém os seguintes parâmetros:
 
 | Parâmetro |  | Descrição |
@@ -133,7 +133,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os seguintes parâmetr
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte a [Framework de autorização do OAuth 2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte o [Framework de autorização do OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | access_token |O token de acesso solicitado. O serviço de chamada pode utilizar este token para autenticar para o serviço de recebimento. |

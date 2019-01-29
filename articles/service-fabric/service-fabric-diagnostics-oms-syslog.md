@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959544"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197250"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster do Service Fabric do Linux do Syslog
 
@@ -35,7 +35,7 @@ Cada evento do Syslog tem 4 componentes
 * Mensagem
 * Gravidade
 
-O SyslogConsumer grava todos os eventos de plataforma usando recurso `Local0`. Pode atualizar para qualquer recurso válido ao alterar a configuração de config. A identidade utilizada é `ServicFabric`. O campo de mensagem contém o evento todo serializado na JSON, para que possa ser consultado e consumido por uma variedade de ferramentas. 
+O SyslogConsumer grava todos os eventos de plataforma usando recurso `Local0`. Pode atualizar para qualquer recurso válido ao alterar a configuração de config. A identidade utilizada é `ServiceFabric`. O campo de mensagem contém o evento todo serializado na JSON, para que possa ser consultado e consumido por uma variedade de ferramentas. 
 
 ## <a name="enable-syslogconsumer"></a>Ativar SyslogConsumer
 
@@ -114,7 +114,7 @@ Pode ler esses eventos do Syslog numa ferramenta de monitoramento, como o Log An
     Syslog | where ProcessName == "ServiceFabric" | extend $payload = parse_json(SyslogMessage) | project $payload
 ```
 
-![Consulta de syslog](media/service-fabric-diagnostics-oms-syslog/syslog-query.png)
+![Syslog query](media/service-fabric-diagnostics-oms-syslog/syslog-query.png)
 
 O exemplo acima é de um evento de NodeDown. Pode ver a lista completa de eventos [aqui](service-fabric-diagnostics-event-generation-operational.md).
 

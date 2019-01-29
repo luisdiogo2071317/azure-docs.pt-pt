@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359646"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104575"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
 
-No Microsoft Azure Media Services (AMS), o [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) entidade representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdo (CDN) para obter mais distribuição. O fluxo de saída de um serviço de ponto final de transmissão em fluxo pode ser uma transmissão em direto ou um elemento de vídeo a pedido na sua conta de Media Services. Quando cria uma conta de Media Services, um **predefinição** ponto final de transmissão em fluxo é criado por si no estado parado. Não é possível eliminar a **predefinição** ponto final de transmissão em fluxo. Pontos finais de transmissão em fluxo adicionais podem ser criados sob a conta. Para começar a transmissão em fluxo de vídeos, terá de iniciar o ponto de final de transmissão em fluxo do qual quer transmitir o vídeo. 
+No Microsoft Azure Media Services (AMS), o [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) entidade representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdo (CDN) para obter mais distribuição. O fluxo de saída de um **ponto final de transmissão em fluxo** serviço pode ser uma transmissão em direto ou um elemento de vídeo a pedido na sua conta de Media Services. Quando cria uma conta de Media Services, um **predefinição** ponto final de transmissão em fluxo é criado por si no estado parado. Não é possível eliminar a **predefinição** ponto final de transmissão em fluxo. Pontos finais de transmissão em fluxo adicionais podem ser criados sob a conta. 
+
+> [!NOTE]
+> Para começar a transmissão em fluxo de vídeos, precisa para começar a **ponto final de transmissão em fluxo** partir da qual quer transmitir o vídeo. 
 
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 
@@ -34,7 +37,7 @@ Existem duas **StreamingEndpoint** tipos: **Standard** e **Premium**. O tipo é 
 
 A tabela descreve os tipos:  
 
-|Tipo|Unidades de escala|Descrição|
+|Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Ponto final de transmissão em fluxo Standard** (recomendado)|0|O **padrão** tipo é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O **padrão** tipo dimensiona a largura de banda de saída automaticamente. <br/>Para clientes com extremamente exigentes requisitos dos serviços de multimédia oferece **Premium** transmissão em fluxo de pontos de extremidade, que podem ser utilizados para ampliar a capacidade para o maior público de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos amsstreaming@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
 |**Ponto final de transmissão em fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o **Premium** tipo, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |

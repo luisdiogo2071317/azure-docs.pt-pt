@@ -1,5 +1,5 @@
 ---
-title: Expandir alertas do Log Analytics (cópia) para alertas do Azure - descrição geral
+title: Expandir alertas do Log Analytics (cópia) para o Azure Government Cloud
 description: Visão geral do processo para copiar alertas do Log Analytics no portal do OMS para alertas do Azure, com detalhes de endereçamento preocupações mais comuns do cliente.
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422231"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099333"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 
 > [!NOTE]
 > Já a Microsoft concluiu o processo descrito neste artigo para as versões públicas do Azure. No entanto, ele ainda se aplica a versões de administração pública dos EUA.  
 
-Até recentemente, o Azure Log Analytics incluído sua própria funcionalidade alerta, o que foi notificado proativamente das condições com base nos dados do Log Analytics. Gerido regras de alerta no portal do Microsoft Operations Management Suite. A nova experiência de alertas está agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** em Azure Monitor no portal do Azure e suporta a alertas dos registos de atividades, métricas e inicia a partir do Log Analytics e Azure Application Insights. 
+Até recentemente, o Azure Log Analytics incluído sua própria funcionalidade alerta, o que foi notificado proativamente das condições com base nos dados do Log Analytics. Gerido regras de alerta no portal do Microsoft Operations Management Suite. A nova experiência de alertas está agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** em Azure Monitor no portal do Azure e suporta a alertas dos registos de atividades, métricas e inicia a partir do Log Analytics e Azure Application Insights.
+
+Clientes na cloud do Azure Government, com o portal do OMS, pode [voluntariamente expandir suas regras de alerta para o Azure](alerts-extend-tool.md) partir **1 de Fevereiro de 2019**. A partir **dia 1 de Março de 2019** - Microsoft será automaticamente-expandir de forma sistemática todas as regras de alerta existentes no Azure Government - portal do OMS para o Azure; sem qualquer período de inatividade ou interrupção para a sua monitorização. Qualquer nova área de trabalho criada em ou após **dia 1 de Março de 2019** na cloud do Azure Government OMS portal serão expandidos automaticamente para o Azure.
 
 ## <a name="benefits-of-extending-your-alerts"></a>Vantagens de expandir os seus alertas
 Existem diversas vantagens de criar e gerir alertas no portal do Azure, tais como:

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912567"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104240"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -105,7 +105,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Código de erro**: UserErrorUnsupportedDiskSize <br>
 **Mensagem de erro**: O Azure Backup não suporta atualmente tamanhos de disco superiores a 1023 GB <br>
 
-A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
+A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para restaurar instantânea. Atualizar para o restaurar instantâneas irá fornecer suporte a até 4TB, vê-lo [artigo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Depois de atualizar, demorará até duas horas para a subscrição aproveitar essa funcionalidade. Forneça a memória intermédia suficiente antes de repetir a operação.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
 

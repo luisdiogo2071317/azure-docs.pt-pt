@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452977"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091551"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparar a implementação de Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -42,7 +42,7 @@ Para implementar o Data Box Gateway, consulte os seguintes tutoriais na sequênc
 | **#** | **Neste passo** | **Utilizar estes documentos** |
 | --- | --- | --- | 
 | 1. |**[Preparar o portal do Azure para o Data Box Gateway](data-box-gateway-deploy-prep.md)** |Crie e configure o seu recurso do Data Box Gateway antes de aprovisionar um dispositivo virtual Data Box Gateway. |
-| 2. |**[Aprovisionar o Data Box Gateway em Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Aprovisionar o Data Box Gateway em VMware](data-box-gateway-deploy-provision-vmware.md)**|Para Hyper-V, aprovisione e ligue a um dispositivo virtual Data Box Gateway num sistema anfitrião com Hyper-V no Windows Server 2016 ou Windows Server 2012 R2. <br><br><br> Para VMware, aprovisione e ligue a um dispositivo virtual Data Box Gateway num sistema anfitrião com VMware ESXi 6.0 ou 6.5.<br></br> |
+| 2. |**[Aprovisionar o Data Box Gateway em Hyper-V](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Aprovisionar o Data Box Gateway em VMware](data-box-gateway-deploy-provision-vmware.md)**|Para Hyper-V, aprovisione e ligue a um dispositivo virtual Data Box Gateway num sistema anfitrião com Hyper-V no Windows Server 2016 ou Windows Server 2012 R2. <br><br><br> Para o VMware, aprovisionar e ligar a um dispositivo virtual de Gateway de caixa de dados num sistema anfitrião com o VMware ESXi 6.0, 6.5 ou 6.7.<br></br> |
 | 3. |**[Ligar, configurar, ativar o Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)** |Ligue IU Web local, conclua a configuração do dispositivo e ative o dispositivo. Em seguida, pode aprovisionar partilhas SMB.  |
 | 4. |**[Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md)** |Adicione partilhas, ligue-se a partilhas através de SMB ou NFS. |
 
@@ -63,7 +63,7 @@ Antes de começar, certifique-se de que:
 
 Antes de implementar um dispositivo virtual, certifique-se de que:
 
-* Tem acesso a um sistema anfitrião com Hyper-V no Windows Server 2012 R2 ou posterior, ou com VMware (ESXi 6.0 ou 6.5), que possa ser utilizado para aprovisionar um dispositivo.
+* Tem acesso a um sistema anfitrião com Hyper-V no Windows Server 2012 R2 ou posterior ou o VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser utilizado para um aprovisionar um dispositivo.
 * O sistema anfitrião tem capacidade para dedicar os recursos seguintes para aprovisionar o seu dispositivo virtual Data Box:
   
   * Um mínimo de 4 núcleos.
@@ -95,7 +95,7 @@ Execute os seguintes passos no portal do Azure para criar um recurso do Data Box
 
 3. Para o novo recurso, introduza ou selecione as seguintes informações.
     
-    |Definição  |Valor  |
+    |Definição  |Value  |
     |---------|---------|
     |Nome do recurso   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 carateres que contêm letras, números e hífenes.<br> O nome começa e termina com uma letra ou um número.        |
     |Subscrição    |A subscrição está associada à sua conta de faturação. |
@@ -126,7 +126,7 @@ Execute os seguintes passos no [portal do Azure](https://portal.azure.com/).
 4. No painel da direita do início rápido, clique na hiperligação correspondente para a imagem que pretende transferir. Os ficheiros de imagem têm, aproximadamente, 4,8 GB.
    
    * [VHDX para Hyper-V no Windows Server 2012 R2 e versões posteriores](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK para VMWare ESXi 6.0 ou 6.5](https://aka.ms/dbe-vmdk).
+   * [VMDK para VMWare ESXi 6.0, 6.5 ou 6.7](https://aka.ms/dbe-vmdk).
 
 5. Transfira e deszipe o ficheiro numa unidade local, tomando nota da localização onde o ficheiro deszipado se encontra.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing, Java'
+title: 'Início rápido: Java, API de sugestão automática do Bing'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 9a7edbd6c1099a79cf655a592fbe801d3c8f0061
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421123"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195491"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Início Rápido da API de Sugestão Automática do Bing com Java
 
@@ -183,7 +183,7 @@ public class Autosuggest {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)

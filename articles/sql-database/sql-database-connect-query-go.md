@@ -12,12 +12,12 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744705"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161535"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Golang para consultar uma base de dados SQL do Azure
 
@@ -29,11 +29,9 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- R [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) configurado para o endereço IP público do seu computador.
-
 - Golang e software relacionado para o seu sistema operativo instalado:
 
-    - **macOS**: Instale o Homebrew e o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **MacOS**: Instale o Homebrew e o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
     - **Ubuntu**:  Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
     - **Windows**: Instale o Golang. Veja o [Passo 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 

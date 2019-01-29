@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: be8a6ba83de81c5a82797ecf3d30c7a7fcaa65fa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229477"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162774"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -377,5 +377,5 @@ R: Se tiver configurado a ambos os termos de AD do Azure de utilização e [Intu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md)
+- [Quickstart: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md)
 - [Melhores práticas para acesso condicional no Azure Active Directory](../conditional-access/best-practices.md)

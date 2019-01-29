@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727363"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102057"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
@@ -40,7 +40,7 @@ Aqui está uma lista desses eventos do Service Fabric organizados por entidade.
 
 Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Atualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
 | 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
@@ -52,7 +52,7 @@ Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui]
 
 **Eventos de ciclo de vida de nó** 
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível |
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Desativação de um nó foi concluída | FM | Informativo | 
 | 18603 | NodeUp | StateTransition | O cluster detetou que um nó de ter iniciado | FM | Informativo | 
@@ -69,17 +69,17 @@ Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui]
 
 **Eventos de ciclo de vida da aplicação**
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | Ciclo de vida | Foi criada uma nova aplicação | CM | Informativo | 
 | 29625 | ApplicationDeleted | Ciclo de vida | Um aplicativo existente foi eliminado | CM | Informativo | 
-| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo saiu | Hospedagem | Informativo | 
+| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo saiu | Alojamento | Informativo | 
 
 **Eventos de atualização de aplicação**
 
 Obter mais detalhes sobre as atualizações de aplicações podem ser encontradas [aqui](service-fabric-application-upgrade.md).
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Atualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
 | 29622 | ApplicationUpgradeCompleted | Atualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
@@ -91,7 +91,7 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 **Eventos de ciclo de vida do serviço**
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | Ciclo de vida | Foi criado um novo serviço | FM | Informativo | 
 | 18658 | ServiceDeleted | Ciclo de vida | Um serviço existente foi eliminado | FM | Informativo | 
@@ -100,7 +100,7 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 **Eventos de mudança de partição**
 
-| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| EventId | Name | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | Ciclo de vida | Foi concluída uma reconfiguração da partição | RA | Informativo | 
 
@@ -108,11 +108,11 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 **Eventos de ciclo de vida do contentor** 
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Um contentor foi iniciada | Hospedagem | Informativo | 1 |
-| 23075 | ContainerDeactivated | Um contentor foi parado | Hospedagem | Informativo | 1 |
-| 23082 | ContainerExited | Um contentor saiu - Verifique o sinalizador de UnexpectedTermination | Hospedagem | Informativo | 1 |
+| 23074 | ContainerActivated | Um contentor foi iniciada | Alojamento | Informativo | 1 |
+| 23075 | ContainerDeactivated | Um contentor foi parado | Alojamento | Informativo | 1 |
+| 23082 | ContainerExited | Um contentor saiu - Verifique o sinalizador de UnexpectedTermination | Alojamento | Informativo | 1 |
 
 ## <a name="health-reports"></a>Relatórios de estado de funcionamento
 
@@ -124,21 +124,21 @@ O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](
 
 **Eventos de relatório de estado de funcionamento do cluster**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Um novo relatório de estado de funcionamento do cluster está disponível | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Expiração de um relatório de estado de funcionamento do cluster existente | HM | Informativo | 1 |
 
 **Eventos de relatório de estado de funcionamento do nó**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Um relatório de estado de funcionamento do novo nó está disponível | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Expiração de um relatório de estado de funcionamento do nó existente | HM | Informativo | 1 |
 
 **Eventos de relatório de estado de funcionamento de aplicações**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Foi criado um novo relatório de estado de funcionamento do aplicativo. Isto é para aplicações não implementadas. | HM | Informativo | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Foi criado um novo relatório de estado de funcionamento da aplicação implementada | HM | Informativo | 1 |
@@ -149,21 +149,21 @@ O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](
 
 **Eventos de relatório de estado de funcionamento do serviço**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Foi criado um novo relatório de estado de funcionamento de serviço | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Expiração de um relatório de estado de funcionamento de serviço existente | HM | Informativo | 1 |
 
 **Eventos de relatório de estado de funcionamento de partição**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Foi criado um novo relatório de estado de funcionamento de partição | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Um relatório de estado de funcionamento de partição existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de estado de funcionamento de réplica**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Foi criado um relatório de estado de funcionamento de réplica com monitoração de estado | HM | Informativo | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Foi criado um novo relatório de estado de funcionamento de instância sem monitoração de estado | HM | Informativo | 1 |
@@ -174,28 +174,28 @@ O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](
 
 **Eventos de sessão de Chaos**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Foi iniciada uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 | 50023 | ChaosStopped | Uma sessão de teste de Chaos parou | Capacidade de teste | Informativo | 1 |
 
 **Eventos do nó de Chaos**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Um nó está agendado para reiniciar como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 | 50087 | ChaosNodeRestartCompleted | Um nó concluiu a reiniciar como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 
 **Eventos da aplicação caos**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Um reinício do pacote de código foi agendado durante uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Um reinício do pacote de código foi concluída durante uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de partição caos**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Uma partição primária está agendado para mover como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Uma partição secundária está agendado para mover como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
@@ -203,7 +203,7 @@ O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](
 
 **Eventos da réplica caos**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Foi agendado um reinício de réplica como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | Foi agendada uma remoção de réplica como parte de uma sessão de teste de Chaos | Capacidade de teste | Informativo | 1 |
@@ -213,15 +213,15 @@ O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](
 
 **Eventos do correlacionador**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Name | Descrição |Origem (tarefa) | Nível | Versão |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | CorrelationOperational | Uma correlação tem sido detacted | Capacidade de teste | Informativo | 1 |
+| 65011 | CorrelationOperational | Foi detetada uma correlação | Capacidade de teste | Informativo | 1 |
 
 ## <a name="events-prior-to-version-62"></a>Eventos anteriores à versão 6.2
 
 Aqui está uma lista completa dos eventos fornecidos pelo Service Fabric anterior à versão 6.2.
 
-| EventId | Nome | Origem (tarefa) | Nível |
+| EventId | Name | Origem (tarefa) | Nível |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informativo |
 | 25621 | NodeOpenedSuccess | FabricNode | Informativo |
@@ -235,8 +235,8 @@ Aqui está uma lista completa dos eventos fornecidos pelo Service Fabric anterio
 | 29629 | ClusterUpgradeRollback | CM | Informativo |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informativo |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informativo |
-| 23074 | ContainerActivated | Hospedagem | Informativo |
-| 23075 | ContainerDeactivated | Hospedagem | Informativo |
+| 23074 | ContainerActivated | Alojamento | Informativo |
+| 23075 | ContainerDeactivated | Alojamento | Informativo |
 | 29620 | ApplicationCreated | CM | Informativo |
 | 29621 | ApplicationUpgradeStart | CM | Informativo |
 | 29622 | ApplicationUpgradeComplete | CM | Informativo |

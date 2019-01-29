@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469768"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196281"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -333,18 +333,18 @@ Bloquear acesso à conta do AD DS ao implementar as seguintes alterações de pe
 *   Remova todas as ACEs de objeto específico, exceto ACEs específicos para o próprio. Queremos manter as permissões predefinidas intactos quando se trata-se para o próprio.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Type     | Name                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
-Permitir    | Administradores da empresa             | Controlo Total         | Este objeto  |
-Permitir    | Admins do domínio                 | Controlo Total         | Este objeto  |
-Permitir    | Administradores                | Controlo Total         | Este objeto  |
+Permitir    | SISTEMA                        | Controlo total         | Este objeto  |
+Permitir    | Administradores da empresa             | Controlo total         | Este objeto  |
+Permitir    | Admins do domínio                 | Controlo total         | Este objeto  |
+Permitir    | Administradores                | Controlo total         | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
-Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
+Permitir    | Controladores de domínio de empresa | Permissões de leitura     | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
 Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores Autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Permissões de leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS conta que pode ser executado [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 
@@ -683,7 +683,7 @@ CBool(
 * As alterações de esquema seguintes foram introduzidas para permitir que os clientes criar regras de sincronização personalizado para o fluxo sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como distinguishedName para objetos de utilizador:
 
   * Foram adicionados ao esquema de MV seguintes atributos:
-    * Grupo: Nome da Conta
+    * Grupo: AccountName
     * Group: domainNetBios
     * Group: domainFQDN
     * Pessoa: distinguishedName
@@ -840,7 +840,7 @@ Autenticação pass-through
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect efetuar a ativação se passar por meio de autenticação está selecionada, mas falhar o registo do seu conector.
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect para ignorar a validação verifica no método de início de sessão selecionado quando a funcionalidade de SSO de ambiente de trabalho está ativada.
 
-Reposição de Palavra-passe
+Reposição de palavra-passe
 * Foi corrigido um problema que pode fazer com que o servidor do Azure AAD Connect para não tentar conectar-se novamente se a ligação foi eliminada por uma firewall ou proxy.
 
 **Recursos/melhorias novas:**
@@ -855,7 +855,7 @@ Gestão do AD FS
 * Agora pode especificar gMSA existente (grupo de conta de serviço gerida) durante a instalação do AD FS.
 * Agora, pode configurar o SHA-256 como o algoritmo de hash de assinatura para confiança da entidade confiadora do Azure AD.
 
-Reposição de Palavra-passe
+Reposição de palavra-passe
 * Introduziu melhorias para permitir que o produto para a função em ambientes com regras de firewall mais rigorosas.
 * Fiabilidade de ligação melhorada para o Azure Service Bus.
 

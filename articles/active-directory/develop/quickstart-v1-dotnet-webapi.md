@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952550"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098069"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Início Rápido: compilar uma API Web .NET que se integra com o Azure AD para autenticação e autorização
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Início rápido: Criar uma API que se integra com o Azure AD para autenticação e autorização de web do .NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -48,7 +48,7 @@ Para começar, conclua estes pré-requisitos:
 * [Transfira a estrutura da aplicação](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) ou [transfira o exemplo concluído](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Cada um deles é uma solução do Visual Studio 2013.
 * Ter um inquilino do Azure AD no qual irá registar a aplicação. Se ainda não tiver um, [saiba como obter um](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>Passo 1: registar uma aplicação com o Azure AD
+## <a name="step-1-register-an-application-with-azure-ad"></a>Passo 1: Registar uma aplicação com o Azure AD
 
 Para ajudar a proteger a aplicação, primeiro tem de criar uma aplicação no seu inquilino e fornecer algumas informações essenciais ao Azure AD.
 
@@ -65,7 +65,7 @@ Para ajudar a proteger a aplicação, primeiro tem de criar uma aplicação no s
 6. Na página **Definições > Propriedades** da aplicação, atualize o URI do ID da aplicação. Introduza um identificador específico do inquilino. Por exemplo, introduza `https://contoso.onmicrosoft.com/TodoListService`.
 7. Guarde a configuração. Deixe o portal aberto, pois também precisará de registar a aplicação cliente em breve.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Passo 2: configurar a aplicação para utilizar o pipeline de autenticação OWIN
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Passo 2: Configurar a aplicação para utilizar o pipeline de autenticação OWIN
 
 Para validar os pedidos e tokens recebidos, terá de configurar a aplicação para comunicar com o Azure AD.
 
@@ -135,7 +135,7 @@ Para validar os pedidos e tokens recebidos, terá de configurar a aplicação pa
     * `ida:Tenant` é o nome do inquilino do Azure AD – por exemplo, contoso.onmicrosoft.com.
     * `ida:Audience` é o URI do ID da Aplicação, que introduziu no portal do Azure.
 
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Passo 3: configurar uma aplicação cliente e executar o serviço
+## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Passo 3: Configurar uma aplicação cliente e executar o serviço
 
 Antes de poder ver o Serviço Lista de Tarefas, tem de configurar o cliente Lista de Tarefas para que este consiga obter tokens do Azure AD e solicitar o serviço.
 
@@ -156,6 +156,6 @@ Antes de poder ver o Serviço Lista de Tarefas, tem de configurar o cliente List
 1. Se ainda não o tiver feito, crie um novo utilizador no seu inquilino com um domínio *.onmicrosoft.com.
 1. Inicie sessão no cliente Lista de Tarefas com esse utilizador e adicione algumas tarefas à lista de tarefas do utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para sua referência, transfira o exemplo concluído (sem os valores de configuração) do [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Agora pode avançar para outros cenários de identidade.

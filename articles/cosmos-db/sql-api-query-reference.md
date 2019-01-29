@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354472"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102350"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Referência de linguagem do Azure Cosmos DB SQL 
 
@@ -2169,7 +2169,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     É qualquer expressão numérica válida.  
+     É qualquer expressão numérica válida. Se num_expr é negativo ou não infinite, o resultado é indefinido.
+
+  > [!NOTE]
+  > O comprimento máximo do resultado é 10.000 carateres, ou seja, (length(str_expr) * num_expr) < = 10 000.
   
  **Tipos de retorno**  
   

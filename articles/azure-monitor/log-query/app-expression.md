@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191840"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104665"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>expressão de App() na consulta do Log Analytics
 
@@ -37,10 +37,10 @@ O `app` expressão é utilizada numa consulta do Log Analytics para recuperar da
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|
-| Nome do Recurso | Nome legível por humano da aplicação (também conhecidas como "nome do componente") | App("fabrikamapp") |
-| Nome qualificado | Nome completo da aplicação no formato: "subscriptionName/resourceGroup/componentName" | App('AI-Prototype/Fabrikam/fabrikamapp') |
-| ID | GUID da aplicação | App("988ba129-363e-4415-8fe7-8cbab5447518") |
-| ID de recurso do Azure | Identificador para o recurso do Azure |App("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/Providers/Microsoft.insights/Components/fabrikamapp") |
+| Nome do Recurso | Nome legível por humano da aplicação (também conhecidas como "nome do componente") | app("fabrikamapp") |
+| Nome qualificado | Nome completo da aplicação no formato: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
+| ID | GUID da aplicação | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| ID de recurso do Azure | Identificador para o recurso do Azure |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Notas
@@ -48,6 +48,7 @@ O `app` expressão é utilizada numa consulta do Log Analytics para recuperar da
 * Tem de ter acesso de leitura para a aplicação.
 * Identificar um aplicativo pelo respetivo nome de parte do princípio de que é exclusivo em todas as subscrições acessíveis. Se tiver várias aplicações com o nome especificado, a consulta irá falhar devido a ambiguidade. Neste caso tem de utilizar um dos outros identificadores.
 * Utilizar a expressão relacionada [área de trabalho](workspace-expression.md) a consulta em áreas de trabalho do Log Analytics.
+* A expressão de app() atualmente não é suportada na consulta de pesquisa quando utilizar o portal do Azure para criar uma [regra de alerta de pesquisa de registo personalizado](../platform/alerts-log.md), a menos que um aplicativo do Application Insights é utilizado como o recurso para a regra de alerta.
 
 ## <a name="examples"></a>Exemplos
 

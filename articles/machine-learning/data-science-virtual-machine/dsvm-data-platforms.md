@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: adaed5f15facb00b6ed624234ebad31f60782de1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105552"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094330"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na máquina de Virtual de ciência de dados
 
@@ -95,7 +95,7 @@ Antes de executar no contexto do Spark no Microsoft R Server na edição de DSVM
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-É possível parar o Hadoop relacionados com serviços quando não precisar delas, executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` um exemplo que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónoma no DSVM) é fornecido e está disponível no `/dsvm/samples/MRS` diretório. 
+É possível parar o Hadoop relacionados com serviços quando não precisar delas, executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` um exemplo que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónoma no DSVM) é fornecido e está disponível no `/dsvm/samples/MRS` diretório. 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Como é ele configurado / instalado no DSVM? 

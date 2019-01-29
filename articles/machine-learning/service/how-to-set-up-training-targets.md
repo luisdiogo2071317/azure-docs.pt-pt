@@ -11,33 +11,34 @@ ms.component: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1187460deff0ac1ec71ddc70e503169a728c8b5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246335"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099956"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
-Com o serviço do Azure Machine Learning, pode preparar o seu modelo numa variedade de recursos ou ambientes, coletivamente denominados [ __destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso da nuvem, como uma computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  
+Com o serviço do Azure Machine Learning, pode preparar o seu modelo numa variedade de recursos ou ambientes, coletivamente denominados [ __destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso da nuvem, como uma computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Também pode criar destinos de computação para a implementação de modelo conforme descrito em ["onde e como implementar os seus modelos"](how-to-deploy-and-where.md).
 
 Pode criar e gerir um destino de computação com o SDK do Azure Machine Learning, o portal do Azure ou a CLI do Azure. Se tiver de destinos de computação que foram criados por meio de outro serviço (por exemplo, um cluster do HDInsight), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
  
-Neste artigo, irá aprender a utilizar vários destinos de computação.  Os passos para todos os destinos de computação siga o mesmo fluxo de trabalho:
+Neste artigo, irá aprender a utilizar vários destinos de computação para a preparação de modelos.  Os passos para todos os destinos de computação siga o mesmo fluxo de trabalho:
 1. __Criar__ um destino de computação se ainda não tiver uma.
 2. __Anexar__ o destino de computação à sua área de trabalho.
 3. __Configurar__ a computação de destino para que ele contém as dependências de ambiente e o pacote de Python necessárias ao seu script.
 
+
 >[!NOTE]
 > Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.6.
 
-## <a name="supported-compute-targets"></a>Destinos de computação suportados
+## <a name="compute-targets-for-training"></a>Destinos de computação para formação
 
 O serviço do Azure Machine Learning tem suporte variado em destinos de computação diferentes. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
 
 
-|Destino de computação| Aceleração por GPU | Automatizada<br/> a otimização de hiper-parâmetros | Automatizada</br> machine learning | Amigável de pipeline|
+|Destino de treinamento de computação| Aceleração por GPU | Automatizada<br/> a otimização de hiper-parâmetros | Automatizada</br> machine learning | Amigável de pipeline|
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -158,7 +159,7 @@ Pode utilizar um ambiente de sistema criado conda, um ambiente de Python já exi
 
 Utilize a Máquina Virtual de ciência de dados do Azure (DSVM) como VM do Azure à escolha para este cenário. Esta VM é um ambiente de desenvolvimento de IA do Azure e de ciência de dados pré-configurados. A VM oferece uma opção organizada de ferramentas e estruturas para o ciclo de vida completo de machine learning de desenvolvimento. Para obter mais informações sobre como utilizar a DSVM com o Azure Machine Learning, consulte [configurar um ambiente de desenvolvimento](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > O Azure Machine Learning suporta apenas máquinas virtuais que executar o Ubuntu. Quando criar uma VM ou escolha uma VM existente, tem de selecionar uma VM que utiliza o Ubuntu.
@@ -201,7 +202,7 @@ Agora que já anexados a computação e configurado a sua execução, a próxima
 
 O Azure HDInsight é uma plataforma popular para análise de macrodados. A plataforma fornece Apache Spark, que pode ser utilizado para preparar o seu modelo.
 
-1. **criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **Criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     Quando criar o cluster, tem de especificar um nome de utilizador SSH e a palavra-passe. Tome nota destes valores, sempre que precisar para utilizar o HDInsight como um destino de computação.
     

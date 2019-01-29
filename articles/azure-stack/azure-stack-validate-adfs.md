@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416516"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101741"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Validar a integração do AD FS para o Azure Stack
 
@@ -29,7 +29,7 @@ Utilize a ferramenta do Verificador de preparação do Azure Stack (AzsReadiness
 Valida o Verificador de preparação:
 
 * O *metadados de Federação* contém os elementos XML válidos para a Federação.
-* O *certificado de SSL do AD FS* podem ser obtidos e uma cadeia de fidedignidade pode ser criado. No carimbo do AD FS tem de confiar a cadeia de certificados SSL. O certificado tem de ser assinado pelo mesmo *autoridade de certificação* como os certificados de implementação do Azure Stack ou por um parceiro de autoridade de raiz fidedigna. Para obter a lista completa dos parceiros de autoridade de raiz fidedigna, consulte [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* O *certificado de SSL do AD FS* podem ser obtidos e uma cadeia de fidedignidade pode ser criado. No carimbo do AD FS tem de confiar a cadeia de certificados SSL. O certificado tem de ser assinado pelo mesmo *autoridade de certificação* utilizada para os certificados de implementação do Azure Stack ou por um parceiro de autoridade de raiz fidedigna. Para obter a lista completa dos parceiros de autoridade de raiz fidedigna, consulte [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * O *certificado de assinatura do AD FS* é fidedigna e não prestes a expiração.
 
 Para obter mais informações sobre a integração de datacenter do Azure Stack, veja [integração no datacenter do Azure Stack - identidade](azure-stack-integrate-identity.md).
@@ -101,7 +101,7 @@ Por predefinição, ambos os ficheiros são escritos `C:\Users\<username>\AppDat
 
 Utilização:
 
-* **-OutputPath**: A *caminho* parâmetro no final do comando de execução para especificar uma localização diferente do relatório.
+* **-OutputPath**: O *caminho* parâmetro no final do comando de execução para especificar uma localização diferente do relatório.
 * **-CleanReport**: O parâmetro no final do comando de execução para limpar AzsReadinessCheckerReport.json de informações de relatório anterior. Para obter mais informações, consulte [relatório de validação do Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Falhas de validação
@@ -114,9 +114,9 @@ Os exemplos seguintes fornecem orientação sobre falhas de validação comuns.
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Causa**: PowerShell Autoload Falha ao carregar o módulo de preparação para o verificador corretamente.
+**Motivo**: Não foi possível carregar o módulo de preparação para o verificador corretamente Autoload do PowerShell.
 
-**Resolução**: importar o módulo do Verificador de preparação explicitamente. Copie e cole o seguinte código no PowerShell e de atualização \<versão\> com o número da versão atualmente instalada.
+**Resolução**: Importe o módulo de preparação para o verificador explicitamente. Copie e cole o seguinte código no PowerShell e de atualização \<versão\> com o número da versão atualmente instalada.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

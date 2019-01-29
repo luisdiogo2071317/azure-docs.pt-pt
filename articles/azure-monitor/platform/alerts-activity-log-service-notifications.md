@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583736"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092236"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -37,7 +37,7 @@ Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](.
 
 Para obter informações sobre como configurar alertas de notificação de estado de funcionamento do serviço, utilizando modelos Azure Resource Manager, consulte [modelos do Resource Manager](alerts-activity-log.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com o portal do Azure
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Grupo de ação do alerta e novos através do portal do Azure
 1. Na [portal](https://portal.azure.com), selecione **estado de funcionamento do serviço**.
 
     ![O serviço de "Estado de funcionamento do serviço"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Saiba como [configurar notificações de webhook para sistemas de gestão existe
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Criar um alerta numa notificação de estado de funcionamento do serviço para um grupo de ação existente com o portal do Azure
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta com o grupo de ação existente através do portal do Azure
 
 1. Siga os passos 1 a 7 na secção anterior para criar a notificação de estado de funcionamento do serviço. 
 
@@ -96,7 +96,7 @@ Saiba como [configurar notificações de webhook para sistemas de gestão existe
 
 Em poucos minutos, o alerta está ativo e começa a acionar, com base nas condições que especificou durante a criação.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com modelos do Azure Resource Manager
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Grupo de ação de alerta e novos com os modelos Azure Resource Manager
 
 Segue-se um exemplo que cria um grupo de ação com um destino de e-mail e permite que todas as notificações de estado de funcionamento de serviço para a subscrição de destino.
 

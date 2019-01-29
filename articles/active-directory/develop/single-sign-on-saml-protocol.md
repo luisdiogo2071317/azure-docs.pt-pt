@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424888"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098756"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -81,10 +81,10 @@ A `NameIdPolicy` elemento se parece com o exemplo a seguir:
 
 Se `NameIDPolicy` for fornecido, pode incluir sua opcional `Format` atributo. O `Format` atributo pode ter apenas um dos seguintes valores; qualquer outro resultado de valor num erro.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: O azure Active Directory emite a afirmação NameID como um identificador emparelhado.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: O azure Active Directory emite a afirmação NameID no formato de endereço de email.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: O Azure Active Directory emite a afirmação NameID como um identificador emparelhado.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: O Azure Active Directory emite a afirmação NameID no formato de endereço de email.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: Este valor permite ao Azure Active Directory para selecionar o formato de afirmação. O Azure Active Directory emite o NameID como um identificador emparelhado.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: O azure Active Directory emite a afirmação NameID como um valor gerado aleatoriamente, que é exclusivo para a operação atual do SSO. Isso significa que o valor é temporário e não pode ser utilizado para identificar o utilizador de autenticação.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: O Azure Active Directory emite a afirmação NameID como um valor gerado aleatoriamente, que é exclusivo para a operação atual do SSO. Isso significa que o valor é temporário e não pode ser utilizado para identificar o utilizador de autenticação.
 
 O Azure AD ignora o `AllowCreate` atributo.
 
@@ -96,7 +96,7 @@ O `Scoping` elemento, que inclui uma lista de fornecedores de identidade, é opc
 
 Se for fornecido, não incluem o `ProxyCount` atributo, `IDPListOption` ou `RequesterID` elemento, à medida que eles não são suportados.
 
-### <a name="signature"></a>Assinatura
+### <a name="signature"></a>assinatura
 Não inclua uma `Signature` elemento no `AuthnRequest` elementos, como o Azure AD suporta assinados pedidos de autenticação.
 
 ### <a name="subject"></a>Requerente
@@ -198,7 +198,7 @@ Ele é definido como `https://sts.windows.net/<TenantIDGUID>/`onde <TenantIDGUID
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Assinatura
+#### <a name="signature"></a>assinatura
 
 O Azure AD assina a asserção em resposta a um início de sessão-com êxito. O `Signature` elemento contém uma assinatura digital que o serviço em nuvem pode utilizar para autenticar a origem para verificar a integridade da asserção.
 

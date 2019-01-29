@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 05812d3c1f1596cbc560d50ac37a058d9438581a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426748"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101540"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas de métricas no Azure Monitor
 
 Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](../../azure-monitor/platform/alerts-overview.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](../../azure-monitor/platform/alerts-classic.overview.md). As métricas estão disponíveis para [grande lista de serviços do Azure](../../azure-monitor/platform/metrics-supported.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto.
-
 
 Também pode utilizar alertas de métricas mais recente em populares registos do Log Analytics extraídos como métricas. Para obter mais informações, veja [alertas de métrica para os registos](../../azure-monitor/platform/alerts-metric-logs.md).
 
@@ -65,57 +64,56 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 | Microsoft.Web/sites/slots | Sim | [Ranhuras de serviço de aplicações](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 |Microsoft.OperationalInsights/workspaces| Sim|[Áreas de trabalho do log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 
-
-
 ## <a name="payload-schema"></a>Esquema do payload
 
 A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos os perto de alertas de métricas mais recentes quando um configurado de forma apropriada [grupo de ação](../../azure-monitor/platform/action-groups.md) é usado:
 
 ```json
-{"schemaId":"AzureMonitorMetricAlert","data":
-    {
+{
+  "schemaId": "AzureMonitorMetricAlert",
+  "data": {
     "version": "2.0",
     "status": "Activated",
     "context": {
-    "timestamp": "2018-02-28T10:44:10.1714014Z",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
-    "name": "StorageCheck",
-    "description": "",
-    "conditionType": "SingleResourceMultipleMetricCriteria",
-    "condition": {
-      "windowSize": "PT5M",
-      "allOf": [
-        {
-          "metricName": "Transactions",
-          "dimensions": [
-            {
-              "name": "AccountResourceId",
-              "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-            },
-            {
-              "name": "GeoType",
-              "value": "Primary"
-            }
-          ],
-          "operator": "GreaterThan",
-          "threshold": "0",
-          "timeAggregation": "PT5M",
-          "metricValue": 1.0
-        },
-      ]
+      "timestamp": "2018-02-28T10:44:10.1714014Z",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
+      "name": "StorageCheck",
+      "description": "",
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Transactions",
+            "dimensions": [
+              {
+                "name": "AccountResourceId",
+                "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+              },
+              {
+                "name": "GeoType",
+                "value": "Primary"
+              }
+            ],
+            "operator": "GreaterThan",
+            "threshold": "0",
+            "timeAggregation": "PT5M",
+            "metricValue": 1
+          }
+        ]
+      },
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroupName": "Contoso",
+      "resourceName": "diag500",
+      "resourceType": "Microsoft.Storage/storageAccounts",
+      "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
+      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
     },
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "resourceGroupName": "Contoso",
-    "resourceName": "diag500",
-    "resourceType": "Microsoft.Storage/storageAccounts",
-    "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-  },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
-        }
+    "properties": {
+      "key1": "value1",
+      "key2": "value2"
     }
+  }
 }
 ```
 
@@ -124,4 +122,3 @@ A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos 
 * Saiba mais sobre a nova [experiência de alertas](../../azure-monitor/platform/alerts-overview.md).
 * Saiba mais sobre [alertas de registo no Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Saiba mais sobre [alertas no Azure](../../azure-monitor/platform/alerts-overview.md).
-

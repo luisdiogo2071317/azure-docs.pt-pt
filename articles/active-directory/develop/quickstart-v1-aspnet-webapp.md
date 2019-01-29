@@ -8,21 +8,21 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970662"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095860"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar início de sessão com a Microsoft a uma aplicação Web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -39,7 +39,7 @@ Para começar, certifique-se de que cumpre estes pré-requisitos:
 
 * Ter o Visual Studio 2015 Update 3 ou o Visual Studio 2017 instalado. Não o tem? [Transferir o Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
 
-## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Cenário: iniciar sessão de utilizadores de contas profissionais e escolares na aplicação ASP.NET
+## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Cenário: Iniciar sessão dos utilizadores de contas profissionais e escolares na sua aplicação ASP.NET
 
 ![Como funciona este guia](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
@@ -58,7 +58,7 @@ Este início rápido utiliza os seguintes pacotes:
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Permite que as aplicações com base em OWIN sejam executados nos IIS através do pipeline de pedidos do ASP.NET |
 |  |  |
 
-## <a name="step-1-set-up-your-project"></a>Passo 1: configurar o seu projeto
+## <a name="step-1-set-up-your-project"></a>Passo 1: Configurar seu projeto
 
 Estes passos mostram como instalar e configurar o pipeline de autenticação através do middleware OWIN num projeto ASP.NET com o OpenID Connect.
 
@@ -66,14 +66,14 @@ Para transferir o projeto do Visual Studio deste exemplo em vez disso, siga este
 1. [Transfira o projeto do GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
 1. Avance para o [Passo de configuração](#configure-your-webconfig-and-register-an-application) para configurar o exemplo de código antes de executar.
 
-## <a name="step-2-create-your-aspnet-project"></a>Passo 2: criar o seu projeto ASP.NET
+## <a name="step-2-create-your-aspnet-project"></a>Passo 2: Criar o seu projeto ASP.NET
 
 1. No Visual Studio, aceda a **Ficheiro -> Novo -> Projeto**.
 2. Em **Visual C#\Web**,selecione **Aplicação Web ASP.NET (.NET Framework)**.
 3. Dê um nome à aplicação e selecione **OK**.
 4. Selecione **Vazio** e, em seguida, selecione a caixa de verificação para adicionar referências **MVC**.
 
-## <a name="step-3-add-authentication-components"></a>Passo 3: adicionar os componentes de autenticação
+## <a name="step-3-add-authentication-components"></a>Passo 3: Adicionar componentes de autenticação
 
 1. No Visual Studio, aceda a **Ferramentas > Gestor de Pacotes Nuget >Consola do Gestor de Pacotes**.
 2. Adicione **Pacotes NuGet de middleware OWIN**, escrevendo o seguinte na janela da Consola do Gestor de Pacotes:
@@ -89,7 +89,7 @@ Para transferir o projeto do Visual Studio deste exemplo em vez disso, siga este
 >As bibliotecas acima ativam o início de sessão único (SSO) com o OpenID Connect através da autenticação baseada em cookies. Depois de a autenticação estar concluída e o token que representa o utilizador ser enviado para a sua aplicação, o middleware OWIN cria um cookie de sessão. O browser utiliza então esse cookie em pedidos subsequentes, para que o utilizador não tenha de voltar a autenticar, e não é necessária nenhuma verificação adicional.
 <!--end-collapse-->
 
-## <a name="step-4-configure-the-authentication-pipeline"></a>Passo 4: configurar o pipeline de autenticação
+## <a name="step-4-configure-the-authentication-pipeline"></a>Passo 4: Configurar o pipeline de autenticação
 
 Siga estes passos para criar um middleware OWIN *Classe de Arranque* para configurar a autenticação do OpenID Connect. Esta classe é executada automaticamente.
 
@@ -119,7 +119,7 @@ Para criar uma *Classe de Arranque* de middleware OWIN:
 
 <!--start-use-->
 
-## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Passo 5: adicionar um controlador para processar pedidos de início de sessão e fim de sessão
+## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Passo 5: Adicionar um controlador para processar pedidos de início de sessão e fim de sessão
 
 Crie um novo controlador para expor os métodos de início de sessão e fim de sessão.
 
@@ -135,7 +135,7 @@ Crie um novo controlador para expor os métodos de início de sessão e fim de s
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
-## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Passo 6: criar a página de boas-vindas da aplicação para os utilizadores iniciarem sessão através de um botão de início de sessão
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Passo 6: Criar home page a aplicação para iniciar sessão dos utilizadores através de um botão de início de sessão
 
 No Visual Studio, crie uma nova vista para adicionar o botão de início de sessão e apresentar informações do utilizador após a autenticação:
 
@@ -148,7 +148,7 @@ No Visual Studio, crie uma nova vista para adicionar o botão de início de sess
 <!--start-collapse--> Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Iniciar sessão com a Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de início de sessão, aceda a [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
-## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Passo 7: apresentar afirmações de utilizadores ao adicionar um controlador
+## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Passo 7: Apresentar afirmações de utilizadores ao adicionar um controlador
 
 Este controlador demonstra as utilizações do atributo `[Authorize]` para proteger um controlador. Este atributo restringe o acesso ao controlador, permitindo apenas utilizadores autenticados. O código seguinte utiliza o atributo para apresentar afirmações de utilizador que foram obtidas como parte do início de sessão.
 
@@ -165,7 +165,7 @@ Este controlador demonstra as utilizações do atributo `[Authorize]` para prote
 > Devido à utilização do atributo `[Authorize]`, todos os métodos deste controlador só podem ser executados se o utilizador estiver autenticado. Se o utilizador não estiver autenticado e tentar aceder ao controlador, o OWIN inicia um desafio de autenticação e força o utilizador a autenticar. O código acima examina a coleção de afirmações do utilizador relativamente aos atributos específicos incluídos no token do utilizador. Estes atributos incluem o nome completo do utilizador e o nome de utilizador, bem como o assunto do identificador de utilizador global. Também contém o *ID de inquilino*, que representa o ID da organização do utilizador.
 <!--end-collapse-->
 
-## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Passo 8: criar uma vista para apresentar as afirmações do utilizador
+## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Passo 8: Criar uma vista para apresentar as afirmações do utilizador
 
 No Visual Studio, crie uma nova vista para apresentar as afirmações do utilizador numa página Web:
 
@@ -179,7 +179,7 @@ No Visual Studio, crie uma nova vista para apresentar as afirmações do utiliza
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>Passo 9: configurar o *web.config* e registar uma aplicação
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>Passo 9: Configurar o seu *Web. config* e registar uma aplicação
 
 1. No Visual Studio, adicione o seguinte a `web.config` (localizado na pasta raiz) na secção `configuration\appSettings`:
 
@@ -208,7 +208,7 @@ No Visual Studio, crie uma nova vista para apresentar as afirmações do utiliza
 > [!TIP]
 > Se a conta estiver configurada para aceder a vários diretórios, certifique-se de que selecionou o diretório correto para a organização na qual pretende registar a aplicação, ao clicar no nome da conta no canto superior direito no portal do Azure e, em seguida, verifique o diretório selecionado conforme indicado:<br/>![Selecionar o diretório correto](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
-## <a name="step-10-configure-sign-in-options"></a>Passo 10: configurar as opções de início de sessão
+## <a name="step-10-configure-sign-in-options"></a>Passo 10: Configurar as opções de início de sessão
 
 Pode configurar a sua aplicação para permitir que apenas os utilizadores que pertencem a uma instância do Azure AD de uma organização possam iniciar sessão, ou aceitar inícios de sessão de utilizadores que pertencem a qualquer organização. Siga as instruções de uma das seguintes opções:
 
@@ -261,7 +261,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--end-configure-arp-->
 <!--start-test-->
 
-## <a name="step-11-test-your-code"></a>Passo 11: testar o seu código
+## <a name="step-11-test-your-code"></a>Passo 11: Testar o seu código
 
 1. Prima **F5** para executar o projeto no Visual Studio. O browser abre e direciona-o para `http://localhost:{port}`, onde verá o botão **Iniciar sessão com a Microsoft**.
 1. Selecione o botão para iniciar sessão.
@@ -286,9 +286,9 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 
  Deve ver uma tabela que contém as propriedades básicas do utilizador com sessão iniciada:
 
-| Propriedade | Valor | Descrição |
+| Propriedade | Value | Descrição |
 |---|---|---|
-| Nome | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
+| Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |
 | Assunto| {Assunto} |Uma cadeia de caracteres para identificar exclusivamente o início de sessão do utilizador na Web |
 | ID do inquilino | {Guid} | Um *guid* que representa exclusivamente a organização do Azure AD do utilizador |

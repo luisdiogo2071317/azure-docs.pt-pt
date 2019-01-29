@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com YardiOne | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com YardiOne | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e YardiOne.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 508957f6-caa5-4234-a7f3-90015937e4eb
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d14cca505f85bdf0d8abd32a954487639fe54631
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f326e7d1599d3c797311c85635516d591fd681a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444223"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153986"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Azure Active Directory com YardiOne
+# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Active Directory do Azure com YardiOne
 
 Neste tutorial, saiba como integrar YardiOne com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com YardiOne, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um YardiOne logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do YardiOne com o Azure AD, terá de adicionar Ya
 
 **Para adicionar YardiOne a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -162,7 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no YardiOne. YardiOne suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder YardiOne se não existir ainda.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de YardiOne](https://clientcentral.yardi.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de YardiOne](https://clientcentral.yardi.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -194,7 +194,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

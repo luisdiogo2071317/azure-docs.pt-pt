@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ff006e7962f2aa79e7c71ab12be918770c6e6d39
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b8eb6d483b9e7a92b50a269e5efbc8ca55946931
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082491"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104223"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerida da base de dados SQL do Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "55082491"
 
 ## <a name="quickstart-overview"></a>Descrição geral do guia de introdução
 
-Nesta secção, irá ver uma descrição geral dos artigos disponíveis que podem ajudar a começar rapidamente instâncias geridas. A maneira mais fácil de criar a primeira instância gerida é usar [do portal do Azure](sql-database-managed-instance-get-started.md) ambiente sem necessidade de saber sobre o funcionamento em rede detalhes de rede onde pode configurar os parâmetros necessários e criar automaticamente do Azure e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tem permissão para criar a instância.
+Nesta secção, irá ver uma descrição geral dos artigos disponíveis que podem ajudar a começar rapidamente instâncias geridas. A maneira mais fácil de criar a primeira instância gerida é usar [do portal do Azure](sql-database-managed-instance-get-started.md) ambiente de rede onde pode configurar os parâmetros necessários (nome de utilizador/palavra-passe, número de núcleos, ao armazenamento máximo) e criar automaticamente do Azure sem precisar de saber sobre o funcionamento em rede detalhes e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tem permissão para criar a instância.
 
 Se tem sua própria rede que pretende utilizar ou se pretender personalizar a rede, consulte como [configurar o ambiente de rede](#configure-network-environment) para a instância gerida.
 
@@ -35,7 +35,7 @@ Ao criar a sua instância gerida, terá de ligar à instância utilizando uma da
 
 Como alternativa, pode utilizar o expressroute ou de ligação site a site da rede local, mas essas abordagens estão fora do âmbito dos inícios Rápidos seguintes.
 
-Quando cria uma instância gerida e configurar o acesso, pode começar a migrar a sua base de dados. Deve instalar [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) que irá analisar seus bancos de dados no SQL Server e encontrar qualquer problema que poderia bloquear a migração para a instância gerida, tais como a existência de FileStream ou vários ficheiros de registo. Se resolver estes problemas, as bases de dados estão prontos para ir para a instância gerida. [Base de dados de Assistente de experimentação](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode gravar sua carga de trabalho no SQL Server e repetição-lo na instância gerida para que possa determinar estarão disponíveis para ser problemas de desempenho, se efetuar a migração para a instância gerida.
+Quando cria uma instância gerida e configurar o acesso, pode começar a migrar as bases de dados colocados no SQL Server no local ou VMs do Azure. Tenha em atenção que a migração irá falhar se tiver algumas funcionalidades não suportadas na base de dados origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode instalar [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) que irá analisar seus bancos de dados no SQL Server e encontrar qualquer problema que poderia bloquear a migração para a instância gerida, tais como a existência de FileStream ou vários ficheiros de registo. Se resolver estes problemas, as bases de dados estão prontos para ir para a instância gerida. [Base de dados de Assistente de experimentação](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode gravar sua carga de trabalho no SQL Server e repetição-lo na instância gerida para que possa determinar estarão disponíveis para ser problemas de desempenho, se efetuar a migração para a instância gerida.
 
 Assim que tiver a certeza de que pode migrar a base de dados para a instância gerida, pode utilizar [restaurar nativo](sql-database-managed-instance-get-started-restore.md) funcionalidade que permite-lhe criar uma cópia de segurança da base de dados com o comando do Transact-SQL, carregue-o para um armazenamento de Blobs do Azure e RESTAURE a base de dados do armazenamento de Blobs com o comando do Transact-SQL.
 

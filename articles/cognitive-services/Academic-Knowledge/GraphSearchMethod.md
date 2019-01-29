@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902388"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197641"
 ---
 # <a name="graph-search-method"></a>Método de pesquisa do gráfico
 
@@ -29,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido  
-Nome     | Valor | Necessário?  | Descrição
+Name     | Value | Necessário?  | Descrição
 -----------|-----------|---------|--------
-**Modo**       | Cadeia de texto | Sim | Nome do modo que deseja usar. O valor é *json* ou *lambda*.
+**mode**       | Cadeia de texto | Sim | Nome do modo que deseja usar. O valor é *json* ou *lambda*.
 
 O método de pesquisa de gráfico tem de ser chamado por meio de um pedido HTTP POST. O pedido post deve incluir o cabeçalho de tipo de conteúdo: **application/json**.
 
@@ -46,7 +46,7 @@ Para o *lambda* pesquisa, o corpo da mensagem é uma cadeia de texto sem formata
 
 <br>
 ## <a name="response-json"></a>Resposta (JSON)
-Nome | Descrição
+Name | Descrição
 -------|-----   
 **Resultados** | Uma matriz de 0 ou mais entidades que correspondem à expressão de consulta. Cada entidade contém os valores de atributos solicitados. Este campo é apresentado se o pedido foi processado com êxito.
 **error** | Códigos de estado HTTP. Este campo está presente se o pedido falhar.

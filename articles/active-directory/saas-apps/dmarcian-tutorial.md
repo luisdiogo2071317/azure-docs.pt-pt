@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com dmarcian | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com dmarcian | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e dmarcian.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039892"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095656"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Azure Active Directory com dmarcian
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Active Directory do Azure com dmarcian
 
 Neste tutorial, saiba como integrar dmarcian com o Azure Active Directory (Azure AD).
 
@@ -157,15 +157,15 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![A autenticação ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Sob **adicionar dmarcian ao seu fornecedor de identidade** secção, clique em **cópia** para copiar o **URL do serviço de consumidor de asserção** para a sua instância e cole-a no  **URL de resposta** na caixa de texto **dmarcian secção de domínio e URLs** no portal do Azure.
+    * Sob **adicionar dmarcian ao seu fornecedor de identidade** secção, clique em **cópia** para copiar o **URL do serviço de consumidor de asserção** para a sua instância e cole-a no  **URL de resposta** na caixa de texto **dmarcian secção de domínio e URLs** no portal do Azure.
 
-    * Sob **adicionar dmarcian ao seu fornecedor de identidade** secção, clique em **cópia** para copiar o **ID de entidade** para a sua instância e cole-a no **identificador**na caixa de texto **dmarcian secção de domínio e URLs** no portal do Azure.
+    * Sob **adicionar dmarcian ao seu fornecedor de identidade** secção, clique em **cópia** para copiar o **ID de entidade** para a sua instância e cole-a no ** Identificador** na caixa de texto **dmarcian secção de domínio e URLs** no portal do Azure.
 
     * Sob **configurar a autenticação** na secção a **metadados do fornecedor de identidade** colar de caixa de texto a **Url de metadados de Federação de aplicação**, que copiou do portal do Azure.
 
     * Sob **configurar a autenticação** secção, além do **declarações de atributo** caixa de texto, cole o url `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Sob **configurar o URL de início de sessão** secção, copie a **URL de início de sessão** para a sua instância e cole-a no **URL de início de sessão** caixa de texto no **dmarcian secção do domínio e URLs** no portal do Azure.
+    * Sob **configurar o URL de início de sessão** secção, copie a **URL de início de sessão** para a sua instância e cole-a no **URL de início de sessão** caixa de texto no **dmarcian secção do domínio e URLs** no portal do Azure.
 
         > [!Note]
         > Pode modificar os **URL de início de sessão** , de acordo com sua organização.

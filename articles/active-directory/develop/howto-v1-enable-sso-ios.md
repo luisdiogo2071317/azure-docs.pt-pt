@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426293"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096743"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 
@@ -36,7 +36,7 @@ Nesta explicação de procedimento aplica-se a:
 
 * Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
-* O Azure Active Directory B2B
+* Azure Active Directory B2B
 * Acesso Condicional do Azure Active Directory
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -262,7 +262,7 @@ A capacidade para a sua aplicação utilizar o mediador é ativada ao criar o "c
 ```
 O `AD_CREDENTIALS_AUTO` definição permitirá que o SDK tentar chamar para o mediador, `AD_CREDENTIALS_EMBEDDED` impedirá o SDK de chamar no Mediador.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Passo 2: Registar um esquema de URL
+#### <a name="step-2-registering-a-url-scheme"></a>Passo 2: Registrando um esquema de URL
 
 A plataforma de identidade usa URLs para invocar o agente e, em seguida, retornar o controle para a sua aplicação. Para concluir essa ida e volta tem um esquema de URL registado para a sua aplicação que irá conhecer a plataforma de identidade. Isso pode ser, além de outros esquemas de aplicação que pode tiver registado anteriormente com a sua aplicação.
 
@@ -295,17 +295,17 @@ Seu URI de redirecionamento tem de ser no formato adequado:
 
 `<app-scheme>://<your.bundle.id>`
 
-Por exemplo: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
 Este tipo de redirecionamento URI tem de ser especificado no seu registo de aplicação utilizando o [portal do Azure](https://portal.azure.com/). Para obter mais informações sobre o registo de aplicação do Azure AD, consulte [integração com o Azure Active Directory](active-directory-how-to-integrate.md).
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Passo 3a: adicionar um URI de redirecionamento no seu portal de aplicação e o desenvolvimento para suportar a autenticação baseada em certificado
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Passo 3a: Adicionar um URI de redirecionamento no seu portal de aplicação e o desenvolvimento para suportar a autenticação baseada em certificado
 
 A autenticação baseada em certificado de suporte um segundo "msauth" precisa de estar registado na sua aplicação e o [portal do Azure](https://portal.azure.com/) para processar a autenticação de certificado se pretender adicionar esse suporte em seu aplicativo.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-Por exemplo: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Passo 4: Adicionar um parâmetro de configuração para a sua aplicação
 

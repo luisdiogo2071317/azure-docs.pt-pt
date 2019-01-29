@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064836"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104648"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurar cópia de segurança no Azure Service Fabric
 
@@ -229,7 +229,7 @@ O andamento de pedido de restauro na seguinte ordem:
     ```
     
 3. **Sucesso**, **falha**, ou **tempo limite**: Um pedido de restauro pode ser concluído em qualquer um dos seguintes Estados. Cada Estado possui os seguintes detalhes de significado e a resposta:
-    - **Êxito**: R _êxito_ restaurar estado indica um Estado de partição voltou a ter. Os relatórios de partição _RestoreEpoch_ e _RestordLSN_ Estados juntamente com a hora em UTC.
+    - **Êxito**: R _êxito_ restaurar estado indica um Estado de partição voltou a ter. Os relatórios de partição _RestoredEpoch_ e _RestoredLSN_ Estados juntamente com a hora em UTC.
 
         ```
         RestoreState  : Success

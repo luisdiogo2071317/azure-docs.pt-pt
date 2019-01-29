@@ -1,6 +1,6 @@
 ---
-title: Diagnostique conectividade no local através do gateway VPN com o observador de rede do Azure | Microsoft Docs
-description: Este artigo descreve como diagnosticar conectividade no local através do gateway VPN com a resolução de problemas de recursos do observador de rede do Azure.
+title: Diagnosticar conectividade no local através do gateway VPN com o observador de rede do Azure | Documentos da Microsoft
+description: Este artigo descreve como diagnosticar conectividade no local através do gateway VPN com resolução de problemas de recursos do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374207"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099401"
 ---
-# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar conectividade no local através de gateways de VPN
+# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade no local através de gateways de VPN
 
-Gateway de VPN do Azure permite-lhe criar solução híbrida que endereços a necessidade de uma ligação segura entre a sua rede no local e a sua rede virtual do Azure. Como os requisitos são exclusivos, por isso é a escolha do dispositivo VPN no local. Azure suporta atualmente [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que constantemente são validadas em parceria com os fornecedores de dispositivos. Reveja as definições de configuração específicos do dispositivo antes de configurar o dispositivo VPN no local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [IPsec parâmetros suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são utilizadas para estabelecer ligações. Atualmente não é possível que pode especificar ou selecionar uma combinação específica de parâmetros de IPsec do Gateway de VPN do Azure. Para estabelecer uma ligação com êxito entre no local e o Azure, as definições do dispositivo VPN no local tem de estar em conformidade com os parâmetros IPsec prescritos pelo Gateway de VPN do Azure. Se as definições estão no mesmo correto, uma perda de conectividade e até agora estes problemas de resolução de problemas não trivial e normalmente demorou horas para identificar e corrigir o problema.
+O Gateway de VPN do Azure permite-lhe criar solução híbrida que atender à necessidade de uma ligação segura entre a sua rede no local e a rede virtual do Azure. Como os seus requisitos são exclusivos, portanto, é a escolha do dispositivo VPN no local. O Azure suporta atualmente [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que constantemente são validados em parceria com fornecedores de dispositivos. Reveja as definições de configuração específicos do dispositivo antes de configurar o dispositivo VPN no local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [suportados parâmetros de IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são utilizadas para estabelecer ligações. Atualmente, não há nenhuma forma para que possa especificar ou selecionar uma combinação de parâmetros de IPsec do Gateway de VPN do Azure. Para estabelecer uma ligação com êxito entre no local e o Azure, as definições do dispositivo VPN no local tem de estar em conformidade com os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as definições estiverem corretas, aqui é uma perda de conectividade e até agora esses problemas de resolução de problemas não foi trivial e, normalmente, levou horas para identificar e corrigir o problema.
 
-Com o observador de rede de Azure resolver problemas de funcionalidade, poderá diagnosticar problemas com o seu Gateway e ligações e dentro de minutos tem informações suficientes para tomar uma decisão informada para resolver o problema.
+Com o observador de rede do Azure resolver problemas de funcionalidade, pode diagnosticar problemas com o seu Gateway e as ligações e dentro de minutos tiver informações suficientes para tomar uma decisão informada para resolver o problema.
 
 ## <a name="scenario"></a>Cenário
 
-Se quiser configurar uma ligação site a site entre o Azure e no local utilizando FortiGate como o Gateway de VPN no local. Para alcançar este cenário, precisaria de que a configuração seguinte:
+Pretende configurar uma ligação site a site entre o Azure e no local utilizando FortiGate como o Gateway de VPN no local. Para alcançar este cenário, exigiria que a configuração seguinte:
 
-1. Gateway de rede virtual - o Gateway VPN no Azure
-1. Gateway de rede local - o [no local (FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representação na nuvem do Azure
-1. Ligação site a site (rota baseada) - [ligação entre o Gateway de VPN e o router no local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Gateway de rede virtual - o Gateway de VPN no Azure
+1. Gateway de rede local - a [Gateway de VPN (FortiGate) no local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representação na cloud do Azure
+1. Ligação de site a site (com base em rota) - [ligação entre o Gateway de VPN e o router no local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [Configurar FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-Pode encontrar orientação passo a passo detalhada para configurar uma configuração Site a Site, visitando: [criar uma VNet com uma ligação Site a Site utilizando o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Orientações passo a passo detalhadas para configurar uma configuração Site a Site podem ser encontradas ao visitar: [Criar uma VNet com uma ligação Site a Site com o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Um dos passos de configuração críticas está a configurar os parâmetros de comunicação do IPsec, qualquer configuração incorreta que leva a perda de conectividade entre a rede no local e o Azure. Gateways de VPN do Azure estão configurados para suportar os seguintes parâmetros IPsec para a fase 1. Tenha em atenção, tal como mencionado anteriormente, que estas definições não podem ser modificadas.  Como pode ver na tabela abaixo, algoritmos de encriptação suportados pelo Gateway de VPN do Azure são AES256, 3DES e AES-128.
+Um dos passos críticos de configuração está a configurar os parâmetros de comunicação de IPsec, qualquer configuração incorreta leva à perda de conectividade entre a rede no local e o Azure. Atualmente, Gateways de VPN do Azure estão configurados para suportar os seguintes parâmetros de IPsec para a fase 1. Tenha em atenção, como mencionado anteriormente, que estas definições não podem ser modificadas.  Como pode ver na tabela abaixo, os algoritmos de encriptação suportados pelo Gateway de VPN do Azure são AES256, AES128 e 3DES.
 
-### <a name="ike-phase-1-setup"></a>Configuração de fase 1 do IKE
+### <a name="ike-phase-1-setup"></a>O programa de configuração do IKE fase 1
 
-| **Propriedade** | **PolicyBased** | **Gateway RouteBased e Standard ou VPN de elevado desempenho** |
+| **Propriedade** | **PolicyBased** | **Gateway de VPN de elevado desempenho e Standard ou RouteBased** |
 | --- | --- | --- |
 | Versão do IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
@@ -51,66 +51,66 @@ Um dos passos de configuração críticas está a configurar os parâmetros de c
 | Algoritmo Hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Duração (Tempo) da Associação de Segurança (SA) da Fase 1 |28 800 segundos |10 800 segundos |
 
-Como um utilizador, seriam necessários para configurar o seu FortiGate, uma configuração de exemplo pode ser encontrada no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Inadvertidamente se configurou a sua FortiGate a utilizar SHA-512 como o algoritmo de hashing. Como este algoritmo não é um algoritmo suportado para ligações baseadas em políticas, funciona a ligação VPN.
+Como um utilizador, será necessário para configurar seu FortiGate, um exemplo de configuração pode ser encontrado no [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Inconscientemente configurou seu FortiGate utilizar SHA-512 como algoritmo de hash. Como esse algoritmo não é um algoritmo suportado para ligações baseadas em políticas, a ligação VPN é que funciona.
 
-Estes problemas são difíceis de resolver problemas e causas raiz são, muitas vezes, não intuitivos. Neste caso, pode abrir um pedido de suporte para obter ajuda sobre como resolver o problema. Mas com o observador de rede de Azure API de resolução de problemas, pode identificar estes problemas no seu próprio.
+Estes problemas são difíceis de resolver problemas e as principais causas, muitas vezes, são não intuitivas. Neste caso, é possível abrir um pedido de suporte para obter ajuda sobre como resolver o problema. Mas com o observador de rede de Azure API de resolução de problemas, pode identificar esses problemas por conta própria.
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Resolução de problemas com o observador de rede do Azure
 
-Para diagnosticar a ligação, ligue para o Azure PowerShell e iniciar o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Pode encontrar os detalhes sobre como utilizar este cmdlet em [resolver problemas de Gateway de rede Virtual e ligações - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet pode demorar alguns minutos a concluir.
+Para diagnosticar a sua ligação, ligue para o Azure PowerShell e iniciar o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Pode encontrar os detalhes sobre como utilizar este cmdlet em [resolver problemas de Gateway de rede Virtual e ligações - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet pode demorar alguns minutos para concluir.
 
-Depois de concluir o cmdlet, pode navegar para a localização de armazenamento especificada no cmdlet para obter informações detalhadas sobre sobre o problema e os registos. Observador de rede do Azure cria uma pasta de zip que contém os ficheiros de registo seguinte:
+Assim que o cmdlet for concluído, pode navegar para a localização de armazenamento especificada no cmdlet para obter informações detalhadas sobre sobre o problema e os registos. O observador de rede do Azure cria uma pasta de zip que contém os ficheiros de registo seguinte:
 
 ![1][1]
 
-Abra o ficheiro chamado IKEErrors.txt e apresenta o seguinte erro que indica um problema no local com a configuração incorreta de definição do IKE.
+Abra o ficheiro chamado IKEErrors.txt e apresenta o seguinte erro, que indica um problema no local com a configuração incorreta de definição de IKE.
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-Pode obter informações detalhadas a partir de wfpdiag.txt Scrubbed sobre o erro, como neste caso menciona que foi `ERROR_IPSEC_IKE_POLICY_MATCH` que levar a ligação não está a funcionar corretamente.
+Pode obter informações detalhadas de Scrubbed-wfpdiag.txt sobre o erro, como nesse caso ela menciona que havia `ERROR_IPSEC_IKE_POLICY_MATCH` que levam a ligação não está a funcionar corretamente.
 
-Configuração incorreta comum outra é as especificação chaves partilhadas incorretas. Se no exemplo anterior tivesse especificado diferentes chaves partilhadas, o IKEErrors.txt mostra o seguinte erro: `Error: Authentication failed. Check shared key`.
+Outra configuração incorreta é as especificação chaves partilhadas incorretas. Se no exemplo anterior tivesse especificado diferentes chaves partilhadas, o IKEErrors.txt mostra o seguinte erro: `Error: Authentication failed. Check shared key`.
 
-Resolver problemas de observador de rede do Azure funcionalidade permite-lhe diagnosticar e resolver o seu Gateway de VPN e a ligação com o facilitar a um cmdlet do PowerShell simple. Atualmente, suportam a diagnosticar as seguintes condições e estiver a trabalhar para adicionar mais condição.
+Resolução de problemas do observador de rede do Azure funcionalidade permite-lhe diagnosticar e resolver problemas do Gateway de VPN e uma ligação com a facilidade de um simple cmdlet do PowerShell. Atualmente estamos suportam a diagnosticar as seguintes condições e estiver a trabalhar para adicionar condição mais.
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de índice de falhas | Razão | Registar|
+| Tipo de falha | Razão | Registar|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível encontrar o Gateway ou Gateway não está aprovisionada. |Não|
-| PlannedMaintenance |  Uma instância de gateway está em manutenção.  |Não|
+| PlannedMaintenance |  Instância de gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização de utilizador está em curso. Isto pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Não é possível contactar a instância principal do Gateway. Isto acontece quando ocorre uma falha da pesquisa de estado de funcionamento. | Não |
-| PlatformInActive | Não há um problema com a plataforma. | Não|
+| VipUnResponsive | Não é possível alcançar a instância principal do Gateway. Isto acontece quando a sonda de estado de funcionamento falha. | Não |
+| PlatformInActive | Existe um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existem ligações existe no gateway. Esta é apenas um aviso.| Não|
-| ConnectionsNotConnected | Nenhuma das ligações estão ligadas. Esta é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | A utilização do Gateway atual da utilização da CPU é > 95%. | Sim |
+| NoConnectionsFoundForGateway | Sem ligações existe no gateway. Este é apenas um aviso.| Não|
+| ConnectionsNotConnected | Nenhuma das conexões a estão ligadas. Este é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | A utilização atual de Gateway a utilização da CPU é > 95%. | Sim |
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de índice de falhas | Razão | Registar|
+| Tipo de falha | Razão | Registar|
 |---|---|---|
 | NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível encontrar o Gateway ou Gateway não está aprovisionada. |Não|
-| PlannedMaintenance | Uma instância de gateway está em manutenção.  |Não|
+| PlannedMaintenance | Instância de gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização de utilizador está em curso. Isto pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Não é possível contactar a instância principal do Gateway. Ocorre quando ocorre uma falha da pesquisa de estado de funcionamento. | Não |
+| VipUnResponsive | Não é possível alcançar a instância principal do Gateway. Isso acontece quando a sonda de estado de funcionamento falha. | Não |
 | ConnectionEntityNotFound | Configuração da ligação está em falta. | Não |
-| ConnectionIsMarkedDisconnected | A ligação está marcada como "desligada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
-| ConnectionMarkedStandy | O serviço subjacente está marcado como modo de espera.| Sim|
-| Autenticação | Erro de correspondência de chave pré-partilhada. | Sim|
-| PeerReachability | O gateway de elemento de rede não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de ponto a ponto tem políticas IKE que não são suportadas pelo Azure. | Sim|
-| Erro de WfpParse | Ocorreu um erro ao analisar o registo WFP. |Sim|
+| ConnectionIsMarkedDisconnected | A ligação foi marcada como "desligada". |Não|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem uma ligação configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente é marcado como modo de espera.| Sim|
+| Autenticação | Erro de correspondência de chave pré-compartilhada. | Sim|
+| PeerReachability | O gateway de ponto a ponto não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem políticas de IKE que não são suportadas pelo Azure. | Sim|
+| Erro de WfpParse | Ocorreu um erro ao analisar o registo da WFP. |Sim|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba verificar a conectividade de Gateway de VPN com o PowerShell e automatização do Azure, visitando [gateways de VPN do Monitor com a resolução de problemas do observador de rede do Azure](network-watcher-monitor-with-azure-automation.md)
+Saiba como verificar a conectividade de Gateway de VPN com o PowerShell e automatização do Azure, visite a página [gateways de VPN de Monitor com resolução de problemas do observador de rede do Azure](network-watcher-monitor-with-azure-automation.md)
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
