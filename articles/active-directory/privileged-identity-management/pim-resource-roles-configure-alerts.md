@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465576"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196843"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recursos do Azure no PIM
 Privileged Identity Management (PIM) para recursos do Azure gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece na página de alertas. 
@@ -40,9 +40,9 @@ Selecione um alerta para ver um relatório que lista os utilizadores ou funçõe
 
 
 ### <a name="severity"></a>Gravidade
-* **Alta**: requer uma ação imediata devido a uma violação de política. 
-* **Médio**: não requerer ação imediata, mas sinaliza uma potencial violação de política.
-* **Baixa**: não requerer ação imediata, mas sugere uma alteração de política preferencial.
+* **Alta**: Requer uma ação imediata devido a uma violação de política. 
+* **Médio**: Não necessita de uma ação imediata, mas sinaliza uma potencial violação de política.
+* **Baixa**: Não necessita de uma ação imediata, mas sugere uma alteração de política preferencial.
 
 ## <a name="configure-security-alert-settings"></a>Configurar definições de alerta de segurança
 A partir da página de alertas, aceda a **definições**.

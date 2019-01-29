@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e1d4ae38b18feb01d32ff62d4923b14d33494fa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476925"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197675"
 ---
 # <a name="configure-containers"></a>Configurar contentores
 
@@ -34,7 +34,7 @@ Definições de configuração no contentor Face hierárquicas e todos os conten
 * [EULA](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
 * [Definições de credenciais de proxy de HTTP](#http-proxy-credentials-settings)
-* [Registro em log](#logging-configuration-settings)
+* [Logging](#logging-configuration-settings)
 * [Monta](#mounts-configuration-settings)
 
 Pode utilizar tanto [variáveis de ambiente](#configuration-settings-as-environment-variables) ou [argumentos da linha de comandos](#configuration-settings-as-command-line-arguments) para especificar as definições de configuração ao instanciar um contentor de rostos.
@@ -185,7 +185,7 @@ O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as defi
   | `Format` | Cadeia | O formato de saída para ficheiros de registo.<br/> **Nota:** Este valor tem de ser definido como `json` para ativar o fornecedor de registo. Se este valor for especificado sem também especificar uma montagem de saída ao instanciar um contentor, ocorrerá um erro. |
   | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do arquivo de log atual atende ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se não for especificado -1, o tamanho do ficheiro de registo está limitado apenas pelo tamanho máximo do ficheiro, se existir, para a montagem de saída. O valor predefinido é 1. |
 
-Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [configuração das definições do ficheiro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [configuração das definições do ficheiro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
 
 ## <a name="mounts-configuration-settings"></a>Monta definições de configuração
 

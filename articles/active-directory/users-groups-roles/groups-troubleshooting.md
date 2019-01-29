@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ab5a3b00d063dfdd42e67247bb2cdc37866d0164
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293978"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164134"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Resolver problemas de associações dinâmicas a grupos
 
@@ -33,15 +33,15 @@ ms.locfileid: "46293978"
 
 | Erro da regra de analisador | Utilização de erro | Utilização corrigida |
 | --- | --- | --- |
-| Erro: O atributo não suportado. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/><br/>Certifique-se de que o atributo for a [suportada a lista de propriedades](groups-dynamic-membership.md#supported-properties). |
-| Erro: O operador não é suportado no atributo. |(user.accountEnabled-contém o verdadeiro) |(user.accountEnabled - eq verdadeiro)<br/><br/>O operador usado não é suportado para o tipo de propriedade (neste exemplo,-contém não pode ser utilizado no tipo Booleano). Utilize os operadores corretos para o tipo de propriedade. |
-| Erro: Erro de compilação de consulta. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2. (user.userPrincipalName-corresponder a "*@domain.ext") | 1. Operador em falta. Utilize o - e ou - ou dois associar predicados<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. Erro ao corresponder a expressão regular utilizada com -<br>(user.userPrincipalName-correspondência ". *@domain.ext")<br>ou, em alternativa: (user.userPrincipalName-correspondência "@domain.ext$") |
+| Erro: Atributo não suportado. |(user.invalidProperty - eq "Value") |(user.department -eq "value")<br/><br/>Certifique-se de que o atributo for a [suportada a lista de propriedades](groups-dynamic-membership.md#supported-properties). |
+| Erro: Operador não é suportado no atributo. |(user.accountEnabled-contém o verdadeiro) |(user.accountEnabled - eq verdadeiro)<br/><br/>O operador usado não é suportado para o tipo de propriedade (neste exemplo,-contém não pode ser utilizado no tipo Booleano). Utilize os operadores corretos para o tipo de propriedade. |
+| Erro: Erro de compilação de consulta. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2.  (user.userPrincipalName -match "*@domain.ext") | 1. Operador em falta. Utilize o - e ou - ou dois associar predicados<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. Erro ao corresponder a expressão regular utilizada com -<br>(user.userPrincipalName -match ".*@domain.ext")<br>ou, em alternativa: (user.userPrincipalName-correspondência "@domain.ext$") |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Gestão de aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
+* [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

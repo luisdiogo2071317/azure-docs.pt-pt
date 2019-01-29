@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 4bea0dd38e1bfb05ba13a298c5ea3a1a62e35cd2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887395"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162723"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início rápido: Ficheiros de vídeo do Stream - .NET
 
@@ -34,13 +34,10 @@ No final do início rápido, será capaz de transmitir um vídeo.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
+- Siga os passos em [acesso à API de serviços de multimédia do Azure com a CLI do Azure](access-api-cli-how-to.md) e guarde as credenciais. Terá de utilizá-los para aceder à API.
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).
-
-## <a name="download-the-sample"></a>Transferir o exemplo
+## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
 
 Clone o repositório do GitHub que contém o exemplo de .NET de transmissão para o computador com o comando seguinte:  
 
@@ -49,6 +46,8 @@ Clone o repositório do GitHub que contém o exemplo de .NET de transmissão par
  ```
 
 O exemplo está localizado na pasta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+Open [appSettings](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) no que transferiu o projeto. Substitua os valores com as credenciais que obteve da [aceder a APIs](access-api-cli-how-to.md).
 
 O exemplo realiza as seguintes ações:
 
@@ -61,8 +60,6 @@ O exemplo realiza as seguintes ações:
 7. Cria os URLs de transmissão.
 
 Para obter uma explicação sobre o que faz cada função no exemplo, examine o código e observe os comentários [neste ficheiro de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 

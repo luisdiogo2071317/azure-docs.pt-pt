@@ -1,21 +1,21 @@
 ---
-title: O que é a API de pesquisa de negócios locais do Bing? | Microsoft Docs
+title: O que é a API de Pesquisa de Comércio Local do Bing? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: A API de pesquisa de negócios locais do Bing é um serviço RESTful, que permite que seus aplicativos obter informações sobre o locais casas e empresas com base nas consultas de pesquisa.
+description: A API de Pesquisa de Comércio Local do Bing é um serviço RESTful que permite que as suas aplicações encontrem informações sobre negócios e sítios locais com base em consultas de pesquisa.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f6299a8241b4ce43dc9276070f06ae4cc6566d43
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748730"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163148"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Local de pesquisa empresarial do Bing?
 A API de pesquisa de negócios locais do Bing é um serviço RESTful, que permite que seus aplicativos obter informações sobre os negócios locais com base nas consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
@@ -23,7 +23,7 @@ A API de pesquisa de negócios locais do Bing é um serviço RESTful, que permit
 ## <a name="features"></a>Funcionalidades
 | Funcionalidade | Descrição |  
 | -- | -- | 
-| [Encontrar localizações e negócios locais](quickstarts/local-quickstart.md) | A API de pesquisa de negócios locais do Bing obtém resultados localizados de uma consulta. Os resultados incluem um URL para o site da empresa e apresentar o texto, número de telefone e localização geográfica, incluindo: coordena de GPS, cidade, morada |  
+| [Encontrar localizações e negócios locais](quickstarts/local-quickstart.md) | A API de pesquisa de negócios locais do Bing obtém resultados localizados de uma consulta. Os resultados incluem um URL para o site da empresa e apresentar o texto, número de telefone e localização geográfica, incluindo: Coordena de GPS, cidade, morada |  
 | [Filtrar os resultados locais com limites geográficos](specify-geographic-search.md) | Adicione as coordenadas como parâmetros de pesquisa para limitar os resultados para uma área geográfica específica, especificado por uma área circular ou quadrado caixa delimitadora. | 
 | [Filtrar os resultados de negócios locais por categoria](local-categories.md) | Pesquisar resultados de negócios locais por categoria. Esta opção utiliza a localização do IP inversa ou as coordenadas do GPS do chamador para devolver resultados localizados em várias categorias de negócio.|
 

@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195165"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
@@ -69,7 +69,7 @@ Para este exemplo, modificar um utilizador e defina a respetiva extensionAttribu
 
 Um utilizador pode ser um membro de vários grupos com licenças. Seguem-se alguns aspetos a considerar:
 
-- Várias licenças para o mesmo produto podem sobrepor-se, e eles resultam em todos os serviços ativados, que está a ser aplicados ao utilizador. O exemplo seguinte mostra dois grupos de licenciamento: *serviços de bases E3* contém os serviços de base para implementar em primeiro lugar, a todos os utilizadores. E *E3 estendido serviços* contém serviços adicionais (Sway e Planner) para implementar apenas a alguns utilizadores. Neste exemplo, o utilizador foi adicionado a ambos os grupos:
+- Várias licenças para o mesmo produto podem sobrepor-se, e eles resultam em todos os serviços ativados, que está a ser aplicados ao utilizador. O exemplo seguinte mostra dois grupos de licenciamento: *Serviços de bases E3* contém os serviços de base para implementar em primeiro lugar, a todos os utilizadores. E *E3 estendido serviços* contém serviços adicionais (Sway e Planner) para implementar apenas a alguns utilizadores. Neste exemplo, o utilizador foi adicionado a ambos os grupos:
 
   ![Captura de ecrã de serviços ativados](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -187,7 +187,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. Para ver o registo completo para como um grupo foi processado, incluindo todas as alterações de utilizador, defina os seguintes filtros:
-  - **Iniciado por (Ator)**: "Microsoft Azure AD com base no grupo de licenciamento"
+  - **Iniciado por (Ator)**: "Microsoft Azure AD com base em grupo licenciamento"
   - **Intervalo de datas** (opcional): intervalo personalizado para quando sabe que um grupo específico iniciado e termina o processamento
 
 Esta saída de exemplo mostra o início do processamento, todas as alterações de usuário resultante e a conclusão do processamento.
@@ -201,7 +201,7 @@ Esta saída de exemplo mostra o início do processamento, todas as alterações 
 
 Não é possível eliminar um grupo com uma licença do Active Directory atribuída. Um administrador pode eliminar um grupo de sem perceber que fará com que licenças a serem removidos da utilizadores - por esse motivo que necessitam de quaisquer licenças a remover do grupo em primeiro lugar, antes de poder ser eliminado.
 
-Ao tentar eliminar um grupo no portal do Azure poderá ver uma notificação de erro como este: ![falha na eliminação do grupo de captura de ecrã](./media/licensing-group-advanced/groupdeletionfailed.png)
+Ao tentar eliminar um grupo no portal do Azure poderá ver uma notificação de erro como este: ![Falha na eliminação do grupo de captura de ecrã](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Vá para o **licenças** separador no grupo e ver se existem quaisquer licenças atribuídas. Em caso afirmativo, remova essas licenças e tente eliminar o grupo novamente.
 

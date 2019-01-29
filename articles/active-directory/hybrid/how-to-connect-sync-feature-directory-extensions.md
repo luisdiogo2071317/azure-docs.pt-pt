@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0d058dc1875c69fe3c582c4d68da81c09ab92fcb
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 04ae99064723b1dba35dfe53721c185229f96252
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079712"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174623"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: Extensões de diretórios
 Pode utilizar extensões de diretório para expandir o esquema no Azure Active Directory (Azure AD) com seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB ao consumo de atributos que continua a gerir no local. Estes atributos podem ser consumidos por meio [extensões de diretório do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://developer.microsoft.com/graph/). Pode ver os atributos disponíveis utilizando [do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.

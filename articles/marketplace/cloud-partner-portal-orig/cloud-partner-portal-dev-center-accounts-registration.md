@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254473"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168248"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta do Microsoft Developer
 ====================================
@@ -106,7 +106,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
    ![Selecione o país/região](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Destino de venda-de" países: para vender os seus serviços no Azure Marketplace, a sua entidade registada tem de ser de um dos países aprovados "destino de venda-de" mostrados na lista pendente. Esta restrição é por motivos de dividendos e tributação. Para obter mais informações, consulte as políticas de participação do Marketplace.
+    >Países de "Destino de venda-de": Para vender os seus serviços no Azure Marketplace, a sua entidade registada tem de ser de um dos países aprovados "destino de venda-de" mostrados na lista pendente. Esta restrição é por motivos de dividendos e tributação. Para obter mais informações, consulte as políticas de participação do Marketplace.
 
 5. Selecione **empresa** como o "Tipo de conta" e selecione **próxima**.
 
@@ -181,7 +181,8 @@ Para publicar ofertas comerciais para compra, terá de adicionar fiscais e infor
     - Selecione **Seguinte**.
 4.  Introduza os detalhes de imposto e, em seguida, selecione **seguinte**.
 
->[AVISO]! Não será possível enviar suas ofertas comercial para produção sem fornecer informações fiscais na sua conta do Microsoft Developer Center e de conta bancária.
+>[!WARNING]
+>Não será possível enviar suas ofertas comercial para produção sem fornecer informações fiscais na sua conta do Microsoft Developer Center e de conta bancária.
 
 ### <a name="developer-center-registration-issues"></a>Problemas de registo do Centro de programadores
 

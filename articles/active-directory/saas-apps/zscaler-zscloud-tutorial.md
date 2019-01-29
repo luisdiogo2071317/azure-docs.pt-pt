@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 311cf4ad22f8e7fdcee976e0cb4b26b9dd2a13a5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c3eb96c15991c3b470164bf504c68fbc266e69a8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794277"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integração do Active Directory do Azure com o Zscaler ZSCloud
 
@@ -125,9 +125,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome  | Atributo de origem  |
+    | Name  | Atributo de origem  |
     | ---------| ------------ |
-    | MemberOf     | user.assignedroles |
+    | memberOf     | user.assignedroles |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 

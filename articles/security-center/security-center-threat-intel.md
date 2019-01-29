@@ -1,6 +1,6 @@
 ---
 title: Inteligência e mapa de alerta de segurança no Centro de segurança do Azure de ameaças | Documentos da Microsoft
-description: Saiba como utilizar o secuity mapa e threat intelligence capacidade de alerta no Centro de segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
+description: Saiba como utilizar o alerta mapa e threat intelligence capacidade de segurança no Centro de segurança do Azure para identificar potenciais ameaças nas suas VMs e computadores.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241724"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092130"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
 Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.

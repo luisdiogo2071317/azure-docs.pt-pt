@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338537"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093454"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -31,7 +31,7 @@ Monitorização da integridade de ficheiros do Centro de segurança valida a int
 
 - Criação de arquivos e do Registro e remoção
 - Modificações do ficheiro (alterações no tamanho do ficheiro, listas de controlo de acesso e de hash do conteúdo)
-- Modificações no Registro (alterações no tamanho, listas de conrol de acesso, tipo e o conteúdo)
+- Modificações no Registro (alterações no tamanho, listas de controlo de acesso, tipo e o conteúdo)
 
 Centro de segurança recomenda entidades para monitorizar, que é possível habilitar facilmente FIM no. Também pode definir suas próprias políticas FIM ou entidades para monitorizar. Estas instruções mostram como.
 
@@ -152,7 +152,7 @@ Sob **Editar para controlo de alterações** , pode:
 - Eliminar a entidade, eliminar a alteração ou guardar a alteração
 
 ## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade para monitorizar
-1. Retorno para o **dashboard de monitorização de integridade de ficheiro** e selecione **definições** na parte superior. **Configuração de área de trabalho** abre.
+1. Retorno para o **dashboard de monitorização da integridade de ficheiros** e selecione **definições** na parte superior. **Configuração de área de trabalho** abre.
 2. Sob **configuração da área de trabalho**, selecione o separador para o tipo de entidade que pretende adicionar: Registo do Windows, arquivos do Windows ou ficheiros do Linux. Neste exemplo, selecionamos **ficheiros do Linux**.
 
   ![Adicione um novo item para monitorizar][14]

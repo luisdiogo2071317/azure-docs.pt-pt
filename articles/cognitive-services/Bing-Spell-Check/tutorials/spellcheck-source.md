@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Introdução os resultados da Verificação de Ortografia com a API de Verificação de Ortografia do Bing'
+title: 'Tutorial: A obter os resultados de verificação de ortografia usando a API de verificação ortográfica do Bing'
 titlesuffix: Azure Cognitive Services
 description: Código fonte do tutorial que mostra como utilizar a API de Verificação de Ortografia do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: 0180c6f2924f921e358ea152c887c5c2e16c34dc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8c3e520179d93632c1b69d2109d83197f76c549a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165582"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186523"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicação Web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
 Este é o código fonte completo discutido no [tutorial de aplicação de página única](spellcheck.md) para a API de Verificação de Ortografia do Bing. Para executar a aplicação, copie o código fonte um editor de texto e guarde o ficheiro como `spellcheck.html`. Em seguida, abra o ficheiro guardado no browser.
 

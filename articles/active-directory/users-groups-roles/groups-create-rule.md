@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249680"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156926"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o Estado
 
@@ -54,17 +54,17 @@ Pode ver a associação ao processar o estado e a data da última atualização 
 
 As seguintes mensagens de estado podem ser exibidas para **processamento de associação** Estado:
 
-* **Avaliar**: foi recebida a alteração do grupo e as atualizações estão a ser avaliadas.
-* **Processamento**: atualizações estão a ser processadas.
-* **Atualização concluída**: processamento foi concluído e todas as atualizações aplicáveis foram feitas.
-* **Erro de processamento**: foi encontrado um erro ao avaliar a regra de associação e não foi possível concluir o processamento.
-* **Atualizações em pausa**: regra de associação dinâmica atualizações foram interrompidas pelo administrador. MembershipRuleProcessingState está definido como "Em pausa".
+* **Avaliar**:  Foi recebida a alteração do grupo e as atualizações estão a ser avaliadas.
+* **Processamento**: As atualizações estão a ser processadas.
+* **Atualização concluída**: Processamento foi concluído e todas as atualizações aplicáveis foram feitas.
+* **Erro de processamento**: Foi encontrado um erro ao avaliar a regra de associação e não foi possível concluir o processamento.
+* **Atualizações em pausa**: Atualizações de regra de associação de grupo dinâmica foram interrompidas pelo administrador. MembershipRuleProcessingState está definido como "Em pausa".
 
 As seguintes mensagens de estado podem ser exibidas para **associação atualizado pela última vez** Estado:
 
-* &lt;**Data e hora**&gt;: A última vez que a associação foi atualizada.
-* **Em curso**: atualizações estão atualmente em curso.
-* **Desconhecido**: não é possível obter a hora da última atualização. Ele pode dever-se o grupo que está a ser criado de novo.
+* &lt;**Data e hora**&gt;: A última vez em que a associação foi atualizada.
+* **Em curso**: As atualizações estão atualmente em curso.
+* **Desconhecido**: Não é possível obter a hora da última atualização. Ele pode dever-se o grupo que está a ser criado de novo.
 
 Se ocorrer um erro ao processar a regra de associação para um grupo específico, um alerta é mostrado na parte superior dos **página de descrição geral** para o grupo. Se não pendente de associação de grupo dinâmica atualizações podem ser processadas para todos os grupos no inquilino para obter mais, em seguida, 24 horas, um alerta é mostrado na parte superior do **todos os grupos**.
 

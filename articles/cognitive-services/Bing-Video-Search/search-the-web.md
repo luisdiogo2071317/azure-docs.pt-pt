@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f7f97f68db317bb526b9a8542b76633ef16fb766
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261864"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194666"
 ---
 # <a name="what-is-bing-video-search"></a>O que é a Pesquisa de Vídeos do Bing?
 
@@ -150,7 +150,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandir a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta tiver sido *Limpeza de Algeroz*, as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Algerozes, Limpeza de Algerozes **a Partir do Chão**, **Máquina** de Limpeza de Algerozes e **Fácil** Limpeza de Algerozes.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta foi *limpeza Gutters*, as consultas expandidas poderão ser: Limpeza de medianiz **ferramentas**, limpeza Gutters **desde o**, limpeza medianiz **máquina**, e **fácil** medianiz limpeza.
 
 O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 
@@ -236,7 +236,7 @@ Pode utilizar os campos `text` e `thumbnail` para apresentar as cadeias de consu
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a trabalhar rapidamente com o seu primeiro pedido, veja [Fazer o Primeiro Pedido](./quick-start.md).
 

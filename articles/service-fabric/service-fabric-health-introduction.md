@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215235"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194292"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um modelo de estado de funcionamento que fornece relatórios e de avaliação do Estado de funcionamento avançado, flexível e extensível. O modelo permite que quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Pode facilmente obter informações de estado de funcionamento e corrigir possíveis problemas antes de cascata e provocar interrupções em massa. No modelo típico, serviços enviam relatórios com base em suas exibições locais e que informações são agregadas para fornecer um geral cluster a nível de exibição.
@@ -68,7 +68,7 @@ A hierarquia de estado de funcionamento é composta por relações pai-filho. Um
 A hierarquia de estado de funcionamento representa o estado mais recente do sistema com base em relatórios de estado de funcionamento mais recente, que é informações quase em tempo real.
 As mesmas entidades com base na lógica específica de aplicativo ou condições monitorizadas personalizadas podem reportar watchdogs internos e externos. Relatórios de utilizador coexistam com os relatórios do sistema.
 
-Planeje para investir em como informar e responder a Estado de funcionamento durante o design de um serviço cloud de grandes dimensões. Este investement inicial torna o serviço mais fácil de depurar, monitorar e operar.
+Planeje para investir em como informar e responder a Estado de funcionamento durante o design de um serviço cloud de grandes dimensões. Esse investimento inicial torna mais fácil depurar, monitorar e operar o serviço.
 
 ## <a name="health-states"></a>Estados de funcionamento
 O Service Fabric utiliza três Estados de funcionamento para descrever se uma entidade é bom estado de funcionamento ou não: OK, aviso e erro. Qualquer relatório enviado para o arquivo de estado de funcionamento tem de especificar um desses Estados. O resultado da avaliação de estado de funcionamento é um desses Estados.
@@ -233,7 +233,7 @@ Os campos de transição de estado podem ser utilizados para obter informações
 * Alerta apenas em condições que foram alterados nos últimos X minutos. Se um relatório já estava em erro antes do período de tempo especificado, pode ser ignorado porque já foi sinalizado anteriormente.
 * Se uma propriedade é alternar entre o aviso e erro, determine o período de tempo tem sido mau estado de funcionamento (OK ou seja, não). Por exemplo, um alerta se a propriedade ainda não estiver em bom estado durante mais de cinco minutos pode ser convertido numa (HealthState! = Ok e agora - LastOkTransitionTime > 5 minutos).
 
-## <a name="example-report-and-evaluate-application-health"></a>Relatório de exemplo: E avaliar o estado de funcionamento da aplicação
+## <a name="example-report-and-evaluate-application-health"></a>Exemplo: Comunicar e avaliar o estado de funcionamento da aplicação
 O exemplo seguinte envia um relatório de estado de funcionamento através do PowerShell no aplicativo **fabric: / WordCount** da origem **MyWatchdog**. O relatório de estado de funcionamento contém informações sobre a propriedade de estado de funcionamento "availability" num Estado de funcionamento de erro, com TimeToLive infinito. Em seguida, ele consulta o estado de funcionamento do aplicativo, que retorna agregados erros de estado de funcionamento e os eventos de estado de funcionamento reportados na lista de eventos de estado de funcionamento.
 
 ```powershell

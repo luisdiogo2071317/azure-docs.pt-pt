@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c4613654e5f1da6ef55c1f648fff1687b21fe87d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: fd9c4513c2cda3fb6283e748f2458043b02ab482
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901943"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203577"
 documentType: LandingData
 title: Documentação das identidades geridas do Azure AD para os recursos do Azure
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Documentação das identidades geridas do Azure AD para os recursos do Azure
   description: Saiba como utilizar identidades geridas para os recursos do Azure para autenticar de forma segura nos serviços cloud do Azure sem ter de guardar credenciais no seu código de origem.
   services: active-directory
-  ms.component: msi
+  ms.subservice: msi
   author: priyamohanram
   manager: daveba
   ms.service: active-directory

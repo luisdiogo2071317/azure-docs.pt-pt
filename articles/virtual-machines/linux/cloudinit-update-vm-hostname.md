@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 140c542b71ff87f6b7a846888da06e58fa03ce10
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: da20c4b30e2708bf7754d025cfbd2c269c3b5c7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855334"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164202"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Utilizar o cloud-init para definir o nome de anfitrião para uma VM do Linux no Azure
 Este artigo mostra-lhe como utilizar [cloud-init](https://cloudinit.readthedocs.io) para configurar um nome de anfitrião específico numa máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure. Para obter mais informações sobre o cloud-init funcionamento nativamente no Azure e distribuições de Linux suportadas, consulte [descrição geral do cloud-init](using-cloud-init.md)
@@ -34,7 +34,7 @@ Para ver o processo de atualização em ação, crie um ficheiro na sua shell at
 hostname: myhostname
 ```
 
-Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar grupo az](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

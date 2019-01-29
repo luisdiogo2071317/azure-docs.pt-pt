@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3a796733f5987f4cc550a606e06166395d1595cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156668"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
 ## <a name="overview"></a>Descrição geral
@@ -78,7 +78,7 @@ Pontos de extremidade HTTP são automaticamente que ACL seria ao Service Fabric.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -214,4 +214,4 @@ Se o servicemanifest especificado
 
 E o valor de IPP/port1 e Protocol1 para parâmetros de aplicação é nulo ou estar vazio. A porta ainda é decidida por ServiceFabric. E a vontade de protocolo tcp.
 
-Suponha que especificar um valor incorreto. Como para a porta que especificou um valor de cadeia de caracteres "Foo" em vez de um int.  Novo ServiceFabricApplication comando irá falhar com um erro: O parâmetro de substituição com o atributo de 'ServiceEndpoint1' name "IPP/port1" na secção "ResourceOverrides" é inválido. O valor especificado é "Foo" e necessário é 'int'.
+Suponha que especificar um valor incorreto. Como para a porta que especificou um valor de cadeia de caracteres "Foo" em vez de um int.  Novo ServiceFabricApplication comando irá falhar com um erro: O parâmetro de substituição com o atributo de nome de 'ServiceEndpoint1' IPP/port1 na seção "ResourceOverrides" é inválido. O valor especificado é "Foo" e necessário é 'int'.

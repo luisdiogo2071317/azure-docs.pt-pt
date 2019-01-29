@@ -1,25 +1,25 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing, Ruby'
+title: 'Início rápido: Ruby, API de sugestão automática do Bing'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: 463ad901edeec3790586f9494a7411b678c4ecf8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183616"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Início Rápido da API de Sugestão Automática do Bing com Ruby 
 
-Este artigo mostra-lhe como utilizar a API de [Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com Ruby. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
+Este artigo mostra-lhe como utilizar o [a API de sugestão automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com Ruby. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -133,7 +133,7 @@ puts JSON::pretty_generate (JSON (response.body))
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)

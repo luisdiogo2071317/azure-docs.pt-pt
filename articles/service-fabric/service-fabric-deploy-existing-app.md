@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258736"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168418"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Agrupar e implementar um executável existente para o Service Fabric
 Quando empacotar um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher entre utilizar um modelo de projeto do Visual Studio ou a [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacotes de aplicações e ficheiros de manifesto são criados pelo novo modelo de projeto para.
@@ -143,7 +143,7 @@ O elemento de CodePackage Especifica a localização (e versão) de código do s
 
 O `Name` elemento é usado para especificar o nome do diretório no pacote de aplicação que contém o código do serviço. `CodePackage` Também tem o `version` atributo. Isso pode ser utilizado para especificar a versão do código e pode também ser usado para atualizar o código do serviço utilizando a infraestrutura de gestão do ciclo de vida de aplicações no Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Opcional: SetupEntrypoint de atualização
+#### <a name="optional-update-setupentrypoint"></a>Opcional: Atualizar SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -302,4 +302,4 @@ Neste artigo, aprendeu como um executável de convidado do pacote e implementá-
 * [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo uma ligação para a versão de pré-lançamento da ferramenta de empacotamento
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)
-* [Criar a sua primeira aplicação do Service Fabric com o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Criar a sua primeira aplicação do Service Fabric com o Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

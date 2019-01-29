@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com BorrowBox | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com BorrowBox | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e BorrowBox.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: efb905364e5ae4736b058472e66b3a8850a99fe3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167845"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Azure Active Directory com BorrowBox
+# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Active Directory do Azure com BorrowBox
 
 Neste tutorial, saiba como integrar BorrowBox com o Azure Active Directory (Azure AD).
 

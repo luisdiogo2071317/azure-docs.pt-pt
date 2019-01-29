@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 959e58a58099b71a595f995e03cc70255fd6d059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790179"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198032"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -88,9 +88,9 @@ Linux não é atualmente suportado.
 
 ### <a name="supported-sql-server-versions-and-editions"></a>As edições e versões do SQL Server suportadas
 
-- SQL Server 2012 Enterprise, Standard, Web, desenvolvedor, Express
-- SQL Server 2014 Enterprise, Standard, Web, desenvolvedor, Express
-- SQL Server 2016 Enterprise, Standard, Web, desenvolvedor, Express
+- SQL Server 2012 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2014 Enterprise, Standard, Web, Developer, Express
+- SQL Server 2016 Enterprise, Standard, Web, Developer, Express
 - SQL Server 2017 Enterprise, Standard, Web, desenvolvedor, Express
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -129,7 +129,7 @@ As compensações entre as opções são a capacidade de gerenciamento, um contr
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para o Marketplace SQL VMs não
 
-Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão seja instalado. Se utilizar as máquinas virtuais do Azure Marketplace, continuar a [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não é criada no Azure Marketplace, conclua o procedimento seguinte para instalar a extensão e definir as permissões adequadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Para aumentar detetar as bases de dados na máquina virtual, cópia de segurança do Azure cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e tem de ter permissão de sysadmin do SQL. Além disso, a cópia de segurança do Azure irá tirar partido **NT AUTHORITY\SYSTEM** de conta para deteção de DB/consulta, para que esta conta tem de ser um início de sessão público no SQL.
+Para fazer backup de uma máquina virtual, o Azure Backup requer o **AzureBackupWindowsWorkload** extensão seja instalado. Se utilizar as máquinas virtuais do Azure Marketplace, continuar a [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases). Se a máquina virtual que aloja as bases de dados SQL não é criada no Azure Marketplace, conclua o procedimento seguinte para instalar a extensão e definir as permissões adequadas. Para além da **AzureBackupWindowsWorkload** extensão, o Azure Backup requer privilégios de sysadmin do SQL para proteger as bases de dados SQL. Para detetar as bases de dados na máquina virtual, o Azure Backup cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e tem de ter permissão de sysadmin do SQL. Além disso, a cópia de segurança do Azure irá tirar partido **NT AUTHORITY\SYSTEM** de conta para deteção de DB/consulta, para que esta conta tem de ser um início de sessão público no SQL.
 
 Para configurar permissões:
 

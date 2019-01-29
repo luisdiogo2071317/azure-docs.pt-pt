@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850644"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171657"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ O **OrchestrationStep** elemento contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Encomenda | Sim | A ordem dos passos de orquestração. | 
-| Tipo | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** -indica que o passo de orquestração apresenta vários fornecedores de afirmações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** -indica que o passo de orquestração apresenta um provedor social combinado página de inscrição de conta de início de sessão e locais.</li><li>**ClaimsExchange** -indica que o passo de orquestração troca de afirmações com um fornecedor de afirmações.</li><li>**SendClaims** -indica que o passo de orquestração envia as afirmações para a entidade confiadora com um token emitido por um emissor de afirmações.</li></ul> | 
+| Type | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** -indica que o passo de orquestração apresenta vários fornecedores de afirmações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** -indica que o passo de orquestração apresenta um provedor social combinado página de inscrição de conta de início de sessão e locais.</li><li>**ClaimsExchange** -indica que o passo de orquestração troca de afirmações com um fornecedor de afirmações.</li><li>**SendClaims** -indica que o passo de orquestração envia as afirmações para a entidade confiadora com um token emitido por um emissor de afirmações.</li></ul> | 
 | ContentDefinitionReferenceId | Não | O identificador do [definição de conteúdo](contentdefinitions.md) associadas a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico de declaração própria. Mas, existem alguns casos quando precisa exibir alguma coisa sem um perfil técnico do Azure AD B2C. Existem dois exemplos, se o tipo de passo de orquestração é um dos seguintes procedimentos: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C tem de apresentar a seleção do fornecedor de identidade sem ter um perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do fornecedor de afirmações que emite o token para a entidade confiadora.  Se estiver ausente, não é criado nenhum token da entidade confiadora de terceiros. |
 
@@ -92,14 +92,14 @@ O **pré-condição** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Tipo | Sim | O tipo de verificação ou a consulta para executar para esta pré-condição. O valor pode ser **ClaimsExist**, que especifica que as ações devem ser efetuadas se as afirmações especificadas existem no conjunto de afirmações atual do usuário, ou **ClaimEquals**, que especifica que as ações deve ser efetuada se a afirmação especificado existe e o valor é igual ao valor especificado. |
+| Type | Sim | O tipo de verificação ou a consulta para executar para esta pré-condição. O valor pode ser **ClaimsExist**, que especifica que as ações devem ser efetuadas se as afirmações especificadas existem no conjunto de afirmações atual do usuário, ou **ClaimEquals**, que especifica que as ações deve ser efetuada se a afirmação especificado existe e o valor é igual ao valor especificado. |
 | ExecuteActionsIf | Sim | Utilize um teste de VERDADEIRO ou FALSO para decidir se as ações na pré-condição devem ser efetuadas. | 
 
 O **pré-condição** elementos contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
+| Value | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
 | Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
 
 ### <a name="preconditions-examples"></a>Exemplos de pré-condições

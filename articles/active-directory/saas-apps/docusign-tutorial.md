@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o DocuSign | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o DocuSign | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o DocuSign.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a691288b-84c1-40fb-84bd-5b06878865f0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b2b5f72c9520498d4834bbbfaf6c56656a807e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8838cb2479078a8b6b4f031128501f09284b6bdd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015226"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159279"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integração do Azure Active Directory com o DocuSign
+# <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integração do Active Directory do Azure com o DocuSign
 
 Neste tutorial, saiba como integrar o DocuSign com o Azure Active Directory (Azure AD).
 

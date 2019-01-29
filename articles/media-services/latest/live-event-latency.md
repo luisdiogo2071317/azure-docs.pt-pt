@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f4ded67ef964482a2acea0d731b1b154a95168d2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741356"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169711"
 ---
-# <a name="liveevent-latency-in-media-services"></a>Latência de LiveEvent nos serviços de multimédia
+# <a name="live-event-latency-in-media-services"></a>Latência de evento em direto nos serviços de multimédia
 
-Este artigo mostra como definir a baixa latência num [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents). Ele também aborda típicos resultados que vê ao usar as definições de baixa latência em diversos leitores. Os resultados variam com base na latência de rede e da CDN.
+Este artigo mostra como definir a baixa latência num [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents). Ele também aborda típicos resultados que vê ao usar as definições de baixa latência em diversos leitores. Os resultados variam com base na latência de rede e da CDN.
 
 Utilizar a nova **LowLatency** conjunto de recursos, o **StreamOptionsFlag** para **LowLatency** sobre a **LiveEvent**. Ao criar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para reproduzir HLS, defina [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) como 1. Depois do fluxo está em execução, pode utilizar o [leitor de multimédia do Azure](http://ampdemo.azureedge.net/) (página de demonstração de AMP) e definir as opções de reprodução para utilizar o "baixa latência heurística perfil".
 
@@ -54,7 +54,7 @@ LiveEvent liveEvent = new LiveEvent(
 
 Veja o exemplo completo: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="liveevents-latency"></a>Latência de LiveEvents
+## <a name="live-events-latency"></a>Latência de eventos em direto
 
 As tabelas seguintes mostram os resultados típicos para latência (quando o sinalizador de LowLatency está ativado) nos serviços de multimédia, medido a partir do momento no feed de contribuição atinge o serviço para quando um visualizador vê a reprodução no leitor. Para utilizar a baixa latência ideal, deve ajustar as definições de codificador para baixo até 1 segundo comprimento de "Grupo de imagens" (GOP). Quando utiliza um comprimento de GOP superior, minimizar o consumo de largura de banda e reduzir a velocidade de transmissão na mesma taxa de quadros. É particularmente vantajoso em vídeos com menos movimento.
 
@@ -62,7 +62,7 @@ As tabelas seguintes mostram os resultados típicos para latência (quando o sin
 
 ||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
 |---|---|---|
-|TRAVESSÃO no AMP|10s|8S|
+|TRAVESSÃO no AMP|10s|8s|
 |HLS no player de iOS nativo|14s|10s|
 
 ### <a name="live-encoding"></a>Live Encoding
@@ -70,7 +70,7 @@ As tabelas seguintes mostram os resultados típicos para latência (quando o sin
 ||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
 |---|---|---|
 |TRAVESSÃO no AMP|14s|10s|
-|HLS no player de iOS nativo|18S|13s|
+|HLS no player de iOS nativo|18s|13s|
 
 > [!NOTE]
 > A latência de ponto a ponto pode variar dependendo das condições de rede local ou com a introdução de uma camada de colocação em cache da CDN. Deve testar suas configurações exatas.

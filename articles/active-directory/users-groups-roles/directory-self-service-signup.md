@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394685"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195822"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
 Este artigo explica a inscrição self-service e como para suportá-la no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir de um Azure AD não gerido de inquilinos, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
@@ -63,9 +63,9 @@ Flow e PowerApps inscrições de avaliação não são controladas mediante a **
 ### <a name="how-do-the-controls-work-together"></a>Como os controles funcionam em conjunto?
 Esses dois parâmetros podem ser utilizados em conjunto para definir um controlo mais preciso sobre a inscrição self-service. Por exemplo, o seguinte comando irá permitir aos utilizadores efetuarem a inscrição self-service, mas apenas se os utilizadores que já tem uma conta no Azure AD (em outras palavras, os utilizadores que seriam necessário uma conta verificado por e-mail a ser criado pela primeira vez não é possível efetuar inscrição self-service):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 O fluxograma a seguir explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e a inscrição self-service.
 

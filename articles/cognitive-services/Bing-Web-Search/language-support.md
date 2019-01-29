@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: dbe9fe5b8e9cd31ca20d88b7db89a9d35e1fe8de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164405"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161143"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de pesquisa Web Bing
 
@@ -73,8 +73,8 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Argentina|Espanhol|es-AR|
 |Austrália|Português|EN-AU|
 |Áustria|Alemão|Alemanha-AT|
-|Bélgica|Neerlandês|NL-ser|
-|Bélgica|Francês|FR-ser|
+|Bélgica|Neerlandês|nl-BE|
+|Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
 |Canadá|Português|en-CA|
 |Canadá|Francês|fr-CA|
@@ -85,11 +85,11 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Alemanha|Alemão|de-DE|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Português|EN-IN|
-|Indonésia|Português|ID de en|
+|Indonésia|Português|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|EN MY|
+|Malásia|Português|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Neerlandês|NL-NL|
 |Nova Zelândia|Português|EN-NZ|
@@ -97,10 +97,10 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN-PH|
+|Filipinas|Português|en-PH|
 |Rússia|Russo|ru-RU|
 |Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN ZA|
+|África do Sul|Português|en-ZA|
 |Espanha|Espanhol|es-ES|
 |Suécia|Sueco|SV-SE|
 |Suíça|Francês|FR-CH|
@@ -108,5 +108,5 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|pt-PT|
+|Estados Unidos|Português|en-US|
 |Estados Unidos|Espanhol|es-US|

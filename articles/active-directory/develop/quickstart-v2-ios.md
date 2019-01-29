@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973614"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094313"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação nativa iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação nativa do iOS
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -34,7 +34,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registar e transferir
 > ### <a name="register-and-configure-your-application-and-code-sample"></a>Registar e configurar a aplicação e o exemplo de código
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 > 1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação.
 > 1. Na caixa **Nome da Aplicação**, introduza um nome para a sua aplicação.
@@ -50,11 +50,11 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-ios/green-check.png) A sua aplicação está configurada com este atributo
 
-#### <a name="step-2-download-your-web-server-or-project"></a>Passo 2: Transferir o seu servidor Web ou projeto
+#### <a name="step-2-download-your-web-server-or-project"></a>Passo 2: Transfira o seu servidor web ou projeto
 
 - [Transfira o Projeto XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o projeto
+#### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o seu projeto
 
 1. Extraia o ficheiro zip e abra o projeto no XCode.
 1. Edite **ViewController.swift** e substitua a linha que começa com "let kClientID" pelo seguinte fragmento de código:
@@ -182,7 +182,7 @@ applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicat
 > | `forScopes` | Contém os âmbitos que estão a ser pedidos (ou seja, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`)) |
 > | `account` | A conta que pede o token (a MSAL suporta várias contas numa única aplicação única). No caso deste Início Rápido, o valor aponta para a primeira conta na cache (`applicationContext.allAccounts().first`). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente o tutorial para iOS para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 

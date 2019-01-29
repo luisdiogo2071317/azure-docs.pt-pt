@@ -16,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 33326aa0f033800268d0eb439f9c8c81b4d2e675
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106775"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094398"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
 A máquina de Virtual de ciência de dados para Linux é uma imagem de máquina virtual baseada em Ubuntu que torna mais fácil começar a utilizar com o machine learning, incluindo a aprendizagem profunda, no Azure. Ferramentas de aprendizagem profunda incluem:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizagem profunda criada para a velocidade, a expressividade e a modularidade
-  * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma cruzada do Caffe
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): uma Kit de ferramentas de software da Microsoft Research de aprendizagem profunda
-  * [H2O](https://www.h2o.ai/): uma plataforma de macrodados de código-fonte aberto e uma interface gráfica do usuário
-  * [Keras](https://keras.io/): uma rede neural alto nível API em Python para Theano e TensorFlow
-  * [MXNet](http://mxnet.io/): uma biblioteca de aprendizagem profunda, flexível e eficiente com muitas associações de idioma
-  * [NVIDIA dígitos](https://developer.nvidia.com/digits): um sistema gráfico que simplifica tarefas comuns de aprendizagem profunda
-  * [PyTorch](http://pytorch.org/): uma biblioteca de Python de alto nível com suporte para redes dinâmicos
-  * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de código-fonte aberto para a inteligência da máquina do Google
-  * [Theano](http://deeplearning.net/software/theano/): biblioteca de A Python para definir, otimizar e avaliar com eficiência matemáticas expressões que envolvem matrizes multidimensionais
-  * [Maçarico](http://torch.ch/): uma estrutura de computação científica, com amplo suporte para algoritmos de machine learning
+  * [Caffe](http://caffe.berkeleyvision.org/): Uma estrutura de aprendizagem profunda criada para a velocidade, a expressividade e a modularidade
+  * [Caffe2](https://github.com/caffe2/caffe2): Uma versão de plataforma cruzada do Caffe
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Uma Kit de ferramentas de software da Microsoft Research de aprendizagem profunda
+  * [H2O](https://www.h2o.ai/): Uma plataforma de macrodados de código-fonte aberto e uma interface gráfica do usuário
+  * [Keras](https://keras.io/): Uma rede neural alto nível API em Python para Theano e TensorFlow
+  * [MXNet](http://mxnet.io/): Uma biblioteca de aprendizagem profunda, flexível e eficiente com muitas associações de idioma
+  * [NVIDIA DÍGITOS](https://developer.nvidia.com/digits): Um sistema gráfico que simplifica tarefas comuns de aprendizagem profunda
+  * [PyTorch](http://pytorch.org/): Uma biblioteca de Python de alto nível com suporte para redes dinâmicos
+  * [TensorFlow](https://www.tensorflow.org/): Uma biblioteca de código-fonte aberto para a inteligência da máquina do Google
+  * [Theano](http://deeplearning.net/software/theano/): Uma biblioteca de Python para definir, otimizar e avaliar com eficiência matemáticas expressões que envolvem matrizes multidimensionais
+  * [Maçarico](http://torch.ch/): Uma estrutura de computação científica, com amplo suporte para algoritmos de machine learning
   * CUDA, cuDNN e os controladores NVIDIA
   * Muitos blocos de notas do Jupyter de exemplo
 
@@ -53,10 +53,10 @@ A máquina de Virtual de ciência de dados para Linux também contém ferramenta
 * Explorador do Storage do Azure
 * Interface de linha de comandos do Azure (CLI) para gerir recursos do Azure
 * Ferramentas de aprendizagem de máquina
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um rápido de machine learning sistema dar suporte a técnicas, como online, hash, allreduce, reduções, learning2search, Active Directory e a aprendizagem interativa
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta, fornecendo árvore elevada precisos e implementação
-  * [Rattle](https://togaware.com/rattle/): uma ferramenta gráfica que simplifica a introdução à análise de dados e aprendizagem automática no R fácil
-  * [LightGBM](https://github.com/Microsoft/LightGBM): um dégradé rápido, distribuído e de alto desempenho adaptativo framework
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Um sistema de aprendizagem rápida técnicas como online, o hash, allreduce, reduções, learning2search, Active Directory e interativa de suporte de aprendizagem
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Uma ferramenta, fornecendo árvore elevada precisos e implementação
+  * [Rattle](https://togaware.com/rattle/): Uma ferramenta gráfica que simplifica a introdução à análise de dados e aprendizagem automática no R fácil
+  * [LightGBM](https://github.com/Microsoft/LightGBM): Um dégradé rápido, distribuído e de alto desempenho adaptativo framework
 * SDK do Azure em Java, Python, node. js, Ruby, PHP
 * Bibliotecas em R e Python para utilizam no Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, vim)
@@ -89,13 +89,13 @@ Eis os passos para criar uma instância de máquina de Virtual de ciência de da
    
    a. **Noções básicas**:
    
-   * **Nome**: nome do seu servidor de ciência de dados que está a criar.
-   * **Tipo de disco de VM**: escolha **Premium SSD** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **Standard HDD**. 
-   * **Nome de utilizador**: primeira conta de início de sessão ID.
-   * **Palavra-passe**: primeira conta palavra-passe (pode usar chave pública SSH em vez da palavra-passe).
+   * **Nome**: Nome do seu servidor de ciência de dados que está a criar.
+   * **Tipo de disco VM**: Escolher **Premium SSD** se preferir uma unidade de estado sólido (SSD). Caso contrário, escolha **Standard HDD**. 
+   * **Nome de utilizador**: Primeiro início de sessão na conta ID.
+   * **palavra-passe**: Primeira conta palavra-passe (pode usar chave pública SSH em vez da palavra-passe).
    * **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas. Tem de ter privilégios de criação de recursos para esta subscrição.
-   * **Grupo de recursos**: pode criar um novo ou utilizar um grupo existente.
-   * **Localização**: selecionar o Datacenter mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados, ou mais se aproxima-se à sua localização física para acesso de rede mais rápido.
+   * **Grupo de recursos**: Pode criar um novo ou utilizar um grupo existente.
+   * **Localização**: Selecione o Centro de dados mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados, ou mais se aproxima-se à sua localização física para acesso de rede mais rápido.
    
    b. **Tamanho**:
    
@@ -133,12 +133,12 @@ A VM do Linux já está a ser aprovisionado com o servidor de X2Go e pronto para
 1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
-     * **Anfitrião**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
-     * **Início de sessão**: nome de utilizador na VM do Linux.
-     * **Porta SSH**: deixá-lo em 22, o valor predefinido.
+     * **Host**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
+     * **início de sessão**: Nome de utilizador na VM do Linux.
+     * **SSH porta**: Deixe-o em 22, o valor predefinido.
      * **Tipo de sessão**: Altere o valor para XFCE. Atualmente, a VM com Linux só suporta XFCE desktop.
-   * **Guia de suporte de dados**: pode desativar o suporte para som e cliente impressão se não precisar usá-los.
-   * **Pastas compartilhadas**: Se pretender que diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
+   * **Guia de suporte de dados**: Pode desativar a suporte para som e cliente impressão se não precisar usá-los.
+   * **Pastas compartilhadas**: Se quiser diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
 
 Depois de iniciar sessão na VM com o cliente SSH ou de uma área de trabalho gráfica do XFCE por meio do cliente de X2Go, está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. No XFCE, pode ver atalhos no menu aplicações e ícones para muitas das ferramentas.
 
@@ -220,7 +220,7 @@ Para ativar o ambiente de py35 novamente:
 
 Para invocar uma sessão interativa do Python, basta escrever **python** no shell. 
 
-Instalar bibliotecas adicionais do Python usando ```conda``` ou ````pip```` . Para o pip, ative o ambiente correto primeiro se não pretender que o padrão:
+Instalar bibliotecas adicionais do Python usando ```conda``` ou ```pip``` . Para o pip, ative o ambiente correto primeiro se não pretender que o padrão:
 
     source activate root
     pip install <package>
@@ -271,7 +271,7 @@ Antes de executar no contexto do Spark no Microsoft R Server, terá de realizar 
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-É possível parar o Hadoop relacionados com serviços quando não precisar, executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` um exemplo que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónoma no DSVM) é fornecido e está disponível no `/dsvm/samples/MRS` diretório. 
+É possível parar o Hadoop relacionados com serviços quando não precisar, executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` um exemplo que demonstra como desenvolver e testar MRS no contexto de Spark remoto (que é a instância de Spark autónoma no DSVM) é fornecido e está disponível no `/dsvm/samples/MRS` diretório. 
 
 ### <a name="ides-and-editors"></a>IDEs e editores
 Tem uma opção de vários editores de códigos. Isto inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio PyCharm são editores gráficas e tem de ser iniciada para uma área de trabalho gráfica para utilizá-los. Esses editores tem o ambiente de trabalho e a aplicação atalhos no menu para iniciá-los.
@@ -296,11 +296,11 @@ Para obter mais informações, consulte [SQuirrel SQL](http://squirrel-sql.sourc
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas da linha de comandos para acessar o Microsoft SQL Server
 O pacote de controladores ODBC para o SQL Server também vem com duas ferramentas de linha de comandos:
 
-**BCP**: O volume de utilitário bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados num formato especificado pelo utilizador. O utilitário bcp. exe pode ser utilizado para importar um grande número de novas linhas para tabelas do SQL Server ou para exportar os dados para fora das tabelas para ficheiros de dados. Para importar dados para uma tabela, tem de utilizar um ficheiro de formato criado para a tabela ou compreender a estrutura da tabela e os tipos de dados que são válidos para as colunas.
+**bcp**: O volume de utilitário bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados num formato especificado pelo utilizador. O utilitário bcp. exe pode ser utilizado para importar um grande número de novas linhas para tabelas do SQL Server ou para exportar os dados para fora das tabelas para ficheiros de dados. Para importar dados para uma tabela, tem de utilizar um ficheiro de formato criado para a tabela ou compreender a estrutura da tabela e os tipos de dados que são válidos para as colunas.
 
 Para obter mais informações, consulte [ligar com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: pode introduzir instruções Transact-SQL com o utilitário sqlcmd, bem como dos procedimentos de sistema e arquivos no prompt de comando de script. Esse utilitário utiliza ODBC para executar lotes do Transact-SQL.
+**sqlcmd**: Pode inserir instruções Transact-SQL com o utilitário sqlcmd, bem como procedimentos de sistema e arquivos de script no prompt de comando. Esse utilitário utiliza ODBC para executar lotes do Transact-SQL.
 
 Para obter mais informações, consulte [ligar com sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -319,11 +319,11 @@ Bibliotecas estão disponíveis em R e Python para acessar bancos de dados.
 As seguintes ferramentas do Azure são instaladas na VM:
 
 * **Interface de linha de comandos do Azure**: A CLI do Azure permite-lhe criar e gerir recursos do Azure através de comandos da shell. Para invocar as ferramentas do Azure, basta escrever **do azure ajuda**. Para obter mais informações, consulte a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de armazenamento do Microsoft Azure**: Explorador de armazenamento do Microsoft Azure é uma ferramenta gráfica que é utilizada para percorrer os objetos que tem armazenados na sua conta de armazenamento do Azure e para carregar e transferir dados para e de blobs do Azure. Pode acessar o Explorador de armazenamento do ícone de atalho de desktop. Pode invocá-lo num prompt do shell, escrevendo **StorageExplorer**. Tem de iniciar sessão a partir de um cliente X2Go ou tem o conjunto de cópia de segurança de reencaminhamento de X11.
-* **Bibliotecas do Azure**: seguem-se algumas das bibliotecas pré-instaladas.
+* **Explorador de armazenamento do Microsoft Azure**: Explorador de armazenamento do Microsoft Azure é uma ferramenta gráfica que é utilizada para percorrer os objetos que tem armazenados na sua conta de armazenamento do Azure, e para carregar e transferir dados para e de blobs do Azure. Pode acessar o Explorador de armazenamento do ícone de atalho de desktop. Pode invocá-lo num prompt do shell, escrevendo **StorageExplorer**. Tem de iniciar sessão a partir de um cliente X2Go ou tem o conjunto de cópia de segurança de reencaminhamento de X11.
+* **Bibliotecas do Azure**: Seguem-se algumas das bibliotecas pré-instaladas.
   
-  * **Python**: as bibliotecas relacionados com o Azure em Python que está instalados estão **azure**, **azureml**, **pydocumentdb**, e **pyodbc**. Com as três primeiras bibliotecas, pode aceder a serviços de armazenamento do Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL no Azure). A biblioteca de quarta, pyodbc (juntamente com o Microsoft ODBC driver para SQL Server), permite o acesso ao SQL Server, SQL Database do Azure e Azure SQL Data Warehouse do Python, utilizando uma interface ODBC. Introduza **lista de pip** para ver todas as bibliotecas listadas. Certifique-se de que execute este comando no Python 2.7 e 3,5 ambientes.
-  * **R**: são bibliotecas relacionados com o Azure em R instalados **AzureML** e **RODBC**.
+  * **Python**: As bibliotecas relacionados com o Azure em Python que está instalados estão **azure**, **azureml**, **pydocumentdb**, e **pyodbc**. Com as três primeiras bibliotecas, pode aceder a serviços de armazenamento do Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL no Azure). A biblioteca de quarta, pyodbc (juntamente com o Microsoft ODBC driver para SQL Server), permite o acesso ao SQL Server, SQL Database do Azure e Azure SQL Data Warehouse do Python, utilizando uma interface ODBC. Introduza **lista de pip** para ver todas as bibliotecas listadas. Certifique-se de que execute este comando no Python 2.7 e 3,5 ambientes.
+  * **R**: As relacionados com o Azure, as bibliotecas no R instalados estão **AzureML** e **RODBC**.
   * **Java**: A lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas de chave são do Azure armazenamento e gestão de APIs, do Azure Cosmos DB, JDBC controladores e para o SQL Server.  
 
 Pode aceder a [portal do Azure](https://portal.azure.com) do navegador Firefox pré-instaladas. No portal do Azure, pode criar, gerir e monitorizar recursos do Azure.
@@ -345,12 +345,12 @@ Para obter informações sobre como implementar os modelos em R e Python no Azur
 ### <a name="machine-learning-tools"></a>Ferramentas de aprendizagem de máquina
 A VM vem com alguns de machine learning ferramentas e algoritmos que foram pré-compilados e previamente instalados localmente. Estas incluem:
 
-* **Vowpal Wabbit**: um algoritmo de aprendizagem online rapidamente.
-* **xgboost**: uma ferramenta que fornece os algoritmos de árvore otimizada, elevada.
-* **Rattle**: baseada em R de uma ferramenta gráfica para modelação e exploração de dados fácil.
+* **Vowpal Wabbit**: Um algoritmo de aprendizagem online rapidamente.
+* **xgboost**: Uma ferramenta que fornece otimizado, algoritmos de árvore elevada.
+* **Rattle**: Uma ferramenta gráfica baseada em R para modelação e exploração de dados fácil.
 * **Python**: Anaconda Python vem agrupado com algoritmos de machine learning com bibliotecas como Scikit-saiba. Pode instalar outras bibliotecas com o `pip install` comando.
-* **LightGBM**: um dégradé rápido, distribuído e de alto desempenho adaptativo framework com base em algoritmos de árvore de decisão.
-* **R**: uma biblioteca completa de funções do machine learning está disponível para R. Algumas das bibliotecas que vêm pré-instaladas são lm, glm, randomForest, rpart. Outras bibliotecas podem ser instaladas ao executar:
+* **LightGBM**: Um dégradé rápido, distribuído e de alto desempenho adaptativo estrutura baseada em algoritmos de árvore de decisão.
+* **R**: Uma biblioteca completa de funções do machine learning está disponível para R. Algumas das bibliotecas que vêm pré-instaladas são lm, glm, randomForest, rpart. Outras bibliotecas podem ser instaladas ao executar:
   
         install.packages(<lib name>)
 

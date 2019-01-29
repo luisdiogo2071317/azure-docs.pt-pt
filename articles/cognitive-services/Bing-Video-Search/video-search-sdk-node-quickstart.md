@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Vídeos do Bing, Node'
+title: 'Início rápido: Pesquisa de vídeo Bing SDK, nó'
 titleSuffix: Azure Cognitive Services
 description: Configure a aplicação de consola do SDK de Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 985ddcff35a16c747fff34ed487c72744e1ee466
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1962ce07e4031708ea8c9ee308a016f4b9a1b018
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313457"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194836"
 ---
-# <a name="quickstart-bing-video-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Vídeos do Bing com Node
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>Início rápido: SDK com o nó de pesquisa de vídeos do Bing
 
 O SDK de Pesquisa de Vídeos do Bing contém a funcionalidade da API REST para consultas de vídeo e resultados de análise. 
 

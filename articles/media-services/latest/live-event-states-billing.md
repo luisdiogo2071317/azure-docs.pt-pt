@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719426"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158014"
 ---
-# <a name="liveevent-states-and-billing"></a>Estados de LiveEvent e faturação
+# <a name="live-event-states-and-billing"></a>Estados de evento em direto e de faturação
 
-Nos serviços de multimédia do Azure, um LiveEvent começa assim que o seu estado faz a transição para de faturação **em execução**. Para parar o LiveEvent de faturação, terá de parar o LiveEvent.
+Nos serviços de multimédia do Azure, um evento Live começa assim que o seu estado faz a transição para de faturação **em execução**. Para parar o evento em direto de faturação, terá de parar o evento em direto.
 
-Quando **LiveEventEncodingType** no seu [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard, os serviços de multimédia automática seja fechado desativar qualquer LiveEvent que ainda está na **em execução** estado 12 horas após o feed de entrada é perdido e há nenhuma **LiveOutput**em execução. No entanto, será serão cobrados a hora a LiveEvent estava a ser o **em execução** estado.
+Quando **LiveEventEncodingType** no seu [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard, os serviços de multimédia automática seja fechado desativar qualquer evento em direto que ainda está na **em execução** estado 12 horas após o feed de entrada é perdido e há nenhuma **Live saída**em execução. No entanto, será serão cobrados a hora do evento em direto foi no **em execução** estado.
 
 ## <a name="states"></a>Estados
 
-O LiveEvent pode ter um dos seguintes Estados.
+O evento em direto pode ter um dos seguintes Estados.
 
 |Estado|Descrição|
 |---|---|
-|**Parado**| Este é o estado inicial do LiveEvent após criação (a menos que o início automático foi definido como true.) Ocorre uma faturação sem neste estado. Neste estado, as propriedades de LiveEvent podem ser atualizadas, mas não é permitida a transmissão em fluxo.|
-|**A partir de**| O LiveEvent está a ser iniciada e os recursos estão a ser alocados. Ocorre uma faturação sem neste estado. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado. Se ocorrer um erro, devolve o LiveEvent para o estado parado.|
-|**Em execução**| Tenham sido gerados LiveEvent recursos teriam sido alocados, ingestão e URLs de pré-visualização e é capaz de receber transmissões em fluxo. Neste momento, a faturação é Active Directory. Deve chamar explicitamente o parar no recurso LiveEvent para parar a faturação ainda mais.|
-|**A parar**| Está a ser parado a LiveEvent e recursos estão a ser desaprovisionados. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
-|**A eliminar**| O LiveEvent está a ser eliminado. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
+|**Parado**| Este é o estado inicial do evento Live após criação (a menos que o início automático foi definido como true.) Ocorre uma faturação sem neste estado. Neste estado, as propriedades de evento em direto podem ser atualizadas, mas não é permitida a transmissão em fluxo.|
+|**A partir de**| O evento em direto está a ser iniciado e os recursos estão a ser alocados. Ocorre uma faturação sem neste estado. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado. Se ocorrer um erro, devolve o evento em direto para o estado parado.|
+|**Em execução**| O evento Live recursos teriam sido alocados, ingestão e URLs de pré-visualização ter sido gerado, e é capaz de receber transmissões em fluxo. Neste momento, a faturação é Active Directory. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais.|
+|**A parar**| O evento em direto está a ser parado e recursos estão a ser desaprovisionados. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
+|**A eliminar**| O evento em direto está a ser eliminado. Ocorre uma faturação sem neste estado transitório. Transmissão em fluxo a pedido ou atualizações não são permitidas durante este estado.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: bae80a63db480d6399c7d192561435494e183844
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900651"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191666"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -129,7 +129,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Este cmdlet irá definir as seguintes permissões: 
  
 
-|Tipo |Nome |Access |Aplica-se A| 
+|Type |Name |Access |Aplica-se A| 
 |-----|-----|-----|-----|
 |Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de dispositivo subordinados| 
 |Permitir |Conta do conector do AD DS|Ler todas as propriedades |Objetos de InetOrgPerson subordinados| 
@@ -155,7 +155,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir|Conta do conector do AD DS|Propriedade de leitura/escrita|MS-DS-Consistency-Guid|Objetos de utilizador de subordinados|
 
@@ -175,7 +175,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta do conector do AD DS |Replicação de alterações de diretório |Apenas este objeto (raiz de domínio)| 
 |Permitir |Conta do conector do AD DS |Replicar diretório muda tudo |Apenas este objeto (raiz de domínio)| 
@@ -195,7 +195,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta do conector do AD DS |Repor palavra-passe |Objetos de utilizador de subordinados| 
 |Permitir |Conta do conector do AD DS |Escrever a propriedade lockoutTime |Objetos de utilizador de subordinados| 
@@ -215,7 +215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta do conector do AD DS |Leitura/gravação genérica |Todos os atributos do grupo de tipo de objeto e subobjetos| 
 |Permitir |Conta do conector do AD DS |Criar/eliminar objeto subordinado |Todos os atributos do grupo de tipo de objeto e subobjetos| 
@@ -238,7 +238,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Este cmdlet irá definir as seguintes permissões:  
  
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de utilizador de subordinados| 
 |Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de InetOrgPerson subordinados| 
@@ -260,7 +260,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
 |Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de PublicFolder subordinados| 
 
@@ -285,18 +285,18 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Este cmdlet irá definir as seguintes permissões: 
 
-|Tipo |Nome |Access |Aplica-se A|
+|Type |Name |Access |Aplica-se A|
 |-----|-----|-----|-----| 
-|Permitir |SISTEMA |Controlo Total |Este objeto 
-|Permitir |Administradores da empresa |Controlo Total |Este objeto 
-|Permitir |Admins do domínio |Controlo Total |Este objeto 
-|Permitir |Administradores |Controlo Total |Este objeto 
+|Permitir |SISTEMA |Controlo total |Este objeto 
+|Permitir |Administradores da empresa |Controlo total |Este objeto 
+|Permitir |Admins do domínio |Controlo total |Este objeto 
+|Permitir |Administradores |Controlo total |Este objeto 
 |Permitir |Controladores de domínio de empresa |Listar conteúdo |Este objeto 
 |Permitir |Controladores de domínio de empresa |Ler todas as propriedades |Este objeto 
-|Permitir |Controladores de domínio de empresa |Permissões de Leitura |Este objeto 
+|Permitir |Controladores de domínio de empresa |Permissões de leitura |Este objeto 
 |Permitir |Utilizadores Autenticados |Listar conteúdo |Este objeto 
 |Permitir |Utilizadores Autenticados |Ler todas as propriedades |Este objeto 
-|Permitir |Utilizadores Autenticados |Permissões de Leitura |Este objeto 
+|Permitir |Utilizadores Autenticados |Permissões de leitura |Este objeto 
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 21e887dab7f2e639b3bd31d7e9448f6e847b2242
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888214"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157266"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquina virtual com a CLI do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -60,13 +60,13 @@ Na shell atual, crie um ficheiro com o nome *customConfig.json* e cole a seguint
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* e gera chaves SSH, caso não existam:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* e gera chaves SSH, caso não existam:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para permitir que o tráfego alcance o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
+Para permitir que o tráfego alcance o servidor Web, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \

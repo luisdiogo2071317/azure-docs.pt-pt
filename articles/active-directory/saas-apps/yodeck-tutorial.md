@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Yodeck | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Yodeck | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Yodeck.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b017efd2c170f543041dcb35a3a3d040389d1dac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2f767e813c2ba803cfafaaf6d9798ee2ea3f93d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436799"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165103"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Azure Active Directory com Yodeck
+# <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Active Directory do Azure com Yodeck
 
 Neste tutorial, saiba como integrar Yodeck com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Yodeck, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Yodeck logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Yodeck com o Azure AD, terá de adicionar Yode
 
 **Para adicionar Yodeck a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -235,7 +235,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

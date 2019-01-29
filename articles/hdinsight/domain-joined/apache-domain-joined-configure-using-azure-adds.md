@@ -9,14 +9,14 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188951"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158830"
 ---
-# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
+# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Pacote de Segurança Enterprise mediante a utilização do Azure Active Directory Domain Services
 
 Os clusters de pacote de segurança da empresa (ESP) fornecem acesso de vários utilizadores em clusters do HDInsight do Azure. Clusters do HDInsight com o ESP estão ligados a um domínio para que os utilizadores de domínio possam utilizar as credenciais de domínio para autenticar com os clusters e executar tarefas de macrodados. 
 
@@ -28,7 +28,11 @@ Neste artigo, irá aprender a configurar um cluster do HDInsight com ESP, utiliz
 ## <a name="enable-azure-ad-ds"></a>Ativar o Azure AD DS
 
 > [!NOTE]  
-> Apenas os administradores de inquilinos tem os privilégios para ativar o Azure AD-DS. Se o armazenamento de cluster é o Azure Data Lake Storage (ADLS) geração 1 ou geração 2, desativar o multi-factor Authentication (MFA) apenas para utilizadores que necessitam de aceder ao cluster. Se o armazenamento de cluster é o armazenamento de Blobs do Azure (WASB), não desative a MFA.
+> Apenas os administradores de inquilinos tem os privilégios para ativar o Azure AD-DS. Se o armazenamento de cluster é o Azure Data Lake Storage (ADLS) geração 1 ou geração 2, tem de desativar o multi-factor Authentication (MFA) apenas para os utilizadores que terão de aceder ao cluster com autenticações de Kerberose básicas. Pode usar [IPs fidedignos](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) ou [acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) para desativar a MFA para utilizadores específicos apenas quando que estão acessando o intervalo de IP de VNET de cluster do HDInsight. Se estiver a utilizar condicional acesso Certifique-se de que esse ponto de final do serviço do AD no ativada na VNET do HDInsight.
+>
+>Se o armazenamento de cluster é o armazenamento de Blobs do Azure (WASB), não desative a MFA.
+
+
 
 Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsight com ESP. Para obter mais informações, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463376"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165460"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração predefinida
 O objetivo deste artigo é para orientá-lo como fazer alterações à configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece passos para alguns cenários comuns. Com esse conhecimento, deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócio.
@@ -265,9 +265,9 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 3. Clique nas **Adicionar nova regra** botão para criar uma nova regra de entrada.
 4. Sob o **Descrição** separador, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
-    | Nome | *Forneça um nome* | Por exemplo, *do AD – UserType do utilizador* |
+    | Name | *Forneça um nome* | Por exemplo, *do AD – UserType do utilizador* |
     | Descrição | *Forneça uma descrição* |  |
     | Sistema ligado | *Escolha os locais conector AD* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
@@ -277,7 +277,7 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 
 5. Vá para o **filtro Scoping** separador e adicione um **único grupo de filtro de âmbito** com a cláusula seguinte:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utilizador\_ |
 
@@ -307,9 +307,9 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
 3. Clique nas **Adicionar nova regra** botão.
 4. Sob o **Descrição** separador, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Forneça um nome* | Por exemplo, *expansão para AAD – UserType do utilizador* |
+    | Name | *Forneça um nome* | Por exemplo, *expansão para AAD – UserType do utilizador* |
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Seleccione o conector AAD* ||
     | Tipo de objeto de sistema ligado | **Utilizador** ||
@@ -319,7 +319,7 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
 
 5. Vá para o **filtro Scoping** separador e adicione um **único grupo de filtro de âmbito** com dois cláusulas:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com nuvem Qumu | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a nuvem Qumu | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Qumu Cloud.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8c4a97b-4de6-49d4-b64e-42222c2ec6c9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e42d83ed7f74b366d2bca248a794cc9fb506b73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f0701a7f046666a135c3325eb22d1d12cbd59ba0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435361"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156892"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Azure Active Directory com nuvem Qumu
+# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem Qumu
 
 Neste tutorial, saiba como integrar Qumu Cloud no Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Qumu Cloud, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma Qumu Cloud logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração da Qumu Cloud com o Azure AD, terá de adicionar 
 
 **Para adicionar Qumu Cloud a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -129,9 +129,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |    
-    | urn:oid:2.5.4.42 | User.givenName |
-    | urn:oid:2.5.4.4 | User.Surname |
-    | urn:oid:0.9.2342.19200300.100.1.3 | User.Mail |
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
 
     a. Clique no atributo para abrir o **Editar atributo** janela.
@@ -159,7 +159,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **Qumu Cloud** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Qumu Cloud](mailto:support@qumu.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -197,7 +197,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na Qumu Cloud. Qumu Cloud suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Qumu Cloud se não existir ainda.
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de Cloud Qumu](mailto:support@qumu.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de Cloud Qumu](mailto:support@qumu.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -229,7 +229,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

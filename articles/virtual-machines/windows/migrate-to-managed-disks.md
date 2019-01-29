@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b87e27ae914a01f03ce78eafe5792433d18e417f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474222"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193714"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure
 
@@ -37,7 +37,7 @@ Pode migrar para Managed Disks nos seguintes cenários:
 | Migre...                                            | Hiperligação para a documentação                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Converter VMs autônomo e VMs no conjunto de disponibilidade para discos geridos   | [Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md) |
-| Uma VM única de clássico para Resource Manager em discos geridos     | [Migrar uma única VM](migrate-single-classic-to-resource-manager.md)  | 
+| Uma VM única de clássico para Resource Manager em discos geridos     | [Criar uma VM a partir de um VHD clássico](create-vm-specialized-portal.md)  | 
 | Todas as VMs numa vNet da implementação clássica para Resource Manager em discos geridos     | [Migrar recursos de IaaS da implementação clássica para Resource Manager](migration-classic-resource-manager-ps.md) e, em seguida, [converter uma VM de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md) | 
 
 

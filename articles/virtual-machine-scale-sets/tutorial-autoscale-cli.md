@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3160624f6daa28c30c0888229ba53b0e80b2bc7a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887993"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170713"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -41,13 +41,13 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#create), da seguinte forma:
+Crie um grupo de recursos com [az group create](/cli/azure/group), da seguinte forma:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#create). O exemplo seguinte cria um conjunto de dimensionamento com uma contagem de instâncias de *2*e gera chaves SSH, caso não existam:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com uma contagem de instâncias de *2*e gera chaves SSH, caso não existam:
 
 ```azurecli-interactive
 az vmss create \

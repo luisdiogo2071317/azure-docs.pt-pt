@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: c150c63bfdba70b256e639497c8daaf2a8cc7dbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 2ef37e9661139b0b1d24ddc005df7bf338397803
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163811"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir o SSO e personalização de token com as políticas personalizadas no Azure Active Directory B2C
 

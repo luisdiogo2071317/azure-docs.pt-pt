@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SignalFx | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com SignalFx | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SignalFx.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437853"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197573"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory com SignalFx
+# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Active Directory do Azure com SignalFx
 
 Neste tutorial, saiba como integrar SignalFx com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com SignalFx, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um SignalFx logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do SignalFx com o Azure AD, terá de adicionar Si
 
 **Para adicionar SignalFx a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -121,12 +121,12 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo |
+    | Nome de atributo | Valor do atributo |
     | ------------------- | -------------------- |    
-    | User.FirstName          | User.givenName |
-    | User.email          | User.Mail |
+    | User.FirstName          | user.givenname |
+    | User.email          | user.mail |
     | PersonImmutableID       | user.userprincipalname    |
-    | User.LastName       | User.Surname    |
+    | User.LastName       | user.surname    |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -223,7 +223,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Signal
 Quando um utilizador inicia sessão SignalFx do SAML SSO pela primeira vez, [equipa de suporte de SignalFx](mailto:kmazzola@signalfx.com) envia um e-mail com uma ligação que eles devem clicar para autenticar. Isso só acontecerá na primeira vez que o utilizador inicia sessão; tentativas de início de sessão subsequentes não irão precisar de validação de e-mail.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [SignalFx a equipa de suporte](mailto:kmazzola@signalfx.com)
+>Se precisar de criar manualmente um utilizador, contacte [SignalFx a equipa de suporte](mailto:kmazzola@signalfx.com)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -255,7 +255,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

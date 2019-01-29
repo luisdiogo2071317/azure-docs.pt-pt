@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com OpsGenie | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com OpsGenie | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e OpsGenie.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444356"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192397"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Azure Active Directory com OpsGenie
+# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com OpsGenie
 
 Neste tutorial, saiba como integrar OpsGenie com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com OpsGenie, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um OpsGenie logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do OpsGenie com o Azure AD, terá de adicionar Op
 
 **Para adicionar OpsGenie a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 

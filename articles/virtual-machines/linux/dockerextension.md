@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882768"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197607"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente do Docker no Azure com a extensão Docker VM
 
@@ -58,7 +58,7 @@ Demora alguns minutos para conclusão da implementação.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Implemente o seu primeiro contentor NGINX
-Para ver os detalhes da sua VM, incluindo o nome DNS, utilize [show de vm de az](/cli/azure/vm#az_vm_show):
+Para ver os detalhes da sua VM, incluindo o nome DNS, utilize [show de vm de az](/cli/azure/vm):
 
 ```azurecli
 az vm show \

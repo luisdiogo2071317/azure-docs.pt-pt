@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Arquivar registos do Azure Active Directory numa conta de armazenamento do Azure (pré-visualização) | Microsoft Docs
+title: Tutorial – registos do arquivo do Azure Active Directory para uma conta de armazenamento (pré-visualização) | Documentos da Microsoft
 description: Saiba como configurar o Diagnóstico do Azure para enviar registos do Azure Active Directory para uma conta de armazenamento (pré-visualização)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 35acd3fa4815be6d60738dd5f5cef9dc9b45d748
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 861239eeffe7665f252cb7a096b487da71eec93e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824563"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197420"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Arquivar registos do Azure AD para uma conta de armazenamento do Azure (pré-visualização)
 

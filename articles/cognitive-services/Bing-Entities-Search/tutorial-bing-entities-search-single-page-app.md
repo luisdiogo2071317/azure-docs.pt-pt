@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Aplicação Web de página única da Pesquisa de Entidades do Bing'
+title: 'Tutorial: Aplicação de web de página única de pesquisa de entidades do Bing'
 titlesuffix: Azure Cognitive Services
 description: Mostra como utilizar a API de Pesquisa de Entidades do Bing numa aplicação Web de página única.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 12/08/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: f8aa6733748bbdf9ffff069126f6481c8b6788c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815550"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197437"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
@@ -378,9 +378,9 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Entidades do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
 
-Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Podem ocorrer erros nas fases seguintes:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
-|Fase|Potencial erro(s)|Resolvido por|
+|Fase|Potenciais erros|Resolvido por|
 |-|-|-|
 |Criar o objeto de pedido JavaScript|URL inválido|bloco `try`/`catch`|
 |Fazer o pedido|Erros de rede, ligações abortadas|Processadores de eventos `error` e `abort`|
@@ -518,18 +518,18 @@ As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
 
-Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver pesquisado termos relacionados com vela, por exemplo, uma pesquisa posterior pela palavra "cais" poderá devolver, preferencialmente, informações sobre cais onde se possa ancorar um barco à vela.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver pesquisado termos relacionados com vela, por exemplo, uma pesquisa posterior pela palavra "cais" poderá devolver, preferencialmente, informações sobre cais onde se possa ancorar um barco à vela.
 
-Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
+Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio que a página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
-> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas na sua chave de subscrição da API, inclusive pedidos feitos por partes não autorizadas, pelo que é importante não expor a chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a chave da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de desenvolvimento, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza ao JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho de ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
+É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
     npm install -g cors-proxy-server
 
@@ -537,13 +537,13 @@ Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Por fim, inicie o proxy CORS com o comando seguinte:
+Por fim, inicie o proxy do CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial; se a fechar, o proxy para. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Entity Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) (Referência da API de Pesquisa de Entidades do Bing)

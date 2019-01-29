@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261575"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198219"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução para os conceitos básicos da criação de partições do reliable services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -129,11 +129,7 @@ Como queremos, literalmente, ter uma partição por letra, podemos usar 0 como a
 1. Open **Visual Studio** > **ficheiro** > **novo** > **projeto**.
 2. Na **novo projeto** diálogo caixa, escolha a aplicação do Service Fabric.
 3. Nomeie o projeto "AlphabetPartitions".
-4. Na **criar um serviço** caixa de diálogo caixa, escolha **com monitoração de estado** de serviço e chamá-lo "Alphabet.Processing" conforme mostrado na imagem abaixo.
-       ![Caixa de diálogo novo serviço no Visual Studio][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. Na **criar um serviço** caixa de diálogo caixa, escolha **com monitoração de estado** de serviço e chamá-lo de "Alphabet.Processing".
 5. Defina o número de partições. Abra o ficheiro applicationmanifest XML localizado na pasta do projeto AlphabetPartitions ApplicationPackageRoot e atualize o parâmetro Processing_PartitionCount para 26, conforme mostrado abaixo.
    
     ```xml
@@ -167,7 +163,7 @@ Como queremos, literalmente, ter uma partição por letra, podemos usar 0 como a
    
     Várias réplicas deste serviço podem ser hospedadas no mesmo computador, por isso, este endereço tem de ser exclusivo para a réplica. Este é o motivo pelo qual o ID de partição + ID de réplica está no URL. HttpListener pode escutar vários endereços na mesma porta, desde que o prefixo de URL é exclusivo.
    
-    O extra GUID existe para um caso avançado, onde as réplicas secundárias são também escutam para pedidos só de leitura. Quando for esse o caso, pretende certificar-se de que um novo endereço exclusivo é utilizado durante a transição do primário para o secundário para forçar os clientes para voltar a resolver o endereço. "+" é utilizado como o endereço aqui, para que a réplica escuta em todos os anfitriões disponíveis (IP, FQDM, localhost, etc.) O código abaixo mostra um exemplo.
+    O extra GUID existe para um caso avançado, onde as réplicas secundárias são também escutam para pedidos só de leitura. Quando for esse o caso, pretende certificar-se de que um novo endereço exclusivo é utilizado durante a transição do primário para o secundário para forçar os clientes para voltar a resolver o endereço. "+" é utilizado como o endereço aqui, para que a réplica escuta em todos os anfitriões disponíveis (IP, FQDN, localhost, etc.) O código abaixo mostra um exemplo.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -365,7 +361,7 @@ Como queremos, literalmente, ter uma partição por letra, podemos usar 0 como a
 O código-fonte completo do exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Serviços fiáveis e de Ator bifurcação subprocessos por
-Não suporta o Service Fabric reliable services e, em seguida, reliable actors bifurcação subprocessos por. É um exemplo de por que motivo não suportado [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocess não suportado, e o cancelamento dos tokens é enviado apenas para processos de registred resultando em todos os tipos de problemas, tais como Atualize a falhas, quando subprocessos por não feche o após o processo pai recebeu um token de cancelamento. 
+Não suporta o Service Fabric reliable services e, em seguida, reliable actors bifurcação subprocessos por. É um exemplo de por que motivo não suportado [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser utilizado para registar um subprocess não suportado e cancelamento tokens são enviados apenas para registrado processa; resultando em todos os tipos de problemas, tais como Atualize a falhas, quando subprocessos por não feche o após o processo pai recebeu um token de cancelamento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre conceitos do Service Fabric, consulte o seguinte:

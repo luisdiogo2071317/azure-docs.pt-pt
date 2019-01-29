@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 6e596b0db1a03efbf6b029487ed956105b632edb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0501ccbf2b5d9124a82cb1758e09236e8ad8455a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972809"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197981"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de thumbprint do certificado para o nome comum
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Mudar de um cluster implementado da utilização de thumbprints de certificado a utilizar nomes comuns do certificado faz a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.
@@ -94,6 +94,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
+
+>[!NOTE]
+> Calcula a segredos de conjunto de dimensionamento de Máquina Virtual não suporta o mesmo id de recurso para dois segredos separados, como cada segredo é um recurso exclusivo com a versão. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Transferir e atualizar o modelo a partir do portal
 O certificado foi instalado no conjunto de dimensionamento subjacente, mas também tem de atualizar o cluster do Service Fabric para utilizar esse certificado e o respetivo nome comum.  Agora, transfira o modelo para a sua implementação de cluster.  Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que aloja o cluster.  Na **configurações**, selecione **implementações**.  Selecione a implementação mais recente e clique em **modelo de exibição**.

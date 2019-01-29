@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167075"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ O **protocolo** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| Name | Sim | O nome de um protocolo válido suportado pelo Azure AD B2C. Os valores possíveis são:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
 | PartnerClaimType | Sim | O nome do tipo de afirmação a ser utilizado. |
 
 No exemplo seguinte, quando o Framework de experiência de identidade interage com um fornecedor de identidade SAML2 ou a aplicação da entidade confiadora de terceiros, o **Apelido** afirmação é mapeada para `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, com OpenIdConnect e OAuth2, a afirmação é mapeado para `family_name`.
@@ -106,7 +106,7 @@ O **máscara** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Tipo | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
+| Type | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
 | RegEx | Não | Se **tipo** está definida como `Regex`, especifique a expressão regular a utilizar.
 
 O exemplo seguinte configura um **PhoneNumber** a afirmação com o `Simple` máscara:
@@ -162,7 +162,7 @@ O **enumeração** elemento contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de apresentação que é mostrada ao usuário na interface do usuário para esta opção. |
-|Valor | Sim | O valor de afirmação que está associado a seleção desta opção. |
+|Value | Sim | O valor de afirmação que está associado a seleção desta opção. |
 | SelectByDefault | Não | Indica se é ou não essa opção deve ser selecionada por predefinição na interface do Usuário. Valores possíveis: VERDADEIRO ou FALSO. |
 
 O exemplo seguinte configura um **Cidade** afirmação de lista suspensa com um valor predefinido definido como `New York`:

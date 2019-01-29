@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 1e2bdeeb8f2b59d69e761303176c36b26f47d4c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189132"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165494"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso para funções de recursos do Azure no PIM
 Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de acesso foi iniciada](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
@@ -63,4 +63,4 @@ Ver e adicionar revisores a sua revisão de acesso existentes. Notificar os revi
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Iniciar uma revisão de acesso para funções de recursos do Azure no PIM](pim-resource-roles-start-access-review.md)
-- [Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM](pim-resource-roles-perform-access-review.md)
+- [Efetuar uma revisão de acesso das minhas funções de recurso no PIM](pim-resource-roles-perform-access-review.md)

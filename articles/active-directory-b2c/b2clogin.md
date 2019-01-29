@@ -1,5 +1,5 @@
 ---
-title: Conjunto redirecionar URLs b2clogin.com para o Azure Active Directory B2C | Documentos da Microsoft
+title: Conjunto redirecionar URLs para b2clogin.com - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre como utilizar b2clogin.com no seu redirecionamento URLs para o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/28/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 147d8e80c66bd47ed56400deca024532fc7e39c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160909"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Conjunto redirecionar URLs b2clogin.com para o Azure Active Directory B2C
 
@@ -23,8 +23,8 @@ Quando configurar um fornecedor de identidade para inscrição e início de sess
 
 Utilizar b2clogin.com dá-lhe benefícios adicionais, tais como:
 
-- Cookies já não são partilhados com outros serviços Microsoft.
-- Suas URLs deixarão de incluir uma referência à Microsoft. Por exemplo, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+- Espaço consumido no cabeçalho de cookie por serviços da Microsoft é reduzido.
+- Suas URLs deixarão de incluir uma referência à Microsoft. Por exemplo, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 Considere estas definições que poderão ter de alterar quando utilizar b2clogin.com:
 
@@ -60,7 +60,9 @@ A aplicação do Azure AD B2C refere-se provavelmente a `login.microsoftonline.c
 
 ## <a name="set-the-validateauthority-property"></a>Defina a propriedade ValidateAuthority
 
-Se estiver a utilizar a MSAL, defina o **ValidateAuthority** para `false`. O exemplo seguinte mostra como pode definir a propriedade:
+Se estiver a utilizar a MSAL, defina o **ValidateAuthority** propriedade `false`. Quando **ValidateAuthority** está definida como `false`, redirecionamentos têm permissão para b2clogin.com. 
+
+O exemplo seguinte mostra como pode definir a propriedade:
 
 Na [MSAL para .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
 

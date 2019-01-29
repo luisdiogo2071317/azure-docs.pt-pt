@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397779"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192405"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de uma aplicação na cloud
 
@@ -30,7 +30,7 @@ O [Armazenamento de blobs do Azure](../common/storage-introduction.md#blob-stora
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Automatizar o redimensionamento de imagens carregadas com o Event Grid][previous-tutorial]. 
+Para concluir este tutorial tem de ter concluído o tutorial de armazenamento anterior: [Automatizar o redimensionamento de imagens carregadas com o Event Grid][previous-tutorial]. 
 
 ## <a name="set-container-public-access"></a>Definir o acesso público ao contentor
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Na primeira parte desta série de tutoriais, a aplicação Web estava a mostrar imagens de um contentor público. Nesta parte da série, utilize os tokens [Assinatura de Acesso Partilhado (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) para obter as imagens em miniatura. Os tokens SAS permitem-lhe proporcionar acesso restrito a um contentor ou blob com base em IP, protocolo, intervalo de tempo ou direitos permitidos.
 
-Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que tem um exemplo de código atualizado. Elimine a implementação do GitHub existente com [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config).  
+Neste exemplo, o repositório de código fonte utiliza o ramo `sasTokens`, que tem um exemplo de código atualizado. Elimine a implementação do GitHub existente com [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
 No comando seguinte, `<web-app>` é o nome da aplicação Web.  
 
@@ -164,7 +164,7 @@ Agora que a transferência segura é necessária, recebe a mensagem seguinte:
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na terceira parte da série, aprendeu a proteger o acesso à conta de armazenamento, como:
 

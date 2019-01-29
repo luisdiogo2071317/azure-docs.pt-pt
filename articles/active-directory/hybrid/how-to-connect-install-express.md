@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/28/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b3b90950ea0ade8064680e813958b0575d11aab6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5be80334491afdb7e65a1a5e663258d68ec83d4f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158932"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.

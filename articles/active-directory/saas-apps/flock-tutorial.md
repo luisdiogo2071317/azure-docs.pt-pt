@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Flock | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Flock | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Flock.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6589bbe581ec5e4ca3a18363ede427bf08f8b7cc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d12180ef14c8a91893a4a158ff1b1c5cac06f0e1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428129"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176034"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Azure Active Directory com Flock
+# <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Active Directory do Azure com Flock
 
 Neste tutorial, saiba como integrar Flock com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Flock, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Flock logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Flock com o Azure AD, terá de adicionar Flock
 
 **Para adicionar Flock a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -227,7 +227,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

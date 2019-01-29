@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ContractWorks | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com ContractWorks | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ContractWorks.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427746"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182290"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Azure Active Directory com ContractWorks
+# <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Active Directory do Azure com ContractWorks
 
 Neste tutorial, saiba como integrar ContractWorks com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com ContractWorks, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um ContractWorks início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do ContractWorks com o Azure AD, terá de adicion
 
 **Para adicionar ContractWorks a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -124,7 +124,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |
-    | mail | User.Mail |
+    | mail | user.mail |
     | displayName | user.displayname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -141,7 +141,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     d. Clique em **Ok**
 
-1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
     
     ![Configurar o início de sessão único](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-contractworks-test-user"></a>Criar um utilizador de teste ContractWorks
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ContractWorks. Trabalhar com [equipa de suporte de ContractWorks](mailto:support@contractworks.com) para adicionar os utilizadores na plataforma ContractWorks. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ContractWorks. Trabalhar com [equipa de suporte de ContractWorks](mailto:support@contractworks.com) para adicionar os utilizadores na plataforma ContractWorks. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -217,7 +217,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189179"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160054"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Iniciar uma revisão de acesso para funções de recursos do Azure no PIM
 Atribuições de função tornam-se "obsoletas" quando os utilizadores tem acesso que não precisam mais privilegiado. Para reduzir o risco associado a estas atribuições de função obsoleta, os administradores de função com privilégios regularmente devem rever funções. Este documento aborda os passos para iniciar uma revisão de acesso no Privileged Identity Management (PIM) para recursos do Azure.
@@ -54,7 +54,7 @@ Existem três opções para a execução de uma revisão. Pode atribuir a revis�
 
 1. Escolha uma das opções:
    
-   * **Utilizadores selecionados**: Utilize esta opção se não sabe quem precisa de acesso. Com esta opção, pode atribuir a revisão a um proprietário do recurso ou o Gestor de grupo para concluir.
+   * **Utilizadores selecionados**: Utilize esta opção quando não sabe quem precisa de acesso. Com esta opção, pode atribuir a revisão a um proprietário do recurso ou o Gestor de grupo para concluir.
    * **Atribuído (autónomo)**: Utilize esta opção para que os utilizadores, reveja as suas próprias atribuições de funções.
    
 2. Aceda a **selecionar revisores**.
@@ -74,5 +74,5 @@ Até que o período de avaliação está acima, pode relembrar aos utilizadores 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Concluir uma revisão de acesso para funções de recursos do Azure no PIM](pim-resource-roles-complete-access-review.md)
-- [Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM](pim-resource-roles-perform-access-review.md)
+- [Efetuar uma revisão de acesso das minhas funções de recurso no PIM](pim-resource-roles-perform-access-review.md)
 - [Iniciar uma revisão de acesso para funções de diretório do Azure AD no PIM](pim-how-to-start-security-review.md)

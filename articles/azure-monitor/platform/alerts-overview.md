@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464124"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156416"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -23,7 +23,7 @@ Este artigo descreve quais os alertas são, seus benefícios e como começar a u
 ## <a name="what-are-alerts-in-microsoft-azure"></a>O que são alertas no Microsoft Azure?
 Alertas de forma proativa notificá-lo quando importante condições forem encontradas nos seus dados de monitorização. Eles permitem que identificar e resolver problemas antes dos utilizadores do seu sistema tenha em atenção-los. 
 
-Este artigo aborda a experiência unificada de alerta no Azure Monitor, que inclui agora o Log Analytics e Application Insights. O [experiência anterior de alerta](alerts-overview.md) e são chamados de tipos de alerta **alertas clássicos**. Pode ver esta experiência anterior e o tipo de alerta mais antigo, clicando em **ver alertas clássicos** na parte superior da página do alerta. 
+Este artigo aborda a experiência unificada de alerta no Azure Monitor, que inclui agora o Log Analytics e Application Insights. O [experiência anterior de alerta](alerts-classic.overview.md) e são chamados de tipos de alerta **alertas clássicos**. Pode ver esta experiência anterior e o tipo de alerta mais antigo, clicando em **ver alertas clássicos** na parte superior da página do alerta. 
 
 ## <a name="overview"></a>Descrição geral
 
@@ -63,6 +63,13 @@ Pode alertar relativamente métricas e registos, conforme descrito em [origens d
 - Estado de funcionamento da plataforma Azure subjacente
 - Testes de disponibilidade do site
 
+Anteriormente, métricas, Application Insights, do Log Analytics e o estado de funcionamento do serviço Azure Monitor tinham capacidades de alertas separadas. Ao longo do tempo, o Azure melhorada e combinados a interface do usuário e os métodos diferentes de alertas. Esta consolidação ainda está em processo. Como resultado, ainda existem algumas capacidades de alertas não ainda no novo sistema de alertas.  
+
+| **Origem de monitor** | **Tipo de sinal**  | **Descrição** | 
+|-------------|----------------|-------------|
+| Estado de funcionamento do serviço | Registo de atividades  | Não suportado. Ver [criar alertas do registo de atividade nas notificações do serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Testes de disponibilidade da Web | Não suportado. Ver [alertas de teste Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer Web site que foi instrumentada para enviar dados para o Application Insights. Receba uma notificação quando a disponibilidade ou a capacidade de resposta de um Web site é inferior expectativas. |
+
 ## <a name="manage-alerts"></a>Gerir alertas
 Pode definir o estado de um alerta para especificar onde se encontra no processo de resolução. Quando os critérios especificados na regra de alerta são cumpridos, um alerta é criado ou disparado, ele tem o estado *New*. Pode alterar o estado quando reconhece um alerta e quando fechá-lo. Todas as alterações de estado são armazenadas no histórico do alerta.
 
@@ -99,7 +106,7 @@ Pode filtrar esta vista ao selecionar os valores nos menus de lista pendente na 
 
 Selecione os seguintes valores na parte superior da página de alertas para abrir outra página.
 
-| Valor | Descrição |
+| Value | Descrição |
 |:---|:---|
 | Alertas totais | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criadas a partir os alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a lista de grupos inteligente na vista de todos os alertas.
@@ -124,14 +131,7 @@ Este processo de criação simplificado já não necessita de saber a origem de 
 
 Pode saber mais sobre como criar regras de alerta no [criar, ver e gerir alertas ao utilizar o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Alertas estão disponíveis em todo o Azure vários serviços de monitorização. Para obter informações sobre como e quando usar cada um desses serviços, consulte [aplicações de monitorização do Azure e recursos](../../azure-monitor/overview.md). A tabela seguinte fornece uma listagem dos tipos de regras de alerta que estão disponíveis em todo o Azure. Também apresenta o que é atualmente suportado no que experiência de alerta.
-
-Anteriormente, o Azure Monitor, o Application Insights, o Log Analytics e o estado de funcionamento do serviço tinham capacidades de alertas separadas. Horas extraordinárias, o Azure melhorada e combinados a interface do usuário e os métodos diferentes de alertas. Esta consolidação ainda está em processo. Como resultado, ainda existem algumas capacidades de alertas não ainda no novo sistema de alertas.  
-
-| **Origem de monitor** | **Tipo de sinal**  | **Descrição** | 
-|-------------|----------------|-------------|
-| Estado de funcionamento do serviço | Registo de atividades  | Não suportado. Ver [criar alertas do registo de atividade nas notificações do serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Testes de disponibilidade da Web | Não suportado. Ver [alertas de teste Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer Web site que foi instrumentada para enviar dados para o Application Insights. Receba uma notificação quando a disponibilidade ou a capacidade de resposta de um Web site é inferior expectativas. |
+Alertas estão disponíveis em todo o Azure vários serviços de monitorização. Para obter informações sobre como e quando usar cada um desses serviços, consulte [aplicações de monitorização do Azure e recursos](../../azure-monitor/overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Página de todos os alertas 
