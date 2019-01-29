@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar uma aplicação Web de página única – API de Pesquisa na Web do Bing'
+title: 'Tutorial: Criar uma aplicação web de página única - API de pesquisa Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Esta aplicação de página única demonstra como a API de Pesquisa na Web do Bing pode ser utilizada para obter, analisar e apresentar resultados de pesquisa relevantes numa aplicação de página única.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 13040cf7f75b8bf2c0bf898dc4f3b16c99a80560
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126484"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172482"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de pesquisa Web Bing
 
 Esta aplicação de página única demonstra como obter, analisar e apresentar resultados de pesquisa a partir da API de Pesquisa na Web do Bing. O tutorial utiliza CSS e HTML automático e centra-se no código JavaScript. Os ficheiros HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 
@@ -464,7 +464,7 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de exemplo. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP abaixo dos resultados da pesquisa, o cabeçalho `X-MSEdge-ClientID` deverá estar visível. Verifique que é o mesmo para todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa na Web do Bing v7](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

@@ -12,24 +12,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/15/2019
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 2eeb47c2e0f96eca1ca9b852a2be6ca3102ba71e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 512eb765e626118e49d2732338d0d5bd7252f3f8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353350"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100585"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Exemplo da CLI: Criar uma conta dos Azure Media Services
 
 O script da CLI do Azure neste tópico mostra como criar uma conta dos Serviços de Multimédia do Azure. Conta de Media Services e a conta de armazenamento associado ao mesmo têm de ser parte do mesmo centro de dados e o mesmo grupo de recursos.
 
-## <a name="prerequisites"></a>Pré-requisitos 
-
-Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
-Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

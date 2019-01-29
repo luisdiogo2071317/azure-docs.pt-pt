@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a7e4a20905b390945c22557af044cf739bc17ce8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297627"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197216"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Utilizar um grupo para gerir o acesso a aplicações SaaS
 Utilizar o Azure Active Directory (Azure AD) com uma licença do Azure AD Premium ou do Azure AD básico, pode utilizar grupos para atribuir acesso a uma aplicação SaaS que está integrada com o Azure AD. Por exemplo, se pretender atribuir acesso para o departamento de marketing utilizar cinco aplicações SaaS diferentes, pode criar um grupo que contenha os utilizadores do departamento de marketing e, em seguida, atribua esse grupo para estas cinco aplicativos de SaaS que são necessários para o departamento de marketing. Desta forma, que pode poupar tempo gerenciando a associação do departamento de marketing num único local. Os utilizadores, em seguida, são atribuídos à aplicação quando são adicionados como membros do grupo de marketing, e tem suas atribuições removidas da aplicação quando os mesmos serão removidos do grupo de marketing. Esse recurso pode ser usado com centenas de aplicativos que pode adicionar a partir de Galeria de aplicações do Azure AD.
@@ -40,7 +40,7 @@ Utilizar o Azure Active Directory (Azure AD) com uma licença do Azure AD Premiu
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Gestão de aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
+* [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md)
 * [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

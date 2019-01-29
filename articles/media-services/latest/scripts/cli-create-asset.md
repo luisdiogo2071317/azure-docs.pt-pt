@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 76d2adf3c408e174081c3106e07a87f751b4a179
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bbcd6bfabacf39a5af5a79b935d5ab865603b7b4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612666"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102005"
 ---
-# <a name="cli-example-create-an-asset"></a>Exemplo de CLI: criar um recurso
+# <a name="cli-example-create-an-asset"></a>Exemplo da CLI: Criar um Elemento
 
 O script da CLI do Azure neste artigo mostra como criar um Recurso dos Serviços de Multimédia para o qual carregar conteúdo.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+[Criar uma conta de Media Services](../create-account-cli-how-to.md).
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

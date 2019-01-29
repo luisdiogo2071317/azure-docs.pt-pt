@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: API de Verificação de Ortografia do Bing, Java'
+title: 'Início rápido: API de Java de verificação ortográfica do Bing'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Verificação de Ortografia do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 90963f90d4526a6495ec9de73e10f2cd792841e0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d859d2815f47d753c56002a9484f97149e71f1e4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159253"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-java"></a>Início Rápido da API de Verificação de Ortografia do Bing com Java 
 
@@ -128,7 +128,7 @@ public class HelloWorld {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Verificação de Ortografia do Bing](../tutorials/spellcheck.md)
@@ -136,4 +136,4 @@ public class HelloWorld {
 ## <a name="see-also"></a>Consulte também
 
 - [Descrição geral da Verificação de Ortografia do Bing](../proof-text.md)
-- [Referência da API de Verificação de Ortografia do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

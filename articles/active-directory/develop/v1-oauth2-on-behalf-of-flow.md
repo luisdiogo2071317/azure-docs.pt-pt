@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422750"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094381"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço a serviço chama essa identidade de utilizador delegada de utilização no fluxo em-nome-de
 
@@ -37,7 +37,7 @@ O fluxo do OAuth 2.0 On-Behalf-Of (OBO) permite que um aplicativo que invoca um 
 
 O fluxo OBO começa depois do utilizador ser autenticado num aplicativo que utiliza a [fluxo de concessão de código de autorização de OAuth 2.0](v1-protocols-oauth-code.md). Nesse ponto, a aplicação envia um token de acesso (token A) para a web API (API A) de camada intermediária que contêm afirmações do utilizador e o consentimento para aceder a API. Em seguida, API A faz um pedido autenticado para o web API (API B) a jusante.
 
-Estes passos constituem o fluxo em-nome-de: ![OAuth2.0 On-Behalf-Of fluxo](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Estes passos constituem o fluxo em-nome-de: ![OAuth2.0 em-nome-de fluxo](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. A aplicação cliente faz um pedido para API A com o token de r.
 1. API A se autentica o ponto de final de emissão de token do Azure AD e solicita um token para aceder a b de API.
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 A aplicação de cliente é protegida por um segredo partilhado ou por um certificado.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Em primeiro lugar de caso: pedido de token de acesso com um segredo partilhado
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Pedido de token de acesso com um segredo partilhado
 
 Ao usar um segredo partilhado, um pedido de token de acesso de serviço para serviço contém os seguintes parâmetros:
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: pedido de token de acesso com um certificado
+### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Pedido de token de acesso com um certificado
 
 Um pedido de token de acesso de serviço para serviço com um certificado contém os seguintes parâmetros:
 
@@ -181,7 +181,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os seguintes parâmetr
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte a [Framework de autorização do OAuth 2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte o [Framework de autorização do OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
@@ -263,16 +263,16 @@ Um pedido de serviço a serviço para uma asserção de SAML contém os seguinte
 
 A resposta contém um token SAML com codificação UTF8 e Base64url.
 
-- **SubjectConfirmationData para uma asserção de SAML obtido de uma chamada OBO**: se a aplicação de destino requer um valor de destinatário no **SubjectConfirmationData**, em seguida, o valor tem de ser um URL de resposta de carateres não universais no configuração da aplicação de recurso.
-- **O nó de SubjectConfirmationData**: O nó não pode conter um **InResponseTo** de atributos, uma vez que não faz parte de uma resposta SAML. O aplicativo receber o token SAML deve ser capaz de aceitar a asserção de SAML sem uma **InResponseTo** atributo.
+- **SubjectConfirmationData para uma asserção de SAML obtido de uma chamada OBO**: Se a aplicação de destino requer um valor de destinatário no **SubjectConfirmationData**, em seguida, o valor tem de ser um URL de resposta de carateres não universais na configuração da aplicação de recurso.
+- **O nó de SubjectConfirmationData**: O nó não pode conter uma **InResponseTo** de atributos, uma vez que não faz parte de uma resposta SAML. O aplicativo receber o token SAML deve ser capaz de aceitar a asserção de SAML sem uma **InResponseTo** atributo.
 
-- **Consentir**: consentimento deve ter sido concedido para receber um token SAML que contém dados de usuário num fluxo de OAuth. Para obter informações sobre permissões e obter consentimento de administrador, consulte [permissões e consentimento no ponto de final do Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Consentir**: Consentimento deve ter sido concedido para receber um token SAML que contém dados de usuário num fluxo de OAuth. Para obter informações sobre permissões e obter consentimento de administrador, consulte [permissões e consentimento no ponto de final do Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Resposta com asserção de SAML
 
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização do OAuth 2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização do OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
@@ -280,14 +280,14 @@ A resposta contém um token SAML com codificação UTF8 e Base64url.
 | access_token |O parâmetro que retorna a asserção de SAML. |
 | refresh_token |O token de atualização. O serviço de chamada pode utilizar este token para solicitar outro token de acesso após a asserção de SAML atual expira. |
 
-- token_type: portador
+- token_type: Portador
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
 - recurso: `https://api.contoso.com`
-- access_token: \<asserção de SAML\>
-- issued_token_type: urn: ietf:params:oauth:token-tipo: saml2
-- refresh_token: \<token de atualização\>
+- access_token: \<Asserção de SAML\>
+- issued_token_type: urn:ietf:params:oauth:token-type:saml2
+- refresh_token: \<Atualizar token\>
 
 ## <a name="client-limitations"></a>Limitações de cliente
 

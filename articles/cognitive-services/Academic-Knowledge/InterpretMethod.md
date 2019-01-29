@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171665"
 ---
 # <a name="interpret-method"></a>interpretar o método
 
@@ -33,25 +33,25 @@ Nome     | Valor | Necessário?  | Descrição
 ---------|---------|---------|---------
 **query**    | Cadeia de texto | Sim | Consulta introduzida pelo utilizador.  Se completa é definida como 1, consulta será interpretada como um prefixo para gerar sugestões de conclusão automática de consulta.        
 **Modelo**    | Cadeia de texto | Não  | Nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.        
-**Concluir** | 0 ou 1 | Não<br>predefinição: 0  | 1 significa que as sugestões de conclusão automática são geradas com base nos dados de gramática e de gráfico.         
-**Contagem**    | Number | Não<br>predefinição: 10 | Número máximo de interpretações a devolver.         
-**deslocamento**   | Number | Não<br>predefinição: 0  | Índice da interpretação de primeira para retornar. Por exemplo, *contagem = 2 Desl & ocamento = 0* devolve interpretações 0 e 1. *contagem = 2 Desl & ocamento = 2* devolve interpretações, 2 e 3.       
-**Tempo limite**  | Number | Não<br>predefinição: 1000 | Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+**complete** | 0 ou 1 | Não<br>predefinição: 0  | 1 significa que as sugestões de conclusão automática são geradas com base nos dados de gramática e de gráfico.         
+**count**    | Number | Não<br>predefinição: 10 | Número máximo de interpretações a devolver.         
+**offset**   | Number | Não<br>predefinição: 0  | Índice da interpretação de primeira para retornar. Por exemplo, *contagem = 2 Desl & ocamento = 0* devolve interpretações 0 e 1. *contagem = 2 Desl & ocamento = 2* devolve interpretações, 2 e 3.       
+**timeout**  | Number | Não<br>predefinição: 1000 | Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
 <br>
   
 ## <a name="response-json"></a>Resposta (JSON)
 Nome     | Descrição
 ---------|---------
 **query** |O *consulta* parâmetro no pedido.
-**interpretações** |Uma matriz de 0 ou mais diferentes formas de entrada do usuário em relação a gramática de correspondentes.
-**.logprob interpretações [x]**  |A probabilidade de registo natural relativa da interpretação. Valores maiores têm maior probabilidade.
-**.parse interpretações [x]**  |Uma cadeia de caracteres XML que mostra como cada parte da consulta era interpretada.
-**Rules interpretações [x]**  |Uma matriz de 1 ou mais regras definidas na gramática que foram chamados durante a interpretação. Para a API de conhecimento académico, sempre haverá 1 regra.
-**interpretações [Name. Rules [y] x]**  |nome da regra.
-**interpretações [.output. Rules [y] x]**  |Saída da regra.
-**interpretações [.output.type. Rules [y] x]** |O tipo de dados de saída da regra.  A API de conhecimento académico, sempre será "consulta".
-**interpretações [.output.value. Rules [y] x]**  |A saída da regra. Para a API de conhecimento académico, esta é uma cadeia de expressão de consulta que pode ser passada para o método evaluate e calchistogram.
-**abortada** | VERDADEIRO se o pedido excedeu o limite de tempo.
+**interpretations** |Uma matriz de 0 ou mais diferentes formas de entrada do usuário em relação a gramática de correspondentes.
+**interpretations[x].logprob**  |A probabilidade de registo natural relativa da interpretação. Valores maiores têm maior probabilidade.
+**interpretations[x].parse**  |Uma cadeia de caracteres XML que mostra como cada parte da consulta era interpretada.
+**interpretations[x].rules**  |Uma matriz de 1 ou mais regras definidas na gramática que foram chamados durante a interpretação. Para a API de conhecimento académico, sempre haverá 1 regra.
+**interpretations[x].rules[y].name**  |nome da regra.
+**interpretations[x].rules[y].output**  |Saída da regra.
+**interpretations[x].rules[y].output.type** |O tipo de dados de saída da regra.  A API de conhecimento académico, sempre será "consulta".
+**interpretations[x].rules[y].output.value**  |A saída da regra. Para a API de conhecimento académico, esta é uma cadeia de expressão de consulta que pode ser passada para o método evaluate e calchistogram.
+**aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
 
 <br>
 #### <a name="example"></a>Exemplo:

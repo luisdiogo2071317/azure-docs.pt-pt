@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7aebfbf3222715b1e15269aa777b2a6091aee90d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881830"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163063"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com o conjunto com a CLI do Azure de dimensionamento de máquina virtual
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
@@ -132,7 +132,7 @@ Os discos criados e anexados às instâncias de VM do conjunto de dimensionament
 
 Para automatizar o processo em múltiplas instâncias de VM num conjunto de dimensionamento, pode utilizar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-O exemplo seguinte executa um script a partir de um repositório de exemplo do GitHub em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) que prepara todos os discos de dados não processados anexados:
+O exemplo seguinte executa um script a partir de um repositório de exemplo do GitHub em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension) que prepara todos os discos de dados não processados anexados:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ São apresentadas informações sobre o tamanho do disco, a camada de armazename
 
 
 ## <a name="detach-a-disk"></a>Desligar um disco
-Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss#az_vmss_show) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
+Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss#az_vmss_show) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az vmss disk detach \

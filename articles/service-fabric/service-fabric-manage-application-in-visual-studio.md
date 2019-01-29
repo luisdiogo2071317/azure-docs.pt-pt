@@ -1,5 +1,5 @@
 ---
-title: Gerir as suas aplicações do Azure Fabric Servic no Visual Studio | Documentos da Microsoft
+title: Gerir as suas aplicações do Azure Service Fabric no Visual Studio | Documentos da Microsoft
 description: Utilize o Visual Studio para criar, desenvolver, empacotar, implementar e depurar as suas aplicações do Azure Service Fabric e serviços.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001707"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192558"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilizar o Visual Studio para simplificar a criação e gestão das suas aplicações do Service Fabric
 Pode gerenciar seus aplicativos de Azure Service Fabric e serviços através do Visual Studio. Assim que tiver [configurar o ambiente de desenvolvimento](service-fabric-get-started.md), pode utilizar o Visual Studio para criar aplicações do Service Fabric, serviços, ou pacote, registre-se de adicionar e implementar aplicações no seu cluster de desenvolvimento local.
@@ -47,7 +47,7 @@ Visual Studio fornecem uma propriedade chamada **modo de depuração do aplicati
 
 #### <a name="application-debug-modes"></a>Modos de depuração da aplicação
 
-1. **Atualizar aplicação** este modo permite-lhe rapidamente alterar e depurar seu código e suporta edição de arquivos de web estática durante a depuração. Neste modo, só funciona se o cluster de desenvolvimento local está em [modo de 1 nó](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Esta é a predefinição do modo de depuração do aplicativo.
+1. **Atualizar aplicação** este modo permite-lhe rapidamente alterar e depurar seu código e suporta edição de arquivos de web estática durante a depuração. Este modo só funciona se o cluster de desenvolvimento local estiver no modo de 1 nó. Esta é a predefinição do modo de depuração do aplicativo.
 2. **Remover aplicação** faz com que o aplicativo a serem removidos quando termina a sessão de depuração.
 3. **Atualizar de automático** a aplicação continua a ser executada quando termina a sessão de depuração. A próxima sessão de depuração tratará da implementação como uma atualização. O processo de atualização preserva todos os dados que introduziu numa sessão de depuração anterior.
 4. **Manter o aplicativo** o aplicativo permanece em execução no cluster quando termina a sessão de depuração. No início da próxima sessão de depuração, o aplicativo será removido.

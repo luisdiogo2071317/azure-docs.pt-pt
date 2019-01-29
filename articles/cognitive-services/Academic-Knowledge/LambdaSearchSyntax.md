@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203934"
 ---
 # <a name="lambda-search-syntax"></a>Sintaxe de pesquisa lambda
 
@@ -93,7 +93,7 @@ Devolve *Action.Continue* se a condição for *verdadeiro*. Se a condição for 
 
 Gera um número aleatório que é maior que ou igual a 0,0 e menor que 1,0. Esta função devolve *true* apenas se o número for menor ou igual a *p*.
 
-Em comparação com *json* pesquisa, *lambda* pesquisa é mais expressiva: c# as expressões lambda podem ser utilizadas diretamente para especificar padrões de consulta. Aqui estão dois exemplos.
+Em comparação com *json* pesquisa, *lambda* pesquisa é mais expressiva: C#as expressões lambda podem ser utilizadas diretamente para especificar padrões de consulta. Aqui estão dois exemplos.
 
 ```
 MAG.StartFrom(@"{

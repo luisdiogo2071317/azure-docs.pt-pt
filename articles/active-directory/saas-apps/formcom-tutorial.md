@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Form.com | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Form.com | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Form.com.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5748cad11e8e0e4bdfd1000b312ab44fc304059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449626"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161067"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory com Form.com
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Active Directory do Azure com Form.com
 
 Neste tutorial, saiba como integrar Form.com com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Form.com, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Form.com logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Form.com com o Azure AD, terá de adicionar Fo
 
 **Para adicionar Form.com a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -123,11 +123,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão de real, a URL de resposta e o identificador. Contacte [equipa de suporte de cliente Form.com](https://form.com/about/company/contact-us/) obter esses valores.
 
-1. Sobre o **certificado de assinatura SAML** secção, execute os seguintes passos:
+1. Sobre o **certificado de assinatura SAML** secção, execute os seguintes passos:
     
     ![Configurar o início de sessão único](./media/formcom-tutorial/tutorial_metadataurl.png)
 
-    a. Clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+    a. Clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
 
     b. Clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
      
@@ -207,7 +207,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

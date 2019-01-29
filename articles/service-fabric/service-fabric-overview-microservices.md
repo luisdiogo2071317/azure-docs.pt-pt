@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613686"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102821"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que um microsserviços aborda a criação de aplicações?
 
@@ -33,11 +33,11 @@ As necessidades comerciais variáveis são:
 
 Essas necessidades de negócios estão a afetar *como* criamos aplicativos.
 
-Para obter mais informações sobre a abordagem do Azure para os microsserviços, leia [Microsserviços: uma revolução de aplicação com a tecnologia de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+Para obter mais informações sobre a abordagem do Azure para os microsserviços, leia [Microsserviços: Uma revolução de aplicação com a tecnologia de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Monolíticos vs. a abordagem de design de microsserviços
 
-Aplicativos evoluam ao longo do tempo. Aplicativos bem-sucedidos evoluem pelo facto de ser úteis para pessoas. Aplicativos sem êxito não evoluir e, eventualmente, são preteridos. A pergunta é: quanto sabe sobre os requisitos de hoje e o que eles estarão no futuro? Por exemplo, digamos que está criando um aplicativo de geração de relatórios para um departamento. Tem a certeza de que o aplicativo só se aplica no âmbito da sua empresa e que os relatórios são curta duração. À sua escolha da abordagem é diferente de, digamos, criando um serviço que disponibiliza conteúdos de vídeo para dezenas de milhões de clientes.
+Aplicativos evoluam ao longo do tempo. Aplicativos bem-sucedidos evoluem pelo facto de ser úteis para pessoas. Aplicativos sem êxito não evoluir e, eventualmente, são preteridos. A pergunta é: Quanto sabe sobre os requisitos de hoje e o que eles estarão no futuro? Por exemplo, digamos que está criando um aplicativo de geração de relatórios para um departamento. Tem a certeza de que o aplicativo só se aplica no âmbito da sua empresa e que os relatórios são curta duração. À sua escolha da abordagem é diferente de, digamos, criando um serviço que disponibiliza conteúdos de vídeo para dezenas de milhões de clientes.
 
 Às vezes, obter algo para trás como prova de conceito é o fator de condução, enquanto sabe que o aplicativo pode ser projetado novamente mais tarde. Há muito sentido em excesso de engenharia algo que nunca é usado. É o compromisso de engenharia habitual. Por outro lado, quando as empresas falam sobre como criar para a nuvem, a expectativa é de crescimento e utilização. O problema é que o crescimento e dimensionamento são imprevisíveis. Gostaríamos de ser capaz de protótipo rapidamente também sabendo que estamos num caminho para lidar com sucesso no futuro. Essa é a abordagem de "lean startup": compilar, medir, aprender e iterar.
 
@@ -149,7 +149,7 @@ Service Fabric ajuda a criar aplicativos que usam uma abordagem de microsserviç
 
 * Uma plataforma que fornece serviços do sistema para implementar, atualizar, detetar e reinicie os serviços com falha, descobrir serviços, encaminhar mensagens, gerir o estado e monitorizar o estado de funcionamento.
 * Capacidade de implementar aplicações de qualquer execução nos contentores ou processos. O Service Fabric é um contentor e um orquestrador de processo.
-* APIs de programação produtivas, para ajudar a criar aplicações como microsserviços: [ASP.NET Core, Reliable Actors e Reliable Services](service-fabric-choose-framework.md). Por exemplo, pode obter informações de estado de funcionamento e diagnóstico, ou pode tirar partido da elevada disponibilidade incorporada.
+* Produtivas as APIs de programação, para ajudar a criar aplicações como microsserviços: [ASP.NET Core, dos Reliable Actors e serviços fiáveis](service-fabric-choose-framework.md). Por exemplo, pode obter informações de estado de funcionamento e diagnóstico, ou pode tirar partido da elevada disponibilidade incorporada.
 
 ***O Service Fabric é agnóstico em como criar o seu serviço, e pode usar qualquer tecnologia. No entanto, ele fornece APIs de programação internas que facilitam a criação de microsserviços.***
 
@@ -181,7 +181,7 @@ Muitas organizações parar por aqui. Que já têm os benefícios de contentores
 A adição de novos serviços em conjunto com existente em contentores de código. Se pretender escrever novo código, é melhor optar por adotar pequenas etapas para baixo o caminho de microsserviços. Isto pode estar adicionando um novo ponto final de REST API ou a nova lógica de negócios. Dessa forma, começar a jornada de criar novos microsserviços e prática de desenvolvimento e implantá-los.
 
 **Inove**  
-Precisa de uma empresa de mudança de acomoda de abordagem microsserviços. Nesta fase, a decisão é se precisa para começar a dividir a aplicação monolítica em serviços ou a inovar. Aqui um exemplo é quando uma base de dados a ser utilizado como uma fila de fluxo de trabalho se tornar um afunilamento de processamento. Como o número de fluxo de trabalho solicitações aumenta, o trabalho tem de ser distribuídos para dimensionamento. Para esse componente específico do aplicativo que não é escalonável, ou que precisam de ser atualizada com mais frequência, dividir isso num microsserviço e inove.
+Uma abordagem de microsserviços permite a necessidades empresariais em evolução. Nesta fase, a decisão é se precisa para começar a dividir a aplicação monolítica em serviços ou a inovar. Aqui um exemplo é quando uma base de dados a ser utilizado como uma fila de fluxo de trabalho se tornar um afunilamento de processamento. Como o número de fluxo de trabalho solicitações aumenta, o trabalho tem de ser distribuídos para dimensionamento. Para esse componente específico do aplicativo que não é escalonável, ou que precisam de ser atualizada com mais frequência, dividir isso num microsserviço e inove.
 
 **Transformado em microsserviços**  
 Esta funcionalidade é onde a aplicação é totalmente composto (ou decomposta em) microsserviços. Para chegar aqui, efetuar a viagem de microsserviços. Pode começar aqui, mas para fazer isso sem um microsserviços plataforma para o ajudar a é um investimento significativo. 
@@ -197,7 +197,7 @@ O objetivo do Service Fabric é reduzir as complexidades de criar aplicações d
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Descrição geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
-* [Microsserviços: Uma aplicação revolução com tecnologia de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microsserviços: Uma revolução de aplicação com a tecnologia de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

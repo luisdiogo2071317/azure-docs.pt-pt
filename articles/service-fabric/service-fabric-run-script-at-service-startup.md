@@ -1,6 +1,6 @@
 ---
-title: Executar um script quando inicia um serviço de Azure Service Fabric | Microsoft Docs
-description: Saiba como configurar uma política para um ponto de entrada de configuração de serviço do Service Fabric e executar um script no início do serviço tempo.
+title: Executar um script quando inicia um serviço de Azure Service Fabric | Documentos da Microsoft
+description: Saiba como configurar uma política para um ponto de entrada de configuração de serviço do Service Fabric e executar um script no início do serviço de tempo de atividade.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210499"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098617"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
-Antes de inicia o executável do serviço de Service Fabric poderá ser necessário executar algumas trabalho de configuração ou a configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script seja executado antes do executável do serviço é iniciado no manifesto de serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço, pode alterar a conta é executado o programa de configuração executável em.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de alta-privilged durante um curto período de tempo para que o executável do anfitrião do serviço não tem de ser executado com privilégios elevados para períodos de tempo prolongados.
+Antes de um serviço do Service Fabric executável é iniciado poderá ser necessário executar algum trabalho de configuração ou configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script para executar antes do executável do serviço é iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço que pode alterar a conta, o executável de configuração é executado sob.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de privilégios elevados durante um curto período de tempo para que o executável de host de serviço não tem de executar com privilégios elevados por longos períodos de tempo.
 
-O ponto de entrada de configuração (**SetupEntryPoint** no [manifesto serviço](service-fabric-application-and-service-manifests.md)) é um ponto de entrada com privilégios que, por predefinição, é executada com as mesmas credenciais de Service Fabric (normalmente o  *NetworkService* conta) antes de qualquer outro ponto de entrada. O executável que é especificado por **EntryPoint** é, geralmente, o anfitrião do serviço de execução longa. O **EntryPoint** ficheiro executável é executado o **SetupEntryPoint** executável sai com sucesso. O processo de resultante é monitorizado e reiniciado e começa novamente com **SetupEntryPoint** se alguma vez termina ou falhas. 
+O ponto de entrada de configuração (**SetupEntryPoint** no [manifesto de serviço](service-fabric-application-and-service-manifests.md)) é um ponto de entrada com privilégios que, por predefinição, é executado com as mesmas credenciais do Service Fabric (normalmente o  *NetworkService* conta) antes de qualquer outro ponto de entrada. O executável que é especificado por **EntryPoint** é, normalmente, o anfitrião do serviço de execução longa. O **EntryPoint** executável é executado a **SetupEntryPoint** executável é encerrado com êxito. O processo resultante é monitorizado e reiniciado e começa novamente com **SetupEntryPoint** se alguma vez terminar ou falhar. 
 
 ## <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada da configuração do serviço
-Segue-se um exemplo de manifesto do serviço simples para um serviço sem monitorização de estado que especifica um script de configuração *MySetup.bat* no serviço **SetupEntryPoint**.  **Argumentos** é utilizado para transmitir argumentos ao script quando é executada.
+Segue-se um exemplo de manifesto do serviço simples para um serviço sem estado, que especifica um script de configuração *MySetup.bat* no serviço **SetupEntryPoint**.  **Argumentos** é usado para passar os argumentos ao script quando ele é executado.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -66,11 +66,11 @@ Segue-se um exemplo de manifesto do serviço simples para um serviço sem monito
   </Resources>
 </ServiceManifest>
 ```
-## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configure a política para um ponto de entrada de configuração de serviço
-Por predefinição, o executável de ponto de entrada de configuração de serviço é executado sob as mesmas credenciais de Service Fabric (normalmente o *NetworkService* conta).  No manifesto da aplicação, pode alterar as permissões de segurança para executar o script de arranque com uma conta de sistema local ou uma conta de administrador.
+## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configurar a política para um ponto de entrada de configuração de serviço
+Por predefinição, o executável de ponto de entrada de configuração de serviço é executado sob as mesmas credenciais do Service Fabric (normalmente, o *NetworkService* conta).  No manifesto do aplicativo, pode alterar as permissões de segurança para executar o script de arranque com uma conta de sistema local ou uma conta de administrador.
 
-### <a name="configure-the-policy-by-using-a-local-system-account"></a>Configurar a política utilizando uma conta de sistema local
-O exemplo de manifesto de aplicação seguinte mostra como configurar o ponto de entrada de configuração de serviço para ser executado com uma conta de utilizador de administrador (SetupAdminUser).
+### <a name="configure-the-policy-by-using-a-local-system-account"></a>Configurar a política com uma conta de sistema local
+O exemplo de manifesto de aplicação seguinte mostra como configurar o ponto de entrada de configuração de serviço para executar na conta de administrador do utilizador (SetupAdminUser).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,12 +104,12 @@ O exemplo de manifesto de aplicação seguinte mostra como configurar o ponto de
 </ApplicationManifest>
 ```
 
-Em primeiro lugar, crie um **principais** secção com um nome de utilizador, tais como SetupAdminUser. A conta de utilizador SetupAdminUser é um membro do grupo de administradores de sistema.
+Primeiro, crie uma **principais** seção com um nome de utilizador, como SetupAdminUser. A conta de utilizador SetupAdminUser é um membro do grupo administradores do sistema.
 
-Em seguida, sob o **ServiceManifestImport** secção, configure uma política para aplicar este principal para **SetupEntryPoint**. Esta política indica ao Service Fabric que, à **MySetup.bat** é executar o ficheiro deve ser executado como SetupAdminUser (com privilégios de administrador). Uma vez que tiver *não* aplicada uma política para o ponto de entrada principal, o código no **MyServiceHost.exe** é executado o sistema **NetworkService** conta. Esta é a conta predefinida que todos os pontos de entrada de serviço são executados como.
+Em seguida, sob o **ServiceManifestImport** secção, configure uma política para aplicar este principal para **SetupEntryPoint**. Esta política indica ao Service Fabric que quando o **MySetup.bat** ficheiro é executá-lo deve ser executado como SetupAdminUser (com privilégios de administrador). Uma vez que tem *não* aplicada uma política para o ponto de entrada principal, o código na **MyServiceHost.exe** seja executado sob o sistema **NetworkService** conta. Esta é a conta predefinida que todos os pontos de entrada de serviço são executados como.
 
-### <a name="configure-the-policy-by-using-local-system-accounts"></a>Configurar a política através da utilização de contas do sistema local
-Muitas vezes, é preferível executar o script de arranque com uma conta de sistema local em vez de uma conta de administrador. Com a política de RunAs como um membro do grupo Administradores, normalmente, não funciona corretamente porque os computadores que têm o controlo de acesso utilizador (UAC) ativada por predefinição. Nestes casos, a recomendação é run a SetupEntryPoint como LocalSystem, em vez de um utilizador local adicionado ao grupo de administradores. O exemplo seguinte mostra a definição SetupEntryPoint para ser executado como LocalSystem:
+### <a name="configure-the-policy-by-using-local-system-accounts"></a>Configurar a política, utilizando as contas de sistema local
+Muitas vezes, é preferível para executar o script de arranque com uma conta de sistema local, em vez de uma conta de administrador. A política de RunAs a executar como um membro do grupo Administradores, normalmente, não funciona bem porque os computadores têm controlo de acesso utilizador (UAC) ativada por predefinição. Nesses casos, a recomendação é ser executado o SetupEntryPoint como LocalSystem, em vez de como um utilizador local adicionado ao grupo Administradores. O exemplo seguinte mostra a definição SetupEntryPoint para ser executado como LocalSystem:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -140,18 +140,18 @@ Muitas vezes, é preferível executar o script de arranque com uma conta de sist
 ```
 
 > [!NOTE]
-> Para os clusters do Linux, para executar um serviço ou a configuração entrada apontar como **raiz**, pode especificar o **AccountType** como **LocalSystem**.
+> Para clusters do Linux, para executar um serviço ou a configuração do ponto de entrada como **raiz**, pode especificar a **AccountType** como **LocalSystem**.
 
 ## <a name="run-a-script-from-the-setup-entry-point"></a>Executar um script a partir do ponto de entrada de configuração
-Agora, adicione um script de arranque para o projeto para ser executado com privilégios de administrador. 
+Agora, adicione um script de arranque para o projeto para executar com privilégios de administrador. 
 
-No Visual Studio, clique com o botão direito no projeto de serviço e adicione um novo ficheiro chamado *MySetup.bat*.
+No Visual Studio, clique com o botão direito do projeto de serviço e adicionar um novo arquivo chamado *MySetup.bat*.
 
-Em seguida, certifique-se de que o *MySetup.bat* ficheiros está incluído no pacote de serviço. Por predefinição, não é. Selecione o ficheiro, faça duplo clique para obter o menu de contexto e escolha **propriedades**. Na caixa de diálogo de propriedades, certifique-se de que **copiar para o diretório de saída** está definido como **copiar se for mais recente**. Veja a captura de ecrã abaixo.
+Em seguida, certifique-se de que o *MySetup.bat* arquivo está incluído no pacote de serviço. Por predefinição, não é. Selecione o ficheiro, faça duplo clique para obter o menu de contexto e escolha **propriedades**. Na caixa de diálogo de propriedades, certifique-se de que **Copy to Output Directory** está definida como **copiar se for mais recente**. Veja a captura de ecrã abaixo.
 
-![Visual Studio CopyToOutput para o ficheiro de batch SetupEntryPoint][image1]
+![Visual Studio CopyToOutput para o arquivo em lotes SetupEntryPoint][image1]
 
-Agora editar o *MySetup.bat* de ficheiros e adicionar os seguintes comandos definir uma variável de ambiente de sistema e um ficheiro de texto de saída:
+Agora editar a *MySetup.bat* de ficheiros e adicionar os seguintes comandos definir uma variável de ambiente de sistema e um arquivo de texto de saída:
 
 ```
 REM Set a system environment variable. This requires administrator privilege
@@ -163,29 +163,29 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-Em seguida, criar e implementar a solução para um cluster de desenvolvimento local. Depois do serviço foi iniciado, conforme mostrado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), pode ver que o ficheiro MySetup.bat foi concluída com êxito um duas formas. Abra uma linha de comandos do PowerShell e escreva:
+Em seguida, criar e implementar a solução para um cluster de desenvolvimento local. Depois do serviço foi iniciado, conforme mostrado na [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), pode ver que o ficheiro de MySetup.bat foi concluída com êxito de uma duas maneiras. Abra uma linha de comandos do PowerShell e escreva:
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-Em seguida, tome nota do nome do nó onde o serviço foi implementado e iniciado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Por exemplo, o nó 2. Em seguida, navegue para a pasta de trabalho de instância de aplicação para localizar o ficheiro de out.txt que mostra o valor de **TestVariable**. Por exemplo, se este serviço foi implementado para o nó 2, em seguida, pode ir para este caminho para o **MyApplicationType**:
+Em seguida, tome nota do nome do nó onde o serviço foi implementado e iniciado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Por exemplo, 2 de nó. Em seguida, navegue para a pasta de trabalho de instância de aplicação para encontrar o ficheiro de out.txt que mostra o valor de **TestVariable**. Por exemplo, se este serviço for implementado para o nó 2, em seguida, pode aceder a este caminho para o **MyApplicationType**:
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
 ## <a name="run-powershell-commands-from-a-setup-entry-point"></a>Execute comandos do PowerShell a partir de um ponto de entrada de configuração
-Para executar o PowerShell do **SetupEntryPoint** ponto, pode executar **PowerShell.exe** num ficheiro batch que aponta para um ficheiro do PowerShell. Primeiro, adicione um ficheiro de PowerShell para o projeto de serviço – por exemplo, **MySetup.ps1**. Não se esqueça de definir o *copiar se for mais recente* propriedade para que o ficheiro também está incluído no pacote de serviço. O exemplo seguinte mostra um ficheiro de batch de exemplo que inicia um ficheiro de PowerShell chamado MySetup.ps1, que define uma variável de ambiente de sistema chamada **TestVariable**.
+Para executar o PowerShell a partir da **SetupEntryPoint** ponto, pode executar **PowerShell.exe** num arquivo em lotes que aponta para um ficheiro do PowerShell. Primeiro, adicione um ficheiro do PowerShell para o projeto de serviço – por exemplo, **MySetup.ps1**. Não se esqueça de definir o *copiar se for mais recente* propriedade para que o ficheiro também está incluído no pacote de serviço. O exemplo seguinte mostra um ficheiro de batch de exemplo que inicia um arquivo de PowerShell chamado MySetup.ps1, que define uma variável de ambiente de sistema chamada **TestVariable**.
 
-MySetup.bat para iniciar um ficheiro de PowerShell:
+MySetup.bat para iniciar um ficheiro do PowerShell:
 
 ```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ```
 
-No ficheiro de PowerShell, adicione o seguinte para definir uma variável de ambiente de sistema:
+No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente de sistema:
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -193,7 +193,7 @@ No ficheiro de PowerShell, adicione o seguinte para definir uma variável de amb
 ```
 
 > [!NOTE]
-> Por predefinição, quando executa o ficheiro batch, analisa a pasta de aplicação denominada **trabalhar** para ficheiros. Neste caso, quando é executada MySetup.bat, queremos esta opção para encontrar o ficheiro de MySetup.ps1 na mesma pasta, o que é a aplicação **pacote do código** pasta. Para alterar esta pasta, defina a pasta de trabalho:
+> Por predefinição, quando o arquivo em lotes é executado, ele analisa a pasta de aplicação denominada **trabalhar** para ficheiros. Neste caso, quando é executada MySetup.bat, queremos que pode encontrar o ficheiro de MySetup.ps1 na mesma pasta, que é o aplicativo **pacote de código** pasta. Para alterar o dessa pasta, defina a pasta de trabalho:
 > 
 > 
 
@@ -206,15 +206,15 @@ No ficheiro de PowerShell, adicione o seguinte para definir uma variável de amb
 </SetupEntryPoint>
 ```
 
-## <a name="debug-a-startup-script-locally-using-console-redirection"></a>Um script de arranque localmente utilizando o redirecionamento de consola de depuração
-Ocasionalmente, é útil para fins para ver o resultado da execução de um script de configuração consola de depuração. Pode definir uma política de redirecionamento de consola no ponto de entrada de configuração no manifesto de serviço, que escreve a saída para um ficheiro. O resultado de ficheiro é escrito na pasta de aplicação chamado **registo** no nó de cluster onde a aplicação é implementada e executar. 
+## <a name="debug-a-startup-script-locally-using-console-redirection"></a>Depurar um script de inicialização localmente usando o redirecionamento de consola
+Ocasionalmente, é útil para fins para ver o resultado da execução de um script de configuração consola de depuração. Pode definir uma política de redirecionamento de consola no ponto de entrada de configuração no manifesto do serviço, que grava a saída num arquivo. O resultado de ficheiro é escrito para a pasta de aplicativo chamada **log** no nó de cluster em que a aplicação é implementada e executar. 
 
 > [!WARNING]
-> Nunca utilize a política de redirecionamento de consola numa aplicação que é implementada na produção porque isto pode afetar a aplicação de ativação pós-falha. *Apenas* utilizá-lo para o desenvolvimento local e fins de depuração.  
+> Nunca use a política de redirecionamento de consola num aplicativo que é implementado em produção, porque isso pode afetar o failover de aplicativos. *Apenas* usá-lo para o desenvolvimento local e fins de depuração.  
 > 
 > 
 
-O exemplo de manifesto do serviço seguinte mostra a definição o redirecionamento de consola com um valor de FileRetentionCount:
+O exemplo de manifesto do serviço seguinte mostra a definir o redirecionamento de consola com um valor de FileRetentionCount:
 
 ```xml
 <SetupEntryPoint>
@@ -226,22 +226,22 @@ O exemplo de manifesto do serviço seguinte mostra a definição o redirecioname
 </SetupEntryPoint>
 ```
 
-Se alterar agora o ficheiro de MySetup.ps1 para escrever um **eco** comando, este irá escrever no ficheiro de saída para fins de depuração:
+Se alterar o ficheiro de MySetup.ps1 para escrever um **eco** de comando, a gravação será feita no ficheiro de saída para fins de depuração:
 
 ```
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ```
 
 > [!WARNING]
-> Depois de depurar o script, imediatamente remova esta política de redirecionamento da consola.
+> Depois de depurar o script, imediatamente remova esta política de redirecionamento de consola.
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre a aplicação e segurança do serviço](service-fabric-application-and-service-security.md)
-* [Compreender o modelo de aplicação](service-fabric-application-model.md)
-* [Especificar recursos num manifesto de serviço](service-fabric-service-manifest-resources.md)
+* [Saiba mais sobre a segurança do serviço e de aplicação](service-fabric-application-and-service-security.md)
+* [Compreender o modelo de aplicativo](service-fabric-application-model.md)
+* [Especificar recursos num manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

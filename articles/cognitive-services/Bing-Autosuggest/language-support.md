@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 112c22815903841f3ffb8c78db4f8bffc60cb6b1
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 7caf6a9f6bce90c6ffbaa7fa4040484938d6eafd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829721"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177769"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Suporte de idioma e região para a API de sugestão automática do Bing
 
@@ -29,7 +29,7 @@ A seguinte lista os idiomas suportados pela API de sugestão automática do Bing
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
 | Neerlandês (Bélgica)       | `nl-BE`          |
-| Holandês (Países Baixos)      | `nl-NL`          |
+| Neerlandês (Países Baixos)      | `nl-NL`          |
 | Inglês (Austrália)    | `en-AU`          |
 | Inglês (Canadá)     | `en-CA`          |
 | English (India)    | `en-IN`          |

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6424bb986f02a75324ea590a6b501119ddf23480
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950153"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165443"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -62,7 +62,7 @@ Para utilizar a CLI do Azure com o Batch, tem de iniciar sessão e autenticar-se
 
 Existem algumas formas diferentes de iniciar sessão no Azure, descritas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli):
 
-1. [Iniciar sessão interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Inicie sessão interativamente se estiver a executar comandos da CLI do Azure manualmente a partir da linha de comandos.
+1. [Iniciar sessão interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Inicie sessão interativamente se estiver a executar comandos da CLI do Azure manualmente a partir da linha de comandos.
 2. [Iniciar sessão com um principal de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Inicie sessão com um principal de serviço se estiver a executar comandos da CLI do Azure a partir de um script ou de uma aplicação.
 
 Para os objetivos deste artigo, vamos mostrar como iniciar sessão no Azure interativamente. Escreva [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) na linha de comandos:
@@ -171,7 +171,7 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 * Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, pode copiar e modificar esta saída para utilizar num `--json-file` (veja [ficheiros JSON](#json-files) anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 * Para obter mais informações sobre os recursos do Batch, veja [Descrição geral do Azure Batch para programadores](batch-api-basics.md).

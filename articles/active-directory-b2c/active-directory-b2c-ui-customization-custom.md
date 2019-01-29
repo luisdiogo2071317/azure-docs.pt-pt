@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 738e4a4f94d86fc3a1acbb2e43c5b1974d6abac2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849274"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188496"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C
 

@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 85c990d6bfd90c93dea764383453d7f3cc53efde
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854920"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152336"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
 
@@ -86,14 +86,14 @@ As seguintes ações são efetuadas como parte da **ForceDelete** operação:
 
 ### <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P: por que a eliminação de domínio falha com um erro que indica que tenho de grupos do Exchange controlada neste nome de domínio?** <br>
-**R:** hoje em dia, determinados grupos como grupos de segurança com capacidade de correio e distribuídas listas são aprovisionados pelo Exchange e precisem ser limpos manualmente no [Centro de administração do Exchange (EAC)](https://outlook.office365.com/ecp/). Aqui pode ser remanescentes ProxyAddresses que contam com o nome de domínio personalizado e terá de ser atualizados manualmente para outro nome de domínio. 
+**P: Por que a eliminação de domínio falha com um erro que indica que tenho de grupos do Exchange controlada neste nome de domínio?** <br>
+**R:** Hoje em dia, determinados grupos como grupos de segurança com capacidade de correio e distribuídas listas são aprovisionados pelo Exchange e precisem ser limpos manualmente no [Centro de administração do Exchange (EAC)](https://outlook.office365.com/ecp/). Aqui pode ser remanescentes ProxyAddresses que contam com o nome de domínio personalizado e terá de ser atualizados manualmente para outro nome de domínio. 
 
-**P: Estou conectado como admin@contoso.com , mas não consigo eliminar o nome de domínio "contoso.com"?**<br>
-**R:** não pode referenciar o nome de domínio personalizado que está a tentar eliminar o seu nome de conta de utilizador. Certifique-se de que a conta de Administrador Global está a utilizar o nome de domínio predefinido inicial (. onmicrosoft.com) como admin@contoso.onmicrosoft.com. Inicie sessão com um Administrador Global diferente da conta que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com" onde está a conta admin@fabrikam.com.
+**P: Eu estou conectado como admin@contoso.com , mas não consigo eliminar o nome de domínio "contoso.com"?**<br>
+**R:** Não é possível referenciar o nome de domínio personalizado que está a tentar eliminar o seu nome de conta de utilizador. Certifique-se de que a conta de Administrador Global está a utilizar o nome de domínio predefinido inicial (. onmicrosoft.com) como admin@contoso.onmicrosoft.com. Inicie sessão com um Administrador Global diferente da conta que, como admin@contoso.onmicrosoft.com ou outro nome de domínio personalizado, como "fabrikam.com" onde está a conta admin@fabrikam.com.
 
-**P: Posso clicado o botão de domínio de eliminar e veja `In Progress` estado para a operação de eliminação. Quanto tempo demora? O que acontece se falhar?**<br>
-**R:** a operação de eliminação de domínio é uma tarefa de assíncrono em segundo plano que muda o nome de todas as referências para o nome de domínio. Ele deve ser concluído dentro de um ou dois minutos. Se falhar a eliminação do domínio, certifique-se de que não tem de:
+**P: Cliquei no botão de domínio de eliminar e veja `In Progress` estado para a operação de eliminação. Quanto tempo demora? O que acontece se falhar?**<br>
+**R:** A operação de eliminação de domínio é uma tarefa em segundo plano assíncronas que muda o nome de todas as referências para o nome de domínio. Ele deve ser concluído dentro de um ou dois minutos. Se falhar a eliminação do domínio, certifique-se de que não tem de:
 
 * Aplicações configuradas no nome de domínio com o appIdentifierURI
 * Qualquer grupo com capacidade de correio que referencia o nome de domínio personalizado

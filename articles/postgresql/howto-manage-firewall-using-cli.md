@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 05/4/2018
-ms.openlocfilehash: 214c6c4dc3b2dd83e6bf3dfa3355ad6f6aa2eb18
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d450b8d154e920bfc9a82314d34f20a52af71dab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539148"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182001"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Criar e gerir a base de dados do Azure para as regras de firewall do PostgreSQL com a CLI do Azure
 Regras de firewall ao nível do servidor permitem que os administradores gerir o acesso a uma base de dados do Azure para o servidor PostgreSQL de um endereço IP específico ou intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para PostgreSQL regras de firewall, consulte [base de dados do Azure para as regras de firewall do servidor PostgreSQL](concepts-firewall-rules.md)
@@ -70,7 +70,7 @@ az postgres server firewall-rule show --resource-group myresourcegroup --server-
 Após a conclusão bem-sucedida, a saída do comando lista os detalhes da regra de firewall que especificou, por predefinição no formato JSON. Se houver uma falha, o resultado mostra uma mensagem de erro em vez disso.
 
 ## <a name="delete-firewall-rule"></a>Eliminar regra de firewall
-Para revogar o acesso para um intervalo IP para o servidor, eliminar uma regra de firewall existente ao executar o [az postgres server firewall-rule eliminar](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) comando. Forneça o nome da regra de firewall existentes.
+Para revogar o acesso para um intervalo IP para o servidor, eliminar uma regra de firewall existente ao executar o [az postgres server firewall-rule eliminar](/cli/azure/postgres/server/firewall-rule) comando. Forneça o nome da regra de firewall existentes.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

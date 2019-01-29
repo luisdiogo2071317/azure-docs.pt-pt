@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 794a2c77c5601b76f258b2b73f5a01f3c6b8f8c9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2f7e6cd577b1eabbaabdfe87fca8ea0f036a062d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712301"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149395"
 ---
 # <a name="web-search-endpoint"></a>Ponto final de pesquisa Web
 
@@ -25,7 +25,7 @@ O **API de pesquisa na Web** retorna páginas da Web, notícias, imagens, vídeo
 
 Para obter os resultados de pesquisa da Web usando a API do Bing, enviar um `GET` pedido para o seguinte ponto de extremidade. Os cabeçalhos e os parâmetros de URL definem ainda mais especificações.
 
-**Ponto final**: os resultados da Web devolve que são relevantes para o usuário procurar consulta definida por `?q=""`.
+**Ponto final**: Devolve os resultados da Web que são relevantes para a consulta de pesquisa do utilizador definida por `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search

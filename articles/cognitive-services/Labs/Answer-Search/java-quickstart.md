@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisa de Respostas do Projeto, Java'
+title: 'Início rápido: Pesquisa de resposta de projeto, Java'
 titlesuffix: Azure Cognitive Services
 description: Comece a utilizar a Pesquisa de Respostas do Projeto em Java.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 00d302fdddf82eaec98b6d3d63153a260fe7fbc5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469100"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099367"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: Consulta da Pesquisa de Respostas do Projeto em Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Início rápido: Consulta de pesquisa de resposta de projeto em Java
 Este artigo utiliza Java para demonstrar a API de Pesquisa de Respostas do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON.
  
 O código de exemplo utiliza o Java com dependências externas mínimas.  Também pode executá-lo no Linux ou Mac OS X com o Mono.
@@ -30,7 +30,7 @@ Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviç
 
 O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso e adiciona uma cadeia de consulta a “Gibraltar”.  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,18 +46,18 @@ O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Código completo
 
 A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
 1. Transfira ou instale a biblioteca gson.
-2. Crie um novo projeto Java no seu IDE ou editor favorito.
+2. Crie um novo projeto de Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,9 +148,9 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido do Node](node-quickstart.md)

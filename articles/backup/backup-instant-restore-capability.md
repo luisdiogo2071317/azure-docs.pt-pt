@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: trinadhk
-ms.openlocfilehash: a0cbb8650a818c3ae6c839d69bbc9b94f8d080ca
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a5afdd0dca55a5df075acb99e488c932196d95c5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351401"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092306"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
 > [!NOTE]
-> Com base nos comentários recebidos de utilizadores que o **pilha de cópia de segurança da VM V2** é confuso com o Azure stack, ter renomeamos para **restaurar instantâneas** fornecendo uma experiência atualizada e melhor.
+> Com base nos comentários dos utilizadores, podemos mudar o nome **pilha de cópia de segurança da VM V2** ao **restaurar instantâneas** para reduzir a confusão com a funcionalidade do Azure Stack.
 
 O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos de recursos:
 

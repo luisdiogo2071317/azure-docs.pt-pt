@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: 33f7ab25e568ce71ea0c4955da229051a691ed5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183395"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 Gestão de acesso contínuo, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação é integrada ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de realizar uma função ativa em curso no gerenciamento de acesso às suas aplicações. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisão. Muitas vezes, a decisão de atribuição se destina a ser designado como o tomador de decisões de negócios, que requerem a sua aprovação antes de IT facilita a atribuição.  Outras organizações investem na integração com um automatizada identidades e acessos sistema de gerenciamento existente, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributo (ABAC). A integração e o desenvolvimento de regra tendem a ser dispendiosos e especializados. Monitorização ou relatórios sobre qualquer uma das abordagens de gerenciamento são o seu próprio investimento separado, dispendioso e complexo.

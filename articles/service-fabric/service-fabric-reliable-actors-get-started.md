@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054762"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093162"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução ao Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ A solução contém três projetos:
 
 * **O projeto de interface (HelloWorld.Interfaces)**. Este projeto contém a definição de interface para o ator. Interfaces de ator podem ser definidos em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é partilhado pela implementação de ator e pelos clientes que chamam o ator.  Porque os projetos de cliente podem dependem dele, normalmente, faz sentido defini-lo num assembly separado da implementação de ator.
 
-* **O projeto de serviço de ator (HelloWorld)**. Este projeto define o serviço do Service Fabric que irá alojar o ator. Contém a implementação de ator, *HellowWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo base `Actor` e implementa as interfaces definidas no *MyActor.Interfaces* projeto. Uma classe de ator também tem de implementar um construtor que aceita uma `ActorService` instância e uma `ActorId` e os passa para a base `Actor` classe.
+* **O projeto de serviço de ator (HelloWorld)**. Este projeto define o serviço do Service Fabric que irá alojar o ator. Contém a implementação de ator, *HelloWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo base `Actor` e implementa as interfaces definidas no *MyActor.Interfaces* projeto. Uma classe de ator também tem de implementar um construtor que aceita uma `ActorService` instância e uma `ActorId` e os passa para a base `Actor` classe.
     
     Este projeto contém também *Program.cs*, que regista as classes de ator com o tempo de execução do Service Fabric utilizando `ActorRuntime.RegisterActorAsync<T>()`. O `HelloWorld` classe já está registrada. Quaisquer implementações de ator adicionais adicionadas ao projeto também devem ser registadas no `Main()` método.
 

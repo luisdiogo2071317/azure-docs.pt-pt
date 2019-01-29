@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fd7f6897b20f64a195f7e1f1155ba61eaf5941f2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154342"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material em Python
 
@@ -61,7 +61,7 @@ Para simplificar, irá analisar texto diretamente a partir do script. Defina uma
 
 ## <a name="query-the-moderator-service"></a>Consultar o serviço do moderador
 
-Criar uma **ContentModeratorClient** instância com o seu URL de ponto final e a chave de subscrição. Em seguida, utilize o membro **TextModerationOperations** instância para chamar a API de moderação. Consulte a **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** documentação para obter mais informações sobre como chamá-lo de referência.
+Criar uma **ContentModeratorClient** instância com o seu URL de ponto final e a chave de subscrição. Em seguida, utilize o membro **TextModerationOperations** instância para chamar a API de moderação. Consulte a **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** documentação para obter mais informações sobre como chamá-lo de referência.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: caccdcb0d90a817c82e8d7816f0770b09b4ea27a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052552"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101027"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 
@@ -36,7 +36,7 @@ Os métodos diretos são implementados no dispositivo e podem exigir a zero ou m
 > Quando invoca um método direto num dispositivo, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Direcionar os métodos são síncronos e o êxito ou falhar após o período de tempo limite (predefinição: 30 segundos, definível cópia de segurança para 3600 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo para agir se e apenas se o dispositivo está online e de recebimento de comandos. Por exemplo, ativando uma luz de um telefone. Nestes cenários, pretende ver um imediato êxito ou falha, para que o serviço em nuvem pode agir sobre o resultado assim que possível. O dispositivo pode retornar alguns corpo da mensagem como resultado do método, mas não é necessário para o método fazer isso. Não existe nenhuma garantia na ordem ou qualquer semântica de simultaneidade em chamadas de método.
+Direcionar os métodos são síncronos e o êxito ou falhar após o período de tempo limite (predefinição: 30 segundos, definível até a 300 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo para agir se e apenas se o dispositivo está online e de recebimento de comandos. Por exemplo, ativando uma luz de um telefone. Nestes cenários, pretende ver um imediato êxito ou falha, para que o serviço em nuvem pode agir sobre o resultado assim que possível. O dispositivo pode retornar alguns corpo da mensagem como resultado do método, mas não é necessário para o método fazer isso. Não existe nenhuma garantia na ordem ou qualquer semântica de simultaneidade em chamadas de método.
 
 Direcionar os métodos são apenas de HTTPS do lado da nuvem e MQTT ou AMQP do lado do dispositivo.
 

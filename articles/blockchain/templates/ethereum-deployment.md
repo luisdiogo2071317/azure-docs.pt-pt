@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260538"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098343"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho consortium Ethereum
 
 O modelo de solução de consórcio Ethereum prova de trabalho foi concebido para que seja mais fácil e rápido implementar e configurar uma rede Ethereum de consórcio com vários membros com o mínimo de conhecimento do Azure e Ethereum.
 
-Com um punhado de entradas do utilizador e uma implementação de clique único através do portal do Azure, cada membro pode aprovisionar seus requisitos de espaço da rede, usando a computação do Microsoft Azure, rede e serviços de armazenamento em todo o mundo. Requisitos de espaço de rede de cada membro é composta por um conjunto de nós de transação com balanceamento de carga com que uma aplicação ou o utilizador pode interagir para submeter transações, um conjunto de nós de extração para registrar transações e um gateway de VPN. Um passo de ligação subsequentes liga-se os gateways para criar uma rede de totalmente configurado com vários membros blockchain.
+Utilizar um modelo Azure Resource Manager, pode aprovisionar cada membro seus requisitos de espaço da rede, usando a computação do Microsoft Azure, rede e serviços de armazenamento. Requisitos de espaço de rede de cada membro é composta por um conjunto de nós de transação com balanceamento de carga com que uma aplicação ou o utilizador interage para submeter transações, um conjunto de nós de extração para registrar transações e um gateway de VPN. Após a implementação, ligar os gateways para criar uma rede de totalmente configurado com vários membros blockchain.
 
 ## <a name="about-blockchain"></a>Sobre blockchain
 
@@ -35,7 +35,7 @@ Um membro de consortium pode aprovisionar até cinco regiões que contém um ou 
 
 Todos os nós têm uma versão estável do cliente aceda Ethereum (Geth) e estão configurados para serem nós de extração. Se não fornece um bloco de genesis personalizada, todos os nós usam o mesmo Ethereum endereço e um par de chaves protegido pela palavra-passe da conta de Ethereum. A frase de acesso de Ethereum fornecida é utilizado para gerar a conta predefinida (coinbase) para cada nó de extração. Como nós de extração, extrair, eles cobrar as tarifas de que são adicionadas a esta conta.
 
-O número de nós de extração por membro consortium depende o tamanho geral de rede pretendido e a quantidade de energia hash dedicada para cada membro. Quanto maior for a rede, os mais nós que têm de ser comprometido para obter uma vantagem injusta. O modelo suporta até 15 nós de extração por região aprovisionados com conjuntos de dimensionamento de máquina virtual.
+O número de nós de extração por membro consortium depende o tamanho geral de rede pretendido e a quantidade de energia de hash que é dedicada a cada membro. Redes maiores necessitam de mais nós para ficar comprometido para obter uma vantagem injusta. O modelo suporta até 15 nós de extração por região aprovisionados com conjuntos de dimensionamento de máquina virtual.
 
 ### <a name="transaction-node-details"></a>Detalhes do nó de transação
 
@@ -45,7 +45,7 @@ Os nós de transação são com balanceamento de carga no conjunto de disponibil
 
 ### <a name="log-analytics-details"></a>Detalhes do log analytics
 
-Cada implementação também cria uma nova instância do Log Analytics ou pode associar uma instância existente. Isso permite que a monitorização de várias métricas de desempenho de cada máquina virtual que constitui a rede implementada.
+Cada implementação também cria uma nova instância de análise de registo ou pode associar uma instância existente. O log analytics permite a monitorização de várias métricas de desempenho de cada máquina virtual que constitui a rede implementada.
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -88,11 +88,9 @@ Subscrição| A subscrição ao qual pretende implementar a rede de consórcio||
 Grupo de Recursos| O grupo de recursos ao qual pretende implementar a rede de consórcio.||ND
 Localização| A região do Azure para o grupo de recursos. ||ND
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-O painel do Operations Management Suite (OMS) permite-lhe configurar um recurso OMS para a sua rede. O OMS recolherá e superfície métricas úteis e os registos da sua rede, fornecendo a capacidade de verificar rapidamente o estado de funcionamento de rede ou a depuração de problemas. A oferta gratuita do OMS simplesmente falhará assim que a capacidade for atingida.
+Operations Management Suite (OMS) permite-lhe configurar um recurso OMS para a sua rede. O OMS recolherá e superfície métricas úteis e os registos da sua rede, fornecendo a capacidade de verificar rapidamente o estado de funcionamento de rede ou a depuração de problemas. A oferta gratuita do OMS simplesmente falhará assim que a capacidade for atingida.
 
 ![Criar novo OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Nome do Parâmetro |Descrição |Valores Permitidos|Valores predefinidos
 ID de ConsortiumMember|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. <br /><br />ID de membro deve ser exclusivo em organizações diferentes na mesma rede. Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões.<br /><br />Tome nota do valor deste parâmetro, uma vez que terá de partilhá-lo com outros membros da junção.|0 - 255
 ID de rede Ethereum|O ID de rede para a rede de Ethereum consortium a ser implementado. Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública. Embora o acesso de rede é restrito para nós de extração, ainda Recomendamos que utilize um grande número para evitar colisões.|5 - 999,999,999| 10101010
 Bloco de genesis personalizado|Opção de automaticamente gerar um bloco de genesis ou fornecer um personalizado.|Sim/Não| Não
-Palavra-passe da conta de Ethereum (bloco de genesis personalizado = não)|A palavra-passe de administrador utilizada para proteger a conta de Ethereum importada para cada nó. A palavra-passe tem de conter o seguinte: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.|12 ou mais carateres|ND
-Ethereum frase de acesso privado chave (bloco de genesis personalizado = não)|A frase de acesso utilizada para gerar a chave privada de ECC associada à conta Ethereum predefinido que é gerada. Uma chave privada gerada não precisa de ser passados explicitamente.<br /><br />Considere uma frase de acesso com aleatoriedade suficiente para garantir uma chave privada forte e sem sobreposição com outros membros consortium. A frase de acesso tem de conter o seguinte no mínimo: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.<br /><br />Tenha em atenção de que se dois membros de usar a mesma frase de acesso as contas geradas será o mesmo. A mesma frase de acesso é útil se uma única organização está a tentar implementar em várias regiões e pretende partilhar uma única conta (moeda base) em todos os nós.|12 ou mais carateres|ND
+Palavra-passe da conta de Ethereum (bloco de genesis personalizado = não)|A palavra-passe de administrador utilizada para proteger a conta de Ethereum importada para cada nó. Tem de conter a palavra-passe: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.|12 ou mais carateres|ND
+Ethereum frase de acesso privado chave (bloco de genesis personalizado = não)|A frase de acesso utilizada para gerar a chave privada de ECC associada à conta Ethereum predefinido que é gerada. Uma chave privada gerada não precisa de ser passados explicitamente.<br /><br />Considere uma frase de acesso com aleatoriedade suficiente para garantir uma chave privada forte e sem sobreposição com outros membros consortium. A frase de acesso tem de conter pelo menos: 1 caráter em maiúsculas, 1 carater em minúsculas e 1 número.<br /><br />Tenha em atenção de que se dois membros de usar a mesma frase de acesso as contas geradas será o mesmo. A mesma frase de acesso é útil se uma única organização está a tentar implementar em várias regiões e pretende partilhar uma única conta (moeda base) em todos os nós.|12 ou mais carateres|ND
 Bloco de Genesis (bloco de genesis personalizado = Yes)|Cadeia de caracteres JSON que representa o bloco de genesis personalizado. Pode encontrar mais detalhes sobre o formato do bloco genesis aqui, em redes de personalizado.<br /><br />Ainda é criada uma conta de Ethereum ao fornecer um bloco de genesis personalizado. Considere especificar uma conta de Ethereum prefunded no bloco de genesis não aguardar a extração.|Valid JSON |ND
 A chave para a ligação partilhada|Uma chave partilhada para a ligação entre os gateways VNET.| 12 ou mais carateres|ND
 Consortium Data URL|O URL que aponta para os dados de configuração de consórcio relevantes fornecidos pela implementação de outro membro. <br /><br />Estas informações são fornecidas por um membro já ligado que tenha uma implementação. Se tiver implementado o restante da rede, o URL é a saída de modelos de implementação, dados de CONSÓRCIO com o nome.||ND
@@ -154,7 +152,7 @@ Entidade de registo de informações de chave de ponto a ponto|Chave de principa
 
 ### <a name="summary"></a>Resumo
 
-Clique em Painel de resumo para rever as entradas especificadas e para executar a validação de pré-implementação básica.
+Clique em Resumo para rever as entradas especificadas e para executar a validação de pré-implementação básica.
 
 ![Resumo](./media/ethereum-deployment/summary.png)
 

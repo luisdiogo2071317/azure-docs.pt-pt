@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7be6570d61bc3697bec143478404d32123b4f8d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470380"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184228"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do cópias de sombra de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma maneira no Azure AD, como estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente daquelas que o Azure AD Connect sincroniza.

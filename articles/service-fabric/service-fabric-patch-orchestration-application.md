@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427938"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155311"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -143,9 +143,6 @@ Aplicativo, juntamente com os scripts de instalação pode ser transferido a par
 
 Aplicação em formato de sfpkg pode ser transferida a partir [sfpkg ligação](https://aka.ms/POA/POA.sfpkg). Isso é útil para [do Azure Resource Manager com base em implantação de aplicativos](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> O v1.3.0 (mais recente) da aplicação de orquestração de Patch tem um problema conhecido em execução no Windows Server 2012. Se estiver a executar o Windows Server 2012, transfira v1.2.2 do aplicativo [aqui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). Ligação de SFPkg [aqui](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>Configurar a aplicação
 
 O comportamento da aplicação de orquestração do patch pode ser configurado para atender às suas necessidades. Substitua os valores predefinidos ao transmitir o parâmetro de aplicação durante a criação de aplicação ou atualização. Podem ser fornecidos parâmetros de aplicação, especificando `ApplicationParameter` para o `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication` cmdlets.
@@ -156,7 +153,7 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Atualização do Windows é instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. Atualização do Windows está instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para o Windows Update.)<br> Consulte a [FAQ](#frequently-asked-questions) secção sobre como decidir o que é melhor se adequam política para o seu cluster.
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo da aplicação de orquestração do patch os logs em MB, que pode ser mantido localmente em nós.
 | WUQuery               | cadeia<br>(Predefinição: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: VERDADEIRO)                 | Utilize este sinalizador para controlar quais atualizações devem ser baixadas e instaladas. São permitidos valores seguintes <br>TRUE - instala apenas atualizações de sistema operativo do Windows.<br>FALSE – instala todas as atualizações disponíveis na máquina.          |
+| InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: FALSO)                 | Utilize este sinalizador para controlar quais atualizações devem ser baixadas e instaladas. São permitidos valores seguintes <br>TRUE - instala apenas atualizações de sistema operativo do Windows.<br>FALSE – instala todas as atualizações disponíveis na máquina.          |
 | WUOperationTimeOutInMinutes | Int <br>(Predefinição: 90)                   | Especifica o tempo limite para qualquer operação de atualização do Windows (pesquisa ou download ou instalação). Se não é possível concluir a operação no tempo limite especificado, é abortada.       |
 | WURescheduleCount     | Int <br> (Predefinição: 5)                  | O número máximo de vezes que o serviço reagenda o Windows update no caso de uma operação falha de forma permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Predefinição: 30) | O intervalo no qual o serviço reagenda a atualização do Windows no caso de falha persistir. |
@@ -295,7 +292,7 @@ Com base na política para o aplicativo, seja um nó pode descer durante uma ope
 
 No final da instalação do Windows Update, os nós são reenabled publicar o reinício.
 
-No exemplo a seguir, o cluster correu para um Estado de erro temporariamente porque dois nós estavam inativa e a política de MaxPercentageUnhealthNodes foi violada. O erro é temporário até que a operação de correção está em curso.
+No exemplo a seguir, o cluster correu para um Estado de erro temporariamente porque dois nós estavam inativa e a política de MaxPercentageUnhealthyNodes foi violada. O erro é temporário até que a operação de correção está em curso.
 
 ![Imagem do cluster de mau estado de funcionamento](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ P. **Quanto tempo demora a aplicar o patch num cluster completo?**
 R. O tempo necessário para aplicar o patch num cluster completo depende dos seguintes fatores:
 
 - Tempo necessário para corrigir um nó.
-- A política do serviço de coordenador. -A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó de cada vez, que seria mais lento do que `UpgradeDomainWise`. Por exemplo: Se um nó demora ~ 1 hora para ser corrigido, inorder para corrigir um nó de 20 (mesmo tipo de nós) do cluster com 5 domínios de atualização, cada um contendo de 4 nós.
+- A política do serviço de coordenador. -A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó de cada vez, que seria mais lento do que `UpgradeDomainWise`. Por exemplo: Se um nó demora ~ 1 hora para ser corrigido, para corrigir um 20 (mesmo tipo de nós) de cluster com 5 domínios de atualização, cada um contendo de 4 nós.
     - Deve demorar cerca de 20 horas para corrigir o todo o cluster, se estiver política `NodeWise`
     - Deve demorar cerca de 5 horas se estiver política `UpgradeDomainWise`
 - Carga de cluster - cada operação de aplicação de patches requer a alteração da localização a carga de trabalho do cliente para outros nós disponíveis no cluster. Nó passando por patch estaria [desabilitar](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) estado durante este período. Se o cluster está em execução perto de pico de carga, o processo de desabilitação seria necessário mais tempo. Por conseguinte, o processo geral de aplicação de patches pode aparecer lento em tais condições stressed.
@@ -411,3 +408,8 @@ Um administrador deve intervir e determinar por que a aplicação ou o cluster s
 - Configurando InstallWindowsOSOnlyUpdates como false agora instala todas as atualizações disponíveis.
 - Alterar a lógica de desabilitar as atualizações automáticas. Isso corrige um bug em que as atualizações automáticas não foram desativadas no Server 2016 e acima.
 - Restrição de posicionamento parametrizadas para ambos os microsserviços de POA para usecases avançadas.
+
+### <a name="version-131"></a>Versão 1.3.1
+- Corrigir regressão onde POA 1.3.0 não funcionará no Windows Server 2012 R2 ou inferior devido uma falha na desativação de atualizações automáticas. 
+- Corrigir erro em que a configuração InstallWindowsOSOnlyUpdates sempre é escolhida como verdadeiro.
+- Alterar o valor predefinido de InstallWindowsOSOnlyUpdates como False.

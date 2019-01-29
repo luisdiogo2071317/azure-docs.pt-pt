@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Aplicação Web de página única da Pesquisa de Entidades do Bing (código fonte)'
+title: 'Tutorial: Aplicação de web de página única de pesquisa de entidades do Bing (código de origem)'
 titlesuffix: Azure Cognitive Services
 description: Código fonte do tutorial que mostra como utilizar a API de Pesquisa de Entidades do Bing numa aplicação Web de página única.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 6165bca1eff248f15cfce4638a6f9817db550c04
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815057"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156263"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Tutorial: Fonte da aplicação Web de página única
+# <a name="tutorial-single-page-web-app-source"></a>Tutorial: Origem de aplicação web de página única
 
 Este é o código fonte completo discutido no [tutorial da aplicação de página única](tutorial-bing-entities-search-single-page-app.md) da Pesquisa de Entidades do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
 

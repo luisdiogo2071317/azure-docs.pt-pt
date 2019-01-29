@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: cb6213bbb27fc1a7086ccecafa7ae7b12040ac0a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7208f1b3f1658c23a6b38c661a37b050c92ca891
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250625"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204087"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Pontos finais para a API de pesquisa de imagens do Bing
 
@@ -23,12 +23,12 @@ O **API de pesquisa de imagens** inclui três pontos de extremidade.  Ponto fina
 ## <a name="endpoints"></a>Pontos Finais
 Para obter resultados de imagem usando a API do Bing, envie um pedido para um dos seguintes pontos finais. Utilize os cabeçalhos e os parâmetros de URL para definir ainda mais especificações.
 
-**Ponto final 1:** Devolve as imagens que são relevantes para a consulta de pesquisa do utilizador definida por `?q=""`.
+**Endpoint 1:** Devolve as imagens que são relevantes para a consulta de pesquisa do utilizador definida por `?q=""`.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**Ponto final 2:** Devolve informações sobre uma imagem, através de um `GET` ou `POST`.
+**Endpoint 2:** Devolve informações sobre uma imagem, através de um `GET` ou `POST`.
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -37,7 +37,7 @@ Um pedido GET devolve informações sobre uma imagem, como páginas da Web que i
 Ou, pode incluir uma imagem binária no corpo de um `POST` pedir e defina o [módulos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parâmetro `RecognizedEntities`. Isto irá devolver uma [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) para utilizar como um parâmetro numa subsequentes `GET` solicitação, que retorna informações sobre as pessoas na imagem.  Definir `modules` para `All` para obter informações de todos, exceto `RecognizedEntities` nos resultados da `POST` sem fazer outra chamada que use o `insightsToken`.
 
 
-**Ponto final de 3:** Imagens de devolve que são mais populares com base nos pedidos de pesquisa realizados por terceiros. As imagens são separadas em diferentes categorias, por exemplo, com base em eventos ou pessoas digno de nota.
+**Endpoint 3:** Imagens de devolve que são mais populares com base nos pedidos de pesquisa realizados por terceiros. As imagens são separadas em diferentes categorias, por exemplo, com base em eventos ou pessoas digno de nota.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 ```

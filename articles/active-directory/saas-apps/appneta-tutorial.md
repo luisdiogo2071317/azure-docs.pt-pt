@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Monitor de desempenho de AppNeta | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Monitor de desempenho de AppNeta | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Monitor de desempenho de AppNeta.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: ccedc0288e313df2639862a14078d8cad9951286
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 19d79f65746b5ee03209bfd7d8405ddaa24bb825
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054554"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194887"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: Integração do Azure Active Directory com o Monitor de desempenho de AppNeta
+# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: Integração do Active Directory do Azure com o Monitor de desempenho de AppNeta
 
 Neste tutorial, saiba como integrar o Monitor de desempenho de AppNeta com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o Monitor de desempenho de AppNeta, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Monitor de desempenho de AppNeta logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração AppNeta do Monitor de desempenho para o Azure AD,
 
 **Para adicionar AppNeta Monitor de desempenho a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -123,12 +123,12 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
            
     | Nome do Atributo | Valor do Atributo |
     | ---------------| ----------------|
-    | firstName| User.givenName|
-    | Apelido| User.Surname|
+    | firstName| user.givenname|
+    | lastName| user.surname|
     | e-mail| user.userprincipalname|
     | nome| user.userprincipalname|
     | grupos   | user.assignedroles |
-    | telefone| User.telephoneNumber |
+    | telefone| user.telephonenumber |
     | título| user.jobtitle|
 
     > [!NOTE]
@@ -194,7 +194,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida no Monitor de desempenho de AppNeta. Monitor de desempenho de AppNeta suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder AppNeta Monitor de desempenho, se não existir ainda.
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do Monitor de desempenho de AppNeta](mailto:support@appneta.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do Monitor de desempenho de AppNeta](mailto:support@appneta.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -226,7 +226,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -236,7 +236,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 

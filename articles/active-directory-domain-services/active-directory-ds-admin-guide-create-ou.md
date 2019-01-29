@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 33c4264d9aeffb721cd2d44df6d551126782f0e1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856269"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165715"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma unidade organizacional (UO) num domínio gerido do Azure AD Domain Services
 Domínios de geridos de serviços de domínio do AD do Azure incluem dois contentores incorporados, chamados "Computadores do aad DC" e "Utilizadores do aad DC", respectivamente. O contentor de computadores do aad DC tem objetos de computador para todos os computadores que estão associados ao domínio gerido. O contentor de "Utilizadores do aad DC" inclui os utilizadores e grupos no inquilino do Azure AD. Ocasionalmente, poderá ser necessário criar contas de serviço no domínio gerido para implementar cargas de trabalho. Para essa finalidade, pode criar uma unidade organizacional personalizado (UO) no domínio gerido e crie contas de serviço no UO. Este artigo mostra-lhe como criar uma UO no seu domínio gerido.

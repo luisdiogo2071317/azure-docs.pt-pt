@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290778"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188347"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -80,7 +80,7 @@ Recolha os contadores a seguir se estiver a implementar serviços .NET ao seu cl
 
 Service Fabric gera uma quantidade substancial de contadores de desempenho personalizados. Se tiver o SDK instalado, pode ver a lista abrangente no seu computador Windows em seu aplicativo de Monitor de desempenho (Iniciar > Monitor de desempenho). 
 
-Nas aplicações que está a implementar o cluster, se estiver a utilizar o Reliable Actors, adicione countes partir `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [diagnóstico do serviço Fabric Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
+Nas aplicações que está a implementar o cluster, se estiver a utilizar o Reliable Actors, adicionar contadores de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [diagnóstico do serviço Fabric Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
 
 Utilizar o Reliable Services ou de comunicação remota do serviço, da mesma forma, temos `Service Fabric Service` e `Service Fabric Service Method` contador categorias que deve recolher contadores de, veja [com a comunicação remota do serviço de monitorização](service-fabric-reliable-serviceremoting-diagnostics.md) e [fiável contadores de desempenho de serviços](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 

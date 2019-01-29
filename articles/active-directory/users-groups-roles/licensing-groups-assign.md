@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215009"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155073"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores pela associação de grupo no Azure Active Directory
 
@@ -59,7 +59,7 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 Agora, especificamos um modelo de licença para o grupo do departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes desse grupo. Esta operação inicial poderá demorar algum tempo, consoante o tamanho atual do grupo. O passo seguinte descreve como verificar se o processo foi concluída e determinar se as atenção adicional é necessário para resolver problemas.
 
 > [!NOTE]
-> Pode começar a atribuição do mesmo a partir de uma localização alternativa: **utilizadores e grupos** no Azure AD. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, encontrar o grupo, selecione-a e vá para o **licenças** separador. O **atribuir** botão na parte superior do painel abre o painel de atribuição de licença.
+> Pode começar a atribuição do mesmo a partir de uma localização alternativa: **Utilizadores e grupos** no Azure AD. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, encontrar o grupo, selecione-a e vá para o **licenças** separador. O **atribuir** botão na parte superior do painel abre o painel de atribuição de licença.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Passo 2: Certifique-se de que a atribuição inicial foi concluída
 
@@ -77,13 +77,13 @@ Agora, especificamos um modelo de licença para o grupo do departamento de RH. U
 
 3. Ver informações mais detalhadas sobre a licença de processamento sob **do Azure Active Directory** > **utilizadores e grupos** > *nome do grupo*  >  **Registos de auditoria**. Tenha em atenção as seguintes atividades:
 
-   - Atividade: **começar a aplicar licença baseada em grupo aos utilizadores**. Isto é registado quando o sistema Deteta a alteração de atribuição de licenças do grupo e começa a aplicá-lo a todos os membros de utilizador. Ele contém informações sobre a alteração que foi efetuada.
+   - Atividade: **Começar a aplicar licença baseada em grupo aos utilizadores**. Isto é registado quando o sistema Deteta a alteração de atribuição de licenças do grupo e começa a aplicá-lo a todos os membros de utilizador. Ele contém informações sobre a alteração que foi efetuada.
 
-   - Atividade: **concluir a aplicação de licença baseada em grupo aos utilizadores**. Isto é registado quando o sistema termina o processamento de todos os utilizadores no grupo. Ele contém um resumo de quantos utilizadores foram processados com êxito e o número de utilizadores não foi possível atribuir licenças de grupo.
+   - Atividade: **Concluir a aplicação de licença baseada em grupo aos utilizadores**. Isto é registado quando o sistema termina o processamento de todos os utilizadores no grupo. Ele contém um resumo de quantos utilizadores foram processados com êxito e o número de utilizadores não foi possível atribuir licenças de grupo.
 
    [Leia esta secção](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) para saber mais sobre como os registos de auditoria podem ser usados para analisar as alterações efetuadas pelo licenciamento baseado em grupo.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passo 3: Verificar a existência de problemas de licença e resolvê-los
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passo 3: Verifique a existência de problemas de licença e resolvê-los
 
 1. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**e localize o **departamento de RH** grupo de licenças foram atribuídas a.
 2. Sobre o **departamento de RH** painel de grupo, selecione **licenças**. A notificação na parte superior do painel mostra que há 10 utilizadores licenças não foi possível atribuir a. Clicar nele abre-se de uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.

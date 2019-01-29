@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 977466d77bee2d6fe49c0438aa1d9d4489f8eb5f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888231"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101061"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do HDInsight do Azure (pré-visualização)
 
@@ -22,7 +22,7 @@ Cluster do Azure HDInsight recurso dimensiona automaticamente o número de nós 
 
 ## <a name="getting-started"></a>Introdução
 
-### <a name="create-cluster-with-azure-portal"></a>Criar um cluster com o portal do Azure
+### <a name="create-a-cluster-with-the-azure-portal"></a>Criar um cluster com o portal do Azure
 
 > [!Note]
 > A escala automática é atualmente suportado apenas para a versão de clusters do Hive do Azure HDInsight, o MapReduce e o Spark 3.6.
@@ -48,7 +48,7 @@ A sua subscrição tem uma quota de capacidade para cada região. O número tota
 > [!Note]  
 > Se ultrapassar o limite de quota de núcleos total, receberá uma mensagem de erro dizendo "máxima de nós excedeu os núcleos disponíveis nesta região, escolha outra região ou contacte o suporte para aumentar a quota."
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Criar um cluster com um modelo do Resource Manager
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Criar um cluster com um modelo do Resource Manager
 
 Concluir passos de criação do cluster HDInsight utilizando modelos do Resource Manager podem ser encontrados em [Apache Hadoop criar clusters no HDInsight utilizando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Quando cria um cluster do HDInsight com um modelo Azure Resource Manager, terá de adicionar as seguintes definições na secção de "workernode" de "computeProfile" e editá-lo em conformidade:
 
@@ -74,7 +74,7 @@ Concluir passos de criação do cluster HDInsight utilizando modelos do Resource
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Ativar e desativar o dimensionamento automático para um cluster em execução
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Ativar e desativar o dimensionamento automático para um cluster em execução
 
 Ativar dimensionamento automático para um cluster em execução não é suportada durante a pré-visualização privada. Tem de estar ativada durante a criação do cluster.
 
@@ -82,7 +82,7 @@ Desativar o dimensionamento automático ou modificar as definições de dimensio
 
 ## <a name="monitoring"></a>Monitorização
 
-Pode ver o dimensionamento do cluster e diminuir o histórico de como parte das métricas de cluster. Pode listar todas as ações de dimensionamento nos últimos por dia, semana ou período de tempo maior.
+Pode ver o cluster de aumentar verticalmente e reduzir verticalmente histórico como parte das métricas de cluster. Também pode listar todas as ações de dimensionamento nos últimos por dia, semana ou período de tempo maior.
 
 ## <a name="how-it-works"></a>Como funciona
 

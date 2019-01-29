@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b23140eef4de904fb862253b6511b6fc2b1ce6dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ee2b3282a5f895c61b9f0b55aa3353e534b6e37
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582274"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191046"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconhecer impressos e texto manuscrito
 
@@ -33,7 +33,7 @@ Imagem digitalizada pode reconhecer texto impresso e manuscritos em imagens que 
 - As dimensões da imagem tem de estar entre 50 x 50 e 4200 x 4200 pixels
 
 > [!NOTE]
-> Esta tecnologia está atualmente em pré-visualização e só está disponível para texto em inglês.
+> Nota: esta tecnologia está atualmente em pré-visualização e só está disponível para textos em inglês.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

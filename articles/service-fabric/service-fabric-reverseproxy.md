@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711468"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097758"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso no Azure Service Fabric
 Proxy inverso integrado do Azure Service Fabric ajuda a microsserviços em execução no cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http.
@@ -57,7 +57,7 @@ Em vez de configurar a porta de um serviço individual no balanceador de carga, 
 ![Comunicação externa][0]
 
 > [!WARNING]
-> Quando configura a porta do proxy inverso no balanceador de carga, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP são endereçáveis a partir de fora do cluster. Isso significa que os microsserviços devem ser interno podem ser Detetáveis por um determinado utilizador mal intencionado. Este potenially apresenta sérias vulnerabilidades que podem ser exploradas; Por exemplo:
+> Quando configura a porta do proxy inverso no balanceador de carga, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP são endereçáveis a partir de fora do cluster. Isso significa que os microsserviços devem ser interno podem ser Detetáveis por um determinado utilizador mal intencionado. Isso apresenta potencialmente sérias vulnerabilidades que podem ser exploradas; Por exemplo:
 >
 > * Um utilizador mal intencionado pode iniciar um ataque de negação de serviço chamando um serviço interno que não tenha uma superfície de ataque suficientemente fortalecidos repetidamente.
 > * Um utilizador mal intencionado pode enviar pacotes com formato incorreto para um serviço interno, resultando em comportamentos indesejados.
@@ -74,20 +74,20 @@ O proxy inverso usa um formato de identifier (URI) de recurso uniforme específi
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento de HTTPS, consulte [ligar a um serviço seguro com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md) assim que tiver a configuração de proxy inverso para escutar o HTTPS.
-* **Nome de domínio completamente qualificado (FQDN) do cluster | IP interno:** para clientes externos, pode configurar o proxy inverso para que seja acessível por meio do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por predefinição, o proxy inverso é executado em cada nó. Para o tráfego interno, o proxy inverso pode ser contatado em localhost ou em qualquer IP interno do nó, como 10.0.0.1.
-* **Porta:** é a porta, de como 19081, que foi especificada para o proxy inverso.
-* **ServiceInstanceName:** este é o nome completamente qualificado da instância do serviço implementado que está a tentar acessar sem o "fabric: /" esquema. Por exemplo, para aceder a *fabric: / myapp/myservice/* serviço, usaria *myapp/meuserviço*.
+* **http(s):** O proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento de HTTPS, consulte [ligar a um serviço seguro com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md) assim que tiver a configuração de proxy inverso para escutar o HTTPS.
+* **Nome de domínio completamente qualificado (FQDN) do cluster | interní IP adresa:** Para clientes externos, pode configurar o proxy inverso para que seja acessível por meio do domínio do cluster, como mycluster.eastus.cloudapp.azure.com. Por predefinição, o proxy inverso é executado em cada nó. Para o tráfego interno, o proxy inverso pode ser contatado em localhost ou em qualquer IP interno do nó, como 10.0.0.1.
+* **Porta:** Esta é a porta, de como 19081, que foi especificada para o proxy inverso.
+* **ServiceInstanceName:** Este é o nome completamente qualificado da instância do serviço implementado que está a tentar acessar sem o "fabric: /" esquema. Por exemplo, para aceder a *fabric: / myapp/myservice/* serviço, usaria *myapp/meuserviço*.
 
     O nome da instância de serviço diferencia maiúsculas de minúsculas. Utilizar uma maiúsculas/minúsculas diferentes para o nome de instância de serviço no URL faz com que os pedidos a falhar com 404 (não encontrado).
-* **Caminho de sufixo:** este é o caminho de URL real, como *myapi/valores/Adicionar/3*, para o serviço que deseja se conectar.
-* **PartitionKey:** para um serviço particionado, esta é a chave de partição calculada da partição que pretende aceder. Tenha em atenção que se trata *não* a GUID de ID de partição. Este parâmetro não é necessário para serviços que utilizam o esquema de partição singleton.
-* **PartitionKind:** este é o esquema de partição de serviço. Isso pode ser 'Int64Range' ou "Com o nome". Este parâmetro não é necessário para serviços que utilizam o esquema de partição singleton.
+* **Caminho de sufixo:** Este é o caminho de URL real, como *myapi/valores/Adicionar/3*, para o serviço que deseja se conectar.
+* **PartitionKey:** Para um serviço particionado, esta é a chave de partição calculada da partição que pretende aceder. Tenha em atenção que se trata *não* a GUID de ID de partição. Este parâmetro não é necessário para serviços que utilizam o esquema de partição singleton.
+* **PartitionKind:** Este é o esquema de partição de serviço. Isso pode ser 'Int64Range' ou "Com o nome". Este parâmetro não é necessário para serviços que utilizam o esquema de partição singleton.
 * **ListenerName** os pontos de extremidade do serviço têm o formato {"Pontos finais": {"Listener1": "Endpoint1", "Listener2": "Endpoint2"...}}. Quando o serviço expõe vários pontos de extremidade, identifica o ponto final que o pedido de cliente deve ser reencaminhado. Isso pode ser omitido se o serviço tiver apenas um serviço de escuta.
 * **TargetReplicaSelector** esta ação Especifica como a réplica de destino ou a instância deve ser selecionada.
-  * Quando o serviço de destino está com monitoração de estado, o TargetReplicaSelector pode ser um dos seguintes: 'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Se este parâmetro não for especificado, a predefinição é 'PrimaryReplica'.
+  * Quando o serviço de destino está com monitoração de estado, o TargetReplicaSelector pode ser um dos seguintes:  'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Se este parâmetro não for especificado, a predefinição é 'PrimaryReplica'.
   * Quando o serviço de destino está sem monitoração de estado, o proxy inverso escolhe uma instância aleatória da partição para encaminhar a solicitação ao serviço.
-* **Tempo limite:** esta ação Especifica o tempo limite do pedido HTTP criado pelo proxy inverso para o serviço em nome do pedido do cliente. O valor predefinido é de 60 segundos. Este é um parâmetro opcional.
+* **Tempo limite:**  Esta ação Especifica o tempo limite do pedido HTTP criado pelo proxy inverso para o serviço em nome do pedido do cliente. O valor predefinido é de 60 segundos. Este é um parâmetro opcional.
 
 ### <a name="example-usage"></a>Exemplo de utilização
 Por exemplo, vamos dar a *fabric: / MyApp/Meuserviço* serviço que abre um serviço de escuta HTTP no seguinte URL:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Halosys | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Halosys | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Halosys.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 838e839aeb0b6d227d9350c4b5cd1f3f1a8cad8e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9953176dd3833e29e5e518944c6fecb32fcd0500
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837201"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189192"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integração do Azure Active Directory com Halosys
+# <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integração do Active Directory do Azure com Halosys
 
 Neste tutorial, saiba como integrar Halosys com o Azure Active Directory (Azure AD).
 
@@ -132,7 +132,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 1. Para configurar o início de sessão único num **Halosys** lado, terá de enviar o transferido **XML de metadados** e **SAML único início de sessão no URL do serviço** para [Halosys de suporte equipe](https://halosys.com/halosys#contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

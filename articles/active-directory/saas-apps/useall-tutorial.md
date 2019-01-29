@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Useall | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Useall | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Useall.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8dd9e452-a5b6-4a16-a97c-b60211ea6b95
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 8deacddc9dcc7571ea725143fa9a9c002c1602b1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 393494410b14bd54f1878cc372e76ad8a7ee3c7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743339"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164763"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-useall"></a>Tutorial: Integração do Azure Active Directory com Useall
+# <a name="tutorial-azure-active-directory-integration-with-useall"></a>Tutorial: Integração do Active Directory do Azure com Useall
 
 Neste tutorial, saiba como integrar Useall com o Azure Active Directory (Azure AD).
 

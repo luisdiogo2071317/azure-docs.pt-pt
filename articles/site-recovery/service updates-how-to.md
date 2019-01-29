@@ -1,6 +1,6 @@
 ---
 title: Atualiza o Azure Site Recovery | Documentos da Microsoft
-description: Fornece uma descrição geral do servic eupdates & como atualizar componentes utilizados no Azure Site Recovery.
+description: Fornece uma descrição geral das atualizações de serviço e como atualizar componentes utilizados no Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 4af881a3c49505e07a7fb73bb8af5a62e5e5a06f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401491"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176935"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, terá de descobrir como pretende manter os dados protegidos e aplicações/cargas de trabalho em execução quando planeada e falhas não planeadas ocorrerem. O Azure Site Recovery contribui para a sua estratégia BCDR ao manter as suas aplicações em execução em VMs e servidores físicos disponíveis se um site ficar inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que permaneçam disponíveis num local secundário, se o site primário não estiver disponível. Recupera as cargas de trabalho para o site primário quando estiver novamente operacional.

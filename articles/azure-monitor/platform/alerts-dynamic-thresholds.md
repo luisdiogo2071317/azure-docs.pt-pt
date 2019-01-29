@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449015"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097814"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor (pré-visualização pública)
 
@@ -21,7 +21,7 @@ Alerta de métrica com a detecção de limiares dinâmicos tira partido da avan�
 
 Depois de criar uma regra de alerta, será acionado apenas quando a métrica monitorizada não se comporta como esperado, com base nos respetivos limiares sob medidas.
 
-Gostaríamos muito de ouvir os seus comentários, mantê-lo a chegar em azurealertsfeedback@microsoft.com.
+Gostaríamos muito de ouvir os seus comentários, mantê-lo a chegar em <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando está a utilizar o tipo de condição dinâmica recomendado?
 
@@ -37,7 +37,7 @@ Alertas com limiares dinâmicos podem ser configuradas através de alertas de m�
 
 ## <a name="how-are-the-thresholds-calculated"></a>Como são calculados os limiares?
 
-Limiar dinâmico continuamente aprende os dados da série de métrica e tenta modelá-lo usando um conjunto de algoritmos e métodos. e tenta modelá-lo usando um conjunto de algoritmos e métodos. Detetar padrões nos dados, tais como a sazonalidade (por hora / dia / semanais) e é capaz de lidar com métricas ruidosos (por exemplo, CPU do computador ou memória), bem como as métricas com dispersão baixa (por exemplo, a taxa de disponibilidade e o erro).
+Limiares dinâmicos continuamente aprende os dados da série de métrica e tenta modelá-lo usando um conjunto de algoritmos e métodos. Detetar padrões nos dados, tais como a sazonalidade (por hora / dia / semanais) e é capaz de lidar com métricas ruidosos (por exemplo, CPU do computador ou memória), bem como as métricas com dispersão baixa (por exemplo, a taxa de disponibilidade e o erro).
 
 Os limiares são selecionados de forma que um desvio destes limiares indica uma anomalia no comportamento da métrica.
 
@@ -80,3 +80,80 @@ Provavelmente não. Limiares dinâmicos são bons para detetar desvios significa
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>A quantidade de dados é utilizado para visualização e, em seguida, calcular limiares?
 
 Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base nos últimos 10 dias de dados históricos, depois de criar uma regra de alerta, os limiares dinâmica irá adquirir os dados históricos adicionais que está disponíveis e será Aprenda continuamente com base nos dados novos para tornar os limiares mais precisas.
+
+## <a name="dynamic-thresholds-best-practices"></a>Práticas recomendadas de limiares dinâmicas
+
+Limiares dinâmicos podem ser aplicados a qualquer plataforma ou de uma métrica personalizada no Azure Monitor e ele também foi otimizado para as métricas comuns de aplicação e infraestrutura.
+Os itens seguintes são as práticas recomendadas sobre como configurar alertas em alguns destas métricas com limiares dinâmicos.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limiares dinâmicos em métricas de percentagem de CPU de máquinas virtuais
+
+1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. O modo de exibição de Monitor consolida todas as suas monitorização definições e dados numa vista.
+
+2. Clique em **alertas** , em seguida, clique em **+ nova regra de alerta**.
+
+    > [!TIP]
+    > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
+
+3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso de "Máquinas virtuais"** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+
+4. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
+
+5. Selecione o **percentagem de CPU**.
+
+6. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Ele não é recomendado para utilizar o tipo de agregação "Maximum" para este tipo de métrica, que é menos representativos de comportamento. Para o limiar 'Máximo' de estático do tipo agregação talvez mais apropriado.
+
+7. Verá um gráfico para a métrica para as últimas 6 horas. Defina os parâmetros de alerta:
+    1. **Tipo de condição** -escolher a opção 'Dynamic'.
+    1. **Sensibilidade** -sensibilidade de escolha médio ou com pouco para reduzir o ruído de alerta.
+    1. **Operador** -escolher 'Maior que' a menos que o comportamento representa a utilização da aplicação.
+    1. **Frequência** -considere reduzir com base no impacto comercial do alerta.
+    1. **Falhar períodos** (opção avançada), a janela de back-olhada deve ser, pelo menos, 15 minutos. Se o período for definido para cinco minutos, por exemplo, em seguida, falhar períodos deve ser, pelo menos, três ou mais.
+
+8. O gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
+
+9. Clique em **Concluído**.
+
+10. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição**, e **gravidade**.
+
+11. Adicione um grupo de ação para o alerta ao selecionar um grupo de ação existente ou criar um novo grupo de ação.
+
+12. Clique em **feito** para guardar a regra de alerta de métrica.
+
+> [!NOTE]
+> Alerta de métrica regras criadas através do portal são criadas no mesmo grupo de recursos como o recurso de destino.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Limiares dinâmicos no tempo de execução do pedido de HTTP do Application Insights
+
+1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. O modo de exibição de Monitor consolida todas as suas monitorização definições e dados numa vista.
+
+2. Clique em **alertas** , em seguida, clique em **+ nova regra de alerta**.
+
+    > [!TIP]
+    > A maioria dos painéis de recursos também tem **alertas** no respetivo menu de recursos sob **monitorização**, poderia criar alertas a partir do mesmo.
+
+3. Clique em **selecionar destino**, no painel de contexto que carrega, selecione um recurso de destino que quer receber o alerta. Uso **subscrição** e **tipo de recurso de "Application Insights"** listas pendentes para encontrar o recurso que pretende monitorizar. Também pode utilizar a barra de pesquisa para encontrar o seu recurso.
+
+4. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
+
+5. Selecione o **'Tempo de execução do pedido HTTP'**.
+
+6. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Ele não é recomendado para utilizar o tipo de agregação "Maximum" para este tipo de métrica, que é menos representativos de comportamento. Para o limiar 'Máximo' de estático do tipo agregação talvez mais apropriado.
+
+7. Verá um gráfico para a métrica para as últimas 6 horas. Defina os parâmetros de alerta:
+    1. **Tipo de condição** -escolher a opção 'Dynamic'.
+    1. **Operador** -escolher 'maior do que"para reduzir alertas acionados no aprimoramento de duração.
+    1. **Frequência** -considere reduzir com base no impacto comercial do alerta.
+
+8. O gráfico de métricas irá apresentar os limiares calculados com base nos dados recentes.
+
+9. Clique em **Concluído**.
+
+10. Preencha **detalhes do alerta** como **nome da regra de alerta**, **Descrição**, e **gravidade**.
+
+11. Adicione um grupo de ação para o alerta ao selecionar um grupo de ação existente ou criar um novo grupo de ação.
+
+12. Clique em **feito** para guardar a regra de alerta de métrica.
+
+> [!NOTE]
+> Alerta de métrica regras criadas através do portal são criadas no mesmo grupo de recursos como o recurso de destino.

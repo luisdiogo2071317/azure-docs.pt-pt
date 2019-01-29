@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o arco de Dome9 | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o arco de Dome9 | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Dome9 arco.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387859"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191402"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Azure Active Directory com Dome9 arco
+# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Active Directory do Azure com Dome9 arco
 
 Neste tutorial, saiba como integrar o arco de Dome9 com o Azure Active Directory (Azure AD).
 

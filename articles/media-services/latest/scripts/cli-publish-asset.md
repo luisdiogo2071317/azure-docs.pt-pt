@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 1ce85c18b93f22e9078e551deda74c6e6ff0b28b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614927"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095536"
 ---
-# <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: publicar um elemento
+# <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: Publicar um elemento
 
 O script da CLI do Azure neste artigo mostra como criar um Localizador de Transmissão em Fluxo e voltar aos URLs de Transmissão em Fluxo. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+[Criar uma conta de Media Services](../create-account-cli-how-to.md).
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

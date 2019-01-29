@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Campus infinito | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Campus infinito | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e no Campus infinito.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099958"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151809"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory com Campus infinita
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Active Directory do Azure com o Campus infinita
 
 Neste tutorial, saiba como integrar o Campus infinita com o Azure Active Directory (Azure AD).
 

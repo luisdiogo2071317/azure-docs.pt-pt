@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 368fbf52642b1353b221ce6ebe6f6c40a517c3e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 245e3d32bc546ae6f725ac6f7eb549d77119c956
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473423"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191521"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Advanced opções no token SAML para aplicações de galeria no Azure Active Directory de assinatura de certificado
 Atualmente o Azure Active Directory (Azure AD) suporta milhares de aplicações previamente integradas na Galeria de aplicações do Azure Active Directory. Este número inclui mais de 500 aplicações que suportam o início de sessão único com o protocolo SAML 2.0. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD com o SAML, o Azure AD envia um token para a aplicação (através de um HTTP POST). Em seguida, o aplicativo valida e utiliza o token para fazer logon do usuário em vez de solicitar um nome de utilizador e palavra-passe. Estes tokens SAML são assinadas com o certificado exclusivo que é gerado no Azure AD e pelos algoritmos padrão específicos.

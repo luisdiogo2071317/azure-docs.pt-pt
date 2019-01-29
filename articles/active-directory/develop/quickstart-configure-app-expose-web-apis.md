@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988775"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095707"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Início Rápido: Configurar uma aplicação para expor APIs Web (Pré-visualização)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Início rápido: Configurar uma aplicação para expor web APIs (pré-visualização)
 
 Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
 
@@ -128,7 +128,7 @@ O manifesto de aplicação funciona como um mecanismo para atualizar a entidade 
 
 Para obter mais informações sobre os conceitos gerais do manifesto de aplicação, veja [Compreender o manifesto de aplicação do Azure Active Directory](reference-app-manifest.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados:
 
