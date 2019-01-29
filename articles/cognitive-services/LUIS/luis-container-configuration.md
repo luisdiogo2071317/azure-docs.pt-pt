@@ -1,4 +1,4 @@
----
+﻿---
 title: Definições de contentor do docker
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: O ambiente de tempo de execução de contentores do LUIS é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais.
@@ -35,7 +35,7 @@ Este contentor tem as seguintes definições de configuração:
 |Sim|[Billing](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
 |Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
 |Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
-|Não|[Proxy de HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
+|Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
 |Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
 |Sim|[Mounts](#mount-settings)|Ler e escrever dados do computador anfitrião para o contentor e do contentor para o computador anfitrião.|
 
