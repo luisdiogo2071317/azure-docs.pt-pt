@@ -41,13 +41,13 @@ A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a func
 
 | V2 o método API   | V3 Compatibilidade da API |
 |:----------- |:-------------|
-| Traduzir     | [Traduzir](reference/v3-0-translate.md)          |
+| Translate     | [Traduzir](reference/v3-0-translate.md)          |
 | TranslateArray      | [Traduzir](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Idiomas](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Fale     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detetar     | [Detetar](reference/v3-0-detect.md)         |
+| Speak     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Detetar](reference/v3-0-detect.md)         |
 | DetectArray     | [Detetar](reference/v3-0-detect.md)         |
 | AddTranslation     | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 preço baseia-se da mesma forma que v2 foi um preço; po
 
 | Método v3   | Carateres contabilizados para faturação |
 |:----------- |:-------------|
-| Linguagens     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
-| Traduzir     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
-| Transliterar     | Número de carateres submetido para a Transliteração é contabilizado.         |
-| Pesquisa de dicionário & de exemplo     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
+| Languages     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
+| Translate     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
+| Transliterate     | Número de carateres submetido para a Transliteração é contabilizado.         |
+| Dictionary lookup & example     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
 | BreakSentence     | Sem custos.       |
-| Detetar     | Sem custos.      |
+| Detect     | Sem custos.      |
 
 ## <a name="v3-end-points"></a>V3 pontos finais
 
