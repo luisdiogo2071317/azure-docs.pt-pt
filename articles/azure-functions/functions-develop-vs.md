@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275841"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098086"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -78,9 +78,9 @@ Para criar e implementar as funções, também terá de:
 
 O modelo de projeto cria um projeto c#, instala o `Microsoft.NET.Sdk.Functions` pacote NuGet e define a estrutura de destino. Funções 1.x destinos do .NET Framework e as funções de destinos de 2.x .NET Standard. O novo projeto tem os seguintes ficheiros:
 
-* **Host. JSON**: permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json.md).
+* **host.json**: Permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json.md).
 
-* **Settings**: mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar as definições da aplicação para variáveis necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
+* **local.settings.json**: Mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar as definições da aplicação para variáveis necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
 
     >[!IMPORTANT]
     >Porque o ficheiro Settings pode conter segredos, deve exclui-lo de seu controle de origem do projeto. O **Copy to Output Directory** definição para este ficheiro deve ser sempre **copiar se for mais recente**. 
@@ -115,7 +115,7 @@ Nas funções compiladas previamente, as ligações usadas pela função são de
 
     Por exemplo, a seguinte classe c# representa uma função de acionada pelo armazenamento de fila básica:
 
-    ````csharp
+    ```csharp
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
@@ -132,7 +132,7 @@ Nas funções compiladas previamente, as ligações usadas pela função são de
             }
         }
     }
-    ````
+    ```
     Um atributo específico do enlace é aplicado a cada parâmetro de ligação fornecido para o método de ponto de entrada. O atributo utiliza as informações de associação como parâmetros. No exemplo anterior, o primeiro parâmetro tem um **QueueTrigger** atributo aplicado, que indica a função acionada por fila. O nome da fila e o nome de definição da cadeia de ligação são passados como parâmetros para o **QueueTrigger** atributo. Para obter mais informações, consulte [enlaces de armazenamento de filas do Azure para as funções do Azure](functions-bindings-storage-queue.md#trigger---c-example).
     
 Pode utilizar o procedimento acima para adicionar mais funções ao seu projeto de aplicação de função. Cada função no projeto pode ter um acionador diferente, mas uma função tem de ter exatamente um acionador. Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md).

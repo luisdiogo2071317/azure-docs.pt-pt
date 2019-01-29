@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024795"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093171"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de funcionamento em rede de contentor do Service Fabric
 
@@ -78,7 +78,7 @@ Quando um serviço de contentor é reiniciado ou se move para outro nó no clust
             ],
     ```
     
-2. Configure a seção de perfil de rede do recurso de conjunto de dimensionamento de Máquina Virtual. Isso permite que vários endereços IP a ser configurado em cada nó do cluster. O exemplo seguinte define cinco endereços IP por nó para um cluster do Service Fabric do Windows/Linux. Pode ter cinco instâncias do serviço de escuta na porta em cada nó. Para que os IPs de cinco esteja acessível a partir do Balanceador de carga do Azure, inscreva os cinco IPs no conjunto de endereços de back-end de Balanceador de carga do Azure, conforme mostrado abaixo.  Também será precisa para adicionar as variáveis na parte superior do seu modelo na secção de variáveis.
+2. Configure a seção de perfil de rede do recurso de conjunto de dimensionamento de Máquina Virtual. Isso permite que vários endereços IP a ser configurado em cada nó do cluster. O exemplo seguinte define cinco endereços IP por nó para um cluster do Service Fabric do Windows/Linux. Pode ter cinco instâncias do serviço de escuta na porta em cada nó. Para que os IPs de cinco esteja acessível a partir do Balanceador de carga do Azure, inscreva os cinco IPs no conjunto de endereços de back-end de Balanceador de carga do Azure, conforme mostrado abaixo.  Também terá de adicionar as variáveis na parte superior do seu modelo na secção de variáveis.
 
     Adicione esta secção para variáveis:
 
@@ -209,10 +209,10 @@ Quando um serviço de contentor é reiniciado ou se move para outro nó no clust
  
 3. Para os clusters do Windows apenas, configure uma regra de grupo de segurança de rede (NSG) do Azure que se abre a porta 53 de UDP/para a rede virtual com os seguintes valores:
 
-   |Definição |Valor | |
+   |Definição |Value | |
    | --- | --- | --- |
    |Prioridade |2000 | |
-   |Nome |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |Origem |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
@@ -264,7 +264,7 @@ Quando um serviço de contentor é reiniciado ou se move para outro nó no clust
    </Resources>
    ```
    
-6. Para Windows, um reinício VM fará com que a rede aberta de ser recriados. Isso é reduzir um problema subjacente na pilha da rede. O comportamento padrão é recriar a rede. Se este comportamento tem de ser desativada, pode ser utilizada a seguinte configuração seguido de uma atualização de configuração.
+6. Para Windows, um reinício VM fará com que a rede aberta de ser recriados. Isso é reduzir um problema subjacente na pilha da rede. O comportamento padrão é recriar a rede. Se esse comportamento tem de ser desativada, pode ser utilizada a seguinte configuração seguido de uma atualização de configuração.
 
 ```json
 "fabricSettings": [

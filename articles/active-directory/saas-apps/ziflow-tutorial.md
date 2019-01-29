@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Ziflow | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Ziflow | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Ziflow.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ca687f15187d4dd485d2c59e3c46fa3158802ff4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626698"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180007"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Azure Active Directory com Ziflow
+# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Active Directory do Azure com Ziflow
 
 Neste tutorial, saiba como integrar Ziflow com o Azure Active Directory (Azure AD).
 
@@ -60,7 +60,7 @@ Para configurar a integração do Ziflow com o Azure AD, terá de adicionar Zifl
 
 **Para adicionar Ziflow a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -246,7 +246,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

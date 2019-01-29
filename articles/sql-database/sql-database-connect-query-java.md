@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197505"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
 
 Este artigo demonstra como usar [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para ligar a uma base de dados SQL do Azure. Pode, em seguida, utilizar instruções T-SQL para consultar dados.
 
@@ -27,8 +27,6 @@ Este artigo demonstra como usar [Java](/sql/connect/jdbc/microsoft-jdbc-driver-f
 Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisitos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- R [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que está a utilizar
 
 - Software relacionado ao Java instalado para o seu sistema operativo:
 
@@ -75,7 +73,7 @@ Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisito
 
 1. Já deverá ter um ficheiro chamado *App* no seu projeto Maven localizado em:
 
-   *.. \sqltest\src\main\java\com\sqldbsamples\App.Java*
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
 1. Abra o ficheiro e substitua o conteúdo pelo seguinte código. Em seguida, adicione os valores adequados para o seu servidor, base de dados, utilizador e palavra-passe.
 

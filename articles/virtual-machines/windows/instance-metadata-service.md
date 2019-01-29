@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 17826bb250f1cc7c4d512f76400eeb43c2637c73
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: b88f1ff84cc26e1db88027a55b506fd37476aae5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994798"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197692"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -39,7 +39,7 @@ Regiões                                        | Disponibilidade?              
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | Disponível em Geral   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[O Azure na China](https://www.azure.cn/)                                                           | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure China](https://www.azure.cn/)                                                           | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 Esta tabela é atualizada quando existem atualizações de serviço e ou existem novas versões suportadas
@@ -305,8 +305,8 @@ vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../..
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
-endereço de sub-rede / | Endereço de sub-rede da VM | 2017-04-02 
-prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
+subnet/address | Endereço de sub-rede da VM | 2017-04-02 
+subnet/prefix | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
 macAddress | Endereço mac VM | 2017-04-02 
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01

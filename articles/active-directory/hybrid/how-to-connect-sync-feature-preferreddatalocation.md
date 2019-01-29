@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7b54d1b746467695b2c5e6a4ba634c74a3801d4f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078734"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167092"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para os recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo de localização de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém o utilizar capacidades de Multi-Geo no Office 365, utilize este atributo para designar a localização geográfica dos dados do utilizador do Office 365. (Os termos *região* e *geo* são utilizados alternadamente.)
@@ -123,9 +123,9 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Sob o **Descrição** separador, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
-    | Nome | *Forneça um nome* | Por exemplo, "do AD – utilizador preferredDataLocation" |
+    | Name | *Forneça um nome* | Por exemplo, "do AD – utilizador preferredDataLocation" |
     | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema ligado | *Escolha o conector do Active Directory no local* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
@@ -152,9 +152,9 @@ A regra de sincronização de saída permite que o valor do atributo para o flux
 3. Selecione **Adicionar nova regra**.
 4. Sob o **Descrição** separador, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Forneça um nome* | Por exemplo, "fora para o Azure AD – utilizador preferredDataLocation" |
+    | Name | *Forneça um nome* | Por exemplo, "fora para o Azure AD – utilizador preferredDataLocation" |
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Selecione o conector Azure AD* ||
     | Tipo de objeto de sistema ligado | **Utilizador** ||
@@ -164,7 +164,7 @@ A regra de sincronização de saída permite que o valor do atributo para o flux
 
 5. Vá para o **Scoping filtro** separador e adicionar um único grupo de filtro de âmbito com dois cláusulas:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 194999ca7036e174e702d1f997f072da3e9a2dc5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2ddc0376e256a977d7d14ea10b610fcd5861e7c8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382297"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100568"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 
@@ -55,7 +55,7 @@ Se não conseguiu criar a aplicação de votação de exemplo na [primeira parte
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-Abra a aplicação no Visual Studio, em execução como administor e criar a aplicação.
+Abra a aplicação no Visual Studio, em execução como administrador e criar a aplicação.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 

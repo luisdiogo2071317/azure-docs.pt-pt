@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5848b16624f3b8c307a022b9f79c61910736b83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433735"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167143"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -56,8 +56,8 @@ Para compreender melhor o PIM e a respetiva documentação, deve rever os termos
 
 | Termo ou conceito | Categoria de atribuição de função | Descrição |
 | --- | --- | --- |
-| Elegível | Tipo | Uma atribuição de função que requer que um utilizador efetuar uma ou mais ações para utilizar a função. Se um utilizador se tornou qualificado para uma função, o que significa que os utilizadores podem ativar a função quando precisam de executar tarefas com privilégios. Não existe nenhuma diferença no acesso concedido a qualquer pessoa com uma permanente em comparação com uma atribuição de função elegível. A única diferença é que, algumas pessoas não precisam que o acesso o tempo todo. |
-| ativo | Tipo | Uma atribuição de função que não necessita de um utilizador efetuar qualquer ação para utilizar a função. Os utilizadores atribuídos como ativo têm os privilégios atribuídos à função. |
+| Elegível | Type | Uma atribuição de função que requer que um utilizador efetuar uma ou mais ações para utilizar a função. Se um utilizador se tornou qualificado para uma função, o que significa que os utilizadores podem ativar a função quando precisam de executar tarefas com privilégios. Não existe nenhuma diferença no acesso concedido a qualquer pessoa com uma permanente em comparação com uma atribuição de função elegível. A única diferença é que, algumas pessoas não precisam que o acesso o tempo todo. |
+| ativo | Type | Uma atribuição de função que não necessita de um utilizador efetuar qualquer ação para utilizar a função. Os utilizadores atribuídos como ativo têm os privilégios atribuídos à função. |
 | ativar |  | O processo de efetuar uma ou mais ações para utilizar a função que é elegível para um utilizador. Ações podem incluir a efetuar uma verificação de autenticação multifator (MFA), fornecer uma justificação de negócio ou o pedido de aprovação de aprovadores designados. |
 | Atribuído | Estado | Um utilizador com uma atribuição de função do Active Directory. |
 | Ativado | Estado | Um utilizador com uma atribuição de função elegível, efetuar as ações para ativar a função e agora está ativo. |

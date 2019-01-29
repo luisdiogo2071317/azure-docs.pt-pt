@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 12764574c92c494e27290f98f274d2b76c7a4dc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465178"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183238"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
@@ -73,7 +73,7 @@ Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados 
 
 
 ## <a name="backup-and-restore-costs"></a>Custos de cópia de segurança e restauro
-Notará que a fatura do Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação após desastre. O custo de armazenamento é o custo total de armazenamento dos dados na região primária, juntamente com as alterações incrementais capturado por instantâneos. Para obter uma explicação mais detalhada sobre como atualmente são tirados instantâneos, consulte este [documentação](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). A cobrança georredundante abrange o custo para o armazenamento de cópias de segurança geo.  
+Notará que a fatura do Azure tem um item de linha para armazenamento e um item de linha para armazenamento de recuperação após desastre. O custo de armazenamento é o custo total de armazenamento dos dados na região primária, juntamente com as alterações incrementais capturado por instantâneos. Para obter uma explicação mais detalhada de como os instantâneos são cobrados, consulte [compreender como instantâneos de acumulam encargos](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). A cobrança georredundante abrange o custo para o armazenamento de cópias de segurança geo.  
 
 O total de custos para o seu armazém de dados primária e sete dias de alterações de instantâneo é arredondado para o TB mais próximo. Por exemplo, se o armazém de dados tiver 1,5 TB e 100 GB de captura de instantâneos, é-lhe cobrada para 2 TB de dados às tarifas de armazenamento Premium do Azure. 
 

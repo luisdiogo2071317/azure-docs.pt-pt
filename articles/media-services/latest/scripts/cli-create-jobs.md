@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 11e148181568f0c550b5eb094055c21c47c00cfc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 04bcdd2bf5a2f1ca7cd1ea10784ac72ef130bc70
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615828"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104499"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: Criar e submeter uma tarefa
 
@@ -27,11 +27,9 @@ Neste artigo, o script da CLI do Azure mostra como criar e submeter uma Tarefa p
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+[Criar uma conta de Media Services](../create-account-cli-how-to.md).
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Script de exemplo
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 19199d25b960d768f844d725616220fb78e7d983
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425127"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094058"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão de código do OAuth 2.0
 
@@ -62,8 +62,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Pode ser `query`, `fragment`, ou `form_post`. `query` Fornece o código como um parâmetro de cadeia de caracteres de consulta no seu URI de redirecionamento. Se estiver solicitando um token de ID com o fluxo implícito, é possível utilizar `query` conforme especificado no [especificação de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver solicitando apenas do código, pode usar `query`, `fragment`, ou `form_post`. `form_post` executa uma POSTAGEM que contém o código para o seu URI de redirecionamento. A predefinição é `query` para um fluxo de código.  |
 | state |Recomendado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | Recurso | Recomendado |O URI de ID de aplicação da API (recurso protegido) da web de destino. Para encontrar o URI de ID de aplicação, no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário em um dos autorização ou pedidos de token. Para garantir autenticação menos prompts colocá-lo no pedido de autorização para se certificar de consentimento é recebido do usuário. |
-| scope | **ignorado** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicativos **configurações**, **permissões obrigatórias**. |
-| linha de comandos |opcional |Indica o tipo de interação do usuário que é necessário.<p> Valores válidos são: <p> *início de sessão*: deve ser pedido ao utilizador para autenticar. <p> *select_account*: é pedido ao utilizador para selecionar uma conta, interromper o início de sessão único no. O utilizador pode selecionar uma conta de início de sessão iniciada existente, introduza as credenciais para uma conta de memorizados ou optar por utilizar uma conta diferente completamente. <p> *consentir*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador para dar consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido para consentir em nome de todos os utilizadores na sua organização |
+| scope | **ignored** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicativos **configurações**, **permissões obrigatórias**. |
+| linha de comandos |opcional |Indica o tipo de interação do usuário que é necessário.<p> Valores válidos são: <p> *login*: Deve ser pedido ao utilizador para autenticar. <p> *select_account*: É pedido ao utilizador para selecionar uma conta, interromper o início de sessão único no. O utilizador pode selecionar uma conta de início de sessão iniciada existente, introduza as credenciais para uma conta de memorizados ou optar por utilizar uma conta diferente completamente. <p> *consent*: Consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador para dar consentimento. <p> *admin_consent*: Um administrador deve ser-lhe pedido para consentir em nome de todos os utilizadores na sua organização |
 | login_hint |opcional |Pode ser usada para preencher previamente o campo de endereço de e-mail/nome de utilizador da página início de sessão do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 | domain_hint |opcional |Fornece uma dica sobre o inquilino ou domínio que o utilizador deve utilizar para iniciar sessão. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, o AAD redireciona para o servidor de Federação do inquilino especificado. |
 | code_challenge_method | Recomendado    | O método utilizado para codificar a `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`. Se excluído, `code_challenge` é considerado como texto sem formatação se `code_challenge` está incluído. Oferece suporte do Azure AAD v1.0 `plain` e `S256`. Para obter mais informações, consulte a [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -175,7 +175,7 @@ Uma resposta com êxito poderia ter esta aparência:
 | Parâmetro | Descrição |
 | --- | --- |
 | access_token |O pedido [token de acesso](access-tokens.md) como um assinado JSON Web Token (JWT). A aplicação pode utilizar este token para autenticar para o recurso protegido, como uma API web. |
-| token_type |Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização de OAuth2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [OAuth2.0 autorização Framework: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |O tempo que o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
 | Recurso |O URI de ID de aplicação da web API (recurso protegido). |

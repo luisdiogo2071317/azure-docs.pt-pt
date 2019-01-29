@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1ff63dddfa21ba92bb3da44c6711b64e8ad3f1b6
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a5e6d63627764ff64ac5e0621e271140ab3ed828
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914096"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099820"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco na proteção de identidade do Azure Active Directory (atualizada)
 
@@ -83,7 +83,7 @@ Se quiser exigir a MFA para inícios de sessão de risco, deve:
 
 1. Ativar a [política de registo de autenticação multifator](#multi-factor-authentication-registration-policy) para os utilizadores afetados.
 
-2. Requer que os utilizadores afetados iniciar sessão numa sessão não risco para efetuar um registo na MFA.
+2. Requer que os utilizadores afetados para início de sessão numa sessão não risco para efetuar um registo na MFA.
 
 Concluir estes passos garante que a autenticação multifator é necessária um risco para início de sessão.
 

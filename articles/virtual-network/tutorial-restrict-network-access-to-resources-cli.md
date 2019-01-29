@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ce4ff3fe2917d4dc34718fccc740223df0c52e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150553"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com a CLI do Azure
 
@@ -186,7 +186,7 @@ echo $saConnectionString
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Criar uma partilha de ficheiros na conta de Armazenamento
 
-Criar uma partilha de ficheiros na conta de armazenamento com [criar partilha de armazenamento az](/cli/azure/storage/share#az_storage_share_create). Num passo posterior, esta partilha de ficheiros está montada para confirmar o acesso de rede ao mesmo.
+Criar uma partilha de ficheiros na conta de armazenamento com [criar partilha de armazenamento az](/cli/azure/storage/share). Num passo posterior, esta partilha de ficheiros está montada para confirmar o acesso de rede ao mesmo.
 
 ```azurecli-interactive
 az storage share create \

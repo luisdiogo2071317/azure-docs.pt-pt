@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185470"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-A pasta apontada pelo `app.properties` ficheiro tem de existir. Depois do `app.properties` ficheiro é criado, terá de também modificar o script de ponto de entrada `entrypoint.sh` no `<applicationfolder>/<servicePkg>/Code/` pasta para definir a propriedade `java.util.logging.config.file` para `app.propertes` ficheiro. A entrada deve ter um aspeto como o seguinte fragmento:
+A pasta apontada pelo `app.properties` ficheiro tem de existir. Depois do `app.properties` ficheiro é criado, terá de também modificar o script de ponto de entrada `entrypoint.sh` no `<applicationfolder>/<servicePkg>/Code/` pasta para definir a propriedade `java.util.logging.config.file` para `app.properties` ficheiro. A entrada deve ter um aspeto como o seguinte fragmento:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Várias estruturas estão disponíveis para rastreio CoreCLR aplicações no Lin
 
 A primeira etapa é incluir System.Diagnostics.Tracing para que possa escrever os registos de memória, fluxos de saída ou ficheiros da consola.  Para o Registro em log usando EventSource, adicione ao projeto seguinte ao seu Project:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

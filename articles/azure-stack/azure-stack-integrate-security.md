@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087734"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096624"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integração de datacenter do Azure Stack - reencaminhamento do syslog
 
-Este artigo mostra-lhe como utilizar o syslog para integrar a infraestrutura do Azure Stack com soluções de segurança externa já implementadas no seu datacenter. Por exemplo, um sistema de gestão de eventos de informações de segurança (SIEM). O canal de syslog expõe as auditorias, alertas e registos de segurança de todos os componentes da infraestrutura do Azure Stack. Utilize o reencaminhamento do syslog para integrar com soluções de monitorização de segurança e/ou para obter todas as auditorias, alertas e segurança registos de armazená-las para a retenção. 
+Este artigo mostra-lhe como utilizar o syslog para integrar a infraestrutura do Azure Stack com soluções de segurança externa já implementadas no seu datacenter. Por exemplo, um sistema de gestão de eventos de informações de segurança (SIEM). O canal de syslog expõe as auditorias, alertas e registos de segurança de todos os componentes da infraestrutura do Azure Stack. Utilize o reencaminhamento do syslog para integrar com soluções de monitorização de segurança e/ou para obter todas as auditorias, alertas e segurança registos de armazená-las para a retenção.
 
 A partir da atualização de 1809, o Azure Stack tem um cliente de syslog integrada que, uma vez configurado, emite as mensagens syslog com a carga no Common Event Format (CEF).
 
 O diagrama a seguir descreve a integração do Azure Stack com um SIEM externo. Existem dois padrões de integração que precisam de ser considerados: o primeiro uma (aquele a azul) é que a infraestrutura do Azure Stack que abrange as máquinas de virtuais de infraestrutura e os nós do Hyper-V. Todas as auditorias, registos de segurança e alertas a partir desses componentes centralmente são recolhidas e expostas por meio de syslog com payload CEF. Este padrão de integração é descrito nesta página do documento.
-O segundo padrão de integração é a representado na cor de laranja e aborda os controladores de gestão da placa base (BMCs), o anfitrião de ciclo de vida do hardware (HLH), as máquinas virtuais e/ou aplicações virtuais que executam o parceiro de hardware, monitorização e gestão software e a parte superior dos comutadores (TOR rack). Uma vez que esses componentes são parceiros de hardware específicas, contacte o seu parceiro de hardware para obter documentação sobre como integrá-las com um SIEM externo.
+O segundo padrão de integração é a representado na cor de laranja e aborda os controladores de gestão da placa base (BMCs), o anfitrião de ciclo de vida do hardware (HLH), as máquinas virtuais e/ou aplicações virtuais que executam o parceiro de hardware, monitorização e gestão software e a parte superior dos comutadores (TOR rack). Uma vez que esses componentes são contacto específico, de parceiros de hardware de seu hardware parceiros para obter documentação sobre como integrá-las com um SIEM externo.
 
 ![Diagrama de reencaminhamento do syslog](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +32,13 @@ O segundo padrão de integração é a representado na cor de laranja e aborda o
 
 O cliente de syslog no Azure Stack suporta as seguintes configurações:
 
-1. **Syslog através de TCP, com a autenticação mútua (cliente e servidor) e a encriptação TLS 1.2:** nesta configuração, o servidor syslog e o cliente de syslog, podem verificar a identidade entre si através de certificados. As mensagens são enviadas por um canal criptografado de TLS 1.2.
+1. **Syslog através de TCP, com a autenticação mútua (cliente e servidor) e a encriptação TLS 1.2:** Nesta configuração, o servidor syslog e o cliente de syslog podem verificar a identidade entre si através de certificados. As mensagens são enviadas por um canal criptografado de TLS 1.2.
 
-2. **Syslog através de TCP com a autenticação de servidor e a encriptação TLS 1.2:** nesta configuração, o cliente de syslog pode verificar a identidade do servidor syslog através de um certificado. As mensagens são enviadas por um canal criptografado de TLS 1.2.
+2. **Syslog através de TCP com a autenticação de servidor e a encriptação TLS 1.2:** Nesta configuração, o cliente de syslog pode verificar a identidade do servidor syslog através de um certificado. As mensagens são enviadas por um canal criptografado de TLS 1.2.
 
-3. **Syslog através de TCP, sem criptografia:** nesta configuração, nem o cliente de syslog nem o servidor syslog verifica a identidade da outra. As mensagens são enviadas em texto não encriptado através de TCP.
+3. **Syslog através de TCP, sem criptografia:** Nesta configuração, o cliente de syslog e identidades de servidor syslog não são verificadas. As mensagens são enviadas em texto não encriptado através de TCP.
 
-4. **Syslog através do UDP, sem criptografia:** nesta configuração, nem o cliente de syslog nem o servidor syslog verifica a identidade da outra. As mensagens são enviadas em texto não encriptado através do UDP.
+4. **Syslog através do UDP, sem criptografia:** Nesta configuração, o cliente de syslog e identidades de servidor syslog não são verificadas. As mensagens são enviadas em texto não encriptado através do UDP.
 
 > [!IMPORTANT]
 > A Microsoft recomenda utilizar TCP através da autenticação e encriptação (configuração #1 ou, pelo mínimo, #2) para ambientes de produção proteger contra ataques man-in-the-middle e interceptação de mensagens.
@@ -60,7 +60,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parâmetros para *Set-SyslogServer* cmdlet:
 
-| Parâmetro | Descrição | Tipo | Necessário |
+| Parâmetro | Descrição | Type | Necessário |
 |---------|---------|---------|---------|
 |*ServerName* | Endereço IP ou FQDN do servidor syslog | Cadeia | sim|
 |*ServerPort* | Está a escutar o número de porta do servidor syslog | Cadeia | sim|
@@ -71,7 +71,7 @@ Parâmetros para *Set-SyslogServer* cmdlet:
 |*remover*| Remover a configuração do servidor do cliente e parar o reencaminhamento do syslog| Sinalizador | não|
 
 Parâmetros para *Set-SyslogClient* cmdlet:
-| Parâmetro | Descrição | Tipo |
+| Parâmetro | Descrição | Type |
 |---------|---------| ---------|
 | *pfxBinary* | ficheiro PFX que contenha o certificado a ser utilizada pelo cliente como identidade para autenticar o servidor syslog  | Byte[] |
 | *CertPassword* |  Palavra-passe para importar a chave privada que está associada com o ficheiro pfx | SecureString |
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Configurar o reencaminhamento de syslog com o TCP, autenticação de servidor e a encriptação de TLS 1.2
 
-Nesta configuração, o cliente de syslog no Azure Stack reencaminha as mensagens para o servidor syslog através de TCP, com a encriptação TLS 1.2. Durante o handshake inicial, o cliente também verifica que o servidor fornece um certificado válido e de confiança. Isto impede que o cliente para enviar mensagens para destinos não fidedignos.
+Nesta configuração, o cliente de syslog no Azure Stack reencaminha as mensagens para o servidor syslog através de TCP, com a encriptação TLS 1.2. Durante o handshake inicial, o cliente também verifica que o servidor fornece um certificado válido e de confiança. Esta configuração impede que o cliente para enviar mensagens para destinos não fidedignos.
 Utilizar a autenticação e encriptação de TCP é a configuração predefinida e representa o nível mínimo de segurança recomendados pela Microsoft para um ambiente de produção. 
 
 ```powershell
@@ -318,7 +318,7 @@ Tabela de extensão personalizada para eventos do Windows no Azure Stack:
 | Nome da extensão personalizada | Exemplo de eventos do Windows | 
 |-----------------------|---------|
 |MasChannel | Sistema|
-|MasComputer | Test.azurestack.contoso.com|
+|MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasEventData| Svchost!! 4132, G, 0!!! EseDiskFlushConsistency!! ESENT!! 0x800000|
@@ -334,8 +334,8 @@ Tabela de extensão personalizada para eventos do Windows no Azure Stack:
 |MasOpcodeName |informações|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-política de grupo|
-|MasSecurityUserId |\<SID do Windows\> |
+|MasProviderName |Microsoft-Windows-GroupPolicy|
+|MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Criação de processo|
 |MasUserData|KB4093112!! 5112!! Instalado!! 0x0!! WindowsUpdateAgent Xpath: /Event/UserData / *|
@@ -360,7 +360,7 @@ Tabela de gravidade de alertas:
 Tabela de extensão personalizada para os alertas criados no Azure Stack:
 | Nome da extensão personalizada | Exemplo | 
 |-----------------------|---------|
-|MasEventDescription|Descrição: Uma conta de utilizador \<TestUser\> foi criado para \<TestDomain\>. É um potencial risco de segurança. – REMEDIAÇÃO: contacte o suporte. Assistência de cliente é necessária para resolver este problema. Não tente resolver este problema sem sua assistência. Antes de abrir um pedido de suporte, iniciar o processo de recolha de ficheiros de registo através da orientação do https://aka.ms/azurestacklogfiles |
+|MasEventDescription|DESCRIÇÃO: Uma conta de utilizador \<TestUser\> foi criado para \<TestDomain\>. É um potencial risco de segurança. – REMEDIAÇÃO: Contacte o suporte. Assistência de cliente é necessária para resolver este problema. Não tente resolver este problema sem sua assistência. Antes de abrir um pedido de suporte, iniciar o processo de recolha de ficheiros de registo através da orientação do https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mapeamento de CEF para os alertas fechados
 

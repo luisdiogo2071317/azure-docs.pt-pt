@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321595"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181474"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -46,7 +46,7 @@ Sob **computação e aplicações**, existem os seguintes separadores:
 - **Contentores (pré-visualização)**: lista de contentores do alojadas em máquinas do IaaS Linux e a avaliação de segurança de suas configurações de Docker.
 - **(Pré-visualização) de recursos de computação**: lista de recomendações para os seus recursos de computação, tais como clusters do Service Fabric e dos hubs de eventos.
 
-Para continuar, selecione **computação e aplicações** sob **hygeine de segurança do recurso**.
+Para continuar, selecione **computação e aplicações** sob **higiene de troca de segurança de recursos**.
 
 ![Computação](./media/security-center-virtual-machine-recommendations/compute.png)
 
@@ -196,8 +196,8 @@ Existem três tipos de ícones representados nesta lista:
 |(Hub de eventos) de recursos de computação|5|Ativar registos de diagnóstico no Hub de eventos|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |(Aplicações lógicas) de recursos de computação|5|Ativar registos de diagnóstico no Logic Apps|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |(Recursos de infraestrutura do serviço) de recursos de computação|15|Defina a propriedade ClusterProtectionLevel EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (nenhum, início de sessão e EncryptAndSign) para a comunicação de nó para nó a utilizar um certificado de cluster principal.  Defina o nível de proteção para garantir que todas as mensagens de nó para nó são criptografadas e assinadas digitalmente. |
-|(Barramento de serviço) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Service Bus |Os clientes do Service Bus não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com a segurança de privilégio mínimo modelo, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
-|(Hub de eventos) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Hub de eventos |Os clientes do Hub de eventos não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com a segurança de privilégio mínimo modelo, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
+|(Barramento de serviço) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Service Bus |Os clientes do Service Bus não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com o menor privilégio modelo de segurança, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
+|(Hub de eventos) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Hub de eventos |Os clientes do Hub de eventos não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com o menor privilégio modelo de segurança, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
 |(Hub de eventos) de recursos de computação|5|Definir regras de autorização na entidade Hub de eventos|Regras de autorização na entidade para conceder acesso menos privilegiado Hub de eventos de auditoria.|
 |Máquina|50|Instalar o agente de monitorização nos seus computadores|Instale o agente de monitorização para ativar a recolha de dados, as atualizações de verificação, verificação de linha de base e o endpoint protection em cada máquina.|
 |Máquina|50|Ativar o aprovisionamento automático e a recolha de dados para as suas subscrições |Ative aprovisionamento automático e a recolha de dados para máquinas nas suas subscrições para ativar a recolha de dados, as atualizações de verificação, verificação de linha de base e o endpoint protection em cada máquina adicionada às suas subscrições.|

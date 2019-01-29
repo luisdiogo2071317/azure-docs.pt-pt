@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0501ca031fbe6f1d1f16b4db55fde6a1662286f3
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904119"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093530"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -96,7 +96,7 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
 
 Assim que estiver ligado às partilhas do Data Box, o passo seguinte é copiar dados. Antes de iniciar a cópia de dados, reveja as seguintes considerações:
 
-- Certifique-se de que copia os dados para partilhas correspondentes para o formato de dados apropriados. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Se o formato de dados não corresponde ao tipo de partilha apropriadas, em seguida, num passo posterior, o carregamento de dados para o Azure irá falhar.
+- Certifique-se de que copia os dados para partilhas correspondentes para o formato de dados apropriados. Por exemplo, copie os dados de blobs de blocos para a partilha de blobs de blocos. Copie os VHDs para BLOBs de páginas. Se o formato de dados não corresponde ao tipo de partilha apropriadas, em seguida, num passo posterior, o carregamento de dados para o Azure irá falhar.
 -  Ao copiar dados, certifique-se de que o tamanho dos dados está em conformidade com os limites de tamanho descritos a [armazenamento do Azure e limites do Data Box](data-box-limits.md).
 - Se os dados, que estão a ser carregados pelo Data Box, forem carregados em simultâneo por outras aplicações fora do Data Box, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 - Recomendamos que:

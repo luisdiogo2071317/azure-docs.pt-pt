@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: bbc0eadebec849dde47cecaf6e3718eb6673a22f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912821"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095100"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL
 
@@ -58,7 +58,7 @@ Proteção avançada contra ameaças integra seus alertas no [Centro de seguran�
 
 Clique em **alertas de segurança** sob **PROTEÇÃO contra ameaças** para iniciar o Centro de segurança do Azure a alertas de página e obter uma visão geral do Active Directory SQL ameaças detetadas na base de dados.
 
-  ![Ameaças protectoin asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Asc de proteção de ameaças](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

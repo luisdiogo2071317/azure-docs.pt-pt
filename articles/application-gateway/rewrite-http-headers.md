@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198530"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103433"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
 
@@ -94,8 +94,6 @@ Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Devolve a lista de cifras suportados pelo cliente do          |
 | ciphers_used               | Devolve a cadeia de caracteres de cifras utilizadas para uma ligação SSL estabelecida |
-| client_latitude            | para determinar o país, região e Cidade consoante o endereço IP do cliente |
-| client_longitude           | para determinar o país, região e Cidade consoante o endereço IP do cliente |
 | client_port                | porta de cliente                                                  |
 | client_tcp_rtt             | informações sobre o cliente de conexão TCP; disponível em sistemas que suportam a opção de soquete TCP_INFO |
 | client_user                | Quando utilizar a autenticação HTTP, o nome de utilizador fornecido para a autenticação |
@@ -103,13 +101,13 @@ Esse recurso oferece suporte a reconfiguração de cabeçalhos para as seguintes
 | http_method                | o método usado para fazer o pedido de URL. Por exemplo GET, POST etc. |
 | http_status                | Estado da sessão, por exemplo: 200, 400, 403 etc.                       |
 | http_version               | protocolo de pedido, normalmente, "HTTP 1.0", "HTTP/1.1" ou "HTTP/2.0" |
-| QUERY_STRING               | a lista de valor de variável de pares que se seguem o "?" no URL solicitado. |
+| query_string               | a lista de valor de variável de pares que se seguem o "?" no URL solicitado. |
 | received_bytes             | comprimento do pedido (incluindo a linha de solicitação, o cabeçalho e o corpo do pedido) |
 | request_query              | argumentos na linha de solicitação                                |
 | request_scheme             | esquema de pedido, "http" ou "https"                            |
 | request_uri                | original completo URI do pedido (com argumentos)                   |
 | sent_bytes                 | número de bytes enviados para um cliente                             |
-| SERVER_PORT                | porta do servidor, que aceita um pedido                 |
+| server_port                | porta do servidor, que aceita um pedido                 |
 | ssl_connection_protocol    | Devolve o protocolo de uma ligação estabelecida de SSL        |
 | ssl_enabled                | "Se on" ligação opera no modo SSL, ou uma cadeia vazia; caso contrário |
 

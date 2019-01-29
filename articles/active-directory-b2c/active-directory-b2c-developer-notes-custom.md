@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 0a5255974c7399f9307d8b06a58f4f977be89829
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844981"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172889"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de recursos de política personalizada agora está disponível para avaliação em pré-visualização pública para todos os Azure Active Directory B2C (Azure AD B2C) de clientes. Esse conjunto de recursos é direcionado para programadores de identidades avançada a criar soluções de identidade mais complexas.  

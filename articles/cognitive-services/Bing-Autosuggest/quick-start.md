@@ -1,34 +1,34 @@
 ---
-title: 'Início Rápido: API de Sugestão Automática do Bing'
+title: 'Início rápido: API de Sugestão Automática do Bing'
 titlesuffix: Azure Cognitive Services
 description: Mostra como começar a utilizar a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830758"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184517"
 ---
-# <a name="quickstart-making-your-first-autosuggest-query"></a>Início Rápido: fazer a sua primeira consulta de Sugestão Automática
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Início rápido: Tornar a sua primeira consulta de sugestão automática
 
 Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
-Para obter os resultados da pesquisa Web, enviaria um pedido GET ao seguinte ponto final:
+Para obter os resultados da pesquisa na Web, enviaria um pedido GET ao seguinte ponto final:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```
 
 > [!NOTE]
-> Ponto final de Pré-visualização da V7:
+> Ponto final da Pré-visualização V7:
 >
 > ```http
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
@@ -38,7 +38,7 @@ O pedido tem de utilizar o protocolo HTTPS.
 
 Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), que contém o termo de pesquisa parcial do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), que contém o termo de pesquisa parcial do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:
 
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 > [!NOTE]
-> Pedido de Pré-visualização da V7:
+> Pedido da Pré-visualização V7:
 
 > ```http
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -150,7 +150,7 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a API. Aceda à [Consola de Testes da API de Sugestão Automática](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2).
 

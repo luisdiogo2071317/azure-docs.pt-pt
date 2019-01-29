@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 348a37c4b2d23d7c58e0599b4717b97e83b683ea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169319"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -73,7 +73,7 @@ Para confirmar o peering de uma rede virtual peering, pode [verificar as rotas e
 
 Também pode resolver problemas relacionados com a conectividade a uma máquina virtual numa rede virtual em modo de peering através da [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede. A verificação da conectividade permite-lhe ver como o tráfego é encaminhado da interface de rede de uma máquina de virtual de origem para a interface de rede de uma máquina de virtual de destino.
 
-[Também pode tentar nosso troucleshooter para problemas de VNet Peering](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues)
+Também pode tentar o [resolução de problemas de problemas de peering de rede virtual](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 

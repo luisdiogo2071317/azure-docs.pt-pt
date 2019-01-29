@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma firewall da próxima geração no Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure **adicionar uma Firewall da próxima geração** e **rota traffice através da NGFW apenas**.
+description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure **adicionar uma Firewall da próxima geração** e **encaminhar o tráfego apenas através da NGFW**.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0f1949373e99df1cccd6c49ff92c80d595519377
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a71f2044b799fb47e4ab8991d76f92a1ccc049f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341156"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102452"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar uma Firewall da próxima geração no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall da próxima geração (NGFW) de um parceiro da Microsoft para aumentar sua proteções de segurança. Este documento explica como um exemplo de como fazer isso.
@@ -58,7 +58,7 @@ Retorno para o **recomendações** painel. Uma nova entrada foi gerada depois ad
 Este documento de mostrar como implementar a recomendação do Centro de segurança "Adicionar uma Firewall da próxima geração." Para saber mais sobre NGFWs e a solução de parceiro de ponto de verificação, consulte o seguinte:
 
 * [Firewall de próxima geração](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [VSEC do Check Point](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
+* [Check Point vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 

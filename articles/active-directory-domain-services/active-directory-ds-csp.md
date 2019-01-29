@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155229"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187101"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Serviços de domínio do Azure Active Directory (AD) para fornecedores de soluções de Cloud do Azure (CSP)
 Este artigo explica como pode utilizar o Azure AD Domain Services numa subscrição Azure CSP.
@@ -72,18 +72,18 @@ Este modelo de implementação pode ser adequado para cenários em que um ISV (f
 ## <a name="administering-azure-ad-domain-services-managed-domains-in-csp-subscriptions"></a>Administrar o Azure AD Domain Services geridos a domínios em subscrições de CSP
 Aplicam-se as seguintes considerações importantes quando administrar um domínio gerido numa subscrição Azure CSP:
 
-* **Agentes de administração do CSP podem aprovisionar um domínio gerido com as respetivas credenciais:** dos serviços de domínio do Azure AD suporta subscrições do Azure CSP. Por conseguinte, os utilizadores que pertencem ao grupo de agentes de administrador de um parceiro CSP podem aprovisionar um novo domínio gerido do Azure AD Domain Services.
+* **Agentes de administração do CSP podem aprovisionar um domínio gerido com as respetivas credenciais:** Serviços de domínio do Azure AD suporta subscrições do Azure CSP. Por conseguinte, os utilizadores que pertencem ao grupo de agentes de administrador de um parceiro CSP podem aprovisionar um novo domínio gerido do Azure AD Domain Services.
 
-* **CSPs podem criar scripts de criação de novos domínios geridos para seus clientes através do PowerShell:** veja [como para ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md) para obter detalhes.
+* **CSPs podem criar scripts de criação de novos domínios geridos para seus clientes através do PowerShell:** Ver [como para ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md) para obter detalhes.
 
-* **Agentes de administração do CSP não podem executar tarefas de gestão contínua no domínio gerido com as respetivas credenciais:** utilizadores de administração do CSP não é possível efetuar tarefas de rotina de gestão no domínio gerido com as respetivas credenciais. Estes utilizadores são externos ao diretório do Azure AD do cliente e as respetivas credenciais não estão disponíveis dentro do diretório do Azure AD do cliente. Por conseguinte, os serviços de domínio do Azure AD não tem acesso para os hashes de palavra-passe de Kerberos e NTLM para estes utilizadores. Como resultado, esses utilizadores não podem ser autenticados em domínios de geridos do Azure AD Domain Services.
+* **Agentes de administração do CSP não podem executar tarefas de gestão contínua no domínio gerido com as respetivas credenciais:** Os utilizadores administradores do CSP não é possível efetuar tarefas de rotina de gestão no domínio gerido com as respetivas credenciais. Estes utilizadores são externos ao diretório do Azure AD do cliente e as respetivas credenciais não estão disponíveis dentro do diretório do Azure AD do cliente. Por conseguinte, os serviços de domínio do Azure AD não tem acesso para os hashes de palavra-passe de Kerberos e NTLM para estes utilizadores. Como resultado, esses utilizadores não podem ser autenticados em domínios de geridos do Azure AD Domain Services.
 
   > [!WARNING]
   > **Tem de criar uma conta de utilizador no diretório do cliente para executar tarefas de administração em curso no domínio gerido.**
   > Não é possível iniciar sessão no domínio gerido utilizando as credenciais de um utilizador de administrador CSP. Utilize as credenciais de uma conta de utilizador que pertençam ao diretório do Azure AD do cliente para fazer isso. Precisa estas credenciais para tarefas como associar máquinas virtuais para o domínio gerido, administrar o DNS, administrar etc de política de grupo.
   >
 
-* **A conta de utilizador criada para administração contínua tem de ser adicionada ao grupo "Administradores do AAD DC":** o grupo "Administradores do AAD DC" tem privilégios para executar determinadas tarefas de administração delegada no domínio gerido. Essas tarefas incluem a configuração de DNS, a criação de unidades organizacionais, administrar a política de grupo etc. Para um parceiro CSP executar tarefas num domínio gerido, uma conta de utilizador tem de ser criada dentro do diretório do Azure AD do cliente. As credenciais para esta conta tem de ser partilhadas com os agentes de administrador do parceiro CSP. Além disso, esta conta de utilizador tem de ser adicionada ao grupo "Administradores do AAD DC" para ativar tarefas de configuração no domínio gerido para ser efetuada utilizando esta conta de utilizador.
+* **A conta de utilizador que criou para a administração em curso tem de ser adicionada ao grupo "Administradores do AAD DC":** O grupo "Administradores do AAD DC" tem privilégios para executar determinadas tarefas de administração delegada no domínio gerido. Essas tarefas incluem a configuração de DNS, a criação de unidades organizacionais, administrar a política de grupo etc. Para um parceiro CSP executar tarefas num domínio gerido, uma conta de utilizador tem de ser criada dentro do diretório do Azure AD do cliente. As credenciais para esta conta tem de ser partilhadas com os agentes de administrador do parceiro CSP. Além disso, esta conta de utilizador tem de ser adicionada ao grupo "Administradores do AAD DC" para ativar tarefas de configuração no domínio gerido para ser efetuada utilizando esta conta de utilizador.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

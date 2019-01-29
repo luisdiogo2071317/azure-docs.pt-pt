@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 808ee8bb34aa4bb81ce1bcdd50193efa05f5692d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427020"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103769"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação Android
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -39,7 +39,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registar e transferir
 > ### <a name="register-and-configure-your-application-and-code-sample"></a>Registar e configurar a aplicação e o exemplo de código
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 > 1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação.
 > 1. Na caixa **Nome da Aplicação**, introduza um nome para a sua aplicação.
@@ -55,11 +55,11 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-android/green-check.png) A sua aplicação está configurada com estes atributos
 
-#### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
+#### <a name="step-2-download-the-project"></a>Passo 2: Transfira o projeto
 
 * [Transfira o Projeto do Android Studio](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o projeto
+#### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o seu projeto
 
 1. Extraia e abra o Projeto no Android Studio.
 1. Em **app** > **java** > **<i>{host}.{namespace}</i>**, abra **MainActivity**.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar OnDemand de alicerce para o aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
+title: 'Tutorial: Configurar o fundamento OnDemand para o aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
 description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador com base OnDemand.
 services: active-directory
 documentationcenter: ''
@@ -8,21 +8,21 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 6a6cfb2cb1fd6b70be0437c8b6fa62f50e76e53b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168503"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar OnDemand de alicerce para o aprovisionamento automático de utilizadores
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar o fundamento OnDemand para o aprovisionamento automático de utilizadores
 
 
 O objetivo deste tutorial é demonstrar os passos para ser executada na base OnDemand e Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos para fundamento OnDemand automaticamente.

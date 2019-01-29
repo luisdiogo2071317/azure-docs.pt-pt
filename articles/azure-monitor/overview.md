@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401440"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098035"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -66,7 +66,7 @@ O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizan
 
 
 ## <a name="insights"></a>Informações
-Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre o funcionamento do seu ambiente informático. Monitor do Azure inclui vários recursos e ferramentas que fornecem informações importantes para seus aplicativos e outros recursos que eles dependem. [Soluções de monitorização](insights/solutions.md) e funcionalidades como [Application Insights](app/app-insights-overview.md) e informações de contentor fornecem informações mais detalhadas sobre diferentes aspetos da sua aplicação e os serviços específicos do Azure. 
+Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre o funcionamento do seu ambiente informático. Monitor do Azure inclui vários recursos e ferramentas que fornecem informações importantes para seus aplicativos e outros recursos que eles dependem. [Soluções de monitorização](insights/solutions.md) e funcionalidades como [Application Insights](app/app-insights-overview.md) e [Monitor do Azure para contentores](insights/container-insights-overview.md) fornecem informações mais detalhadas sobre diferentes aspetos da sua aplicação e específicos do Azure serviços. 
 
 ### <a name="application-insights"></a>Application Insights
 [O Application Insights](app/app-insights-overview.md) monitoriza a disponibilidade, desempenho e utilização das suas aplicações web, se estão hospedados na nuvem ou no local. Ela aproveita a plataforma de análise de dados avançada no Azure Monitor para lhe fornecer informações mais detalhadas sobre as operações de seu aplicativo e diagnosticar erros sem esperar por um utilizador para comunicá-las. Application Insights inclui pontos de ligação a uma variedade de ferramentas de desenvolvimento e integra-se com o Visual Studio para oferecer suporte a seus processos de DevOps.
@@ -74,12 +74,12 @@ Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre 
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor para contentores
-Monitor do Azure para contentores é uma funcionalidade concebida para monitorizar o desempenho de cargas de trabalho de contentor implementadas em clusters do Kubernetes alojados no Azure Kubernetes Service (AKS) geridos. Ele fornece visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização de clusters de Kubernetes, estas métricas e registos são automaticamente recolhidos para por meio de uma versão em contentores do agente do Log Analytics para Linux.
+[Monitor do Azure para contentores](insights/container-insights-overview.md) é uma funcionalidade concebida para monitorizar o desempenho de cargas de trabalho de contentor implementadas em clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS). Ele fornece visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização de clusters de Kubernetes, estas métricas e registos são automaticamente recolhidos para por meio de uma versão em contentores do agente do Log Analytics para Linux.
 
 ![Estado de funcionamento do contentor](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-Informações de VM de Monitor do Azure monitoriza máquinas de virtuais do Azure (VM) em escala, ao analisar o desempenho e estado de funcionamento do Windows e VMs do Linux, incluindo os respetivos diferentes processos e interconectadas dependências em outros recursos e processos externos. A solução inclui suporte para monitorização do desempenho e dependências de aplicações para as VMs alojadas no local ou de outro fornecedor de cloud.  
+[Monitor do Azure para VMs](insights/vminsights-overview.md) monitoriza as suas máquinas virtuais do Azure (VM) em escala ao analisar o desempenho e estado de funcionamento do Windows e VMs do Linux, incluindo os respetivos diferentes processos e interconectadas dependências em outros recursos e externo processos. A solução inclui suporte para monitorização do desempenho e dependências de aplicações para as VMs alojadas no local ou de outro fornecedor de cloud.  
 
 
 ![VM Insights](media/overview/vm-insights.png)

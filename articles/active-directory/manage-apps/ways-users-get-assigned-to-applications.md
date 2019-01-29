@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464617"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170407"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir utilizadores a aplicações
 
@@ -55,9 +55,9 @@ Para um utilizador aceder a uma aplicação, eles tem primeiro de atribuir a ele
 
 8.  Um administrador atribui uma licença a um grupo que o utilizador é membro para uma primeira aplicação de terceiros, como [do Microsoft Office 365](https://products.office.com/)
 
-9.  Uma [administrador autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) a serem utilizados por todos os utilizadores e, em seguida, um utilizador inicia sessão na aplicação
+9.  Uma [administrador autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) a serem utilizados por todos os utilizadores e, em seguida, um utilizador inicia sessão na aplicação
 
-10. Um usuário [autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) próprios ao iniciar sessão na aplicação
+10. Um usuário [autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) próprios ao iniciar sessão na aplicação
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Managing Applications with Azure Active Directory](what-is-application-management.md) (Gerir Aplicações com o Azure Active Directory)

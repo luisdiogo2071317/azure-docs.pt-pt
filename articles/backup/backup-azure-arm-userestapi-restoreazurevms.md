@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289730"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100218"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure com a REST API
 
@@ -37,7 +37,7 @@ O *obter* URI tem todos os parâmetros necessários. Não é necessário para um
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -127,9 +127,9 @@ Se for necessário para personalizar a criação de uma VM a partir dos dados de
 
 O acionamento do restauro de discos é um *POST* pedido. Para saber mais sobre a operação de discos de restauro, veja a [API do REST de "acionar o restauro"](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 O `{containerName}` e `{protectedItemName}` são como construído [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é o "Azure" e o `{recoveryPointId}` é o `{name}` campo dos pontos de recuperação mencionado [acima](#example-response).
 
@@ -137,7 +137,7 @@ O `{containerName}` e `{protectedItemName}` são como construído [aqui](backup-
 
 Para acionar o restauro de discos de uma cópia de segurança de VM do Azure, seguem-se os componentes do corpo do pedido.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |propriedades     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Para obter a lista completa das definições do corpo do pedido e outros detalhe
 
 O corpo do pedido seguinte define as propriedades necessárias para acionar o restauro de discos.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,7 +163,7 @@ O corpo do pedido seguinte define as propriedades necessárias para acionar o re
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Resposta
 
@@ -171,7 +171,7 @@ O acionamento de um disco de restauro é um [operação assíncrona](https://doc
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |Aceite 202     |         |     Aceite    |
 
@@ -243,7 +243,7 @@ Depois de concluída a tarefa de longa execução, os discos e a configuração 
 
 O corpo do pedido seguinte define as propriedades necessárias para acionar o restauro de uma máquina virtual.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ O corpo do pedido seguinte define as propriedades necessárias para acionar o re
       }
     }
 }
-````
+```
 
 A resposta deve ser processada da mesma forma como [explicado acima para restaurar discos](#response).
 

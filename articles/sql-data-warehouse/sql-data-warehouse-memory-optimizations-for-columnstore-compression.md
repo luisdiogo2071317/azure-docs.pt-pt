@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: de7cc0e67960edf95ace67808ffc677b57a46dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306837"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096998"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade de rowgroup para columnstore
 
@@ -67,9 +67,9 @@ from cte;
 ```
 
 O trim_reason_desc informa se o rowgroup foi removido (trim_reason_desc = NO_TRIM implica não ocorreu nenhuma limitação e grupo de linhas é de qualidade ideal). Pelas seguintes razões corte indicam prematura corte do rowgroup:
-- BULKLOAD: Este motivo de compactação é utilizado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo irá criar grupos de linhas comprimido se existirem mais de 100 000 linhas que estão sendo inseridas (em vez de inserção para o arquivo de delta), mas define o motivo de compactação para BULKLOAD. Neste cenário, considere a aumentar sua janela de carga do batch a acumular mais linhas. Além disso, a reavaliar o esquema de partição para garantir que não seja muito granular como grupos de linhas não podem abranger os limites de partição.
+- BULKLOAD: Esta razão de compactação é utilizado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo irá criar grupos de linhas comprimido se existirem mais de 100 000 linhas que estão sendo inseridas (em vez de inserção para o arquivo de delta), mas define o motivo de compactação para BULKLOAD. Neste cenário, considere a aumentar sua janela de carga do batch a acumular mais linhas. Além disso, a reavaliar o esquema de partição para garantir que não seja muito granular como grupos de linhas não podem abranger os limites de partição.
 - MEMORY_LIMITATION: Para criar grupos de linhas com 1 milhão de linhas, uma determinada quantidade de memória de trabalho é necessário pelo motor. Quando a memória disponível da sessão de carregamento é menor do que a memória necessária do trabalho, os grupos de linhas prematuramente obterem cortados. As secções seguintes explicam como estimar a memória necessária e alocar mais memória.
-- DICTIONARY_SIZE: Este motivo corte indica que a remoção de rowgroup ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres de e/ou elevada cardinalidade. O tamanho de dicionário é limitado a 16 MB na memória e quando este limite for atingido o grupo de linhas é comprimido. Caso se depare com essa situação, considere o isolamento da coluna problemática numa tabela separada.
+- DICTIONARY_SIZE: Esta razão corte indica que a remoção de rowgroup ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres de e/ou elevada cardinalidade. O tamanho de dicionário é limitado a 16 MB na memória e quando este limite for atingido o grupo de linhas é comprimido. Caso se depare com essa situação, considere o isolamento da coluna problemática numa tabela separada.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Como estimar os requisitos de memória
 
@@ -88,7 +88,7 @@ onde colunas de cadeia curta utilizam tipos de dados de cadeia de caracteres de 
 
 Cadeias de caracteres longas são compactadas com um método de compressão concebido para a compressão de texto. Este método de compressão utiliza um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é 16 MB. Há apenas um dicionário para cada coluna de cadeia longa no rowgroup.
 
-Para uma visão detalhada dos requisitos de memória de columnstore, veja o vídeo [dimensionamento do Azure SQL Data Warehouse: configuração e documentação de orientação](https://myignite.microsoft.com/videos/14822).
+Para uma visão detalhada dos requisitos de memória de columnstore, veja o vídeo [dimensionamento do Azure SQL Data Warehouse: configuração e documentação de orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Formas de reduzir os requisitos de memória
 

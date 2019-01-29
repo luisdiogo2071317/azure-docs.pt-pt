@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967528"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097937"
 ---
-# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guia de introdução: Criar uma aplicação Xamarin que integra o início de sessão no Microsoft
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início rápido: Criar uma aplicação Xamarin que integra o início de sessão no Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -39,7 +39,7 @@ Para aplicações Xamarin que precisam de aceder a recursos protegidos, o Azure 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Transfira o [projeto de estrutura](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), ou Baixe o [exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Cada download é uma solução do Visual Studio 2013.
-* Também precisa de um inquilino do Azure AD na qual pretende criar utilizadores e registar a aplicação. Se ainda não tiver um inquilino [Saiba como obter um](quickstart-create-new-tenant.md).
+* Também precisa de um inquilino do Azure AD na qual pretende criar utilizadores e registar a aplicação. Se ainda não tiver um inquilino, [saiba como obter um](quickstart-create-new-tenant.md).
 
 Quando estiver pronto, siga os procedimentos nas próximas quatro seções.
 
@@ -55,16 +55,16 @@ Para ativar a aplicação obter os tokens, tem primeiro de registá-lo no seu in
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta. Em seguida, no **Directory** , selecione o inquilino do Active Directory onde pretende registar a aplicação.
-3. Clique em **todos os serviços** no painel esquerdo e, em seguida, selecione **Azure Active Directory**.
-4. Clique em **registos de aplicações**e, em seguida, selecione **Add**.
+3. Clique em **Todos os serviços** no painel esquerdo e selecione **Azure Active Directory**.
+4. Clique em **Registos de aplicações** e selecione **Adicionar**.
 5. Para criar um novo **aplicação cliente nativa**, siga as instruções.
   * **Nome** descreve a aplicação aos utilizadores.
-  * **URI de redirecionamento** é uma combinação de esquema e a cadeia de caracteres que o Azure AD utiliza para devolver respostas token. Introduza um valor (por exemplo, http://DirectorySearcher).
+  * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor (por exemplo, http://DirectorySearcher).
 6. Depois de concluir o registo, o Azure AD atribui a aplicação um ID de aplicação único. Copie o valor a partir da **aplicativo** separador, porque irá precisar dele mais tarde.
 7. Sobre o **definições** página, selecione **permissões obrigatórias**e, em seguida, selecione **Add**.
 8. Selecione **Microsoft Graph** como a API. Sob **permissões delegadas**, adicione o **Read Directory Data** permissão. Esta ação permite que a aplicação consultar a Graph API para os utilizadores.
 
-## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instalar e configurar a ADAL
+## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instale e configure a ADAL
 
 Agora que tem uma aplicação no Azure AD, pode instalar o ADAL e escrever seu código relacionadas com a identidade. Para ativar a ADAL comunicar com o Azure AD, dar a ele algumas informações sobre o registo de aplicações.
 
@@ -192,7 +192,7 @@ Agora tem uma aplicação Xamarin que pode autenticar utilizadores e chamar com 
 Se ainda não tiver já preenchida seu inquilino com os utilizadores, agora é o tempo para fazer isso.
 
 1. Executar a aplicação de DirectorySearcher e, em seguida, inicie sessão com um dos utilizadores.
-2. Procurar por outros utilizadores com base no respetivo UPN.
+2. Procure outros utilizadores com base no respetivo UPN.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

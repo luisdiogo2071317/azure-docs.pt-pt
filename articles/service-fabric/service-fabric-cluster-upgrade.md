@@ -1,6 +1,6 @@
 ---
 title: Atualizar um cluster do Azure Service Fabric | Documentos da Microsoft
-description: Saiba mais sobre como atualizar a configuração de um cluster de recursos de infraestrutura do Azure Svice ou versão.  Este artigo descreve a definição cluster modo de atualização, atualizar certificados, adicionando as portas da aplicação, fazendo os patches de SO e o que pode esperar quando as atualizações são realizadas
+description: Saiba mais sobre como atualizar a versão ou a configuração de um cluster do Azure Service Fabric.  Este artigo descreve a definição cluster modo de atualização, atualizar certificados, adicionando as portas da aplicação, fazendo os patches de SO e o que pode esperar quando as atualizações são realizadas
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853290"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102401"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>A atualizar e a atualizar um cluster do Azure Service Fabric
 
@@ -49,7 +49,7 @@ Tentamos executar a mesma atualização algumas mais vezes no caso de falha de q
 
 As políticas de estado de funcionamento do cluster forem cumpridos, a atualização é considerada bem-sucedida e marcada como concluída. Isto pode acontecer durante a atualização inicial ou qualquer um da volta a executar atualização nesta fase. Não há nenhum e-mail de confirmação de uma execução com êxito. Isso é evitar o envio de demasiadas mensagens de correio eletrónico, receber uma mensagem de e-mail deve ser vista como uma exceção ao normal. Esperamos que a maioria das atualizações de cluster tenha êxito sem afetar a disponibilidade de aplicações.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: Uma atualização é executada ao utilizar políticas de estado de funcionamento padrão apenas
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>Fase 2: Uma atualização é executada com as políticas de estado de funcionamento padrão apenas
 As políticas de estado de funcionamento nesta fase são definidas de tal forma que o número de aplicativos que estavam em bom estado no início da atualização do permanece igual durante o processo de atualização. Como na fase 1, as atualizações de fase 2 continuar um domínio de atualização por vez e os aplicativos que estavam em execução no cluster continuam a ser executado sem qualquer período de inatividade. As políticas de estado de funcionamento do cluster (uma combinação de estado de funcionamento do nó e o estado de funcionamento todos os aplicativos em execução no cluster) sejam seguidos durante a atualização.
 
 Se as políticas de estado de funcionamento do cluster em vigor não forem cumpridas, a atualização é revertida. Em seguida, é enviado um e-mail para o proprietário da subscrição. O e-mail contém as seguintes informações:

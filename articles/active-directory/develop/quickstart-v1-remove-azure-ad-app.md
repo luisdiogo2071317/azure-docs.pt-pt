@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 805a917cbb4d867ee866ec99c8e90ea883527856
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245363"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100959"
 ---
-# <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Início Rápido: Remover uma aplicação do Azure Active Directory
+# <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Início rápido: Remover uma aplicação do Azure Active Directory
 
 Os programadores empresariais e os fornecedores de software como um serviço (SaaS) que tenham registado aplicações com o Azure Active Directory (Azure AD) poderão ter de remover o registo dessas aplicações do inquilino do Azure AD.
 
@@ -71,7 +71,7 @@ Em termos técnicos, estas aplicações com múltiplos inquilinos são de outro 
 
 Para remover o acesso de uma aplicação com múltiplos inquilinos ao seu diretório (depois de ter dado autorização), o administrador da empresa tem de remover o principal de serviço da aplicação. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar os [Cmdlets do PowerShell do Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados que utilizam o ponto final do Azure AD v1.0:
 

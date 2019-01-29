@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536054"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104503"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure
 
@@ -78,7 +78,7 @@ Serviços de gestão e implementação ligar através de instância gerida [pont
 
 O cluster virtual de instância gerida da base de dados SQL do Azure contém um ponto final de gestão que a Microsoft utiliza para gerir a instância gerida. O ponto final de gestão está protegido com firewall interno na verificação de certificado mútua e nível de rede no nível de aplicativo. Pode [encontrar o endereço de ip do ponto final de gestão](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Quando as ligações sejam iniciadas a partir de dentro da instância gerida (cópia de segurança, registo de auditoria), parece que origina o tráfego do endereço IP de público de ponto final de gestão. Pode limitar o acesso à serviços públicos de instância gerida através da definição de regras de firewall para permitir apenas o endereço de IP de instância gerida. Encontrar adicionar einformation sobre o método que pode [Verifique se o firewall interno da instância gerida](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Quando as ligações sejam iniciadas a partir de dentro da instância gerida (cópia de segurança, registo de auditoria), parece que origina o tráfego do endereço IP de público de ponto final de gestão. Pode limitar o acesso à serviços públicos de instância gerida através da definição de regras de firewall para permitir apenas o endereço de IP de instância gerida. Encontrar mais informações sobre o método que pode [Verifique se o firewall interno da instância gerida](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Isso não se aplica à configuração de regras de firewall para serviços do Azure que estão na mesma região que a instância gerida, como a plataforma do Azure tem uma otimização para o tráfego que passa entre os serviços que sejam colocados.
@@ -98,7 +98,7 @@ Quando as ligações sejam iniciadas a partir de dentro da instância gerida (c�
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatório 
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |Qualquer        |Permitir |
@@ -106,9 +106,9 @@ Quando as ligações sejam iniciadas a partir de dentro da instância gerida (c�
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios 
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
+|móveis  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
 
   > [!Note]

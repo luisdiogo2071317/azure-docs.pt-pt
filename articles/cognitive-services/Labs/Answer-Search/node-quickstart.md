@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisa de Respostas do Projeto, Node'
+title: 'Início rápido: Pesquisa de resposta de projeto, nó'
 description: Comece a utilizar a Pesquisa de Respostas do Projeto com Node.
 services: cognitive-services
 author: mikedodaro
@@ -9,14 +9,14 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1afd029803fc7d2709a9a9abe840db6d7f52498d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3fd10bd08aa86458173dd1d88e2767f6f9ca4191
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465751"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104435"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Início Rápido: Pesquisa de Respostas do Projeto com Node
+# <a name="quickstart-project-answer-search-with-node"></a>Início rápido: Pesquisa de resposta de projeto com o nó
 
 O exemplo de Node seguinte cria uma consulta para obter informações sobre o Yosemite National Park.
 
@@ -38,7 +38,7 @@ O código a seguir obtém as respostas.
 
 Segue-se o código completo para esta demonstração:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -85,9 +85,9 @@ let Search = function () {
 
 Search();
 
-````
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Código de exemplo de C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início Rápido do Python](python-quickstart.md)

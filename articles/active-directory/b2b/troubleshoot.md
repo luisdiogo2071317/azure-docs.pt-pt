@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 8651313f2dde21a2f6141d3cc8ee43cf32b7634a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081369"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181270"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
@@ -76,6 +76,10 @@ Para cumprir as leis de privacidade, as nossas APIs não incluem mensagens perso
 - Quando um principal de serviço de aplicações envia o convite
 
 Se este cenário é importante para si, pode suprimir a nossa e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a orientador jurídico também sua organização certificar-se de que todos os e-mails que envia que também cumprem as leis de privacidade.
+
+## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" não é possível repor a palavra-passe
+
+Se o inquilino de identidade for um just-in-time (JIT) ou o inquilino viral (ou seja, é um inquilino do Azure separado e não gerenciado), apenas o utilizador convidado pode repor a palavra-passe. Por vezes, uma organização será [assuma a gestão de inquilinos virais](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criadas quando os funcionários utilizam os respetivos endereços de e-mail de trabalho para se inscrever para os serviços. Depois da organização assume-se um inquilino viral, apenas um administrador nessa organização pode repor a palavra-passe do utilizador ou ativar a SSPR. Se necessário, como a organização que o convidou, pode remover a conta de utilizador convidado a partir do seu diretório e volte a enviar um convite.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

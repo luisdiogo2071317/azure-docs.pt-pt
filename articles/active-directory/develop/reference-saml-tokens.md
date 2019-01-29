@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9bcdf5a4de0ce54b922f3fd176cc6c979f3d7a17
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2c67e40cf540062aeadd533962c0fb296648fb86
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425110"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100007"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do AD do Azure
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no
 ## <a name="claims-in-saml-tokens"></a>Afirmações nos tokens SAML
 
 > [!div class="mx-codeBreakAll"]
-| Nome | JWT equivalentes de afirmação | Descrição | Exemplo |
+| Name | JWT equivalentes de afirmação | Descrição | Exemplo |
 | --- | --- | --- | ------------|
 |Audiência | `aud` |O destinatário do token. O aplicativo que recebe o token tem de verificar que o valor de público-alvo está correto e rejeitar quaisquer tokens que se destina a um público-alvo diferente. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 | Autenticação Instantânea | |Regista a data e hora em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no
 |IssuedAt | `iat` |Armazena a hora em que o token foi emitido. É frequentemente utilizado para medir a atualização de token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 |Emissor | `iss` |Identifica o serviço de token de segurança (STS) que constrói e devolve o token. Os tokens que retorna do Azure AD, o emissor é sts.windows.net. O GUID no valor de afirmação do emissor é o ID de inquilino do diretório do Azure AD. O ID de inquilino é um imutável e fiável o identificador do diretório. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
 |Apelido | `family_name` |Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto de utilizador do Azure AD. | `<Attribute Name=" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">`<br>`<AttributeValue>Miller<AttributeValue>` |
-|Nome | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e foi concebido para ser utilizado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
+|Name | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e foi concebido para ser utilizado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 |ID de objeto | `oid` |Contém um identificador exclusivo de um objeto no Azure AD. Este valor é imutável e não pode ser reatribuído ou reutilizado. Utilize o ID de objeto para identificar um objeto nas consultas para o Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 |Funções | `roles` |Representa todas as funções de aplicação que o assunto tenha sido concedido são feitas direta e indiretamente através da associação de grupo e pode ser usado para impor o controlo de acesso baseado em funções. Funções de aplicação são definidas numa base por aplicação, através do `appRoles` propriedade do manifesto do aplicativo. O `value` propriedade de cada função de aplicação é o valor que é apresentado na afirmação de funções. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
 |Requerente | `sub` |Identifica a entidade de segurança sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizados, por isso, ele pode ser utilizado para realizar verificações de autorização com segurança. Uma vez que o assunto é sempre presente nos tokens de problemas do Azure AD, recomendamos utilizar este valor num sistema de autorização de fins gerais. <br> `SubjectConfirmation` Não é uma afirmação. Ele descreve como o assunto do token é verificado. `Bearer` indica que o assunto é confirmado pela sua posse do token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|

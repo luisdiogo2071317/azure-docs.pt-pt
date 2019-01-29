@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025050"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095962"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas com o portal do Azure
 
@@ -54,7 +54,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *myRouteTablePublic*. |
+    | Name | Introduza *myRouteTablePublic*. |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **criar novo**, introduza *myResourceGroup*e selecione *OK*. |
     | Localização | Deixe a predefinição **E.U.A. Leste**.
@@ -77,9 +77,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Definição | Valor |
     | ------- | ----- |
     | Nome da rota | Introduza *ToPrivateSubnet*. |
-    | Prefixo de endereço | Introduza *10.0.1.0/24*. |
+    | Prefixo de endereço | Enter *10.0.1.0/24*. |
     | Tipo de salto seguinte | Selecione **Aplicação virtual**. |
-    | Endereço do próximo salto | Introduza *10.0.2.4*. |
+    | Endereço do próximo salto | Enter *10.0.2.4*. |
 
 1. Selecione **OK**.
 
@@ -95,13 +95,13 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma red
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *myVirtualNetwork*. |
-    | Espaço de endereços | Introduza *10.0.0.0/16*. |
+    | Name | Introduza *myVirtualNetwork*. |
+    | Espaço de endereços | Enter *10.0.0.0/16*. |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione ***selecionar existente*** > **myResourceGroup**. |
     | Localização | Deixe a predefinição **E.U.A. Leste**. |
     | Sub-rede - nome | Introduza *público*. |
-    | Sub-rede - Intervalo de endereços | Introduza *10.0.0.0/24*. |
+    | Sub-rede - Intervalo de endereços | Enter *10.0.0.0/24*. |
 
 1. Deixe o resto dos padrões e selecione **criar**.
 
@@ -119,8 +119,8 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma red
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *privada*. |
-    | Espaço de endereços | Introduza *10.0.1.0/24*. |
+    | Name | Introduza *privada*. |
+    | Espaço de endereços | Enter *10.0.1.0/24*. |
 
 1. Deixe o resto das predefinições e selecione **OK**.
 
@@ -128,8 +128,8 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma red
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *DMZ*. |
-    | Espaço de endereços | Introduza *10.0.2.0/24*. |
+    | Name | Enter *DMZ*. |
+    | Espaço de endereços | Enter *10.0.2.0/24*. |
 
 1. Como a última vez, deixe o restante dos padrões e selecione **OK**.
 
@@ -151,13 +151,13 @@ NVAs são VMs que o ajudam a com as funções de rede, como a otimização de en
 
 1. Na **criar uma máquina virtual - Noções básicas**, introduza ou selecione estas informações:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. |
     | **DETALHES DA INSTÂNCIA** |  |
-    | Nome da máquina virtual | Introduza *myVmNva*. |
+    | Nome da máquina virtual | Enter *myVmNva*. |
     | Região | Selecione **E.U.A. Leste**. |
     | Opções de disponibilidade | Deixe a predefinição **nenhuma redundância de infraestrutura necessária**. |
     | Imagem | Deixe a predefinição **Windows Server 2016 Datacenter**. |
@@ -185,7 +185,7 @@ NVAs são VMs que o ajudam a com as funções de rede, como a otimização de en
     | Subrede | Selecione **DMZ (10.0.2.0/24)**. |
     | IP público | Selecione **None**. Não tem um endereço IP público. A VM não ligar através da internet.|
 
-1. Deixe o resto dos padrões e selecione **seguinte: Gestão**.
+1. Deixe o resto dos padrões e selecione **seguinte: Management**.
 
 1. Na **criar uma máquina virtual - gerenciamento**, para **conta de armazenamento de diagnóstico**, selecione **criar novo**.
 
@@ -193,7 +193,7 @@ NVAs são VMs que o ajudam a com as funções de rede, como a otimização de en
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *mynvastorageaccount*. |
+    | Name | Introduza *mynvastorageaccount*. |
     | Tipo de conta | Deixe a predefinição **armazenamento (v1 de fins gerais)**. |
     | Desempenho | Deixe a predefinição **padrão**. |
     | Replicação | Deixe a predefinição **armazenamento localmente redundante (LRS)**.
@@ -230,7 +230,7 @@ Crie uma VM pública e uma privada VM na rede virtual. Mais tarde, vai usá-los 
 
 Conclua os passos 1 a 12 [criar uma NVA](#create-an-nva). Usar a maior parte as mesmas definições. Estes valores são aqueles que têm de ser diferentes:
 
-| Definição | Valor |
+| Definição | Value |
 | ------- | ----- |
 | **VM PÚBLICA** | |
 | NOÇÕES BÁSICAS |  |
@@ -281,7 +281,7 @@ Pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Não cont
 
 1. Selecione **Sim** para ligar à VM.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Ativar ICPM através da firewall do Windows
+### <a name="enable-icmp-through-the-windows-firewall"></a>Ativar o ICMP através da firewall do Windows
 
 Num passo posterior, usará a ferramenta de encaminhamento de rastreio para testar o encaminhamento. Encaminhamento de rastreio utiliza o controle de mensagem ICMP (Internet Protocol), que nega o Firewall do Windows por predefinição. Ative o ICMP através da firewall do Windows.
 

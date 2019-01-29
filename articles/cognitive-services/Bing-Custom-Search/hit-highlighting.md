@@ -3,19 +3,19 @@ title: Utilizar marcadores decoration para realçar texto - pesquisa personaliza
 titlesuffix: Azure Cognitive Services
 description: Mostra como ativar decorações de texto nas respostas da pesquisa.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 848255418e7cc0f80d10006aa4b13e89121c8834
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a535a31678dcdb611acb1606e6091a1a40a6d42e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466261"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184075"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilizar marcadores decoration para realçar o texto
 
@@ -33,28 +33,28 @@ Se `textDecorations` é **true**, Bing pode incluir os seguintes marcadores em c
 
 |Unicode|HTML|Descrição
 |-|-|-
-|U + E000|\<b >|Marca o início do período da consulta (detetor de ocorrências)
-|U + E001|\</ b >|Marca o fim do período da consulta
-|U + E002|\<eu >|Marca o início do conteúdo em itálico 
-|U + E003|\</ i >|Marca o fim do conteúdo em itálico
-|U + E004|\<br / >|Marca uma quebra de linha
-|U + E005||Marca o início de um número de telefone
-|U + E006||Marca o fim de um número de telefone
-|U + E007||Marca o início de um endereço
-|U + E008||Marca o fim de um endereço
-|U + E009|\&nbsp;|Marca um espaço sem quebra
-|U + E00C|\<strong >|Marca o início do conteúdo em negrito
-|U + E00D|\</ strong >|Marca o fim do conteúdo em negrito
-|U + E00E||Marca o início do cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
-|U + E00F||Marca o fim de cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
-|U + E010||Marca o início do cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
-|U + E011||Marca o fim de cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
-|U + E012|\<del >|Marca o início do conteúdo que deve ser chamaram a atenção por meio de
-|U + E013|\</del >|Marca o fim de conteúdo que deve ser chamaram a atenção por meio de
-|U + E016|\<Sub >|Marca o início do conteúdo subscrito
-|U + E017|\</ sub >|Marca o fim do conteúdo subscrito
-|U + E018|\<sup >|Marca o início do conteúdo sobrescrito
-|U + E019|\</ sup >|Marca o fim do conteúdo sobrescrito
+|U+E000|\<b>|Marca o início do período da consulta (detetor de ocorrências)
+|U+E001|\</b>|Marca o fim do período da consulta
+|U+E002|\<i>|Marca o início do conteúdo em itálico 
+|U+E003|\</i>|Marca o fim do conteúdo em itálico
+|U+E004|\<br/>|Marca uma quebra de linha
+|U+E005||Marca o início de um número de telefone
+|U+E006||Marca o fim de um número de telefone
+|U+E007||Marca o início de um endereço
+|U+E008||Marca o fim de um endereço
+|U+E009|\&nbsp;|Marca um espaço sem quebra
+|U+E00C|\<strong>|Marca o início do conteúdo em negrito
+|U+E00D|\</strong>|Marca o fim do conteúdo em negrito
+|U+E00E||Marca o início do cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
+|U+E00F||Marca o fim de cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
+|U+E010||Marca o início do cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
+|U+E011||Marca o fim de cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
+|U+E012|\<del>|Marca o início do conteúdo que deve ser chamaram a atenção por meio de
+|U+E013|\</del>|Marca o fim de conteúdo que deve ser chamaram a atenção por meio de
+|U+E016|\<sub>|Marca o início do conteúdo subscrito
+|U+E017|\</sub>|Marca o fim do conteúdo subscrito
+|U+E018|\<sup>|Marca o início do conteúdo sobrescrito
+|U+E019|\</sup>|Marca o fim do conteúdo sobrescrito
 
 A exemplo a seguir mostra um `Computation` resposta que contém os marcadores subscrito para um termo de consulta log(2). O `expression` campo contém o marcadores apenas se for ' é textDecoration **true**.
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/18/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ec40de04f46d0be8f40c2223346f17d288eb580c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912389"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104070"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -64,12 +64,12 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * Nas v3 APIs, todas as taxas de bits de codificação são em bits por segundo. Isto é diferente de v2 que predefine Media Encoder Standard. Por exemplo, a velocidade de transmissão no v2 teria de ser especificada como 128 (kbps), mas na v3 seria 128000 (bits por segundo). 
 * Entidades AssetFiles AccessPolicies e IngestManifests não existem na v3.
 * A propriedade IAsset.ParentAssets não existe na v3.
-* ContentKeys já não é uma entidade, agora é uma propriedade do StreamingLocator.
+* ContentKeys já não é uma entidade, agora é uma propriedade do localizador de transmissão em fluxo.
 * Suporte a eventos Grid substitui NotificationEndpoints.
 * As seguintes entidades foram renomeadas
     * Resultado da tarefa substitui a tarefa e agora é parte de uma tarefa.
     * Localizador de transmissão em fluxo substitui o localizador.
-    * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [descrição geral de transmissão em direto](live-streaming-overview.md#billing) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
+    * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [faturação](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * Saída em direto substitui o programa.
 * Saídas em direto não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
 
@@ -97,7 +97,7 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 |---|---|---|
 |Criar um elemento e carregar um ficheiro |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Submeter uma tarefa|[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como criar primeiro uma transformação e, em seguida, submeter uma tarefa.|
-|Publicar um elemento com encriptação AES |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Criar elemento e carregar conteúdo ou submeter tarefa e utilizar recursos de saída<br/>5. Associe AssetDeliveryPolicy com elemento<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ativo<br/>8. Criar AccessPolicy<br/>9. Criar o localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar recurso<br/>3. Carregar conteúdo ou utilizar recursos como JobOutput<br/>4. Criar StreamingLocator<br/><br/>[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicar um elemento com encriptação AES |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Criar elemento e carregar conteúdo ou submeter tarefa e utilizar recursos de saída<br/>5. Associe AssetDeliveryPolicy com elemento<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ativo<br/>8. Criar AccessPolicy<br/>9. Criar o localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar política de chave de conteúdo<br/>2. Criar recurso<br/>3. Carregar conteúdo ou utilizar recursos como JobOutput<br/>4. Criar o localizador de transmissão em fluxo<br/><br/>[exemplo de .NET de v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

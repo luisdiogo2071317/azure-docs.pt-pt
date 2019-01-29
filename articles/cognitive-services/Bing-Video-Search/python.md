@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Pesquisa de Vídeos do Bing, Python'
+title: 'Início rápido: Pesquisa de vídeos do Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: e902ae940364810e634434fb1f08408fadea9c8a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1032e6c071f7fb35921d1837f040bf6fa61a0269
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310553"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203900"
 ---
-# <a name="quickstart-bing-video-search-api-with-python"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com o Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Início rápido: Pesquisa de vídeos do Bing API com Python
 
 Estas instruções mostram como utilizar a API da Pesquisa de Vídeos do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Consulte a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6e7e687ba1b1d67dd43b8f47a8efcb8136c65ab5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: f72f75013d69533eeda0e69acbff1c4f7047f509
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193688"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidade de região e residência dos dados
 Disponibilidade regional e residência dos dados são dois conceitos muito diferentes que aplicam de forma diferente para o Azure AD B2C do restante do Azure. Este artigo explique as diferenças entre estes dois conceitos e comparar como se aplicam ao Azure em comparação com o Azure AD B2C.

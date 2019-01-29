@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94bae7ddfd0d7f885b8441ed3b9d5943d052dbaf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140970"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101925"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -402,7 +402,7 @@ O domínio de lugares fornece objetivos para processar consultas relacionadas co
 |CheckAccident|Pergunte se existe um acidente num caminho especificado.|Existe um acidente no 880?<br/>Mostrar informações de acidente|
 |CheckAreaTraffic|Verifique o tráfego para uma área geral ou autoestrada, não numa rota especificada.|Tráfego em Seattle<br/>O que é o tráfego, como em Seattle?|
 |CheckIntoPlace|Verifique local através de redes sociais.|Verificar-me Foursquare<br/>Check-in aqui|
-|CheckRouteTraffic| Verifique o tráfego de uma rota específica especificado pelo utilizador.|Como é o tráfego para Mashiko?<br/>Mostre-me traffice para Kirkland<br/>Como é o tráfego para Seattle?| 
+|CheckRouteTraffic| Verifique o tráfego de uma rota específica especificado pelo utilizador.|Como é o tráfego para Mashiko?<br/>Mostre-me o tráfego para Kirkland<br/>Como é o tráfego para Seattle?| 
 |Confirmar|Certifique-se uma ação de um local.|Certifique-se minha reserva do restaurante.|
 |Sair|Ação para sair de uma tarefa de um local.|Sair.<br/>Sair, fornecendo-me as direções|
 |FindPlace|Pesquisar um local (empresas, instituição, restaurante, espaço público, endereço).|Onde posso encontrar a biblioteca mais próxima?<br/>Encontre-me um restaurante italiano bom na vista das regiões montanhosas|

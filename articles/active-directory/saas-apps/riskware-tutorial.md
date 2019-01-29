@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Riskware | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Riskware | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Riskware.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437778"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163250"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory com Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Active Directory do Azure com Riskware
 
 Neste tutorial, saiba como integrar Riskware com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Riskware, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Riskware logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Riskware com o Azure AD, terá de adicionar Ri
 
 **Para adicionar Riskware a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -111,17 +111,17 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
     | Ambiente| Padrão de URL|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL:
     | Ambiente| Padrão de URL|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -167,7 +167,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     g. Na **nome da Tag XML identidade** textbox, o atributo de tipo, que contém o identificador exclusivo na resposta, como NameID de SAML.
 
-    h. Abra o transferido **Xml de metadados** partir do portal do Azure no bloco de notas, copie o certificado a partir do ficheiro de metadados e colá-lo no **certificado** caixa de texto
+    h. Abra o transferido **Xml de metadados** partir do portal do Azure no bloco de notas, copie o certificado a partir do ficheiro de metadados e colá-lo no **certificado** caixa de texto
 
     i. Na **URL de consumidor** caixa de texto, cole o valor de **URL de resposta**, que recebe da equipa de suporte.
 
@@ -292,7 +292,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

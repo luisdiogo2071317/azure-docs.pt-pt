@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: aec45e94e2cbec9093cdb72c896dabc633f118b2
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 9ee6d0f8b609b87fe7ed4083bc5886ceaf158cb2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748724"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188716"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorias de pesquisa para a API de pesquisa de negócios locais do Bing
 
@@ -52,11 +52,11 @@ Subcategorias são transmitidas da mesma forma que `localCategories`. Subcategor
 | HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
 | ItalianRestaurants | JapaneseRestaurants | Juices | 
 | KoreanRestaurants | LiquorStores | MexicanRestaurants |
-| MiddleEasternRestaurants | pizza | PolishRestaurants | 
+| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
 | PortugueseRestaurants | Pretzels | Restaurantes | 
 | RussianAndUkrainianRestaurants | Sanduíches oferecidos | SeafoodRestaurants | 
 | SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
-| Vantagem | ThaiRestaurants | TurkishRestaurants | 
+| TakeAway | ThaiRestaurants | TurkishRestaurants | 
 | VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
  
 ### <a name="see-do"></a>Consulte fazer 
@@ -65,7 +65,7 @@ Subcategorias são transmitidas da mesma forma que `localCategories`. Subcategor
 | AmusementParks | Attractions | Carnivals |
 | Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
 | MovieTheaters | Museus | Parques |
-| SightseeingTours | TouristInformation | Jardins zoológicos de |
+| SightseeingTours | TouristInformation | Zoos |
  
 ### <a name="shop"></a>Comprar 
 |  |  |  |
@@ -99,7 +99,7 @@ A consulta seguinte limita o número de resultados de "hospital" para os três p
 
 O resposta JSON de exemplo seguinte inclui três hospitais na área de Seattle maior:
 
-````json
+```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
 BingAPIs-SessionId: F89E7B8539B34BF58AAF811485E83B20
 X-MSEdge-ClientID: 1C44E64DBFAA6BCA1270EADDBE7D6A22
@@ -214,7 +214,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
       }
    }
 }
-````
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limites de pesquisa geográfica](specify-geographic-search.md)

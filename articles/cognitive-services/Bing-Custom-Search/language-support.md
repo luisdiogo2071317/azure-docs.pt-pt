@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194853"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de pesquisa personalizada do Bing
 
@@ -34,28 +34,28 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
-|Bélgica|SER|
+|Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
-|Alemanha|ALEMANHA|
+|Alemanha|DE|
 |RAE de Hong Kong|HK|
-|Índia|ÍNDIA|
+|Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
 |Japão|JP|
-|Coreia|COREIA|
-|Malásia|MEU|
+|Coreia|KR|
+|Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NÃO|
+|Noruega|NO|
 |China|CN|
 |Polónia|PL|
-|Portugal|HORA DO PACÍFICO|
+|Portugal|PT|
 |Filipinas|PH|
 |Rússia|RU|
 |Arábia Saudita|SA|
@@ -76,8 +76,8 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |Argentina|Espanhol|es-AR|
 |Austrália|Português|EN-AU|
 |Áustria|Alemão|Alemanha-AT|
-|Bélgica|Neerlandês|NL-ser|
-|Bélgica|Francês|FR-ser|
+|Bélgica|Neerlandês|nl-BE|
+|Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
 |Canadá|Português|en-CA|
 |Canadá|Francês|fr-CA|
@@ -88,11 +88,11 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |Alemanha|Alemão|de-DE|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Português|EN-IN|
-|Indonésia|Português|ID de en|
+|Indonésia|Português|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|EN MY|
+|Malásia|Português|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Neerlandês|NL-NL|
 |Nova Zelândia|Português|EN-NZ|
@@ -100,10 +100,10 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN-PH|
+|Filipinas|Português|en-PH|
 |Rússia|Russo|ru-RU|
 |Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN ZA|
+|África do Sul|Português|en-ZA|
 |Espanha|Espanhol|es-ES|
 |Suécia|Sueco|SV-SE|
 |Suíça|Francês|FR-CH|
@@ -111,5 +111,5 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|pt-PT|
+|Estados Unidos|Português|en-US|
 |Estados Unidos|Espanhol|es-US|

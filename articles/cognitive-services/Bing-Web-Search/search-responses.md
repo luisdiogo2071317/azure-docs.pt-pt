@@ -6,17 +6,17 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250506"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188631"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 
@@ -296,7 +296,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 |*|Multiplicação|
 |^|Power|
 |!|Fatorial|
-|.|decimal|
+|.|Decimal|
 |()|Agrupamento de precedência|
 |[]|Função|
 
@@ -304,10 +304,10 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 |Símbolo|Descrição|
 |------------|-----------------|
-|Instalador de plataforma|3.14159...|
+|Pi|3.14159...|
 |Grau|Grau|
 |Eu|Número de imaginery|
-|i|e, do 2.71828...|
+|e|e, 2.71828...|
 |GoldenRatio|Rácio dourado, 1.61803...|
 
 Uma expressão matemática pode conter as seguintes funções:
@@ -315,12 +315,12 @@ Uma expressão matemática pode conter as seguintes funções:
 |Símbolo|Descrição|
 |------------|-----------------|
 |Sqrt|Raiz quadrada|
-|Sin [x], Cos [x], Tan [x]<br />CSC [x], seg [x], Cot [x]|Funções trigonométricas (com argumentos em radianos)|
-|ArcSin [x], [x], de ArcCos ArcTan [x]<br />ArcCsc [x], [x], de ArcSec ArcCot [x]|Inversa funções trigonométricas (dar resultados em radianos)|
-|EXP [x], E ^ x|Função exponencial|
-|Registo [x]|Logaritmo natural|
-|Sinh [x], [x], de Cosh Tanh [x]<br />Csch [x], [x], de Sech Coth [x]|Funções de hyperbolic|
-|ArcSinh [x], [x], de ArcCosh ArcTanh [x]<br />ArcCsch [x], [x], de ArcSech ArcCoth [x]|Funções de hyperbolic inversa|
+|Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funções trigonométricas (com argumentos em radianos)|
+|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inversa funções trigonométricas (dar resultados em radianos)|
+|Exp[x], E^x|Função exponencial|
+|Log[x]|Logaritmo natural|
+|Sinh[x], Cosh[x], Tanh[x]<br />Csch[x], Sech[x], Coth[x]|Funções de hyperbolic|
+|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch[x], ArcSech[x], ArcCoth[x]|Funções de hyperbolic inversa|
 
 Não são suportadas expressões matemáticas que contenham variáveis (por exemplo, 4 x + 6 = 18, onde x é a variável).
 

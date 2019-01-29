@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022364"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098736"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -27,6 +27,8 @@ Configurar o seu programa de configuração personalizado ao preparar um script 
 
 Pode instalar componentes gratuitos ou não licenciados e componentes pagas ou licenciadas. Se for um ISV, consulte [como desenvolver pago ou licenciado componentes para o IR Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> Os nós de série a v2 de IR Azure-SSIS não são adequados para a configuração personalizada, para que utilize em vez disso, os nós de série v3.  Se já utiliza os nós de série dv2, mude para utilizar os nós de série v3 logo que possível.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -78,7 +80,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        ![Criar um contentor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Selecione o contentor novo e carregue o seu script de configuração personalizada e os ficheiros associados. Certifique-se de que carregar `main.cmd` no nível superior do contentor, não em qualquer pasta. 
+    1.  Selecione o contentor novo e carregue o seu script de configuração personalizada e os ficheiros associados. Certifique-se de que carregar `main.cmd` no nível superior do seu contentor, não em qualquer pasta. Verifique também se que o seu contentor contém apenas os ficheiros de configuração personalizados necessários, portanto, transferi-los para o runtime de integração Azure-SSIS mais tarde não levará muito tempo.
 
        ![Carregar ficheiros para o contentor de BLOBs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        1. A `.NET FRAMEWORK 3.5` pasta, que contém uma configuração personalizada para instalar uma versão anterior do .NET Framework que poderão ser necessárias para componentes personalizados em cada nó do seu ir Azure-SSIS.
 
-       1. Um `AAS` pasta, que contém uma configuração personalizada para instalar as bibliotecas de cliente em cada nó do Runtime de integração Azure-SSIS que permitem as tarefas de Analysis Services ligar à instância do Azure Analysis Services (AAS) usando a autenticação do principal de serviço. Em primeiro lugar, transfira a versão mais recente **MSOLAP (amd64)** e **AMO** cliente bibliotecas/Windows instaladores - por exemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` e `x64_15.0.900.108_SQL_AS_AMO.msi` - a partir de [aqui](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), em seguida, carregá-los, tudo em conjunto com `main.cmd` ao contentor.  
-
        1. R `BCP` pasta, que contém uma configuração personalizada para instalar os utilitários da linha de comandos do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu ir Azure-SSIS.
 
        1. Uma `EXCEL` pasta, que contém uma configuração personalizada para instalar os assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu ir Azure-SSIS.
 
        1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores de Oracle e o controlador OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, Baixe o Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente mais recente Oracle - por exemplo, `winx64_12102_client.zip` – na [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregá-los tudo em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 
-       1. Uma `ORACLE STANDARD` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODP.NET do Oracle em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligações ADO.NET, a origem e destino. Em primeiro lugar, por exemplo, a transferir o controlador Oracle ODP.NET mais recentes - `ODP.NET_Managed_ODAC122cR1.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o em conjunto com `main.cmd` ao contentor.
+       1. Uma `ORACLE STANDARD ADO.NET` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODP.NET do Oracle em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligações ADO.NET, a origem e destino. Em primeiro lugar, por exemplo, a transferir o controlador Oracle ODP.NET mais recentes - `ODP.NET_Managed_ODAC122cR1.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o em conjunto com `main.cmd` ao contentor.
+       
+       1. Uma `ORACLE STANDARD ODBC` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODBC do Oracle e configurar o DSN em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligação de ODBC/origem/destino ou a ligação de consulta Power Manager/origem com o tipo de origem de dados ODBC para ligar ao servidor Oracle. Em primeiro lugar, transferir o cliente instantâneas Oracle (pacote básico ou pacote Lite básico) e ODBC pacote - por exemplo, os pacotes de 64 bits do mais recente [aqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pacote básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, pacote Lite básico: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, pacote de ODBC : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou os pacotes de 32 bits a partir de [aqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pacote básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, pacote Lite básico: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, o pacote de ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) e, em seguida, carregá-los em conjunto com `main.cmd` em o contentor.
 
        1. Uma `SAP BW` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar a assemblagem de conector de SAP .NET (`librfc32.dll`) em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do SAP BW, a origem e destino. Em primeiro lugar, carregue a 64 bits ou a versão de 32 bits do `librfc32.dll` da pasta de instalação SAP para o seu contentor, em conjunto com `main.cmd`. O script, em seguida, copia o assembly SAP para o `%windir%\SysWow64` ou `%windir%\System32` pasta durante a configuração.
 

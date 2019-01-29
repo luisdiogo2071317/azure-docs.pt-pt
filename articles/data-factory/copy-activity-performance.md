@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020895"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164950"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-copy-activity-performance.md)
 > * [Versão atual](copy-activity-performance.md)
 
@@ -241,7 +241,13 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
 
 1. **Estabelecer uma linha de base**. Durante a fase de desenvolvimento, teste o seu pipeline através da atividade de cópia em relação a uma amostra de dados representativos. Recolher detalhes da execução e características de desempenho a seguir [copiar a monitorização da atividade](copy-activity-overview.md#monitoring).
 
-2. **Diagnosticar e otimizar o desempenho**. Se o desempenho que observar não cumprir as suas expectativas, precisa identificar afunilamentos de desempenho. Em seguida, a otimizar o desempenho para remover ou reduzir o efeito de afunilamentos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
+2. **Diagnosticar e otimizar o desempenho**. Se o desempenho que observar não cumprir as suas expectativas, precisa identificar afunilamentos de desempenho. Em seguida, a otimizar o desempenho para remover ou reduzir o efeito de afunilamentos. 
+
+    Em alguns cenários, verá também uma "**sugestões de otimização de desempenho**" secção por cima da [página de monitorização de atividade de cópia](copy-activity-overview.md#monitor-visually), que indica o afunilamento identificado e orienta-o sobre como aumentar a cópia taxa de transferência para esse caso de cópia.
+
+    **Exemplo: copie para o BD SQL do Azure com dicas de ajuste de desempenho** ![copiar a monitorização com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
 
    * Recursos de desempenho:
      * [Cópia paralela](#parallel-copy)
@@ -392,7 +398,7 @@ Neste caso, bzip2 compressão de dados pode ser mais lento todo o pipeline. Muda
 Aqui está o desempenho de monitorização e otimização de referências para alguns dos arquivos de dados suportados:
 
 * Armazenamento do Azure (incluindo o armazenamento de BLOBs e armazenamento de tabelas): [Destinos de escalabilidade do armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de armazenamento do Azure, desempenho e escalabilidade](../storage/common/storage-performance-checklist.md)
-* Base de dados SQL do Azure: Pode [monitorizar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
+* Base de Dados SQL do Azure: Pode [monitorizar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
 * Armazém de dados SQL do Azure: Sua capacidade é medida em unidades do data warehouse (DWUs); consulte [gerir computação power no Azure SQL Data Warehouse (descrição geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * o Azure Cosmos DB: [Níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md)
 * SQL Server no local: [Monitorizar e otimizar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx)

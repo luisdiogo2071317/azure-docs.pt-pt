@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987446"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101155"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação de ambiente de trabalho .NET (WPF)
 
@@ -36,18 +36,18 @@ Neste início rápido, irá aprender como criar uma aplicação de lista de tare
 * Procura um diretório para os utilizadores com um alias de determinado.
 * Utilizadores de sinais horizontalmente.
 
-Para criar a aplicação de trabalho completo, precisará:
+Para criar a aplicação funcional e completa, precisa de:
 
-1. Registe a sua aplicação com o Azure AD.
-2. Instale e configure a ADAL.
-3. Utilize a ADAL para obter os tokens do Azure AD.
+1. Registar a aplicação com o Azure AD.
+2. Instalar e configurar a ADAL.
+3. Utilizar a ADAL para obter os tokens do Azure AD.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a utilizar, execute estes pré-requisitos:
+Para começar, conclua estes pré-requisitos:
 
 * [Transferir a estrutura de aplicação](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) ou [transferir o exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-* Ter um inquilino do Azure AD, onde pode criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino [Saiba como obter um](quickstart-create-new-tenant.md).
+* Ter um inquilino do Azure AD, onde pode criar utilizadores e registar uma aplicação. Se ainda não tiver um inquilino, [saiba como obter um](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>Passo 1: Registar a aplicação de DirectorySearcher
 
@@ -64,9 +64,9 @@ Para ativar a sua aplicação obter os tokens, registar a sua aplicação no seu
 6. Depois de concluir o registo, AAD vai atribuir a aplicação um ID de aplicação exclusivo. Precisará desse valor nas próximas seções, por isso, copie-o partir da página de aplicativo.
 7. Do **configurações** página, selecione **permissões obrigatórias** e escolha **Add**. Selecione **Microsoft Graph** como a API e, em **permissões delegadas** adicionar o **ler dados do diretório** permissão. Definir esta permissão permite que seu aplicativo consultar a Graph API para os utilizadores.
 
-## <a name="step-2-install-and-configure-adal"></a>Passo 2: Instalar e configurar a ADAL
+## <a name="step-2-install-and-configure-adal"></a>Passo 2: Instale e configure a ADAL
 
-Agora que tem uma aplicação no Azure AD, pode instalar o ADAL e escrever seu código relacionadas com a identidade. Para a ADAL comunicar com o Azure AD, terá de fornecê-lo com algumas informações sobre o registo de aplicação.
+Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o seu código relacionado com identidade. Para que a ADAL comunique com o Azure AD, terá de fornecer algumas informações sobre o registo da sua aplicação.
 
 1. Comece por adicionar a ADAL para o `DirectorySearcher` utilizando a consola do Gestor de pacotes do projeto.
 
@@ -75,7 +75,7 @@ Agora que tem uma aplicação no Azure AD, pode instalar o ADAL e escrever seu c
     ```
 
 1. Na `DirectorySearcher` projeto aberto `app.config`.
-1. Substitua os valores dos elementos no `<appSettings>` secção para refletir os valores de entrada no portal do Azure. Seu código irá referenciar estes valores, sempre que utilizar a ADAL.
+1. Substitua os valores dos elementos no `<appSettings>` secção para refletir os valores de entrada no portal do Azure. O seu código vai fazer referência a estes valores sempre que utilizar a ADAL.
   * O `ida:Tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com
   * O `ida:ClientId` é o ID de cliente da sua aplicação que copiou do portal.
   * O `ida:RedirectUri` é o URL de redirecionamento registados no portal.
@@ -99,7 +99,7 @@ O princípio básico por trás da ADAL é que sempre que a sua aplicação preci
     }
     ```
 
-1. Localize a `Search(...)` método, que será chamado quando o usuário seleciona o **pesquisa** botão na IU da aplicação. Este método faz um pedido GET para o Azure AD Graph API para consulta para os utilizadores cujo UPN começa com o termo de pesquisa especificada.
+1. Localize a `Search(...)` método, que será chamado quando o usuário seleciona o **pesquisa** botão na IU da aplicação. Este método faz um pedido GET à Graph API do Azure AD para consultar utilizadores cujo UPN comece pelo termo de pesquisa especificado.
 1. Para consultar a Graph API, incluem um access_token no `Authorization` cabeçalho do pedido, que é aí que entra ADAL.
 
     ```csharp
@@ -181,9 +181,9 @@ O princípio básico por trás da ADAL é que sempre que a sua aplicação preci
     }
     ```
 
-Parabéns! Agora tem um aplicativo WPF de .NET que pode autenticar utilizadores, com segurança chamar as APIs da Web com o OAuth 2.0 e obter informações básicas sobre o utilizador em funcionamento. Se ainda não o tiver feito, agora é o tempo para preencher o seu inquilino com alguns usuários. Executar a aplicação de DirectorySearcher e inicie sessão com um desses usuários. Procurar por outros utilizadores com base no respetivo UPN. Feche a aplicação e executá-lo novamente. Observe como a sessão do utilizador permanece intacta. Termine sessão e volte a iniciar sessão como outro utilizador.
+Parabéns! Agora tem um aplicativo WPF de .NET que pode autenticar utilizadores, com segurança chamar as APIs da Web com o OAuth 2.0 e obter informações básicas sobre o utilizador em funcionamento. Caso ainda não o tenha feito, está na altura de preencher o seu inquilino com alguns utilizadores. Executar a aplicação de DirectorySearcher e inicie sessão com um desses usuários. Procure outros utilizadores com base no respetivo UPN. Feche a aplicação e executá-lo novamente. Observe como a sessão do utilizador permanece intacta. Termine sessão e volte a iniciar sessão como outro utilizador.
 
-ADAL torna mais fácil incorporar essas funcionalidades de identidade comum em seu aplicativo. Ele cuida o trabalho sujo para si, incluindo gestão de cache, o suporte de protocolo de OAuth, apresentando ao usuário um início de sessão da interface do Usuário, atualizando tokens expirados e muito mais. Tudo o que realmente precisa saber é uma única chamada à API, `authContext.AcquireTokenAsync(...)`.
+ADAL torna mais fácil incorporar essas funcionalidades de identidade comum em seu aplicativo. Ele cuida o trabalho sujo para si, incluindo gestão de cache, o suporte de protocolo de OAuth, apresentando ao usuário um início de sessão da interface do Usuário, atualizando tokens expirados e muito mais. Tudo o que precisa realmente de fazer é uma única chamada à API, `authContext.AcquireTokenAsync(...)`.
 
 Para referência, consulte o exemplo concluído (sem os valores de configuração) [no GitHub](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).
 

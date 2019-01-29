@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ad14e443f7176a0acb2da3529348fba452f76dee
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 44d33e687d64c7e226a20edf3fdcbbf7bcf859b3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477962"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169268"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar requisitos de sincronização de diretórios
 A sincronização é fornecer aos utilizadores uma identidade na cloud com base na respetiva identidade no local. Independentemente de eles usarão sincronizada conta para autenticação ou autenticação federada, os utilizadores ainda tem de ter uma identidade na cloud.  Esta identidade tem de ser gerida e atualizada periodicamente.  As atualizações podem assumir várias formas, de alterações de título para alterações de palavra-passe.  

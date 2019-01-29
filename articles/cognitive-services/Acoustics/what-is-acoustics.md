@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901029"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178907"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 O plug-in Projeto Acoustics fornece oclusão, reverberação e espacialização para os projetos direcionados para RV e ecrãs tradicionais. Fornece uma forma de criar acústica para jogos que cria camadas para as intenções do designer através de uma simulação de ondas baseada em física.
@@ -59,7 +59,7 @@ Com a abordagem fornecida pelo plug-in Projeto Acoustics do Unity, fornece forma
 ## <a name="download"></a>Transferência
 Se tiver interesse em avaliar o plug-in de acústica, registe-se [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para aderir à Pré-visualização do Designer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o [processo de design](design-process.md)
 * Introdução à [integração de acústica no projeto do Unity](getting-started.md)
 

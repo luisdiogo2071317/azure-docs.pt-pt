@@ -6,7 +6,7 @@ documentationcenter: na
 author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 708ec047a1c9883e34f2e255cd7a0f1237ded2bf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721090"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096879"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
 Quando tiver o código que precisa de aceder ou modificar os recursos, pode criar uma identidade para a aplicação. Esta identidade é conhecida como um principal de serviço. Em seguida, pode atribuir as permissões necessárias para o principal de serviço. Este artigo mostra-lhe como utilizar o portal para criar o principal de serviço. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
 
@@ -40,7 +40,7 @@ Vamos passar diretamente para criar a identidade. Caso se depare com um problema
 
 1. Selecione **Novo registo de aplicação**.
 
-   ![Adicionar aplicação](./media/howto-create-service-principal-portal/select-add-app.png)
+   ![Adicionar a aplicação](./media/howto-create-service-principal-portal/select-add-app.png)
 
 1. Indique um nome e um URL para a aplicação. Selecione **aplicação / API Web** no tipo de aplicação que quer criar. Não é possível criar as credenciais para uma [aplicativo nativo](../manage-apps/application-proxy-configure-native-client-application.md). Não é possível usar esse tipo para um aplicativo automatizado. Depois de definir os valores, selecione **criar**.
 
@@ -50,7 +50,7 @@ Acabou de criar a aplicação do Azure AD e principal de serviço.
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir a aplicação a uma função
 
-Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função oferece as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, veja [RBAC: funções incorporadas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função oferece as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte o artigo [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
 Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar uma aplicação à função do leitor para um grupo de recursos significa pode ler o grupo de recursos e todos os recursos que nele contidos.
 

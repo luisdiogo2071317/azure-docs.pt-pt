@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716587"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099905"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
@@ -72,7 +72,7 @@ Exemplo:
         }
     }
 }
-``````
+```
 
 Para obter mais informações sobre os tipos de modelo de série de tempo, consulte a [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
@@ -88,7 +88,7 @@ A matriz seguinte funciona como uma legenda para as definições de variável:
 
 São suportados os tipos de variáveis seguintes:
 
-* *numérico*
+* *Numeric*
 * *Agregado*
 
 ### <a name="variable-filter"></a>Filtro de variável

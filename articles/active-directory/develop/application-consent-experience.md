@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f5ec31cf0f88b9bfdff2e4fa877d56a2689054ae
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413078"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097950"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Experiências de compreender o consentimento de aplicação do Azure AD
 
@@ -46,7 +46,7 @@ O diagrama e tabela seguintes fornecem informações sobre os blocos de constru�
 | # | Componente | Objetivo |
 | ----- | ----- | ----- |
 | 1 | Identificador de utilizador | Este identificador representa o que o aplicativo cliente está a pedir para aceder a recursos protegidos em nome de utilizador. |
-| 2 | Cargo | As alterações de título com base em se os utilizadores passam pelo fluxo de consentimento do utilizador ou administrador. No fluxo de consentimento do utilizador, o título será "Permissões solicitadas" enquanto o fluxo de consentimento de administrador o título terá uma linha adicional "Aceitar para a sua organização". |
+| 2 | Título | As alterações de título com base em se os utilizadores passam pelo fluxo de consentimento do utilizador ou administrador. No fluxo de consentimento do utilizador, o título será "Permissões solicitadas" enquanto o fluxo de consentimento de administrador o título terá uma linha adicional "Aceitar para a sua organização". |
 | 3 | Logótipo da aplicação | Esta imagem deve ajudar os utilizadores têm uma indicação visual se esta aplicação é a aplicação pretendem aceder. Esta imagem é fornecida por desenvolvedores de aplicativos e a propriedade desta imagem não é validada. |
 | 4 | Nome da aplicação | Este valor deve informar os utilizadores que aplicação está a pedir acesso aos respetivos dados. Tenha em atenção que este nome é fornecido pelos desenvolvedores e a propriedade deste nome de aplicação não é validada. |
 | 5 | Domínio de publicador | Este valor deve fornecer aos utilizadores com um domínio pode ser capazes de avaliar a confiabilidade. Este domínio é fornecido pelos desenvolvedores e a propriedade deste domínio de publicador é validada. |

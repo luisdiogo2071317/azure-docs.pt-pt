@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pré-visualização do URL do Projeto, Java'
+title: 'Início rápido: URL do projeto pré-visualização, Java'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de script para começar a utilizar a Pré-visualização do URL do Projeto com Java.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 23f9f0cb8205a29733e90522f5eb524142677137
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465717"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094279"
 ---
-# <a name="quickstart-url-preview-with-java"></a>Início Rápido: Pré-visualização do URL com Java
+# <a name="quickstart-url-preview-with-java"></a>Início rápido: Pré-visualização de URL com Java
 
 O exemplo de Java seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
@@ -29,7 +29,7 @@ Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviç
 
 O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso e adiciona uma cadeia de consulta para “https://swiftkey.com/en”.  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,18 +47,18 @@ O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Código completo
 
 A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
 1. Transfira ou instale a biblioteca gson.
-2. Crie um novo projeto Java no seu IDE ou editor favorito.
+2. Crie um novo projeto de Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -165,7 +165,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Início Rápido do C#](csharp.md)

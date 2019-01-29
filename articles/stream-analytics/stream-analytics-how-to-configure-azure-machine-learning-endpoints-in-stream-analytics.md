@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 8d5e3060d31a260ddba2e7b23d468568ea9569c0
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c3b30085e1036e49706d73fd68b80221e5177d03
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078037"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095741"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração de aprendizagem do Stream Analytics do computador
 Stream Analytics suporta funções definidas pelo utilizador que chamam pontos finais do Azure Machine Learning. Suporte da REST API para esta funcionalidade está detalhado na [biblioteca de API de REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação com êxito desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -44,9 +44,9 @@ Ao utilizar REST APIs só pode configurar o seu trabalho para chamar funções d
 ## <a name="creating-a-udf-with-basic-properties"></a>Criar uma UDF com propriedades básicas
 Por exemplo, o código de exemplo seguinte cria uma UDF escalar chamado *newudf* que liga a um ponto de final do Azure Machine Learning. Tenha em atenção que o *ponto final* (URI de serviço) pode ser encontrada na página de ajuda da API para o serviço escolhido e o *apiKey* podem ser encontradas na página principal dos serviços.
 
-````
+```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Corpo do pedido de exemplo:
 
@@ -71,9 +71,9 @@ Corpo do pedido de exemplo:
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto final de RetrieveDefaultDefinition para predefinição UDF
 Assim que o esqueleto UDF for criado é necessária a definição completa do UDF. O ponto de extremidade RetrieveDefaultDefinition ajuda a obter a definição padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. O payload abaixo exige que obter a definição de UDF padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. Ele não especificar o ponto final real, como já foi fornecido durante o pedido PUT. Stream Analytics chama o ponto final fornecido no pedido, se fornecida explicitamente. Caso contrário, ele usa um originalmente referenciado. Aqui, a leva UDF uma única cadeia de parâmetro (uma frase) e devolve o resultado de um único do tipo de cadeia que indica que a etiqueta "sentiment" para a essa frase.
 
-````
+```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
-````
+```
 
 Corpo do pedido de exemplo:
 
@@ -130,9 +130,9 @@ Um exemplo de saída isso seria procure algo, conforme mostrado abaixo.
 ## <a name="patch-udf-with-the-response"></a>Patch UDF com a resposta
 Agora a UDF deve ser corrigida com a resposta anterior, conforme mostrado abaixo.
 
-````
+```
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Corpo do pedido (saída de RetrieveDefaultDefinition):
 

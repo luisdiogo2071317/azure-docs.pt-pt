@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104735"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098583"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -38,11 +38,11 @@ Pode:
 Agentes de monitorização é instalado em vários servidores, no local e no Azure. Os agentes comunicarem entre si, mas não enviar dados, enviam pacotes de handshake TCP. A comunicação entre os agentes permite ao Azure mapear a topologia de rede e o caminho que pode levar o tráfego.
 
 1. Crie uma área de trabalho do NPM. Este é o mesmo que uma área de trabalho do Log Analytics.
-2. Instalar e configurar os agentes de software: 
+2. Instalar e configurar os agentes de software. (Se só quiser monitorizar através do Peering da Microsoft, não terá de instalar e configurar os agentes de software.): 
     * Instale agentes de monitorização nos servidores no local e as VMs do Azure (para peering privado).
     * Configure as definições nos servidores do agente de monitorização para permitir que os agentes de monitorização para se comunicar. (Abrir portas de firewall, etc.)
 3. Configurar regras de grupo (NSG) de segurança de rede para permitir que o agente de monitorização instalado em VMs do Azure para comunicar com locais agentes de monitorização.
-4. Configurar a monitorização: detetar automaticamente e gerir as redes que estão visíveis no NPM.
+4. Configure a monitorização: Detetar automaticamente e gerir as redes que estão visíveis no NPM.
 
 Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os outros serviços ou objetos e já tiver área de trabalho em uma das regiões suportadas, pode ignorar o passo 1 e 2 e iniciar a configuração com o passo 3.
 
@@ -86,7 +86,7 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
 
   ![Script do PowerShell](./media/how-to-npm/7.png)
 
-### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
+### <a name="installagent"></a>2.2: Instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
 Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do ExpressRoute para fornecer redundância (por exemplo, no local, VNETs do Azure). O agente tem de ser instalado num servidor do Windows (2008 SP1 ou posterior). A monitorização de circuitos do ExpressRoute com o sistema operacional de Desktop do Windows e o SO Linux não é suportada. Utilize os seguintes passos para instalar agentes:
    
@@ -111,7 +111,7 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do 
     ![Conta](./media/how-to-npm/10.png)
 6. Sobre o **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
-8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado ao Azure Log Analytics. Quando estiver ligado, o agente apresenta uma mensagem que diz: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
+8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado ao Azure Log Analytics. Quando estiver ligado, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
 
 9. Repita este procedimento para cada VNET que tem de ser monitorizados.
 
@@ -128,7 +128,7 @@ Para configurar definições de proxy para o Microsoft Monitoring Agent com o pa
 
   ![Proxy](./media/how-to-npm/11.png)
 
-### <a name="verifyagent"></a>2.4: verificar a conectividade de agente
+### <a name="verifyagent"></a>2.4: Verificar a conectividade de agente
 
 Pode verificar facilmente se os agentes estão a comunicar.
 
@@ -139,7 +139,7 @@ Pode verificar facilmente se os agentes estão a comunicar.
 
   ![status](./media/how-to-npm/12.png)
 
-### <a name="firewall"></a>2.5: abrir as portas de firewall nos servidores de agente de monitorização
+### <a name="firewall"></a>2.5: Abrir as portas de firewall nos servidores de agente de monitorização
 
 Para utilizar o protocolo TCP, é necessário abrir as portas de firewall para se certificar de que os agentes de monitorização podem comunicar.
 
@@ -217,7 +217,7 @@ Para peering da Microsoft, clique em do Microsoft peering ligação (ões) que p
 6. Guarde as definições.
 7. Depois de ativar as regras e selecionar os valores e os agentes que pretende monitorizar, há uma espera de aproximadamente 30 a 60 minutos para os valores começar a preencher e o **a monitorização de ExpressRoute** mosaicos para se tornarem disponíveis.
 
-## <a name="explore"></a>Passo 6: Ver mosaicos de monitorização
+## <a name="explore"></a>Passo 6: Vista de monitorização de mosaicos
 
 Quando vir os mosaicos de monitorização, os circuitos do ExpressRoute e os recursos de ligação estão a ser monitorizados pelo NPM. Pode clicar num mosaico do Peering da Microsoft para fazer uma busca detalhada no estado de funcionamento de ligações de Peering da Microsoft.
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Bpm'online | Documentos da Microsoft"
+title: "Tutorial: Integração do Active Directory do Azure com Bpm'online | Documentos da Microsoft"
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Bpm'online.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6fe50b24a20f81500ac1ed5008fcb6c59c0243a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 97b0530f3a260b4ad82c4287b4b37595ab1cf25d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449405"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187339"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integração do Azure Active Directory com Bpm'online
+# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integração do Active Directory do Azure com Bpm'online
 
 Neste tutorial, saiba como integrar Bpm'online com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Bpm'online, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Bpm'online início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Bpm'online com o Azure AD, terá de adicionar 
 
 **Para adicionar Bpm'online a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente Bpm'online](mailto:support@bpmonline.com) obter esses valores. 
 
-1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+1. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
     
     ![Configurar o início de sessão único](./media/bpmonline-tutorial/tutorial_metadataurl.png)
      
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-bpmonline-test-user"></a>Criar um utilizador de teste Bpm'online
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Bpm'online. Trabalhar com [equipa de suporte de Bpm'online](mailto:support@bpmonline.com) para adicionar os utilizadores na plataforma Bpm'online. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Bpm'online. Trabalhar com [equipa de suporte de Bpm'online](mailto:support@bpmonline.com) para adicionar os utilizadores na plataforma Bpm'online. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -199,7 +199,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854983"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187560"
 ---
 # <a name="localization"></a>Localização
 
@@ -111,7 +111,7 @@ O **Item** elemento contém os seguintes atributos:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | Texto | Sim | A cadeia de apresentação amigável de utilizador que deve ser apresentada ao usuário na interface do usuário para esta opção. |
-| Valor | Sim | A cadeia de caracteres de afirmação valor associado a seleção desta opção. |
+| Value | Sim | A cadeia de caracteres de afirmação valor associado a seleção desta opção. |
 
 O exemplo seguinte mostra a utilização do **LocalizedCollections** elemento. Ele contém dois **LocalizedCollection** elementos, um para inglês e outro para espanhol. Ambos definidos os **restrição** coleção da afirmação `Gender` com uma lista de itens para inglês e espanhol.
 

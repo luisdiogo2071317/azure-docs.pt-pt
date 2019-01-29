@@ -1,5 +1,5 @@
 ---
-title: Stream em direto com Media Services do Azure v3 | Documentos da Microsoft
+title: Stream em direto com Media Services do Azure v3 através do .NET | Documentos da Microsoft
 description: Este tutorial explica os passos da transmissão em fluxo em direto com os Serviços de Multimédia v3 com .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: c59ebc0672970c6ee8d00daae373036e2768e318
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888197"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170526"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream em direto com serviços de multimédia v3 com APIs
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Stream em direto com serviços de multimédia v3 através do .NET
 
-Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um evento em direto fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um codificador em direto. O evento Live recebe a transmissão em direto de entrada do codificador em direto e disponibiliza-o para transmissão em fluxo através de um ou mais [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto final de pré-visualização (URL de pré-visualização) que pode utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
+Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um evento em direto fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um codificador em direto. O evento Live recebe a transmissão em direto de entrada do codificador em direto e disponibiliza-o para transmissão em fluxo através de um ou mais [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos em direto também fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
 
 > [!NOTE]
 > Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
@@ -31,8 +31,7 @@ Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.
 Este tutorial mostra-lhe como:    
 
 > [!div class="checklist"]
-> * Aceder à API dos Serviços de Multimédia
-> * Configurar a aplicação de exemplo
+> * Transferir a aplicação de exemplo descrita no tópico
 > * Examinar o código que efetua a transmissão em fluxo em direto
 > * Observar o evento com o [Leitor de Multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em http://ampdemo.azureedge.net
 > * Limpar recursos
@@ -44,18 +43,12 @@ Este tutorial mostra-lhe como:
 O seguinte é necessário para concluir o tutorial.
 
 - Instale o Visual Studio Code ou o Visual Studio.
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).
-
-    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia
-
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).<br/>Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
+- Siga os passos em [acesso à API de serviços de multimédia do Azure com a CLI do Azure](access-api-cli-how-to.md) e guarde as credenciais. Terá de utilizá-los para aceder à API.
 - Uma câmara ou um dispositivo (como um computador portátil) que é utilizado para transmitir um evento.
 - Um codificador em direto no local que converte sinais da câmara para transmissões em fluxos que são enviadas para o serviço de transmissão em fluxo em direto dos Serviços de Multimédia. O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.
 
-## <a name="download-the-sample"></a>Transferir o exemplo
+## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
 
 Clone o repositório do GitHub que contém o exemplo de .NET de transmissão para o computador com o comando seguinte:  
 
@@ -65,11 +58,10 @@ Clone o repositório do GitHub que contém o exemplo de .NET de transmissão par
 
 O exemplo de transmissão em fluxo em direto está localizado na pasta [Dinâmica](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp).
 
-> [!IMPORTANT]
-> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se cancelar a depuração ou se terminar a aplicação sem a executar, irá ficar com vários LiveEvents na sua conta. <br/>
-> Certifique-se parar os eventos em direto em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
+Open [appSettings](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) no que transferiu o projeto. Substitua os valores com as credenciais que obteve da [aceder a APIs](access-api-cli-how-to.md).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+> [!IMPORTANT]
+> Este exemplo utiliza o sufixo exclusivo para cada recurso. Se cancelar a depuração ou encerrar o aplicativo sem a executá-lo por meio, acabará com vários eventos em direto na sua conta. <br/>Certifique-se parar os eventos em direto em execução. Se não o fizer, estes ser-lhe-ão **faturados**!
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Examinar o código que efetua a transmissão em fluxo em direto
 
@@ -121,11 +113,13 @@ Assim que tiver o fluxo a ser encaminhados para o evento em direto, pode começa
 
 #### <a name="create-an-asset"></a>Criar um Elemento
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
-
 Crie um elemento para a saída em direto utilizar.
 
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
+
 #### <a name="create-a-live-output"></a>Criar uma saída em direto
+
+Início de saídas após a criação do Live e param quando eliminado. Ao eliminar a saída em direto, não serão eliminados os ativos e conteúdo no elemento subjacente.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
@@ -133,6 +127,8 @@ Crie um elemento para a saída em direto utilizar.
 
 > [!NOTE]
 > Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
+
+Quando publica o elemento de saída em direto com um localizador de transmissão em fluxo, o evento em direto (até o tamanho de janela DVR) irá continuar a ser visualizado até expiração o localizador de transmissão em fluxo ou eliminação, o que ocorrer primeiro.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
@@ -164,13 +160,15 @@ Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos apr
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
+O código seguinte mostra como limpar a sua conta de todos os eventos em direto:
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>Ver o evento
 
 Para ver o evento, copie o URL de transmissão em fluxo que obteve quando executou o código descrito em [criar um localizador de transmissão em fluxo](#create-a-streaminglocator) e utilize um leitor da sua preferência. Pode utilizar o [Leitor de Multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar a sua transmissão em fluxo em http://ampdemo.azureedge.net. 
 
-O evento em direto converte automaticamente os eventos para conteúdo a pedido quando parado. Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
+Evento em direto converte automaticamente os eventos para conteúdo a pedido quando parado. Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

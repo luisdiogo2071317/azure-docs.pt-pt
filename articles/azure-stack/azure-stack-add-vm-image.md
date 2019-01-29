@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 54f7b596eebf2cc5ad7a9bf1b795fab087b6fac0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474375"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102486"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
@@ -82,14 +82,14 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 3. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ````
+  ```
 
   O **Add-AzsPlatformimage** cmdlet especifica valores utilizados por modelos do Azure Resource Manager para fazer referência a imagem de VM. Os valores incluem:
   - **publisher**  
@@ -157,24 +157,24 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 5. Preparar uma imagem de sistema operativo Windows ou Linux no formato VHD (não VHDX), carregue a imagem à sua conta de armazenamento e obter o URI onde a imagem de VM pode ser obtida pelo PowerShell.  
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ````
+  ```
 
 6. (Opcionalmente) Pode carregar uma matriz de discos de dados como parte da imagem VM. Crie os seus discos de dados com o cmdlet New-DataDiskObject. Abra o PowerShell a partir de uma linha de comandos elevada e execute:
 
-  ````PowerShell  
+  ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ````
+  ```
 
 7. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ````
+  ```
 
     Para obter mais informações sobre o cmdlet Add-AzsPlatformimage e o cmdlet New-DataDiskObject, consulte o Microsoft PowerShell [documentação do módulo de operador do Azure Stack](https://docs.microsoft.com/powershell/module/).
 
@@ -188,13 +188,13 @@ Quando já não precisar da imagem de máquina virtual que carregou, pode elimin
 
 3. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-  ````PowerShell  
+  ```PowerShell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ````
+  ```
   O **Remove-AzsPlatformImage** cmdlet especifica valores utilizados por modelos do Azure Resource Manager para fazer referência a imagem de VM. Os valores incluem:
   - **publisher**  
     Por exemplo: `Canonical`  

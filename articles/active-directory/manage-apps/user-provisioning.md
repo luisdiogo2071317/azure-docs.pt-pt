@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190926"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -197,13 +197,13 @@ A tabela seguinte resume as horas de sincronização para cenários comuns de ap
 
 | Configuração de âmbito | Os utilizadores, grupos e membros no âmbito | Tempo de sincronização inicial | Hora de sincronização incremental |
 | -------- | -------- | -------- | -------- |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  < 1,000 |  < a 30 minutos | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |  < a 1000 |  < a 30 minutos | < a 30 minutos |
 | Sincronizar os utilizadores atribuídos e apenas a grupos |  1.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |   10,000 - 100,000 | 1,170 - minutos 2,340 | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  < 1,000 | < a 30 minutos  | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |   10 000 - 100.000 | 1,170 - minutos 2,340 | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  < a 1000 | < a 30 minutos  | < a 30 minutos |
 | Sincronizar todos os utilizadores e grupos no Azure AD |  1.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  10,000 - 100,000  | 713 - minutos 1,425 | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD|  < 1,000  | < a 30 minutos | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  10 000 - 100.000  | 713 - minutos 1,425 | < a 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD|  < a 1000  | < a 30 minutos | < a 30 minutos |
 | Sincronizar todos os utilizadores no Azure AD | 1.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
 
 

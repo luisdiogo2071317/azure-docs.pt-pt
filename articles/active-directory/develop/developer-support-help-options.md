@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337143"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093202"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de ajuda e suporte para programadores
 
@@ -52,13 +52,13 @@ Em que *{Your termos de pesquisa}* é suas palavras-chave de pesquisa.
 
 |Ferramenta  |Descrição  |
 |---------|---------|
-|[jwt.MS](https://jwt.ms)| Cole um tokens de acesso ou ID para decodificar os valores e nomes de afirmações |
+|[jwt.ms](https://jwt.ms)| Cole um tokens de acesso ou ID para decodificar os valores e nomes de afirmações |
 |[Analisador de código de erro](https://apps.dev.microsoft.com/portal/tools/errors)| Cole o código de erro recebido durante o início de sessão ou páginas para ver as causas possíveis e remediações de consentimento |
 |[Do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Ferramenta que permite-lhe fazer pedidos e ver respostas com o Microsoft Graph API|
 
 <br/>
 
-[![O Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
+[![Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## <a name="post-a-question-to-stack-overflow"></a>Publique uma pergunta do Stack Overflow
 
 Estouro de pilha é o canal preferido para questões relacionadas com desenvolvimento - em que membros da Equipe ambos os membros da Comunidade como a Microsoft está diretamente envolvido em ajudá-lo para resolver seu problema.
@@ -70,8 +70,8 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 |Biblioteca ADAL |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
 |Biblioteca MSAL     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
 |Middleware da OWIN  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[B2B do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
 |Qualquer outra área relacionadas com a autenticação ou autorização tópicos |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
@@ -83,7 +83,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 <br/>
 
 
-[![O Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
+[![Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 
  Se encontrar um erro ou problema relacionado com a nossas bibliotecas, gerar um problema no nosso repositório do GitHub. Como nossas bibliotecas de código-fonte aberto, também tem liberdade para submeter um pedido pull também. O seguinte artigo contém uma lista de bibliotecas e seus repositórios do GitHub:

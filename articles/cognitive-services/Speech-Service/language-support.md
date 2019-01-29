@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 93f086ed6ff7b8cc9ccc03290d3e901427783887
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413379"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103951"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -79,6 +79,10 @@ Para obter uma lista completa de vozes neurais e a disponibilidade regional, con
 |--------|----------|---------|--------------------|
 | en-US | English (US) | Masculino | "Microsoft Server voz texto para voz de voz (en-US, GuyNeural)" |
 | en-US | English (US) | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaNeural)" |
+| zh-CN | Chinês | Feminino | "Microsoft Server voz texto para voz de voz (zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server voz texto para voz de voz (zh-CN, XiaoxiaoNeural) só está disponível através do ponto de extremidade do Sudeste asiático: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Vozes padrão
 

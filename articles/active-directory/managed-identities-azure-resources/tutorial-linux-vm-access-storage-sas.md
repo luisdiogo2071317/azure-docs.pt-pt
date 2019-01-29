@@ -7,19 +7,19 @@ author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 81f38f1e8a4912b7a28bbfc7af527afb8b8ab325
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 693511451ecdd712ef69adf9aa2f1ac1192339d9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888265"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179179"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma identidade de sistema atribuído de VM do Linux para acessar o armazenamento do Azure através de uma credencial SAS
 

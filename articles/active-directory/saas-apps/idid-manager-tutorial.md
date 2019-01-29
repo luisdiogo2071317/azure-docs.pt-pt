@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a12a0b383db63cc80aea045ca5afe6c75b0b83a9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823036"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutorial: Integração do Active Directory do Azure com iDiD Manager
 
@@ -70,10 +70,10 @@ Para configurar a integração do iDiD Manager com o Azure AD, terá de adiciona
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configurar e testar o Azure AD início de sessão único com [nome da aplicação] com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em [nome da aplicação] deve ser estabelecido.
+Nesta secção, configurar e testar o Azure AD início de sessão único com iDiD Manager com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no iDiD Manager deve ser estabelecido.
 
-Para configurar e testar o Azure AD início de sessão único com [nome da aplicação], tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com iDiD Manager, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar iDiD Manager Single Sign-On](#configure-idid-manager-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
@@ -86,7 +86,7 @@ Para configurar e testar o Azure AD início de sessão único com [nome da aplic
 
 Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com [nome da aplicação], execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com iDiD Manager, execute os seguintes passos:
 
 1. Na [portal do Azure](https://portal.azure.com/), na **iDiD Manager** página de integração de aplicações, selecione **início de sessão único**.
 
@@ -100,18 +100,20 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos, se desejar configurar a aplicação no **SP** iniciada pelo modo:
+4. Sobre o **configuração básica de SAML** secção, o utilizador não tem de realizar qualquer passo como a aplicação já está pré-integrada com o Azure.
 
-    ![informações de iDiD URLs e de domínio do Gestor de início de sessão único](common/both-preintegrated-signon.png)
+    ![informações de iDiD URLs e de domínio do Gestor de início de sessão único](common/preintegrated.png)
 
-    a. Clique em **definir URLs adicionais**.
+5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    b. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://idid2.fi/saml/login/<domain>`
+    ![informações de iDiD URLs e de domínio do Gestor de início de sessão único](common/metadata-upload-additional-signon.png)
+
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de iDiD cliente Manager](mailto:support@idid.fi) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
+6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
     ![O link de download de certificado](common/copy-metadataurl.png)
 
@@ -187,3 +189,4 @@ Quando clica no mosaico do Gestor de iDiD no painel de acesso, deve ser automati
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: e0d319526bf9e604a98a1c926f7b6fc4f2834466
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: dc177ba7b20af61a4b6a875404a73fda5d08f7dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851152"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177326"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Service Bus
 Este artigo lista algumas exceções geradas pelo APIs de mensagens do Microsoft Azure Service Bus. Esta referência está sujeitas a alterações, por isso, verifique novamente a existência de atualizações.
@@ -37,7 +37,7 @@ A tabela seguinte lista os tipos de exceções de mensagens e suas causas e aç�
 
 | **Tipo de exceção** | **Descrição/causa/exemplos** | **Ação sugerida** | **Tenha em atenção aquando da repetição imediata/automático** |
 | --- | --- | --- | --- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |O servidor não respondeu para a operação pedida no período especificado, o que é controlada pela [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). O servidor de pode concluir a operação pedida. Isto pode dever-se a rede ou de outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente se necessário. Ver [exceções de tempo limite](#timeoutexception). |Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |O servidor não respondeu para a operação pedida no período especificado, o que é controlada pela [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor de pode concluir a operação pedida. Isto pode dever-se a rede ou de outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente se necessário. Ver [exceções de tempo limite](#timeoutexception). |Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |A operação de utilizador solicitada não é permitida dentro do servidor ou serviço. Ver a mensagem de exceção para obter detalhes. Por exemplo, [concluir ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) gera esta exceção se a mensagem foi recebida na [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) modo. |Verifique o código e a documentação. Certifique-se de que a operação pedida é válida. |Repetição não ajuda. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |É efetuada uma tentativa de invocar uma operação num objeto que já foi fechado, abortada ou eliminado. Em casos raros, a transação de ambiente já foi eliminada. |Verifique o código e certifique-se de que ele não invoca operações num objeto descartado. |Repetição não ajuda. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |O [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) objeto não foi possível obter um token, o token é inválido ou o token não contém as declarações necessárias para efetuar a operação. |Certifique-se de que o fornecedor do token é criado com os valores corretos. Verifique a configuração do serviço de controlo de acesso. |Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
@@ -101,7 +101,7 @@ R [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.
 Deve verificar o valor do [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) propriedade, como atingir este limite também pode causar um [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 ### <a name="queues-and-topics"></a>Filas e tópicos
-Para filas e tópicos, o tempo limite é especificado no [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) propriedade, como parte da cadeia de ligação, ou por meio de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). A própria mensagem de erro pode variar, mas sempre contém o valor de tempo limite especificado para a operação atual. 
+Para filas e tópicos, o tempo limite é especificado no [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) propriedade, como parte da cadeia de ligação, ou por meio de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). A própria mensagem de erro pode variar, mas sempre contém o valor de tempo limite especificado para a operação atual. 
 
 
 

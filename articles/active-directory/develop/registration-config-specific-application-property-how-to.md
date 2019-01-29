@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724094"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096828"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para uma aplicação personalizada desenvolvida
 
@@ -40,9 +40,9 @@ Este artigo fornece uma breve descrição de todos os campos disponíveis no for
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | O nome da aplicação. Ele deve ter um mínimo de quatro carateres.                |
-| Tipo de Aplicação | **Aplicação/Web API da Web**: uma aplicação que represente uma aplicação web, uma API web ou ambos 
-| |**Nativo**: uma aplicação que pode ser instalada num computador ou dispositivo do utilizador           |
+| Name             | O nome da aplicação. Ele deve ter um mínimo de quatro carateres.                |
+| Tipo de Aplicação | **Aplicação/Web API da Web**: Uma aplicação que represente uma aplicação web, uma API web ou ambos 
+| |**Nativo**: Um aplicativo que pode ser instalado num computador ou dispositivo do utilizador           |
 | URL de início de sessão      | O URL onde os utilizadores podem iniciar sessão para utilizar a sua aplicação                                  |
 
 Quando tiver preenchido as campos acima, o aplicativo está registado no portal do Azure e será redirecionado para a página de aplicativo. O **definições** botão no painel aplicação abre-se a página de definições, que tem mais campos para personalizar seu aplicativo. A tabela abaixo descreve todos os campos na página de definições. tenha em atenção que apenas conseguiria obter um subconjunto desses campos, dependendo de ter criado uma aplicação web ou um aplicativo nativo.

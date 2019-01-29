@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259969"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095579"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -36,7 +36,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas de segurança orientar as recomendações de segurança, que obtém no Centro de segurança do Azure. Pode monitorizar a conformidade com os mesmos para o ajudar a identificar potenciais vulnerabilidades e a mitigar ameaças. Para obter mais informações sobre como determinar a opção adequada para si, consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md).
 
-Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. O intitiative incorporada é atribuído automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria. 
+Quando ativar o Centro de segurança, a política de segurança incorporada ao centro de segurança é refletida na política do Azure como uma iniciativa incorporada na categoria de centro de segurança. A iniciativa incorporada é atribuída automaticamente a todas as subscrições do Centro de segurança registado (escalões gratuito ou Standard). A iniciativa interna contém apenas as políticas de auditoria. 
 
 
 ### <a name="management-groups"></a>Grupos de gestão
@@ -121,7 +121,7 @@ A iniciativa incorporada tem todas as políticas do Centro de segurança ativada
 Nos exemplos a seguir, substitua estas variáveis:
 
 - **{âmbito}**  introduza o nome do grupo de gestão ou subscrição se aplicar a política.
-- **{poicyAssignmentName}**  introduza o [nome da atribuição de política relevante](#policy-names).
+- **{policyAssignmentName}**  introduza o [nome da atribuição de política relevante](#policy-names).
 - **{name}**  introduza o nome ou o nome do administrador que aprovou a alteração de política.
 
 Este exemplo mostra como atribuir a iniciativa de centro de segurança incorporada numa subscrição ou grupo de gestão
@@ -212,7 +212,7 @@ Este exemplo mostra como remover uma atribuição:
 |Configurações de segurança |Monitorizar vulnerabilidades do SO no Centro de segurança do Azure |systemConfigurationsMonitoringEffect| 
 |Endpoint protection |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
 |Encriptação de disco |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssesmentMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall de aplicação Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure| |
 

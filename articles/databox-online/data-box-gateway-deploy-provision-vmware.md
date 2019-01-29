@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167159"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099163"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionar o Azure Data Box Gateway em VMware (Pré-visualização)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Gateway de caixa de dados do Azure de aprovisionamento no VMware (pré-visualização)
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitrião com o VMware ESXi 6.0 ou 6.5. 
+Este tutorial descreve como aprovisionar um Gateway de caixa de dados num sistema anfitrião com o VMware ESXi 6.0, 6.5 ou 6.7. 
 
 Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de dez minutos a concluir.
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os pré-requisitos para aprovisionar um dispositivo virtual num sistema anfitrião com o VMware ESXi 6.0 ou 6.5 são os seguintes.
+As pré-requisitos para aprovisionar um dispositivo virtual num sistema anfitrião com o VMware ESXi 6.0, 6.5 ou 6.7, são as seguintes.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Para o recurso do Data Box Gateway
 
@@ -53,8 +53,8 @@ Antes de começar, certifique-se de que:
 
 Antes de implementar um dispositivo virtual, certifique-se de que:
 
-* Tem acesso a um sistema anfitrião com VMware (ESXi 6.0 ou 6.5), que possa ser utilizado para aprovisionar um dispositivo.
-* O sistema anfitrião tem capacidade para dedicar os recursos seguintes para aprovisionar o seu dispositivo virtual:
+* Tem acesso a um sistema anfitrião que execute o VMware (ESXi 6.0, 6.5 ou 6.7) que pode ser utilizado para um aprovisionar um dispositivo.
+* O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
   * Pelos menos 8 GB de RAM.
@@ -71,9 +71,9 @@ Antes de começar:
 
 ## <a name="check-the-host-system"></a>Verificar o sistema anfitrião
 
-Para criar um dispositivo virtual, precisa de:
+Para criar um dispositivo virtual, precisa:
 
-* Acesso a um sistema anfitrião com o VMware ESXi Server 6.0 ou 6.5. O sistema anfitrião tem capacidade para dedicar os recursos seguintes ao seu dispositivo virtual:
+* Acesso a um sistema de anfitrião a executar o servidor do VMware ESXi 6.0, 6.5 ou 6.7. O sistema anfitrião tem capacidade para dedicar os recursos seguintes ao seu dispositivo virtual:
  
   * Um mínimo de 4 núcleos.
   * Pelos menos 8 GB de RAM. 
@@ -89,7 +89,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Transferiu esta imagem virtual (dois ficheiros) através do portal do Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
 
-2. Inicie sessão no servidor ESXi com o cliente Web vSphere. Tem de ter privilégios de administrador para criar uma máquina virtual.
+2. Inicie sessão no servidor ESXi com o cliente de web do vSphere. Tem de ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -192,7 +192,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 8. Se iniciou o seu dispositivo num ambiente não DHCP, verá a mensagem: **Use the Set-HcsIPAddress cmdlet to configure the network** (Utilize o cmdlet Set-HcsIPAddress para configurar a rede). 
+6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 8. Se reiniciei o seu dispositivo no ambiente de não-DHCP, verá uma mensagem para o efeito: **Utilize o cmdlet Set-HcsIPAddress para configurar a rede**. 
    
 7. Para configurar a rede, na linha de comandos, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a esta interface é `Ethernet`.
 
@@ -211,7 +211,7 @@ Se o dispositivo não cumprir os requisitos mínimos de configuração, verá um
 * Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 * [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

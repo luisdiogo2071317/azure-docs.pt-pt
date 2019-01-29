@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868553"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092799"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -153,7 +153,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 5. Opcionalmente, selecione a caixa para *Proprietários, contribuidores e leitores do e-mail* para enviar uma notificação por e-mail. A ação predefinida é apresentar uma notificação no portal.
 6. Selecione o botão **OK**.
 
-## <a name="manage-package-updates"></a>Gerir atualizações de pacotes
+## <a name="manage-software-updates"></a>Gerir atualizações de software
 
 A gestão de atualizações permite-lhe gerir atualizações e correções para as suas máquinas virtuais do Linux.
 Diretamente a partir da VM, pode avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM.
@@ -175,15 +175,14 @@ A área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overvie
 A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 Para executar ações adicionais em VMs que necessitam de atualizações, a Automatização do Azure permite executar runbooks nas VMs, tais como transferir e aplicar atualizações.
 
-O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
-Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
+O processo de validação também verifica se a VM está aprovisionada com o agente do Log Analytics e o trabalho de runbook híbrida de automatização. Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
 
 Escolha a área de trabalho da Análise de registo e a conta de automatização e selecione **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
 * Área de trabalho do [Log Analytics](../../log-analytics/log-analytics-overview.md)
-* [Automatização](../../automation/automation-offering-get-started.md)
+* [Conta de automatização](../../automation/automation-offering-get-started.md)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
 O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, a área de trabalho da Análise de registos e a Conta de automatização a utilizar e selecione **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
@@ -249,7 +248,7 @@ Selecione **Erros** para ver informações detalhadas sobre os erros da implemen
 
 ## <a name="monitor-changes-and-inventory"></a>Monitorizar alterações e inventário
 
-Pode recolher e ver o inventário do software, dos ficheiros, dos daemons do Linux, dos Serviços do Windows e das chaves do Registo do Windows nos seus computadores. Controlar as configurações dos seus computadores pode ajudar a identificar problemas operacionais em todo o ambiente e compreender melhor o estado dos mesmos.
+Pode recolher e ver o inventário de software, ficheiros, dos daemons do Linux, serviços do Windows e chaves de registo do Windows nos seus computadores. Controlar as configurações dos seus computadores pode ajudar a identificar problemas operacionais em todo o ambiente e compreender melhor o estado dos mesmos.
 
 ### <a name="enable-change-and-inventory-management"></a>Ativar a Gestão de alterações e de inventário
 
@@ -291,22 +290,9 @@ O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicion
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-Pode monitorizar a sua VM de forma mais avançada com as soluções como a Gestão de Atualizações e a Alteração e Inventário que a [Automatização do Azure](../../automation/automation-intro.md) proporciona.
+Pode fazer mais avançadas de monitorização da sua VM, com uma solução como [do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), que monitoriza máquinas de virtuais do Azure (VM) em escala ao analisar o desempenho e estado de funcionamento do Windows e VMs do Linux, incluindo os diferentes processos e interconectadas dependências em outros recursos e processos externos. Gestão de configuração das suas VMs do Azure é entregue com o [automatização do Azure](../../automation/automation-intro.md) solução controlo de alterações e inventário para identificar facilmente as alterações no seu ambiente. Gerir a compatibilidade de atualização é fornecido com a solução de gestão de atualizações de automatização do Azure.   
 
-Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Substitua \<workspace-key\> e \<workspace-id\> pelos valores da área de trabalho do Log Analytics e, em seguida, pode utilizar **az vm extension set** para adicionar a extensão à VM:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytics.
+Do espaço de trabalho do Log Analytics a VM está ligada, também pode obter, consolidar e analisar os dados recolhidos com o [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

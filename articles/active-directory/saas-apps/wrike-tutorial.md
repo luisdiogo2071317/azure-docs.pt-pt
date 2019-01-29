@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Wrike | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Wrike | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Wrike.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d2a8db071152e95b3c70509a1c10f7aa73f02c21
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1eba7769717f2dc92f9600b46162ec95a13bd84c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977668"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195761"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Azure Active Directory com Wrike
+# <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Active Directory do Azure com Wrike
 
 Neste tutorial, saiba como integrar Wrike com o Azure Active Directory (Azure AD).
 

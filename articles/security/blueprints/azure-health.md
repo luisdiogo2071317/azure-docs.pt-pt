@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315779"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103077"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -48,7 +48,7 @@ Este esquema deve ser usado como uma base modular para os clientes que se ajusta
 
 -   **Diagrama da arquitetura.** O diagrama mostra a arquitetura de referência utilizada para o esquema e o exemplo a utilizar o cenário de caso.
 
--   [Extensão de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) esta solução demonstra como migrar uma solução SQL com base no local para o Azure e implementar uma estação de trabalho de acesso de Privieged para gerir serviços cloud-bsed e soluções de forma segura. 
+-   [Extensão de IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) esta solução demonstra como migrar uma solução SQL com base no local para o Azure e implementar uma estação de trabalho de acesso com privilégios para gerir serviços cloud-bsed e soluções de forma segura. 
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -260,7 +260,7 @@ Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatie
 ![](images/dataflow.png)
 
 Além disso, a função do azure foi concebida para ler e proteger dados confidenciais designados no conjunto de dados de exemplo com as seguintes tags:
-- dataProfile = > "ePHI"
+- dataProfile => “ePHI”
 - proprietário = > \<UPN de administrador do Site\>
 - ambiente = > "Piloto"
 - departamento = > "Ecossistema Global", a marcação foi aplicada ao conjunto de dados de exemplo em que o paciente "nomes" foi identificada como texto não encriptado.

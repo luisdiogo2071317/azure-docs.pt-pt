@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945591"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177913"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
 O termo *fornecedor* aplica-se para o administrador de serviços e para quaisquer fornecedores delegados. Operadores do Azure Stack e fornecedores delegados podem utilizar a API de utilização do fornecedor para ver a utilização dos seus inquilinos diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar a API para obter informações de utilização do P1 do fornecedor e a utilização de direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.
@@ -37,7 +37,7 @@ Esta API de utilização é um fornecedor de API, para que o chamador tem de ser
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argumentos
-| **Argumento** | **Descrição** |
+| **Argument** | **Descrição** |
 | --- | --- |
 | *armendpoint* |Gestor de recursos ponto final do Azure do seu ambiente do Azure Stack. A Convenção do Azure Stack é o nome do ponto final do Azure Resource Manager está no formato `https://adminmanagement.{domain-name}`. Por exemplo, para o kit de desenvolvimento, se o nome de domínio for *local.azurestack.external*, em seguida, o ponto de final do Gestor de recursos é `https://adminmanagement.local.azurestack.external`. |
 | *subId* |ID de subscrição do utilizador que faz a chamada. |
@@ -78,7 +78,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Detalhes da resposta
-| **Argumento** | **Descrição** |
+| **Argument** | **Descrição** |
 | --- | --- |
 | *id* |ID exclusivo do agregado de utilização. |
 | *name* |Nome do agregado de utilização. |
@@ -86,7 +86,7 @@ meterID1",
 | *subscriptionId* |Identificador de subscrição do utilizador do Azure Stack. |
 | *usageStartTime* |Hora de registo de utilização a que pertence este agregado de utilização de início de UTC.|
 | *usageEndTime* |Hora de fim de UTC de registo de utilização a que pertence este agregado de utilização. |
-| *instanceData* |Pares de chave-valor dos detalhes de instância (num novo formato):<br> *resourceUri*: completamente qualificado do ID de recurso, que inclui os grupos de recursos e o nome da instância. <br> *localização*: região em que este serviço foi executado. <br> *etiquetas*: etiquetas de recursos que são especificadas pelo utilizador. <br> *additionalInfo*: mais detalhes sobre o recurso que foi consumido, por exemplo, o tipo de imagem ou de versão do SO. |
+| *instanceData* |Pares de chave-valor dos detalhes de instância (num novo formato):<br> *resourceUri*: ID de recurso completamente qualificado, que inclui os grupos de recursos e o nome da instância. <br> *Localização*: Região em que este serviço foi executado. <br> *tags*: Sinalizadores de recursos que são especificados pelo utilizador. <br> *additionalInfo*: Tipo de obter mais detalhes sobre o recurso que foi consumido, por exemplo, a versão do SO ou a imagem. |
 | *quantity* |Quantidade de consumo de recursos que ocorreram neste período de tempo. |
 | *meterId* |ID exclusivo para o recurso que foi consumido (também denominado *ResourceID*). |
 

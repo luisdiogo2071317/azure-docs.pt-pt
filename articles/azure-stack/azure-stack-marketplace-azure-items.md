@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306612"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196213"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack sistemas e o Kit de desenvolvimento do Azure Stack.*
 
-## <a name="virtual-machine-extensions"></a>Extensões da Máquina Virtual
+## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual
 
 Sempre que existirem atualizações para extensões de máquina virtual (VM) que utiliza, deve baixá-los. Extensões fornecidas no produto não atualizar no processo normal de patches e atualizações; então, procure atualizações com frequência. Outras extensões só estão disponíveis através da gestão do Marketplace.
 
@@ -46,7 +46,7 @@ Sempre que existirem atualizações para extensões de máquina virtual (VM) que
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Agente de segurança de Cloud híbrida Kaspersky para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Com a segurança de Cloud híbrida de Kaspersky, pode aprovisionar capacidades de cibersegurança dentro as cargas de trabalho na cloud através de extensões do Azure. | Kaspersky Lab | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Com a segurança de Cloud híbrida de Kaspersky, pode aprovisionar capacidades de cibersegurança dentro as cargas de trabalho na cloud através de extensões do Azure. | Kaspersky Lab | Linux |
 
-## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de máquinas virtuais do Microsoft e modelos de soluções
+## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de Máquina Virtual do Microsoft e modelos de soluções
 
 Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketplace e os modelos de solução. Baixe todas as dependências em separado, conforme indicado. Aplicações como o SQL Server e o Machine Learning Server requerem licenciamento adequado, exceto quando marcada como gratuita ou de avaliação.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Imagens BYOL de terceiros, gratuito e versão de avaliação e modelos de soluções
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>BYOL de terceiros, imagens gratuitas, avaliação e modelos de soluções
 
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | O controlador de entrega de aplicações do Microsoft Azure de vThunder A10 redes é especialmente concebido para elevado desempenho, flexibilidade, e entrega de aplicativos fáceis de implementar e o servidor de balanceamento de carga e otimizadas para executar nativamente na cloud do Azure. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | O vEOS Arista Router é uma nuvem de vários e avançados e router de virtual de vários hipervisores que capacita as empresas e fornecedores de cloud para criar consistente e altamente seguro e as redes de híbridos dimensionáveis. | Arista Networks |
 | ![Centro de controlo de segurança de aplicativo barracuda](media/azure-stack-marketplace-azure-items/barracuda.png) | [Centro de controlo de segurança de aplicativo barracuda](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Gerencie centralmente Web de vários Barracuda Firewalls de aplicações (WAF). | Barracuda Networks, Inc. |
 | ![Gateway de segurança do barracuda E-Mail](media/azure-stack-marketplace-azure-items/barracuda.png) | [Gateway de segurança do barracuda E-Mail](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Gateway de segurança de e-mail para proteger contra ameaças de e-mail emails de entrada. | Barracuda Networks, Inc. |

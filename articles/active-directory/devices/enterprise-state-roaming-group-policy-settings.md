@@ -7,7 +7,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: curtand
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5ce3597bb52a22cfba6103b1d6cc5d0ff6371579
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 249885ac30c87ff6b152885ab22f35c5b3314155
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447664"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092854"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Definições de política de grupo e MDM
 Use esses diretiva de grupo e definições de gestão (MDM) de dispositivos móveis apenas em dispositivos pertencentes à empresa uma vez que estas políticas são aplicadas para o dispositivo do utilizador inteiro. Aplicar uma política MDM para desativar a sincronização de definições para um pessoal, dispositivos pertencentes ao utilizador irão afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela política.
@@ -32,7 +32,7 @@ As tabelas seguintes descrevem as definições de política disponíveis.
 ## <a name="mdm-settings"></a>Definições de MDM
 Aplicam as definições de política MDM para Windows 10 e Windows 10 Mobile.  Existe um suporte de Windows 10 Mobile apenas para a conta Microsoft com base em roaming através de conta do OneDrive do utilizador.  Consulte a [dispositivos e os pontos finais](enterprise-state-roaming-windows-settings-reference.md) para obter detalhes sobre os dispositivos são suportados para sincronização do Azure AD com base.
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | Permitir a ligação de conta Microsoft |Permite que os usuários se autentiquem com uma conta Microsoft no dispositivo |
 | Permitir Sincronização de minhas configurações |Permite que os usuários sejam acedidas remotamente as definições do Windows e dados de aplicação. A desativar esta política irá desativar a sincronização, bem como as cópias de segurança em dispositivos móveis |
@@ -42,7 +42,7 @@ Aplicam as definições de política de grupo para dispositivos Windows 10 que e
 
 Estas definições estão localizadas em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | Contas: Contas da Microsoft de bloco |Esta definição de política impede que os utilizadores adicionem novas contas Microsoft neste computador |
 | Não sincronizar |Impede que os usuários sejam acedidas remotamente as definições do Windows e dados de aplicação |

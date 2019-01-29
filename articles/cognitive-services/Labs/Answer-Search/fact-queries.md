@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: consulta de factos da Pesquisa de Respostas do Projeto'
+title: 'Início rápido: Consulta de fatos de pesquisa de resposta de projeto'
 titlesuffix: Azure Cognitive Services
 description: Consultas de factos com a Pesquisa de Respostas do Projeto
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e3cc795644af07550db253cf6fca3fc1c9997519
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469406"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094586"
 ---
-# <a name="quickstart-query-for-facts"></a>Início Rápido: consulta de factos
+# <a name="quickstart-query-for-facts"></a>Início rápido: Consultar os fatos
 
 Se a consulta for de um facto como uma data ou conhecimentos identificáveis, a resposta pode conter respostas de `facts`. As respostas de facto contêm resultados relevantes, extraídos de parágrafos em documentos Web.  Estas consultas devolvem sempre páginas Web, e os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
@@ -26,14 +26,14 @@ As consultas como valentines+2016 (dia+de+são+valentim+2016), when+is+ramadan (
 Segue-se um exemplo de uma resposta de `facts` relacionada com uma data. 
 
 **Consulta:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
-**Resposta:** o campo `subjectName` contém uma versão de apresentação da consulta de um utilizador, que pode utilizar como uma etiqueta ao apresentar o facto. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
+**Resposta:** O `subjectName` campo contém uma versão de exibição de consulta do utilizador que pode utilizar como uma etiqueta ao exibir o fato. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 A consulta “Why is the sky blue?” (Por que o céu azul é azul?) devolve um exemplo de uma resposta relacionada com conhecimentos.
 
 **Consulta:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
-**Resposta:** o campo `value/description` contém os conhecimentos ou as informações pedidos pela consulta.
+**Resposta:** O `value/description` campo contém os dados de conhecimento ou informações solicitadas pela consulta.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Dados tabulares
 Em alguns casos, os factos podem ser devolvidos como `_type: StructuredValue/TabularData`. A consulta seguinte obtém dados tabulares com informações que comparam café e chá.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 Os resultados dos `facts` incluem as seguintes linhas e células:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,10 +196,10 @@ Os resultados dos `facts` incluem as seguintes linhas e células:
     ]
   },
 
-````
+```
 
-## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](c-sharp-quickstart.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Início rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)
 - [Início Rápido do Python](python-quickstart.md)

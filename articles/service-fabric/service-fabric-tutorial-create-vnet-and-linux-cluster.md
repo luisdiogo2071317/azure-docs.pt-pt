@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831488"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101810"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric do Linux numa rede virtual do Azure
 
@@ -95,14 +95,14 @@ No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linu
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros do modelo)
 * [Nível de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros do modelo)
 * ponto final de ligação de cliente: 19000 (configurável nos parâmetros do modelo)
-* ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo)
+* Ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo)
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
 No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
 * ponto final de ligação de cliente: 19000
-* ponto final de gateway HTTP: 19080
+* Ponto final de gateway HTTP: 19080
 * porta da aplicação: 80
 * porta da aplicação: 443
 
@@ -111,7 +111,7 @@ No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de
 Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * espaço de endereços de rede virtual: 10.0.0.0/16
-* espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24
+* Espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24
 
 Se forem necessárias quaisquer outras portas da aplicação, terá de ajustar o recurso Microsoft.Network/loadBalancers para permitir o tráfego nas mesmas.
 
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Criar um cluster ao utilizar um novo certificado autoassinado
 
-O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) e o modelo para implementar um novo cluster no Azure. O cmcommand também cria um novo cofre de chaves no Azure, adiciona um novo certificado autoassinado ao cofre de chaves e transfere o ficheiro de certificado localmente.
+O script seguinte utiliza o comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) e o modelo para implementar um novo cluster no Azure. O comando também cria um novo cofre de chaves no Azure, adiciona um novo certificado autoassinado ao Cofre de chaves e transfere o ficheiro de certificado localmente.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -196,7 +196,7 @@ sfctl cluster health
 
 Os outros artigos nesta série de tutoriais utilizam o cluster que acabou de criar. Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](service-fabric-cluster-delete.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

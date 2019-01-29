@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisa de Respostas do Projeto, Python'
+title: 'Início rápido: Pesquisa de resposta de projeto, Python'
 titlesuffix: Azure Cognitive Services
 description: Introdução ao exemplo do Python com a Pesquisa de Respostas do Projeto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 2c42935e100a55f767c3b1cbac6590850734b57e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465513"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093330"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Início Rápido: Pesquisa de Respostas do Projeto com o Python
 
@@ -41,7 +41,7 @@ O código seguinte cria uma Pré-visualização do URL.
 
 Segue-se o código completo para esta demonstração:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,8 +65,8 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
-## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](c-sharp-quickstart.md)
+```
+## <a name="next-steps"></a>Passos Seguintes
+- [Início rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido do Node](node-quickstart.md)

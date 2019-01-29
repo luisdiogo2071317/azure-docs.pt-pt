@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189723"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180896"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realizar uma revisão de acesso de minhas funções de recursos do Azure no PIM
 Privileged Identity Management (PIM) para recursos do Azure simplifica como as empresas a gerir o acesso privilegiado a recursos no Azure. 
@@ -53,4 +53,4 @@ Siga estes passos para encontrar e concluir a revisão de acesso:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Realizar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)
+- [Efetuar uma revisão de acesso das minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)

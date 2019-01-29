@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902251"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169761"
 ---
 # <a name="bake-acoustics"></a>Inserir acoustics
 
@@ -255,10 +255,10 @@ Instalar e configurar o Docker no PC que irá processar a simulação-
 
 Existem quatro arquivos de dados criados por este plug-in em vários pontos. Somente uma delas é necessário no tempo de execução, portanto os outros três são dentro das pastas denominadas "Editor", para que eles não ser compilados em seu projeto.
 
-* **Editor de recursos / / [SceneName]\_AcousticsParameters.asset**: esse arquivo armazena os dados que insira nos campos na IU do Acoustics. Não não possível alterar a localização e o nome deste ficheiro. Existem outros valores armazenados neste ficheiro, que afetam a criar, mas eles são para utilizadores avançados e não devem ser alterados.
-* **Ativos/AcousticsData/Acoustics\_.ace.bytes [SceneName]**: este ficheiro é o que é criado durante a simulação de criar e contém os dados de pesquisa utilizados pelo tempo de execução para renderizar acoustics da sua cena. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: esse arquivo armazena a geometria de acoustics voxelized e as propriedades materiais. Calculado utilizando a **Calculate...**  botão na guia sondas. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
-* **Ativos/AcousticsData/Editor/Acoustics\_[SceneName]\_Config. XML**: esse arquivo armazena parâmetros calculados utilizando a **Calculate...**  botão a **sondas** separador. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
+* **Editor de recursos / / [SceneName]\_AcousticsParameters.asset**: Esse arquivo armazena os dados que insira nos campos na IU do Acoustics. Não não possível alterar a localização e o nome deste ficheiro. Existem outros valores armazenados neste ficheiro, que afetam a criar, mas eles são para utilizadores avançados e não devem ser alterados.
+* **Ativos/AcousticsData/Acoustics\_.ace.bytes [SceneName]**: Esse arquivo é o que é criado durante a simulação de criar e contém os dados de pesquisa utilizados pelo tempo de execução para renderizar acoustics da sua cena. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Esse arquivo armazena a geometria de acoustics voxelized e as propriedades materiais. Calculado utilizando a **Calculate...**  botão na guia sondas. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
+* **Ativos/AcousticsData/Editor/Acoustics\_[SceneName]\_Config. XML**: Esse arquivo armazena parâmetros calculados utilizando a **Calculate...**  botão a **sondas** separador. A localização e o nome deste ficheiro podem ser alteradas através dos campos no **sondas** separador.
 
 Tome cuidado para não eliminar o *. ace.bytes ficheiro transferido a partir do criar. Este ficheiro não é recuperável, exceto por rebaking a cena.
 

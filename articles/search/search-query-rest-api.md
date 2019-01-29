@@ -1,6 +1,6 @@
 ---
 title: Consultar um índice no código usando a API REST - Azure Search
-description: Comandos HTTP e o código da REST API para builidng uma consulta de pesquisa no Azure Search. Adicione parâmetros de pesquisa para filtrar e ordenar os resultados da pesquisa.
+description: Comandos HTTP e o código da REST API para a criação de uma consulta de pesquisa no Azure Search. Adicione parâmetros de pesquisa para filtrar e ordenar os resultados da pesquisa.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.custom: seodec2018
-ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e453e05a692e862179dcd78298b215a2384cba2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316945"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092821"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Consultar o índice da Azure Search através da API REST
 > [!div class="op_single_selector"]

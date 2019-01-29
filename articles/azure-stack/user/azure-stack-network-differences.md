@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a02166b6dedb91a1a82a0b5a77e693c1fe390957
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160068"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104631"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações sobre o funcionamento em rede do Azure Stack
 
@@ -30,7 +30,7 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 | Serviço | Funcionalidade | (Global) do Azure | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | DNS do multi-inquilino | Suportadas | Ainda não é suportado |
-|  | Registros AAAA de DNS | Suportadas | Não suportado |
+|  | DNS AAAA records | Suportadas | Não suportado |
 |  | Zonas DNS por subscrição | 100 (predefinição)<br>Pode ser aumentado no pedido. | 100 |
 |  | Conjuntos de registos DNS por zona | 5000 (predefinição)<br>Pode ser aumentado no pedido. | 5000 |
 |  | Servidores de nomes para a delegação de zona | O Azure fornece quatro servidores de nomes para cada zona de utilizador (inquilino) que é criada. | O Azure Stack fornece dois servidores de nomes para cada zona de utilizador (inquilino) que é criada. |

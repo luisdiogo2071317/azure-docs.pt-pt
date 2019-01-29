@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901163"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174266"
 ---
 # <a name="unity-sample-walkthrough"></a>Tutorial de exemplo de Unity
 Este é um tutorial do exemplo do Projeto Acoustics. Para obter mais informações sobre o que é o Projeto Acoustics, consulte a [Introdução ao Projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adição do pacote do Projeto Acoustics a um projeto Unity já existente, utilize o [Guia de Introdução](getting-started.md).
@@ -36,7 +36,7 @@ O exemplo inclui um cenário de demonstração **Assets/AcousticsDemo/ProjectAco
 
 O cenário já foi criado e possui um ficheiro ACE associado a prefab **MicrosoftAcoustics** na **Hierarquia**. 
 
-Ouça o som do cenário com um clique no botão de reprodução no editor do Unity. No ambiente de trabalho, utilize W, A, S, D e o rato para se mover. Para comparar o som do cenário com e sem o Acoustics, prima o botão **R** até o texto de sobreposição mudar para vermelho e indicar "Acoustics: Desativado". Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Todos os controlos podem ser igualmente utilizados através de um clique no botão direito do rato para selecionar a ação a executar e, em seguida, com um clique no botão esquerdo do rato para executar a ação.
+Ouça o som do cenário com um clique no botão de reprodução no editor do Unity. No ambiente de trabalho, utilize W, A, S, D e o rato para se mover. Para comparar a forma como a cena parece com e sem acoustics, prima a **R** botão até que o texto de sobreposição muda para vermelho e diz "Acoustics: Desativada." Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Todos os controlos podem ser igualmente utilizados através de um clique no botão direito do rato para selecionar a ação a executar e, em seguida, com um clique no botão esquerdo do rato para executar a ação.
 
 ## <a name="targeting-other-platforms"></a>Selecionar outras plataformas como destino
 O exemplo contém definições para serem executadas em computadores com Windows, UWP, Windows Mixed Reality, Android e Oculus Go. Por predefinição, o projeto está configurado para computadores com Windows. Para selecionar como destino uma plataforma de VR, vá para as definições de leitor (**Editar > Definições do Projeto > Leitor**), localize **Definições de XR**e selecione a caixa de verificação **Realidade Virtual Suportada**.
@@ -48,7 +48,7 @@ Para selecionar como destino o Android e o Oculus Go de destino, escolha Android
 
 ![Android de destino](media/TargetAndroid.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar uma conta do Azure](create-azure-account.md) para as suas próprias criações
 * Explorar o [processo de conceção](design-process.md)
 

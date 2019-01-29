@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818511"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Active Directory do Azure com Signagelive
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD início de sessão único com Signagelive, execute os
 
     ![Signagelive domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Signagelive](mailto:support@signagelive.com) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.

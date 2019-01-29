@@ -10,12 +10,12 @@ ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 54438a99a710a24daac9e7482cb92a9781d06746
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465921"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099095"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Respostas do Projeto?
 A API de Pesquisa de Respostas do Projeto utiliza o ponto final do Bing v7 para obter respostas para consultas interrogativas. Uma pergunta como “Qual é a circunferência da terra?” devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa devolve informações sobre a entidade identificada pela consulta. Estes cenários podem ser úteis em aplicações, como bots de conversação, aplicações de mensagens, leitores, etc.  
@@ -25,13 +25,13 @@ As consultas devolvem as respostas que dependem do cenário de consulta: são se
 ## <a name="endpoint"></a>Ponto Final
 Para obter respostas a uma pergunta ou informações sobre uma pessoa, local ou coisa, envie um pedido para o ponto final da API de Pesquisa de Respostas. Utilize os cabeçalhos e os parâmetros de URL para várias especificações.  Inclua o cabeçalho *Ocp-Apim-Subscription-Key* com um token válido.  O parâmetro de mercado é obrigatório. Apenas o mercado de `en-us` é atualmente suportada.
 
-A seguinte consulta obtém respostas à pergunta: “Qual é a circunferência da terra?”
+A seguinte consulta obtém respostas à pergunta: "O que é a circunferência da terra?"
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 O parâmetro de URL `q=` é necessário para especificar o objeto de pesquisa.
 
@@ -39,7 +39,7 @@ O parâmetro de URL `q=` é necessário para especificar o objeto de pesquisa.
 
 A resposta inclui cabeçalhos HTTP, páginas Web, factos e/ou entidades.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Termos de utilização
 A Pesquisa de Respostas do Projeto e as Tendências de Vídeo do Projeto estão sujeitas aos [Requisitos de Utilização e Apresentação de Pesquisa do Bing](use-display-requirements.md).
@@ -333,8 +333,8 @@ O seguinte mostra um exemplo que inclui um campo `provider` e as regras contratu
   
 ![Atribuição de suporte de dados](./media/mediaattribution.png)  
 
-## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](c-sharp-quickstart.md)
+## <a name="next-steps"></a>Passos Seguintes
+- [Início rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)
 - [Início Rápido do Python](python-quickstart.md)

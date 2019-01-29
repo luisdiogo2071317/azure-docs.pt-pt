@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986547"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097066"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 
@@ -382,15 +382,15 @@ Receber uma das seguintes mensagens de erro ao iniciar sessão na sua aplicaçã
  - Não foram encontrados no arquivo de certificados do utilizador de certificados válidos.
  - Tente novamente com um método de autenticação diferentes.
 
-**Causa:** não são ativadas capacidades de Enterprise e o certificado.
+**Causa:** Não são ativadas capacidades de Enterprise e o certificado.
 
-**Solução:** siga os passos [autenticação integrada nos domínios federados](#enable-integrated-authentication-on-federated-domains-optional).
+**Solução:** Siga os passos em [autenticação integrada nos domínios federados](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problema 2
 Ativar [autenticação integrada nos domínios federados](#enable-integrated-authentication-on-federated-domains-optional) e tente utilizar o Windows Hello num computador Windows 10 para iniciar sessão num ambiente com a autenticação multifator configurada. É apresentada a lista de certificados. No entanto, se optar por utilizar o PIN, nunca é apresentada a janela PIN.
 
-**Causa:** este problema é uma limitação conhecida de Mediador de autenticação web nas aplicações UWP executadas na área de trabalho do Windows 10. Ele funciona bem no Windows 10 Mobile.
+**Causa:** Este problema é uma limitação conhecida de Mediador de autenticação web nas aplicações UWP executadas na área de trabalho do Windows 10. Ele funciona bem no Windows 10 Mobile.
 
-**Solução:** selecionar **iniciar sessão com as outras opções**. Em seguida, selecione **inicie sessão com um nome de utilizador e palavra-passe**. Selecione **forneça a palavra-passe**. Em seguida, percorra o processo de autenticação de telefone.
+**Solução:** Selecione **iniciar sessão com as outras opções**. Em seguida, selecione **inicie sessão com um nome de utilizador e palavra-passe**. Selecione **forneça a palavra-passe**. Em seguida, percorra o processo de autenticação de telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

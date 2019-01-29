@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fb0eca8a6871fbcc3a9da99334ede6c758350dba
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 0672e913bcf4b983a3603a5dc7f66f539f7dfad2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449251"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098018"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Notificações push a determinados dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging
 
@@ -36,7 +36,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Adicionar a seleção de categorias à aplicação móvel.
-> * Registar-se para receber notificações com etiquetas.
+> * Registado para notificações com etiquetas.
 > * Enviar notificações com etiquetas.
 > * Testar a aplicação
 

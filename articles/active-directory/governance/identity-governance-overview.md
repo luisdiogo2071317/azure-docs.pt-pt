@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168039"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170023"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governação de identidade do Azure AD?
 
@@ -75,13 +75,13 @@ Embora não haja nenhuma recomendação para cada cliente ou a solução perfeit
 
 - [O que é uma revisão de acesso?](access-reviews-overview.md)
 - [Gerir o acesso de utilizador com as revisões de acesso](manage-user-access-with-access-reviews.md)
-- [Gerir o acesso de convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
+- [Gerir o acesso de convidado com as revisões de acesso](manage-guest-access-with-access-reviews.md)
 - [Iniciar uma revisão de acesso de uma função de diretório](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Termos de utilização
 
-- [O que posso fazer com os termos de utilização?](active-directory-tou.md)
+- [O que posso fazer com os Termos de Utilização?](active-directory-tou.md)
 
-### <a name="privileged-identity-management"></a>Gestão de identidades privilegiadas
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 - [O que é o Azure AD PIM?](../privileged-identity-management/pim-configure.md)

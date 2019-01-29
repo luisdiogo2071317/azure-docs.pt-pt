@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: f844cc0b798c035e31b45ef00370f95b1ec06d43
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846035"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173008"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Início de sessão Web com OpenID Connect
 OpenID Connect é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores aplicações web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OpenID Connect, que possa terceirizar a inscrição, início de sessão e experiências de outro gestão de identidades nas suas aplicações web ao Azure Active Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente de idioma. Ele descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de código-fonte aberto.

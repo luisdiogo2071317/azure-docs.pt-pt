@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314793"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203696"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competências predefinidas para melhoria do conteúdo (Azure Search)
 
@@ -35,7 +35,7 @@ Várias habilidades são flexíveis o que consomem ou produzir. Em geral, a maio
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Essa habilidade utiliza um modelo de pretrained para detetar as frases importantes com base na colocação de termo, regras lingüísticas, proximidade outros termos e é o termo como invulgar na origem de dados. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Este utiliza de habilidade um modelo pretrained para detetar o idioma que é utilizada (um ID de idioma por documento). Quando vários idiomas forem utilizados dentro dos mesmo segmentos de texto, a saída é o LCID do idioma predominantemente utilizado.|
 | [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md) | Consolida texto de uma coleção de campos num único campo.  |
-| [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md) | Essa habilidade utiliza um modelo de pretrained para estabelecer entidades para um conjunto fixo de categorias: as pessoas, a localização, a organização. |
+| [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Essa habilidade utiliza um modelo de pretrained para estabelecer entidades para um conjunto fixo de categorias: as pessoas, localização, organização, envia um e-mail, URLs, campos de datetime. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Essa habilidade utiliza um modelo de pretrained a pontuação de sentimento positivo ou negativo numa base de Registro por Registro. A pontuação é entre 0 e 1. As pontuações neutras ocorrerem caso nulo quando não é possível detetar o sentimento e para o texto que é considerado neutro.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Divide texto numa páginas para que possa melhorar ou aumentar o conteúdo de forma incremental. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Essa habilidade usa um algoritmo de deteção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |

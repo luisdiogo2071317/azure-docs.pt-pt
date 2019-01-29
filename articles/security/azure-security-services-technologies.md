@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384892"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097670"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e as tecnologias disponíveis no Azure
 
@@ -42,7 +42,7 @@ Ao longo do tempo, esta lista irá alterar e a crescer, tal como o Azure faz. Le
 ## <a name="storage-security"></a>Segurança de armazenamento
 |Serviço|Descrição|
 |------|--------|
-| [Azure&nbsp;armazenamento&nbsp;serviço&nbsp;encriptação](../storage/common/storage-service-encryption.md)|Uma funcionalidade de segurança que encripta automaticamente os dados no armazenamento do Azure.   |
+| [Azure&nbsp;Storage&nbsp;Service&nbsp;Encryption](../storage/common/storage-service-encryption.md)|Uma funcionalidade de segurança que encripta automaticamente os dados no armazenamento do Azure.   |
 |[StorSimple encriptados armazenamento híbrido](../storsimple/storsimple-ova-overview.md)| Uma solução de armazenamento integrada que gere tarefas de armazenamento entre dispositivos no local e o armazenamento na cloud do Azure.|
 |[Encriptação do lado do cliente do Azure](../storage/common/storage-client-side-encryption.md)| Uma solução de encriptação do lado do cliente, que criptografa dados dentro de aplicativos de cliente antes de carregar para o armazenamento do Azure; também desencripta os dados durante a transferência. |
 | [Assinaturas de acesso partilhado de armazenamento do Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento.  |
@@ -84,7 +84,11 @@ Ao longo do tempo, esta lista irá alterar e a crescer, tal como o Azure faz. Le
 | [Rede&nbsp;segurança&nbsp;grupos](../virtual-network/virtual-networks-nsg.md)| Uma funcionalidade de controlo de acesso com base na rede usando uma 5 cadeias de identificação para permitir ou negar a decisões.  |
 | [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Um dispositivo de rede utilizado como um ponto de extremidade VPN para permitir em vários locais acesso a redes virtuais do Azure.  |
 | [Gateway de aplicação do Azure](../application-gateway/application-gateway-introduction.md)|Balanceador que possa encaminhar com base na URL e efetuar a descarga de SSL de carga de um aplicativo da web avançados. |
+|[Firewall de aplicações Web](../application-gateway/waf-overview.md) (WAF)|Um recurso do Gateway de aplicação que fornece proteção centralizada das suas aplicações web de exploits e vulnerabilidades comuns|
 | [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|Um balanceador de carga do TCP/UDP aplicação rede. |
 | [O Azure ExpressRoute](../expressroute/expressroute-introduction.md)| Ligar a uma WAN dedicada entre redes no local e redes virtuais do Azure. |
 | [Gestor de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)| Um balanceador de carga global do DNS.|
 | [Proxy de aplicações do Azure](../active-directory/active-directory-application-proxy-get-started.md)| Uma autenticação de front-end utilizado para proteger o acesso remoto para aplicações web alojadas no local. |
+|[Firewall do Azure](../firewall/overview.md)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos de rede Virtual do Azure.|
+|[Proteção contra DDoS do Azure](../virtual-network/ddos-protection-overview.md)|Combinado com práticas recomendadas de design de aplicativo, fornece a defesa contra ataques DDoS.|
+|[Pontos finais de serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md)|Expande o seu espaço de endereços privados da rede virtual e a identidade da sua VNet para os serviços do Azure, através de uma ligação direta.|

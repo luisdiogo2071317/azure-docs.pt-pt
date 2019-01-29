@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194169"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096794"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
@@ -76,12 +76,12 @@ O JSON seguinte mostra o esquema da extensão de VM de diagnóstico de desempenh
 |performanceScenario|básica|O cenário de desempenho para o qual capturar os dados. Os valores válidos são: **básica**, **vmslow**, **azurefiles**, e **personalizado**.
 |traceDurationInSeconds|300|A duração dos rastreios, se qualquer uma das opções de rastreio estão selecionadas.
 |perfCounterTrace|p|Opção para ativar o rastreio de contador de desempenho. Os valores válidos são **p** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
-|networkTrace|N|Opção para ativar o rastreio de rede. Os valores válidos são **n** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
+|networkTrace|D|Opção para ativar o rastreio de rede. Os valores válidos são **n** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
 |xperfTrace|x|Opção para ativar o rastreio de XPerf. Os valores válidos são **x** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
 |storPortTrace|s|Opção para ativar o rastreio de StorPort. Os valores válidos são **s** ou valor de vazio. Se não pretender capturar esse rastreamento, deixe o valor como vazio.
 |srNumber|123452016365929|O pedido de suporte número de suporte, se disponível. Deixe o valor como vazio se não o tiver.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Data e hora atuais em Utc. Se estiver a utilizar o portal para instalar esta extensão, não é necessário fornecer este valor.
-|resourceId|/subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /providers/ {resourceProviderNamespace} / {resourceType} / {resourceName}|O identificador exclusivo de uma VM.
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|O identificador exclusivo de uma VM.
 |storageAccountName|mystorageaccount|O nome da conta do storage para armazenar os registos de diagnóstico e os resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|A chave para a conta de armazenamento.
 
@@ -123,7 +123,7 @@ Para remover a extensão de uma máquina virtual, siga estes passos:
 ## <a name="template-deployment"></a>Implementação de modelos
 Extensões de máquina virtual do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager. Esta solução é executada a extensão de VM de diagnóstico de desempenho do Azure durante uma implementação de modelo do Azure Resource Manager. Este é um modelo de exemplo:
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ Extensões de máquina virtual do Azure podem ser implementadas com modelos Azur
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>Implementação do PowerShell
 O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de VM de diagnóstico de desempenho do Azure para uma máquina virtual existente.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
 A ferramenta de PerfInsights recolhe vários registos de configuração e dados de diagnóstico, dependendo do cenário selecionado. Para obter mais informações, consulte a [PerfInsights documentação](https://aka.ms/perfinsights).

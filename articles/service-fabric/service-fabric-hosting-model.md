@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348485"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172379"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedagem do Azure Service Fabric
 Este artigo fornece uma visão geral dos modelos fornecidos pelo Azure Service Fabric de hospedagem de aplicativos e descreve as diferenças entre o **processo partilhado** e **processo exclusivo** modelos. Ele descreve a aparência de um aplicativo implantado num nó do Service Fabric e a relação entre as réplicas (ou instâncias) do serviço e o processo de host de serviço.
@@ -150,7 +150,7 @@ Para certos casos, o Service Fabric também permite que mais do que alguém *Ser
 
 O processo exclusivo, modelo de alojamento não é coerente com um modelo de aplicativo ter várias *ServiceTypes* por *ServicePackage*. Isto acontece porque vários *ServiceTypes* por *ServicePackage* destinam-se para obter mais recursos compartilhando entre as réplicas e permite a densidade superior de réplica por processo. O modelo de processo exclusivo foi concebido para alcançar resultados diferentes.
 
-Considere o caso de vários *ServiceTypes* por *ServicePackage*, com outro *CodePackage* registar cada *ServiceType*. Vamos supor que temos uma *ServicePackage* 'MultiTypeServicePackge', que tem dois *CodePackages*:
+Considere o caso de vários *ServiceTypes* por *ServicePackage*, com outro *CodePackage* registar cada *ServiceType*. Vamos supor que temos uma *ServicePackage* 'MultiTypeServicePackage', que tem dois *CodePackages*:
 
 - "MyCodePackageA', que regista *ServiceType* 'MyServiceTypeA'.
 - "MyCodePackageB', que regista *ServiceType* 'MyServiceTypeB'.
@@ -160,15 +160,15 @@ Agora, vamos supor que a criação de um aplicativo **fabric: / SpecialApp**. De
 - Serviço **fabric: / SpecialApp/ServiceA** do tipo "MyServiceTypeA", com duas partições (por exemplo, **P1** e **P2**) e três réplicas por partição.
 - Serviço **fabric: / SpecialApp/ServiceB** do tipo "MyServiceTypeB", com duas partições (**P3** e **P4**) e três réplicas por partição.
 
-Num determinado nó, ambos os serviços têm duas réplicas. Porque usamos o modelo de processo exclusivo para criar os serviços, o Service Fabric ativa uma nova cópia do "MyServicePackage" para cada réplica. Cada ativação de 'MultiTypeServicePackge' inicia uma cópia do 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas um dos 'MyCodePackageA' ou 'MyCodePackageB' aloja a réplica para o qual "MultiTypeServicePackge" foi ativado. O diagrama seguinte mostra a vista do nó:
+Num determinado nó, ambos os serviços têm duas réplicas. Porque usamos o modelo de processo exclusivo para criar os serviços, o Service Fabric ativa uma nova cópia do "MyServicePackage" para cada réplica. Cada ativação de 'MultiTypeServicePackage' inicia uma cópia do 'MyCodePackageA' e 'MyCodePackageB'. No entanto, apenas um dos 'MyCodePackageA' ou 'MyCodePackageB' aloja a réplica para o qual "MultiTypeServicePackage" foi ativado. O diagrama seguinte mostra a vista do nó:
 
 
 ![Diagrama de vista de nós da aplicação implementada][node-view-five]
 
 
-Na ativação de "MultiTypeServicePackge", para a réplica da partição **P1** do serviço **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' está a alojar a réplica. 'MyCodePackageB' está em execução. Da mesma forma, na ativação de 'MultiTypeServicePackge' para a réplica da partição **P3** do serviço **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' está a alojar a réplica. 'MyCodePackageA' está em execução. Por conseguinte, quanto maior o número de *CodePackages* (registar diferentes *ServiceTypes*) por *ServicePackage*, maior será a utilização de recursos com redundância. 
+Na ativação de "MultiTypeServicePackage", para a réplica da partição **P1** do serviço **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' está a alojar a réplica. 'MyCodePackageB' está em execução. Da mesma forma, na ativação de 'MultiTypeServicePackage' para a réplica da partição **P3** do serviço **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' está a alojar a réplica. 'MyCodePackageA' está em execução. Por conseguinte, quanto maior o número de *CodePackages* (registar diferentes *ServiceTypes*) por *ServicePackage*, maior será a utilização de recursos com redundância. 
  
- No entanto, se criarmos os serviços **fabric: / SpecialApp/ServiceA** e **fabric: / SpecialApp/ServiceB** com o modelo de processo partilhado, o Service Fabric ativa apenas uma cópia do " MultiTypeServicePackge' para o aplicativo **fabric: / SpecialApp**. 'MyCodePackageA' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceB**. O diagrama seguinte mostra a vista do nó nesta definição: 
+ No entanto, se criarmos os serviços **fabric: / SpecialApp/ServiceA** e **fabric: / SpecialApp/ServiceB** com o modelo de processo partilhado, o Service Fabric ativa apenas uma cópia do " MultiTypeServicePackage' para o aplicativo **fabric: / SpecialApp**. 'MyCodePackageA' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' aloja todas as réplicas para o serviço **fabric: / SpecialApp/ServiceB**. O diagrama seguinte mostra a vista do nó nesta definição: 
 
 
 ![Diagrama de vista de nós da aplicação implementada][node-view-six]

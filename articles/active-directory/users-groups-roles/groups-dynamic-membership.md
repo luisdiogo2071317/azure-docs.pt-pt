@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214646"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172328"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -71,7 +71,7 @@ Seguem-se as propriedades de utilizador que pode utilizar para criar uma única 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
 | accountEnabled |Verdadeiro Falso |user.accountEnabled - eq true |
-| dirSyncEnabled |Verdadeiro Falso |user.dirSyncEnabled - eq true |
+| dirSyncEnabled |Verdadeiro Falso |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriedades do tipo string
 
@@ -79,36 +79,36 @@ Seguem-se as propriedades de utilizador que pode utilizar para criar uma única 
 | --- | --- | --- |
 | city |Qualquer valor de cadeia ou *nulo* |(user.city - eq "value") |
 | País |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
-| CompanyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
-| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department - eq "value") |
-| displayName |qualquer valor de cadeia |(user.displayName - eq "value") |
-| employeeId |qualquer valor de cadeia |(user.employeeId - eq "value")<br>(user.employeeId - ne *nulo*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber - eq "value") |
-| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName - eq "value") |
-| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle - eq "value") |
-| mail |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
+| companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
+| Departamento |Qualquer valor de cadeia ou *nulo* |(user.department -eq "value") |
+| displayName |qualquer valor de cadeia |(user.displayName -eq "value") |
+| employeeId |qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
+| jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
+| mail |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail -eq "value") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de correio do utilizador) |(user.mailNickName -eq "value") |
-| móvel |Qualquer valor de cadeia ou *nulo* |(user.mobile - eq "value") |
-| objectId |GUID do objeto de utilizador |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizados no local para a cloud. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |Nenhum DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
+| móvel |Qualquer valor de cadeia ou *nulo* |(user.mobile -eq "value") |
+| objectId |GUID do objeto de utilizador |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | No local o identificador de segurança (SID) para os utilizadores que foram sincronizados no local para a cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualquer valor de cadeia ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Qualquer valor de cadeia ou *nulo* |(user.postalCode -eq "value") |
-| preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage - eq "en-US") |
+| preferredLanguage |Código do ISO 639-1 |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |Qualquer valor de cadeia ou *nulo* |(user.sipProxyAddress -eq "value") |
-| state |Qualquer valor de cadeia ou *nulo* |(user.state - eq "value") |
-| streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress - eq "value") |
-| Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname - eq "value") |
-| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber - eq "value") |
+| state |Qualquer valor de cadeia ou *nulo* |(user.state -eq "value") |
+| streetAddress |Qualquer valor de cadeia ou *nulo* |(user.streetAddress -eq "value") |
+| Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname -eq "value") |
+| telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
 | usageLocation |Indicativo de país de letras dois |(user.usageLocation -eq "US") |
 | userPrincipalName |qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
-| userType |o convidado de membro *nulo* |(user.userType - eq "Membro") |
+| userType |o convidado de membro *nulo* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de caracteres de tipo
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| otherMails |qualquer valor de cadeia |(user.otherMails-contém "alias@domain") |
+| otherMails |qualquer valor de cadeia |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-contém "SMTP: alias@domain") |
 
 Para as propriedades utilizadas para regras de dispositivo, consulte [regras para dispositivos](#rules-for-devices).
@@ -124,10 +124,10 @@ A tabela seguinte apresenta uma lista de todos os operadores suportados e sua si
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
-| Contains |-contém |
+| Contains |-contains |
 | Não corresponde |-notMatch |
-| Correspondência |-corresponder |
-| Em | -no |
+| Correspondência |-match |
+| Em | -in |
 | Não em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Usando a opção - no e - notIn operadores
@@ -348,12 +348,12 @@ Os seguintes atributos do dispositivo podem ser utilizados.
  accountEnabled | Verdadeiro Falso | (device.accountEnabled - eq verdadeiro)
  displayName | qualquer valor de cadeia |(device.displayName -eq "Rob Iphone”)
  deviceOSType | qualquer valor de cadeia | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
- deviceOSVersion | qualquer valor de cadeia | (device.deviceOSVersion - eq "9.1")
+ deviceOSVersion | qualquer valor de cadeia | (device.deviceOSVersion -eq "9.1")
  deviceCategory | um nome de categoria de dispositivo válido | (device.deviceCategory -eq "BYOD")
- deviceManufacturer | qualquer valor de cadeia | (device.deviceManufacturer - eq "Samsung")
+ deviceManufacturer | qualquer valor de cadeia | (device.deviceManufacturer -eq "Samsung")
  deviceModel | qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership - eq "Empresa")
- DomainName | qualquer valor de cadeia | (device.domainName -eq "contoso.com")
+ domainName | qualquer valor de cadeia | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome do perfil de perfil de inscrição de dispositivos da Apple ou do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | Verdadeiro Falso | (device.isRooted - eq verdadeiro)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente de PC do Intune) | (device.managementType -eq "MDM")

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478625"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195615"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros de LargeObject causados pelo atributo userCertificate
 
@@ -89,7 +89,7 @@ Deve haver uma regra de sincronização existente que está ativada e configurad
 
 2. Configure os filtros de pesquisa com os seguintes valores:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Direção |**Outbound** |
     | Tipo de objeto de MV |**Pessoa** |
@@ -104,7 +104,7 @@ Deve haver uma regra de sincronização existente que está ativada e configurad
 7. No ecrã de edição, selecione o **Scoping filtro** separador.
 8. Tenha em atenção a configuração de filtro de âmbito. Se estiver a utilizar a regra de sincronização OOB, deverá exatamente existir **um grupo de filtro âmbito que contém dois cláusulas**, incluindo:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
@@ -114,9 +114,9 @@ A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **pre
 1. No Editor de regras de sincronização, clique nas **Adicionar nova regra** botão.
 2. Sob o **separador de descrição**, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
-    | Nome | *Forneça um nome* | Por exemplo, *"Out ao AAD – personalizado para userCertificate substituição"* |
+    | Name | *Forneça um nome* | Por exemplo, *"Out ao AAD – personalizado para userCertificate substituição"* |
     | Descrição | *Forneça uma descrição* | Por exemplo, *"Se o atributo userCertificate tem mais de 15 valores, exportar NULL".* |
     | Sistema ligado | *Selecione o conector Azure AD* |
     | Tipo de objeto de sistema ligado | **user** | |
@@ -128,7 +128,7 @@ A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **pre
 4. Ignorar a **associar regras** separador.
 5. Vá para o **transformações** separador para adicionar uma nova transformação com os seguintes configuração:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Tipo de fluxo |**expressão** |
     | Atributo de Destino |**userCertificate** |

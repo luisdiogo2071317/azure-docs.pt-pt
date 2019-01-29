@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dcde2a09f9e066c49d870f230aed37655c4b6647
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120296"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093429"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início rápido: Proteger uma Web API com o Azure Active Directory
 
@@ -82,7 +82,7 @@ Os [argumentos](/cli/azure/ad/app?view=azure-cli-latest#az-ad-app-create) do com
 
 Antes de poder ligar ao Azure Active Directory, precisará das seguintes informações:
 
-| Nome  | Descrição | Nome da Variável no Ficheiro de Configuração |
+| Name  | Descrição | Nome da Variável no Ficheiro de Configuração |
 | ------------- | ------------- | ------------- |
 | Nome do Inquilino  | O [nome do inquilino](quickstart-create-new-tenant.md) que pretende utilizar para autenticação | `tenantName`  |
 | ID de Cliente  | O ID de Cliente é o termo de OAuth utilizado para o _ID da Aplicação_ do AAD. |  `clientID`  |

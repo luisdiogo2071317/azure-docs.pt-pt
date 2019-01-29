@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1dd434bbf71e482f5d0a52b3c84e46382079b43a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180832"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte de idioma e região para a API de pesquisa Visual do Bing
 
@@ -41,28 +41,28 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
-|Bélgica|SER|
+|Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
-|Alemanha|ALEMANHA|
+|Alemanha|DE|
 |RAE de Hong Kong|HK|
-|Índia|ÍNDIA|
+|Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
 |Japão|JP|
-|Coreia|COREIA|
-|Malásia|MEU|
+|Coreia|KR|
+|Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NÃO|
+|Noruega|NO|
 |China|CN|
 |Polónia|PL|
-|Portugal|HORA DO PACÍFICO|
+|Portugal|PT|
 |Filipinas|PH|
 |Rússia|RU|
 |Arábia Saudita|SA|
@@ -83,8 +83,8 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Argentina|Espanhol|es-AR|
 |Austrália|Português|EN-AU|
 |Áustria|Alemão|Alemanha-AT|
-|Bélgica|Neerlandês|NL-ser|
-|Bélgica|Francês|FR-ser|
+|Bélgica|Neerlandês|nl-BE|
+|Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
 |Canadá|Português|en-CA|
 |Canadá|Francês|fr-CA|
@@ -95,21 +95,21 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Alemanha|Alemão|de-DE|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Português|EN-IN|
-|Indonésia|Português|ID de en|
+|Indonésia|Português|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|EN MY|
+|Malásia|Português|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Neerlandês|NL-NL|
 |Nova Zelândia|Português|EN-NZ|
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|EN-PH|
+|Filipinas|Português|en-PH|
 |Rússia|Russo|ru-RU|
 |Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|EN ZA|
+|África do Sul|Português|en-ZA|
 |Espanha|Espanhol|es-ES|
 |Suécia|Sueco|SV-SE|
 |Suíça|Francês|FR-CH|
@@ -117,5 +117,5 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Português|en-GB|
-|Estados Unidos|Português|pt-PT|
+|Estados Unidos|Português|en-US|
 |Estados Unidos|Espanhol|es-US|

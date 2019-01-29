@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203594"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configure o Oracle ASM numa máquina virtual do Linux para o Azure  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Criar uma VM
 
-Para criar uma máquina virtual com base na imagem de base de dados Oracle e configurar para utilizar o Oracle ASM, utilize o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
+Para criar uma máquina virtual com base na imagem de base de dados Oracle e configurar para utilizar o Oracle ASM, utilize o [az vm criar](/cli/azure/vm) comando. 
 
 O exemplo seguinte cria uma VM com o nome myVM que é um tamanho de Standard_DS2_v2 com quatro discos de dados anexados, de 50 GB. Se eles ainda não existam numa localização predefinida da chave, ele também cria chaves SSH.  Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  
 
@@ -513,7 +513,7 @@ Para configurar a sua instalação do Oracle ASM, conclua os seguintes passos:
 
    Assistente de configuração de ASM do Oracle é aberto.
 
-2. Na **configurar ASM: grupos de disco** caixa de diálogo, clique nas `Create` botão e, em seguida, clique em `Show Advanced Options`.
+2. Na **configurar ASM: Grupos de disco** caixa de diálogo, clique nas `Create` botão e, em seguida, clique em `Show Advanced Options`.
 
 3. Na **criar grupo de disco** caixa de diálogo:
 
@@ -525,7 +525,7 @@ Para configurar a sua instalação do Oracle ASM, conclua os seguintes passos:
 
    ![Captura de ecrã da caixa de diálogo Criar grupo de disco](./media/oracle-asm/asm02.png)
 
-4. Na **configurar ASM: grupos de disco** caixa de diálogo, clique nas `Create` botão e, em seguida, clique em `Show Advanced Options`.
+4. Na **configurar ASM: Grupos de disco** caixa de diálogo, clique nas `Create` botão e, em seguida, clique em `Show Advanced Options`.
 
 5. Na **criar grupo de disco** caixa de diálogo:
 
@@ -540,7 +540,7 @@ Para configurar a sua instalação do Oracle ASM, conclua os seguintes passos:
 
 6. Selecione **saída** para fechar o Assistente de configuração do ASM.
 
-   ![Captura de ecrã do ASM configurar: caixa de diálogo de grupos de disco com o botão de saída](./media/oracle-asm/asm05.png)
+   ![Captura de ecrã do configurar ASM: Caixa de diálogo de grupos de disco com o botão de saída](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>Criar a base de dados
 

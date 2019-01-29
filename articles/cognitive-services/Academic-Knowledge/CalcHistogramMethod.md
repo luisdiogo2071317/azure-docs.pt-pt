@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321297"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192541"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -30,30 +30,30 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 
-Nome  |Valor | Necessário?  |Descrição
+Name  |Value | Necessário?  |Descrição
 -----------|----------|--------|----------
 **expr**    |Cadeia de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre o qual calcular histogramas.
 **Modelo** |Cadeia de texto | Não |Selecione o nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.
 **Atributos** | Cadeia de texto | Não<br>predefinição: | Uma lista delimitada por vírgulas que especifica os valores de atributos que estão incluídos na resposta. Nomes de atributo diferenciam maiúsculas de minúsculas.
 **count** |Number | Não<br>Predefinição: 10 |Número de resultados a devolver.
-**deslocamento**  |Number | Não<br>Predefinição: 0 |Índice do primeiro resultado a devolver.
-**Tempo limite**  |Number | Não<br>Predefinição: 1000 |Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+**offset**  |Number | Não<br>Predefinição: 0 |Índice do primeiro resultado a devolver.
+**timeout**  |Number | Não<br>Predefinição: 1000 |Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
 
 ## <a name="response-json"></a>Resposta (JSON)
 
-Nome | Descrição
+Name | Descrição
 --------|---------
 **expr**  |O parâmetro expr no pedido.
 **num_entities** | Número total de entidades correspondentes.
-**histogramas** |  Uma matriz de histogramas, um para cada atributo especificado no pedido.
-**.attribute histogramas [x]** | Nome do atributo na qual o histograma foi computado.
-**.distinct_values histogramas [x]** | Número de valores distintos entre entidades para este atributo de correspondência.
-**.total_count histogramas [x]** | Número total de instâncias de valor entre entidades para este atributo de correspondência.
-**.histogram histogramas [x]** | Dados de histograma para este atributo.
-**histogramas. Value de .histogram [y] [x]** |  Um valor para o atributo.
-**histogramas [.logprob .histogram [y] x]**  |Probabilidade de registo natural total de correspondência de entidades com este valor de atributo.
-**histogramas [.count .histogram [y] x]**  |Número de entidades correspondentes com este valor de atributo.
-**abortada** | VERDADEIRO se o pedido excedeu o limite de tempo.
+**histograms** |  Uma matriz de histogramas, um para cada atributo especificado no pedido.
+**histograms[x].attribute** | Nome do atributo na qual o histograma foi computado.
+**histograms[x].distinct_values** | Número de valores distintos entre entidades para este atributo de correspondência.
+**histograms[x].total_count** | Número total de instâncias de valor entre entidades para este atributo de correspondência.
+**histograms[x].histogram** | Dados de histograma para este atributo.
+**histograms[x].histogram[y].value** |  Um valor para o atributo.
+**histograms[x].histogram[y].logprob**  |Probabilidade de registo natural total de correspondência de entidades com este valor de atributo.
+**histograms[x].histogram[y].count**  |Número de entidades correspondentes com este valor de atributo.
+**aborted** | VERDADEIRO se o pedido excedeu o limite de tempo.
 
 
 #### <a name="example"></a>Exemplo:

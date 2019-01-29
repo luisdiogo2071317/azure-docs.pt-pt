@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582359"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198151"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 
@@ -113,7 +113,7 @@ Existem várias formas de categorizar imagens. A API de Imagem Digitalizada pode
 ### <a name="clip-art-type"></a>Tipo de ClipArt
 Deteta se uma imagem é ou não ClipArt.  
 
-Valor | Significado
+Value | Significado
 ----- | --------------
 0     | Não é ClipArt
 1     | Ambígua
@@ -138,9 +138,9 @@ Deteta rostos humanos numa imagem e gera as coordenadas faciais, o retângulo do
 
 Imagem|Resposta
 ----|----
-![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png) | [{"idade": 23, "sexo": "Feminino", "faceRectangle": {"left": 1379, "superior": 320, "largura": 310, "altura": 310}}]
-![Análise de Imagem de Rostos de Mãe e Filha](./Images/mom_daughter_face.png) | [{"idade": 28, "sexo": "Feminino", "faceRectangle": {"left": 447, "superior": 195, "largura": 162, "altura": 162}}, {"idade": 10, "sexo": "Masculino", "faceRectangle": {"left": 355, "superior": 87, "largura": 143, "altura": 143}}]
-![Análise de Imagem de Rostos em Fotografia de Família](./Images/family_photo_face.png) | [{"idade": 11, "sexo": "Masculino", "faceRectangle": {"left": 113, "superior": 314, "largura": 222, "altura": 222}}, {"idade": 11, "sexo": "Feminino", "faceRectangle": {"left": 1200, "superior": 632, "largura": 215, "altura": 215}}, {"idade": 41, "sexo": "Masculino", "faceRectangle": {"left": 514, "superior": 223, "largura": 205, "altura": 205}}, {"idade": 37, "sexo": "Feminino", "faceRectangle": {"left": 1008, "superior": 277, "largura": 201, "altura": 201}}]
+![Análise de imagem de rosto de mulher num terraço](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
+![Análise de Imagem de Rostos de Mãe e Filha](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
+![Análise de Imagem de Rostos em Fotografia de Família](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 
 ## <a name="domain-specific-content"></a>Conteúdos Específicos de Um Domínio

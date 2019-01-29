@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b0ec10bbf03e8a8d005eece4b6496b74b2943233
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831369"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173263"
 ---
 # <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Perguntas mais frequentes (FAQ) de perguntas sobre o Bing API de sugestão automática
  
@@ -25,15 +25,15 @@ ms.locfileid: "48831369"
 
 Os seguintes cabeçalhos são opcionais, mas recomendamos tratá-los conforme necessário. Esses cabeçalhos ajudam a API de sugestão automática do Bing devolver resultados mais precisos.
 
-- Localização de pesquisa de X
-- X-MSEdge-ID de cliente
+- X-Search-Location
+- X-MSEdge-ClientID
 - X-MSEdge-ClientIP
 
 No entanto, quando chama a API de sugestão automática do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser podem impedir que os valores desses cabeçalhos a aceder.
 
 Para resolver este problema, pode fazer o pedido de API de sugestão automática do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
 
-É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorials/autosuggest.md) para acessar os cabeçalhos de opcional do cliente. Primeiro, se ainda não o tiver, [instalar node. js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorials/autosuggest.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
 
     npm install -g cors-proxy-server
 
@@ -41,11 +41,11 @@ Em seguida, altere o ponto final de API de sugestão automática do Bing no arqu
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Por fim, inicie o proxy do CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta e, embora usar o tutorial de aplicação; fechar a janela será interrompido o proxy. Na secção de cabeçalhos HTTP expansível abaixo os resultados da pesquisa, pode agora ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

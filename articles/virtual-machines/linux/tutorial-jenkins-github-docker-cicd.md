@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c51206a7aac2cc6baaf4072c2dbd4ae7c97724e5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189872"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com Jenkins, GitHub e Docker
 
@@ -75,7 +75,7 @@ Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group cre
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para *cloud-init-jenkins.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual.
+Agora, crie uma VM com [az vm create](/cli/azure/vm). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para *cloud-init-jenkins.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \

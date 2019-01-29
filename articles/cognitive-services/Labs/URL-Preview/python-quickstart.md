@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pré-visualização do URL do Projeto, Python'
+title: 'Início rápido: URL do projeto pré-visualização, Python'
 titlesuffix: Azure Cognitive Services
 description: Exemplo de script para começar a utilizar rapidamente a Pré-visualização do URL do Projeto com o Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: ecf98803e5313812a074442b70bb376ab67e7366
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 650e11317dfa2eb3cc2fa6fd6146e55f8f8e87ef
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470001"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092813"
 ---
-# <a name="quickstart-url-preview-with-python"></a>Início Rápido: Pré-visualização do URL com o Python
+# <a name="quickstart-url-preview-with-python"></a>Início rápido: Pré-visualização de URL com Python
 
 O exemplo de Python seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
@@ -41,7 +41,7 @@ O código seguinte cria uma Pré-visualização do URL.
 
 Segue-se o código completo para esta demonstração:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -64,9 +64,9 @@ def get_preview ():
 
 result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
-````
-## <a name="next-steps"></a>Passos seguintes
-- [Início Rápido do C#](csharp.md)
+```
+## <a name="next-steps"></a>Passos Seguintes
+- [Início rápido do C#](csharp.md)
 - [Início rápido do Java](java-quickstart.md)
 - [Início rápido do JavaScript](javascript.md)
 - [Início rápido do URL do Node](node-quickstart.md)

@@ -1,6 +1,6 @@
 ---
-title: Eliminar atores do Service Fabric do Azure | Microsoft Docs
-description: Saiba como eliminar manualmente o serviço de recursos de infraestrutura Reliable Actors e o respetivo estado.
+title: Eliminar atores do Azure Service Fabric | Documentos da Microsoft
+description: Saiba como eliminar manualmente os Reliable Actors do Service Fabric e o respetivo estado.
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: fa4fe018a9e6b32158f5bbd13c44ff57069cb1cf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178176"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminar Reliable Actors e o respetivo estado
-Recolha de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator for reativado, dos dados é novamente disponibilizados ao mesmo através do Gestor de estado. Nos casos em que atores armazenar dados no Gestor de estado e estão desativados mas nunca reativados, poderá ser necessário limpar os seus dados.
+Coleta de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator é reativado, seus dados é novamente disponibilizados ao mesmo através do Gestor de estado. Nos casos onde atores armazenar dados no Gestor de estado e estiverem desativados, mas nunca reativados, poderá ser necessário limpar os seus dados.
 
-O [serviço de Atores](service-fabric-reliable-actors-platform.md) fornece uma função para a eliminação dos atores de um autor da chamada remota:
+O [serviço de Ator](service-fabric-reliable-actors-platform.md) fornece uma função para a eliminar atores de um chamador remoto:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -43,23 +43,23 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-Eliminar um ator tem os seguintes efeitos dependendo se pretende ou não está atualmente ativa o ator:
+A eliminação de um ator tem os seguintes efeitos dependendo se pretende ou não o ator está ativo no momento:
 
-* **Ator Active Directory**
-  * Ator é removido da lista de atores Active Directory e está desativada.
+* **Ator do Active Directory**
+  * Ator é removido da lista de atores do Active Directory e é desativado.
   * O estado é eliminado permanentemente.
 * **Ator inativo**
   * O estado é eliminado permanentemente.
 
-Um ator não é possível chamar eliminar em si próprio a partir de um dos respectivos métodos de ator porque não é possível eliminar o ator ao executar dentro de um contexto de chamada de ator em que o tempo de execução tem de obter um bloqueio em torno da chamada de ator para impor o acesso single-threaded.
+Não é possível chamar um ator eliminar em si mesmo a partir de um de seus métodos de ator, uma vez que o ator não pode ser eliminado durante a execução dentro de um contexto de chamada de ator, em que o tempo de execução foi obtido um bloqueio em torno da chamada de ator para impor o acesso de thread único.
 
 Para obter mais informações sobre Reliable Actors, leia o seguinte:
-* [Os temporizadores de ator e lembretes](service-fabric-reliable-actors-timers-reminders.md)
+* [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrancy ator](service-fabric-reliable-actors-reentrancy.md)
+* [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
 * [Monitorização de desempenho e diagnóstico de ator](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API de ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo do c#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo de c#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261184"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091963"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
@@ -48,7 +48,7 @@ O mesmo acontece com todos os recursos de terceiros que integraram com a platafo
 
 * Leia o calendário de um utilizador
 * Escrever para o calendário de um utilizador
-* Enviar e-mails como se fosse um utilizador
+* Envie e-mails como um utilizador
 
 Ao definir esses tipos de permissões, o recurso tem um controle refinado sobre os seus dados e como as funcionalidades de API é exposta. Uma aplicação de terceiros pode pedir estas permissões de utilizadores e administradores, que têm de aprovar o pedido antes da aplicação pode aceder a dados ou agir em nome de um utilizador. Por segmentar a funcionalidade do recurso em conjuntos menores de permissão, aplicações de terceiros podem ser criadas para solicitar apenas as permissões específicas que precisam para executar a respetiva função. Utilizadores e administradores podem saber exatamente os dados que a aplicação tem acesso aos e podem ser mais seguro de que ele está não se comportando com más intenções. Os desenvolvedores sempre devem concordar com o conceito de privilégio mínimo, pedindo apenas as permissões necessárias para as aplicações a funcionar.
 
@@ -87,7 +87,7 @@ Se uma aplicação realiza início de sessão usando [OpenID Connect](active-dir
 
 O `email` âmbito pode ser utilizado com o `openid` escopo e dos outros. Fornece o acesso da aplicação para o endereço de e-mail primário do utilizador na forma do `email` de afirmação. O `email` afirmação está incluída num token apenas se um endereço de e-mail está associado com a conta de utilizador, que nem sempre é o caso. Se utiliza a `email` âmbito, a sua aplicação deve estar preparada para processar um caso em que o `email` afirmação não existe no token.
 
-### <a name="profile"></a>perfil
+### <a name="profile"></a>Perfil
 
 O `profile` âmbito pode ser utilizado com o `openid` escopo e dos outros. Possibilita o acesso de aplicação a uma quantidade substancial de informações sobre o utilizador. As informações que ele pode acessar incluem, mas não está limitadas a, o nome de utilizador nome próprio, apelido, preferencial e ID de objeto. Para obter uma lista completa das afirmações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [ `id_tokens` referência](id-tokens.md).
 

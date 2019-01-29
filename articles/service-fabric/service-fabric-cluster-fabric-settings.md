@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167279"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -32,7 +32,7 @@ Existem três políticas de atualização diferentes:
 
 Segue-se uma lista dos recursos de infraestrutura, as definições que pode personalizar, organizados pela secção.
 
-## <a name="applicationgatewayhttp"></a>Gateway de aplicação/Http
+## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| Isso não valida o certificado de servidor; concluída com êxito o pedido. Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
@@ -54,7 +54,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |SecureOnlyMode|bool, a predefinição é falso|Dinâmica| SecureOnlyMode: verdadeiro: Proxy inverso apenas irá reencaminhar para serviços que publicar pontos de extremidade seguros. FALSE: Proxy inverso pode encaminhar pedidos para pontos finais secure/não segura. Para obter mais informações, consulte [inverter a lógica de seleção de ponto de extremidade do proxy](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
 |ServiceCertificateThumbprints|cadeia de caracteres, a predefinição é ""|Dinâmica|Lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
-## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Gateway de aplicação/Http/ServiceCommonNameAndIssuer
+## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| Sujeita thumbprint de nome e o emissor dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
@@ -317,8 +317,8 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |DeploymentMaxFailureCount|Int, a predefinição é 20| Dinâmica|Implementação de aplicação será repetida para tempos de DeploymentMaxFailureCount antes da falha a implementação desse aplicativo no nó.| 
 |DeploymentMaxRetryInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica| Especifique o período de tempo em segundos. Intervalo de repetição máximo para a implementação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (DeploymentMaxRetryInterval; Número de falhas contínua * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(10)|Dinâmica|Especifique o período de tempo em segundos. Intervalo de término da falha de implementação. Em cada caso de falha de implementação contínua, o sistema tentará novamente a implementação da até o MaxDeploymentFailureCount. O intervalo entre tentativas é um produto de falha de implementação contínua e o intervalo de término da implantação. |
-|DisableContainers|bool, a predefinição é falso|Estático|Configuração para o desativar contentores - usados em vez de DisableContainerServiceStartOnContainerActivatorOpen que é preterida config |
-|DisableDockerRequestRetry|bool, a predefinição é falso |Dinâmica| Por predefinição SF comunica com DD (docker dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação de http enviado para o mesmo. Se DD não responde dentro deste período de tempo; SF reenvia o pedido se a operação de nível superior ainda tem remining tempo.  Com o contentor de Hyper-v; DD por vezes, demorar muito mais tempo para abrir o contentor ou desativar. No pedido DD tais casos expire da perspectiva de SF e SF repetem a operação. Por vezes, isso parece adiciona mais pressão no DD. Esta configuração permite desativar esta repetição e aguarde DD responder. |
+|DisableContainers|bool, a predefinição é falso|Estático|Configuração para o desativar contentores - usados em vez de DisableContainerServiceStartOnContainerActivatorOpen que é preterido config |
+|DisableDockerRequestRetry|bool, a predefinição é falso |Dinâmica| Por predefinição SF comunica com DD (docker dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação de http enviado para o mesmo. Se DD não responde dentro deste período de tempo; SF reenvia o pedido se a operação de nível superior ainda tem o tempo restante.  Com o contentor de Hyper-v; DD por vezes, demorar muito mais tempo para abrir o contentor ou desativar. No pedido DD tais casos expire da perspectiva de SF e SF repetem a operação. Por vezes, isso parece adiciona mais pressão no DD. Esta configuração permite desativar esta repetição e aguarde DD responder. |
 |EnableActivateNoWindow| bool, a predefinição é falso|Dinâmica| O processo ativado é criado em segundo plano sem qualquer consola. |
 |EnableContainerServiceDebugMode|bool, a predefinição é TRUE|Estático|Ativar/desativar o registo para contentores do docker.  Windows.|
 |EnableDockerHealthCheckIntegration|bool, a predefinição é TRUE|Estático|Permite a integração de eventos HEALTHCHECK do docker com o relatório de estado de funcionamento do sistema de Service Fabric |
@@ -499,7 +499,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |PlacementConstraintValidationCacheSize | Int, a predefinição é 10000 |Dinâmica| Limita o tamanho da tabela utilizado para rápido de validação e de expressões de restrição de colocação em cache. |
 |PlacementSearchTimeout | Tempo em segundos, a predefinição é 0,5 |Dinâmica| Especifique o período de tempo em segundos. Quando colocar os serviços; Pesquisar no máximo essa longa antes de devolver um resultado. |
 |PLBRefreshGap | Tempo em segundos, a predefinição é 1 |Dinâmica| Especifique o período de tempo em segundos. Define a quantidade mínima de tempo que deve passar antes de PLB atualiza o estado novamente. |
-|PreferredLocationConstraintPriority | Int, a predefinição é 2| Dinâmica|Determina a prioridade de restrição de localização preferencial: 0: Disco rígido; 1: Forma recuperável; 2: Otimização; negativo: Ignorar |
+|PreferredLocationConstraintPriority | Int, a predefinição é 2| Dinâmica|Determina a prioridade de restrição de localização preferencial: 0: Disco rígido; 1: Soft; 2: Otimização; negativo: Ignorar |
 |PreferUpgradedUDs|bool, a predefinição é TRUE|Dinâmica|Se e desativar a lógica que prefere a mover para já atualizado UDs.|
 |PreventTransientOvercommit | Bool, a predefinição é falso | Dinâmica|Determina a deve PLB imediatamente contar com recursos que serão liberados pelas movimentações iniciadas. Por padrão. PLB pode iniciar a movimentação terminar e mudança no mesmo nó que pode criar transitório sobreconsolidar. Definir esse parâmetro como true, irá impedir que esses tipos de overcommits e que serão de desfragmentação de sob demanda (também conhecido como placementWithMove) desativada. |
 |ScaleoutCountConstraintPriority | int, a predefinição é 0 |Dinâmica| Determina a prioridade de restrição de contagem de aumento horizontal: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
@@ -541,7 +541,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ReplicatorAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para estabelecer ligações com outras réplicas para operações de envio/receção.|
 |ReplicatorListenAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para receber operações de outras réplicas.|
 |ReplicatorPublishAddress|cadeia de caracteres, predefinido é "localhost:0"|Estático|O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para enviar operações para outras réplicas.|
-|retryInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique o período de tempo em segundos. Quando uma operação é perdida ou rejeitada este temporizador determina a frequência com que o replicator voltará a tentar enviar a operação.|
+|RetryInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique o período de tempo em segundos. Quando uma operação é perdida ou rejeitada este temporizador determina a frequência com que o replicator voltará a tentar enviar a operação.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
@@ -615,7 +615,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |UseClusterCertForIpcServerTlsSecurity|bool, a predefinição é falso|Estático|Se pretende utilizar o certificado de cluster para proteger o IPC Server TLS a unidade de transporte |
 |X509Folder|cadeia de caracteres, predefinido é /var/lib/waagent|Estático|Pasta onde X509 certificados e chaves privadas estão localizadas |
 
-## <a name="securityadminclientx509names"></a>Segurança/AdminClientX509Names
+## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente de administrador. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente de administrador tem de estar na lista. |
@@ -721,32 +721,32 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |UpgradeFabric |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para iniciar as atualizações de cluster. |
 |Carregar |cadeia de caracteres, predefinido for "Admin" | Dinâmica|A operação de carregamento do cliente do arquivo de configuração de segurança para a imagem. |
 
-## <a name="securityclientcertificateissuerstores"></a>Segurança/ClientCertificateIssuerStores
+## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 arquivos de certificados de emissor de certificados de cliente Nome = clientIssuerCN; Valor = lista separada por vírgulas de lojas |
 
-## <a name="securityclientx509names"></a>Segurança/ClientX509Names
+## <a name="securityclientx509names"></a>Security/ClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente tem de estar na lista.|
 
-## <a name="securityclustercertificateissuerstores"></a>Segurança/ClusterCertificateIssuerStores
+## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 arquivos de certificados de emissor de certificados de cluster Nome = clusterIssuerCN; Valor = lista separada por vírgulas de lojas |
+|PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 issuer certificate stores for cluster certificates; Name = clusterIssuerCN; Value = comma separated list of stores |
 
-## <a name="securityclusterx509names"></a>Segurança/ClusterX509Names
+## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cluster. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cluster tem de estar na lista.|
 
-## <a name="securityservercertificateissuerstores"></a>Segurança/ServerCertificateIssuerStores
+## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 arquivos de certificados de emissor de certificados de servidor; Nome = serverIssuerCN; Valor = lista separada por vírgulas de lojas |
+|PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 issuer certificate stores for server certificates; Name = serverIssuerCN; Value = comma separated list of stores |
 
-## <a name="securityserverx509names"></a>Segurança/ServerX509Names
+## <a name="securityserverx509names"></a>Security/ServerX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de servidor. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de servidor tem de estar na lista.|

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834830"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179842"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -68,7 +68,7 @@ Para ajudar a verificar o que não esteja conectado numa conta pessoal do browse
 
 9.  Na `Registration - Review` secção, reveja as suas informações de conta e confirmar que tudo está correta.  
 
-    Leia os termos e condições do contrato de publicador do Microsoft Azure Marketplace.  
+    Leia os termos e condições do Microsoft Azure Marketplace [contrato de publicador](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Clique na caixa de verificação para indicar que leia e aceite os termos.  
     
@@ -165,7 +165,7 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 > Concluir o [registo de Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulário para receber um código promocional do Centro de desenvolvimento.
  
 *   **O que devo esperar após concluir o registo?**
-> Procure uma mensagem de e-mail de verify@microsoft.com com linha de assunto "ação necessária: verificar a sua conta de e-mail com a Microsoft". Clique no link de verificação confidenciais de tempo para concluir o registo. *Se não tenha recebido um e-mail dentro de 24 horas, verifique a pasta de spam.*
+> Procure uma mensagem de e-mail de verify@microsoft.com com linha de assunto "ação necessária: Verificar a sua conta de e-mail com a Microsoft". Clique no link de verificação confidenciais de tempo para concluir o registo. *Se não tenha recebido um e-mail dentro de 24 horas, verifique a pasta de spam.*
 
 *   **Quais são os passos seguintes após a verificação de centro de desenvolvimento?**
 > Aceda a "Seus programas" (https://developer.microsoft.com/dashboard/Account/Programs) e inicie sessão na conta do Dev Center. Se não vir o Azure como um programa registado, procure em "Programas recomendado para" e, em seguida, procure do Azure para selecionar "Iniciar."

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bbfb070a66bdae415d357542459ee88fd8b1865f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159065"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104483"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|Nome|Um nome exclusivo no grupo de segurança de rede.|
+|Name|Um nome exclusivo no grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas por ordem de prioridade, sendo os números mais baixos processados antes dos mais elevados, uma vez que têm uma prioridade superior. Quando o tráfego corresponder a uma regra, o processamento para. Como resultado, qualquer regra que exista com prioridades inferiores (números mais elevados) e que tenham os mesmos atributos das regras com prioridades superiores não é processada.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, um bloco CIDR (Classless Inter-domain Routing) (por exemplo, 10.0.0.0/24), [etiqueta de serviço](#service-tags) ou [grupo de segurança de aplicações](#application-security-groups). Se especificar um endereço para um recurso do Azure, indique o endereço IP privado atribuído ao mesmo. Os grupos de segurança de rede são processados depois de o Azure traduzir um endereço IP público num privado para tráfego de entrada e antes de traduzir um endereço IP privado num público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos de endereços IP (não pode indicar etiquetas de serviço ou grupos de aplicações) numa regra é denominada [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar vários endereços IP nem intervalos de endereços IP em grupos de segurança de rede criados com o modelo de implementação clássica. Saiba mais sobre os [modelos de implementação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocolo     | TCP, UDP ou Qualquer, o que inclui TCP, UDP e ICMP. Não pode especificar ICMP individualmente, pelo que, se precisar deste, utilize Qualquer. |
@@ -47,7 +47,7 @@ Há limites ao número de regras de segurança que pode criar num grupo de segur
 
 ## <a name="augmented-security-rules"></a>Regras de segurança aumentadas
 
-As regras de segurança aumentadas simplificam a definição de segurança das redes virtuais, permitindo-lhe definir políticas de segurança de rede maiores e mais complexas com menos regras. Pode combinar várias portas e vários endereços IP explícitos e intervalos numa regra de segurança individual e facilmente compreendida. Utilize as regras aumentadas nos campos de origem, destino e porta das regras. Para simplificar a manutenção da definição de segurança de rede, combine regras de segurança aumentadas com [etiquetas de serviço](#service-tags) ou [grupos de segurança de aplicações](#application-security-groups). Há limites ao número de endereços, intervalos e portas que pode especificar numa regra. Para obter mais detalhes, veja [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+As regras de segurança aumentadas simplificam a definição de segurança das redes virtuais, permitindo-lhe definir políticas de segurança de rede maiores e mais complexas com menos regras. Pode combinar várias portas e vários endereços IP explícitos e intervalos numa regra de segurança individual e facilmente compreendida. Utilize as regras aumentadas nos campos de origem, destino e porta das regras. Para simplificar a manutenção da definição de segurança de rede, combine regras de segurança aumentadas com [etiquetas de serviço](#service-tags) ou [grupos de segurança de aplicações](#application-security-groups). Existem limites ao número de endereços, intervalos e as portas que pode especificar numa regra. Para obter mais detalhes, veja [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="service-tags"></a>Etiquetas de serviço
 
@@ -58,7 +58,7 @@ As regras de segurança aumentadas simplificam a definição de segurança das r
  Estão disponíveis as etiquetas de serviço seguintes para utilização em definições de regras de segurança. Os nomes variam ligeiramente entre os [modelos de implementação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para a clássica): Esta etiqueta inclui o espaço de endereços de rede virtual (todos os intervalos CIDR definidos para a rede virtual), todos ligados espaços de endereços no local, e [em modo de peering](virtual-network-peering-overview.md) ou as redes virtuais ligadas a um [virtual gateway de rede](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para a clássica): Esta etiqueta denota o Balanceador de carga da infraestrutura do Azure. A etiqueta traduz o [Endereço IP virtual do anfitrião](security-overview.md##azure-platform-considerations) (168.63.129.16), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para a clássica): Esta etiqueta denota o Balanceador de carga da infraestrutura do Azure. A etiqueta traduz o [Endereço IP virtual do anfitrião](security-overview.md#azure-platform-considerations) (168.63.129.16), onde as sondas de estado de funcionamento do Azure têm origem. Se não estiver a utilizar o balanceador de carga do Azure, pode substituir esta regra.
 * **Internet** (Resource Manager) (**INTERNET** para a clássica): Esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para o Azure, incluindo todos [os endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Se especificar *AzureCloud* no valor, o tráfego é permitido ou negado para os endereços IP públicos do Azure. Se quiser apenas permitir o acesso ao AzureCloud numa determinada [região](https://azure.microsoft.com/regions), poderá especificar a região. Por exemplo, se pretender permitir o acesso ao AzureCloud do Azure apenas na região EUA Leste, poderá especificar *AzureCloud.EastUS* como a etiqueta de serviço. 
 * **AzureTrafficManager** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para os endereços IP de sonda do Gestor de tráfego do Azure. Pode encontrar mais informações sobre os endereços IP da pesquisa do Gestor de Tráfego nas [FAQ do Gestor de Tráfego do Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 

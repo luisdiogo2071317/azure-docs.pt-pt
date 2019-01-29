@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com DigiCert | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com DigiCert | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a DigiCert.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: f37ac37d80562a402d6891ffaa2a687e04c3a8c0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 68f62fb51559c4eac49041c7c9653e76de95ee9f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434885"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181083"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Azure Active Directory com DigiCert
+# <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Active Directory do Azure com DigiCert
 
 Neste tutorial, saiba como integrar DigiCert com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com DigiCert, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um DigiCert logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração da DigiCert com o Azure AD, terá de adicionar Di
 
 **Para adicionar DigiCert a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -120,7 +120,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo |
+    | Nome de atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | Empresa | < companycode > |
     | digicertrole | CanAccessCertCentral |

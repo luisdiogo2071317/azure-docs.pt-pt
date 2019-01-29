@@ -6,7 +6,7 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a8e1d1b73d360b55375e5164670ff16268941ede
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092252"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar espaços de nomes do Serviço de Controlo de Acesso desativados
 
@@ -92,7 +92,7 @@ Extensões adicionais já não serão aprovadas automaticamente. Se precisar de 
 1. Inicie sessão portal do Azure e crie uma [novo pedido de suporte](https://portal.azure.com/#create/Microsoft.Support).
 1. Preencha o novo formulário de pedido de suporte, conforme mostrado no exemplo a seguir.
 
-    | Campo de pedido de suporte | Valor |
+    | Campo de pedido de suporte | Value |
     |-----------------------|--------------------|
     | **Tipo de problema** | `Technical` |
     | **Subscrição** | Definir a sua subscrição |

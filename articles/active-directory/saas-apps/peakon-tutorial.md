@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Peakon | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Peakon | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Peakon.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: af3402aab6e4a3a1b0401d66d42e82e449552867
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 637988179228fbf0a6000de74a1185af98277e3c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977730"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178958"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Azure Active Directory com Peakon
+# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Active Directory do Azure com Peakon
 
 Neste tutorial, saiba como integrar Peakon com o Azure Active Directory (Azure AD).
 

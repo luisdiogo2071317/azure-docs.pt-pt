@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852984"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102770"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Definir e configurar o proxy inverso no Azure Service Fabric
 Proxy inverso é um serviço de Azure Service Fabric opcional que o ajuda a microsserviços em execução no cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http. Para obter mais informações, consulte [proxy no Azure Service Fabric inverso](service-fabric-reverseproxy.md). Este artigo mostra-lhe como configurar e configurar o proxy inverso no cluster. 
@@ -30,10 +30,10 @@ Portal do Azure fornece uma opção para ativar o proxy inverso quando cria um n
 
 Para configurar o proxy inverso quando [criar um cluster com o portal do Azure](./service-fabric-cluster-creation-via-portal.md), certifique-se de que faça o seguinte:
 
-1. Na **passo 2: configuração de Cluster**, em **configuração do tipo de nó**, selecione **ativação proxy inverso**.
+1. No **passo 2: Configuração de cluster**, sob **configuração do tipo de nó**, selecione **ativação proxy inverso**.
 
    ![Ativar proxy inverso no portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Opcional) Para configurar o proxy inverso seguro, terá de configurar um certificado SSL. Na **passo 3: segurança**, no **configurar definições de segurança do cluster**, em **tipo de configuração**, selecione **personalizado**. Em seguida, em **certificado SSL de Proxy inverso**, selecione **incluem um certificado SSL para proxy inverso** e introduza os detalhes do seu certificado.
+2. (Opcional) Para configurar o proxy inverso seguro, terá de configurar um certificado SSL. No **passo 3: Segurança**, no **configurar as definições de segurança do cluster**, sob **tipo de configuração**, selecione **personalizado**. Em seguida, em **certificado SSL de Proxy inverso**, selecione **incluem um certificado SSL para proxy inverso** e introduza os detalhes do seu certificado.
 
    ![Configurar o proxy inverso seguro no portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -239,7 +239,7 @@ Depois de modificar o ficheiro de ClusterConfig.json para ativar o proxy inverso
 Para resolver o proxy inverso de fora de um cluster do Azure, configure regras de Balanceador de carga do Azure e uma sonda de estado de funcionamento do Azure para a porta de proxy inverso. Estes passos podem ser efetuados utilizando o portal do Azure ou o modelo do Resource Manager em qualquer altura depois de criar o cluster. 
 
 > [!WARNING]
-> Quando configura a porta do proxy inverso no balanceador de carga, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP são endereçáveis a partir de fora do cluster. Isso significa que os microsserviços devem ser interno podem ser Detetáveis por um determinado utilizador mal intencionado. Este potenially apresenta sérias vulnerabilidades que podem ser exploradas; Por exemplo:
+> Quando configura a porta do proxy inverso no balanceador de carga, todos os microsserviços no cluster que expõem um ponto de extremidade HTTP são endereçáveis a partir de fora do cluster. Isso significa que os microsserviços devem ser interno podem ser Detetáveis por um determinado utilizador mal intencionado. Isso apresenta potencialmente sérias vulnerabilidades que podem ser exploradas; Por exemplo:
 >
 > * Um utilizador mal intencionado pode iniciar um ataque de negação de serviço chamando um serviço interno que não tenha uma superfície de ataque suficientemente fortalecidos repetidamente.
 > * Um utilizador mal intencionado pode enviar pacotes com formato incorreto para um serviço interno, resultando em comportamentos indesejados.

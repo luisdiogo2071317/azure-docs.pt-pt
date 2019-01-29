@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044582"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164559"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Descrição geral de ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Como serviços sem estado, os eventos de ciclo de vida durante o desligamento s�
 3. Depois de `StatefulServiceBase.OnCloseAsync()` é destructed estiver concluída, o objeto de serviço.
 
 ## <a name="stateful-service-primary-swaps"></a>Trocas de principal de serviço com estado
-Durante a execução de um serviço com estado, as réplicas primárias de que os serviços com estado tem seus serviços de escuta de comunicação abertos e seus **RunAsync** método chamado. As réplicas secundárias são construídas, mas não mais chamadas de ver. Durante a execução de um serviço com estado, a réplica que atualmente é o principal pode alterar. O que isso significa em termos dos eventos de ciclo de vida que uma réplica pode ver? O comportamento que vê a réplica com monitoração de estado depende se é a réplica a ser despromovida ou promovida durante a troca.
+Durante a execução de um serviço com estado, as réplicas primárias de que os serviços com estado tem seus serviços de escuta de comunicação abertos e seus **RunAsync** método chamado. As réplicas secundárias são construídas, mas não mais chamadas de ver. Durante a execução de um serviço com estado, pode alterar a réplica que atualmente é o principal devido a falhas ou cluster de balanceamento de otimização. O que isso significa em termos dos eventos de ciclo de vida que uma réplica pode ver? O comportamento que vê a réplica com monitoração de estado depende se é a réplica a ser despromovida ou promovida durante a troca.
 
 ### <a name="for-the-primary-thats-demoted"></a>Para as primárias que estão a ser despromovida
 Para a réplica primária, que está a ser despromovida, o Service Fabric tem esta réplica para parar o processamento das mensagens e sair de qualquer trabalho em segundo plano, que ele está fazendo. Como resultado, este passo é como era quando o serviço é encerrado. Uma diferença é que o serviço não estiver destructed ou fechado porque ele continua sendo como um secundário. As seguintes APIs são chamadas:

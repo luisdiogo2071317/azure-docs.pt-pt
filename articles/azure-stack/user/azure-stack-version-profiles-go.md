@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448297"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098413"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilizar perfis de versão de API com o Go no Azure Stack
 
@@ -33,9 +33,9 @@ Um perfil é uma combinação de diferentes tipos de recursos com versões difer
 
 No Go SDK, perfis estão disponíveis sob o caminho de perfis, com a respetiva versão na **DD-MM-AAAA** formato. Neste momento, é a mais recente versão de perfil de API do Azure Stack **2017-03-09**. Para importar um determinado serviço de um perfil, importe seu módulo correspondente do perfil. Por exemplo, para importar **computação** serviço de **2017-03-09** de perfil, utilize o seguinte código:
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>Instale o Azure SDK para Go
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054178"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190909"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Monitoramento, detetar e diagnosticar e resolução de problemas permitem para o
 * **Não existe suporte incorporado nas ferramentas do Service Fabric Visual Studio para ver eventos do ETW.** Eventos do ETW aparecem na vista de eventos de diagnóstico do Visual Studio, assim que o Visual Studio está corretamente configurada com o Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Ver eventos de sistema do Service Fabric no Visual Studio
-Service Fabric emite eventos do ETW para o ajudar a compreender o que está acontecendo na plataforma de desenvolvedores de aplicativos. Se ainda não o fez, vá em frente e siga os passos em [criando sua primeira aplicação no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Essas informações ajudarão a uma aplicação em execução com o Visualizador de eventos de diagnóstico que mostra as mensagens de rastreio.
+Service Fabric emite eventos do ETW para o ajudar a compreender o que está acontecendo na plataforma de desenvolvedores de aplicativos. Se ainda não o fez, vá em frente e siga os passos em [criando sua primeira aplicação no Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Essas informações ajudarão a uma aplicação em execução com o Visualizador de eventos de diagnóstico que mostra as mensagens de rastreio.
 
 1. Se o diagnóstico de janela de eventos não mostra automaticamente, vá para o **View** separador no Visual Studio, escolha **Other Windows** e, em seguida **Visualizador de eventos de diagnóstico**.
 2. Cada evento tem informações de metadados padrão que diz a o nó, a aplicação e o serviço que é proveniente do evento. Também pode filtrar a lista de eventos utilizando o **filtrar eventos** caixa na parte superior da janela de eventos. Por exemplo, poderá filtrar na **nome do nó** ou **nome do serviço.** E quando estiver olhando detalhes do evento, pode também colocar em pausa utilizando a **colocar em pausa** botão na parte superior da janela de eventos e retomar mais tarde sem nenhuma perda de eventos.

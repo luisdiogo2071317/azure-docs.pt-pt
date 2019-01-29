@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS) para ligar várias contas | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Amazon Web Services (AWS) para ligar várias contas | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure AD e várias contas do Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365667"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197522"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Azure Active Directory com várias contas do Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Active Directory do Azure com várias contas do Amazon Web Services (AWS)
 
 Neste tutorial, saiba como integrar o Azure Active Directory (Azure AD) com várias contas do Amazon Web Services (AWS).
 
@@ -136,7 +136,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador e afirmações** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome  | Atributo de origem  | Espaço de Nomes |
+    | Name  | Atributo de origem  | Espaço de nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -206,9 +206,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Selecione **permitir programática e o acesso à consola de gestão do AWS**.
   
-    d. Clique em **seguinte: permissões**.
+    d. Clique em **seguinte: Permissões**.
 
-16. Sobre o **anexar políticas de permissões** caixa de diálogo, não precisa de anexar qualquer política. Clique em **seguinte: revisão**.  
+16. Sobre o **anexar políticas de permissões** caixa de diálogo, não precisa de anexar qualquer política. Clique em **seguinte: Revisão**.  
 
     ![Configurar a política de início de sessão única][33]
 

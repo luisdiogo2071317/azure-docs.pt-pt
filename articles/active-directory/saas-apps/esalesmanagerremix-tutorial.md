@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com E Sales Manager Remix | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com E Sales Manager Remix | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Remix do Gestor de vendas da I.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e2bc0c7e590796a533d9f593eb61e57def91fc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188003"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Azure Active Directory E Gestor de vendas Remix
 
@@ -38,7 +38,7 @@ Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [
 
 Para configurar a integração do Azure AD com E Sales Manager Remix, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma subscrição E Sales Manager Remix SSO ativado
 
 > [!NOTE]
@@ -261,7 +261,7 @@ Nesta secção, vai ativar utilizador Eduarda Almeida a utilizar do Azure-iníci
 
 1. Na **adicionar atribuição** janela, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

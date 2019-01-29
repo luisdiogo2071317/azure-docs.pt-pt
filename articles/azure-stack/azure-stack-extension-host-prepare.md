@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c8e78ead58c34a62851fddc5a12504bc5747a27b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476398"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092327"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o anfitrião de extensão para o Azure Stack
 
@@ -127,7 +127,7 @@ Utilize um computador que pode ligar-se ao ponto final do Azure Stack com privil
 > Este passo não é necessário se tiver utilizado a delegação de zona de DNS para a integração do DNS.
 Se os registos anfitriões individuais tenham sido configurados para publicar os pontos finais do Azure Stack, terá de criar dois registos de um anfitrião adicional:
 
-| IP | Nome de anfitrião | Tipo |
+| IP | Nome de anfitrião | Type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |

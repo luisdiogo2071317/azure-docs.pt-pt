@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Procore SSO | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Procore SSO | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Procore SSO.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 12e7a37c1d2811b44dbf943b460b7d620770d45e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1cd82188ef9f5a4e0078a8ea21882f99bb8b8f44
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017530"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171291"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
+# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Active Directory do Azure com o Procore SSO
 
 Neste tutorial, saiba como integrar o Procore SSO com o Azure Active Directory (Azure AD).
 
@@ -144,7 +144,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Agora, abra a **XML de metadados de Federação** baixado anteriormente no portal do Azure e copiar o certificado na marca com o nome **X509Certificate**. Cole o valor copiado para o **Single Sign On x509 certificado** caixa.
 
-10. Clique em **guardar alterações**.
+10. Clique em **Guardar Alterações**.
 
 11. Depois destas definições, precisa enviar o **nome de domínio** (por exemplo, de **contoso.com**) através do qual está a iniciar sessão em Procore para o [equipa de suporte Procore](https://support.procore.com/) e eles serão Ative o SSO federado para esse domínio.
 

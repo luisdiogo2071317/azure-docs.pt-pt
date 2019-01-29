@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48c78f4c3332f28cc37aea0c663976ce7c2d489b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520576"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170951"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Pré-visualização da utilização da unidade para uma tarefa de exportação
 Antes de criar uma tarefa de exportação, terá de escolher um conjunto de blobs para ser exportada. O serviço de importação/exportação do Microsoft Azure permite-lhe utilizar uma lista de caminhos de blob ou BLOBs prefixos para representar os blobs que selecionou.  
@@ -26,12 +26,12 @@ Pode utilizar os seguintes parâmetros ao utilizar o `PreviewExport` comando da 
 
 |Parâmetro da linha de comandos|Descrição|  
 |--------------------------|-----------------|  
-|**/LOGDIR:**< LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
-|**/SN:**< StorageAccountName\>|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
-|**/SK:**< StorageAccountKey\>|Necessário se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
-|**/csas:**< ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação de REST API do serviço de importação/exportação.|  
-|**/ DriveSize:**< DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,*, 500 GB, 1,5 TB.|  
+|**/logdir:**<LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
+|**/sn:**<StorageAccountName\>|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
+|**/sk:**<StorageAccountKey\>|Necessário se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
+|**/csas:**<ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs) operação de REST API do serviço de importação/exportação.|  
+|**/DriveSize:**<DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exemplo de linha de comandos
 

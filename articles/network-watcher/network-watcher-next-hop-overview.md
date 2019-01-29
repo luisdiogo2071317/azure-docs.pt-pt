@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391271"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096896"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Utilize o salto seguinte para diagnosticar problemas de encaminhamento de máquina virtual
 
@@ -42,4 +42,4 @@ Para saber mais sobre cada tipo de próximo salto, veja [descrição geral do en
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como utilizar o salto seguinte para diagnosticar problemas de encaminhamento de rede VM, veja [VM diagnosticar problemas de encaminhamento de rede](diagnose-vm-network-routing-problem.md).
+Para saber como utilizar o salto seguinte para diagnosticar problemas de encaminhamento de rede VM, veja VM diagnosticar problemas de encaminhamento de utilização de rede a [portal do Azure](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), ou o [da CLI do Azure](diagnose-vm-network-routing-problem-cli.md).

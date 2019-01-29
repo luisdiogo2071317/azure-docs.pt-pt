@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8521ce6645aea1d92abc02a6ffe8f22a807a8f1f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824801"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Active Directory do Azure com Klue
 
@@ -134,7 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem anterior e execute os seguintes passos:
 
-    | Nome do Atributo      | Valor do Atributo      |
+    | Nome de atributo      | Valor do Atributo      |
     | ------------------- | -------------------- |
     | first_name          | user.givenname |
     | last_name           | user.surname |

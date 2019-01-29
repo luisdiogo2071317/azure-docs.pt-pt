@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Skytap | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Skytap | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Skytap.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 754697682470ac3c1f982e6cb1fc5f6043f3b92c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6466e40fca954d41a32424c55b8ee465fb7ad7ec
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438135"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195713"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integração do Azure Active Directory com Skytap
+# <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integração do Active Directory do Azure com Skytap
 
 Neste tutorial, saiba como integrar Skytap com o Azure Active Directory (Azure AD).
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Skytap, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Skytap logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Skytap com o Azure AD, terá de adicionar Skyt
 
 **Para adicionar Skytap a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-skytap-test-user"></a>Criar um utilizador de teste Skytap
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Skytap. Trabalhar com [equipa de suporte de Skytap](mailto:support@skytap.com) para adicionar os utilizadores na plataforma Skytap. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Skytap. Trabalhar com [equipa de suporte de Skytap](mailto:support@skytap.com) para adicionar os utilizadores na plataforma Skytap. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -199,7 +199,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166565"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -69,7 +69,7 @@ Projeto Acoustics fornece parâmetros acústicos precisos e confiáveis mesmo pa
 
 ## <a name="what-exactly-happens-during-baking"></a>Exatamente o que acontece durante a "implantando"?
 
-O sistema considera potenciais localizações de player para gerar um conjunto de posições de exemplo "pesquisa" espaçadas uniformemente. Um criar para um nível é composta por tarefas independentes para cada sonda: O sistema considera um cuboid "Simulação região" centralizado na sonda e faz uma simulação de onda de detalhado dentro dessa região em até 25 resolução do cm.
+O sistema considera potenciais localizações de player para gerar um conjunto de posições de exemplo "pesquisa" espaçadas uniformemente. Um criar para um nível de consiste em tarefas independentes para cada sonda: O sistema considera um cuboid "Simulação região" centralizado na sonda e faz uma simulação de onda de detalhado dentro dessa região em até 25 resolução do cm.
 
 ## <a name="next-steps"></a>Próximos Passos
 * Explorar o [cena de exemplo](sample-walkthrough.md)

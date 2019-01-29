@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a0b4301177fa1307244a784031ec890b9a20f01a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316187"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099113"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático para sua caixa de pesquisa com o Azure Search
 
@@ -60,7 +60,7 @@ Siga os passos nesta secção se quiser importar os dados da aplicação de exem
 
 ### <a name="running-the-sample"></a>Executar o exemplo
 
-Pode agora executar a aplicação de exemplo do tutorial.  Abra o ficheiro de solução AutocompleteTutorial.sln no Visual Studio para executar o tutorial.  A solução contém um projeto ASP.NET MVC.  Prima F5 para executar o projeto e carregar a página no browser da sua opção.  Na parte superior, verá uma opção para selecionar C# ou JavaScript.  A opção C# chama o HomeController a partir do browser e utiliza o SDK do .NET do Azure Search para obter os resultados.  A opção JavaScript chama a API REST do Azure Search diretamente a partir do browser.  Normalmente, esta opção terá um melhor desempenho, uma vez que utiliza o controlador a partir do fluxo.  Pode escolher a opção adequada às suas necessidades e preferências de linguagem.  Existem vários exemplos de conclusão automática na página com algumas orientações para cada um.  Cada exemplo tem um texto recomendado que pode experimentar.  Tente escrever algumas letras em cada caixa de pesquisa para ver o que acontece.
+Pode agora executar a aplicação de exemplo do tutorial.  Abra o ficheiro de solução AutocompleteTutorial.sln no Visual Studio para executar o tutorial.  A solução contém um projeto ASP.NET MVC.  Prima F5 para executar o projeto e carregar a página no browser da sua opção.  Na parte superior, verá uma opção para selecionar C# ou JavaScript.  A opção C# chama o HomeController a partir do browser e utiliza o SDK do .NET do Azure Search para obter os resultados.  A opção JavaScript chama a API REST do Azure Search diretamente a partir do browser.  Esta opção, normalmente, terão visivelmente um melhor desempenho, uma vez que ele usa o controlador de fora o fluxo.  Pode escolher a opção adequada às suas necessidades e preferências de linguagem.  Existem vários exemplos de conclusão automática na página com algumas orientações para cada um.  Cada exemplo tem um texto recomendado que pode experimentar.  Tente escrever algumas letras em cada caixa de pesquisa para ver o que acontece.
 
 ## <a name="how-this-works-in-code"></a>Como funciona no código
 

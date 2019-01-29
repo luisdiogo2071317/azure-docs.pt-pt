@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f541212cd549cde21bc3b2048bf633c57a911653
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: db642fea6dbf1bd1ebc53f5066d01dc4f9a5490f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967732"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095638"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -121,7 +121,7 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 | Emitido às | Regista a hora a que o token foi emitido, muitas vezes utilizado para atualização do token. |
 | Emissor | Identifica o STS que emitiu o token, bem como o inquilino do Azure AD. |
 | Apelido | Fornece o apelido do utilizador conforme definido no Azure AD. |
-| Nome | Fornece um valor legível por humanos que identifica o requerente do token. |
+| Name | Fornece um valor legível por humanos que identifica o requerente do token. |
 | ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação cliente. |
@@ -131,6 +131,6 @@ As afirmações presentes em qualquer token de segurança dependem do tipo de to
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
 | Versão | Contém o número de versão do token. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre os [Tipos de aplicação e cenários suportados no Azure Active Directory](app-types.md)

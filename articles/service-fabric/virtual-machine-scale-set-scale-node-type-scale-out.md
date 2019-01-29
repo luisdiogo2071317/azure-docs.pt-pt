@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 57eac1dcc170e2ac7e35cab64b6980bbe053db39
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156498"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092759"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Dimensionar um cluster do Service Fabric horizontalmente ao adicionar um conjunto de dimensionamento de Máquina Virtual
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric, adicionando um novo conjunto de dimensionamento para um cluster existente. Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerido separadamente. Depois de criar um cluster do Service Fabric, pode dimensionar um tipo de nó de cluster verticalmente (alterar os recursos de nós), atualize o sistema operativo do tipo de nó VMs ou adicionar um novo conjunto de dimensionamento para um cluster existente.  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
@@ -34,7 +34,7 @@ Este artigo descreve como dimensionar um cluster do Azure Service Fabric, adicio
 Eis o processo para atualizar o tamanho da VM e o sistema operativo do tipo de nó primário VMs.  Após a atualização, o tipo de nó primário VMs são Standard D4_V2 de tamanho e em execução do Windows Server 2016 Datacenter com contentores.
 
 > [!WARNING]
-> Antes de tentar este procedimento num cluster de produção, recomendamos que Estude os modelos de exemplo e verifique se o processo em relação a um cluster de teste. O cluster também está disponível para um período de tempo. NÃO pode efetuar alterações para vários VMSS declarado como o NodeType mesmo no parrallel; terá de efetuar as operações de implementação separados para aplicar as alterações para cada VMSS NodeType individualmente.
+> Antes de tentar este procedimento num cluster de produção, recomendamos que Estude os modelos de exemplo e verifique se o processo em relação a um cluster de teste. O cluster também está disponível para um período de tempo. NÃO pode efetuar alterações a vários VMSS declarado como o NodeType mesmo em paralelo; terá de efetuar as operações de implementação separados para aplicar as alterações para cada VMSS NodeType individualmente.
 
 1. Implementar o cluster inicial com dois tipos de nós e conjuntos de dimensionamento de dois (um conjunto de dimensionamento de por tipo de nó) com estas amostra [modelo](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) e [parâmetros](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) ficheiros.  Ambos os conjuntos de dimensionamento são tamanho D2_V2 padrão e em execução Windows Server 2012 R2 Datacenter.  Aguarde que o cluster concluir a atualização de linha de base.   
 2. Opcional - implementar uma amostra com monitoração de estado no cluster.

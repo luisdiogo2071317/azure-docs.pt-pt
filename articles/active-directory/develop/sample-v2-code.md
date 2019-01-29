@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50d071c420eec106f5ab28530aa7b2ff9a55fe4a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: a0eccd125674776d3932fb628b98d1a298818b9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558759"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097729"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Exemplos de código do Azure Active Directory (ponto final v2.0)
 
@@ -52,7 +52,7 @@ Estes exemplos mostram como escrever uma aplicação de página única protegida
 
  Plataforma |  Chamadas Microsoft Graph
  -------- |  ---------------------
-![JavaScript](media/sample-v2-code/logo_js.png) JavaScript (msal)  | [JavaScript-Graph-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
+![JavaScript](media/sample-v2-code/logo_js.png) JavaScript (msal.js)  | [javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
 ![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript (MSAL AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
 ![Angular](media/sample-v2-code/logo_angular.png) JavaScript (MSAL Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
 
@@ -63,9 +63,9 @@ As seguintes amostras ilustram aplicativos da web que iniciar sessão dos utiliz
  Plataforma | Apenas inicia sessão dos utilizadores | Inicia sessão dos utilizadores e chama o Microsoft Graph
  -------- | ------------------- | ---------------------------------
 ![Núcleo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Mesmo de exemplo no [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) ramo
-![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Início rápido do ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [DotNet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-restrito-âmbitos-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[treinamento de MSGraph-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Início rápido do ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Guia de introdução do node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
-![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [treinamento de MSGraph-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Aplicações de dispositivos móveis e computadores cliente público
 
@@ -73,13 +73,13 @@ Os exemplos seguintes mostram cliente público aplicações (aplicações de amb
 
 Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web ASP.NET Core 2.0
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Ambiente de trabalho (WPF)      | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Interativo | [DotNet-ambiente de trabalho-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [DotNet-nativo-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | Autenticação Integrada do Windows |[DotNet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
+Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interativo | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | Autenticação Integrada do Windows |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Nome de utilizador/palavra-passe |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
-Mobile (UWP)   | ![.NET / C# (UWP)](media/sample-v2-code/logo_windows.png) | Interativo |[DotNet-nativo-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-Móveis (Android, iOS, UWP)   | ![.NET / c# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo |[xamarin-nativo-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |
-Móveis (iOS)       | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) | Interativo |[IOS swift-nativo v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [IOS nativo-nxoauth2 da v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-Móveis (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interativo |  [Android-nativo-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+Mobile (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | Interativo |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+Móveis (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |
+Móveis (iOS)       | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) | Interativo |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+Móveis (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interativo |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>Aplicações daemon
 
@@ -88,7 +88,7 @@ Os exemplos seguintes mostram uma aplicação que acede o Microsoft Graph API co
 Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
 Consola | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | Credenciais de cliente | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
-Aplicação Web | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | Credenciais de cliente | [DotNet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
+Aplicação Web | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | Credenciais de cliente | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
 ## <a name="headless-applications"></a>Aplicativos sem periféricos
 
@@ -104,7 +104,7 @@ O exemplo a seguir mostra como proteger uma API web com o ponto de final de v2.0
 
 Plataforma | Sample
  -------- | -------------------
-![.NET / C#](media/sample-v2-code/logo_NET.png) | WebAPI (serviço) de [dotnet-nativo-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (serviço) de [dotnet-nativo-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos do Microsoft Graph
 

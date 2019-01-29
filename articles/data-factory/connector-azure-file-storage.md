@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f7770d9331df46c16ed7f5e565c781a864bc5e1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 86fccf71463a2f00b31f5f1e6082db4c404bbf9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077946"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152203"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de ficheiros do Azure com o Azure Data Factory
 
@@ -42,8 +42,8 @@ As seguintes propriedades são suportadas para o serviço ligado do armazenament
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida como: **FileServer**. | Sim |
-| anfitrião | Especifica o ponto final de armazenamento de ficheiros do Azure como `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sim |
-| ID de utilizador | Especifique o utilizador para aceder ao armazenamento de ficheiros do Azure como `"userid": "AZURE\\<storage name>"`. | Sim |
+| anfitrião | Especifica o ponto de final de armazenamento de ficheiros do Azure como: <br/>-Através da interface do Usuário: especificar `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Utilizar o JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sim |
+| ID de utilizador | Especifique o utilizador para aceder ao armazenamento de ficheiros do Azure como: <br/>-Através da interface do Usuário: especificar `AZURE\<storage name>`<br/>-Utilizar o JSON: `"userid": "AZURE\\<storage name>"`. | Sim |
 | palavra-passe | Especifique a chave de acesso de armazenamento. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não para a origem, Sim para o sink |
 

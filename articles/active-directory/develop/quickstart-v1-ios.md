@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980581"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095979"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -51,7 +51,7 @@ Para começar, conclua estes pré-requisitos:
 > [!TIP]
 > Experimente o [portal do programador](https://identity.microsoft.com/Docs/iOS) para começar a trabalhar com o Azure AD em apenas alguns minutos. O portal do programador orienta-o ao longo do processo de registo de uma aplicação e de integração do Azure AD no seu código. Quando terminar, terá uma aplicação simples na qual poderá autenticar utilizadores no seu inquilino e um back-end que pode aceitar tokens e executar a validação.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passo 1: Determinar qual é o seu URI de redirecionamento para iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passo 1: Determinar quais seu redirecionamento URI é para iOS
 
 Para iniciar em segurança as suas aplicações em alguns cenários de SSO, terá de criar um *URI de redirecionamento* num formato específico. Um URI de redirecionamento serve para garantir que os tokens voltam à aplicação correta que os pediu.
 
@@ -68,7 +68,7 @@ Um exemplo deste código de início rápido:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>Passo 2: Registar a aplicação DirectorySearcher
+## <a name="step-2-register-the-directorysearcher-application"></a>Passo 2: Registar a aplicação de DirectorySearcher
 
 Para configurar a aplicação para obter tokens, terá de registar a aplicação no seu inquilino do Azure AD e conceder-lhe permissão para aceder à Graph API do Azure AD.
 
@@ -82,7 +82,7 @@ Para configurar a aplicação para obter tokens, terá de registar a aplicação
 6. Depois de concluir o registo, o Azure AD atribui um ID exclusivo à sua aplicação. Este valor vai ser preciso nas secções seguintes, por isso, copie-o a partir do separador da aplicação.
 7. Na página **Definições**, selecione **Permissões obrigatórias > Adicionar > Microsoft Graph** e, em **Permissões delegadas**, adicione a permissão **Ler dados do diretório**. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
 
-## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instalar e configurar a ADAL
+## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instale e configure a ADAL
 
 Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o seu código relacionado com identidade. Para que a ADAL comunique com o Azure AD, terá de fornecer algumas informações sobre o registo da sua aplicação.
 
@@ -254,7 +254,7 @@ A ADAL facilita a incorporação de todas estas funcionalidades de identidade co
 
 Para sua referência, o exemplo concluído (sem os valores de configuração) é disponibilizado no [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora, pode avançar para cenários adicionais. Sugerimos que experimente estes em seguida:
 

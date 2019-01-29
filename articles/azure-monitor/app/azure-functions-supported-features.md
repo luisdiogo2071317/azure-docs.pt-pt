@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083380"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185820"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos do Application Insights para as funções do Azure suportados
 
@@ -25,7 +25,7 @@ Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.
 
 ## <a name="supported-features"></a>Funcionalidades suportadas
 
-| Funções do Azure                       | V1                | V2 (Ignite de 2018)  | 
+| Funções do Azure                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
 | **O Application Insights SDK para .NET**   | **2.5.0**       | **2.7.2**         |
 | | | | 
@@ -34,12 +34,13 @@ Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.
 | &bull; Exceções                   | Sim             | Sim               | 
 | &bull; Dependências                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; serviceBus|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; eventHub  |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
 | | | | 
 | **Funcionalidades suportadas**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Proteger o canal de controlo|                 | Sim               | 
 | &bull; Amostragem                     | Sim             | Sim               | 
 | &bull; Heartbeats                   |                 | Sim               | 
 | | | | 
@@ -50,6 +51,10 @@ Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.
 | **Configurável**                      |                   |                   |           
 | &bull;Totalmente configurável.<br/>Ver [as funções do Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>Métricas em direto e o canal de controlo de segurança
+
+Os critérios de filtros personalizados que especificar são enviados de volta para o componente de métricas em direto no Application Insights SDK. Os filtros poderiam potencialmente conter informações confidenciais, como customerIDs. Pode fazer o canal seguro com uma chave secreta da API. Ver [Proteja o canal de controlo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
 
 ## <a name="sampling"></a>Amostragem
 

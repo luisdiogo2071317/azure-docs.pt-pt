@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - redes virtuais ponto a ponto dois | Microsoft Docs
-description: Exemplo de Script do PowerShell do Azure - redes virtuais do elemento de rede dois
+title: Exemplo do Script do PowerShell do Azure - Peering de redes virtuais | Documentos da Microsoft
+description: Exemplo do Script do PowerShell do Azure - Peering de redes virtuais
 services: virtual-network
 documentationcenter: virtual-network
 author: georgewallace
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6c475311f8b0299908dfc26aa590c1990e00bc4a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a892f109b368d7ff0d4ec2ad9174bb99114fd7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598511"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100160"
 ---
-# <a name="peer-two-virtual-networks"></a>Elemento duas redes virtuais
+# <a name="peer-two-virtual-networks"></a>Configurar o peering entre duas redes virtuais
 
-Este script cria e liga duas redes virtuais na trhough de região mesmo a rede do Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
+Este script cria e liga duas redes virtuais na mesma região através da rede do Azure. Depois de executar o script, irá criar um peering entre duas redes virtuais.
 
 Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure.
 
@@ -57,4 +57,4 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-Exemplos de script do PowerShell redes adicionais podem ser encontrados no [documentação de descrição geral de funcionamento em rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Encontrará exemplos adicionais de scripts do PowerShell de redes na [Documentação de Descrição Geral de Redes do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

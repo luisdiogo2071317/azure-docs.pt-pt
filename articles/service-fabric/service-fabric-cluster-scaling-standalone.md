@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: cbd8374e055d1bb9781990f70ed42ae5d5a5ad9b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c211c2bb9dc07e705679b5d4079b85de9d72d8c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634711"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100466"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Dimensionar clusters autónomos do Service Fabric
 Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Clusters podem conter potencialmente milhares de nós. Depois de criar um cluster do Service Fabric, pode dimensionar o cluster horizontalmente (alterar o número de nós) ou na vertical (alterar os recursos de nós).  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
@@ -30,14 +30,14 @@ Por que motivo a dimensionar o cluster? Alteram pedidos de aplicações ao longo
 Altera o número de nós do cluster.  Depois dos novos nós aderirem ao cluster, o [Resource Manager de Cluster](service-fabric-cluster-resource-manager-introduction.md) move serviços-lhes que reduz a carga em nós existentes.  Também pode diminuir o número de nós se não a recursos do cluster estão a ser utilizados com eficiência.  Como nós de deixam o cluster, os serviços sair de nós e carga aumenta em nós restantes.  Reduzindo o número de nós num cluster em execução no Azure pode economizar dinheiro, uma vez que paga o número de VMs que não a carga de trabalho nessas VMS e de utilização.  
 
 - Vantagens: Dimensionamento infinito, na teoria.  Se seu aplicativo for desenvolvido para escalabilidade, pode ativar o crescimento ilimitado ao adicionar mais nós.  As ferramentas em ambientes de cloud torna mais fácil adicionar ou remover nós, portanto, é fácil de ajustar a capacidade e paga apenas pelos recursos que utilizar.  
-- Desvantagens: Aplicações têm de ser [concebida para escalabilidade e](service-fabric-concepts-scalability.md).  Bases de dados do aplicativo e persistência, podem exigir trabalho adicional de arquitetura para dimensionar também.  [As coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços de monitorização de estado do Service Fabric, no entanto, torná-lo muito mais fácil de dimensionar os dados da aplicação.
+- Desvantagens: Os aplicativos devem ser [concebida para escalabilidade e](service-fabric-concepts-scalability.md).  Bases de dados do aplicativo e persistência, podem exigir trabalho adicional de arquitetura para dimensionar também.  [As coleções fiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços de monitorização de estado do Service Fabric, no entanto, torná-lo muito mais fácil de dimensionar os dados da aplicação.
 
 Clusters autónomos permitem implementar o Service Fabric cluster no local ou no fornecedor de cloud à sua escolha.  Tipos de nó são constituídos por máquinas físicas ou máquinas virtuais, dependendo da sua implementação. Em comparação com clusters em execução no Azure, o processo de dimensionar um cluster autónomo é um pouco mais envolvido.  Tem de alterar manualmente o número de nós do cluster e, em seguida, executar uma atualização de configuração de cluster.
 
 Remoção de nós pode iniciar várias atualizações. Alguns nós são marcados com `IsSeedNode=”true”` Etiquetar e podem ser identificados através da consulta do cluster através do manifesto [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Remoção desses nós pode demorar mais tempo do que outras pessoas, visto que os nós de semente tem de ser movidos em torno em tais cenários. O cluster tem de manter um mínimo de três nós de tipo de nó primário.
 
 > [!WARNING]
-> Recomendamos que não a reduzir a contagem de nós seguir a [tamanho do Cluster do escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isto irá interferir com a ablility dos serviços de sistema de recursos de infraestrutura do serviço ao ser replicada no cluster e que serão desestabilizar ou, possivelmente, destrua o cluster.
+> Recomendamos que não a reduzir a contagem de nós seguir a [tamanho do Cluster do escalão de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) para o cluster. Isto irá interferir com a capacidade dos serviços de sistema de recursos de infraestrutura do serviço ao ser replicada no cluster e que serão desestabilizar ou, possivelmente, destrua o cluster.
 >
 
 Quando dimensionar um cluster autónomo, mantenha as seguintes diretrizes em mente:
@@ -48,8 +48,8 @@ Para obter mais informações, consulte [dimensionar um cluster autónomo](servi
 
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Aumentar e reduzir verticalmente ou dimensionamento vertical 
 Altera os recursos (CPU, memória ou armazenamento) de nós no cluster.
-- Vantagens: Software e arquitetura do aplicativo permanece o mesmo.
-- Desvantagens: Finita escala, uma vez que existe um limite quanto pode aumentar os recursos em nós individuais. Tempo de inatividade, uma vez que precisará executar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
+- Vantagens: Arquitetura de software e o aplicativo permanece o mesmo.
+- Desvantagens: Escala finita, uma vez que existe um limite quanto pode aumentar os recursos em nós individuais. Tempo de inatividade, uma vez que precisará executar máquinas físicas ou virtuais offline para adicionar ou remover recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
