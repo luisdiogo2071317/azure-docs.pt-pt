@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 3c5a261eb5216c2dca93243d11b5d21b1d92846f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224161"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilizar perfis de versão de API com o Go no Azure Stack
 
@@ -51,7 +51,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 Pode encontrar mais informações sobre o SDK GO do Azure nas seguintes ligações:
 
-- O Azure SDK em Ir [instalar o SDK do Azure para Go](/azure/azure-sdk-go-install).
+- O Azure SDK em Ir [instalar o SDK do Azure para Go](/go/azure/azure-sdk-go-install).
 - O SDK Go do Azure está disponível publicamente no GitHub no [do azure sdk para go](https://github.com/Azure/azure-sdk-for-go) repositório.
 
 ### <a name="go-autorest-dependencies"></a>Dependências de go-AutoRest

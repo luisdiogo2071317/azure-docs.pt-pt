@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382885"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222070"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
 
@@ -125,7 +125,7 @@ Selecione e verifique os recursos de destino.
 A política é associada automaticamente ao servidor de configuração.
 
 > [!WARNING]
-> Certifique-se de que especifica **DESATIVADA** na definição Frequência de instantâneo consistente com a aplicação da política de replicação. Apenas os pontos de recuperação consistentes com falhas são suportados ao replicar servidores com o Windows Server 2008. A especificação de qualquer outro valor na definição Frequência de instantâneo consistente com a aplicação irá resultar em alertas falsos ao transformar o estado de funcionamento da replicação do servidor em crítico devido à inexistência de pontos de recuperação consistentes com a aplicação.
+> Certifique-se de que especifica **DESATIVADA** na definição Frequência de instantâneo consistente com a aplicação da política de replicação. Apenas os pontos de recuperação consistentes com falhas são suportados ao replicar servidores com o Windows Server 2008. Especificar qualquer outro valor para a frequência de instantâneo consistente com a aplicação irá resultar em alertas falsas ao ativar o estado de funcionamento de replicação do servidor crítico devido à ausência de pontos de recuperação consistente com a aplicação.
 
    ![Criar política de replicação](media/migrate-tutorial-windows-server-2008/create-policy.png)
 

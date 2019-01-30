@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127160"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228530"
 ---
 # <a name="command-line-interface"></a>Interface de Linha de Comandos
 
@@ -48,7 +48,7 @@ Estes ficheiros podem ser especificados por caminhos de ficheiro local ou de URL
 
 Uma cadeia de descrição pode ser opcionalmente especificada, em seguida, identificar um índice binário, utilizando o **describe_index** comando.  
 
-Por predefinição, o índice é criado no computador local.  Fora do ambiente do Azure, compilações locais estão limitadas a arquivos de dados com até 10 000 objetos.  Quando o-- remoto sinalizador for especificado, o índice será incorporado numa VM do Azure criado temporariamente do tamanho especificado.  Isso permite que os índices de grandes para ser criado com eficiência usando as VMs do Azure com mais memória.  Para evitar a paginação que pode atrasar o processo de compilação, recomendamos que utilize uma VM com 3 vezes a quantidade de RAM, como o tamanho do ficheiro de dados de entrada.  Para obter uma lista de tamanhos VM disponíveis, consulte [tamanhos de máquinas virtuais](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Por predefinição, o índice é criado no computador local.  Fora do ambiente do Azure, compilações locais estão limitadas a arquivos de dados com até 10 000 objetos.  Quando o-- remoto sinalizador for especificado, o índice será incorporado numa VM do Azure criado temporariamente do tamanho especificado.  Isso permite que os índices de grandes para ser criado com eficiência usando as VMs do Azure com mais memória.  Para evitar a paginação que pode atrasar o processo de compilação, recomendamos que utilize uma VM com 3 vezes a quantidade de RAM, como o tamanho do ficheiro de dados de entrada.  Para obter uma lista de tamanhos de VM disponíveis, veja [Tamanhos de máquinas virtuais](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
 > Para mais rápidas compilações, presort os objetos no ficheiro de dados, diminuindo a probabilidade.

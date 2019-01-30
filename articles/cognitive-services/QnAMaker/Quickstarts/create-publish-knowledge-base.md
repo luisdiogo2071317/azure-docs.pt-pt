@@ -5,16 +5,16 @@ description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a pa
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 41a8f11f817ec550ef3423d85eb107796bdd1b28
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598315"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216953"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225942"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM do Windows ao anexar o disco do SO a uma VM de recuperação com o portal do Azure
 Se a sua máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma atualização de aplicação com falhas que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM do Windows para corrigir quaisquer erros, em seguida, voltar a criar a VM original.
@@ -37,12 +37,11 @@ Para a VM esse disco gerido de usos, agora podemos usar Azure PowerShell para al
 ## <a name="determine-boot-issues"></a>Determinar os problemas de arranque
 Para determinar por que a VM não é capaz de inicializa corretamente, examine o diagnóstico de arranque captura de ecrã da VM. Um exemplo comum seria ser uma atualização de aplicação que falhou, ou um subjacente disco de rígido virtual que está a ser eliminado ou movido.
 
-Selecione a sua VM no portal e, em seguida, desloque para baixo para o **suporte + resolução de problemas** secção. Clique em **diagnósticos de arranque** para ver a captura de ecrã. Tenha em atenção que quaisquer mensagens de erro específicas ou códigos de erro para ajudar a determinar o motivo pelo qual a VM está a experienciar um problema. O exemplo seguinte mostra uma VM aguardando interromper os serviços:
+Selecione a sua VM no portal e, em seguida, desloque para baixo para o **suporte + resolução de problemas** secção. Clique em **diagnósticos de arranque** para ver a captura de ecrã. Tenha em atenção que quaisquer mensagens de erro específicas ou códigos de erro para ajudar a determinar o motivo pelo qual a VM está a experienciar um problema. 
 
 ![VM a ver o diagnóstico de arranque os registos da consola](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-Também pode clicar **captura de ecrã** para transferir uma captura de captura de ecrã da VM.
-
+Também pode clicar **transferir a captura de ecrã** para transferir uma captura de captura de ecrã da VM.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Ver detalhes do disco rígido virtual existente
 Pode anexar o disco rígido virtual a outra VM, terá de identificar o nome do disco rígido virtual (VHD). 

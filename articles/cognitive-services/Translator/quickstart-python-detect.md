@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: detetar o idioma de texto, Python - API de Texto do Microsoft Translator'
+title: 'Início rápido: Detetar o idioma de texto, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a identificar o idioma do texto fornecido com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993816"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213808"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para detetar o idioma de texto com Python
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com o Python
 
 Neste início rápido, irá aprender a detetar o idioma do texto fornecido com o Python e a API REST de Texto do Microsoft Translator.
 
@@ -67,7 +67,7 @@ else:
 Atualmente, está disponível um ponto final para Tradução de Texto e está definido como `base_url`. `path` define a rota `detect` e identifica que queremos utilizar a versão 3 da API.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

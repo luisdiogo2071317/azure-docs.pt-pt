@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: traduzir texto, Java – API de Texto do Microsoft Translator'
+title: 'Início rápido: Traduzir texto Java - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como converter uma cadeia de texto de inglês, italiano e alemão com Java e a API de REST de texto do Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 537132a5d77927f130f2737e0ba597b9e74ace6e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890250"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227918"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Início rápido: Utilizar a API de texto do Translator para traduzir uma cadeia de caracteres com Java
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com Java
 
 Neste início rápido, irá aprender como converter uma cadeia de texto de inglês, italiano e alemão com Java e a API de REST de texto do Translator.
 

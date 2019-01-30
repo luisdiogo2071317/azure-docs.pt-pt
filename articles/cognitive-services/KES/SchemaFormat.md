@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227306"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -41,16 +41,16 @@ Nomes de atributo são identificadores de maiúsculas e minúsculas que começam
 
 Segue-se uma lista dos tipos de dados de atributo suportados:
 
-| Tipo | Descrição | Operações | Exemplo |
+| Type | Descrição | Operações | Exemplo |
 |------|-------------|------------|---------|
 | Cadeia | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
 | Int32 | O número inteiro de 32 bits com sinal | é igual a, starts_with, is_between | 2016 |
 | Int64 | O número inteiro de 64 bits com sinal | é igual a, starts_with, is_between | 9876543210 |
 | Valor de duplo | Valor de vírgula flutuante de dupla precisão | é igual a, starts_with, is_between | 1.602E-19 |
-| Date | Data (1400-01-01 e 9999-12-31) | é igual a, is_between | "2016-03-14" |
+| Date | Data (1400-01-01 e 9999-12-31) | é igual a, is_between | '2016-03-14' |
 | GUID | Identificador exclusivo global | é igual a | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blobs | Dados não-indexada internamente comprimidos | *Nenhum* | "Capacitar todas as pessoas e todas as organizações do mundo a irem mais" |
-| Composição | Composição de vários atributos secundárias| *N/D* | {"Name": "harry shum", "Afiliação": "microsoft"} |
+| Composição | Composição de vários atributos secundárias| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Atributos de cadeia são utilizados para representar os valores de cadeia de caracteres que podem aparecer como parte da consulta de utilizador.  Eles oferecem suporte a com correspondência exacta *é igual a* operação, bem como os *starts_with* operação para cenários de conclusão da consulta, como correspondência "micros" com "microsoft".  Correspondência de maiúsculas e minúsculas e difusa para lidar com erros ortográficos será suportada numa versão futura.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811864"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217990"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -130,7 +130,7 @@ Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar
 
     ![Selecione o software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. No selction para instalar o carregador de inicialização GRUB, selecione **Sim**e, em seguida, selecione **Enter**.
+1. A seleção para instalar o carregador de inicialização GRUB, selecione **Sim**e, em seguida, selecione **Enter**.
      
     ![Instalador de arranque do GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 

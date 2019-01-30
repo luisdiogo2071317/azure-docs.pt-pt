@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de/para o Azure SQL Database Managed Instance com o Azure Data Factory | Documentos da Microsoft
-description: Saiba mais sobre como mover dados em SQL da base de dados instância gerida do Azure com o Azure Data Factory.
+title: Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory | Documentos da Microsoft
+description: Aprenda a mover dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: b8ce3cdb55d164cefc8b85314a2fa79b4f901a08
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: dc84f6a6a2e10bb7bdbe859eefc71c74769595de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215135"
 ---
-# <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Database Managed Instance com o Azure Data Factory
+# <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para uma instância de gerida de base de dados do Azure SQL. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para instância gerida da base de dados SQL do Azure. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de instância gerida da base de dados SQL do Azure para qualquer arquivo de dados de sink suportados ou copiar dados de qualquer arquivo de dados de origem suportada para a instância gerida. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de instância gerida da base de dados SQL do Azure para qualquer arquivo de dados de sink suportados. Também pode copiar dados de qualquer arquivo de dados de origem suportada para a instância gerida. Para obter uma lista dos arquivos de dados que são suportados como origens e sinks, a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector de instância gerida da base de dados SQL do Azure suporta:
 
-- Copiar dados utilizando **SQL** ou **Windows** autenticação.
-- Como origem, obter dados com a consulta SQL ou procedimento armazenado.
-- Como sink, acrescentando dados a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+- Copiar dados utilizando a autenticação de SQL ou o Windows.
+- Como uma origem, obter dados utilizando uma consulta SQL ou o procedimento armazenado.
+- Como um sink, acrescentando dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não é suportado agora. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar dados de cópia de um Azure SQL Database Managed Instance que está localizado na VNET, terá de configurar um Runtime de integração autoalojado que podem aceder a base de dados. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+Para utilizar dados de cópia de um Azure SQL Database Managed Instance que esteja localizado numa rede virtual, configure um runtime de integração autoalojado que pode acessar o banco de dados. Para obter mais informações, consulte [integration runtime autoalojado](create-self-hosted-integration-runtime.md).
 
-Se aprovisionar o ir Autoalojado na mesma rede virtual que sua instância gerida, certifique-se de que sua máquina de Runtime de integração não está numa sub-rede diferente, a sua instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente do que a sua instância gerida, pode utilizar um peering de rede virtual ou uma rede virtual para a ligação de rede virtual. Ver [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
+Se aprovisionar o runtime de integração autoalojado na mesma rede virtual que sua instância gerida, certifique-se de que sua máquina de runtime de integração não está numa sub-rede diferente, a sua instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente do que a sua instância gerida, pode utilizar um peering de rede virtual ou uma rede virtual para a ligação de rede virtual. Para obter mais informações, consulte [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,16 +53,16 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SqlServer** | Sim |
-| connectionString |Especifique as informações de connectionString necessárias para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Consulte o exemplo a seguir. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| userName |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Aprovisione o Integration Runtime autoalojado na mesma VNET como sua instância gerida. |Sim |
+| tipo | A propriedade de tipo deve ser definida como **SqlServer**. | Sim. |
+| connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Para obter mais informações, consulte os exemplos seguintes. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim. |
+| userName |Esta propriedade especifica um nome de utilizador, se utilizar a autenticação do Windows. Um exemplo é **domainname\\nome de utilizador**. |Não. |
+| palavra-passe |Esta propriedade especifica uma palavra-passe da conta de utilizador que especificou para o nome de utilizador. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não. |
+| connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Aprovisione o runtime de integração autoalojado na mesma rede virtual que sua instância gerida. |Sim. |
 
 >[!TIP]
->Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
+>Poderá ver o código de erro, como "UserErrorFailedToConnectToSqlServer" com uma mensagem "o limite de sessão para a base de dados é XXX e foi atingido." Se este erro ocorrer, adicionar `Pooling=false` para sua cadeia de ligação e tente novamente.
 
-**Exemplo 1: Utilizando a autenticação SQL**
+**Exemplo 1: Utilizar a autenticação SQL**
 
 ```json
 {
@@ -111,14 +111,14 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados de instância gerida da base de dados SQL do Azure.
+Para obter uma lista completa de seções e propriedades disponíveis para serem utilizados definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de instância gerida da base de dados SQL do Azure.
 
-Para copiar dados de/para a instância gerida da base de dados SQL do Azure, defina a propriedade de tipo de conjunto de dados para **SqlServerTable**. São suportadas as seguintes propriedades:
+Para copiar dados de e para instância gerida da base de dados SQL do Azure, defina a propriedade de tipo de conjunto de dados para **SqlServerTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
-| tableName |Nome da tabela ou vista na instância da base de dados pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **SqlServerTable**. | Sim. |
+| tableName |Esta propriedade é o nome da tabela ou vista na instância da base de dados que o serviço ligado refere-se a. | Não para a origem. Sim para o sink. |
 
 **Exemplo**
 
@@ -141,25 +141,25 @@ Para copiar dados de/para a instância gerida da base de dados SQL do Azure, def
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com a instância gerida da base de dados SQL do Azure de origem e sink.
+Para obter uma lista completa de seções e propriedades disponíveis para serem utilizados definir as atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com a origem de instância gerida da base de dados SQL do Azure e de sink.
 
-### <a name="azure-sql-database-managed-instance-as-source"></a>O Azure SQL Database Managed Instance como origem
+### <a name="azure-sql-database-managed-instance-as-a-source"></a>O Azure SQL Database Managed Instance como uma origem
 
-Para copiar dados de instância gerida da base de dados SQL do Azure, definir o tipo de origem na atividade de cópia para **SqlSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados de instância gerida da base de dados SQL do Azure, definir o tipo de origem na atividade de cópia para **SqlSource**. As seguintes propriedades são suportadas na secção de origem de atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SqlSource** | Sim |
-| sqlReaderQuery |Utilize a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Valores permitidos são: pares nome/valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SqlSource**. | Sim. |
+| sqlReaderQuery |Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não. |
+| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não. |
+| storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e as letras maiúsculas e minúsculas os parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não. |
 
-**Pontos a serem observados**
+Tenha em atenção os seguintes pontos:
 
-- Se o **sqlReaderQuery** é especificado para o SqlSource, a atividade de cópia executa esta consulta em relação à origem de instância gerida para obter os dados. Em alternativa, pode especificar um procedimento armazenado, especificando o **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se o procedimento armazenado recebe parâmetros).
-- Se não especificar a propriedade "sqlReaderQuery" ou "sqlReaderStoredProcedureName", as colunas definidas na secção "estrutura" do conjunto de dados JSON são utilizadas para construir uma consulta (`select column1, column2 from mytable`) para executar a instância gerida. Se a definição do conjunto de dados não tiver a "estrutura", todas as colunas são selecionadas da tabela.
+- Se **sqlReaderQuery** especificado para **SqlSource**, a atividade de cópia executa esta consulta em relação à origem de instância gerida para obter os dados. Também pode especificar um procedimento armazenado, especificando **sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado utiliza parâmetros.
+- Se não especificar qualquer um de **sqlReaderQuery** ou **sqlReaderStoredProcedureName** propriedade, as colunas definidas na secção "estrutura" do conjunto de dados JSON são utilizados para construir uma consulta. A consulta `select column1, column2 from mytable` for executado relativamente a instância gerida. Se a definição do conjunto de dados não tiver "estrutura", todas as colunas são selecionadas da tabela.
 
-**Exemplo: Usando uma consulta SQL**
+**Exemplo: Utilizar uma consulta SQL**
 
 ```json
 "activities":[
@@ -191,7 +191,7 @@ Para copiar dados de instância gerida da base de dados SQL do Azure, definir o 
 ]
 ```
 
-**Exemplo: Usando um procedimento armazenado**
+**Exemplo: Usar um procedimento armazenado**
 
 ```json
 "activities":[
@@ -246,24 +246,24 @@ END
 GO
 ```
 
-### <a name="azure-sql-database-managed-instance-as-sink"></a>O Azure SQL Database Managed Instance como sink
+### <a name="azure-sql-database-managed-instance-as-a-sink"></a>O Azure SQL Database Managed Instance como sink
 
-Para copiar dados para a instância gerida da base de dados SQL do Azure, defina o tipo de sink na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
+Para copiar dados para a instância gerida da base de dados SQL do Azure, defina o tipo de sink na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na secção de sink de atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlSink** | Sim |
-| writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (predefinição: 10000) |
-| writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são: intervalo de tempo. Exemplo: "00: 30:00" (30 minutos). |Não |
-| preCopyScript |Especifica uma consulta SQL para a atividade de cópia para execução antes da escrita de dados na instância gerida. Apenas ser invocado uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados carregados previamente. |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar a origem de dados na tabela de destino, por exemplo, para fazer upserts ou transformação usando sua própria lógica de negócios. <br/><br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que só é executado uma vez e não tem nada a fazer com os dados de origem, por exemplo, eliminar/truncar, utilize `preCopyScript` propriedade. |Não |
-| storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Valores permitidos são: pares nome/valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
-| sqlWriterTableType |Especifique um nome de tipo de tabela a ser utilizado no procedimento armazenado. Atividade de cópia torna os dados que está a ser movidos disponíveis numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados a ser copiados com os dados existentes. |Não |
+| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SqlSink**. | Sim. |
+| writeBatchSize |Esta propriedade insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Valores permitidos são números inteiros para o número de linhas. |Não (predefinição: 10,000). |
+| writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00," que é 30 minutos. |Não. |
+| preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para a instância gerida. Ele é invocado apenas uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados pré-carregado. |Não. |
+| sqlWriterStoredProcedureName |Este nome é o procedimento armazenado que define como aplicar dados de origem para a tabela de destino. São exemplos de procedimentos para fazer a upserts ou transformações com sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está *invocado por lote*. Para fazer uma operação que é executado apenas uma vez e não tem nada a com dados de origem, por exemplo, delete ou truncate, use o `preCopyScript` propriedade. |Não. |
+| storedProcedureParameters |Esses parâmetros são utilizados para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e as letras maiúsculas e minúsculas os parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não. |
+| sqlWriterTableType |Esta propriedade especifica um nome de tipo de tabela a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados que está a ser movidos disponíveis numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados que estão a ser copiados com os dados existentes. |Não. |
 
 > [!TIP]
-> Quando se copiam dados para a instância gerida da base de dados SQL do Azure, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar uma UPSERT ou lógica de negócios adicionais, utilize o procedimento armazenado no SqlSink. Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do SQL](#invoking-stored-procedure-for-sql-sink).
+> Quando os dados são copiados para a instância gerida da base de dados SQL do Azure, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar uma upsert ou lógica de negócios adicionais, utilize o procedimento armazenado no SqlSink. Para obter mais informações, consulte [invocar um procedimento armazenado a partir de um sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
-**Exemplo 1: Acrescentar dados**
+**Exemplo 1: Anexar dados**
 
 ```json
 "activities":[
@@ -297,7 +297,7 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 
 **Exemplo 2: Invocar um procedimento armazenado durante a cópia para upsert**
 
-Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do SQL](#invoking-stored-procedure-for-sql-sink).
+Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -336,7 +336,7 @@ Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do S
 
 ## <a name="identity-columns-in-the-target-database"></a>Colunas de identidade na base de dados de destino
 
-Esta seção fornece um exemplo que copia dados de uma tabela de origem com não existe nenhuma coluna de identidade para uma tabela de destino com uma coluna de identidade.
+O exemplo seguinte copia dados de uma tabela de origem com não existe nenhuma coluna de identidade para uma tabela de destino com uma coluna de identidade.
 
 **Tabela de origem**
 
@@ -401,15 +401,15 @@ Tenha em atenção que a tabela de destino tem uma coluna de identidade.
 }
 ```
 
-Tenha em atenção que, como sua tabela de origem e destino têm diferente esquema (o destino tem uma coluna adicional com identidade). Neste cenário, tem de especificar **estrutura** propriedade na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
+Observe que a sua tabela de origem e destino têm esquema diferente. A tabela de destino tem uma coluna de identidade. Neste cenário, especifique a propriedade de "estrutura" na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> Invocar um procedimento armazenado do sink do SQL
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocar um procedimento armazenado a partir de um sink SQL
 
-Quando se copiam dados para o Azure SQL Database Managed Instance, um utilizador especificado armazenados procedimento poderia ser configurado e invocado com parâmetros adicionais.
+Quando os dados são copiados para a instância gerida da base de dados SQL do Azure, um procedimento armazenado pode ser configurado e invocado com parâmetros adicionais que especificar.
 
-Um procedimento armazenado pode ser utilizado quando os mecanismos de cópia interna não servem a finalidade. É normalmente utilizado quando upsert (insert + atualização) ou um processamento extra (mesclagem de colunas, procurar valores adicionais, a inserção em várias tabelas, etc.) precisa ser feito antes da última inserção de dados de origem na tabela de destino.
+Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade. É normalmente utilizado quando um upsert (atualização + insert) ou um processamento extra deve ser feito antes da última inserção de dados de origem na tabela de destino. Processamento extra pode incluir tarefas como a intercalação de colunas, procurar valores adicionais e a inserção em várias tabelas.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na instância gerida. Partindo do princípio de dados de entrada e a tabela de "Marketing" do sink tem três colunas: ProfileID, estado e categoria. Executar com base na coluna "ProfileID" do upsert e aplicam-se apenas por uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na instância gerida. O exemplo parte do princípio de que os dados de entrada e a tabela de "Marketing" do sink tem três colunas: ProfileID, estado e categoria. Execute o upsert com base na coluna ProfileID e inscreva-se apenas uma categoria específica.
 
 **Conjunto de dados de saída**
 
@@ -430,7 +430,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
 }
 ```
 
-Defina a seção SqlSink na atividade de cópia da seguinte forma.
+Defina a seção SqlSink numa atividade de cópia da seguinte forma:
 
 ```json
 "sink": {
@@ -445,7 +445,7 @@ Defina a seção SqlSink na atividade de cópia da seguinte forma.
 }
 ```
 
-Na sua base de dados, defina o procedimento armazenado com o mesmo nome como SqlWriterStoredProcedureName. Ele lida com dados de entrada da sua origem especificada e intercalação para a tabela de saída. O nome do parâmetro de tipo de tabela no procedimento armazenado deve ser igual o "tableName" definido no conjunto de dados.
+Na sua base de dados, defina o procedimento armazenado com o mesmo nome como SqlWriterStoredProcedureName. Processa dados de entrada da sua origem especificado e intercala-lo a tabela de saída. O nome do parâmetro de tipo de tabela no procedimento armazenado é igual a "tableName", que é definida no conjunto de dados.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -462,7 +462,7 @@ BEGIN
 END
 ```
 
-Na sua base de dados, defina o tipo de tabela com o mesmo nome como sqlWriterTableType. Tenha em atenção que o esquema do tipo de tabela deve ser a mesmo que o esquema devolvido pelos seus dados de entrada.
+Na sua base de dados, defina o tipo de tabela com o mesmo nome como sqlWriterTableType. O esquema do tipo de tabela é o mesmo que o esquema devolvido pelos seus dados de entrada.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -472,16 +472,16 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-A funcionalidade de procedimento armazenado aproveita [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb675163.aspx).
+A funcionalidade de procedimento armazenado aproveita [parâmetros de valor de tabela](https://msdn.microsoft.com/library/bb675163.aspx).
 
 >[!NOTE]
->Se escrever o tipo de dados de dinheiro/Smallmoney pela invocação de procedimento armazenado, os valores podem ser arredondados. Especifique o tipo de dados correspondente no TVP como Decimal em vez de dinheiro/Smallmoney para atenuar. 
+>Se escrever para o **dinheiro/Smallmoney** tipo de dados invocando um procedimento armazenado, poderão ser arredondados valores. Especifique o tipo de dados correspondente nos parâmetros do valor de tabela como **Decimal** em vez de **dinheiro/Smallmoney** para atenuar este problema. 
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Mapeamento de tipo de dados para a instância gerida da base de dados SQL do Azure
 
-Ao copiar dados de/para instância gerida da base de dados SQL do Azure, os seguintes mapeamentos são utilizados entre tipos de dados de instância gerida para tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Quando os dados são copiados de e para instância gerida da base de dados SQL do Azure, os seguintes mapeamentos são utilizados entre tipos de dados de instância gerida da base de dados SQL do Azure para tipos de dados intermediárias do Azure Data Factory. Para saber como a atividade de cópia é mapeada do tipo de esquema e os dados de origem para o sink, veja [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de dados do Azure SQL Database Managed Instance | Tipo de dados intermediárias de fábrica de dados |
+| Tipo de dados do Azure SQL Database Managed Instance | Tipo de dados intermediárias do Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
 | binário |Byte[] |
@@ -517,7 +517,7 @@ Ao copiar dados de/para instância gerida da base de dados SQL do Azure, os segu
 | xml |Xml |
 
 >[!NOTE]
-> Para mapas de tipos de dados para o tipo Decimal de provisório, atualmente ADF suporta precisão até 28. Se tiver dados com precisão maior que 28, considere converter a cadeia de caracteres na consulta SQL.
+> Para tipos de dados que são mapeados para o tipo Decimal provisório, Azure Data Factory suporta atualmente precisão até 28. Se tiver dados que necessitam de precisão maior que 28, considere a conversão para uma cadeia de caracteres numa consulta SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

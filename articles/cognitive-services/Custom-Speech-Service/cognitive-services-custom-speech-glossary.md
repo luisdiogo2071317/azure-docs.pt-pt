@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344256"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223821"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -60,7 +60,7 @@ O processo de conversão de texto formatado "bruto" voltar ao texto formatado, o
 
 ## <a name="l"></a>L
 
-### <a name="language-model"></a>Modelo de Idioma
+### <a name="language-model"></a>Modelo de idioma
 
 O modelo de idioma é uma distribuição de probabilidade sobre sequências de palavras. O modelo de idioma ajuda o sistema a decidir entre sequências de palavras que soam de forma semelhantes, com base na probabilidade das próprias sequências de palavras
 
@@ -70,7 +70,7 @@ O modelo de idioma é uma distribuição de probabilidade sobre sequências de p
 
 ### <a name="normalization"></a>Normalização
 
-Normalização (texto): A transformação de texto resultante (ou seja, transcrição) num formato padrão, inequívoca legível pelo sistema.
+Normalização (texto): Transformação de texto resultante (ou seja, transcrição) num formulário padrão, inequívoca legível pelo sistema.
 
 ## <a name="o"></a>O
 
@@ -94,7 +94,7 @@ Chave de subscrição é uma cadeia de caracteres que tem de especificar como um
 
 ### <a name="transcription"></a>Transcrição
 
-Transcrição: O elemento de texto resultante do processo de uma parte do arquivo. wav de áudio
+Transcrição: A parte do texto que os resultados do processo de uma parte do arquivo. wav de áudio
 
 ## <a name="u"></a>U
 

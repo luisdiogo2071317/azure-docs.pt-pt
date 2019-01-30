@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: reconhecer emoções nos rostos numa imagem - API de Emoções, C#'
+title: 'Início rápido: Reconhecer emoções no rostos numa imagem - API de emoçõesC#'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e um exemplo de código para o ajudar a começar a utilizar rapidamente a API de Emoções com C#.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
+ms.openlocfilehash: 45282c4ad534930fa72a8d8fb71105dca4af23de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239375"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218245"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: compilar uma aplicação para reconhecer emoções nos rostos duma imagem.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início rápido: Crie uma aplicação para reconhecer emoções no rostos numa imagem.
 
 > [!IMPORTANT]
 > A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/).
@@ -125,8 +125,8 @@ namespace CSHttpClientSample
 ## <a name="recognize-emotions-sample-response"></a>Resposta de exemplo para reconhecer emoções
 Uma chamada bem-sucedida devolve uma matriz de entradas de rostos e as pontuações das respetivas emoções associadas. São ordenadas pelo tamanho dos retângulos de rostos em ordem descendente. Uma resposta vazia indica que não foram detetados rostos. Uma entrada de emoção contém os seguintes campos:
 
-* faceRectangle: localização do retângulo de rosto na imagem
-* pontuações: pontuações das emoções de cada rosto na imagem
+* faceRectangle: Localização do retângulo de rosto na imagem
+* classificações: Pontuações de emoções para cada rosto na imagem
 
 ```json
 application/json

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4207031652db7ec4b2ae5468dc159320f6efdbc2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616576"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228819"
 ---
 ## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
-Tem primeiro de criar uma conta dos Serviços de Multimédia. Esta secção apresenta aquilo de que necessita para criar a conta com a CLI do Azure.
+Tem primeiro de criar uma conta dos Serviços de Multimédia. Esta secção mostra o que precisa para a criação de conta com a CLI do Azure.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

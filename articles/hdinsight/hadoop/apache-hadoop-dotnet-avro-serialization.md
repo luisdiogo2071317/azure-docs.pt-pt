@@ -1,7 +1,7 @@
 ---
 title: Serializar dados no Apache Hadoop - Microsoft Avro Library - Azure
 description: Saiba como serializar e desserializar dados no Hadoop no HDInsight usando o Microsoft Avro Library para manter a memória, uma base de dados ou ficheiro.
-keywords: avro, hadoop avro
+keywords: avro,hadoop avro
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259992"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227952"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Apache Hadoop com o Microsoft Avro Library
 
@@ -1351,7 +1351,7 @@ O exemplo de sexto ilustra algumas técnicas de programação relacionadas com a
 O exemplo faz as seguintes tarefas:
 
 * Liga-se a um cluster de serviço existente do HDInsight.
-* Serializa vários ficheiros CSV e carrega o resultado para o armazenamento de Blobs do Azure. (Os arquivos CSV são distribuídos em conjunto com o exemplo e representam uma extração de dados históricos de AMEX Stock distribuídos pela [Infochimps](https://www.infochimps.com/) para o período de 1970 2010. O exemplo lê os dados de ficheiro CSV, converte os registos para instâncias do **Stock** de classe e, em seguida, serializa-los usando reflexão. Definição de tipo de stock é criada a partir de um esquema JSON por meio do utilitário de geração de código do Microsoft Avro Library.
+* Serializa vários ficheiros CSV e carrega o resultado para o armazenamento de Blobs do Azure. (Os arquivos CSV são distribuídos em conjunto com o exemplo e representam uma extração de dados históricos de AMEX Stock distribuídos pela [Infochimps](https://www.infochimps.org/) para o período de 1970 2010. O exemplo lê os dados de ficheiro CSV, converte os registos para instâncias do **Stock** de classe e, em seguida, serializa-los usando reflexão. Definição de tipo de stock é criada a partir de um esquema JSON por meio do utilitário de geração de código do Microsoft Avro Library.
 * Cria uma nova tabela externa, chamada **Stocks** no Hive e links para os dados carregado no passo anterior.
 * Executa uma consulta através do Hive através do **Stocks** tabela.
 

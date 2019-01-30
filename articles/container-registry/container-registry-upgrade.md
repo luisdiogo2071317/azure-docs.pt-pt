@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228360"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 
@@ -52,7 +52,7 @@ Durante o processo de conversão, todos os `docker push` operações são bloque
 
 Não eliminar ou modificar os conteúdos da conta de armazenamento de segurança do registo clássico durante o processo de conversão. Fazer isso pode resultar em danos imagens de contentor.
 
-Quando a migração estiver concluída, a conta de armazenamento na sua subscrição que originalmente de segurança do registo clássico já é utilizada pelo ACR. Depois de verificar se a migração foi concluída com êxito, considere eliminar a conta de armazenamento para o ajudar a minimizar os custos.
+Quando a migração estiver concluída, a conta de armazenamento na sua subscrição que originalmente seu registo clássico de segurança já não é utilizada por ACR. Depois de verificar se a migração foi concluída com êxito, considere eliminar a conta de armazenamento para o ajudar a minimizar os custos.
 
 >[!IMPORTANT]
 > A atualização da implementação clássica para um dos SKUs geridos é um **processo unidirecional**. Assim que tenha convertido um registo para básico, Standard ou Premium do clássico, não é possível reverter para clássico. Pode, no entanto, livremente mover entre os SKUs geridos com capacidade suficiente para o seu registo.
