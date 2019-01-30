@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: a108d89ab3eb3cf9c7a729f14e3c88bf2b67b20b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5a646f83d3bd6a2c2824aef679f8a46e352f2263
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154104"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246937"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplicação Microsoft Authenticator FAQ
 
@@ -47,6 +47,8 @@ A aplicação Microsoft Authenticator substituído a aplicação Azure Authentic
 |Estou recebendo um erro de comunicação entre o Apple Watch e meu telefone. O que posso fazer para resolver problemas?|Este erro ocorre quando o ecrã de Watch entra em suspensão antes de concluir a comunicar com o seu telemóvel.<br><br><b>Se isto acontecer durante a configuração:</b><br>Tente executar a configuração novamente, certificar-se de que manter o seu relógio ativo até que a conclusão do processo. Ao mesmo tempo, abra a aplicação no seu telemóvel e responder a todos os pedidos que são apresentados.<br><br>Se o seu telemóvel e assista ainda não estão a comunicar, pode tentar o seguinte:<ol><li>Força sair da aplicação de telefone do Microsoft Authenticator e abra-o novamente no seu iPhone.</li><li>Força sair da aplicação de complementar no seu Apple Watch.<ol><li> Abra a aplicação de acompanhamento de Microsoft Authenticator no seu relógio</li><li>Premido o botão de lado até que o **encerramento** ecrã é apresentado.</li><li>Largue o botão do lado e mantenha premida a Crown Digital forçar a sair da aplicação do Active Directory.</li></ol></li><li>Desativar o Bluetooth e Wi-Fi para o seu telefone e o relógio e, em seguida, voltar a ativá-los.</li><li>Reinicie o seu iPhone e o relógio.</li></ol><b>Se isto acontecer quando está a tentar aprovar uma notificação:</b><br>Da próxima vez que tentar aprovar uma notificação no seu Apple Watch, manter a tela ativo até que o pedido está concluído e ouvir o som que indica que foi concluída com êxito.|
 |Por que não é que o da aplicação de acompanhamento de Microsoft Authenticator para Apple Watch é a sincronização ou aparecendo em meu relógio?|Se a aplicação não está a aparecer no seu relógio, experimente o seguinte: <ol><li>Certificar-se de que seu relógio está em execução watchOS 4.0 ou superior.</li><li>Sincronize o seu relógio novamente.</li></ol>|
 |Meu aplicativo complementar do Apple Watch falhou. Posso enviar meus registos de falha para poder investigar? |Primeiro tem de certificar-se de que escolheu partilhar as suas análises connosco. Se for um utilizador TestFlight, já estiver inscrito no. Caso contrário, pode aceder à **definições > Privacidade > Analytics** e selecione o **partilhar do iPhone e análise de Watch** e o **partilha com os programadores de aplicações** opções.<br><br>Depois de se inscrever, pode tentar reproduzir suas falhas, para que os registos de falhas são automaticamente enviados à Microsoft para investigação. No entanto, se não conseguir reproduzir suas falhas, manualmente pode copiar os ficheiros de registo e enviá-los para nós.<ol><li>Abra a aplicação do relógio no seu telemóvel, aceda a **definições > geral**e, em seguida, clique em **cópia Watch Analytics**.</li><li>Localizar a falha correspondente sob **definições > Privacidade > Analytics > dados de análise**e, em seguida, copie manualmente o texto completo.</li><li>Abra a aplicação Microsoft Authenticator no seu telemóvel e colar copiados texto para o **partilha com os programadores de aplicações** caixa de texto no **enviar registos de** página.</li></ol>|
+|Qual é a funcionalidade de bloqueio de aplicação e, como é que ajuda a manter-me mais seguro?|Para manter seus códigos de acesso monouso, informações da aplicação e as definições da aplicação mais segura, pode ativar a funcionalidade de bloqueio de aplicação na aplicação Microsoft Authenticator. Ativando o bloqueio de aplicação a partir da **definições** ecrã da aplicação Microsoft Authenticator significa que será solicitado a autenticar com o seu PIN ou biométrico sempre que abrir a aplicação Microsoft Authenticator. Esta funcionalidade oferece proteção adicional, não será alterada a forma como aprova as notificações na aplicação Microsoft Authenticator.<br><br>**Nota**<br>Se retornar para a aplicação Microsoft Authenticator num dispositivo Android a executar em menos de 30 segundos, não serão solicitadas autenticar novamente.| 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

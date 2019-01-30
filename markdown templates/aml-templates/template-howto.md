@@ -3,18 +3,18 @@ title: Ação de verbo para o serviço Azure Machine Learning em 59 carateres ou
 description: Saiba como fazer isso e que cliente a utilizar as palavras no Azure Machine Learning. Esta cadeia descreve o artigo em 115 para 145 carateres. Use o tipo SEO de verbos de ação aqui. Esta informação é apresentada no inline de página de pesquisa com o carimbo de data do artigo. Se a paravirtualização de introdução descreve a intenção de seu artigo, pode utilizá-lo aqui editado para o comprimento.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
-ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1367f09fa9cac3a5d3a23a1192ada49f16976125
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013010"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245555"
 ---
 # <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Este H1 é o título do artigo. É apresentado na pesquisa, é apresentada na parte superior do artigo, a segunda maior impacto na pesquisa, 100 carateres ou menos
 

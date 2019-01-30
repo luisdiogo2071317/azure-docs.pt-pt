@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106516"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240991"
 ---
 # <a name="azure-stack-capacity-planner"></a>O Azure Stack Capacity Planner
 O planeador de capacidade do Azure Stack é uma folha de cálculo utilizada para planejamento de capacidade de recursos do Azure Stack. O planeador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e veja como se encaixa numa seleção de ofertas de hardware. São fornecidas instruções detalhadas para a utilização da Calculadora do Azure Stack abaixo.

@@ -10,16 +10,17 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971832"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252273"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de dimensionamento de máquinas virtuais no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
   
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure Stack. Pode usá-los para implementar e gerir um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configuradas da mesma forma, os conjuntos de dimensionamento não requerem o aprovisionamento prévio das máquinas virtuais. É mais fácil criar serviços em grande escala destinados a big compute, macrodados e cargas de trabalho em contentores.
 
@@ -33,8 +34,8 @@ No Azure Stack, conjuntos de dimensionamento de máquina virtual não suportam o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **O Marketplace:** Registre-se do Azure Stack com o Azure global para ativar a disponibilidade de itens no Marketplace. Siga as instruções em [registar o Azure Stack com o Azure](azure-stack-registration.md).
-- **Imagem do sistema operativo:** antes de um conjunto de dimensionamento de máquinas virtuais (VMSS) pode ser criado, tem de transferir as imagens de VM para utilização no VMSS do [Marketplace do Azure Stack](azure-stack-download-azure-marketplace-item.md). As imagens já devem estar presentes antes de um utilizador pode criar um novo VMSS. 
+- **O Marketplace:** Registe o Azure Stack com o Azure global para ativar a disponibilidade de itens no Marketplace. Siga as instruções em [registar o Azure Stack com o Azure](azure-stack-registration.md).
+- **Imagem do sistema operativo:** Antes de um conjunto de dimensionamento de máquinas virtuais (VMSS) pode ser criado, tem de transferir as imagens de VM para utilização no VMSS do [do Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). As imagens já devem estar presentes antes de um utilizador pode criar um novo VMSS. 
 
 ## <a name="use-the-azure-stack-portal"></a>Utilizar o portal do Azure Stack 
 

@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432562"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252222"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
-Um grupo de ação é uma coleção de preferências de notificações definidos pelo proprietário de uma subscrição do Azure. Alertas de monitorização e estado de funcionamento do serviço do Azure utilizam grupos de ação para notificar os utilizadores que foi acionado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou a grupos de ação diferentes consoante os requisitos do utilizador.
+Um grupo de ação é uma coleção de preferências de notificações definidos pelo proprietário de uma subscrição do Azure. Alertas de monitorização e estado de funcionamento do serviço do Azure utilizam grupos de ação para notificar os utilizadores que foi acionado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou a grupos de ação diferentes consoante os requisitos do utilizador. Só pode configurar grupos de ação até 2000 numa subscrição.
 
 Quando uma ação está configurada para ser notificado de uma pessoa por e-mail ou SMS a pessoa irá receber uma mensagem de confirmação que indica que ele / ela foi adicionada ao grupo de ação.
 
@@ -88,15 +88,18 @@ Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informaç�
 **Voz** -pode ter até 10 ações de voz num grupo de ação</dd>
 Consulte a [informações de limitação de taxas](./../../azure-monitor/platform/alerts-rate-limiting.md) artigo</dd>
 
-**Webhook** -pode ter até 10 ações de Webhook num grupo de ação. Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda e última repetição acontece após 100 segundos.
+**Webhook** -pode ter até 10 ações de Webhook num grupo de ação.
+Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda repetição acontece após 100 segundos. Após duas falhas o ponto final será não ser chamado durante 30 minutos a partir de qualquer grupo de ação.
 
 Intervalos de endereços IP de origem
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Para receber atualizações sobre as alterações a estes endereços IP, recomendamos que configure uma [alerta de estado de funcionamento do serviço](./../../azure-monitor/platform/service-notifications.md) que monitoriza para notificações informativas sobre o serviço de grupos de ação.
 

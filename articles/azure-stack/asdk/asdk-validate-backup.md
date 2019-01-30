@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265656"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251576"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utilize o ASDK para validar uma cópia de segurança do Azure Stack
 Depois de implementar o Azure Stack e o aprovisionamento de recursos de utilizador, tais como ofertas, planos, quotas e subscrições, deve [ativar cópia de segurança do Azure Stack infraestrutura](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de cópias de segurança da infraestrutura regular irão garantir que os dados de gestão de infraestrutura não são perdidos se ocorrer uma falha de serviço ou de hardware de catastrófico.

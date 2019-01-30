@@ -1,6 +1,6 @@
 ---
 title: Experimentação simples titleSuffix: Descrição do Azure Machine Learning Studio: Este tutorial de machine learning apresenta-lhe uma experimentação de ciência de dados fácil. Vamos prever o preço de um carro através de um algoritmo de regressão.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
 ---

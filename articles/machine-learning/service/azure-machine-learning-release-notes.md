@@ -4,29 +4,29 @@ titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre as atualizações mais recentes para o serviço Azure Machine Learning e o machine learning e SDKs de Python de preparação de dados.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a615b6c59d178fcc1d47d11bf89691c7e83249f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221322"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250661"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
-Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning. 
+Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
++ O Azure Machine Learning [ **principal SDK para Python**](https://aka.ms/aml-sdk)
++ O Azure Machine Learning [ **SDK de preparação de dados**](https://aka.ms/aml-sdk)
 
 ## <a name="2019-01-28"></a>2019-01-28
 
 ### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning SDK for Python v1.0.10
-
-+ **Documentos de referência do SDK**: https://aka.ms/aml-sdk
 
 + **Alterações**: 
   + SDK do Azure ML já não tem a dependência de pacotes de cli do azure. Especificamente, as dependências do azure-cli-core e do azure-cli-perfil foram removidas do azureml-core. Estes são o utilizador que afetem as alterações:
@@ -37,8 +37,6 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 + **Correções de erros**: Esta versão contém pequenas correções de erros
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>SDK v1.0.8 de preparação de dados do Azure Machine Learning
-
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
 
 + **Correções de erros**
   + Melhoraram significativamente o desempenho de obter os perfis de dados.
@@ -59,13 +57,9 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 ### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning SDK for Python v1.0.8
 
-+ **Documentos de referência do SDK**: https://aka.ms/aml-sdk
-
 + **Correções de erros**: Esta versão contém pequenas correções de erros
 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>SDK v1.0.7 de preparação de dados do Azure Machine Learning
-
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
 
 + **Novos recursos**
   + Melhorias do arquivo de dados (documentados em [arquivo de dados procedimentos-to-guia](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -77,22 +71,15 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>SDK v1.0.6 de preparação de dados do Azure Machine Learning
 
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
-
 + **Correções de erros**
   + Foi corrigido o erro com a leitura de contentores de Blobs do Azure legíveis públicos no Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning SDK for Python v1.0.6
-
-+ **Documentos de referência do SDK**: https://aka.ms/aml-sdk
-
 + **Correções de erros**: Esta versão contém pequenas correções de erros
 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>A v1.0.4 do SDK de preparação de dados do Azure Machine Learning
-
-+ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
 
 + **Novos recursos**
   + `to_bool` função agora permite que os valores sem correspondência ser convertido para valores de erro. Este é o novo comportamento de erro de correspondência de padrão para `to_bool` e `set_column_types`, ao passo que o comportamento de padrão anterior era converter valores sem correspondência como False.

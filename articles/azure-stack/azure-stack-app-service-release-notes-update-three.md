@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 3e88e0a3337eafdd25c9c0cc655912a4cdbd3b68
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 08/20/2018
+ms.openlocfilehash: a7e8b1471e056fd789cda5258dd088e623c3cebd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079536"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248508"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Serviço de aplicações no notas de versão de atualização 3 do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Estas notas de versão descrevem as melhorias e correções no serviço de aplicações do Azure no Azure Stack Update 3 e os problemas conhecidos. Problemas conhecidos são divididos em problemas diretamente relacionados com a implementação, o processo de atualização e a problemas com a compilação (após a instalação).
 
@@ -184,13 +185,13 @@ Validação
 - Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.  Isso é também chamado no serviço de aplicações do Azure, na documentação de implementação do Azure Stack.
 
 Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Origem: qualquer
+ * Origem: Qualquer
  * Intervalo de portas de origem: *
  * Destino: Endereços IP
- * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+ * Intervalo de endereços IP de destino: Intervalo de IPs para o servidor de ficheiros
  * Intervalo de portas de destino: 445
  * Protocolo: TCP
- * Ação: permitir
+ * Ação: Permitir
  * Prioridade: 700
  * Nome: Outbound_Allow_SMB445
 

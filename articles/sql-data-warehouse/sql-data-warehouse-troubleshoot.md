@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8f83733462e66bc36ecd31bb2767969e24b78d8c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244594"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas de armazém de dados SQL do Azure
 Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
@@ -23,8 +23,8 @@ Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
 ## <a name="connecting"></a>A ligar
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Falha de logon do usuário 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, erro: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no ramo principal.  Para corrigir este problema, ou especificar o que pretende ligar ao tempo de ligação ou adicionar o utilizador à base de dados mestra do SQL Data Warehouse.  Ver [descrição geral da segurança] [ Security overview] artigo para obter mais detalhes. |
-| O servidor principal "MyUserName" não é capaz de acessar o banco de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do usuário padrão. O início de sessão falhou. Início de sessão falhou para o utilizador 'MyUserName'. (Microsoft SQL Server, erro: 916) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no ramo principal.  Para corrigir este problema, ou especificar o que pretende ligar ao tempo de ligação ou adicionar o utilizador à base de dados mestra do SQL Data Warehouse.  Ver [descrição geral da segurança] [ Security overview] artigo para obter mais detalhes. |
+| Falha de logon do usuário 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no ramo principal.  Para corrigir este problema, ou especificar o que pretende ligar ao tempo de ligação ou adicionar o utilizador à base de dados mestra do SQL Data Warehouse.  Ver [descrição geral da segurança] [ Security overview] artigo para obter mais detalhes. |
+| O servidor principal "MyUserName" não é capaz de acessar o banco de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do usuário padrão. O início de sessão falhou. Início de sessão falhou para o utilizador 'MyUserName'. (Microsoft SQL Server, Error: 916) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no ramo principal.  Para corrigir este problema, ou especificar o que pretende ligar ao tempo de ligação ou adicionar o utilizador à base de dados mestra do SQL Data Warehouse.  Ver [descrição geral da segurança] [ Security overview] artigo para obter mais detalhes. |
 | Erro CTAIP                                                  | Este erro pode ocorrer quando tiver sido criado um início de sessão no SQL server base de dados mestra, mas não na base de dados do SQL Data Warehouse.  Se encontrar este erro, veja a [descrição geral da segurança] [ Security overview] artigo.  Este artigo explica como criar um início de sessão e um utilizador no mestre e, em seguida, como criar um utilizador na base de dados SQL Data Warehouse. |
 | Bloqueado pela Firewall                                          | Bases de dados SQL do Azure estão protegidos por firewalls ao nível, servidor e base de dados, para garantir que só conhecida endereços IP têm acesso a uma base de dados. As firewalls são seguras por padrão, o que significa que terá de permitir explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar seu firewall para acesso, siga os passos em [configurar o acesso de firewall do servidor para o seu IP de cliente] [ Configure server firewall access for your client IP] no [aprovisionamento instruções] [Provisioning instructions]. |
 | Não é possível ligar com a ferramenta ou um controlador                           | O SQL Data Warehouse recomenda o uso [SSMS][SSMS], [SSDT para Visual Studio][SSDT for Visual Studio], ou [sqlcmd] [ sqlcmd] para consultar os seus dados. Para obter mais informações sobre drivers e ligar ao SQL Data Warehouse, consulte [Drivers para o Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] e [ligar ao Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artigos. |

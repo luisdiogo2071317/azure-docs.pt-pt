@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427421"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251695"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure (pré-visualização)
 
@@ -43,7 +43,7 @@ Para autenticar uma identidade gerida a partir da sua aplicação de armazenamen
 
 Para autenticar com uma identidade gerida, a sua aplicação ou script tem de adquirir um token de acesso de identidade gerida. Para saber mais sobre como adquirir um token de acesso, veja [como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
+## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: Criar um blob de blocos
 
 O exemplo de código parte do princípio de que tem um token de acesso de identidade gerida. O token de acesso é utilizado para autorizar a identidade gerida para criar um blob de blocos.
 

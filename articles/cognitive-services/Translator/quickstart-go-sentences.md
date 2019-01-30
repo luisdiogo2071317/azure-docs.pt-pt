@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter o comprimento de frases, Go – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, ouça - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: erhopf
 manager: erhopf
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 71b88afeb941e6b635548468e634e07597318116
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f4a4a4518eb973dc9d2c7cbcb34683fe0b3db08
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994091"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226847"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Utilizar a API de texto do Translator para determinar o comprimento de sentença com Go
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Go
 
 Neste início rápido, irá aprender como determinar os comprimentos de sentença (em carateres) com o Go e a API de REST de texto do Translator.
 

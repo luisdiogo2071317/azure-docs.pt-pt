@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
-ms.openlocfilehash: ba1e310234485d972646320f082d8b882a3d43f1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 822fd40b2fc707efe34d4081c3c49e5f71621cdb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052347"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245546"
 ---
 # <a name="using-dns-in-azure-stack"></a>Através de DNS no Azure Stack
 
@@ -90,7 +91,7 @@ Ao nível da API de REST de DNS do Azure Stack, Etags são especificadas usando 
 |--------|---------|
 | Nenhuma   | PUT sempre for concluída com êxito (sem verificações de Etag)|
 | If-match| PUT apenas é bem-sucedida se o recurso existe e Etag corresponder à|
-| IF-match *| PUT apenas é bem-sucedida se o recurso existe|
+| If-match *| PUT apenas é bem-sucedida se o recurso existe|
 | IF-none-match *| PUT apenas é bem-sucedida se o recurso não existe|
 
 ### <a name="limits"></a>Limites

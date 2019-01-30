@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 709161165dc69ee6d33987d2cc45666045f4dfd4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079641"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240620"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máquina virtual (VM) do Windows Azure. Ele tem pré-instalado e configurado com várias ferramentas que são utilizadas para análise de dados e machine learning. As ferramentas seguintes estão incluídas:
@@ -35,7 +35,7 @@ Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máqui
 * Uma instância do Apache Spark autónoma para o local de desenvolvimento e teste.
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html).
 * Machine learning e dados de ferramentas de análise:
-  * Estruturas de aprendizagem profunda. Um conjunto avançado de fotogramas de IA estão incluídas na VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet e Keras.
+  * Estruturas de aprendizagem profunda. Um conjunto avançado de fotogramas de IA estão incluídos na VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet e Keras.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit). Uma rápida sistema machine learning que oferece suporte a técnicas como hash online, allreduce, reduções, learning2search e aprendizagem interativa e Active Directory.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/). Uma ferramenta que fornece a implementação de árvore precisos e de elevada.
   * [Rattle](https://togaware.com/rattle/), a ferramenta de análise de R para saber mais facilmente. Uma ferramenta que permite-lhe começar a utilizar a análise de dados e aprendizagem automática em R. Ele inclui a exploração e modelação com a geração automática de código R dados baseados em GUI.

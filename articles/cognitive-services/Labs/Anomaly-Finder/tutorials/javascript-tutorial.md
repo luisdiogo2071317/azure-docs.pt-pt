@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Deteção de Anomalias com Javascript'
+title: 'Tutorial: Deteção de anomalias com Javascript'
 titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação Web de Javascript que utilize a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 9e66b24987b2318f3022404d951fbb911e7b592d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883708"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227834"
 ---
-# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Deteção de Anomalias com aplicação de Javascript
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Deteção de anomalias com a aplicação do Javascript
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -103,7 +103,7 @@ function anomalyDetection(url, subscriptionKey, points, period) {
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

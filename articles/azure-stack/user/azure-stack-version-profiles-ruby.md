@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353996"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247192"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utilizar perfis de versão de API com o Ruby no Azure Stack
 
@@ -84,7 +85,7 @@ gem install 'azure_sdk'
 
 Para utilizar o SDK de Ruby do Azure com o Azure Stack, tem de indicar os valores seguintes e, em seguida, defina os valores com variáveis de ambiente. Veja as instruções depois da tabela para o seu sistema de operativo sobre como definir as variáveis de ambiente.
 
-| Valor | Variáveis de ambiente | Descrição |
+| Value | Variáveis de ambiente | Descrição |
 | --- | --- | --- | --- |
 | ID do inquilino | AZURE_TENANT_ID | O valor do seu Azure Stack [ID de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | ID de Cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste documento.  |

@@ -11,16 +11,17 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836751"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245428"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com o portal do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure Stack. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos para:
 
@@ -40,7 +41,7 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure
 
 * **Acesso a um cliente SSH**
 
-   Se estiver a utilizar o Azure Stack Development Kit (ASDK), poderá não ter acesso a um cliente SSH. Se precisar de um cliente, existem diversos pacotes que incluem um cliente SSH. Por exemplo, o PuTTY inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre os pacotes disponíveis, leia o seguinte artigo do Azure: [como utilizar chaves SSH com Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Se estiver a utilizar o Azure Stack Development Kit (ASDK), poderá não ter acesso a um cliente SSH. Se precisar de um cliente, existem diversos pacotes que incluem um cliente SSH. Por exemplo, o PuTTY inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre os pacotes disponíveis, leia o seguinte artigo do Azure: [Como utilizar chaves SSH com Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Este início rápido utiliza o PuTTY para gerar as chaves SSH e para ligar à máquina virtual de servidor do Linux. Para transferir e instalar PuTTY, aceda a [ http://www.putty.org/ ](http://www.putty.org).
 

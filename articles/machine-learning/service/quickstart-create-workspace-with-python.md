@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Introdução ao serviço Azure Machine Learning em Python. Utilize o Python SDK para criar uma área de trabalho, o que é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18cac5ecb2164444490f661255d7190c065be59f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912466"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238963"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 

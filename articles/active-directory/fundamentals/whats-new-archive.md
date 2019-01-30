@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2d0c6bb930d0e4c4fe7ae663c88e663e17cae084
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ba538aed855667417e14bef12b708e80f34cd8c4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096862"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243931"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -29,6 +29,166 @@ A que há de novo notas de versão lhe fornece informações sobre:
 - Correções de erros
 - Funcionalidades preteridas
 - Planos para que as alterações
+
+---
+
+## <a name="june-2018"></a>junho de 2018
+
+### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Aviso de alteração: Correção de segurança para o fluxo de autorização delegada para aplicações que utilizam a API de registos de atividade do Azure AD
+
+**Tipo:** Plano de alteração  
+**Categoria de serviço:** Relatórios  
+**Capacidade de produto:** Monitorização e Relatórios
+
+Devido à nossa imposição de segurança mais forte, tivemos de fazer uma alteração às permissões para aplicações que utilizam um fluxo de autorização delegada para acessar [APIs de registos de atividade do Azure AD](https://aka.ms/aadreportsapi). Esta alteração irá ocorrer por **26 de Junho de 2018**.
+
+Se qualquer uma das suas aplicações a utilizar APIs de Log de atividade do Azure AD, siga estes passos para garantir que o aplicativo não é corrompido após a alteração ocorre.
+
+**Para atualizar as suas permissões de aplicação**
+
+1. Inicie sessão no portal do Azure, selecione **do Azure Active Directory**e, em seguida, selecione **registos das aplicações**.
+2. Selecione a sua aplicação que utiliza a API do Azure AD atividade registos, selecione **configurações**, selecione **permissões obrigatórias**e, em seguida, selecione o **Windows Azure Active Directory** API.
+3. Na **permissões delegadas** área da **ativar o acesso** painel, selecione a caixa junto a **diretórios leia** dados e, em seguida, selecione **guardar**.
+4. Selecione **conceder permissões**e, em seguida, selecione **Sim**.
+    
+    >[!Note]
+    >Tem de ser um Administrador Global para conceder permissões à aplicação.
+
+Para obter mais informações, consulte a [conceder permissões](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) área dos pré-requisitos para acessar o artigo do API de geração de relatórios do Azure AD.
+
+---
+
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurar as definições de TLS para ligar aos serviços do Azure AD para conformidade PCI DSS
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** N/A  
+**Capacidade de produto:** Plataforma
+
+Transport Layer Security (TLS) é um protocolo que fornece privacidade e integridade dos dados entre duas aplicações de comunicação e é o protocolo de segurança implementadas mais amplamente usado hoje em dia.
+
+O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) determinou que as versões mais antigas do TLS e do Secure Sockets Layer (SSL) tem de ser desativadas em favor de habilitar os protocolos de aplicação nova e mais seguro, com a partir de conformidade **30 de Junho, 2018**. Esta alteração significa que, se ligar aos serviços do Azure AD e exigir conformidade do PCI DSS, tem de desativar TLS 1.0. Existem várias versões do TLS, mas o TLS 1.2 é a versão mais recente disponível para os serviços do Active Directory do Azure. É altamente recomendável mudar diretamente para o TLS 1.2 para combinações de cliente/servidor e o browser/servidor.
+
+Browsers desatualizados podem não suportar versões mais recentes do TLS, por exemplo, o TLS 1.2. Para ver quais as versões do TLS são suportadas pelo seu browser, vá para o [laboratórios de SSL de Qualys](https://www.ssllabs.com/) do site e clique em **testar seu navegador**. Recomendamos que Atualize para a versão mais recente do seu navegador da web e, de preferência ative apenas TLS 1.2.
+
+**Para ativar o TLS 1.2, por browser**
+
+- **Microsoft Edge e o Internet Explorer (ambos são definidos usando o Internet Explorer)**
+
+    1. Abra o Internet Explorer, selecione **ferramentas** > **opções da Internet** > **avançadas**.
+    2. Na **Security** área, selecione **utilizar TLS 1.2**e, em seguida, selecione **OK**.
+    3. Feche todas as janelas do browser e reinicie o Internet Explorer. 
+
+- **Google Chrome**
+
+    1. Abra Google Chrome, tipo *chrome://settings/* na barra de endereço e prima **Enter**.
+    2. Expanda a **avançadas** opções, vá para o **System** área e selecione **abrir as definições de proxy**.
+    3. No **propriedades de Internet** caixa, selecione a **avançadas** separador, vá para o **segurança** área, selecione **utilizar TLS 1.2**e, em seguida, selecione  **OK**.
+    4. Feche todas as janelas do browser e reinicie o Google Chrome.
+
+- **Mozilla Firefox**
+
+    1. Firefox aberto, tipo *sobre: config* na barra de endereço e, em seguida, prima **Enter**.
+    2. Procure o termo *TLS*e, em seguida, selecione a **security.tls.version.max** entrada.
+    3. Defina o valor como **3** para forçar o browser para utilizar a cópia de segurança para a versão do TLS 1.2 e, em seguida, selecione **OK**.
+
+        >[!NOTE]
+        >Firefox versão 60.0 oferece suporte a TLS 1.3, portanto, também pode definir o valor de security.tls.version.max **4**.
+
+    4. Feche todas as janelas do browser e reinicie o Mozilla Firefox.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Junho de 2018
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Aplicações Empresariais  
+**Capacidade de produto:** Integração de Terceiros
+ 
+Junho de 2018, adicionámos que 15 novos aplicativos com a Federação de suporte para a Galeria de aplicações:
+
+[Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [liquidação de música](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token de aplicação LOB ativada](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [ Cópia de segurança de ponto final](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh redes](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho um](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [ SharePoint no local](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [previr CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
+
+Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing). 
+
+---
+
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>A proteção de palavra-passe do Azure AD está disponível em pré-visualização pública
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Identity Protection  
+**Capacidade de produto:** Autenticação do Utilizador
+
+Utilize a proteção de palavra-passe do Azure AD para ajudar a eliminar facilmente adivinhado palavras-passe do seu ambiente. Eliminar estas palavras-passe ajuda a reduzir o risco de comprometimento de um tipo de spray de palavra-passe de ataque.
+
+Especificamente, a proteção de palavra-passe do Azure AD ajuda-o:
+
+- Proteger contas da sua organização do Azure AD e Windows Server Active Directory (AD). 
+- Deixa os usuários usem senhas numa lista de mais de 500 das palavras-passe utilizadas com mais frequência e variações de substituição de caracteres de mais de 1 milhão dessas palavras-passe.
+- Administrar a proteção de palavra-passe do Azure AD a partir de uma única localização no portal do Azure AD, para ambas do Azure AD e AD do Windows Server no local.
+
+Para obter mais informações sobre a proteção de palavra-passe do Azure AD, consulte [eliminar palavras-passe incorretas na sua organização](https://aka.ms/aadpasswordprotectiondocs).
+
+---
+
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo "todos os convidados" acesso condicional modelo de política criado durante a criação de termos de utilização (ToU)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Termos de Utilização  
+**Capacidade de produto:** Governação
+
+Durante a criação de seus termos de utilização (ToU), é também criado um novo modelo de política de acesso condicional para "todos os convidados" e "todas as aplicações". Este novo modelo de política aplica-se os termos de utilização recém-criado, simplificando a criação e o processo de imposição para convidados.
+
+Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Novo modelo de política de acesso condicional "personalizado" criado durante a criação de termos de utilização (ToU)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Termos de Utilização  
+**Capacidade de produto:** Governação
+
+Durante a criação de seus termos de utilização (ToU), também é criado um novo modelo de política de acesso condicional "personalizado". Este novo modelo de política permite-lhe criar os termos de utilização e, em seguida, imediatamente aceda ao painel de criação da política de acesso condicional, sem precisar navegar manualmente através do portal.
+
+Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Novo e abrangente orientações sobre como implementar o Azure multi-factor Authentication
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Outros  
+**Capacidade de produto:** Segurança e Proteção de Identidade
+ 
+Lançámos o novo orientações passo a passo sobre como implementar o Azure multi-factor Authentication (MFA) na sua organização.
+
+Para ver o guia de implementação do MFA, vá para o [guias de implantação de identidade](https://aka.ms/DeploymentPlans) repositório no GitHub. Para fornecer comentários sobre os guias de implementação, utilize o [formulário de comentários de plano de implementação](https://aka.ms/deploymentplanfeedback). Se tiver quaisquer perguntas sobre os guias de implementação, contacte-nos [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+
+---
+
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Gestão de aplicações, funções estão em pré-visualização pública de delegado do Azure AD
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Aplicações Empresariais  
+**Capacidade de produto:** Controlo de Acesso
+
+Os administradores agora podem delegar tarefas de gestão de aplicações sem atribuir a função de Administrador Global. As novas funções e funcionalidades são:
+
+- **Novo padrão de funções de administrador do Azure AD:**
+
+    - **Administrador da aplicação.** Concede a capacidade de gerir todos os aspetos de todas as aplicações, incluindo o registro, as definições de SSO, atribuições de aplicações e licenciamento, definições de proxy de aplicações e consentimento (exceto para recursos do Azure AD).
+
+    - **Administrador da aplicação de cloud.** Concede todas as capacidades de administrador da aplicação, com exceção do proxy de aplicação pois não fornece acesso no local.
+
+    - **Desenvolvedor de aplicativos.** Concede a capacidade de criar registos de aplicações, mesmo que o **permitir que os utilizadores registem aplicações** opção está desativada.
+
+- **Propriedade (configurar por aplicação por empresarial e de registo de aplicação, semelhante ao processo de propriedade de grupo:**
+ 
+    - **Proprietário do registo de aplicação.** Concede a capacidade de gerenciar todos os aspectos do registo de aplicações pertencentes à empresa, incluindo o manifesto da aplicação e adicionar proprietários adicionais.
+
+    - **Proprietário da aplicação empresarial.** Concede a capacidade de gerir muitos aspectos de aplicações do enterprise pertencentes à empresa, incluindo as definições de SSO, atribuições de aplicações e consentimento (exceto para recursos do Azure AD).
+
+Para obter mais informações sobre a pré-visualização pública, consulte o [do Azure AD delegado funções estão em pré-visualização pública de gestão de aplicações!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) Blog. Para obter mais informações sobre as funções e permissões, consulte [atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---
 

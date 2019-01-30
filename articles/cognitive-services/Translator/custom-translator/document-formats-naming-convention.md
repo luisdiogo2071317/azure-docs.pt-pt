@@ -5,16 +5,16 @@ description: Este é um guia nos formatos de documento e a Convenção de nomenc
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: afd3192117bd22c62fd8e36752515166e4c6e043
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872769"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225487"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos e orientações de convenção de nomenclatura de documentos
 
@@ -24,16 +24,16 @@ Esta tabela inclui todos os formatos de ficheiro suportados que pode utilizar pa
 
 | Formato            | Extensões   | Descrição                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF             | . XLF. XLIFF | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
-| TMX               | . TMX         | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
+| XLIFF             | .XLF, .XLIFF | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
+| TMX               | .TMX         | Um formato de documento paralela, a exportação de sistemas de memória de tradução. As linguagens utilizadas são definidas dentro do arquivo.                                                                                                                                                              |
 | ZIP               | . ZIP         | ZIP é um formato de arquivo.                                                                                                                                                                                                        |
-| Locstudio         | . LCL         | Um formato para documentos paralelos da Microsoft                                                                                                                                                                                                                                      |
-| Microsoft Word    | . DOCX        | Documento do Microsoft Word                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | . PDF         | Documento portátil do Adobe Acrobat                                                                                                                                                                                                                                                |
-| HTML              | . HTML. HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| Arquivo de texto         | . TXT         | Ficheiros de texto de codificado UTF-16 ou UTF-8                                                                                                                                                                                                                                             |
+| Locstudio         | .LCL         | Um formato para documentos paralelos da Microsoft                                                                                                                                                                                                                                      |
+| Microsoft Word    | .DOCX        | Documento do Microsoft Word                                                                                                                                                                                                                                                        |
+| Adobe Acrobat     | .PDF         | Documento portátil do Adobe Acrobat                                                                                                                                                                                                                                                |
+| HTML              | .HTML, .HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
+| Arquivo de texto         | .TXT         | Ficheiros de texto de codificado UTF-16 ou UTF-8                                                                                                                                                                                                                                             |
 | Arquivo de texto alinhado | . ALINHAR       | A extensão `.ALIGN` é uma extensão especial que pode utilizar se souber que as frases do par de documento são perfeitamente alinhadas. Se fornecer um `.ALIGN` arquivo, Translator personalizado não será alinhado as frases para. |
-| Ficheiro do Excel        | . XLSX        | Ficheiro do Excel (2013 ou posterior). Em primeiro lugar da linha a linha da folha de cálculo deve ser o código de idioma.                                                                                                                                                                                                                                                      |
+| Ficheiro do Excel        | .XLSX        | Ficheiro do Excel (2013 ou posterior). Em primeiro lugar da linha a linha da folha de cálculo deve ser o código de idioma.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formatos de dicionário
 

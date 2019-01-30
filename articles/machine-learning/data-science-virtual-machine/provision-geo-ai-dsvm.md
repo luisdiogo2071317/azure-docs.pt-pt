@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103953"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240477"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure 
 
@@ -49,24 +49,24 @@ Este é o procedimento para criar uma instância da VM de ciência de dados de I
 
    - **Noções básicas**
 
-      1. **Nome**: nome do servidor de ciência de dados que está a criar.
+      1. **Nome**: Nome do servidor de ciência de dados que está a criar.
 
-      2. **Nome de utilizador**: id de início de sessão da conta de administrador.
+      2. **Nome de utilizador**: Id de início de sessão da conta de administrador.
 
-      3. **Palavra-passe**: palavra-passe da conta de administrador.
+      3. **palavra-passe**: Palavra-passe da conta de administrador.
 
       4. **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas.
 
-      5. **Grupo de recursos**: pode criar uma nova ou utilize um **vazio** grupo de recursos do Azure existente na sua subscrição.
+      5. **Grupo de recursos**: Pode criar um novo ou utilizar um **vazio** grupo de recursos do Azure existente na sua subscrição.
 
-      6. **Localização**: selecionar o Datacenter mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. Se precisar de fazer aprendizagem aprofundada em GPU, tem de escolher uma das localizações no Azure com as instâncias de VM de GPU da série NC. Atualmente, as localizações que tem GPU VMs são: **E.U.A. leste, e.u.a. Centro-Norte, Centro-Sul, E.U.A. oeste 2, Europa do Norte, Europa Ocidental**. Para a lista mais recente, consulte a [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) e procure **série NC** sob **computação**. 
+      6. **Localização**: Selecione o Centro de dados mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. Se precisar de fazer aprendizagem aprofundada em GPU, tem de escolher uma das localizações no Azure com as instâncias de VM de GPU da série NC. Atualmente, as localizações que tem GPU VMs são: **Este dos E.U.A., Centro-Norte, EUA Centro-Sul, E.U.A. oeste 2, Europa do Norte, Europa Ocidental**. Para a lista mais recente, consulte a [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) e procure **série NC** sob **computação**. 
 
 
-   - **Definições**: selecione uma do tamanho de máquina virtual de GPU da série NC, se planeja executar aprendizagem aprofundada em GPU na sua DSVM Geo. Caso contrário, pode escolher um da CPU com a base de instância.  Crie uma conta de armazenamento para a sua VM. 
+   - **Definições**: Selecione um do tamanho de máquina virtual de GPU da série NC se planeja executar em GPU na sua DSVM Geo de aprendizagem profunda. Caso contrário, pode escolher um da CPU com a base de instância.  Crie uma conta de armazenamento para a sua VM. 
    
    - **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
 
-   - **Compre**: clique em **comprar** para iniciar o aprovisionamento. É fornecida uma ligação para os termos do serviço. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
+   - **Comprar**: Clique em **comprar** para iniciar o aprovisionamento. É fornecida uma ligação para os termos do serviço. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
 
 >[!NOTE]
 > O aprovisionamento deve demorar cerca de 20 a 30 minutos. O estado do provisionamento é apresentado no portal do Azure.

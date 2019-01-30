@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960656"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246446"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração da firewall do Azure Stack
 Recomenda-se que utilize um dispositivo de firewall para o ajudar a proteger do Azure Stack. Embora firewalls podem ajudar com coisas como distribuídos denial-of-service (DDOS) distribuídos, detecção de intrusão e inspeção de conteúdo, eles podem também se tornar um gargalo de serviços de armazenamento do Azure, como blobs, tabelas e filas.
@@ -34,7 +35,7 @@ Para organizações empresariais, a rede externa pode ser a rede empresarial exi
 ### <a name="network-address-translation"></a>Tradução de Endereços de Rede
 Tradução de endereços de rede (NAT) é o método recomendado para permitir que a máquina de virtual de implementação (DVM) para aceder os recursos externos e a internet durante a implementação, bem como as VMs da consola de recuperação de emergência (ERCS) ou com privilégios ponto final (PEP) durante o registo e resolução de problemas.
 
-NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicas. No entanto, não é recomendado fazê-lo porque limita a experiência de utilizador do inquilino e aumenta a complexidade. As duas opções seria um NAT de 1:1 ainda requer um IP público por IP de utilizador no conjunto ou muitos: 1 NAT que necessita de um NAT regra por utilizador VIP que contém as associações para todas as portas de um utilizador poderá utilizar.
+NAT também pode ser uma alternativa para endereços IP públicos na rede externa ou VIPs públicas. No entanto, não é recomendado fazê-lo porque limita a experiência de utilizador do inquilino e aumenta a complexidade. As duas opções seria um NAT de 1:1 ainda requer um IP público por IP de utilizador no conjunto ou muitos: 1 NAT que necessita de uma regra NAT por utilizador VIP que contém as associações para todas as portas em que um usuário poderia utilizar.
 
 Algumas das desvantagens da utilização de NAT para o VIP público são:
 - NAT sobrecarga adiciona ao gerir regras de firewall, uma vez que os utilizadores controlar seus próprios pontos finais e suas próprias regras de publicação na pilha de rede (SDN) definidas por software. Os utilizadores têm de contactar o operador do Azure Stack para obter seus VIPs publicadas e para atualizar a lista de porta.

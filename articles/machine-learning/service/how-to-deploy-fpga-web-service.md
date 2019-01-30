@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o serviço Azure Machine Learning para inferência de latência Ultra baixas.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f93457315fec03210213ddfd79d027c8cfec4555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 59af9bef586393726222e8d4d306ea806e31efe3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227323"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252086"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955875"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236943"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como utilizar o armazenamento de Blobs do C++
 
@@ -33,8 +33,8 @@ Para tal, terá de instalar a biblioteca de clientes de Armazenamento do Microso
 
 Para instalar a biblioteca de clientes de Armazenamento do Microsoft Azure para C++, pode utilizar os seguintes métodos:
 
-* **Linux:** siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.  
-* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet > Consola do Gestor de Pacotes**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.  
+* **Linux:** Siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.  
+* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet >Consola do Gestor de Pacotes**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.  
   
      Pacote de instalação wastorage
 
@@ -82,7 +82,7 @@ Em seguida, obtém uma referência a um **cloud_blob_client** classe, pois permi
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Como: criar um contentor
+## <a name="how-to-create-a-container"></a>Como: Criar um contentor
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 Este exemplo mostra como criar um contentor se ainda não existir:  
@@ -119,7 +119,7 @@ container.upload_permissions(permissions);
 
 Qualquer pessoa na Internet pode ver os blobs num contentor público, mas pode modificar ou eliminá-los apenas se tiver a chave de acesso adequada.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Como: carregar um blob para um contentor
+## <a name="how-to-upload-a-blob-into-a-container"></a>Como: Carregar um blob para um contentor
 O Azure suporta de armazenamento de BLOBs bloquear blobs e blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a utilizar.  
 
 Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor e utilize-a para obter uma referência de blob de blocos. Assim que tiver uma referência de blob, pode carregar qualquer fluxo de dados para o mesmo ao chamar o **upload_from_stream** método. Esta operação irá criar o blob caso não exista, ou substituí-lo se existir. O exemplo seguinte mostra como carregar um blob para um contentor e parte do princípio de que o contentor já foi criado.  
@@ -154,7 +154,7 @@ blob3.upload_text(U("other text"));
 
 Em alternativa, pode utilizar o **upload_from_file** método para carregar um ficheiro para um blob de blocos.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Como: listar os blobs num contentor
+## <a name="how-to-list-the-blobs-in-a-container"></a>Como: Listar os blobs num contentor
 Para listar os blobs num contentor, obtenha primeiro uma referência de contentor. Em seguida, pode utilizar o contentor **list_blobs** método para recuperar os blobs e/ou diretórios dentro do mesmo. Para aceder ao conjunto avançado de propriedades e métodos de um **list_blob_item**, tem de chamar os **list_blob_item.as_blob** método para obter uma **cloud_blob** objeto, ou o **list_blob.as_directory** método para obter um objeto de cloud_blob_directory. O código a seguir demonstra como obter e apresentar o URI de cada item na **contentor meu exemplo** contentor:
 
 ```cpp
@@ -232,7 +232,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Como: eliminar blobs
+## <a name="how-to-delete-blobs"></a>Como: Eliminar blobs
 Para eliminar um blob, obtenha primeiro uma referência de blob e, em seguida, chame o **delete_blob** método nele.  
 
 ```cpp

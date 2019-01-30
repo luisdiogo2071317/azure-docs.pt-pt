@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/29/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3017d92115a61dbf5ce647e75a01360224843f44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e08af577bec463263045a0f0355acffaad5e599
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165035"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244169"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
 
@@ -48,7 +48,7 @@ Como conseqüência disso, terá de:
 
 Detetar identidades comprometidas não é tarefa fácil. O Azure Active Directory utiliza algoritmos de aprendizagem automática adaptáveis e heurística para detetar anomalias e incidentes suspeitos que indiquem potencialmente comprometidos identidades. Utilizando estes dados, o Identity Protection gera relatórios e alertas que lhe permite avaliar os problemas detetados e tomar apropriado de atenuação ou ações de remediação.
 
-O Azure Active Directory Identity Protection é mais do que uma monitorização e a ferramenta de relatório. Para proteger as identidades da sua organização, pode configurar as políticas baseadas em risco, que respondam automaticamente aos problemas detetados quando for atingido um nível de risco especificado. Automaticamente estas políticas, além de outros Controles de acesso condicional fornecidas pelo Azure Active Directory e o EMS, podem bloquear ou iniciar ações de remediação adaptável redefinições de senha incluindo e imposição de multi-factor authentication.
+O Azure Active Directory Identity Protection é mais do que uma monitorização e a ferramenta de relatório. Para proteger as identidades da sua organização, pode configurar as políticas baseadas em risco, que respondam automaticamente aos problemas detetados quando for atingido um nível de risco especificado. Estas políticas, além de outros Controles de acesso condicional fornecidos pelo Azure Active Directory e [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), pode automaticamente bloquear ou iniciar ações de remediação adaptável, incluindo reposições de palavra-passe e a imposição de multi-factor authentication.
 
 
 #### <a name="identity-protection-capabilities"></a>Capacidades de proteção de identidade

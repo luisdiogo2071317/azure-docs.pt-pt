@@ -3,17 +3,17 @@ title: Copiar dados para o Azure Data Lake armazenamento Gen2 pré-visualizaçã
 description: Utilize a ferramenta de DistCp para copiar dados de e para pré-visualização do Data Lake Storage geração 2
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975565"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244152"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Utilizar o DistCp para copiar dados entre os Blobs de armazenamento do Azure e a pré-visualização do Azure Data Lake Storage geração 2
 
@@ -71,7 +71,7 @@ Como a granularidade de mais baixa do DistCp é um único arquivo, definir o nú
 
 Eis algumas orientações que poderá utilizar.
 
-* **Passo 1: Determinar o total de memória disponível para a fila de aplicação do YARN 'default'** -o primeiro passo é determinar a memória disponível para a fila de aplicação do YARN 'default'. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue para o YARN e veja a guia de configurações para ver a memória YARN disponível para a fila de aplicação 'default'. Esta é a memória total disponível para a sua tarefa de DistCp (que é, na verdade, uma tarefa de MapReduce).
+* **Passo 1: Determinar a memória total disponível para a fila de aplicação do YARN 'default'** -o primeiro passo é determinar a memória disponível para a fila de aplicação do YARN 'default'. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue para o YARN e veja a guia de configurações para ver a memória YARN disponível para a fila de aplicação 'default'. Esta é a memória total disponível para a sua tarefa de DistCp (que é, na verdade, uma tarefa de MapReduce).
 
 * **Passo 2: Calcular o número de mapeadores** -o valor de **m** é igual ao quociente de memória YARN total dividido pelo tamanho do contentor YARN. As informações de tamanho de contentor do YARN estão disponíveis no portal do Ambari. Navegue para o YARN e ver a guia configurações. O tamanho de contentor do YARN é apresentado nesta janela. A equação a deparar-se com o número de mapeadores (**m**) é
 
@@ -81,11 +81,11 @@ Eis algumas orientações que poderá utilizar.
 
 Vamos assumir que tem um cluster de x D14v2s 4 e está a tentar transferir 10 TB de dados de 10 pastas diferentes. Cada uma das pastas contém diferentes quantidades de dados e os tamanhos de ficheiro em cada pasta são diferentes.
 
-* **Total de memória YARN**: portal do Ambari, determinar se a memória YARN é 96 GB para um nó de D14. Por isso, é o total de memória YARN para cluster de quatro nós: 
+* **Total de memória YARN**: Partir do portal do Ambari é determinar se a memória YARN é 96 GB para um nó de D14. Por isso, é o total de memória YARN para cluster de quatro nós: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Número de mapeadores**: portal do Ambari, determinar que o tamanho de contentor do YARN é 3,072 MB para um nó de cluster D14. Por isso, é o número de mapeadores:
+* **Número de mapeadores**: Partir do portal do Ambari determinar que o tamanho de contentor do YARN é 3,072 MB para um nó de cluster D14. Por isso, é o número de mapeadores:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

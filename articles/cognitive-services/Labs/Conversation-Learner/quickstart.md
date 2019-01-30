@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 02501cba75bd64d6a09fce671d2949759b5cd577
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207025"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251440"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de aprendiz de conversação com node. js
 
@@ -78,26 +78,18 @@ Aprendiz de conversação do projeto é constituído por um SDK que adiciona ao 
 
     Isso é executado o bot vazio genérico em `cl-bot-01/src/app.ts`.
 
-3. Execute o aprendiz de conversação da interface do Usuário:
-
-    ```bash
-    [open second command prompt window]
-    cd cl-bot-01
-    npm run ui
-    ```
-
-4. Browser aberto para http://localhost:5050 
+3. Browser aberto para http://localhost:3978
 
 Agora está a utilizar o aprendiz de conversação e pode criar e ensinar um modelo de aprendiz de conversação.  
 
 > [!NOTE]
-> No início, o aprendiz de conversação de projeto está disponível por convite.  Se http://localhost:5050 mostra um HTTP `403` erro, isso significa que sua conta não foi convidada.  Tente [pedir um convite](https://aka.ms/conversation-learner-request-invite).
+> No início, o aprendiz de conversação de projeto está disponível por convite.  Se http://localhost:3978/ui mostra um HTTP `403` erro, isso significa que sua conta não foi convidada.  Tente [pedir um convite](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Tutoriais, demonstrações e alternar entre bots
 
 As instruções acima a utilizar o bot vazio genérico.  Para executar um tutorial ou em vez disso, o bot de demonstração:
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:5050/home.
+1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:3978/ui/home.
     
 2. Se estiver a executar outra bot (como `npm start` ou `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
 
@@ -114,7 +106,7 @@ As instruções acima a utilizar o bot vazio genérico.  Para executar um tutori
   npm run demo-storage
   ```
 
-4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:5050/home. 
+4. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:3978/ui/home. 
 
 5. Clique em "Tutoriais de importação" e selecione o modelo de demonstração na IU de aprendiz de conversação que corresponde à demonstração iniciou.
 
@@ -122,7 +114,7 @@ Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Criar um bot, que inclui o código de back-end
 
-1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:5050/home.
+1. Se tiver web Aprendiz de conversação, abra a interface do Usuário, regressar à lista de modelos em http://localhost:3978/ui/home.
     
 2. Se estiver a executar um bot (como `npm run demo-pizza`), impedi-lo.  Não é necessário parar o processo de interface do Usuário ou fechar o navegador da web.
 
@@ -135,7 +127,7 @@ Ficheiros de origem para as demonstrações estão em `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:5050/home. 
+5. Se não estiver já, mude para a web de aprendiz de conversação da interface do Usuário no Chrome carregando http://localhost:3978/ui/home. 
 
 6. Criar um novo modelo de aprendiz de conversação na interface de Usuário e iniciar o ensino.
 

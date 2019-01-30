@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339683"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252324"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração de datacenter do Azure Stack - DNS
 Para poder aceder aos pontos finais do Azure Stack (**portal**, **adminportal**, **gestão**, **adminmanagement**, etc.)  a partir de fora do Azure Stack, tem de integrar os serviços de DNS do Azure Stack com os servidores DNS que alojam as zonas DNS que pretende utilizar no Azure Stack.
@@ -121,7 +122,7 @@ Se a máquina virtual de implementação já não está disponível ou está ina
 
 A forma mais simples e mais segura para integrar o Azure Stack com a sua infraestrutura DNS é fazer o reencaminhamento condicional da zona de servidor que aloja a zona principal. Essa abordagem é recomendada se o ter controlo direto sobre os servidores DNS que alojam a zona de principal para o Azure Stack externo espaço de nomes DNS.
 
-Se não estiver familiarizado com a forma de fazer o reencaminhamento condicional com o DNS, consulte o seguinte artigo do TechNet: [atribuir um reencaminhador condicional para um nome de domínio](https://technet.microsoft.com/library/cc794735), ou a documentação específica à sua solução DNS.
+Se não estiver familiarizado com a forma de fazer condicional de reencaminhamento com o DNS, consulte o seguinte artigo do TechNet: [Atribuir um reencaminhador condicional para um nome de domínio](https://technet.microsoft.com/library/cc794735), ou a documentação específica à sua solução DNS.
 
 Em cenários em que especificou sua zona de DNS do Azure Stack externo para se parecer com um domínio filho de seu nome de domínio empresarial, não é possível utilizar reencaminhamento condicional. Tem de configurar a delegação de DNS.
 

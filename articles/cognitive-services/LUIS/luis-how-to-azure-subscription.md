@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2e5ecf32782c86b236c4947d5d2793be9c3883d8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223685"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239184"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
@@ -32,7 +32,7 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
 
 Este procedimento cria um **compreensão de idiomas** recursos. Se pretender que um recurso que pode ser utilizado em todos os serviços cognitivos, crie a chave de tudo-em-um **[serviço cognitivo](../cognitive-services-apis-create-account.md)** em vez do recurso de compreensão de idiomas. 
 
-Esta chave só deve ser utilizada para consultas de previsão de ponto final. Não sabe fazer esta chave para que as alterações ao modelo ou a aplicação. 
+Esta chave só deve ser utilizada para consultas de previsão de ponto final. Não utilize esta chave para que as alterações ao modelo ou a aplicação. 
 
 1. Inicie sessão para o  **[portal do Azure](https://ms.portal.azure.com/)**. 
 1. Selecione o verde **+** iniciar sessão no painel superior esquerdo e procure `Language Understanding` no marketplace, em seguida, selecione no **compreensão de idiomas** e siga o  **criar a experiência** para criar uma conta de subscrição do LUIS. 
@@ -43,7 +43,7 @@ Esta chave só deve ser utilizada para consultas de previsão de ponto final. N�
 
     ![Escolha de API do Azure](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Depois de criar o recurso de compreensão de idiomas, pode ver as teclas de acesso geradas em **gestão de recursos -> chaves**. Fazer não as chaves. A próxima seção mostrará como ligar esse novo recurso a uma aplicação LUIS no portal do LUIS. É necessário o nome do recurso LUIS do passo 3.
+1. Depois de criar o recurso de compreensão de idiomas, pode ver as teclas de acesso geradas em **gestão de recursos -> chaves**. A próxima seção mostrará como ligar esse novo recurso a uma aplicação LUIS no portal do LUIS. É necessário o nome do recurso LUIS do passo 3.
 
     ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Esta chave só deve ser utilizada para consultas de previsão de ponto final. N�
 
     ![Atribuir um recurso à sua aplicação](./media/luis-manage-keys/assign-key.png)
 
-1. Selecione um inquilino na caixa de diálogo associada, com o endereço de e-mail, o início de sessão com o site do LUIS.  
+1. Selecione um inquilino na caixa de diálogo associada com a mensagem de e-mail de endereços sua utilizado para iniciar sessão no Web site do LUIS.  
 
 1. Escolha o **nome da subscrição** associados com o recurso do Azure que pretende adicionar.
 
@@ -122,7 +122,7 @@ As intenções e suas pontuações também estão incluídos os registos de pont
 ### <a name="enable-bing-spell-checker"></a>Ativar o Verificador de ortografia do Bing 
 Na **definições de url de ponto final**, o **corretor ortográfico Bing** alternância permite o LUIS corrigir as palavras incorretas antes de predição. Criar uma  **[chave de verificação ortográfica do Bing](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Adicionar a **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}** . Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
+Adicionar a **verificação ortográfica = true** parâmetro de cadeia de consulta e o **bing-ortográfica-check-subscription-key = {YOUR_BING_KEY_HERE}**. Substitua o `{YOUR_BING_KEY_HERE}` com a sua chave de Verificador de ortografia do Bing.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Saiba mais sobre a publicação [regiões](luis-reference-regions.md) incluindo 
 
 ## <a name="assign-resource-without-luis-portal"></a>Atribuir recursos sem portal de LUIS
 
-Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar a atribuição de um recurso de LUIS para uma aplicação do LUIS. Para que, terá de efetuar os seguintes passos:
+Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar a atribuição de um recurso de LUIS para uma aplicação do LUIS. Para fazê-lo, terá de efetuar os seguintes passos:
 
 1. Obter um Gestor de recursos do Azure token nesta [Web site](https://resources.azure.com/api/token?plaintext=true). Este token expirar então, utilizá-lo imediatamente. O pedido devolve um token do Azure Resource Manager.
 

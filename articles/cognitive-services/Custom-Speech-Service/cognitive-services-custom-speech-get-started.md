@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339938"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224450"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introdução ao serviço de voz personalizada
 
@@ -28,15 +28,15 @@ Há um exemplo interessante que fornecemos de acelerar seu aprendizado que encon
 ## <a name="prerequisites"></a>Pré-requisitos  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>Subscrever o serviço de voz personalizada e obter uma chave de subscrição
-Antes de brincando com o acima no exemplo, deve subscrever o serviço de voz personalizada e obter uma subscrição chave, consulte [subscrições](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) ou siga as explicações [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Tanto a chave primária e secundária pode ser utilizada neste tutorial. Não se esqueça de seguir as melhores práticas para manter o seu segredo da chave de API e segura.
+Antes de brincando com o acima no exemplo, deve subscrever o serviço de voz personalizada e obter uma subscrição chave, consulte [subscrições](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) ou siga as explicações [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Tanto a chave primária como a secundária podem ser utilizadas neste tutorial. Siga as melhores práticas para manter a chave de API secreta e segura.
 
-### <a name="get-the-client-library-and-example"></a>Instalar o cliente biblioteca e de exemplo
-Pode baixar uma biblioteca de cliente e o exemplo via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). O ficheiro zip transferido precisa extraídos para uma pasta à sua escolha, número de utilizadores que escolha a pasta do Visual Studio 2015.
+### <a name="get-the-client-library-and-example"></a>Obter a biblioteca de cliente e o exemplo
+Pode baixar uma biblioteca de cliente e o exemplo via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). O ficheiro zip transferido tem de ser extraído para uma pasta à sua escolha, vários utilizadores escolhem a pasta do Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Criar um modelo acústico personalizado
 Para personalizar o modelo acústico para um determinado domínio, é precisa uma coleção de dados de voz. Esta coleção é composta por um conjunto de ficheiros de áudio de dados de voz e um ficheiro de texto de transcrições de cada ficheiro de áudio. Os dados de áudio devem ser representativo do cenário em que gostaria de usar o reconhecedor
 
-Por exemplo: se gostaria de reconhecer melhor fala num ambiente de ruído de fábrica, os arquivos de áudio devem consistir de pessoas que falem numa fábrica ruidosa.
+Por exemplo: Se quiser reconhecer melhor a voz num ambiente de fábrica ruidoso, os ficheiros de áudio devem ser constituídos por pessoas a falar numa fábrica ruidosa.
 Se estiver interessado na otimização de desempenho para um único palestrante, por exemplo, gostaria de transcrição de toda a conversa de Fireside do FDR, em seguida, os arquivos de áudio devem consistir em muitos exemplos de apenas essa orador.
 
 Pode encontrar uma descrição detalhada sobre como criar um modelo acústico personalizado [aqui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 45af8f554bf38c65c886c4d101c78255f5671037
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218670"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247447"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -439,6 +439,9 @@ A API REST do texto para discurso suporta vozes texto para discurso neurais e pa
 
 * Para obter uma lista completa de vozes, consulte [suporte de idiomas](language-support.md#text-to-speech).
 * Para obter informações sobre a disponibilidade regional, consulte [regiões](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Os custos variam para vozes neurais, padrão e personalizados. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340193"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243237"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudar a decidir como integrar melhor o Azure Stack em seu ambiente de rede existente. 
@@ -29,17 +30,17 @@ Este artigo fornece informações de infraestrutura de rede do Azure Stack para 
 > Para resolver nomes DNS externos do Azure Stack (por exemplo, www.bing.com), terá de fornecer servidores DNS para reencaminhar pedidos DNS. Para obter mais informações sobre os requisitos de DNS do Azure Stack, veja [integração no datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Design de rede física
-A solução de Azure Stack requer uma infraestrutura física resiliente e de elevada disponibilidade para suportar o funcionamento e serviços. Uplinks de ToR para comutadores de limite estão limitados a SFP + ou SFP28 suporte e 1 GB, 10 GB ou velocidades de 25 GB. Verifique junto do fornecedor de hardware do fabricante de equipamento original (OEM) de disponibilidade. O diagrama seguinte apresenta a nossa estrutura recomendada:
+A solução Azure Stack precisa de uma infraestrutura resiliente e altamente disponível para suportar o seu funcionamento e os seus serviços. Uplinks de ToR para comutadores de limite estão limitados a SFP + ou SFP28 suporte e 1 GB, 10 GB ou velocidades de 25 GB. Verifique junto do fornecedor de hardware do fabricante de equipamento original (OEM) de disponibilidade. O diagrama seguinte apresenta a nossa estrutura recomendada:
 
 ![Estrutura de rede recomendada do Azure Stack](media/azure-stack-network/recommended-design.png)
 
 
-## <a name="logical-networks"></a>Redes lógicas
+## <a name="logical-networks"></a>Redes Lógicas
 Redes lógicas representam uma abstração da infraestrutura de rede física subjacente. São utilizados para organizar e simplificar atribuições de rede para anfitriões, máquinas virtuais e serviços. Como parte da criação de rede lógica, os sites de rede são criados para definir as redes locais virtuais (VLANs), sub-redes IP e pares de sub-rede/VLAN de IP que estão associados com a rede lógica em cada localização física.
 
 A tabela seguinte mostra as redes lógicas e os intervalos de sub-rede de IPv4 associados, que terá de planear:
 
-| Rede lógica | Descrição | Tamanho | 
+| Rede Lógica | Descrição | Tamanho | 
 | -------- | ------------- | ------------ | 
 | VIP público | O Azure Stack utiliza um total de 31 endereços desta rede. Oito endereços IP públicos são utilizados para um pequeno conjunto de serviços do Azure Stack, e o resto são utilizados por máquinas virtuais inquilinas. Se planeja usar o serviço de aplicações e os fornecedores de recursos do SQL, 7 mais endereços são utilizados. Os IPs de 15 restantes estão reservados para futuros serviços do Azure. | / 26 (62 anfitriões) - /22 (1022 anfitriões)<br><br>Recomendado = /24 (254 anfitriões) | 
 | Infraestrutura de comutador | Endereços IP de ponto a ponto para fins de encaminhamento, dedicados mudam interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | /26 | 

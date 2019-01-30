@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d1225cb90d0eecddb5ec7eca56437b020be50c71
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.date: 01/29/2019
+ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080837"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250777"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -138,7 +138,7 @@ Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados 
 
 ### <a name="sql-vulnerability-assessment"></a>Avaliação de Vulnerabilidades do SQL
 
-[Avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md) é fácil de configurar o serviço que pode detetar, controlar e ajudar a remediar potenciais vulnerabilidades das bases de dados com o objetivo para proativamente melhorar a segurança geral da base de dados. Avaliação de vulnerabilidade (VA) faz parte da oferta da proteção contra ameaças avançadas SQL (ATP), que é um pacote unificado para funções de segurança avançadas do SQL. Avaliação de vulnerabilidades pode ser acedida e gerenciada através do portal SQL ATP central.
+[Avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md) é fácil de configurar o serviço que pode detetar, controlar e ajudar a remediar potenciais vulnerabilidades das bases de dados com o objetivo para proativamente melhorar a segurança geral da base de dados. Avaliação de vulnerabilidade (VA) faz parte da oferta SQL segurança de dados avançadas (ADS), que é um pacote unificado para funções de segurança avançadas do SQL. Avaliação de vulnerabilidades pode ser acedida e gerenciada através do portal de anúncios de SQL central.
 
 ### <a name="data-discovery--classification"></a>Dados de deteção e classificação
 

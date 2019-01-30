@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104503"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245672"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure
 
@@ -111,6 +111,9 @@ Quando as ligações sejam iniciadas a partir de dentro da instância gerida (c�
 |móveis  |80, 443, 12000|TCP     |Qualquer              |Internet   |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
 
+  > [!Note]
+  > Sub-rede de MI refere-se para o intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Estas informações podem ser encontradas no portal do Azure (por meio de propriedades de sub-rede).
+  
   > [!Note]
   > Embora as regras de segurança de entrada obrigatório permitem tráfego a partir _qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 estas portas são protegidas pelo firewall interno. Isso [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como pode descobrir o endereço IP do ponto final de gestão e verifique se as regras de firewall. 
   

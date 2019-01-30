@@ -3,17 +3,17 @@ title: 'Tutorial: Realizar a extração, transformação, operações de carrega
 description: Neste tutorial, saiba como extrair dados de um conjunto de dados do CSV não processado, transformá-los com o Apache Hive no Azure HDInsight e, em seguida, carregá-los no banco de dados do Azure SQL com o Sqoop.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jamesbak
-ms.openlocfilehash: 65d2d69c788a54371664d1a443a79bd121332470
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70ad37aa0ccbab762aa6e5cfb05d385e8b2a86ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105157"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244016"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure
 
@@ -49,7 +49,7 @@ Este tutorial utiliza dados de voo do Bureau de estatísticas de transporte para
 
 1. Na página, selecione os seguintes valores:
 
-   | Nome | Valor |
+   | Nome | Value |
    | --- | --- |
    | **Ano de filtro** |2013 |
    | **Período de filtro** |Janeiro |

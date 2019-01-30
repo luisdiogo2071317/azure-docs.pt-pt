@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3237932c66c77f979c4e95798163621e65735bed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247158"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o pacote de segurança empresarial no HDInsight
 
@@ -55,9 +55,41 @@ Para obter mais informações, consulte [clusters do HDInsight configurar com ES
 
 Se tiver uma instância do Active Directory no local ou configurações mais complexas do Active Directory para o seu domínio, pode sincronizar essas identidades para o Azure AD com o Azure AD Connect. Em seguida, pode ativar o Azure AD DS no inquilino do Active Directory. 
 
-Uma vez que Kerberos se baseia nos hashes de palavra-passe, terá [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se estiver a utilizar o federação com os serviços de Federação do Active Directory (AD FS), pode, opcionalmente, configurar sincronização de hash de palavra-passe como uma cópia de segurança no caso de falha de infraestrutura do AD FS. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Uma vez que Kerberos se baseia nos hashes de palavra-passe, tem [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Se estiver usando o federação com o Active Directory Federation Services (ADFS), tem de ativar sincronização de hash de palavra-passe (um recomendada de configuração, consulte [isso](https://youtu.be/qQruArbu2Ew)) que também ajuda na recuperação após desastre em caso de falha de sua infraestrutura de AD FS e a proteção de fuga de credenciais. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Utilizar o Active Directory no local ou no Active Directory em VMs de IaaS sozinho, sem o Azure AD e o Azure AD DS, não é uma configuração suportada para clusters do HDInsight com ESP.
+
+Se está a ser utilizada o Federação e hashes de palavra-passe são sincronizado correcty, mas estiver a obter falhas de autenticação,. Verifique se a autenticação de palavra-passe da cloud principal de serviço do powershell está ativada; caso contrário, tem de definir um [home page, como Realm Discovery (HRD ) política](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino do AAD. Para chek e defina a política HRD:
+
+ 1. Instalar o módulo do AzureAD do powershell
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` com as credenciais de administrador global (administrador de inquilino)
+
+ 3. Verifique se o principal de serviço "Do Azure powershell" já foi criado
+
+```
+ Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
+```
+
+ 4. Se não existir, em seguida, criar o principal de serviço
+
+```
+ New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Anexe a política para este principal de serviço: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id <Service Principal ID> -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

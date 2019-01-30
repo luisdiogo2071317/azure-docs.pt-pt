@@ -1,6 +1,6 @@
 ---
 title: Consuma o serviço web do Studio com titleSuffix de modelo de aplicação web: Descrição do Azure Machine Learning Studio: Utilize um modelo de aplicação web no Azure Marketplace para consumir um serviço web preditivo no Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

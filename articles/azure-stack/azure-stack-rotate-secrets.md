@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157280"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251355"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rodar segredos no Azure Stack
 
@@ -62,13 +63,13 @@ O Azure Stack suporta a rotação de secreta com certificados externos de um nov
 
 |Instalado de certificado de AC|Autoridade de certificação para girar para|Suportadas|Versões do Azure Stack suportadas|
 |-----|-----|-----|-----|
-|De Autoassinado|Para a empresa|Não suportado||
+|De Autoassinado|To Enterprise|Não suportado||
 |De Autoassinado|Para Autoassinado|Não suportado||
 |De Autoassinado|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
-|Do Enterprise|Para a empresa|Suportado, desde que os clientes utilizam a mesma empresa AC como utilizado na implementação|1803 e posterior|
+|Do Enterprise|To Enterprise|Suportado, desde que os clientes utilizam a mesma empresa AC como utilizado na implementação|1803 e posterior|
 |Do Enterprise|Para Autoassinado|Não suportado||
 |Do Enterprise|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
-|De público<sup>*</sup>|Para a empresa|Não suportado|1803 e posterior|
+|De público<sup>*</sup>|To Enterprise|Não suportado|1803 e posterior|
 |De público<sup>*</sup>|Para Autoassinado|Não suportado||
 |De público<sup>*</sup>|Para o público<sup>*</sup>|Suportadas|1803 e posterior|
 
@@ -135,9 +136,9 @@ Executar a rotação secreta com as instruções abaixo irá remediar estes aler
 > Montagem de partilha de ficheiros deve ser semelhante à **\\ \\ \<IPAddress >\\\<ShareName >\\** e deve conter pasta  **Certificates\AAD** ou **Certificates\ADFS** dentro.
 >
 > Por exemplo:
-> - Partilha de ficheiros =  **\\ \\ \<IPAddress >\\\<ShareName >\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath =  **\\ \\ \<IPAddress >\\\<ShareName > \Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>Girando segredos externos
 
@@ -297,13 +298,13 @@ O **Start-SecretRotation** cmdlet gira os segredos de infraestrutura de um siste
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Tipo | Necessário | Posição | Predefinição | Descrição |
+| Parâmetro | Type | Necessário | Posição | Predefinição | Descrição |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Cadeia  | Falso  | com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos. Diretório de fim tem de ser **\Certificates**. |
 | CertificatePassword | SecureString | Falso  | com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecido no - PfXFilesPath. Valor obrigatório se PfxFilesPath é fornecida quando são revezados de segredos externos. |
 | Interno | Cadeia | Falso | com o nome | Nenhuma | Sinalizador interno tem de ser utilizado sempre que um operador do Azure Stack deseja girar segredos de infra-estrutura interna. |
 | PathAccessCredential | PSCredential | Falso  | com o nome  | Nenhuma  | A credencial do PowerShell para a partilha de ficheiros do **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos.  |
-| Volte a executar | SwitchParameter | Falso  | com o nome  | Nenhuma  | Tem de ser utilizada voltar a executar em qualquer altura rotação secreta está a tentar novamente após uma tentativa falhada. |
+| ReRun | SwitchParameter | Falso  | com o nome  | Nenhuma  | Tem de ser utilizada voltar a executar em qualquer altura rotação secreta está a tentar novamente após uma tentativa falhada. |
 
 ### <a name="examples"></a>Exemplos
 

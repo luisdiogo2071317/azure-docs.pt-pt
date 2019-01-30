@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714411"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239286"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Ativar cópia de segurança para o Azure Stack a partir do portal de administração
 Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que o Azure Stack pode gerar as cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na cloud de recuperação na eventualidade de a utilizar [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação na cloud é garantir que seus operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão suas assinaturas restauradas, incluindo permissões de acesso baseado em funções e funções, originais planos, ofertas e a computação definidos anteriormente, armazenamento e quotas de rede.

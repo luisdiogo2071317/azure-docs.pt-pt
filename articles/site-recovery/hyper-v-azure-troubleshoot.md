@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228207"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
 
@@ -75,7 +75,7 @@ Limitações de largura de banda de rede podem afetar a replicação. Resolva pr
 
 1. Para verificar o estado de funcionamento da replicação, ligar para a consola do Gestor de Hyper-V no local, em seguida, selecione a VM e verificar o estado de funcionamento.
 
-    ![Estado de funcionamento de replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
+    ![Estado de funcionamento da replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
     
 
 2. Clique em **Ver estado de funcionamento de replicação** para ver os detalhes:
@@ -110,9 +110,9 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 5. Verifique que o serviço de cópia de segurança está ativado. Certifique-se de que está ativada no **definições de Hyper-V** > **Integration Services**.
 6. Certifique-se de que não existam conflitos com as aplicações de obtenção de instantâneos do VSS. Pode ocorrer se várias aplicações estão a tentar tirar instantâneos do VSS à mesmo entra em conflito do tempo. Por exemplo, se uma aplicação de cópia de segurança é tirar instantâneos do VSS quando o Site Recovery está agendado pela sua política de replicação para tirar um instantâneo.   
 7. Verifique se a VM está a ter uma elevada taxa de alteração:
-    - Pode medir a taxa de alteração de dados diária para as VMs de convidado, utilizando os contadores de desempenho no anfitrião de Hyper-V. Para medir a taxa de alteração de dados, ative o seguinte contador. Aggregrate um exemplo deste valor em todos os discos VM para 5 a 15 minutos, para obter o volume de alterações VM.
-        - Categoria: "dispositivo de armazenamento Virtual do Hyper-V"
-        - Contador: "escrever Bytes / seg"</br>
+    - Pode medir a taxa de alteração de dados diária para as VMs de convidado, utilizando os contadores de desempenho no anfitrião de Hyper-V. Para medir a taxa de alteração de dados, ative o seguinte contador. Agrega um exemplo deste valor em todos os discos VM para 5 a 15 minutos, para obter o volume de alterações VM.
+        - Categoria: "Dispositivo de armazenamento Virtual do hyper-V"
+        - Contador: "Escrever Bytes / seg"</br>
         - Essa taxa de alterações a dados irá aumentar ou permanecem num alto nível, consoante o estado de disponibilidade da VM ou de seus aplicativos estão.
         - O alterações de dados do disco de origem média é de 2 MB/s para o armazenamento standard para o Site Recovery. [Saiba mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Além disso, pode [Verifique se os destinos de escalabilidade de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 1. Verifique os registos de eventos para erros VSS e recomendações:
     - No servidor de anfitrião do Hyper-V, abra o registo de eventos do administrador do Hyper-V no **Visualizador de eventos** > **registos de serviços e aplicações** > **Microsoft**  >  **Windows** > **Hyper-V** > **administrador**.
     - Verifique se existem quaisquer eventos que indicam a falhas de instantâneo consistente da aplicação.
-    - Um erro típico é: "Falha de Hyper-V gerar o conjunto de instantâneos do VSS para a máquina virtual"XYZ": O escritor Ocorreu um erro de não transitórias. Reiniciar o serviço VSS poderá resolver problemas se o serviço não está a responder."
+    - Um erro típico é: "Hyper-V não foi possível gerar o conjunto de instantâneos do VSS para a máquina virtual"XYZ": O escritor Ocorreu um erro de não transitórias. Reiniciar o serviço VSS poderá resolver problemas se o serviço não está a responder."
 
 2. Para gerar instantâneos do VSS para a VM, verifique que os serviços de integração do Hyper-V estão instalados na VM e que o serviço de integração de cópia de segurança (VSS) está ativado.
     - Certifique-se de que o serviço de VSS de serviços de integração/daemons estão em execução no convidado e estão numa **OK** estado.
@@ -136,7 +136,7 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 
 **Código de erro** | **mensagem** | **Detalhes**
 --- | --- | ---
-**0x800700EA** | "Não conseguiu gerar o conjunto de instantâneos do VSS para a máquina virtual de Hyper-V: estão disponíveis mais dados. (0x800700EA). Geração de conjunto de instantâneos do VSS pode falhar se a operação de cópia de segurança está em curso.<br/><br/> Operação de replicação para a máquina virtual falhou: estão disponíveis mais dados. " | Verifique se a VM tem o disco dinâmico ativado. Tal não é suportado.
+**0x800700EA** | "Não conseguiu gerar o conjunto de instantâneos do VSS para a máquina virtual de Hyper-V: Estão disponíveis mais dados. (0x800700EA). Geração de conjunto de instantâneos do VSS pode falhar se a operação de cópia de segurança está em curso.<br/><br/> Falha na operação de replicação para a máquina virtual: Estão disponíveis mais dados." | Verifique se a VM tem o disco dinâmico ativado. Tal não é suportado.
 **0x80070032** | "Não conseguiu ligar à máquina virtual de solicitante de cópia de sombra de Volume de Hyper-V <. / VMname > porque a versão não corresponde a versão esperada pelo Hyper-V | Verifique se as atualizações mais recentes do Windows estão instaladas.<br/><br/> [Atualizar](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) para a versão mais recente do Integration Services.
 
 

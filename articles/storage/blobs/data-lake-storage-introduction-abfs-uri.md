@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e596123cb218a542166d80b53916a73034f71760
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975257"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243322"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize a geração 2 Lake armazenamento de dados do Azure URI
 
@@ -33,7 +33,7 @@ Se a conta com capacidade de geração 2 de armazenamento do Data Lake desejo ab
 
 3. **Nome da conta**: O nome dado à sua conta de armazenamento durante a criação.
 
-4. **Caminhos**: uma barra delimitados por (`/`) representação da estrutura de diretório.
+4. **Caminhos**: Uma barra delimitados por (`/`) representação da estrutura de diretório.
 
 5. **Nome de ficheiro**: O nome do ficheiro individual. Este parâmetro é opcional, se esteja Solucionando um diretório.
 
@@ -41,7 +41,7 @@ No entanto, se a conta que desejo abordar é definida como o sistema de ficheiro
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Caminho**: uma barra delimitados por (`/`) representação da estrutura de diretório.
+1. **Caminho**: Uma barra delimitados por (`/`) representação da estrutura de diretório.
 
 2. **Nome do ficheiro**: O nome do ficheiro individual.
 

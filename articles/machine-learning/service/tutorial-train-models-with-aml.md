@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para preparar um modelo de classificação de imagens com scikit-learn num bloco de notas do Jupyter em Python. Este tutorial é a primeira parte de uma série composta por duas partes.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ed5e506e5bb38e6c11c3d8ecd52c85d4f21cf1f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828262"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242931"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
 

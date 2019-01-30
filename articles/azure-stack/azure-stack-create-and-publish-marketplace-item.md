@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104102"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243645"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar itens do Marketplace
 
@@ -100,7 +101,7 @@ ms.locfileid: "54104102"
 
    | Parâmetro | Descrição |
    | --- | --- |
-   | subscriptionID |ID de subscrição de administrador. Pode recuperá-la com o PowerShell. Se desejar para obtê-la no portal, vá para a subscrição do fornecedor e copie o ID de subscrição. |
+   | SubscriptionID |ID de subscrição de administrador. Pode recuperá-la com o PowerShell. Se desejar para obtê-la no portal, vá para a subscrição do fornecedor e copie o ID de subscrição. |
    | GalleryItemUri |URI de blob para o seu pacote de galeria que já foi carregada para o armazenamento. |
    | Apiversion |Defina como **2015-04-01**. |
 
@@ -128,15 +129,15 @@ ms.locfileid: "54104102"
 
 ### <a name="identity-information"></a>Informações de identidade
 
-| Nome | Necessário | Tipo | Restrições | Descrição |
+| Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Nome |X |Cadeia |[A-Za-z0-9]+ | |
+| Name |X |Cadeia |[A-Za-z0-9]+ | |
 | Publicador |X |Cadeia |[A-Za-z0-9]+ | |
 | Versão |X |Cadeia |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadados
 
-| Nome | Necessário | Tipo | Restrições | Descrição |
+| Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
 | Nome a Apresentar |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item corretamente se for mais de 80 carateres. |
 | PublisherDisplayName |X |Cadeia |Recomendação de 30 carateres |O portal pode não apresentar o nome do publicador corretamente se ele tiver mais de 30 carateres. |
@@ -149,7 +150,7 @@ ms.locfileid: "54104102"
 
 O Marketplace utiliza os ícones seguintes:
 
-| Nome | Largura | Altura | Notas |
+| Name | Largura | Altura | Notas |
 | --- | --- | --- | --- |
 | Ampla |255 px |115 px |Sempre necessária |
 | Grande |115 px |115 px |Sempre necessária |
@@ -165,7 +166,7 @@ Cada item do Marketplace deve ser etiquetado com uma categoria que identifica on
 
 Cada item do Marketplace pode incluir várias ligações para conteúdo adicional. As ligações são especificadas como uma lista de nomes e URIs:
 
-| Nome | Necessário | Tipo | Restrições | Descrição |
+| Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
 | Nome a Apresentar |X |Cadeia |Máximo de 64 carateres | |
 | URI |X |URI | | |
@@ -174,10 +175,10 @@ Cada item do Marketplace pode incluir várias ligações para conteúdo adiciona
 
 Além dos metadados anterior, os autores de Marketplace podem fornecer dados de par chave/valor personalizado no seguinte formato:
 
-| Nome | Necessário | Tipo | Restrições | Descrição |
+| Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
 | Nome a Apresentar |X |Cadeia |Máximo de 25 caracteres | |
-| Valor |X |Cadeia |Máximo de 30 carateres | |
+| Value |X |Cadeia |Máximo de 30 carateres | |
 
 ### <a name="html-sanitization"></a>Limpeza de HTML
 

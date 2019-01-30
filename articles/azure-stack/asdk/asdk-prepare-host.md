@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615403"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249753"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Preparar o computador do anfitrião ASDK
 Antes de poder instalar o ASDK no computador anfitrião, o ambiente de ASDK deve estar preparado para a instalação. Quando o computador de anfitrião do kit de desenvolvimento foi preparado, ele será inicializado do disco de rígido da máquina virtual CloudBuilder.vhdx para iniciar a implantação de ASDK.
@@ -52,8 +53,8 @@ Antes de poder instalar o ASDK no computador anfitrião, o ambiente de computado
     ![](media/asdk-prepare-host/2.PNG)
 
 6. Sobre o **definições opcionais** , indique o administrador local informações para o computador de anfitrião do kit de desenvolvimento de conta e, em seguida, clique em **próxima**. Também pode fornecer valores para as seguintes definições opcionais:
-  - **ComputerName**: esta opção define o nome para o anfitrião do kit de desenvolvimento. O nome tem de cumprir os requisitos de FQDN e tem de ser 15 caracteres ou menos. A predefinição é um nome de computador aleatório gerado pelo Windows.
-  - **Configuração de IP estático**: define a sua implementação utilizar um endereço IP estático. Caso contrário, quando o instalador reinicia no cloudbuilder.vhdx, as interfaces de rede são configuradas com DHCP.
+  - **ComputerName**: Esta opção define o nome para o anfitrião do kit de desenvolvimento. O nome tem de cumprir os requisitos de FQDN e tem de ser 15 caracteres ou menos. A predefinição é um nome de computador aleatório gerado pelo Windows.
+  - **Configuração de IP estático**: Define a sua implementação utilizar um endereço IP estático. Caso contrário, quando o instalador reinicia no cloudbuilder.vhdx, as interfaces de rede são configuradas com DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)
 

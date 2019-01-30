@@ -3,18 +3,18 @@ title: Gerir segredos da aplicação do Azure Service Fabric malha | Documentos 
 description: Gerir segredos da aplicação para que possa criar e implementar uma aplicação de malha do Service Fabric em segurança.
 services: service-fabric-mesh
 keywords: segredos
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893523"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236756"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos da aplicação do Service Fabric malha
 Malha do Service Fabric suporta segredos como recursos do Azure. Um segredo de malha do Service Fabric pode ser qualquer informação de texto confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como utilizar o serviço de Store seguro do Service Fabric para implementar e manter segredos.
@@ -183,7 +183,7 @@ Segue-se um exemplo de como declarar os recursos de malha segredos/valores num f
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Modificar a aplicação de malha para fazer referência a valores de segredo de malha
 Malha de recursos de infraestrutura do serviço de aplicações tem de ter em consideração as seguintes cadeias de caracteres de dois para poder consumir valores do Secure Store segredo do serviço:
-1. Micrsoft.ServiceFabricMesh/Secrets.name contém o nome do ficheiro e conterá o valor de segredos em texto não encriptado.
+1. Microsoft.ServiceFabricMesh/Secrets.name contém o nome do ficheiro e conterá o valor de segredos em texto não encriptado.
 2. A variável de ambiente Windows ou Linux "Fabric_SettingPath" contém o caminho do diretório para onde os ficheiros que contém os valores de proteger segredos de serviço de Store estarão acessíveis. Este é o "C:\Settings" para alojado no Windows e "/ var/settings" para aplicações de malha alojado no Linux, respetivamente.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Implementar ou utilizar uma atualização sem interrupção para a aplicação de malha para consumir valores secretos
@@ -202,8 +202,8 @@ az mesh deployment create –-<template-file> or --<template-uri>
 Transmitir o **arquivo de modelo** ou **uri de modelo** (mas não ambos).
 
 Por exemplo:
-- implementação de malha AZ criar--c:\MyMeshTemplates\SecretTemplate1.txt
-- create a implementação de malha de AZ- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
+- az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Mostrar um segredo
 Devolve a descrição do segredo (mas não o valor).

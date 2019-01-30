@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959201"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245689"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Alterar o proprietário de uma subscrição de utilizador do Azure Stack
 
@@ -28,7 +29,7 @@ Operadores do Azure Stack podem utilizar o PowerShell para alterar o proprietár
 
 Existem dois tipos de *proprietários* que são atribuídas a uma subscrição:
 
-- **Proprietário de faturação**: por predefinição, o proprietário de faturação é a conta de utilizador que obtém a subscrição a partir de uma oferta e, em seguida, é o proprietário da relação de faturação para essa subscrição. Esta conta também é um administrador da subscrição. Apenas uma conta de utilizador pode ter essa designação sobre uma subscrição. Um proprietário de faturação, muitas vezes, é um líder de organização ou equipa. 
+- **Proprietário de faturação**: Por predefinição, o proprietário de faturação é a conta de utilizador que obtém a subscrição a partir de uma oferta e, em seguida, é o proprietário da relação de faturação para essa subscrição. Esta conta também é um administrador da subscrição. Apenas uma conta de utilizador pode ter essa designação sobre uma subscrição. Um proprietário de faturação, muitas vezes, é um líder de organização ou equipa. 
 
   Utilize o cmdlet PowerShell do [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) para alterar o proprietário de faturação.  
 

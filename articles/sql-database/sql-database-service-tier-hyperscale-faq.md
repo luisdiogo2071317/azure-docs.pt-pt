@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242165"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240663"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -73,7 +73,7 @@ A camada de serviços de Hiperescala foi criada primariamente para os clientes q
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Que regiões atualmente suportam grande escala
 
-Hiperescala está atualmente disponível para bases de dados individuais nas seguintes regiões: US1 oeste, E.u.a. oeste2, US1 leste, E.U.A. Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, Sudeste asiático, leste do Japão, Coreia Central, Sudeste da Austrália e leste da Austrália.
+Hiperescala está atualmente disponível para bases de dados individuais nas seguintes regiões:  US1 oeste, E.u.a. oeste2, US1 leste, E.U.A. Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, Sudeste asiático, leste do Japão, Coreia Central, Austrália Sudeste e leste da Austrália.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Pode criar várias bases de dados de grande dimensão por servidor lógico
 
@@ -98,7 +98,7 @@ Hiperescala de base de dados SQL fornece uma rápida escalabilidade com base na 
 
 ## <a name="deep-dive-questions"></a>Perguntas de aprofundamento
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>Posso combinar Hiperescala e bases de dados individuais um meu servidor lógico
+### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Posso combinar ligações Hiperescala e bases de dados individuais no meu servidor lógico
 
 Sim, pode.
 

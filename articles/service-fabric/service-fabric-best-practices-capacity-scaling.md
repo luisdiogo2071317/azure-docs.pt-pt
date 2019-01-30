@@ -14,16 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: ff58cc713a6aba211f9eeb1dc42912d21c5b0bdb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914120"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240408"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planejamento de capacidade e dimensionamento
 
 Antes de criar qualquer cluster do Azure Service Fabric ou dimensionar os recursos de computação que aloja o seu cluster, é importante planear a capacidade. Para obter mais informações sobre o planeamento de capacidade, consulte [planear a capacidade de cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Para além de considerar as características de Cluster e Nodetype, planeie para dimensionar as operações a demorar mais do que uma hora para concluir para um ambiente de produção, independentemente do número de VMs que está a adicionar.
+
+## <a name="auto-scaling"></a>Dimensionamento Automático
+Operações de dimensionamento devem ser realizada por meio de implementação do modelo de recurso do Azure, porque é uma prática recomendada de tratar [configurações de recursos como código]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)e usando o conjunto de dimensionamento de Máquina Virtual dimensionamento automático irá resultar em seu contagens de instâncias de definir com versão do modelo do Resource Manager assinalados definição de dimensionamento de máquinas virtuais aumentar o risco de Implantações futuras, fazendo com que as operações de dimensionamento não-intencionais e, em geral deverá usar o dimensionamento automático, se:
+
+* Implementar modelos do Resource Manager com capacidade adequada declarada não suporta o seu caso de utilização.
+  * Além de dimensionamento manual, pode configurar uma [integração contínua e o Pipeline de entrega nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), que normalmente é acionado por uma aplicação lógica que utiliza métricas de desempenho da máquina virtual consultadas a partir [API de REST do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); efetivamente o dimensionamento automático com base em qualquer métricas desejar, durante a otimização para o Azure Resource Manager de valor agregado.
+* Só precisa de dimensionar horizontalmente 1 nó de conjunto de dimensionamento de máquina virtual ao mesmo tempo.
+  * Para aumentar horizontalmente por 3 ou mais nós ao mesmo tempo, deve [dimensionar um cluster do Service Fabric out ao adicionar um conjunto de dimensionamento de Máquina Virtual](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), e é mais segura reduzir horizontalmente e o dimensionamento de máquinas virtuais define horizontalmente 1 nó por vez.
+* Tem em confiabilidade Silver ou superior para o seu Cluster do Service Fabric e durabilidade Silver ou superior em qualquer escala conjunto configurar regras de dimensionamento automático.
+  * Capacidade de regras de dimensionamento automático [mínima] tem de ser igual ou maior do que 5 instâncias da máquina virtual e tem de ser igual ou maior do que o mínimo de escalão de fiabilidade para o seu tipo de nó primário.
+
+> [!NOTE]
+> Recursos de infraestrutura de serviço com estado do Azure Service Fabric: / sistema/InfastructureService/< NODE_TYPE_NAME >, é executado em cada tipo de nó que tem Silver ou proporcionar uma durabilidade elevada, que é o único serviço de sistema, que é suportado para ser executado no Azure em qualquer um dos seus tipos de nós de clusters . 
 
 ## <a name="vertical-scaling-considerations"></a>Considerações sobre o dimensionamento vertical
 
@@ -150,10 +163,10 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="reliability-levels"></a>Níveis de confiabilidade
 
 O [nível de fiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) é uma propriedade do seu recurso de Cluster do Service Fabric e não pode ser configurado de forma diferente para nodeTypes individuais. Ele controla o fator de replicação de serviços do sistema para o cluster e é uma definição ao nível do recurso de cluster. O nível de fiabilidade determinará o número mínimo de nós que seu tipo de nó primário tem de ter. O escalão de fiabilidade pode realizar os seguintes valores:
-* Platinum - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de sete
-* Ouro - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de sete
-* Silver - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de cinco
-* Bronze – executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de três
+* Platinum - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de nós de semente de sete e nove.
+* Ouro - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de sete e sete nós de semente.
+* Silver - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de nós de semente de cinco e cinco.
+* Bronze - executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de três e três nós de semente.
 
 O nível de fiabilidade recomendada mínimo é Silver.
 

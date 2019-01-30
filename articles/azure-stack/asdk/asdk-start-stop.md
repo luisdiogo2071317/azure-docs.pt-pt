@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: e0b830a8c785ecab7e8f0e90cf9b9a702cbf25db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963594"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250695"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Iniciar e parar o Azure Stack Development Kit (ASDK)
 Não é recomendado para simplesmente reiniciar o computador de anfitrião ASDK. Em vez disso, deve seguir os procedimentos neste artigo para encerrar e reiniciar serviços ASDK adequadamente. 

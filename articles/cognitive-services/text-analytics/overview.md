@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42477a69616024ae9564d3665a47ff00161ea792
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451057"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227884"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 
@@ -66,7 +66,7 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5000 carateres para cada documento; se precisar de analisar documentos maiores, poderá dividi-los em segmentos mais pequenos. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
 
-| Limite | Valor |
+| Limite | Value |
 |------------------------|---------------|
 | Tamanho máximo de um documento único | 5000 carateres como medido pelas [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |

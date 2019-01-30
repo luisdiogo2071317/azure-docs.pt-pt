@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d8c4d28d6f5fdcc66e512375448f4b1d5fc9b8ed
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 8f27eb7ad9d2442c777ddee35ac61e449a520f26
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359175"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249770"
 ---
 # <a name="azure-stack-registration"></a>Registo do Azure Stack
 Pode registrar sua instalação do Azure Stack Development Kit (ASDK) com o Azure para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a distribuição de mercado. Registro é necessário para que possa testar a funcionalidade importante do Azure Stack, como relatórios de utilização e distribuição de mercado. Depois de registar o Azure Stack, a utilização é comunicada ao Azure commerce. Pode vê-lo sob a subscrição utilizada para o registo. No entanto, os utilizadores ASDK para não são cobrados qualquer utilização que reportam.

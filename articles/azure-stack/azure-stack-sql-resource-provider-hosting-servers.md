@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362063"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239473"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -62,7 +63,7 @@ Existem outras opções para implementar VMs de SQL, incluindo modelos no [Galer
 Pode criar um utilizador administrativo com privilégios mais baixos de um sysadmin do SQL. O utilizador precisa apenas de permissões para as seguintes operações:
 
 * Base de dados: Criar, Alter, com Containment (para sempre em única), remover, de cópia de segurança
-* Grupo de disponibilidade: Alter, associe-se, adicionar ou remover base de dados
+* Grupo de disponibilidade: ALTER, associe-se, adicionar ou remover base de dados
 * Início de sessão: Criar, selecionar, Alter, Drop, revogar
 * Operações Select: \[mestre\].\[ SYS\].\[ availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[mestre\].\[ SYS\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[mestre\].\[ SYS\].\[ availability_groups\] (AlwaysOn), master_files
 
@@ -86,7 +87,7 @@ Para adicionar um servidor de hospedagem independente que já está configurado,
 
 2. Selecione **todos os serviços** &gt; **recursos administrativos** &gt; **servidores de alojamento de SQL**.
 
-   ![Servidores de alojamento de SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Sob **servidores de alojamento de SQL**, pode ligar-se o fornecedor de recursos do SQL para instâncias do SQL Server que irá servir como back-end do fornecedor de recursos.
 

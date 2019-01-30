@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
-ms.component: common
-ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631367"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247804"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida (pré-visualização) de armazenamento de Blobs do Azure
 
@@ -136,7 +136,7 @@ Cada regra na política requer três parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas |
 |----------------|----------------|-------|
-| Nome           | Cadeia | Um nome de regra pode incluir qualquer combinação de carateres alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas. Tem de ser exclusivo dentro de uma política. |
+| Name           | Cadeia | Um nome de regra pode incluir qualquer combinação de carateres alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas. Tem de ser exclusivo dentro de uma política. |
 | tipo           | Um valor de enumeração | O valor válido para a pré-visualização é `Lifecycle`. |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é constituída por um conjunto de filtros e um conjunto de ação. |
 

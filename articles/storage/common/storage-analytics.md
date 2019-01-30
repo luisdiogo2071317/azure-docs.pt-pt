@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231016"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239779"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -99,7 +99,7 @@ Todos os blobs de registo são armazenados com metadados que podem ser utilizado
 | Atributo | Descrição |
 | --- | --- |
 | LogType |Descreve se o registo contém informações relativas à leitura, gravação ou operações de eliminação. Este valor pode incluir um tipo ou uma combinação de todos os três, separados por vírgulas. Exemplo 1: escrever; Exemplo 2: ler, escrever; Exemplo 3: leitura, escrita e eliminação. |
-| startTime |A primeira hora de uma entrada no registo, o formato AAAA-MM-: ssZ. Por exemplo: 2011-07-31T18:21:46Z. |
+| StartTime |A primeira hora de uma entrada no registo, o formato AAAA-MM-: ssZ. Por exemplo: 2011-07-31T18:21:46Z. |
 | endTime |O tempo mais recente de uma entrada no registo, o formato AAAA-MM-: ssZ. Por exemplo: 2011-07-31T18:22:09Z. |
 | LogVersion |A versão do formato de registo. Atualmente, o único valor suportado é 1.0. |
 
