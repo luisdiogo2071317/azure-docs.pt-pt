@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48873996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205119"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -57,7 +57,7 @@ Sim. O fluxo de tráfego ao iniciar seria do dispositivo local para o Microsoft 
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>As VNets spoke ligadas a um hub virtual podem comunicar entre si?
 
-Sim. Pode fazer diretamente o peering de VNet entre spokes que estejam ligados a um hub virtual. Para obter mais informações, veja [Peering de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md).
+Sim. Falava VNets podem comunicar diretamente através do Peering de rede Virtual. No entanto, não suportamos a VNets comunicar modo transitivo através do hub. Para obter mais informações, veja [Peering de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Posso implementar e utilizar a minha aplicação virtual de rede favorita (numa VNet de NVA) com a WAN Virtual do Azure?
 

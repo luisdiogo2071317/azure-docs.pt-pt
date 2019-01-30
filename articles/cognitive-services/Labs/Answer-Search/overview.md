@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 54438a99a710a24daac9e7482cb92a9781d06746
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220200"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Respostas do Projeto?
 A API de Pesquisa de Respostas do Projeto utiliza o ponto final do Bing v7 para obter respostas para consultas interrogativas. Uma pergunta como “Qual é a circunferência da terra?” devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa devolve informações sobre a entidade identificada pela consulta. Estes cenários podem ser úteis em aplicações, como bots de conversação, aplicações de mensagens, leitores, etc.  

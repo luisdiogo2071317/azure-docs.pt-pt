@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 8ee57bf101b432049d895b65a1dc7641653c7f21
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d2f831da0106bce2c83ee8b0ff3588f721f3ffe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105462"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207807"
 ---
 # <a name="expressroute-global-reach-preview"></a>Alcance Global do ExpressRoute (pré-visualização)
 O ExpressRoute é uma forma privada e resiliente para ligar as suas redes no local para a Cloud da Microsoft. Pode aceder muitos serviços cloud da Microsoft, como o Azure, Office 365 e Dynamics 365 a partir do seu centro de dados privada ou a sua rede empresarial. Por exemplo, pode ter uma filial em são Francisco com um circuito do ExpressRoute no vale do silício e outra sucursal em Londres com um circuito do ExpressRoute na mesma cidade. Ambas as filiais podem ter conectividade de alta velocidade para recursos do Azure em E.u.a. oeste e sul do Reino Unido. No entanto, as filiais não podem trocar dados diretamente entre si. Em outras palavras, 10.0.1.0/24 pode enviar dados para 10.0.3.0/24 e 10.0.4.0/24, mas não a 10.0.2.0/24.
@@ -33,10 +33,12 @@ Alcance Global do ExpressRoute foi concebido para complementar a implementação
 Alcance Global do ExpressRoute atualmente é suportada nos seguintes locais.
 
 * Austrália
+* Canadá
 * França
 * RAE de Hong Kong
 * Irlanda
 * Japão
+* Coreia
 * Países Baixos
 * Kindom Unido
 * Estados Unidos

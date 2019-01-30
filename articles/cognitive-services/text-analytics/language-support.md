@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 63c8ebe8eda049a770cecfd445757e4b5a2de1ea
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067046"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216936"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de idioma e região para a API de análise de texto
 
@@ -33,7 +33,7 @@ Para a análise de sentimentos, extração de expressões-chave e reconhecimento
 
 Suporte de idiomas é inicialmente lançado em pré-visualização, graduando para disponibilidade geral (GA) do Estado, independentemente uns dos outros e do serviço de análise de texto geral. É possível para idiomas permaneça na pré-visualização, mesmo durante as transições de API de análise de texto para disponibilidade geral.
 
-| Idioma    | Código do idioma | Sentimento | Frases-chave | Reconhecimento de entidades |   Notas  |
+| Idioma    | Código do idioma | Sentimento | Frases-chave | Reconhecimento de entidade |   Notas  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Dinamarquês      | `da`          | ✔ \*     | ✔           |             |     |
 | Neerlandês       | `nl`          | ✔ \*     | ✔          |             |     |

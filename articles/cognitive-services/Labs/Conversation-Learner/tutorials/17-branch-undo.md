@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d57270a4db2129370da7336d8a7bf012848890c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796846"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206735"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Como utilizar operações de desfazer e de ramificação
 Neste tutorial, iremos abordará desfazer e operações de ramificação.

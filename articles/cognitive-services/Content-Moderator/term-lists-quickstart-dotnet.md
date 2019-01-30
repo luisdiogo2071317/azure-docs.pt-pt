@@ -6,18 +6,18 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: af65fffaf864fd4d5b7123b4c6b66644ef6624e7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: b3b2d7fe3268846546d1727b62018d9ef5b409ce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310869"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219299"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Início rápido: Verifique o texto numa lista personalizada de termos em C#
+# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Início rápido: Texto de verificação em relação a uma lista de termo personalizado noC#
 
 A lista global predefinida de termos no Azure Content Moderator é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, poderá ter de filtrar termos que são específicos da sua organização. Por exemplo, poderá querer etiquetar nomes de concorrentes para nova revisão. 
 
@@ -447,6 +447,6 @@ Deleting term list with ID 252.
 Press ENTER to close the application.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

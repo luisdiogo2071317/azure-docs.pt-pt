@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: raynew
-ms.openlocfilehash: fef6dc7937b2c83e67a281c69267bdf29216793d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61e66a19b625141c69a9473373d3d5d808e18fde
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199142"
+ms.locfileid: "55211122"
 ---
-# <a name="whats-new-in-site-recovery"></a>O que há de novo no Site Recovery
+# <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço é atualizado e melhorado de forma contínua. Para ajudar a manter-se atualizado, este artigo fornece informações sobre as versões mais recentes, novos recursos e novo conteúdo. Esta página é atualizada regularmente.
 
@@ -59,7 +59,7 @@ Azure introduzido [unidades de estado sólido padrão (SSD)](https://docs.micros
 
 ### <a name="support-for-azure-storage-firewall"></a>Suporte para firewall de armazenamento do Azure
 
-Pode proteger contas de armazenamento do Azure para um conjunto específico de redes, Ativando a regras de firewall para a conta. Configurar contas de armazenamento para negar o tráfego de redes internas e a internet por padrão, em seguida, conceder acesso ao tráfego de VNets específico. Recuperação de sites suporta a replicação para as VMs com discos não geridos nas contas de armazenamento firewa habilitado para uma região secundária. Na região de destino, para discos não geridos, pode selecionar as contas de armazenamento com firewalls ativadas. Também pode restringir o acesso à conta de armazenamento de cache ao restringir o acesso de rede para apenas rede no qual as VMs de origem estão localizados. Tenha em atenção que tem [permitir o acesso](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para serviços Microsoft fidedignos.
+Pode proteger contas de armazenamento do Azure para um conjunto específico de redes, Ativando a regras de firewall para a conta. Configurar contas de armazenamento para negar o tráfego de redes internas e a internet por padrão, em seguida, conceder acesso ao tráfego de VNets específico. Recuperação de sites suporta a replicação para as VMs com discos não geridos nas contas de armazenamento de firewall ativada para uma região secundária. Na região de destino, para discos não geridos, pode selecionar as contas de armazenamento com firewalls ativadas. Também pode restringir o acesso à conta de armazenamento de cache ao restringir o acesso de rede para apenas rede no qual as VMs de origem estão localizados. Tenha em atenção que tem [permitir o acesso](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para serviços Microsoft fidedignos.
 
 ## <a name="q3-2018"></a>2018 P3 
 

@@ -11,16 +11,49 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: MT
+ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304107"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221322"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning. 
+
+## <a name="2019-01-28"></a>2019-01-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning SDK for Python v1.0.10
+
++ **Documentos de referência do SDK**: https://aka.ms/aml-sdk
+
++ **Alterações**: 
+  + SDK do Azure ML já não tem a dependência de pacotes de cli do azure. Especificamente, as dependências do azure-cli-core e do azure-cli-perfil foram removidas do azureml-core. Estes são o utilizador que afetem as alterações:
+    + Se estiver a executar "início de sessão az" e, em seguida, utilizar o sdk do azureml, o SDK fará o browser ou o início de sessão de código de dispositivo mais uma vez. Ele não usa nenhum Estado de credenciais criado por "início de sessão az".
+    + Para a autenticação de CLI do Azure, como o uso de "início de sessão az" usar _azureml.core.authentication.AzureCliAuthentication_ classe. Para a autenticação de CLI do Azure, fazer _cli do azure a instalação do pip_ no ambiente de Python em que instalou o sdk do azureml.
+    + Se estiver fazendo "az login" com um principal de serviço para a automatização, recomendamos que utilize _azureml.core.authentication.ServicePrincipalAuthentication_ de classe, como o sdk do azureml não utiliza o estado de credenciais criado pela CLI do azure. 
+
++ **Correções de erros**: Esta versão contém pequenas correções de erros
+
+### <a name="azure-machine-learning-data-prep-sdk-v108"></a>SDK v1.0.8 de preparação de dados do Azure Machine Learning
+
++ **Documentos de referência do SDK**: https://aka.ms/data-prep-sdk
+
++ **Correções de erros**
+  + Melhoraram significativamente o desempenho de obter os perfis de dados.
+  + Foram corrigidos erros secundários relacionadas com relatórios de erro.
+  
+### <a name="azure-portal-new-features"></a>Portal do Azure: novos recursos
++ Novo arrastar e soltar a experiência de criação de gráficos para relatórios. Os utilizadores podem arrastar uma coluna ou o atributo do poço para a área de gráfico em que o sistema irá selecionar automaticamente um tipo de gráfico adequada para o utilizador com base no tipo de dados. Os utilizadores podem alterar o tipo de gráfico para outros tipos de aplicável ou adicionar atributos adicionais.
+
+    Tipos de gráfico com suporte:
+    - Gráfico de Linhas
+    - Histograma
+    - Gráfico de barras empilhadas
+    - Gráfico de caixa
+    - Gráfico de Dispersão
+    - Gráfico de bolhas
 
 ## <a name="2019-01-14"></a>2019-01-14
 

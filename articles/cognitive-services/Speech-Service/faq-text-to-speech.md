@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: f8d80ab189d8ed1f4b153e81963ef31cc5f685b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470052"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228258"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas mais frequentes sobre o texto em voz
 
@@ -23,19 +23,19 @@ Se não conseguir encontrar respostas para suas perguntas neste FAQ, confira [ou
 
 ## <a name="general"></a>Geral
 
-**P: qual é a diferença entre um modelo de voz padrão e um modelo de voz personalizada?**
+**P: O que é a diferença entre um modelo de voz padrão e um modelo de voz personalizada?**
 
-**R**: O modelo de voz standard (também chamado de um *tipo de voz*) foi treinado, utilizando dados pertencentes à Microsoft e já estiver implementado na cloud. Pode utilizar um modelo de voz personalizada para adaptar um modelo de média e transferir o timbre e a expressão de estilo de voz do orador ou preparar um modelo completo, novo com base nos dados de treinamento preparados pelo utilizador. Atualmente, cada vez mais clientes desejam uma voz um do-única, com marca corporativa para os respetivos bots. A plataforma de criação de voz personalizada é a escolha certa para essa opção.
+**A**: O modelo de voz standard (também chamado de um *tipo de voz*) foi treinado, utilizando dados pertencentes à Microsoft e já estiver implementado na cloud. Pode utilizar um modelo de voz personalizada para adaptar um modelo de média e transferir o timbre e a expressão de estilo de voz do orador ou preparar um modelo completo, novo com base nos dados de treinamento preparados pelo utilizador. Atualmente, cada vez mais clientes desejam uma voz um do-única, com marca corporativa para os respetivos bots. A plataforma de criação de voz personalizada é a escolha certa para essa opção.
 
-**P: por onde começar se eu quiser usar um modelo de voz padrão?**
+**P: Por onde começar se eu quiser usar um modelo de voz padrão?**
 
-**A**: mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis por meio de solicitações HTTP. Primeiro, obtenha uma [chave de subscrição](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para fazer chamadas REST para os modelos de voz predeployed, consulte a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: Mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis por meio de solicitações HTTP. Primeiro, obtenha uma [chave de subscrição](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para fazer chamadas REST para os modelos de voz predeployed, consulte a [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**P: se eu quiser usar um modelo de voz personalizadas, é a API igual ao que é utilizado para vozes padrão?**
+**P: Se quiser utilizar um modelo de voz personalizadas, é a API igual ao que é utilizado para vozes padrão?**
 
-**A**: quando um modelo de voz personalizada é criado e implementado, receberá um ponto de extremidade exclusivo para seu modelo. Para utilizar a voz para falar nas suas aplicações, tem de especificar o ponto de extremidade nos seus pedidos HTTP. A mesma funcionalidade que está disponível na API REST para o serviço de texto em voz está disponível para o seu ponto final personalizado. Saiba como [criar e utilizar o seu ponto final personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**A**: Quando um modelo de voz personalizada é criado e implementado, receberá um ponto de extremidade exclusivo para o seu modelo. Para utilizar a voz para falar nas suas aplicações, tem de especificar o ponto de extremidade nos seus pedidos HTTP. A mesma funcionalidade que está disponível na API REST para o serviço de texto em voz está disponível para o seu ponto final personalizado. Saiba como [criar e utilizar o seu ponto final personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**P: é necessário preparar os dados de treinamento para criar modelos de voz personalizada no meu próprio?**
+**P: É necessário preparar os dados de treinamento para criar modelos de voz personalizada no meu próprio?**
 
 **A**: Sim, tem de preparar os dados de treinamento-se para um modelo de voz personalizada.
 
@@ -43,21 +43,21 @@ Uma coleção de dados de voz é necessário para criar um modelo de voz persona
 
 Atualmente, não fornecem suporte de gravação online nem ter quaisquer recomendações de studio de gravação. Para o requisito de formato, consulte [como preparar as gravações e transcrições](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
-**P: quais scripts deve usar para registrar os dados de voz para a formação de voz personalizada?**
+**P: Que scripts posso usar para gravar os dados de voz para a formação de voz personalizada?**
 
-**A**: não limitamos os scripts para gravação de voz. Pode utilizar os seus próprios scripts para registrar a conversão de voz. Certifique-se apenas de que tem cobertura fonética suficiente nos seus dados de voz. Para preparar uma voz personalizada, pode começar com um pequeno volume de dados de voz, o que podem ser 50 frases diferentes (cerca de 3 a 5 minutos de voz). Quanto mais dados fornecer, quanto mais natural será sua voz. Pode começar a preparar um tipo de voz completa, quando o utilizador fornecer gravações de mais de 2.000 frases (cerca de 3 a 4 horas de voz). Para obter uma alta qualidade, voz completa, terá de preparar gravações de mais de 6.000 frases (cerca de 8 a 10 horas de voz).
+**A**: Não limitamos os scripts para gravação de voz. Pode utilizar os seus próprios scripts para registrar a conversão de voz. Certifique-se apenas de que tem cobertura fonética suficiente nos seus dados de voz. Para preparar uma voz personalizada, pode começar com um pequeno volume de dados de voz, o que podem ser 50 frases diferentes (cerca de 3 a 5 minutos de voz). Quanto mais dados fornecer, quanto mais natural será sua voz. Pode começar a preparar um tipo de voz completa, quando o utilizador fornecer gravações de mais de 2.000 frases (cerca de 3 a 4 horas de voz). Para obter uma alta qualidade, voz completa, terá de preparar gravações de mais de 6.000 frases (cerca de 8 a 10 horas de voz).
 
 Podemos fornecer serviços adicionais para o ajudar a preparar os scripts para gravação. Contacte [suporte ao cliente de voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) para consultas.
 
 **P: E se eu precisar de simultaneidade mais elevada do que o valor predefinido ou o que está disponível no portal?**
 
-**A**: pode aumentar verticalmente o seu modelo em incrementos de 20 pedidos simultâneos. Contacte [suporte ao cliente de voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) para consultas sobre o dimensionamento superior.
+**A**: Pode aumentar verticalmente o seu modelo em incrementos de 20 pedidos simultâneos. Contacte [suporte ao cliente de voz personalizada](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) para consultas sobre o dimensionamento superior.
 
-**P: Posso transferir o meu modelo e executá-lo localmente?**
+**P: Pode transferir o meu modelo e executá-lo localmente?**
 
-**A**: modelos não podem ser baixados e executados localmente.
+**A**: Modelos não podem ser transferidos e executados localmente.
 
-**P: são os meus pedidos limitados?**
+**P: Os meus pedidos limitados?**
 
 **A**: A API REST limita os pedidos para 25 por 5 segundos. Pode encontrar detalhes em nossas páginas para [texto em voz](text-to-speech.md). 
 

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java'
+title: 'Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para Java'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e elimine objetos com o SDK do Java.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: d5dd481d32ede9a400def02d421a7cb8b816338a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 8012dd484e769041ea235c33c334bfbbf8580800
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279590"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207654"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para Java
 
 Este artigo apresenta informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de Visão Personalizada com o Java para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação de Java. 
 
@@ -99,7 +99,7 @@ Veja o resultado da consola para o registo e predição de resultados. Pode, em 
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora viu como cada passo do processo de deteção de objeto pode ser feito no código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 

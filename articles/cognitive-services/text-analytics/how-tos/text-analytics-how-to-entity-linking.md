@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230561"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220397"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
@@ -41,29 +41,29 @@ Através do entity linking em várias linguagens requer a utilização de uma ba
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos suportados para o reconhecimento de entidades
 
-| Tipo  | Subtipo | Exemplo |
+| Type  | Subtipo | Exemplo |
 |:-----------   |:------------- |:---------|
-| Pessoa        | N/D\*         | "Jeff", "Bill Gates"     |
-| Localização      | N/D\*         | "Redmond, Washington", "Paris"  |
-| Organização  | N/D\*         | "Microsoft"   |
-| Quantidade      | Number        | "6", "seis"     | 
+| Pessoa        | N/A\*         | "Jeff", "Bill Gates"     |
+| Localização      | N/A\*         | "Redmond, Washington", "Paris"  |
+| Organização  | N/A\*         | "Microsoft"   |
+| Quantidade      | Number        | "6", "six"     | 
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"| 
-| Quantidade      | Ordinal       | "2", "segunda"     | 
+| Quantidade      | Ordinal       | "2nd", "second"     | 
 | Quantidade      | NumberRange   | "4 a 8"     | 
 | Quantidade      | Idade           | 90 dias antigos"", "30 anos de idade"    | 
 | Quantidade      | Moeda      | "$10.99"     | 
 | Quantidade      | Dimensão     | "milhas 10", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/D\*         | "6 17:30, 4 de Fevereiro de 2012"      | 
+| DateTime      | N/A\*         | "6 17:30, 4 de Fevereiro de 2012"      | 
 | DateTime      | Date          | "2nd de Maio de 2017", "05/02/2017"   | 
-| Data Hora     | Hora          | "8 am", "8:00"  | 
+| Data e Hora     | Hora          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "2nd de Maio para 5 de Maio"    | 
-| DateTime      | timeRange     | "pm de 6 a 7 pm"     | 
+| DateTime      | TimeRange     | "pm de 6 a 7 pm"     | 
 | DateTime      | Duração      | "1 minuto e 45 segundos"   | 
 | DateTime      | Definir           | "cada terça-feira"     | 
 | DateTime      | TimeZone      |    | 
-| do IdP           | N/D\*         | "http://www.bing.com"    |
-| Email         | N/D\*         | "support@contoso.com" |
+| do IdP           | N/A\*         | "http://www.bing.com"    |
+| Email         | N/A\*         | "support@contoso.com" |
 \* Consoante as entidades de entrada e extraídas, determinadas entidades podem omitir o `SubType`.
 
 
@@ -89,7 +89,7 @@ Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (ID
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
@@ -104,13 +104,13 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
 A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: ver resultados
+## <a name="step-3-view-results"></a>Passo 3: Ver resultados
 
 Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 

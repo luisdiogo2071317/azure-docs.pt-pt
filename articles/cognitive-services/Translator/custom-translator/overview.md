@@ -1,22 +1,22 @@
 ---
-title: O que é o Translator personalizado?
+title: O que é o Tradutor Personalizado?
 titleSuffix: Azure Cognitive Services
 description: Tradutor personalizado oferece recursos semelhantes para o que o Microsoft Translator Hub faz para estatísticas tradução automática (SMT), mas exclusivamente para sistemas de tradução automática neuronal (NMT).
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e613f660d4d1abfd45b11d71c2abfda53331cc31
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874843"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211213"
 ---
-# <a name="what-is-custom-translator"></a>O que é o Translator personalizado?
+# <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
 [Tradutor personalizado](https://portal.customtranslator.azure.ai) é uma funcionalidade do serviço Microsoft Translator, que habilita as empresas de Microsoft Translator, os desenvolvedores de aplicativos, e personalizados, provedores de serviço de linguagem para criar sistemas de tradução automática neuronal (NMT). Os sistemas de tradução personalizados integrasse perfeitamente a aplicativos existentes, os fluxos de trabalho e Web sites. [Tradutor personalizado](https://portal.customtranslator.azure.ai/) oferece recursos semelhantes ao que [Hub do Microsoft Translator](https://hub.microsofttranslator.com/) faz para estatísticas tradução automática (SMT), mas exclusivamente para sistemas de tradução automática neuronal (NMT).
 

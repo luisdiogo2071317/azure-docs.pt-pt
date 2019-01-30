@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: e0c5139203b360be1eed2292d3ca07c9948b2ca5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d2408b894f58a17ab4f6423329114e0f0c0773c4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730871"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216307"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para Java
 
@@ -28,7 +28,7 @@ Para obter uma lista completa dos idiomas disponíveis para tradução de voz, c
 Este início rápido requer:
 
 * Sistema operativo: Windows de 64 bits ou 64 bits Ubuntu Linux 16.04/18.04
-* [Java de Eclipse IDE](https://www.eclipse.org/downloads/)
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
 
@@ -183,6 +183,6 @@ Exemplos adicionais, tais como ler voz de um arquivo de áudio e de saída do te
 
 ## <a name="see-also"></a>Consulte também
 
-- [Início rápido: Reconhecer a conversão de voz, Java (Windows, Linux)](quickstart-java-jre.md)
+- [Quickstart: Reconhecer a conversão de voz, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

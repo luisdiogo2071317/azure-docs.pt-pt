@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f4dbfae4bada77cf882f7249353a17defebf312e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844743"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209354"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização de tarefa do Stream Analytics e como monitorizar consultas
 
@@ -46,6 +46,8 @@ Será apresentada a janela conforme mostrado:
 | Erros de Tempo de Execução         | Número total de erros relacionados com o processamento de consultas (excluindo detetados erros durante a ingestão de eventos ou resultados outputing) |
 | % de utilização SU       | A utilização da unidade de transmissão em fluxo é atribuída a uma tarefa do separador escala da tarefa. Deve este indicador atingir 80% ou acima, há grande probabilidade de que o processamento de eventos poderá ser atrasado ou parado o progresso. |
 | Atraso de Marca de Água       | O atraso de limite de tamanho máximo todas as partições de todos os resultados da tarefa. |
+
+Pode usar essas métricas para [monitorizar o desempenho da sua tarefa do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalizar a monitorização no portal do Azure
 Pode ajustar o tipo de gráfico, métricas apresentadas e intervalo nas definições de editar gráfico de tempo. Para obter detalhes, consulte [como personalizar monitorização](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

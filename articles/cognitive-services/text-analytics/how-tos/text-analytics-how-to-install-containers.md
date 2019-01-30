@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c874bdd36813438edbb4546d3ee11705535d5d51
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969374"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207127"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
 
@@ -116,7 +116,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível na página de chaves de análise de texto do portal do Azure.  |
 |{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível na página de descrição geral da análise de texto do portal do Azure.|

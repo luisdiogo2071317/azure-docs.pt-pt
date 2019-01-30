@@ -1,25 +1,25 @@
 ---
-title: 'Exemplo: Detetar rostos em imagens – API Face'
+title: 'Exemplo: Detetar rostos em imagens - Face API'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API Face para detetar rostos em imagens.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124053"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214216"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: Como Detetar Rostos na Imagem
+# <a name="example-how-to-detect-faces-in-image"></a>Exemplo: Como detetar rostos na imagem
 
-Este guia demonstrará como detetar rostos numa imagem, com atributos faciais, como género, idade ou postura extraídos. Os exemplos são escritos em C# com a biblioteca de cliente da API Face. 
+Este guia demonstrará como detetar rostos numa imagem, com atributos faciais, como género, idade ou postura extraídos. Os exemplos foram escritos em C# com a biblioteca de cliente da API Face. 
 
 ## <a name="concepts"></a>Conceitos
 
@@ -40,7 +40,7 @@ Neste exemplo, vamos demonstrar as seguintes funcionalidades:
 
 Para executar estas funcionalidades, terá de preparar uma imagem com, pelo menos, um rosto claro. 
 
-## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada da API
+## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada de API
 
 Todas as chamadas para a API Face requerem uma chave de subscrição. Esta chave precisa de passar por um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido. Para passar a chave de subscrição através da cadeia de consulta, veja o URL do pedido para [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como exemplo:
 
@@ -49,12 +49,12 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription Key>
 ```
 
-Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP: **ocp-apim-subscription-key: &lt;Chave de Subscrição&gt;**  Quando utilizar uma biblioteca de cliente, a chave de subscrição é passada através do construtor da classe FaceServiceClient. Por exemplo:
+Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP: **ocp-apim-subscription-key: &lt;Chave de subscrição&gt;**  quando utilizar uma biblioteca de cliente, a chave de subscrição é passada por meio do construtor da classe FaceServiceClient. Por exemplo:
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Passo 2: Carregar uma imagem para o serviço e executar a deteção de rostos
+## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Passo 2: Carregar uma imagem para o serviço e execute a deteção de rostos
 
 A forma mais básica de executar a deteção de rostos é carregar uma imagem diretamente. Isso é feito ao enviar um pedido de "POST" com o tipo de conteúdo application/octet-stream, com os dados lidos a partir de uma imagem JPEG. O tamanho máximo da imagem são 4 MB.
 
@@ -90,7 +90,7 @@ foreach (var face in faces)
 
 A propriedade de FaceRectangle que é devolvida com rostos detetados é, essencialmente, localizações no rosto em pixéis. Geralmente, este retângulo contém os olhos, as sobrancelhas, o nariz e a boca – a parte superior da cabeça, as orelhas e o queixo não estão incluídos. Se recortar um retrato de cabeça completa ou um plano médio (uma imagem de tipo fotografia do ID), poderá querer expandir a área da moldura de rosto retangular porque a área do rosto pode ser demasiado pequena para algumas aplicações. Para localizar um rosto com maior precisão, utilizar pontos de referência do rosto (funcionalidades de localização no rosto ou mecanismos de direção de rosto) descritos na seguinte seção vai-se revelar útil.
 
-## <a name="step-3-understanding-and-using-face-landmarks"></a>Passo 3: Compreender e utilizar pontos de referência do rosto
+## <a name="step-3-understanding-and-using-face-landmarks"></a>Passo 3: Compreendendo e usando pontos de referência do rosto
 
 Os pontos de referência do rosto são uma série de pontos detalhados de um rosto; normalmente, os pontos dos componentes de rostos, como as pupilas, o canthus ou o nariz. Os pontos de referência do rosto são atributos opcionais que podem ser analisados durante a deteção de rostos. Pode passar 'true' como um valor booleano para o parâmetro de consulta returnFaceLandmarks ao chamar [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) ou utilizar o parâmetro opcional returnFaceLandmarks para o método DetectAsync classe FaceServiceClient de modo a incluir os pontos de referência do rosto nos resultados da deteção.
 
@@ -145,7 +145,7 @@ Vector faceDirection = new Vector(
 
 Ao saber a direção em que está o rosto, então pode girar a moldura retangular do rosto e alinhá-lo com o mesmo. É evidente que a utilização de pontos de referência do rosto pode oferecer mais detalhes e ser mais útil.
 
-## <a name="step-4-using-other-face-attributes"></a>Passo 4: Utilizar outros atributos faciais
+## <a name="step-4-using-other-face-attributes"></a>Passo 4: Utilizar outros atributos de rostos
 
 Além dos pontos de referência do rosto, a API Face – Detetar também pode analisar vários outros atributos num rosto. Estes atributos incluem:
 

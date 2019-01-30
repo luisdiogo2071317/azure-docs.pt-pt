@@ -1,17 +1,17 @@
 ---
 title: Ativar a replicação de VMs de VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como ativar a replicação de VMs de VMware para recuperação após desastre para o Azure com o Azure Site Recovery.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424159"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226338"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -86,18 +86,20 @@ Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o 
 
 1. Clique em **configurações** > **itens replicados** > e, em seguida, selecione a máquina. O **Essentials** página mostra informações sobre as definições da máquina e o estado.
 2. Em **Propriedades**, pode ver as informações de replicação e de ativação pós-falha da VM.
-3. Em **Computação e Rede** > **Propriedades de computação**, pode especificar o nome e o tamanho do destino da VM do Azure. Modifique o nome para atender aos requisitos do Azure, se necessário.
+3. Na **computação e rede** > **propriedades de computação**, pode alterar vários propoerties VM:
+* VM do Azure nome - modificar o nome para atender aos requisitos do Azure, se necessário
+* Tamanho de VM de destino ou tipo - a predefinição de tamanho da VM é escolhido com base na origem de tamanho da VM. Pode selecionar um tamanho VM diferente com base na necessidade de qualquer altura antes da ativação pós-falha. Tenha em atenção que o tamanho de disco da VM também se baseia no tamanho do disco de origem e apenas pode ser alterado após a ativação pós-falha. Obter mais informações sobre [padrão](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) e [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) IOPS e tamanhos de disco.
 
     ![Propriedades da rede e computação](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  Pode selecionar uma [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) do que uma máquina torna-se parte de uma após a ativação pós-falha. Pode alterar esta definição qualquer altura antes da ativação pós-falha. Após a ativação pós-falha, se migrar a máquina a um grupo de recursos diferente, as definições de proteção para essa garantia de reparação de máquina.
-5. Pode selecionar uma [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se seu computador tem de ser parte de uma após a ativação pós-falha. Enquanto estiver a selecionar um conjunto de disponibilidade, tenha em atenção que:
+*  Grupo de recursos - pode selecionar uma [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) do que uma máquina torna-se parte de uma após a ativação pós-falha. Pode alterar esta definição qualquer altura antes da ativação pós-falha. Após a ativação pós-falha, se migrar a máquina a um grupo de recursos diferente, as definições de proteção para essa garantia de reparação de máquina.
+* Conjunto de disponibilidade - pode selecionar uma [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se seu computador tem de ser parte de uma após a ativação pós-falha. Enquanto estiver a selecionar um conjunto de disponibilidade, tenha em atenção que:
 
     * São listados apenas conjuntos de disponibilidade que pertencem ao grupo de recursos especificado.  
     * As máquinas com redes virtuais diferentes, não podem ser uma parte do mesmo conjunto de disponibilidade.
     * Apenas as máquinas virtuais do mesmo tamanho pode ser uma parte de um conjunto de disponibilidade.
-5. Também pode ver e adicionar informações sobre a rede de destino, a sub-rede e o endereço IP atribuído à VM do Azure.
-6. Na **discos**, pode ver o sistema operativo e os discos de dados na VM a replicar.
+4. Também pode ver e adicionar informações sobre a rede de destino, a sub-rede e o endereço IP atribuído à VM do Azure.
+5. Na **discos**, pode ver o sistema operativo e os discos de dados na VM a replicar.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Configurar as redes e endereços IP
 
@@ -120,7 +122,7 @@ Saiba mais sobre [benefício híbrido do Azure](https://aka.ms/azure-hybrid-bene
 
 ## <a name="common-issues"></a>Problemas comuns
 
-* Cada disco deve ser inferior a 1 TB de tamanho.
+* Cada disco deve ter menos de 4 TB de tamanho.
 * O disco do SO deve ser um disco básico e não um disco dinâmico.
 * Para 2/preparado para UEFI máquinas virtuais de geração, a família do sistema operativo deve ser o Windows e o disco de arranque deve ser inferior a 300 GB.
 
@@ -128,4 +130,5 @@ Saiba mais sobre [benefício híbrido do Azure](https://aka.ms/azure-hybrid-bene
 
 Depois da proteção está concluída e a máquina atingiu um estado protegido, pode experimentar uma [ativação pós-falha](site-recovery-failover.md) para verificar se seu aplicativo é exibido no Azure ou não.
 
-Se pretender desativar a proteção, saiba como [limpar as definições de registo e a proteção](site-recovery-manage-registration-and-protection.md).
+* Saiba como [limpar as definições de registo e a proteção](site-recovery-manage-registration-and-protection.md) para desativar a replicação.
+* Saiba como [automatizar a replicação para as suas máquinas virtuais com o Powershell](vmware-azure-disaster-recovery-powershell.md)

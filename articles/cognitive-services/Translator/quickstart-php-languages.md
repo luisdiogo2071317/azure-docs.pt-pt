@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter idiomas suportados, PHP – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter idiomas suportados, PHP - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá obter uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário, e exemplos que utilizam a API de Texto do Microsoft Translator com PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e208e66c906531bb084438539c76e0a07c3caa9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 8bb3860f1ed81799640d81414f8e00b35585e168
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206838"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início Rápido: obter idiomas suportados com a API de Texto do Microsoft Translator (PHP)
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início rápido: Obter idiomas com suporte com a API de REST de texto de tradutor (PHP)
 
 Neste guia de introdução, obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário e exemplos que utilizam a API de Texto do Microsoft Translator.
 
@@ -172,7 +172,7 @@ fclose($out);
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

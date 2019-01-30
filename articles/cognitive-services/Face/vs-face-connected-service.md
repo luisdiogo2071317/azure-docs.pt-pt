@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: API Face com C#'
+title: 'Tutorial: API faceC#'
 titleSuffix: Azure Cognitive Services
 description: Crie uma aplicação do Windows simples que utilize a API Face dos Serviços Cognitivos para detetar características de rostos numa imagem.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129527"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209439"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ligar à API Face dos Serviços Cognitivos ao utilizar os Serviços Ligados no Visual Studio
 
@@ -243,6 +243,6 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 1. Selecione **Eliminar grupo de recursos**.
 1. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obtenha mais informações sobre a API Face ao ler a [Documentação da API Face](Overview.md).

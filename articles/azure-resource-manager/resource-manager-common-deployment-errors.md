@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 64af946c3f8f58808f1bca06f1ef21d92da8cda8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079176"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223566"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -71,7 +71,7 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 | RequestDisallowedByPolicy | A sua subscrição inclui uma política de recurso que impede uma ação que está a tentar efetuar durante a implementação. Localize a política que impede a ação. Se possível, modifique a implementação de acordo com as limitações da política. | [Resolver políticas](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclui um nome reservado. | [Nomes de recursos reservados](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Aguarde pela eliminação concluir. | |
-| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implementação. Já devem existir na sua subscrição. Verifique o contexto de subscrição. | [CLI do Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Verifique o nome do grupo de recursos de destino para a implementação. Já devem existir na sua subscrição. Verifique o contexto de subscrição. | [CLI do Azure](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | A implementação faz referência a um recurso que não pode ser resolvido. Certifique-se de que a utilização dos **referência** função inclui os parâmetros necessários para o seu cenário. | [Solucionar referências](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | A implementação está a tentar criar recursos excederem a quota para a subscrição, grupo de recursos ou região. Se possível, rever a sua infraestrutura para se manterem dentro as quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecione o SKU (por exemplo, o tamanho da VM) que está disponível para a localização que selecionou. | [Resolver SKU](resource-manager-sku-not-available-errors.md) |

@@ -10,18 +10,18 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 05216f62c45940c475f245c1b69c25219c438906
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc0a4d4ce13c4013d634748503f98451e5fae9be
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076269"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216161"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um fornecedor de identidade para utilizadores convidados B2B
 
 Ao configurar a Federação com o Google, pode permitir que os utilizadores convidados iniciar sessão sua aplicações partilhadas e recursos com as suas contas do Google, sem precisar criar Accounts da Microsoft (Msa) ou contas do Azure AD.  
 > [!NOTE]
-> Os utilizadores de convidado do Google tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino, por exemplo `https://myapps.microsoft.com/<tenant id>`. Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro.
+> Os utilizadores de convidado do Google tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou no caso de um domínio verificado padrão, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>O que é a experiência do utilizador de Google?
 Quando envia um convite para um utilizador de Google Gmail, o utilizador convidado deve acessar seus recursos através de uma ligação que inclui o contexto do inquilino ou aplicações partilhadas. Sua experiência varia consoante se eles já sessão iniciados para a Google:

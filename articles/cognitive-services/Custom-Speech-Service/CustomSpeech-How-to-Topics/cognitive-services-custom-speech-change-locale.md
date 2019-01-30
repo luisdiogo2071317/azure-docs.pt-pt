@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 8493aeb3c1c2436900ae626ad0f34cbe8b060163
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e5c1f7d9648f404512f366be4f4d16ea0cb0f778
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342173"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217123"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Regiões suportadas no serviço de voz personalizada
 
@@ -22,7 +22,7 @@ ms.locfileid: "49342173"
 
 O serviço de voz personalizada atualmente suporta a personalização dos modelos nas seguintes regiões:
 
-| Tipo de modelo | Suporte de idiomas |
+| Tipo de modelo | Suporte de Idiomas |
 |----|-----|
 | Modelos acústicos | Inglês dos Estados Unidos (en-US) |
 | Modelos de linguagem | Inglês dos Estados Unidos (en-US), chinês (zh-CN) |

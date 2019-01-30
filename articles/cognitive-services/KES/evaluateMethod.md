@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128269"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220778"
 ---
 # <a name="evaluate-method"></a>Avalie o método
 
@@ -27,12 +27,12 @@ Normalmente, uma expressão será obtida a partir de uma resposta para o método
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Nome|Valor|Descrição
+Name|Value|Descrição
 ----|----|----
 expr       | Cadeia de texto | Expressão de consulta estruturadas que seleciona um subconjunto de entidades de índice.
 Atributos | Cadeia de texto | Lista delimitada por vírgulas de atributos a serem incluídos na resposta.
 count      | Número (predefinição = 10) | Número máximo de resultados a devolver.
-deslocamento     | Número (predefinição = 0) | Índice do primeiro resultado a devolver.
+offset     | Número (predefinição = 0) | Índice do primeiro resultado a devolver.
 OrderBy |   Cadeia de texto | Nome do atributo utilizado para ordenar os resultados, seguidos por ordem de classificação opcional (predefinição = asc): "*attrname*[: (asc&#124;desc)]".  Se não for especificado, os resultados são devolvidos ao reduzir a probabilidade de registo natural.
 tempo limite  | Número (predefinição = 1000) | Tempo limite em milissegundos. Apenas os resultados calculados antes do tempo limite decorreu são devolvidos.
 

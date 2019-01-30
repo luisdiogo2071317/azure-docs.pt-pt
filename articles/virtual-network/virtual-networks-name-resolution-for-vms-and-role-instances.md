@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913169"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221203"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
@@ -157,7 +157,7 @@ Quando estiver a utilizar a resolução de nomes fornecida pelo Azure, Azure anf
 
 Se necessário, é possível determinar o sufixo DNS interno com o PowerShell ou a API:
 
-* Para redes virtuais em modelos de implementação Azure Resource Manager, o sufixo está disponível através do [REST API de interface de rede](/rest/api/virtualnetwork/networkinterfaces/get), o [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) cmdlet do PowerShell e o [show de nic de rede de az](/cli/azure/network/nic#az-network-nic-show) comando da CLI do Azure.
+* Para redes virtuais em modelos de implementação Azure Resource Manager, o sufixo está disponível através do [REST API de interface de rede](/rest/api/virtualnetwork/networkinterfaces), o [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) cmdlet do PowerShell e o [show de nic de rede de az](/cli/azure/network/nic#az-network-nic-show) comando da CLI do Azure.
 * Em modelos de implementação clássica, o sufixo está disponível através da [obter API de implementação](https://msdn.microsoft.com/library/azure/ee460804.aspx) chamar ou o [Get-AzureVM-depurar](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
 
 Se o reencaminhamento de consultas para o Azure não se adequar às suas necessidades, deve fornecer sua própria solução DNS. Sua solução DNS tem de:

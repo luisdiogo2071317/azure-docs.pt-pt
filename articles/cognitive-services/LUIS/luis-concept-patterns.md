@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ed7f50d51b46b9e6204522751fdc1a1e996442f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271526"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207586"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 

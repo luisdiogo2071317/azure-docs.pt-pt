@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar uma aplicação de Associação de Entidades – C#'
+title: 'Tutorial: Criar uma aplicação de ligação de entidade-C#'
 titlesuffix: Azure Cognitive Services
 description: Analise texto e associe entidades com nome a entradas relevantes numa base de dados de conhecimento ao utilizar a API de Associação de Entidades.
 services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365643"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216817"
 ---
-# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: Criar uma aplicação de Associação de Entidades com C#
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutorial: Criar uma aplicação de ligação da entidade comC#
 
 A Associação de Entidades da Microsoft é uma ferramenta de processamento de linguagem natural para analisar texto e associar entidades com nome a entradas relevantes numa base de dados de conhecimento. 
 
@@ -32,16 +32,16 @@ Este tutorial explora a associação de entidades ao utilizar a Biblioteca de Cl
 
 Pode transferir a Biblioteca de Cliente da API do Serviço de Inteligência de Associação de Entidades através do [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). O ficheiro zip transferido tem de ser extraído para uma pasta à sua escolha, vários utilizadores escolhem a pasta do Visual Studio 2015.
 
-### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Passo 1: subscrever o Serviço de Inteligência de Associação de Entidades e obter a chave</a>
+### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Passo 1: Subscrever Entity Linking Intelligence Service e obtenha a chave</a>
 Antes de utilizar o Serviço de Inteligência de Associação de Entidades, tem de se inscrever para uma chave de API. Veja [Subscrições](https://www.microsoft.com/cognitive-services/en-us/sign-up). Tanto a chave primária como a secundária podem ser utilizadas neste tutorial.
 
-### <a name="step-2-create-a-new-project-in-visual-studio"> Passo 2: criar um novo projeto no Visual Studio</a>
+### <a name="step-2-create-a-new-project-in-visual-studio"> Passo 2: Criar um novo projeto no Visual Studio</a>
 
 Comecemos por criar um novo projeto no Visual Studio. Em primeiro lugar, inicie o Visual Studio 2015 no Menu Iniciar. Em seguida, crie um novo projeto ao selecionar **Installed → Templates → Visual C# → Windows Universal → Blank App** (Instalado → Modelos → Visual C# → Universal do Windows → Aplicação em Branco) para o modelo do seu projeto:
 
  ![Criar uma aplicação universal](./Images/CreateUWP.png)
 
-### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Passo 3: adicionar o pacote NuGet de Associação de Entidades ao seu projeto</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">Passo 3: Adicionar o pacote de NuGet do Entity Linking ao seu projeto</a>
 
 A Associação de Entidades dos Serviços Cognitivos é disponibilizada como um pacote NuGet.org e tem de ser instalada antes de a poder utilizar.
 Para a adicionar ao seu projeto, aceda ao separador **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Gerir Pacotes Nuget**.
@@ -54,7 +54,7 @@ A Associação de Entidades está agora instalada como parte da sua aplicação.
 
  ![Biblioteca de NuGet incluída no projeto](./Images/NugetLibraryInProject.png)
  
-### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Passo 4: adicionar um bloco de texto de entrada e de saída ao código XAML da sua aplicação</a>
+### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Passo 4: Adicionar um bloco de texto de entrada e saída para o XAML da sua aplicação</a>
 Navegue até ao **MainPage.xaml** no **Explorador de Soluções** e faça duplo clique no ficheiro para o abrir numa nova janela. Para sua conveniência, pode fazer duplo clique no botão **XAML**, no separador **Estruturador**, para ocultar o **Estruturador Visual** e reservar todo o espaço para a vista de código.
 
  ![Biblioteca de NuGet incluída no projeto](./Images/UWPMainPage.png)
@@ -74,7 +74,7 @@ A melhor forma de visualizar as funcionalidades num serviço de texto é criar u
 </Grid>
  ```
  
-### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Passo 5: adicionar o Serviço de Inteligência de Associação de Entidades</a>
+### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">Passo 5: Adicionar Entity Linking Intelligence Service</a>
  
 A interface de utilizador foi criada. Antes de utilizar o Serviço de Associação de Entidades, é necessário adicionar o processador de clique no botão. Abra o ficheiro **MainPage.xaml** no **Explorador de Soluções**. Adicione o processador button_Click ao fim do botão.
  

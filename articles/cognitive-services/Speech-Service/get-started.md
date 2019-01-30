@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2317341d508f6e4f681c396f649179691f5485f3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208897"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -123,5 +123,5 @@ Criado para uma região de chaves são válidas apenas nessa região. A tentar u
 Execute um dos nossos inícios rápidos de 10 minutos ou consulte as nossas amostras SDK:
 
 > [!div class="nextstepaction"]
-> [Início rápido: Reconhecer voz em c#](quickstart-csharp-dotnet-windows.md)
-> [amostras do SDK de voz](speech-sdk.md#get-the-samples)
+> [Quickstart: Reconhecer voz em C# ](quickstart-csharp-dotnet-windows.md) 
+>  [amostras do SDK de voz](speech-sdk.md#get-the-samples)

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 54a92e56df21b59430ed12f191a9cf7a918e14c9
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612904"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223171"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Serviços de multimédia do Azure de acesso à API com a CLI do Azure
  
@@ -32,13 +32,11 @@ Este artigo mostra-lhe como utilizar a CLI do Azure para criar uma aplicação d
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+[Criar uma conta de Media Services](create-account-cli-how-to.md).
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
-
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).
-
-    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
+Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
+ 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

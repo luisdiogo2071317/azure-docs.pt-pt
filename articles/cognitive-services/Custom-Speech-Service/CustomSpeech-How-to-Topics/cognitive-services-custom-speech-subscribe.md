@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 74e4b9bb9a8baa6a28f1504c1e5a0e01e9ca56cd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338374"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210103"
 ---
 # <a name="obtain-subscription-keys"></a>Obter chaves de subscrição
 
@@ -25,7 +25,7 @@ Para começar a utilizar o serviço de voz personalizada do Azure, primeiro tem 
 ## <a name="get-a-subscription-key"></a>Obter uma chave de subscrição
 1. Pode obter uma chave de assinatura do portal do Azure de uma de duas formas:
 
-    * Aceda ao [portal do Azure](https://ms.portal.azure.com). Em seguida, adicione uma nova API dos Serviços Cognitivos ao procurar _Serviços Cognitivos_ e selecionar **APIs Serviços Cognitivos**.
+    * Vá para o [portal do Azure](https://ms.portal.azure.com), e adicione uma nova API de serviços cognitivos, pesquisando _dos serviços cognitivos_ e, em seguida, selecionando **APIs serviços cognitivos**.
 
       ![Pesquisa de serviços cognitiva](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 

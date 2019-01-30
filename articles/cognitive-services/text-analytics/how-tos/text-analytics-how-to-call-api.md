@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a70ef893019264ffc0eb3cb2982b05b15ebd0acf
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884373"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211593"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
 
@@ -70,8 +70,8 @@ O serviço aceita até 1 MB de tamanho do pedido. Se estiver a utilizar o Postma
 2. Defina os cabeçalhos de pedido de três:
 
    + `Ocp-Apim-Subscription-Key`: a chave de acesso, obtido a partir do portal do Azure.
-   + `Content-Type`: aplicação/json.
-   + `Accept`: aplicação/json.
+   + `Content-Type`: application/json.
+   + `Accept`: application/json.
 
   O pedido deve ser semelhante à seguinte captura de ecrã, partindo do princípio de um **/keyPhrases** recursos.
 

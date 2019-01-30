@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836275"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211360"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar para ligar a VMs do Azure após a ativação pós-falha de endereçamento IP
 
@@ -30,8 +30,8 @@ Neste artigo aprenderá sobre:
 
 Ao planear a replicação e a estratégia de ativação pós-falha, uma das principais perguntas é como se pode ligar à VM do Azure após a ativação pós-falha. Existem duas opções de ao planear a estratégia de rede de VMs do Azure de réplica:
 
-- **Utilizar endereço IP diferente**: pode optar por utilizar um intervalo de endereços IP diferente para a rede de VM do Azure replicada. Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha, e é necessária uma atualização DNS.
-- **Manter o mesmo endereço IP**: pode pretender utilizar o intervalo de endereços IP mesmo que no seu site no local primário, para a rede do Azure após a ativação pós-falha. Manter o mesmo IP endereços simplifica a recuperação ao reduzir a rede problemas relacionados com após a ativação pós-falha. No entanto, quando está a replicar para o Azure, terá de atualizar as rotas com a nova localização dos endereços IP após a ativação pós-falha.
+- **Utilizar endereço IP diferente**: Pode optar por utilizar um intervalo de endereços IP diferente para a rede de VM do Azure replicada. Neste cenário a VM obtém um novo endereço IP após a ativação pós-falha, e é necessária uma atualização DNS.
+- **Manter o mesmo endereço IP**: Pode querer utilizar o mesmo intervalo de endereços IP que no seu site primário no local, para a rede do Azure após a ativação pós-falha. Manter o mesmo IP endereços simplifica a recuperação ao reduzir a rede problemas relacionados com após a ativação pós-falha. No entanto, quando está a replicar para o Azure, terá de atualizar as rotas com a nova localização dos endereços IP após a ativação pós-falha.
 
 ## <a name="retaining-ip-addresses"></a>Mantendo os endereços IP
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846934"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208028"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação após desastre para o Azure das VMs de Hyper-V com o PowerShell e do Azure Resource Manager
 
@@ -43,11 +43,11 @@ Além disso, o exemplo específico, descrito neste artigo tem os seguintes pré-
 * Anfitrião Hyper-V com o Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 que contém uma ou mais VMs. Servidores de Hyper-V devem estar ligados à Internet, diretamente ou através de um proxy.
 * As VMs que pretende replicar devem estar em conformidade com [estes pré-requisitos](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Passo 1: Iniciar sessão na sua conta do Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Passo 1: Inicie sessão na sua conta do Azure
 
 1. Abra uma consola do PowerShell e execute este comando para iniciar sessão na sua conta do Azure. O cmdlet exibirá uma página da web pede-lhe as credenciais da conta: **Connect-AzureRmAccount**.
     - Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Connect-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
-    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especifica o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou o inquilino. Por exemplo: **Connect-AzureRmAccount-inquilino "fabrikam.com"**
+    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especifica o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou o inquilino. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associe a subscrição que pretende utilizar com a conta, uma vez que uma conta pode ter várias subscrições:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -102,7 +102,7 @@ Defina o contexto do cofre da seguinte forma:
 
 5. Copie a chave de transferido para o anfitrião de Hyper-V. Precisa da chave para registar o anfitrião de Hyper-V para o site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Passo 5: Instalar o fornecedor e agente
+## <a name="step-5-install-the-provider-and-agent"></a>Passo 5: Instale o fornecedor e agente
 
 1. Transferir o instalador para a versão mais recente do fornecedor em [Microsoft](https://aka.ms/downloaddra).
 2. Execute o instalador no anfitrião theHyper-V.
@@ -132,7 +132,7 @@ Antes de começar, tenha em atenção que a conta de armazenamento especificada 
         $protectionContainer = Get-AsrProtectionContainer
 3. Associe o contentor de proteção com a política de replicação, da seguinte forma:
 
-     $Policy = get-AsrPolicy - FriendlyName $PolicyName $associationJob = New-AsrProtectionContainerMapping-nome $mappingName-política $Policy - PrimaryProtectionContainer $protectionContainer [0]
+     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 
 4. Aguarde que a tarefa de associação seja concluída com êxito.
 

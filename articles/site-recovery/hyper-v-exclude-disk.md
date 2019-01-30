@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321233"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216970"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos da replicação
 Este artigo descreve como excluir discos da replicação. Esta exclusão pode otimizar a largura de banda de replicação consumida ou otimizar os recursos do lado do destino que esses discos utilizam.
@@ -59,7 +59,7 @@ Para compreender a funcionalidade de exclusão de discos, consideremos dois cen�
 - Disco tempdb do SQL Server
 - Disco do ficheiro de paginação (pagefile.sys)
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemplo 1: Excluir o disco tempdb do SQL Server
 Consideremos uma máquina virtual do SQL Server que tem um tempdb que pode ser excluído.
 
 O nome do disco virtual é SalesDB.

@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350936"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220353"
 ---
 # <a name="storage-accounts"></a>Contas de armazenamento
 
-Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. Conta de Media Services e a conta de armazenamento associado ao mesmo têm de ser parte do mesmo centro de dados e o mesmo grupo de recursos.
+Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. 
 
 Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número de contas de armazenamento **Secundárias** associadas à conta dos Serviços de Multimédia. Os Serviços de Multimédia suportam contas para **Fins gerais v2** (GPv2) ou **Fins gerais v1** (GPv1). 
 
@@ -28,6 +28,8 @@ Tem de ter uma conta de armazenamento **Principal** e pode ter qualquer número 
 > As contas apenas de blobs não são permitidas como **Principais**. 
 
 Recomendamos que utilize GPv2, para que possa tirar partido de optar entre frequente e esporádico camadas de armazenamento. Para saber mais sobre as contas de armazenamento, veja [descrição geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md). 
+
+A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. Recomenda-se para utilizar contas de armazenamento na mesma localização que a conta de Media Services.
 
 ## <a name="assets-in-a-storage-account"></a>Recursos numa conta de armazenamento
 

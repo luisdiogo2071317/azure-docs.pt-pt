@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 545f3669f04c3cd30f4766357c5d582dfe515c80
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215593"
 ---
 # <a name="face-api-release-notes"></a>Notas de versão de API de rostos
 
@@ -51,7 +51,7 @@ Este artigo diz respeito à versão do serviço de API de rostos de 1.0.
 * Foi corrigido o tamanho de face detetável para se certificar de que é estritamente entre pixels de 36 x 36 para 4096 x 4096.
 
 ### <a name="release-changes-in-november-2016"></a>Alterações de versão em Novembro de 2016
-* Adicionado o padrão de armazenamento de rostos subscrição armazene rostos persistentes adicionais quando utiliza [PersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) ou [FaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) para identificação ou correspondência de semelhanças. As imagens armazenadas são cobradas por US $0,5 por 1000 rostos e esta tarifa é calculada diariamente. As assinaturas do escalão gratuito continuam a ser limitadas a 1000 pessoas total.
+* Adicionado o padrão de armazenamento de rostos subscrição armazene rostos persistentes adicionais quando utiliza [PersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) ou [FaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) para identificação ou correspondência de semelhanças. As imagens armazenadas são cobradas a 0,5 $ por 1000 rostos e esta tarifa é calculada diariamente. As assinaturas do escalão gratuito continuam a ser limitadas a 1000 pessoas total.
 
 ### <a name="release-changes-in-october-2016"></a>Alterações de lançamento em Outubro de 2016
 * Mudou a mensagem de erro de mais de um rosto na targetFace de "Existem mais de um rosto na imagem" para "Há mais de um rosto na imagem" no [FaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) e [PersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
@@ -66,7 +66,7 @@ Este artigo diz respeito à versão do serviço de API de rostos de 1.0.
 * Adicionado opcional `start` e `top` parâmetros [PersonGroup - lista](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) para permitir que o usuário especificar o ponto inicial e o número de PersonGroups total à lista.
 
 ### <a name="v10-changes-from-v0"></a>V1.0 é alterado de V0
-* Atualizado a partir do ponto final de raiz do serviço ```https://westus.api.cognitive.microsoft.com/face/v0/``` para ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Alterações aplicadas aos: [enfrentam – detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [enfrentam – identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) e [enfrentam - grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+* Atualizado a partir do ponto final de raiz do serviço ```https://westus.api.cognitive.microsoft.com/face/v0/``` para ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Alterações aplicadas aos: [Se deparam - detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [enfrentam – identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [enfrentam - encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) e [enfrentam - grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 * Atualizado o tamanho mínimo face detetável para 36 x 36 pixels. Menores do que os pixels de 36 x 36 de rostos não serão detetados.
 

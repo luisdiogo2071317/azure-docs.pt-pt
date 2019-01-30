@@ -5,16 +5,16 @@ description: Pode utilizar a funcionalidade de carregamento do documento para ca
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633253"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217225"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
@@ -37,22 +37,22 @@ Partir [Translator personalizado](https://portal.customtranslator.azure.ai) port
 
     a.  Tipo de documento:
 
-    -  Treinamento: Estes document(s) será utilizado para o conjunto de treinamento.
+    -  Treinamento: Estes document(s) será utilizado para o conjunto de preparação.
     -  Otimização: Estes document(s) será utilizado para o conjunto de ajuste.
     -  Teste: Estes document(s) será utilizado para o conjunto de teste.
     -  Dicionário da frase: Estes document(s) será utilizado para o dicionário de frase.
-    -  Dicionário de sentença: Estes document(s) será utilizado para o dicionário de frase
+    -  Dicionário da frase: Estes document(s) será utilizado para o dicionário de frase
 
     b.  Par de idioma
 
-    c.  Substituir o documento se existe: selecione esta caixa de verificação se pretender substituir todos os documentos existentes com o mesmo nome.
+    c.  Substituir o documento se existe: Selecione esta caixa de verificação se pretender substituir todos os documentos existentes com o mesmo nome.
 
     d.  Preencha a secção relevante para paralelas de dados ou dados de caixa de combinação.
 
     -  Paralelas de dados:
-        -  Ficheiro de origem: selecione o idioma de origem de arquivo do computador local.
-        -  Ficheiro de destino: selecione o idioma de destino de arquivo do computador local.
-        -  Nome do documento: utilizada apenas se o que está a carregar ficheiros paralelos.
+        -  Ficheiro de origem: Selecione o ficheiro de idioma de origem do computador local.
+        -  Ficheiro de destino: Selecione o ficheiro de idioma de destino do computador local.
+        -  Nome do documento: Utilizado apenas se o que está a carregar ficheiros paralelos.
 
     - Dados de caixa de combinação:
         -  Ficheiro de combinação: Selecione o ficheiro de combinação do computador local. O ficheiro de combinação tem tanto da sua origem e frases de idioma de destino. [Convenção de nomenclatura](document-formats-naming-convention.md) é importante para os ficheiros de combinação.

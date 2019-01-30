@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210136"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -25,7 +25,7 @@ O Azure Site Recovery tem uma cadência de lançamento mensal onde melhoramentos
  
 ## <a name="how-does-automatic-update-work"></a>Como funciona a atualização automática
 
-Permitir a recuperação de sites gerir as atualizações, um runbook global (que é utilizado pelos serviços do Azure) é implementado através de uma conta de automatização, que é criada na mesma subscrição que o cofre. Uma conta de automatização é utilizada para um cofre específico. O runbook verifica a existência de cada VM num cofre para o qual é atualizado automaticamente está ativados e inicia uma atualização da extensão do serviço de mobilidade, se uma versão mais recente está disponível. A agenda predefinida de recurrs o runbook diariamente às 12:00 AM de acordo com o fuso horário da geo da máquina virtual replicada. O agendamento do runbook também pode ser modificado por meio da conta de automatização pelo usuário, se necessário. 
+Permitir a recuperação de sites gerir as atualizações, um runbook global (que é utilizado pelos serviços do Azure) é implementado através de uma conta de automatização, que é criada na mesma subscrição que o cofre. Uma conta de automatização é utilizada para um cofre específico. O runbook verifica a existência de cada VM num cofre para o qual é atualizado automaticamente está ativados e inicia uma atualização da extensão do serviço de mobilidade, se uma versão mais recente está disponível. A agenda predefinida do runbook voltar a ocorrer diariamente às 12:00 AM de acordo com o fuso horário da geo da máquina virtual replicada. O agendamento do runbook também pode ser modificado por meio da conta de automatização pelo usuário, se necessário. 
 
 > [!NOTE]
 > Ativar atualizações automáticas não requer um reinício das suas VMs do Azure e não afeta a replicação em curso.
@@ -46,14 +46,14 @@ Pode optar por permitir a recuperação de Site gerir as atualizações das segu
 
 Quando ativa a replicação para a máquina virtual a partir de qualquer [da vista de máquina virtual](azure-to-azure-quickstart.md), ou [partir do Cofre de serviços de recuperação](azure-to-azure-how-to-enable-replication.md), obterá uma opção para optar por permitir a recuperação de sites para Gerir atualizações para a extensão de recuperação de sites ou gerir manualmente a mesma.
 
-![Enable-replicação-atualização automática](./media/azure-to-azure-autoupdate/enable-rep.png)
+![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar a extensão de atualizar as definições no interior do Cofre
 
 1. No interior do cofre, navegue até **Manage**-> **infraestrutura do Site Recovery**
 2. Sob **máquinas virtuais do Azure para**-> **definições de atualização da extensão**, clique o botão de alternar para escolher se pretende permitir *ASR para gerir atualizações* ou *gerir manualmente*. Clique em **Guardar**.
 
-![cofre-Ativar/desativar-autuo-atualização](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![cofre-Ativar/desativar-atualização automática](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > Quando escolhe *permitir que o ASR para gerir*, a configuração é aplicada a todas as máquinas virtuais no cofre correspondente.
@@ -81,7 +81,7 @@ Se houver um problema com as atualizações automáticas, será notificado das m
 
 No caso de tentou ativar as atualizações automáticas e falha, consulte abaixo para resolução de problemas.
 
-**Erro**: não tem permissões para criar uma conta Run As do Azure (principal de serviço) e conceder a função de contribuinte ao principal de serviço. 
+**Erro**: Não tem permissões para criar uma conta Run As do Azure (principal de serviço) e conceder a função de Contribuinte ao principal de serviço. 
 - Ação recomendada: Certifique-se de que a conta com sessão iniciada é atribuída a "contribuinte" e repita a operação. Consulte a [isso](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obter mais informações sobre a atribuir as permissões corretas.
  
 Depois das atualizações automáticas são ativadas, a maioria dos problemas pode ser recuperada pelo serviço Site Recovery e requer que clicar no '**reparação**' botão.
@@ -90,10 +90,10 @@ Depois das atualizações automáticas são ativadas, a maioria dos problemas po
 
 No caso do botão de reparação não estiver disponível, consulte a mensagem de erro exibida no painel de definições de extensão.
 
- - **Erro**: A conta Run as não tem permissão para aceder ao recurso de serviços de recuperação.
+ - **Erro**: A conta Run As não tem permissão para aceder ao recurso de serviços de recuperação.
 
-    **Ação recomendada**: elimine e, em seguida [voltar a criar a conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou certifique-se de que o do Azure Active Directory do aplicativo Run As de automatização da conta tem acesso ao recurso de serviços de recuperação.
+    **Ação recomendada**: Eliminar e, em seguida [voltar a criar a conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou certifique-se de que o do Azure Active Directory do aplicativo Run As de automatização da conta tem acesso ao recurso de serviços de recuperação.
 
-- **Erro**: conta Run As não foi encontrada. Um destes foi eliminado ou não criado - aplicação de diretório do Azure Active Directory, Principal de serviço, função, recurso de certificado de automatização, recurso de ligação de automatização - ou o Thumbprint não é idêntico entre o certificado e a ligação. 
+- **Erro**: Não foi encontrada a conta Run As. Um destes foi eliminado ou não criado - aplicação de diretório do Azure Active Directory, Principal de serviço, função, recurso de certificado de automatização, recurso de ligação de automatização - ou o Thumbprint não é idêntico entre o certificado e a ligação. 
 
-    **Ação recomendada**: elimine e [, em seguida, voltar a criar a conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Ação recomendada**: Eliminar e [, em seguida, voltar a criar a conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

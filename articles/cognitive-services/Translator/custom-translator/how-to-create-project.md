@@ -5,16 +5,16 @@ description: Como criar um projeto no Translator personalizado?
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 4e5ac4386af55855c5240f89557feafd4a93adfb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218109"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 
@@ -30,17 +30,17 @@ A criação de projeto é o primeiro passo para criar um modelo.
 
 2.  Introduza os seguintes detalhes sobre o seu projeto na caixa de diálogo:
 
-    a.  Nome do projeto (obrigatório): dê um nome exclusivo e significativo ao seu projeto. Não é necessário mencionar os idiomas dentro do título.
+    a.  Nome do projeto (obrigatório): Dê um nome exclusivo e significativo ao seu projeto. Não é necessário mencionar os idiomas dentro do título.
 
     b.  Descrição: Um breve resumo sobre o projeto. Esta descrição não influenciam sobre o comportamento do seu sistema de personalizado resultante ou o tradutor personalizado, mas pode ajudar a diferenciar entre projetos diferentes.
 
-    c.  Par de idioma (obrigatório): selecione o idioma que está a tradução de e para.
+    c.  Par de idioma (obrigatório): Selecione o idioma que está a tradução de e para.
 
-    d.  Categoria (obrigatória): selecione a categoria que é mais adequada para seu projeto. A categoria descreve a terminologia e o estilo dos documentos que pretende converter.
+    d.  Categoria (obrigatória): Selecione a categoria que é mais adequada para seu projeto. A categoria descreve a terminologia e o estilo dos documentos que pretende converter.
 
-    e.  Descrição da categoria: Utilize este campo para descrever melhor o campo específico ou do setor em que está trabalhando. Por exemplo, se a categoria do seu medicina, pode adicionar um documento em particular, tais cirurgia ou pediatrics. A descrição tem não influenciam sobre o comportamento do seu sistema de personalizado resultante ou o tradutor personalizado.
+    e.  Descrição de categoria: Utilize este campo para descrever melhor o campo específico ou do setor em que está trabalhando. Por exemplo, se a categoria do seu medicina, pode adicionar um documento em particular, tais cirurgia ou pediatrics. A descrição tem não influenciam sobre o comportamento do seu sistema de personalizado resultante ou o tradutor personalizado.
 
-    f.  Etiqueta de projeto: os [etiqueta de projeto](workspace-and-project.md#project-labels) distingue entre projetos com o mesmo par de idioma e a categoria. Como melhor prática, utilize uma etiqueta *apenas* se estiver a planear criar vários projetos para o mesmo par de idioma e a mesma categoria e deseja acessar esses projetos com uma CategoryID diferente. Não utilize este campo se estiver a criar sistemas para apenas uma categoria. Uma etiqueta de projeto não é necessário e não é útil para distinguir entre pares de idiomas. Pode utilizar o mesmo rótulo de vários projetos.
+    f.  Etiqueta de projeto: O [etiqueta de projeto](workspace-and-project.md#project-labels) distingue entre projetos com o mesmo par de idioma e a categoria. Como melhor prática, utilize uma etiqueta *apenas* se estiver a planear criar vários projetos para o mesmo par de idioma e a mesma categoria e deseja acessar esses projetos com uma CategoryID diferente. Não utilize este campo se estiver a criar sistemas para apenas uma categoria. Uma etiqueta de projeto não é necessário e não é útil para distinguir entre pares de idiomas. Pode utilizar o mesmo rótulo de vários projetos.
 
     ![Criar caixa de diálogo do projeto](media/how-to/how-to-create-project-dialog.png)
 
@@ -56,9 +56,9 @@ Depois de selecionar um projeto, verá o seguinte na página do projeto:
 
 - Botão de Train: Utilize este botão para iniciar uma [preparar um modelo](how-to-train-model.md).
 
-- Adicionar botão de documentos: Utilize este botão para [carregar documentos](how-to-upload-document.md).
+- Adicione botão de documentos: Utilize este botão para [carregar documentos](how-to-upload-document.md).
 
-- Botão de documentos do filtro: Utilize este botão para filtrar e pesquisar para document(s) específico.
+- Botão de documentos de filtro: Utilize este botão para filtrar e pesquisar para document(s) específico.
 
     ![Ver detalhes do projeto](media/how-to/how-to-view-project.png)
 

@@ -6,22 +6,22 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 131d8d58982b5430063aa3dc7b3d1982cd430148
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211309"
 ---
 # <a name="web-api-interface"></a>Interface da API Web
 
 Os arquivos de modelo criados pelo serviço de exploração de conhecimento podem ser hospedados e acedidos através de um conjunto de web APIs.  As APIs podem ser hospedadas no computador local com o [ `host_service` ](CommandLine.md#host_service-command) comando ou podem ser implementadas para um serviço cloud do Azure com o [ `deploy_service` ](CommandLine.md#deploy_service-command) comando.  Ambas as técnicas expõem os seguintes pontos finais da API:
 
-* [*interpretar* ](interpretMethod.md) – interpreta uma cadeia de caracteres de consulta de linguagem natural. Devolve interpretações anotadas para permitir experiências de conclusão automática de caixa de pesquisa que antecipam o que o utilizador está a escrever.
+* [*interpretar* ](interpretMethod.md) – interpreta uma cadeia de caracteres de consulta de linguagem natural. Devolve interpretações anotadas para permitir experiências de conclusão automática de caixa de pesquisa detalhada que antecipam o que o utilizador está a escrever.
 * [*avaliar* ](evaluateMethod.md) – Evaluates e devolve o resultado de uma expressão de consulta estruturadas.
 * [*calchistogram* ](calchistogramMethod.md) – calcula um histograma de valores de atributo para objetos devolvidos por uma expressão de consulta estruturadas.
 
@@ -29,8 +29,8 @@ Usados juntos, esses métodos de API permitem a criação de uma experiência de
 
 **Exemplo**
 
-Num domínio publicações acadêmicas, se um utilizador escrever a cadeia de caracteres "latente s", o *interpretar* método pode fornecer um conjunto de interpretações classificadas, sugerindo que o utilizador pode procurar a palavra-chave "análise de semântica latente", o título "estrutura latente análise", ou outras expressões a partir do "latente s".  Estas informações podem ser utilizadas rapidamente orientar o usuário para os resultados da pesquisa pretendido.
+Num domínio publicações acadêmicas, se um utilizador escrever a cadeia de caracteres "latente s", o *interpretar* método pode fornecer um conjunto de interpretações classificadas, sugerindo que o utilizador pode procurar a palavra-chave "análise de semântica latente", o título "estrutura latente análise", ou outras expressões a partir do "latente s".  Estas informações podem ser utilizadas para orientar rapidamente o utilizador para os resultados de pesquisa pretendidos.
 
 Para este domínio, o *avaliar* método pode ser utilizado para obter um conjunto de correspondência de publicações do índice para instituições académicas e o *calchistogram* método pode ser utilizado para calcular a distribuição do atributo valores para as publicações correspondentes, que podem ser utilizado para filtrar ainda mais e refinar os resultados da pesquisa.
 
-Tenha em atenção que, para melhorar a legibilidade dos exemplos, as chamadas de REST API contém carateres (por exemplo, espaços), que não foram com codificação URL. Seu código terá de aplicar as codificações de URL apropriadas.
+Tenha em atenção que, para melhorar a legibilidade dos exemplos, as chamadas de REST API contêm carateres (por exemplo, espaços), que não possuem codificação URL. O seu código terá de aplicar as codificações URL apropriadas.

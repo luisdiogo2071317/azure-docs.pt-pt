@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232758"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224926"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Criar uma aplicação - C de processamento de imagens&#35;
 
@@ -66,7 +66,7 @@ Deve criar a aplicação de exemplo em primeiro lugar, para que o Visual Studio 
 1. Certifique-se de que a solução do Visual Studio contém dois projetos:  
 
    * SampleUserControlLibrary
-   * Exemplos de WPF VisionAPI  
+   * VisionAPI-WPF-Samples  
 
    Se o projeto de SampleUserControlLibrary não estiver disponível, certifique-se que já recursivamente clonou a `Microsoft/Cognitive-Vision-Windows` repositório.
 1. No Visual Studio, prima Ctrl + Shift + B ou escolha **crie** no menu da faixa de opções e, em seguida, escolha **compilar solução** para compilar a solução.
@@ -113,7 +113,7 @@ A solução do Visual Studio para a aplicação de exemplo de imagem digitalizad
     Uma página que fornece um esquema padronizado para introduzir um URL de ponto final e a chave de subscrição para a aplicação de exemplo. A aplicação de exemplo de imagem digitalizada utiliza esta página para gerir a chave de subscrição e o URL de ponto final utilizado pelas páginas de cenário.
   * VideoResultControl  
     Um UserControl que fornece uma apresentação padronizada para informações do vídeo. A aplicação de exemplo de imagem digitalizada não usa esse controle.
-* Exemplos de WPF VisionAPI  
+* VisionAPI-WPF-Samples  
   O projeto principal para a aplicação de exemplo de imagem digitalizada, esse projeto contém toda a funcionalidade interessante a para imagem digitalizada. O projeto contém o seguinte:
   * AnalyzeInDomainPage.xaml  
     A página de cenário para a imagem de analisar com o cenário de modelo de domínio.

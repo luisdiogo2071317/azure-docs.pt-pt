@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: MT
+ms.openlocfilehash: 02501cba75bd64d6a09fce671d2949759b5cd577
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791077"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207025"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Criar um modelo de aprendiz de conversação com node. js
 
@@ -43,7 +43,7 @@ Aprendiz de conversação do projeto é constituído por um SDK que adiciona ao 
 
 - Browser Google Chrome. Instalar a partir [ https://www.google.com/chrome/index.html ](https://www.google.com/chrome/index.html).
 
-- Git. Instalar a partir [ https://git-scm.com/downloads ](https://git-scm.com/downloads).
+- git. Instalar a partir [ https://git-scm.com/downloads ](https://git-scm.com/downloads).
 
 - VSCode. Instalar a partir [ https://code.visualstudio.com/ ](https://code.visualstudio.com/). Tenha em atenção de que isso é recomendado, não é necessário.
 
@@ -169,11 +169,11 @@ Este projeto adotou o [Microsoft Open Source Code of Conduct (Código de Conduta
 
 ## <a name="source-repositories"></a>Repositórios de origem
 
-- [Exemplos de conversationlearner](https://github.com/Microsoft/ConversationLearner-Samples)
+- [conversationlearner-samples](https://github.com/Microsoft/ConversationLearner-Samples)
 - [conversationlearner-sdk](https://github.com/Microsoft/ConversationLearner-SDK)
-- [modelos de conversationlearner](https://github.com/Microsoft/ConversationLearner-Models)
-- [interface do usuário conversationlearner](https://github.com/Microsoft/ConversationLearner-UI)
-- [conversationlearner Chat](https://github.com/Microsoft/ConversationLearner-WebChat)
+- [conversationlearner-models](https://github.com/Microsoft/ConversationLearner-Models)
+- [conversationlearner-ui](https://github.com/Microsoft/ConversationLearner-UI)
+- [conversationlearner-webchat](https://github.com/Microsoft/ConversationLearner-WebChat)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

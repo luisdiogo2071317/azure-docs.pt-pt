@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159119"
+ms.locfileid: "55206974"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 
@@ -62,7 +62,7 @@ Se estiver a utilizar o modelo de programação do Service Fabric Reliable Servi
 23. Evitar [armadilhas comuns](service-fabric-work-with-reliable-collections.md) ao utilizar a Reliable Collections.
 24. Monitorize o desempenho de memória de .NET CLR contadores ao executar testes de carga e verificar a existência de taxas altas de coleta de lixo ou crescimento de fuga de heap.
 25. Manter a cópia de segurança offline das [Reliable Services e Reliable Actors](service-fabric-reliable-services-backup-restore.md) e testar o processo de restauro.
-26. O ideal é que deve ser igual para o mínimo para o escalão de fiabilidade de Clusters; sua contagem de instâncias de máquina de Virtual de NodeType primário inclui condições quando apropriado para exceder o mínimo de escalão: temporariamente quando verticalmente dimensionamento está a sua principal NodeTypes Máquina Virtual dimensionamento SKU do conjunto.
+26. O ideal é que deve ser igual para o mínimo para o escalão de fiabilidade de Clusters; sua contagem de instâncias de máquina de Virtual de NodeType primário inclui condições quando apropriado para exceder o mínimo de escalão: temporariamente quando verticalmente dimensionamento sua principal NodeTypes Máquina Virtual dimensionamento SKU do conjunto.
 
 ## <a name="optional-best-practices"></a>Práticas recomendadas opcionais
 

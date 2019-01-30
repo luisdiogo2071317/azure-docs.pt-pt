@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340465"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214573"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migração de implementações para o novo modelo de preços
 
@@ -37,7 +37,7 @@ O mapeamento dos escalões antigos para unidades de escala é mostrado na tabela
 
 Para migrar para o novo escalão, faça o seguinte:
 
-## <a name="step-1-check-your-existing-deployment"></a>Passo 1: Verificar a implementação existente
+## <a name="step-1-check-your-existing-deployment"></a>Passo 1: Verifique a sua implementação existente
 Vá para o [portal do serviço de voz personalizada](http://cris.ai)e verificar as implementações existentes. No nosso exemplo, existem duas implementações. Uma implementação é executado num escalão S0 e a outra implementação é executado num escalão S1. As implementações são mostradas na **opções de implementação** coluna da tabela seguinte:
 
 ![A página implementações](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
@@ -72,5 +72,5 @@ O estado da implementação relacionado deve ter mudado para *processamento*. Ta
 ## <a name="next-steps"></a>Passos Seguintes
 Para mais tutoriais, consulte:
 * [Criar um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md)
-* [Criar um modelo de idioma personalizado](cognitive-services-custom-speech-create-language-model.md)
+* [Criar um modelo de linguagem personalizado](cognitive-services-custom-speech-create-language-model.md)
 * [Criar um ponto de final de voz em texto personalizado](cognitive-services-custom-speech-create-endpoint.md)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338708"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211802"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Início rápido: Utilizar a API de reconhecimento de voz do Bing no Objective-C no iOS
 
@@ -113,9 +113,9 @@ O código no exemplo a seguir mostra como criar classes de cliente de reconhecim
 
 A biblioteca de cliente fornece reconhecimento previamente implementado classes de cliente para cenários típicos de reconhecimento de voz:
 
-* `DataRecognitionClient`: Reconhecimento de voz com dados PCM (por exemplo, a partir de uma origem de ficheiro ou áudio). Os dados são divididos em buffers, e cada buffer é enviado para o serviço de voz. Sem modificação é feita para os buffers, para que os utilizadores podem aplicar a sua própria detecção de silêncio, se assim o desejar. Se não for fornecidos os dados de arquivos WAV, pode enviar dados do ficheiro diretamente para o servidor. Se tiver dados não processados, por exemplo, áudio através de Bluetooth, primeiro enviar um cabeçalho de formato para o servidor seguido pelos dados.
-* `MicrophoneRecognitionClient`: O reconhecimento de fala com áudio proveniente de microfone. Certifique-se de que o microfone está ativado e que os dados do microfone são enviados para o serviço de reconhecimento de fala. Um "silêncio detetor" incorporada é aplicada aos dados microfone antes do envio para o serviço de reconhecimento.
-* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: Além de texto de reconhecimento, estes clientes devolvem informações estruturadas sobre a intenção do falante, que seus aplicativos podem usar para orientar mais ações. Para utilizar o "Objetivo", precisa primeiro preparar um modelo ao utilizar [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClient`: Reconhecimento de fala com dados PCM (por exemplo, a partir de uma origem de ficheiro ou áudio). Os dados são divididos em buffers, e cada buffer é enviado para o serviço de voz. Sem modificação é feita para os buffers, para que os utilizadores podem aplicar a sua própria detecção de silêncio, se assim o desejar. Se não for fornecidos os dados de arquivos WAV, pode enviar dados do ficheiro diretamente para o servidor. Se tiver dados não processados, por exemplo, áudio através de Bluetooth, primeiro enviar um cabeçalho de formato para o servidor seguido pelos dados.
+* `MicrophoneRecognitionClient`: Reconhecimento de fala com áudio proveniente de microfone. Certifique-se de que o microfone está ativado e que os dados do microfone são enviados para o serviço de reconhecimento de fala. Um "silêncio detetor" incorporada é aplicada aos dados microfone antes do envio para o serviço de reconhecimento.
+* `DataRecognitionClientWithIntent` e `MicrophoneRecognitionClientWithIntent`: Para além do texto de reconhecimento, estes clientes devolvem informações estruturadas sobre a intenção do falante, que seus aplicativos podem usar para orientar mais ações. Para utilizar o "Objetivo", precisa primeiro preparar um modelo ao utilizar [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Idioma de reconhecimento
 
@@ -133,8 +133,8 @@ Também tem de especificar `SpeechRecognitionMode` ao criar o cliente com `Speec
 Pode anexar vários manipuladores de eventos para o cliente que criou:
 
 * **Eventos de resultados parciais**: Este evento é chamado sempre que esse serviço de voz prevê o que poderá ser dizendo, até mesmo antes de acabar de fala (se usar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se usar `DataRecognitionClient`).
-* **Eventos de erro**: chamado quando o serviço Deteta um erro.
-* **Eventos de intenção**: chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
+* **Eventos de erro**: Chamado quando o serviço Deteta um erro.
+* **Eventos de intenção**: Chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
 * **Resultar eventos**:
   * No `SpeechRecognitionMode_ShortPhrase` modo, este evento é chamado e devolve resultados de múltipla depois de concluir a falar.
   * No `SpeechRecognitionMode_LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas das frases.

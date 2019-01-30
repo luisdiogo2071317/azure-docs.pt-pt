@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 653d88aafc683b8a67e93945c62a99bbcf8c92fc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900679"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215304"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -28,7 +28,7 @@ Este guia fornece os conceitos chave e instruções para programadores de Java n
 
 ## <a name="logging-and-debugging-apps"></a>Registo e depuração de aplicativos
 
-Relatórios de desempenho, visualizações de tráfego e exames abrangentes de estado de funcionamento estão disponíveis para a aplicação de eeach através do portal do Azure. Consulte a [descrição geral de diagnóstico do serviço de aplicações do Azure](/azure/app-service/overview-diagnostics) para obter mais informações sobre como aceder e utilizar estas ferramentas de diagnóstico.
+Relatórios de desempenho, visualizações de tráfego e exames abrangentes de estado de funcionamento estão disponíveis para cada aplicação através do portal do Azure. Consulte a [descrição geral de diagnóstico do serviço de aplicações do Azure](/azure/app-service/overview-diagnostics) para obter mais informações sobre como aceder e utilizar estas ferramentas de diagnóstico.
 
 ## <a name="application-performance-monitoring"></a>Monitorização de desempenho de aplicações
 

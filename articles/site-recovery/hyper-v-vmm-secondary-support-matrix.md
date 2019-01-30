@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd26eef236063eff72d909c0cd86c7f9485bfc4d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793296"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210040"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário
 
@@ -56,13 +56,13 @@ Apenas as máquinas do Linux com o armazenamento seguinte podem ser replicadas:
 **Configuração** | **Suportado**  
 --- | --- 
 Anfitrião - agrupamento NIC | Sim 
-Anfitrião - VLAN | Sim 
-Anfitrião - IPv4 | Sim 
-Anfitrião - IPv6 | Não 
+Host - VLAN | Sim 
+Host - IPv4 | Sim 
+Host - IPv6 | Não 
 Os convidados de VM - agrupamento NIC | Não
 Convidado VM - IPv4 | Sim
 VM - IPv6 convidado | Não
-Endereço de IP estático de VM de Gues - Windows/Linux- | Sim
+Endereço de IP estático de VM Windows/Linux – de convidado | Sim
 VM do convidado - Multi-NIC | Sim
 
 

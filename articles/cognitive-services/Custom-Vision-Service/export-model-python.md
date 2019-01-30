@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: executar um modelo TensorFlow em Python - Serviço de Visão Personalizada'
+title: 'Tutorial: Executar o modelo do TensorFlow em Python - serviço de visão personalizada'
 titlesuffix: Azure Cognitive Services
 description: Execute um modelo TensorFlow em Python.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: 8b86214513d12655958038037abf486a6a1a4d88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247317"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209609"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: executar um modelo TensorFlow em Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Executar o modelo TensorFlow em Python
 
 Depois de ter [exportado o seu modelo TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) do Serviço de Visão Personalizada, este início rápido irá mostrar como utilizar este modelo localmente para classificar as imagens.
 
@@ -195,7 +195,7 @@ Os resultados da execução do tensor de imagens através do modelo terão de se
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Também pode encapsular o modelo numa aplicação móvel:
 * [Utilizar o modelo exportado do Tensorflow numa aplicação Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)

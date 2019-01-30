@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
 ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167279"
+ms.locfileid: "55210391"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

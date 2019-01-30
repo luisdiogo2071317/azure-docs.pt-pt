@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Detetar e enquadrar rostos numa imagem com o SDK Android'
+title: 'Tutorial: Detetar e rostos numa imagem com o Android SDK de fotograma'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá criar uma aplicação Android simples que utiliza a API de rostos para detetar e quadro rostos numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c28aa58e64253d5a25dbdfc8f1473e0e462af57
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852899"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220013"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação Android para detetar e enquadrar rostos numa imagem
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar uma aplicação Android para detetar e rostos numa imagem de fotograma
 
 Neste tutorial, irá criar uma aplicação Android simples que utiliza a API Face do Azure, através do SDK de Java, para detetar rostos humanos numa imagem. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
 
@@ -68,7 +68,7 @@ Em seguida, substitua o conteúdo do **MainActivity** classe com o código a seg
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
 
-### <a name="try-the-app"></a>Experimente a aplicação
+### <a name="try-the-app"></a>Experimentar a aplicação
 
 Comente a chamada para **detectAndFrame** no **onActivityResult** método. Em seguida, prima **executar** no menu para testar a sua aplicação. Quando a aplicação abre-se, num emulador ou um dispositivo ligado, clique nas **procurar** na parte inferior. Deverá aparecer a caixa de diálogo de seleção de arquivo do dispositivo. Escolha uma imagem e certifique-se de que ele exibe na janela. Em seguida, feche a aplicação e avance para o passo seguinte.
 

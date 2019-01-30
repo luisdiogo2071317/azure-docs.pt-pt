@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450886"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219724"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -39,6 +39,7 @@ Instância de gerida de base de dados de SQL do Azure pode ser implementada na g
 | Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida eNVM SSD, vCore = 1 LP (hyper-thread) |
 | Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória | 7 GB por vCore | 5.1 GB por vCore |
+| Memória de OLTP dentro da memória | 3 GB por vCore | 2.6 GB por vCore |
 | Armazenamento máximo (fins gerais) |  8 TB | 1 TB |
 | Armazenamento máximo (crítico para a empresa) | 8 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 

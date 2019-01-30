@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Análise de Texto com o Power BI'
+title: 'Tutorial: Análise de Texto com o Power BI'
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a Análise de Texto para extrair expressões-chave de textos armazenados no Power BI.
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733334"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209099"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o Serviço Cognitivo de Análise de Texto
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o serviço cognitivos de análise de texto
 
 O Microsoft Power BI Desktop é uma aplicação gratuita que lhe permite ligar-se, transformar e visualizar os seus dados. O serviço de Análise de Texto, que faz parte dos Serviços Cognitivos do Microsoft Azure, oferece processamento de linguagem natural. Ao ser-lhe dado texto bruto não estruturado, ele consegue extrair as expressões mais importantes, analisar sentimentos e identificar entidades conhecidas, como marcas. Em conjunto, estas ferramentas podem ajudá-lo a ver rapidamente aquilo de que os seus clientes estão a falar e como se sentem em relação a esse assunto.
 
@@ -285,7 +285,7 @@ Por fim, segue-se uma variação da função Key Phrases já apresentada que dev
 in  keyphrases
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 <a name="NextSteps"></a>
 
 Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Power Query ou o Power BI.

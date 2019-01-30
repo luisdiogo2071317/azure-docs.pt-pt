@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9b35c0fd412dd48137a3cb362f20fae067c80461
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792633"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212448"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: Ordem de pizza
 Essa demonstração ilustra uma bot, com suporte de pedido por de pizza único de pedido de pizza:
@@ -26,7 +26,7 @@ Essa demonstração ilustra uma bot, com suporte de pedido por de pizza único d
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Pizza de demonstração](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
+[![Demo Pizza Preview](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot de ordem de pizza está em execução

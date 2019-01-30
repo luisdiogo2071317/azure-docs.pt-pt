@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215865"
 ---
 # <a name="bing-text-to-speech-api"></a>API do Bing texto em voz
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 Segue-se as informações de cabeçalho necessário para acesso de token.
 
-Nome| Formato | Descrição
+Name| Formato | Descrição
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Chave de subscrição
 
@@ -59,12 +59,12 @@ Os clientes tem de utilizar o seguinte ponto de extremidade para aceder ao servi
 
 A tabela seguinte mostra os cabeçalhos HTTP que são utilizados para pedidos de síntese de voz.
 
-Cabeçalho |Valor |Comentários
+Cabeçalho |Value |Comentários
 ----|----|----
 Content-Type | aplicação/ssml + xml | O tipo de conteúdo de entrada.
-Microsoft-X-OutputFormat | **1.** ssml-16 khz-16 bits-mono-tts <br> **2.** brutos-16 khz-16 bits-mono-pcm <br>**3.** áudio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16 bits-mono-pcm <br> **6.** áudio-16 khz-128kbitrate-mono-mp3 <br> **7.** áudio-16 khz-64kbitrate-mono-mp3 <br> **8.** áudio-16 khz-32kbitrate-mono-mp3 | O formato de áudio de saída.
-Pesquisa-X-AppId | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente o aplicativo cliente. Isso pode ser o ID de loja de aplicações. Se não estiver disponível, o ID pode ser gerado para um aplicativo de usuário.
-X-pesquisa-ID de cliente | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente uma instância de aplicação para cada instalação.
+X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** brutos-16 khz-16 bits-mono-pcm <br>**3.** áudio-16 khz-16 kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** áudio-16 khz-128kbitrate-mono-mp3 <br> **7.** áudio-16 khz-64kbitrate-mono-mp3 <br> **8.** áudio-16 khz-32kbitrate-mono-mp3 | O formato de áudio de saída.
+X-Search-AppId | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente o aplicativo cliente. Isso pode ser o ID de loja de aplicações. Se não estiver disponível, o ID pode ser gerado para um aplicativo de usuário.
+X-Search-ClientID | Um GUID (hex apenas, sem traços) | Um ID que identifica exclusivamente uma instância de aplicação para cada instalação.
 Agente de utilizador | Nome da aplicação | O nome da aplicação é necessário e tem de ter menos de 255 carateres.
 Autorização | Token de autorização |  Consulte a <a href="#Subscription">token de autorização</a> secção.
 
@@ -179,7 +179,7 @@ API de voz de Microsoft suporta SSML 1.0, conforme definido no W3C [Speech Synth
   ```
 
 > [!NOTE]
-> Tenha em atenção os dados de áudio tem de ser k de 8 ou 16 wav de k arquivado no seguinte formato: **código CRC** (CRC 32): 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador de formato de áudio**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de amostras**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
+> Tenha em atenção os dados de áudio tem de ser k de 8 ou 16 wav de k arquivado no seguinte formato: **Código CRC** (CRC 32): 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Sinalizador de formato de áudio**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0xFFFFFFFF; **Contagem de amostras**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Tamanho do corpo binário**: 4 bytes (DWORD) com o intervalo válido 0x00000000 ~ 0x7FFFFFFF; **Corpo binário**: n bytes.
 
 ## <a name="SampleApp"></a>Exemplo de aplicação
 
@@ -214,9 +214,9 @@ EN-IE | Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Sean)"
 EN-IN | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, Heera, Apollo)"
 EN-IN | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, PriyaRUS)"
 EN-IN | Masculino | "Microsoft Server voz texto para voz de voz (en-IN, Ravi, Apollo)"
-pt-PT | Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)"
-pt-PT | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaRUS)"
-pt-PT | Masculino | "Microsoft Server voz texto para voz de voz (en-US, BenjaminRUS)"
+en-US | Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)"
+en-US | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaRUS)"
+en-US | Masculino | "Microsoft Server voz texto para voz de voz (en-US, BenjaminRUS)"
 es-ES | Feminino | "Microsoft Server voz texto em voz voz (es-ES, Laura, Apollo)"
 es-ES | Feminino | "Microsoft Server voz texto em voz voz (es-ES, HelenaRUS)"
 es-ES | Masculino | "Microsoft Server voz texto em voz voz (es-ES, Pablo, Apollo)"

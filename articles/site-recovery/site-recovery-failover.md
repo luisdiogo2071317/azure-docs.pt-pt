@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 1/18/2019
+ms.author: mayg
+ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974017"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215848"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Efetuar a ativação pós-falha de VMs e servidores físicos 
 
@@ -27,7 +27,7 @@ Utilize a tabela seguinte para saber sobre as opções de ativação pós-falha 
 
 | Cenário | Requisito de recuperação do aplicativo | Fluxo de trabalho para o Hyper-V | Fluxo de trabalho do VMware
 |---|--|--|--|
-|Ativação pós-falha planeada devido a um período de indisponibilidade de datacenter de futuros| Zero perda de dados para a aplicação quando é efetuada uma atividade em planeadas| Para o Hyper-V, o ASR replica os dados com uma frequência de cópia que é especificado pelo utilizador. Ativação pós-falha planeada é utilizada para substituir a frequência e replicar as alterações finais antes de uma ativação pós-falha é iniciada. <br/> <br/> 1.    Planear uma janela de manutenção de acordo com o processo de gestão de alteração da sua empresa. <br/><br/> 2. notificar os utilizadores do período de indisponibilidade futura. <br/><br/> 3. Colocar offline a aplicação destinada ao utilizador.<br/><br/>4. Inicie a ativação pós-falha planeada através do portal de ASR. A máquina de virtual no local é automaticamente encerrar.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido numa janela de retenção para um utilizador que quer utilizar um ponto de recuperação mais antigo. (retenção de 24 horas para Hyper-V).| Do VMware, o ASR replica dados continuamente com CDP. Ativação pós-falha disponibiliza ao utilizador a opção de ativação pós-falha para os dados mais recentes (incluindo a aplicação de post e encerramento)<br/><br/> 1. Planear uma janela de manutenção de acordo com o processo de gestão de alterações <br/><br/>2. notificar os utilizadores do período de indisponibilidade futura <br/><br/>3.    Colocar offline a aplicação destinada ao utilizador. <br/><br/>4.  Inicie uma ativação de pós-falha planeada com o portal de ASR do ponto mais recente depois da aplicação está offline. Utilize a opção de "Ativação pós-falha não planeada" no portal e selecione o ponto mais recente para ativação pós-falha. A máquina de virtual no local é automaticamente encerrar.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de pontos de recuperação numa janela de retenção é fornecido para um cliente que quer utilizar um ponto de recuperação mais antigo. (72 horas de retenção para VMware).
+|Ativação pós-falha planeada devido a um período de indisponibilidade de datacenter de futuros| Zero perda de dados para a aplicação quando é efetuada uma atividade em planeadas| Para o Hyper-V, o ASR replica os dados com uma frequência de cópia que é especificado pelo utilizador. Ativação pós-falha planeada é utilizada para substituir a frequência e replicar as alterações finais antes de uma ativação pós-falha é iniciada. <br/> <br/> 1.    Planear uma janela de manutenção de acordo com o processo de gestão de alteração da sua empresa. <br/><br/> 2. notificar os utilizadores do período de indisponibilidade futura. <br/><br/> 3. Colocar offline a aplicação destinada ao utilizador.<br/><br/>4. Inicie a ativação pós-falha planeada através do portal de ASR. A máquina de virtual no local é automaticamente encerrar.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de pontos de recuperação também é fornecido numa janela de retenção para um utilizador que quer utilizar um ponto de recuperação mais antigo. (retenção de 24 horas para Hyper-V). Se a replicação foi interrompida além do período de tempo da janela de retenção, os clientes ainda poderão ser capazes de ativação pós-falha com os pontos de recuperação disponível mais recente. | Do VMware, o ASR replica dados continuamente com CDP. Ativação pós-falha disponibiliza ao utilizador a opção de ativação pós-falha para os dados mais recentes (incluindo a aplicação de post e encerramento)<br/><br/> 1. Planear uma janela de manutenção de acordo com o processo de gestão de alterações <br/><br/>2. notificar os utilizadores do período de indisponibilidade futura <br/><br/>3.    Colocar offline a aplicação destinada ao utilizador. <br/><br/>4.  Inicie uma ativação de pós-falha planeada com o portal de ASR do ponto mais recente depois da aplicação está offline. Utilize a opção de "Ativação pós-falha não planeada" no portal e selecione o ponto mais recente para ativação pós-falha. A máquina de virtual no local é automaticamente encerrar.<br/><br/>Perda de dados de aplicações eficazes = 0 <br/><br/>Um diário de pontos de recuperação numa janela de retenção é fornecido para um cliente que quer utilizar um ponto de recuperação mais antigo. (72 horas de retenção para VMware). Se a replicação foi interrompida além do período de tempo da janela de retenção, os clientes ainda poderão ser capazes de ativação pós-falha com os pontos de recuperação disponível mais recente.
 |Ativação pós-falha devido a um período de indisponibilidade do Centro de dados não planeada (natural ou desastre de TI) | Perda mínima de dados para a aplicação | 1. iniciar o plano BCP da organização <br/><br/>2. Inicie ativação pós-falha não planeada com o portal de ASR para a versão mais recente ou um ponto da janela de retenção (diário).| 1. Inicie o plano BCP da organização. <br/><br/>2.  Inicie ativação pós-falha não planeada com o portal de ASR para a versão mais recente ou um ponto da janela de retenção (diário).
 
 
@@ -100,7 +100,7 @@ Em certos casos, a ativação pós-falha de máquinas virtuais requer uma etapa 
     * VMBus
     * storflt
     * intelide
-    * ATAPI
+    * atapi
 * Máquinas de virtuais de VMware que não têm o serviço DHCP ativado, independentemente se estão a utilizar DHCP ou estáticas de endereços IP
 
 Em todos os outros casos, este passo intermédio não é necessário e o tempo decorrido para a ativação pós-falha é inferior.

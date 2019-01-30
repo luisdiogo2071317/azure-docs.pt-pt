@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: eeb68ef869e3249ec86ecc8763aa1f136617e6d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101707"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218178"
 ---
 # <a name="what-is-project-url-preview"></a>O que é a Pré-visualização do URL do Projeto?
 O ponto final de Pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação para uma imagem a apresentar numa pré-visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica se o URL contém conteúdo para adultos, pirateado ou outro conteúdo ilícito. 

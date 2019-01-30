@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8712f9e79965e09e21df768b1c06561a896b8e01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608482"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214097"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Usando a API de GenerateAnswer e metadados
 
@@ -57,13 +57,13 @@ Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mos
     - **ID da base de dados de conhecimento** (cadeia): O GUID de sua base de dados de conhecimento.
     - **Ponto final do QnAMaker** (cadeia): O nome de anfitrião do ponto final implementado na sua subscrição do Azure.
 - **Cabeçalhos de pedido**
-    - **Tipo de conteúdo** (cadeia): O tipo de suporte do corpo enviado para a API.
+    - **Content-Type** (string): O tipo de suporte do corpo enviado para a API.
     - **Autorização** (cadeia): A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corpo do pedido**
     - **pergunta** (cadeia): Uma pergunta de utilizador para ser consultados em relação a sua base de dados de conhecimento.
     - **parte superior** (opcional, número inteiro): O número de resultados classificados a incluir na saída. O valor predefinido é 1.
-    - **ID de utilizador** (opcional, cadeia de caracteres): Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.
-    - **strictFilters** (opcional, cadeia de caracteres): Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Para obter mais informações, veja a seguir.
+    - **userId** (optional, string): Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.
+    - **strictFilters** (optional, string): Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Para obter mais informações, veja a seguir.
     ```json
     {
         "question": "qna maker and luis",
@@ -83,12 +83,12 @@ Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mos
     - **respostas** -uma lista de respostas para a consulta de utilizador, ordenados por ordem decrescente de classificação de pontuação.
         - **pontuação**: Uma pontuação de classificação, entre 0 e 100.
         - **perguntas**: As perguntas fornecidas pelo usuário.
-        - **resposta**: A resposta à pergunta.
+        - **answer**: A resposta à pergunta.
         - **origem**: O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.
-        - **Metadados**: Os metadados associados com a resposta.
-            - Nome: Nome de metadados. (string, comprimento máximo: 100, necessária)
+        - **metadata**: Os metadados associados com a resposta.
+            - name: Nome de metadados. (string, comprimento máximo: 100, necessária)
             - Valor: Valor de metadados. (string, comprimento máximo: 100, necessária)
-        - **ID**: Um ID exclusivo atribuído para a resposta.
+        - **Id**: Um ID exclusivo atribuído para a resposta.
     ```json
     {
         "answers": [

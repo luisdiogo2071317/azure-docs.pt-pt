@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Deteção de Anomalias, Java'
+title: 'Tutorial: Deteção de anomalias, Java'
 titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação Java que utiliza a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419032"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223345"
 ---
-# <a name="tutorial-anomaly-detection-with-java-application"></a>Tutorial: Deteção de Anomalias com aplicação Java
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Tutorial: Deteção de anomalias com a aplicação de Java
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -76,7 +76,7 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: transliterar texto, Node.js – API de Texto do Microsoft Translator'
+title: 'Início rápido: Transcrição de texto, node. js - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Node.js e a API de Texto do Microsoft Translator. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035820"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207926"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Início Rápido: Utilizar a API REST de Texto do Microsoft Translator para transliterar texto com o Node.js
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com node. js
 
 Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Node.js e a API de Texto do Microsoft Translator. No exemplo apresentado, o japonês é transliterado para utilizar o alfabeto latino.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: transliterar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Translitere](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {
@@ -135,7 +135,7 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Node.js no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)

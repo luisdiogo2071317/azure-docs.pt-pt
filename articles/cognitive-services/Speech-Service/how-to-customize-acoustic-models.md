@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: criar um modelo acústico com o Serviço de Voz'
+title: 'Tutorial: Criar um modelo acústico com o serviço de voz'
 titlesuffix: Azure Cognitive Services
 description: Saiba como criar um modelo acústico com o Serviço de Voz nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217633"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -46,7 +46,7 @@ Por exemplo:
 * Se quiser reconhecer melhor a voz num ambiente de fábrica ruidoso, os ficheiros de áudio devem ser constituídos por pessoas a falar numa fábrica ruidosa.
 * Se estiver interessado na otimização do desempenho para um único orador &mdash; por exemplo, se quiser transcrever todas as conversas informais de FDR &mdash;, os ficheiros de áudio devem ter muitos exemplos apenas desse orador.
 
-Um conjunto de dados acústico para personalizar o modelo acústico é constituído por duas partes: (1) um conjunto de ficheiros de áudio que contém os dados de voz e (2) um ficheiro com as transcrições de todos os ficheiros de áudio.
+Um conjunto de dados acústico para personalizar o modelo acústico consiste em duas partes: (1) um conjunto de arquivos de áudio que contém os dados de voz e (2) um ficheiro que contenha as transcrições de todos os arquivos de áudio.
 
 ### <a name="audio-data-recommendations"></a>Recomendações de dados de áudio
 
@@ -112,7 +112,7 @@ Nas caixas **Name** (Nome) e **Description** (Descrição), introduza as informa
 
 Nas caixas **Transcriptions file (.txt)** (Ficheiros de transcrições [.txt]) e **Audio files (.zip)** (Ficheiros de áudio [.zip]) , selecione **Browse** (Procurar) e selecione o ficheiro de transcrição em texto simples e o arquivo zip dos ficheiros WAV. Quando a preparação estiver concluída, selecione **Import** (Importar) para carregar os dados. Os dados serão carregados. Relativamente a conjuntos de dados maiores, o processo de importação poderá demorar vários minutos.
 
-Após a conclusão do carregamento, regresse à tabela **Acoustic Datasets** (Conjuntos de Dados Acústicos). É apresentada uma entrada que corresponde ao seu conjunto de dados acústico. Repare que lhe foi atribuído um ID exclusivo (GUID). Os dados apresentam o estado atual: *NotStarted* (Não iniciado), enquanto estão a ser colocados em fila para processamento; *Running* (Em execução), enquanto estão a ser submetidos a validação e *Complete* (Concluídos), quando estão prontos para utilização.
+Após a conclusão do carregamento, regresse à tabela **Acoustic Datasets** (Conjuntos de Dados Acústicos). É apresentada uma entrada que corresponde ao seu conjunto de dados acústico. Repare que lhe foi atribuído um ID exclusivo (GUID). Os dados são apresentados o respetivo estado atual: *NotStarted* enquanto está em fila para processamento, *em execução* enquanto ele está em validação, e *Complete* quando os dados estão prontos para uso.
 
 A validação de dados inclui uma série de verificações nos ficheiros de áudio para verificar o formato de ficheiro, a duração e a taxa de amostragem, e nos ficheiros de transcrição para verificar o formato de ficheiro e efetuar a normalização de texto.
 
@@ -141,17 +141,17 @@ Em seguida, na lista pendente **Acoustic Data** (Dados Acústicos), selecione os
 
 ![Página Criar Modelo Acústico](media/stt/speech-acoustic-models-create2.png)
 
-Após a conclusão do processamento, pode optar por realizar testes de precisão do modelo novo. Este teste executa uma avaliação de conversão de voz em texto num conjunto de dados acústicos especificado mediante a utilização do modelo acústico personalizado e, depois, reporta os resultados. ara executar este teste, selecione a caixa de verificação **Accuracy Testing** (Testes de Precisão). Em seguida, selecione um modelo de idioma na lista pendente. Se não tiver criado nenhum modelo de idioma personalizado, apenas os modelos de idioma base serão apresentados na lista pendente. Para selecionar o modelo de idioma mais adequado, veja [Tutorial: Criar um modelo de idioma personalizado](how-to-customize-language-model.md).
+Após a conclusão do processamento, pode optar por realizar testes de precisão do modelo novo. Este teste executa uma avaliação de conversão de voz em texto num conjunto de dados acústicos especificado mediante a utilização do modelo acústico personalizado e, depois, reporta os resultados. ara executar este teste, selecione a caixa de verificação **Accuracy Testing** (Testes de Precisão). Em seguida, selecione um modelo de idioma na lista pendente. Se não tiver criado nenhum modelo de idioma personalizado, apenas os modelos de idioma base serão apresentados na lista pendente. Para selecionar o modelo de idioma mais adequado, consulte [Tutorial: Criar um modelo de idioma personalizado](how-to-customize-language-model.md).
 
 Por fim, selecione o conjunto de dados acústicos que quer utilizar para avaliar o modelo personalizado. Se realizar testes de precisão, é importante selecionar um conjunto de dados acústicos diferente do utilizado na criação do modelo, de modo a obter uma noção realista do desempenho do modelo. Testar a precisão nos dados de preparação não permite avaliar o desempenho do modelo adaptado em condições reais. O resultado será demasiado otimista. Tenha também em atenção que os testes de precisão estão limitados a mil expressões. Se o conjunto de dados acústicos para teste for maior, só são avaliadas as primeiras mil expressões.
 
 Quando estiver pronto para começar a executar o processo de personalização, selecione **Create** (Criar).
 
-A tabela de modelos acústicos apresenta uma entrada nova que corresponde a esse modelo novo. Também mostra o estado do processo: *Waiting* (A aguardar), *Processing* (Em processamento) ou *Complete* (Concluído).
+A tabela de modelos acústicos apresenta uma entrada nova que corresponde a esse modelo novo. A tabela também apresenta o estado do processo: *A aguardar*, *processamento*, ou *completa*.
 
 ![Página Modelos Acústicos](media/stt/speech-acoustic-models-creating.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Obter a sua subscrição de avaliação do Serviço de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)

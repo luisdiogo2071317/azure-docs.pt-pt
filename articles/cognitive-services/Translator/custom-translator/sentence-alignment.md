@@ -5,16 +5,16 @@ description: Durante a execução de treinamento, frases presentes nos documento
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 557cd8d3af0c774d4dd0558d5d25dba8eec07268
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 663dba72619a14c66fdafe083454d0df9b3f6216
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209932"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de sentença e alinhamento em documentos paralelos
 
@@ -36,9 +36,9 @@ Para um treinamento tenha êxito, a tabela abaixo mostra o número mínimo de fr
 
 | Conjunto de dados   | Sugestões de contagem de sentença extraídos mínimo | Sugestões de contagem de sentença alinhados mínimo | Contagem de sentença alinhados máximo |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Formação   | 10,000                                     | 2,000                                    | Sem limite superior                 |
-| Ajuste     | 2,000                                      | 500                                      | 2,500                          |
-| Testes    | 2,000                                      | 500                                      | 2,500                          |
+| Formação   | 10,000                                     | 2.000                                    | Sem limite superior                 |
+| Ajuste     | 2.000                                      | 500                                      | 2,500                          |
+| Testes    | 2.000                                      | 500                                      | 2,500                          |
 | Dicionário | 0                                          | 0                                        | Sem limite superior                 |
 
 ## <a name="next-steps"></a>Passos Seguintes

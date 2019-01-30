@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Personalização de artigos – Serviço de Decisão Personalizada'
+title: 'Tutorial: Personalização de artigo - serviço de decisão personalizada'
 titlesuffix: Azure Cognitive Services
 description: Um tutorial para a personalização de artigos para a tomada de decisões contextuais.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212236"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigos para a tomada de decisões contextuais
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigo para a tomada de decisões contextuais
 
 Este tutorial centra-se na personalização da seleção de artigos na página inicial de um site. O Serviço de Decisão Personalizada afeta, por exemplo, *múltiplas* listas de artigos na página inicial. A página pode ser um site de notícias que aborda apenas política e desporto. Mostraria três listas classificadas de artigos: política, desporto e recentes.
 
@@ -137,6 +137,6 @@ function callback(data) {
 
 Neste exemplo, a função `render()` é implementada para processar um determinado artigo para uma determinada aplicação. Esta função introduz o ID da aplicação e o artigo (no formato da API de Classificação). O parâmetro `onClick` é a função que deve ser chamada a partir da função `render()` para processar um clique. Este parâmetro verifica se o clique está no bloco principal. Em seguida, chama a API de Recompensa com o ID de aplicação e o ID de evento adequados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Veja a [Referência à API](custom-decision-service-api-reference.md) para saber mais sobre a funcionalidade fornecida.

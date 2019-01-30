@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 160721560b6cf311f146cd0f48ae719d95b30a0f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103936"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206294"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 
@@ -60,7 +60,7 @@ Teste a intenção de novo no ponto final adicionado por um valor para o **p** p
 
  Para marcar esse tipo de token, onde parte dele já está marcado com uma entidade pré-criados, remova a entidade pré-concebidos a partir da aplicação do LUIS. Não precisa de preparar a aplicação. Em seguida, marque o token com sua própria entidade personalizada. Em seguida, adicione a entidade criados previamente para a aplicação do LUIS.
 
- Por outro exemplo, considere a expressão como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.` se a aplicação do LUIS tiver adicionado, o Ordinal de Prebuild `first`, `second`, e `fourth` já serão assinaladas com ordinais. Se quiser capturar o ordinal e a classe, pode criar uma entidade composta e encapsular o Ordinal criados previamente e a entidade personalizada para o nome da classe.
+ Por outro exemplo, considere a expressão como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.` Se a aplicação do LUIS tiver adicionado, o Ordinal de Prebuild `first`, `second`, e `fourth` já serão assinaladas com ordinais. Se quiser capturar o ordinal e a classe, pode criar uma entidade composta e encapsular o Ordinal criados previamente e a entidade personalizada para o nome da classe.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]

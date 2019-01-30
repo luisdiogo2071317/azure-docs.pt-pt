@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232992"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217242"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 
@@ -28,7 +28,7 @@ A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cu
 - Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais.
 - Controlar o acesso ao e o sistema de proteção de segurança de bases de dados que contém dados altamente confidenciais.
 
-Dados de deteção e classificação faz parte do [proteção contra ameaças avançadas do SQL](sql-advanced-threat-protection.md) oferta (ATP), o que é um pacote unificado para funções de segurança avançadas do SQL. Dados de deteção e classificação podem ser acedida e geridos através do portal SQL ATP central.
+Dados de deteção e classificação faz parte do [segurança de dados do SQL avançadas](sql-advanced-threat-protection.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Dados de deteção e classificação podem ser acedida e geridos através do portal de anúncios de SQL central.
 
 > [!NOTE]
 > Este documento está relacionado com a base de dados do Azure SQL apenas. Para o SQL Server (no local), consulte [deteção de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Depois da política ao nível do inquilino tiver sido definida, pode continuar c
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
-2. Navegue para **proteção avançada contra ameaças** sob o cabeçalho de segurança no seu painel de SQL Database do Azure. Clique para ativar a proteção avançada contra ameaças e, em seguida, clique nas **deteção de dados e classificação (pré-visualização)** cartão.
+2. Navegue para **segurança de dados avançada** sob o cabeçalho de segurança no seu painel de SQL Database do Azure. Clique para ativar a segurança de dados avançada e, em seguida, clique nas **deteção de dados e classificação (pré-visualização)** cartão.
 
    ![Uma base de dados de análise](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -134,8 +134,8 @@ Pode usar o T-SQL para adicionar ou remover as classificações de coluna, bem c
 > [!NOTE]
 > Quando utilizar o T-SQL para gerir as etiquetas, não há nenhuma validação adicionadas a uma coluna de etiquetas existentes na política de proteção de informações da empresa (o conjunto de etiquetas que são apresentados no portais recomendações). É, portanto, deve validar isto.
 
-- Adicionar/atualizar a classificação de uma ou mais colunas: [adicionar a classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Remover a classificação de uma ou mais colunas: [remover classificação de sensibilidade](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Adicionar/atualizar a classificação de uma ou mais colunas: [ADICIONAR A CLASSIFICAÇÃO DE SENSIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Remova a classificação de uma ou mais colunas: [REMOVER A CLASSIFICAÇÃO DE SENSIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Também pode utilizar as APIs REST para gerir programaticamente classificações. As APIs REST publicados suportam as seguintes operações:
@@ -147,7 +147,7 @@ Também pode utilizar as APIs REST para gerir programaticamente classificações
 
 ## <a id="subheading-5"></a>Passos seguintes
 
-- Saiba mais sobre [proteção do SQL avançada contra ameaças](sql-advanced-threat-protection.md).
+- Saiba mais sobre [segurança de dados avançada SQL](sql-advanced-threat-protection.md).
 - Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->

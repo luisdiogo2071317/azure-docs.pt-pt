@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter o comprimento de frases, Java – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, Java - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como determinar o comprimento de sentença com Java e a API de texto do Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888584"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208402"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Início rápido: Utilizar a API de texto do Translator para determinar o comprimento de sentença com Java
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Java
 
 Neste início rápido, irá aprender como determinar os comprimentos de sentença com Java e a API de texto do Translator.
 

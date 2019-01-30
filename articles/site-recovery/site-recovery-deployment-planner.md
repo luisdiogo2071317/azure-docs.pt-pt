@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4d4ddcdd025a040c84be66b1a36803645c839121
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320570"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206226"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -78,7 +78,7 @@ A ferramenta tem duas fases principais – a criação de perfis e a geração d
 | Requisito do servidor | Descrição|
 |---|---|
 |Medição da criação de perfis e do débito| <ul><li>Sistema operativo: Windows Server 2016 ou Windows Server 2012 R2<br>(que corresponda idealmente, pelo menos, às [recomendações de tamanho do servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração da máquina: 8 vCPUs, 16 GB de RAM, 300 GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure a partir deste servidor</li><li>Conta de armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre no disco (presumindo mil VMs com uma média de três discos cada, com perfis criados para 30 dias)</li><li>Definições de nível de estatísticas do VMware vCenter podem ser o nível 1 ou superior</li><li>Permitir porta do vCenter (o valor predefinido 443): Site Recovery Deployment Planner utiliza esta porta para ligar para o vCenter server/anfitrião ESXi</ul></ul>|
-| Geração de relatórios | Um Windows PC ou Windows Server com o Excel 2013 ou posterior.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) é necessário apenas quando passar - opção de utilizador no comando de geração de relatório para obter as últimas informações de configuração de VM das VMs. O planeador de Depolyment liga-se ao servidor do vCenter. Permitir vCenter porta da porta (predefinição 443) ligar ao vCenter server.</li>|
+| Geração de relatórios | Um Windows PC ou Windows Server com o Excel 2013 ou posterior.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) é necessário apenas quando passar - opção de utilizador no comando de geração de relatório para obter as últimas informações de configuração de VM das VMs. O Deployment Planner liga-se ao servidor do vCenter. Permitir vCenter porta da porta (predefinição 443) ligar ao vCenter server.</li>|
 | Permissões de utilizador | Permissão só de leitura para a conta de utilizador utilizada para aceder ao VMware vCenter Server/anfitrião ESXi do VMware vSphere durante a criação do perfil |
 
 > [!NOTE]

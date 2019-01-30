@@ -5,16 +5,16 @@ description: Um dicionário é um documento alinhado que especifica uma lista de
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627571"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212414"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
@@ -32,7 +32,7 @@ O dicionário de sentença permite-lhe especificar uma tradução de destino exa
 Pode preparar um modelo a utilizar apenas os dados do dicionário. Para tal, selecione apenas o documento de dicionário (ou vários documentos de dicionário) que pretende incluir e toque no modelo de criar. Como se trata de um treinamento de só de dicionário, não existe um número mínimo de frases de treinamento necessário. Seu modelo, normalmente, irá concluir treinamento muito mais rápido do que um treinamento padrão.  Os modelos resultantes irão utilizar os modelos de linha de base da Microsoft para a tradução com a adição de dicionários que adicionou.  Não obterá um relatório de teste.
 
 >[!Note]
->Tradutor personalizado faz não frase alinhar arquivos de dicionário, pelo que é importante que há um número igual de origem e destino frases/frases em seus documentos de dicionário e que estão precisamente alinhados.
+>Tradutor personalizado não frase alinhar os ficheiros de dicionário, pelo que é importante que há um número igual de expressões de origem e de destino / frases em seu dicionário documentos e que eles estão alinhados com precisão.
 
 ## <a name="recommendations"></a>Recomendações
 

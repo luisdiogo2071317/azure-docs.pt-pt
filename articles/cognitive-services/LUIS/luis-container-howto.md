@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463291"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216210"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -169,7 +169,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{APPLICATION_ID} | O ID da aplicação LUIS publicada. |
 |{APPLICATION_ENVIRONMENT} | O ambiente da aplicação LUIS publicado. Utilize um dos seguintes valores:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +197,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{APPLICATION_ID} | O ID de aplicação da aplicação LUIS treinado. |
 |{APPLICATION_VERSION} | A versão da aplicação da aplicação LUIS treinada. |
@@ -219,7 +219,7 @@ Se tiver êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro 
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Esta chave é utilizada para iniciar o contentor. Não utilize a chave de arranque. |
 |{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure.|
@@ -268,7 +268,7 @@ Usar o host, https://localhost:5000, para o contentor APIs.
 
 Configurar os parâmetros de consulta como e o que é devolvido na resposta da consulta:
 
-|Parâmetro de consulta|Tipo|Objetivo|
+|Parâmetro de consulta|Type|Objetivo|
 |--|--|--|
 |`q`|cadeia|Expressão do utilizador.|
 |`timezoneOffset`|número|O timezoneOffset permite-lhe [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilizado pelo datetimeV2 a entidade pré-criados.|

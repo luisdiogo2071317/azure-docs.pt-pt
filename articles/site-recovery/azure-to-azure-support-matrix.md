@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 148efb47d123938c3914f36e1432d447e277b051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452263"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210562"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -59,9 +59,9 @@ China | China East, China North, China North2, China East2
 >
 > - Para **sul do Brasil** região, pode replicar e efetuar a ativação pós-falha para um dos seguintes: Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e e.u.a. Centro-Norte regiões. É importante observar que o Site Recovery só tenha ativada sul do Brasil ser utilizado como uma região de origem de onde as VMs podem ser protegidas. Ele **não pode ser utilizado como uma região de destino DR** para qualquer uma das regiões do Azure, como o Centro-Sul. O motivo pelo qual a ser latência observado, devido à distância geográfica, que é recomendado que selecione a região de quaisquer outros América que não seja o sul do Brasil.
 > 
-> - Se estiver **não é possível ver uma região** onde pretende **para criar um cofre** , em seguida, certifique-se a sua subscrição tem acesso para criar recursos nessa região. Por exemplo: Se não é possível criar o Cofre no Sul de França, em seguida, a sua subscrição não tem acesso à região Centro-sul de França. Pedido de suporte de ficheiro em "gestão de subscrições" de tipo de problema e o problema escreva assunto "outras questões gerais" "whitlelist subscrição para o XXX região do Azure"
+> - Se estiver **não é possível ver uma região** onde pretende **para criar um cofre** , em seguida, certifique-se a sua subscrição tem acesso para criar recursos nessa região. Por exemplo: Se não é possível criar o Cofre no Sul de França, em seguida, a sua subscrição não tem acesso à região Centro-sul de França. Pedido de suporte de ficheiro em "gestão de subscrições" de tipo de problema e o problema escreva assunto "outras questões gerais" "lista de permissões subscrição para o XXX região do Azure"
 > 
-> - Se estiver **não é possível ver uma região** dentro de um cluster geográfico **durante a ativação da replicação** , em seguida, certifique-se a sua subscrição tem acesso para criar a máquina virtual nessa região. Por exemplo: Se estiver a tentar proteger máquinas virtuais de centro de França para a França Sul e não a vir sul de França sob a região de lista pendente, em seguida, a sua subscrição não tem acesso para implementar a VM nessa região. Pedido de suporte de ficheiro em "gestão de subscrições" de tipo de problema e o problema escreva assunto "outras questões gerais" "whitlelist subscrição para o XXX região do Azure"
+> - Se estiver **não é possível ver uma região** dentro de um cluster geográfico **durante a ativação da replicação** , em seguida, certifique-se a sua subscrição tem acesso para criar a máquina virtual nessa região. Por exemplo: Se estiver a tentar proteger máquinas virtuais de centro de França para a França Sul e não a vir sul de França sob a região de lista pendente, em seguida, a sua subscrição não tem acesso para implementar a VM nessa região. Pedido de suporte de ficheiro em "gestão de subscrições" de tipo de problema e o problema escreva assunto "outras questões gerais" "lista de permissões subscrição para o XXX região do Azure"
 > - Não é possível selecionar regiões em clusters geográficas mencionadas acima.
 
 

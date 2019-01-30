@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216617"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -158,7 +158,7 @@ Para ativar a conta administrativa pela primeira vez, tem de fornecer consentime
     AdminConsent -ErrorAction Stop
     ```
 
-2. Execute o script com o seguinte comando.
+2. Execute o script com o seguinte comando. Será solicitado duas vezes para credenciais. Forneça as credenciais para a área de trabalho do Log Analytics primeiro e, em seguida, as credenciais de administrador global do Office 365 para o inquilino.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -351,7 +351,7 @@ A última etapa é assinar a aplicação à sua área de trabalho do Log Analyti
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Pode ver o seguinte erro se tentar criar uma subscrição depois da subscrição já existe.
+Poderá ver o seguinte erro se o seu aplicativo já está subscrita para esta área de trabalho ou se este inquilino está subscrita em outra área de trabalho.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -394,7 +394,7 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -510,7 +510,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado no formato de endereço de um IPv4 ou IPv6. |
 | OfficeWorkload | Serviço do Office 365 que referencia o registo.<br><br>AzureActiveDirectory<br>Troca<br>SharePoint|
 | Operação | O nome da atividade de utilizador ou administrador.  |

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: criar base de dados de conhecimento - REST, Go - Criador de FAQ'
+title: 'Início rápido: Criar base de dados de conhecimento - REST, de qualquer lugar - QnA Maker'
 titlesuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST do Go descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 06a156ebeee2467cdc756761984b6a069121b665
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4019f323ae1f4bb4f5f60f5a691ebced639d81de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333306"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208130"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Go
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker com Go
 
 Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 

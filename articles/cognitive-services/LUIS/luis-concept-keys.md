@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: ff7f25a9c1ac73c53587bb320ef3889a5bfa9dc5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81744e2af75410da911ee17f2c4acd05d5a57051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439124"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222598"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Criação e a consulta a chaves do ponto final de predição em LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 

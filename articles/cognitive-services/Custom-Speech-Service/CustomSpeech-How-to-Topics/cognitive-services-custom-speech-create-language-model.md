@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339101"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218092"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -55,7 +55,7 @@ Os requisitos principais para os dados de linguagem estão resumidos na tabela s
 
 | Propriedade | Valor |
 |----------|-------|
-| Codificação de Texto | en-US: US-ACSII ou UTF-8 ou zh-CN: UTF-8|
+| Codificação de Texto | en-US: E.U.A. ACSII ou UTF-8 ou zh-CN: UTF-8|
 | n.º de Expressões por linha | 1 |
 | Tamanho Máximo do Ficheiro | 200 MB |
 | Observações | evitar repetir os carateres mais de 4 vezes, por exemplo «aaaaa»|
@@ -106,7 +106,7 @@ Quando o modelo chegar ao estado "Complete", pode ser implementado num ponto fin
 
 Se, em determinado momento, quiser alterar o Nome e a Descrição do modelo, pode utilizar a hiperligação "Edit" (Editar) na linha adequada da tabela de modelos de linguagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, desenvolveu um modelo de linguagem personalizado para utilizar com texto. Para criar um modelo acústico personalizado para utilizar com ficheiros de áudio e transcrições, avance para o tutorial sobre como criar um modelo acústico.
 

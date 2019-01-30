@@ -12,19 +12,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 7d5c093eba4af10847827900557a87efece954ae
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b01958dc320ff6c81bb27c85ff4a5e508eabb01b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196825"
+ms.locfileid: "55209949"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta dos Azure Media Services
 
 Para começar a encriptar, codificação, analisar, gerir e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. No momento, criar uma conta de Media Services, também é criar um armazenamento associado da conta (ou utilize um já existente).  
 
 > [!NOTE]
-> Conta de Media Services e a conta de armazenamento associado ao mesmo têm de ser parte do mesmo centro de dados e o mesmo grupo de recursos.
+> A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. Recomenda-se para utilizar contas de armazenamento na mesma localização que a conta de Media Services.
 
 Este artigo descreve os passos para criar uma nova conta de Media Services do Azure com a CLI do Azure.  
 
@@ -32,10 +32,9 @@ Este artigo descreve os passos para criar uma nova conta de Media Services do Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="set-the-azure-subscription"></a>Definir a subscrição do Azure
 

@@ -1,26 +1,22 @@
 ---
 title: Resolver problemas de ativação pós-falha para falhas do Azure | Documentos da Microsoft
 description: Este artigo descreve formas de resolver erros comuns na ativação pós-falha para o Azure
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207501"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha de uma máquina virtual para o Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha da VM de VMware ou máquina física para o Azure
 
 Poderá receber um dos seguintes erros durante o processo de ativação pós-falha de uma máquina virtual para o Azure. Para resolver problemas, utilize os passos descritos para cada condição de erro.
 
@@ -48,7 +44,9 @@ Recuperação de sites não foi possível criar um com falha através de máquin
 
 Recuperação de sites não foi possível criar um com falha através de máquina virtual no Azure. Pode ter ocorrido porque uma atividade interna de hidratação falhou para a máquina virtual no local.
 
-Para abrir qualquer máquina no Azure, o ambiente do Azure requer alguns dos controladores no arranque iniciar estado e serviços, como o DHCP esteja no estado de início automático. Portanto, atividade de hidratação, no momento da ativação pós-falha, converte o tipo de arranque de **drivers atapi, intelide, storflt, vmbus e storvsc** arranque inicial. Além disso, converte o tipo de arranque de alguns serviços, como o DHCP para inicialização automática. Esta atividade pode falhar devido a problemas específicos do ambiente. Para alterar manualmente o tipo de arranque de drivers, siga os passos abaixo:
+Para abrir qualquer máquina no Azure, o ambiente do Azure requer alguns dos controladores no arranque iniciar estado e serviços, como o DHCP esteja no estado de início automático. Portanto, atividade de hidratação, no momento da ativação pós-falha, converte o tipo de arranque de **drivers atapi, intelide, storflt, vmbus e storvsc** arranque inicial. Além disso, converte o tipo de arranque de alguns serviços, como o DHCP para inicialização automática. Esta atividade pode falhar devido a problemas específicos do ambiente. 
+
+Para alterar o tipo de arranque de drivers para manualmente **SO de convidado do Windows**, siga os passos abaixo:
 
 1. [Transferir](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script de não-hidratação e executá-la como se segue. Este script verifica se a VM requer hidratação.
 
@@ -78,7 +76,7 @@ Para abrir qualquer máquina no Azure, o ambiente do Azure requer alguns dos con
 
 Se o **Connect** botão na ativação pós-falha VM no Azure está a cinzento e não estiver ligado ao Azure através de uma Express Route ou VPN de Site a Site ligação, em seguida,
 
-1. Aceda a **Máquina Virtual** > **redes**, clique no nome da interface de rede necessária.  ![interface de rede](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Aceda a **Máquina Virtual** > **redes**, clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue para **configurações de Ip**, em seguida, clique no campo de nome de configuração de IP necessárias. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Para ativar o endereço IP público, clique em **ativar**. ![Ativar o IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Clique em **configurar definições necessárias** > **criar novo**. ![Criar um novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)

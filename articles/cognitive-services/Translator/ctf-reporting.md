@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646018"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218161"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
@@ -36,7 +36,7 @@ A API de relatórios de estrutura de tradução colaborativa (CTF) devolve estat
 
 
 ## <a name="methods"></a>Métodos
-| Nome |    Descrição|
+| Name |    Descrição|
 |:---|:---|
 | Método GetUserTranslationCounts | Obtenha contagens das traduções que são criadas pelo utilizador. |
 | Método GetUserTranslations | Obtém as traduções que são criadas pelo utilizador. |
@@ -99,10 +99,10 @@ O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada Us
 | Campo | Descrição |
 |:---|:---|
 | Contagem| O número de resultados que é obtido|
-| De | O idioma de origem|
+| A partir de | O idioma de origem|
 | Classificação| A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 | Para| O idioma de destino|
-| Uri| O URI aplicado na chamada de método AddTranslation()|
+| URI| O URI aplicado na chamada de método AddTranslation()|
 | Utilizador| O nome de utilizador|
 
 **Exceções**
@@ -170,12 +170,12 @@ O conjunto de resultados contém uma matriz do **UserTranslation**. Cada UserTra
 | Campo | Descrição |
 |:---|:---|
 | CreatedDateUtc| A data de criação da entrada, usando AddTranslation()|
-| De| O idioma de origem|
+| A partir de| O idioma de origem|
 | OriginalText| O texto de linguagem de código que é utilizado ao submeter o pedido|
 |Classificação |A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 |Para|    O idioma de destino|
 |TranslatedText|    A tradução como submetido na chamada de método AddTranslation()|
-|Uri|   O URI aplicado na chamada de método AddTranslation()|
+|URI|   O URI aplicado na chamada de método AddTranslation()|
 |Utilizador   |O nome de utilizador|
 
 **Exceções**

@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Python'
+title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para Python'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o SDK para Python.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: b95adf3cb07ae98d4b690dbe29d72d30671c4a6a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 25528d0d867700dcf1f46b62fbac387c3a1b6481
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681216"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214131"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início Rápido: Criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Python
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de Python de visão personalizada
 
 Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com Python e compilar um modelo de classificação de imagens. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 

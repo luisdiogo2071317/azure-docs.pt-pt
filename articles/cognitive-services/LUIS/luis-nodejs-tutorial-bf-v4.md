@@ -1,5 +1,5 @@
 ---
-title: O bot - node. js - v4
+title: Bot - Node.js - v4
 titleSuffix: Azure Cognitive Services
 description: Com Node.js, crie um chatbot integrado na compreensão de idioma (LUIS). Este chatbot utiliza a aplicação Human Resources para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
 services: cognitive-services
@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 20d2ed28291c8d8adfed4779b48f93c657438e0d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 292bcf5974f8c51f99a676786c66316e9cde0748
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215922"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS em node. js com o Bot Framework 4.x e bot de aplicação Web do Azure
 Com Node.js, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).

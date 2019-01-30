@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eb9f7fccfa5c759de154cb62ed866a02f619400a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222085"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208606"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeos com revisão humana
 
@@ -93,7 +93,7 @@ Uma análise detalhada de vídeo para análise de quadro por quadro se tornou po
 
 ![exibição de quadros de ferramentas de revisão de vídeo](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>Moderação de transcrição
+## <a name="transcript-moderation"></a>Moderação de transcrições
 
 Vídeos têm normalmente voz através de que precisa de moderação também para voz ofensiva. Utilize o serviço de indexador de multimédia do Azure para converter voz em texto e utilizar a API de revisão do Content Moderator para submeter a transcrição de moderação de texto dentro da ferramenta de revisão.
 

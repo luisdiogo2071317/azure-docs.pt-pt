@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886217"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206752"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -48,7 +48,7 @@ Aqui está uma lista de sistemas operativos suportados para a operação de cóp
 
 ### <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
-Aqui está uma lista de contas de armazenamento suportadas e os tipos de armazenamento para o dispositivo do Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e as respetivas funcionalidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Aqui está uma lista de contas de armazenamento suportadas e os tipos de armazenamento para o dispositivo do Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e as respetivas funcionalidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 | **Conta de armazenamento / suportado tipos de armazenamento** | **Blob de blocos** |**BLOBs de páginas*** |**Ficheiros do Azure** |**Notas**|
 | --- | --- | -- | -- | -- |

@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
-ms.openlocfilehash: e785abe09bba83f4ee69e7fd676422e22b44b391
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 44870e0f6a8c9ce69c3e3dfb99e0307f5855e773
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261745"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206160"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Suporte de idiomas de conteúdo de base de dados para o QnA Maker
 A ferramenta QnA Maker suporta conteúdos da base de dados de conhecimento em vários idiomas. No entanto, cada serviço QnA Maker deve ser reservado para um único idioma. A primeira base de dados de conhecimento criado visando um serviço específico do QnA Maker define o idioma desse serviço. Ver [aqui](../Overview/languages-supported.md) para a lista de idiomas suportados.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342335"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219078"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Início rápido: Utilizar o reconhecimento de voz do Bing API em C&#35; para .NET no Windows
 
@@ -63,7 +63,7 @@ A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford)
 
 2. Prima Ctrl + Shift + B ou selecione **criar** no menu da faixa de opções. Em seguida, selecione **compilar solução**.
 
-## <a name="step-3-run-the-sample-application"></a>Passo 3: Executar a aplicação de exemplo
+## <a name="step-3-run-the-sample-application"></a>Passo 3: Executar o exemplo de aplicação
 
 1. Depois de concluída a compilação, prima F5 ou selecione **iniciar** no menu da faixa de opções para executar o exemplo.
 
@@ -78,8 +78,8 @@ A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford)
 
    Cada categoria tem três modos de reconhecimento:
 
-    * **Modo de ShortPhrase**: uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um resultado final com várias opções de múltipla.
-    * **Modo de LongDictation**: uma expressão até dois minutos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e finais, com base em onde o servidor indica as pausas das frases.
+    * **Modo de ShortPhrase**: Uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um resultado final com várias opções de múltipla.
+    * **Modo de LongDictation**: Uma expressão até dois minutos longa. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e finais, com base em onde o servidor indica as pausas das frases.
     * **Deteção de intenção**: O servidor devolve informações estruturadas adicionais sobre a conversão de voz de entrada. Para utilizar a deteção de intenção, precisa primeiro preparar um modelo com o [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Utilize arquivos de áudio de exemplo com este aplicativo de exemplo. Encontre os ficheiros no repositório que transferiu com este exemplo sob a pasta de exemplos/SpeechRecognitionServiceExample. Esses arquivos de áudio de exemplo são executados automaticamente se não existem outros ficheiros são escolhidos Quando seleciona **arquivo wav de utilização para o modo de Shortphrase** ou **arquivo wav de utilização para o modo de Longdictation** como sua voz de entrada. Atualmente, apenas WAV formato de áudio é suportado.
@@ -91,8 +91,8 @@ Utilize arquivos de áudio de exemplo com este aplicativo de exemplo. Encontre o
 ### <a name="recognition-events"></a>Eventos de reconhecimento
 
 * **Eventos de resultados parciais**: Este evento é chamado sempre que o serviço de voz prevê o que poderá ser dizendo, até mesmo antes de acabar de fala (se usar `MicrophoneRecognitionClient`) ou de concluir o envio de dados (se usar `DataRecognitionClient`).
-* **Eventos de erro**: chamado quando o serviço Deteta um erro.
-* **Eventos de intenção**: chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
+* **Eventos de erro**: Chamado quando o serviço Deteta um erro.
+* **Eventos de intenção**: Chamado nos clientes de "WithIntent" (apenas no modo de ShortPhrase) após o final reconhecimento o resultado é analisado numa intenção do JSON estruturada.
 * **Resultar eventos**:
   * No `ShortPhrase` modo, este evento é chamado e retorna os resultados de múltipla depois de concluir a falar.
   * No `LongDictation` modo, o manipulador de eventos é chamado várias vezes, com base em onde o serviço identifica as pausas das frases.

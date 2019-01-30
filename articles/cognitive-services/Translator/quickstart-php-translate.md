@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: traduzir texto, PHP – API de Texto do Microsoft Translator'
+title: 'Início rápido: Traduzir texto, PHP - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá traduzir texto de um idioma noutro através da API de Texto do Microsoft Translator com PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 5edecf780c1687a4abc583f3223f0245964ddf18
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 66b4fddb84b28ba1189fff6c77c9ec588ee2c2e2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647804"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207229"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início Rápido: traduzir texto com a API REST de Texto do Microsoft Translator (PHP)
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início rápido: Traduzir texto com a API de REST de texto de tradutor (PHP)
 
 Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
@@ -132,7 +132,7 @@ echo $json;
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 

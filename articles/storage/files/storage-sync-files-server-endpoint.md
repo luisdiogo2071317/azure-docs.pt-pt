@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 00ce83a7ec52e24ce858c720e834b8396c2f808c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 118ecc08604cbe05181dd3ba943fd73a34fd47f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523970"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212482"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar ou remover um ponto de extremidade do servidor de sincronização de ficheiros do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Ele faz isso ao transformar os seus servidores do Windows numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -29,16 +29,16 @@ Para criar um ponto final do servidor, primeiro tem de se certificar de que são
 - Certifique-se de que um grupo de sincronização foi implementado. Saiba como [criar um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Certifique-se de que o servidor está ligado à internet e que o Azure está acessível. Podemos utilizar a porta 443 para todas as comunicações entre o servidor e o nosso serviço.
 
-## <a name="add-a-server-endpoint"></a>Adicionar um ponto final do servidor
+## <a name="add-a-server-endpoint"></a>Adicionar um ponto final de servidor
 Para adicionar um ponto final do servidor, navegue para o grupo de sincronização pretendido e selecione "Adicionar ponto final do servidor".
 
-![Adicionar um novo ponto de final de servidor no painel do grupo de sincronização](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Adicionar um ponto final de servidor novo no painel do grupo de sincronização](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 As seguintes informações são necessárias em **adicionar ponto final de servidor**:
 
 - **Servidor registado**: O nome do servidor ou cluster para criar o ponto final do servidor.
 - **Caminho**: O caminho no servidor do Windows sejam sincronizadas como parte do grupo de sincronização.
-- **Criação de camadas de cloud**: um comutador para ativar ou desativar a cloud em camadas. Quando ativada, será camada da cloud *escalão* ficheiros para as partilhas de ficheiros do Azure. Desta forma, as partilhas de ficheiros no local para uma cache, em vez de uma cópia completa do conjunto de dados, para ajudar a gerir a eficiência de espaço no seu servidor.
+- **Em camada de cloud**: Um comutador para ativar ou desativar a cloud em camadas. Quando ativada, será camada da cloud *escalão* ficheiros para as partilhas de ficheiros do Azure. Desta forma, as partilhas de ficheiros no local para uma cache, em vez de uma cópia completa do conjunto de dados, para ajudar a gerir a eficiência de espaço no seu servidor.
 - **Espaço livre do volume**: a quantidade de espaço livre para reservar no volume que reside o ponto final do servidor. Por exemplo, se o espaço livre de volume é definido como 50% num volume com um ponto de final de servidor único, aproximadamente metade a quantidade de dados será colocado em camadas para ficheiros do Azure. Independentemente de se cloud em camadas é ativada, a partilha de ficheiros do Azure tem sempre uma cópia completa dos dados no grupo de sincronização.
 
 Selecione **criar** para adicionar o ponto final do servidor. Os ficheiros dentro de um espaço de nomes de um grupo de sincronização irão agora ser mantidos em sincronização. 
@@ -70,3 +70,4 @@ Para remover o ponto final do servidor:
 ## <a name="next-steps"></a>Passos Seguintes
 - [Registre-se/anular o registo de um servidor com o Azure File Sync](storage-sync-files-server-registration.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)

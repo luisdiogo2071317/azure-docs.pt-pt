@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095162"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214471"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -879,6 +879,7 @@ Se o problema não for resolvido, execute a ferramenta de AFSDiag:
 6. Um ficheiro. zip que contém os registos e ficheiros de rastreio são guardados no diretório de saída que especificou.
 
 ## <a name="see-also"></a>Consulte também
+- [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)
 - [Perguntas mais frequentes sobre os ficheiros do Azure](storage-files-faq.md)
 - [Resolver problemas de Ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 997dcdd6ce99815a79006b40b87568e573c63ff3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221688"
 ---
 # <a name="analyzer-names"></a>Nomes de analisador
 
 > [!IMPORTANT]
-> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
+> A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 Uma estrutura de nomenclatura um pouco complicada para analisadores são utilizadas para permitir que os dois flexibilidade no analisadores e precisão em compreender o que significa que um nome.
 Nomes de analisador consistem em quatro partes: um ID, um tipo, uma especificação e uma implementação.
@@ -31,7 +31,7 @@ A função de cada componente definida abaixo.
 Em primeiro lugar, um analisador tem um ID exclusivo; um GUID.
 Esses GUIDs devem ser alterado em ocasiões relativamente raras, mas são a única forma de descrever exclusivamente um analisador de particular.
 
-## <a name="kind"></a>Variante
+## <a name="kind"></a>Tipo
 Em seguida, cada analyzer é uma **tipo**.
 Isso define em termos muito amplas devolveu o tipo de análise e exclusivamente deve definir a estrutura de dados usada para representar essa análise.
 Atualmente, existem três tipos distintos:

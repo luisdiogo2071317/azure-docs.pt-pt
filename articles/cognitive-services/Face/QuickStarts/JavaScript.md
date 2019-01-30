@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: detetar rostos numa imagem com a API REST e JavaScript'
+title: 'Início rápido: Detetar rostos numa imagem usando a REST API e JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos de uma imagem através da API Face com o JavaScript nos Serviços Cognitivos.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 02066ac7425b5b4843ae8a74c37a928242f2a092
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852376"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225453"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: detetar rostos numa imagem com a API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: Detetar rostos numa imagem usando a REST API e JavaScript
 
 Neste guia de início rápido, irá detetar rostos numa imagem com a API Face.
 
@@ -29,9 +29,9 @@ Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves 
 
 Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Rosto – Detetar) para detetar rostos numa imagem e devolver atributos, incluindo:
 
-* Face ID: ID exclusivo utilizado em vários cenários da API Face.
-* Retângulo de Rostos: a esquerda, o topo, a largura e a altura indicam a localização do rosto na imagem, a largura e a altura indicam a localização do rosto na imagem.
-* Marcos: uma matriz de marcos de rosto com 27 pontos aponta para as posições importantes dos componentes do rosto.
+* Face ID: ID exclusivo utilizado em vários cenários de Face API.
+* Retângulo de rostos: À esquerda, superior, largura e altura que indica a localização de rosto na imagem.
+* Pontos de referência: Uma matriz de pontos de referência de face de ponto de 27 a apontar para as posições importantes dos componentes de rostos.
 * Atributos faciais, como a idade, o sexo, a intensidade do sorriso, a posição da cabeça e os pelos faciais.
 
 Para executar o exemplo, siga os seguintes passos:

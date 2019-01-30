@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 4154950cf8d8b6ec2e47a9f8100cb7983ac127bf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 5ff6666eceeaee2296c6323eaa4e7201841a1526
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648042"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212465"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar palavras ofensivas filtragem com a API de texto do tradutor
 
@@ -26,7 +26,7 @@ Se quiser evitar ver linguagem inapropriada na tradução, mesmo que a linguagem
 O método de Translate() usa o parâmetro de "Opções", que contém o novo elemento "ProfanityAction". Os valores aceites do ProfanityAction são "NoAction", "Assinalado" e "Eliminado".
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>Valores aceites de ProfanityAction e exemplos
-|Valor de ProfanityAction | Ação | Exemplo: Origem-japonês | Exemplo: Destino-inglês|
+|Valor de ProfanityAction | Ação | Exemplo: Origem – japonês | Exemplo: Destino - inglês|
 | :---|:---|:---|:---|
 | NoAction | Predefinição. Mesmo que não definir a opção. Linguagem inapropriada passa de origem para destino. | 彼は変態です。 | Ele é idiota. |
 | Marcado | Palavras profanas são cercadas por marcas XML \<linguagem inapropriada >... \</profanity >. | 彼は変態です。 | Ele é um \<linguagem inapropriada > puxão\</profanity >. |

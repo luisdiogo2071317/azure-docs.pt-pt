@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239307"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208640"
 ---
 # <a name="analyze-method"></a>Analisar método
 
 > [!IMPORTANT]
-> A pré-visualização de análise linguística foi desativada no dia 9 de Agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para processamento de texto e análise.
+> A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 O **analisar** REST API é usada para analisar a entrada de um determinado idioma natural.
 Que pode envolver a localização a [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte da voz](POS-tagging.md), ou ao localizar o [constitutency árvore](Constituency-Parsing.md).
@@ -38,9 +38,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parâmetros do pedido
 
-Nome | Tipo | Necessário | Descrição
+Name | Type | Necessário | Descrição
 -----|-------|----------|------------
-**Idioma**    | cadeia | Sim | As duas letras o código de idioma do ISO a ser utilizado para análise. Por exemplo, o inglês é "en".
+**language**    | cadeia | Sim | As duas letras o código de idioma do ISO a ser utilizado para análise. Por exemplo, o inglês é "en".
 **analyzerIds** | lista de cadeias de caracteres | Sim | Lista de GUIDs de analisadores de aplicar. Consulte a documentação de analisadores para obter mais informações.
 **text**        | cadeia | Sim | Dados brutos para ser analisado. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, uma frase completa, ou um parágrafo inteiro ou discourse.
 
@@ -50,25 +50,25 @@ Uma matriz de saídas de análise, um para cada atributo especificado no pedido.
 
 Os resultados semelhante ao seguinte:
 
-Nome | Tipo | Descrição
+Name | Tipo | Descrição
 -----|------|--------------
 analyzerId | cadeia | GUID do analyzer especificado
 Resultado | objeto | resultado de analisador
 
 Tenha em atenção que o tipo de resultado depende do tipo de analisador de entrada.
 
-### <a name="tokens-response-json"></a>Resposta de tokens (JSON)
+### <a name="tokens-response-json"></a>Tokens Response (JSON)
 
-Nome | Tipo | Descrição
+Name | Tipo | Descrição
 -----|------|-------------
 Resultado | lista de objetos de frase | limites de sentença identificados no texto |
-resultado [x]. Deslocamento | Int | deslocamento inicial do caráter de cada sentença |
-resultado [x]. Len | Int | comprimento em carateres de cada sentença |
-resultado [x]. Tokens | lista de objetos de token | limites de token identificados a frase |
-resultado [x]. Tokens [y]. Deslocamento | Int | deslocamento inicial de caráter do token |
-resultado [x]. Tokens [y]. Len | Int | comprimento em carateres do token |
-resultado [x]. Tokens [y]. RawToken | cadeia | os carateres dentro do token, antes de normalização |
-resultado [x]. Tokens [y]. NormalizedToken | cadeia | um formato normalizado do caráter, seguro para uso num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de Parêntese aberto "(" torna-se - LRB - |
+result[x].Offset | int | deslocamento inicial do caráter de cada sentença |
+result[x].Len | int | comprimento em carateres de cada sentença |
+result[x].Tokens | lista de objetos de token | limites de token identificados a frase |
+result[x].Tokens[y].Offset | int | deslocamento inicial de caráter do token |
+result[x].Tokens[y].Len | int | comprimento em carateres do token |
+result[x].Tokens[y].RawToken | cadeia | os carateres dentro do token, antes de normalização |
+result[x].Tokens[y].NormalizedToken | cadeia | um formato normalizado do caráter, seguro para uso num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de Parêntese aberto "(" torna-se - LRB - |
 
 Entrada de exemplo: "Este é um teste. Hello. "
 Resposta JSON de exemplo:

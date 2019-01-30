@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter os comprimentos de frases, Node.js – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, node. js - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a determinar os comprimentos de frases (em carateres) com o Node.js e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b27bad7b3e34353ec7e2d33cab3614affc31322b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998995"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215559"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para determinar os comprimentos de frases com o Node.js
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento da sentença com node. js
 
 Neste início rápido, irá aprender a determinar os comprimentos de frases (em carateres) com o Node.js e a API REST de Texto do Microsoft Translator.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: quebrar frase](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Quebrar a frase](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {

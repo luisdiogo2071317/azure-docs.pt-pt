@@ -7,16 +7,16 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 1c47f9d511cd6461ef5a31f308669eba751d1de4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976006"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217956"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para a arquitetura da recuperação após desastre do Azure
 
-Este artigo descreve a arquitetura e os processos utilizados ao implementar a replicação de recuperação após desastre, ativação pós-falha e recuperação de máquinas de virtuais de VMware (VMs) entre um site de VMware no local e o Azure com o [Azure Site Recovery](site-recovery-overview.md) servuce.
+Este artigo descreve a arquitetura e os processos utilizados ao implementar a replicação de recuperação após desastre, ativação pós-falha e recuperação de máquinas de virtuais de VMware (VMs) entre um site de VMware no local e o Azure com o [Azure Site Recovery](site-recovery-overview.md) serviço.
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura

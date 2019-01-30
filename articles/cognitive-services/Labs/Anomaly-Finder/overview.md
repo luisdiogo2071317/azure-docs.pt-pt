@@ -4,16 +4,16 @@ description: Utilize algoritmos avançados no Explorador de anomalias para ajuda
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: c0c15f077a0a7dd302a377aa6f82ba2f8533d862
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: ad0af6137e2a127e2f9981c2707906514bf8c591
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215202"
 ---
 # <a name="what-is-anomaly-finder"></a>O que é o Explorador de Anomalias?
 
@@ -38,7 +38,7 @@ Fig. 2: Detetar alterações padrão em pedidos de serviço
 
 ## <a name="requirements"></a>Requisitos
 
-- Série de tempo mínimo dados de entrada: mínimo de 13 dados aponta para a série de tempo sem periodicidade clara, mínimo de 4 ciclos de dados aponta para a série de tempo, com periodicidade conhecida. 
+- Mínimo dados de série de tempo de entrada: Mínimo de 13 dados aponta para a série de tempo sem periodicidade clara, mínimo de 4 ciclos de dados aponta para a série de tempo, com periodicidade conhecida. 
 - Integridade dos dados: os pontos de dados estão separados no mesmo intervalo e não há pontos em falta de série de tempo. 
 
 ## <a name="identify-anomalies"></a>Identificar anomalias

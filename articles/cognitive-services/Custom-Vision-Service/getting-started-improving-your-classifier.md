@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340295"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209406"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -41,23 +41,23 @@ Outra consideração é que deve certificar-se de que os seus dados são balance
 
 Fornece imagens que representem o que irá ser submetido para o classificador durante o uso normal. Por exemplo, se estiver a treinar um classificador de "apple", seu classificador pode não ser tão preciso, se treinar fotografias de maçãs no pratos mas previsões de marca de fotografias de maçãs em árvores apenas. Incluindo diversas imagens serão Certifique-se de que o seu classificador não é medida e pode generalizar bem. Veja a seguir estão algumas formas a que se pode tornar seu treinamento definidas mais diversificadas:
 
-__Em segundo plano:__ fornecer imagens de seu objeto à frente de diferentes planos de fundo (ou seja, frutos no prato versus frutos na matriz de acessar). Fotografias no contexto são melhores do que fotografias na frente de planos de fundo neutras que fornecem mais informações para o classificador.
+__Em segundo plano:__ Fornece imagens de seu objeto à frente de diferentes planos de fundo (ou seja, frutos no prato versus frutos na matriz de acessar). Fotografias no contexto são melhores do que fotografias na frente de planos de fundo neutras que fornecem mais informações para o classificador.
 
 ![Imagem dos exemplos em segundo plano](./media/getting-started-improving-your-classifier/background.png)
 
-__Iluminação:__ fornecer imagens com iluminação variada (ou seja, feita com exposição de flash, alta, etc.), especialmente se as imagens usadas para predição tem iluminação diferente. Também é útil incluir imagens com saturação variada, hue e brilho.
+__Iluminação:__ Fornecer imagens com iluminação variada (ou seja, feita com exposição de flash, alta, etc.), especialmente se as imagens usadas para predição tem iluminação diferente. Também é útil incluir imagens com saturação variada, hue e brilho.
 
 ![Imagem de amostras de iluminação](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Tamanho do objeto:__ imagens forneça em que os objetos são de diversificados Capturar partes diferentes do objeto de dimensionamento. Por exemplo, uma fotografia de muitas bananas e um grande plano de um banana único. Dimensionamento diferente ajuda o classificador de generalizar melhor.
+__Tamanho do objeto:__ Fornece imagens nas quais os objetos são de dimensionamento variado Capturar partes diferentes do objeto. Por exemplo, uma fotografia de muitas bananas e um grande plano de um banana único. Dimensionamento diferente ajuda o classificador de generalizar melhor.
 
 ![Imagem de amostras de tamanho](./media/getting-started-improving-your-classifier/size.png)
 
-__Ângulo da câmara:__ fornecer imagens feitas com ângulos de câmera diferentes. Se todas as suas fotografias são executadas com um conjunto de câmeras fixos (por exemplo, câmeras de vigilância), certifique-se de que atribuir uma etiqueta diferente para cada câmara, mesmo que estes capturarem os mesmos objetos para evitar overfitting - modelar relacionada com os objetos (como lampposts) como o principal recurso.
+__Ângulo de câmera:__ Fornece imagens feitas com ângulos de câmera diferentes. Se todas as suas fotografias são executadas com um conjunto de câmeras fixos (por exemplo, câmeras de vigilância), certifique-se de que atribuir uma etiqueta diferente para cada câmara, mesmo que estes capturarem os mesmos objetos para evitar overfitting - modelar relacionada com os objetos (como lampposts) como o principal recurso.
 
 ![Imagem de amostras de ângulo](./media/getting-started-improving-your-classifier/angle.png)
 
-__Estilo:__ fornecer imagens de diferentes estilos da mesma classe (ou seja, de diferentes tipos de citrus). No entanto, se tiver imagens de objetos de estilos drasticamente diferentes (ou seja, Mickey Mouse versus uma classificação da vida real), é recomendável que identifique-los como classes separadas para melhor representam as respetivas funcionalidades distintas.
+__Estilo:__ Fornece imagens de diferentes estilos da mesma classe (ou seja, de diferentes tipos de citrus). No entanto, se tiver imagens de objetos de estilos drasticamente diferentes (ou seja, Mickey Mouse versus uma classificação da vida real), é recomendável que identifique-los como classes separadas para melhor representam as respetivas funcionalidades distintas.
 
 ![Imagem de amostras de estilo](./media/getting-started-improving-your-classifier/style.png)
 

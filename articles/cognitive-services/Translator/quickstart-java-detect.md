@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: d810b282936db1a31cdeb0133ce3c5bf0059850b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 00ffb0eef5b7452894b27a00328dae4546d45c6f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890790"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208442"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Início rápido: Utilizar a API de texto do Translator para detectar o idioma de texto com Java
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com Java
 
 Neste início rápido, irá aprender como detectar o idioma do texto fornecido com Java e a API de REST de texto do Translator.
 

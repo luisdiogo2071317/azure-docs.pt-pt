@@ -1,29 +1,29 @@
 ---
-title: 'Início Rápido: Criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Java'
+title: 'Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para Java'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o SDK para Java.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: ad56a6fa4027115bd4f4679fa50330edad1b919f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 6a05620d35ddf1a382260fd730251f1cdcedb910
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283534"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213519"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: Criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Java
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de visão personalizada para Java
 
 Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada para Java e compilar um modelo d classificação de imagens. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para compilar a sua aplicação de Java. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Um IDE Java à sua escolha
-- O [JDK 7 ou 8](https://aka.ms/azure-jdks) instalado.
+- [JDK 7 ou 8](https://aka.ms/azure-jdks) instalado.
 - O Maven instalado
 
 
@@ -129,7 +129,7 @@ Agora, pode verificar que a predição da imagem de teste (as últimas linhas da
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Viu como cada passo do processo de classificação de imagens pode ser feito no código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso.
 

@@ -1,21 +1,21 @@
 ---
-title: 'Exemplo: Introdução – API de Serviço de Exploração de Conhecimento'
+title: 'Exemplo: Introdução ao - API de serviço de exploração de conhecimento'
 titlesuffix: Azure Cognitive Services
 description: Utilize a API de Serviço de Exploração de Conhecimento (KES) para criar um motor para uma experiência de pesquisa interativa em publicações académicas.
 services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124020"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208147"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -41,7 +41,7 @@ O esquema descreve a estrutura de atributos dos objetos no domínio. Especifica 
 }
 ```
 
-Aqui, irá definir *Título*, *Ano*, e *Palavra-chave* como uma cadeia de caracteres, um inteiro e um atributo de cadeia, respetivamente. Uma vez que os autores são representados por ID, nome e afiliação, vai definir *Autor* como um atributo composto por três atributos secundários: *Author.Id*, *Author.Name* e *Author.Affiliation*.
+Aqui, irá definir *Título*, *Ano*, e *Palavra-chave* como uma cadeia de caracteres, um inteiro e um atributo de cadeia, respetivamente. Uma vez que os autores são representados por ID, name e afiliação, define *autor* como um atributo composto com três atributos secundárias: *Author.Id*, *Author.Name*, e *Author.Affiliation*.
 
 Por predefinição, os atributos suportam todas as operações disponíveis para o seu tipo de dados, incluindo *equals*, *starts_with* e *is_between*. Dado que o ID do autor apenas é utilizado internamente como identificador, substitua a predefinição e especifique *equals* como a única operação indexada.
 
@@ -110,7 +110,7 @@ A gramática especifica o conjunto de consultas de linguagem natural que o servi
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

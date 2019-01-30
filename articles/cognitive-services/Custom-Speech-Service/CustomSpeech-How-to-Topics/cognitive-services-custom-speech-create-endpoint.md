@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f9aca8529bf0407022ff3683c1cd73b87045f2f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340806"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216677"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto final de conversão de voz em texto personalizado
 
@@ -39,7 +39,7 @@ A tabela seguinte mostra como o mapeamento de unidades de escala, para pedidos e
 | 1 | 5 |
 | 2 | 10 |
 | 3 | 15 |
-| N | 5 * n |
+| D | 5 * n |
 
 Também pode selecionar se o registo de conteúdo é mudado ou desativar. Ou seja, que está selecionando se o tráfego de ponto final é armazenado para uso interno da Microsoft. Se não estiver selecionada, armazenar o tráfego será suprimido. A supressão dos resultados de registo de conteúdo em custos adicionais. Consulte a [página de informações de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) para obter detalhes.
 
@@ -75,4 +75,4 @@ Quando a implementação estiver pronta, o nome da implementação torna-se uma 
 Para mais tutoriais, consulte:
 * [Utilizar um ponto de final de voz em texto personalizado](cognitive-services-custom-speech-use-endpoint.md)
 * [Criar um modelo acústico personalizado](cognitive-services-custom-speech-create-acoustic-model.md)
-* [Criar um modelo de idioma personalizado](cognitive-services-custom-speech-create-language-model.md)
+* [Criar um modelo de linguagem personalizado](cognitive-services-custom-speech-create-language-model.md)
