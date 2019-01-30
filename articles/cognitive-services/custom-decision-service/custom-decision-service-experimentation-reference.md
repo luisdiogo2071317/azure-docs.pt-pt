@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366561"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219826"
 ---
 # <a name="experimentation"></a>Experimentação
 
@@ -35,7 +35,7 @@ Ao utilizar o ficheiro de registo, a experimentação procura localizar a polít
 * Testes de avaliação de políticas `--cb_type` (pontuação propensão inversa (`ips`) ou duplamente robusto (`dr`). Para obter mais informações, consulte [exemplo de Bandit contextuais](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Marginals de testes.
 * Recursos de interação quadrática de testes:
-   * **fase de força bruta**: todas as combinações com os testes `--q_bruteforce_terms` pares ou menos.
+   * **fase de força bruta**: Testes de todas as combinações com `--q_bruteforce_terms` pares ou menos.
    * **fase greedy**: Adiciona o par de melhor até que não haja nenhum aperfeiçoamento para `--q_greedy_stop` Arredonda por excesso.
 * Efetua um segunda paramétrico através de hiper parâmetros (`learning rate`, `L1 regularization`, e `power_t`).
 
@@ -54,12 +54,12 @@ Para obter uma explicação detalhada dos argumentos acima, consulte [argumentos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Vowpal Wabbit: Instalado e no seu caminho.
-  - Windows: [utilize o `.msi` instalador](https://github.com/eisber/vowpal_wabbit/releases).
-  - Outras plataformas: [obter o código-fonte](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: O instalado e no seu caminho.
+  - Windows: [Utilize o `.msi` instalador](https://github.com/eisber/vowpal_wabbit/releases).
+  - Outras plataformas: [Obter o código-fonte](https://github.com/JohnLangford/vowpal_wabbit/releases).
+- Python 3: Instalado e no seu caminho.
 - NumPy: Utilize o Gestor de pacotes da sua preferência.
 - O *mwt/Microsoft-ds* repositório: [Clone o repositório](https://github.com/Microsoft/mwt-ds).
-- Ficheiro de registo de JSON do serviço de decisão: por predefinição, o comando de base inclui `--dsjson`, que permite a análise de JSON do serviço de decisão do arquivo de dados de entrada. [Obter um exemplo desse formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Ficheiro de registo de JSON do serviço de decisão: Por predefinição, o comando de base inclui `--dsjson`, que permite a análise de JSON do serviço de decisão do arquivo de dados de entrada. [Obter um exemplo desse formato](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Utilização
 Aceda a `mwt-ds/DataScience` e execute `Experimentation.py` com os argumentos relevantes, conforme detalhado no código a seguir:

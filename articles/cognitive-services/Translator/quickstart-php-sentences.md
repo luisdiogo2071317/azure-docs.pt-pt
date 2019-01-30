@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter o comprimento de frases, PHP – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, PHP - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c709c10d7944a53a557f6a1ce2a6d9b930cccce
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 51b7691b856181ec3f66b1de595fec05104229f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645395"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209456"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (PHP)
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Início rápido: Obter comprimentos de frase com a API de REST de texto de tradutor (PHP)
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -124,7 +124,7 @@ echo $json;
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

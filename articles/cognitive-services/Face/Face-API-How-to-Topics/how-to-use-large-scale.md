@@ -1,23 +1,23 @@
 ---
-title: 'Exemplo: Utilizar a Funcionalidade de Grande Escala – API Face'
+title: 'Exemplo: Utilizar a funcionalidade em grande escala - API Face'
 titleSuffix: Azure Cognitive Services
 description: Utilize a funcionalidade de grande escala na API Face.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123084"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222903"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Exemplo: Como utilizar a funcionalidade de grande escala
+# <a name="example-how-to-use-the-large-scale-feature"></a>Exemplo: Como utilizar a funcionalidade em grande escala
 
 Este guia é um artigo avançado sobre a migração de código para o aumento vertical de PersonGroup e de FaceList existentes para o LargePersonGroup e o LargeFaceList, respetivamente.
 Este guia demonstra o processo de migração com o pressuposto de que tem uma utilização básica de PersonGroup e FaceList.
@@ -39,13 +39,13 @@ No entanto, a desvantagem é que os novos rostos/pessoas que foram adicionados n
 
 Se não estiver familiarizado com os seguintes conceitos neste guia, as definições poderão ser encontradas no [glossário](../Glossary.md):
 
-- LargePersonGroup: uma coleção de pessoas com capacidade até 1 000 000.
-- LargeFaceList: uma coleção de Rostos com capacidade até 1 000 000.
-- Treino: um processo prévio para assegurar o desempenho de Identificação/FindSimilar.
-- Identificação: identificar rostos de um ou mais de um PersonGroup ou LargePersonGroup.
-- FindSimilar: pesquisar rostos semelhantes de um FaceList ou LargeFaceList.
+- LargePersonGroup: Uma coleção de pessoas com capacidade de até 1.000.000.
+- LargeFaceList: Uma coleção de rostos com capacidade de até 1.000.000.
+- Train: Um processo de pré-lançamento para assegurar o desempenho de identificação/FindSimilar.
+- Identificação: Identifica rostos de um ou mais de um PersonGroup ou LargePersonGroup.
+- FindSimilar: Pesquisa de rostos semelhantes de um FaceList ou LargeFaceList.
 
-## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada da API
+## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada de API
 
 Ao utilizar a biblioteca de cliente da API Face, a chave de subscrição e o ponto final de subscrição são transmitidos através do construtor da classe FaceServiceClient. Por exemplo:
 
@@ -59,7 +59,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 A chave de subscrição com o ponto final correspondente pode ser obtida da página do Marketplace no portal do Azure.
 Veja [Subscrições](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration-in-action"></a>Passo 2: Migração de Código em ação
+## <a name="step-2-code-migration-in-action"></a>Passo 2: Migração de código em ação
 
 Esta secção só se concentra em migrar a implementação de PersonGroup/FaceList em LargePersonGroup/LargeFaceList.
 Embora LargePersonGroup/LargeFaceList difira de PersonGroup/FaceList na conceção e implementação interna, as interfaces de API são semelhantes para compatibilidade anterior.
@@ -212,7 +212,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 Conforme é mostrado acima, a gestão de dados e a parte FindSimilar são quase iguais.
 A única exceção é que uma nova operação de Treino de pré-processamento deve ser concluída em LargeFaceList antes de FindSimilar funcionar.
 
-## <a name="step-3-train-suggestions"></a>Passo 3: Treinar Sugestões
+## <a name="step-3-train-suggestions"></a>Passo 3: Treinar sugestões
 
 Embora a operação de Treinar acelere [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) e [Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), o tempo de treino é afetado especialmente quando se trata de grande escala.
 O tempo de treino estimado em diferentes escalas está listado na tabela a seguir:
@@ -226,7 +226,7 @@ O tempo de treino estimado em diferentes escalas está listado na tabela a segui
 
 Para melhor utilizar a funcionalidade em grande escala, recomenda-se algumas estratégias a levar em consideração.
 
-## <a name="step-31-customize-time-interval"></a>Passo 3.1: Personalizar o Intervalo de Tempo
+## <a name="step-31-customize-time-interval"></a>Passo 3.1: Personalizar o intervalo de tempo
 
 Tal como é mostrado em `TrainLargeFaceList()`, existe um `timeIntervalInMilliseconds` para atrasar o processo de verificação do estado de treino infinito.
 Para LargeFaceList com mais rostos, utilizar um intervalo maior reduz o custo e as contagens de chamada.

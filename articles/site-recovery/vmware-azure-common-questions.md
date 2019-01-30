@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478110"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212244"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -42,6 +42,9 @@ Precisa de uma conta de armazenamento LRS ou GRS. Recomendamos GRS para que os d
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Minha conta do Azure precisa de permissões para criar VMs?
 Se for um administrador de subscrição, tem as permissões de replicação que precisa. Se não tiver, terá permissões para criar uma VM do Azure no grupo de recursos e rede virtual que especificou quando configurar a recuperação de sites e permissões para escrever na conta de armazenamento selecionada. [Saiba mais](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>Pode utilizar a licença de servidor do SO convidado no Azure?
+Sim, os clientes do Software Assurance da Microsoft podem utilizar o benefício híbrido do Azure para reduzir os custos de licenciamento **máquinas do Windows Server** que são migradas para o Azure ou utilizar o Azure para recuperação após desastre.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Atualizar os componentes de recuperação de sites do Azure
 
@@ -250,7 +253,7 @@ Sim, se a ativação pós-falha para o Azure, pode reativação pós-falha para 
 Quando realizar a ativação pós-falha do Azure, dados do Azure são copiados para a VM no local e o acesso privado é necessário.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>Pode redimensionar a VM do Azure após a ativação pós-falha?
-Não, não é possível alterar o tamanho da VM de destino após a ativação pós-falha.
+Não, não é possível alterar o tamanho ou tipo de VM de destino após a ativação pós-falha.
 
 
 ## <a name="automation-and-scripting"></a>Automatização e criação de scripts

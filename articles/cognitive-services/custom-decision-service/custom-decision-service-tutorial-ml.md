@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial: Caracterização e especificação de características - Serviço de Decisão Personalizada'
+title: 'Tutorial: Especificação Featurization e funcionalidade - serviço de decisão personalizada'
 titlesuffix: Azure Cognitive Services
 description: Um tutorial relativo à caracterização e à especificação de características de machine learning no Serviço de Decisão Personalizada.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: HT
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869596"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226065"
 ---
-# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: caracterização e especificação de características
+# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: Especificação Featurization e funcionalidade
 
 Este tutorial aborda a funcionalidade avançada de machine learning no Serviço de Decisão Personalizada. Consiste em duas partes: [caracterização](#featurization-concepts-and-implementation) e [especificação de características](#feature-specification-format-and-apis). A caracterização significa representar os seus dados como “características” para machine learning. A especificação de características abrange o formato JSON e as APIs de apoio para especificar essas características.
 
-Por predefinição, o machine learning no Serviço de Decisão Personalizada é transparente do ponto de vista do cliente. As características são extraídas automaticamente dos seus conteúdos e é utilizado um algoritmo de aprendizagem de reforço padrão. A extração de características tira partido de vários outros serviços dos Serviços Cognitivos do Azure, como a [Associação de Entidades](../entitylinking/home.md), a [Análise de Texto](../text-analytics/overview.md), as [Emoções](../emotion/home.md) e a [Imagem Digitalizada](../computer-vision/home.md). Se só for utilizada a funcionalidade predefinida, este tutorial pode ser ignorado.
+Por predefinição, o machine learning no Serviço de Decisão Personalizada é transparente do ponto de vista do cliente. As características são extraídas automaticamente dos seus conteúdos e é utilizado um algoritmo de aprendizagem de reforço padrão. Extração de funcionalidade tira partido de vários outros serviços cognitivos do Azure: [Ligação de entidades](../entitylinking/home.md), [análise de texto](../text-analytics/overview.md), [emoções](../emotion/home.md), e [de imagem digitalizada](../computer-vision/home.md). Se só for utilizada a funcionalidade predefinida, este tutorial pode ser ignorado.
 
 ## <a name="featurization-concepts-and-implementation"></a>Caracterização: conceitos e implementação
 

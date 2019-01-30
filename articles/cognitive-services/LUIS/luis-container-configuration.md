@@ -1,4 +1,4 @@
-﻿---
+---
 title: Definições de contentor do docker
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: O ambiente de tempo de execução de contentores do LUIS é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais.
@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219758"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do docker de compreensão de idiomas 
 
@@ -35,7 +35,7 @@ Este contentor tem as seguintes definições de configuração:
 |Sim|[Billing](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
 |Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
 |Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
-|Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
+|Não|[Proxy de HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
 |Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
 |Sim|[Mounts](#mount-settings)|Ler e escrever dados do computador anfitrião para o contentor e do contentor para o computador anfitrião.|
 

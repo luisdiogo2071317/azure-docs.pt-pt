@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840457"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223787"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento da rede e endereçamento de IP para redes virtuais
 
@@ -62,8 +62,8 @@ A sub-rede de destino que VM é selecionada com base no nome da sub-rede de VM d
 
 O endereço IP para cada NIC numa máquina virtual de destino está configurado da seguinte forma:
 
-- **DHCP**: se a NIC de VM de origem utiliza DHCP, a NIC de VM de destino seja também definida para utilizar DHCP.
-- **Endereço IP estático**: se a NIC de VM de origem utilizar endereçamento IP estático, o NIC de VM de destino também irá utilizar um endereço IP estático.
+- **DHCP**: Se a NIC de VM de origem utiliza DHCP, a NIC de VM de destino também é definida para utilizar DHCP.
+- **Endereço IP estático**: Se a NIC da origem de VM utiliza endereçamento IP estático, o NIC de VM de destino também irá utilizar um endereço IP estático.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>Atribuição de endereços IP durante a ativação pós-falha
@@ -79,8 +79,8 @@ Espaço de endereços diferente<br/><br/> O endereço seguinte disponível de IP
 
 **Rede de destino** | **Detalhes**
 --- | ---
-Rede de destino é a ativação pós-falha de VNet | -Endereço IP destino é estático, mas não o mesmo endereço IP que foi reservado para ativação pós-falha.<br/><br/>  -O endereço atribuído é o endereço seguinte disponível do fim do intervalo de sub-rede.<br/><br/> Por exemplo: se o endereço IP de origem é 10.0.0.19 intervalo 10.0.0.0/24 utiliza a rede de ativação pós-falha, e o endereço IP do próximo atribuído à VM de destino é 10.0.0.254.
-Rede de destino não está a ativação pós-falha de VNet | -Endereço IP de destino será estático com o mesmo endereço IP reservado para ativação pós-falha.<br/><br/>  – Se o mesmo endereço IP já está atribuído, em seguida, o endereço IP é o seguinte disponível na eeach do intervalo de sub-rede.<br/><br/> Por exemplo: se o endereço IP estático de origem é 10.0.0.19 e ativação pós-falha estiver numa rede que não é a rede de ativação pós-falha, com 10.0.0.0/24 intervalo, em seguida, o endereço IP estático de destino serão 10.0.0.0.19 se estiver disponível e, caso contrário, será 10.0.0.254.
+Rede de destino é a ativação pós-falha de VNet | -Endereço IP destino é estático, mas não o mesmo endereço IP que foi reservado para ativação pós-falha.<br/><br/>  -O endereço atribuído é o endereço seguinte disponível do fim do intervalo de sub-rede.<br/><br/> Por exemplo: Se o endereço IP de origem é 10.0.0.19 e rede de ativação pós-falha utiliza 10.0.0.0/24 intervalo, em seguida, o seguinte endereço IP atribuído à VM de destino é 10.0.0.254.
+Rede de destino não está a ativação pós-falha de VNet | -Endereço IP de destino será estático com o mesmo endereço IP reservado para ativação pós-falha.<br/><br/>  – Se o mesmo endereço IP já está atribuído, em seguida, o endereço IP é o seguinte disponível em cada um do intervalo de sub-rede.<br/><br/> Por exemplo: Se o endereço IP estático de origem é 10.0.0.19 e ativação pós-falha estiver numa rede que não é a rede de ativação pós-falha, com 10.0.0.0/24 intervalo, em seguida, o endereço IP estático de destino será 10.0.0.0.19 se estiver disponível e, caso contrário, será 10.0.0.254.
 
 - A ativação pós-falha VNet é a rede de destino que selecionou quando configurou a recuperação após desastre.
 - Recomendamos que utilize sempre uma rede de não produção para ativação pós-falha de teste.

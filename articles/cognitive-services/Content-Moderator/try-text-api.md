@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 926c291c3f81214c543e7c9f8ca36285e4e59400
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219792"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226592"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado, a partir da consola de API
 
@@ -23,7 +23,7 @@ Utilize o [API de moderação de texto](https://westus.dev.cognitive.microsoft.c
 
 
 ## <a name="get-your-api-key"></a>Obtenha a chave de API
-Antes de pode testar a API na consola do online, terá a chave de subscrição. Isto está localizado no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, consulte [descrição geral](overview.md).
+Antes de pode testar a API na consola do online, terá a chave de subscrição. Isto está localizado no **configurações** separador a **Ocp-Apim-Subscription-Key** caixa. Para obter mais informações, veja [Descrição geral](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navegue para a referência de API
 Vá para o [referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217650"
 ---
 # <a name="what-is-bing-speech"></a>O que é de voz do Bing?
 
@@ -30,8 +30,8 @@ API de voz o Bing de Microsoft baseado na nuvem fornece aos desenvolvedores uma 
 
 API de reconhecimento de voz de Microsoft *converte* fluxos de áudio em texto que seu aplicativo pode apresentar ao utilizador ou agir como comando de entrada. Ele fornece duas formas para os programadores adicionarem voz às suas aplicações: REST APIs **ou** bibliotecas de clientes baseada na Websocket.
 
-- [REST APIs](GetStarted/GetStartedREST.md): os desenvolvedores podem usar chamadas HTTP a partir das suas aplicações para o serviço para o reconhecimento de fala.
-- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): para recursos avançados, os desenvolvedores podem transferir as bibliotecas de cliente do Microsoft Speech e vincular a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando linguagens diferentes (c#, Java, JavaScript, ObjectiveC). Ao contrário das REST APIs, as bibliotecas de cliente utilizam o protocolo baseado em Websocket.
+- [REST APIs](GetStarted/GetStartedREST.md): Os desenvolvedores podem usar chamadas HTTP a partir das suas aplicações para o serviço para o reconhecimento de fala.
+- [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md): Para recursos avançados, os desenvolvedores podem transferir as bibliotecas de cliente do Microsoft Speech e vincular a seus aplicativos.  As bibliotecas de cliente estão disponíveis em várias plataformas (Windows, Android, iOS) usando linguagens diferentes (c#, Java, JavaScript, ObjectiveC). Ao contrário das REST APIs, as bibliotecas de cliente utilizam o protocolo baseado em Websocket.
 
 | Casos de utilização | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -60,4 +60,4 @@ Qualquer que seja desenvolvedores abordagem escolha (REST APIs ou bibliotecas de
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-- Começar a utilizar o serviço de texto em voz da Microsoft: [texto a referência da API de voz](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de linguagens e vozes suportados pelo texto em voz, consulte [localidades suportados e tipos de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Introdução ao utilizar o serviço de texto em voz da Microsoft: [Referência da API de texto em voz](api-reference-rest/bingvoiceoutput.md). Para obter a lista completa de linguagens e vozes suportados pelo texto em voz, consulte [localidades suportados e tipos de voz](api-reference-rest/bingvoiceoutput.md#SupLocales).

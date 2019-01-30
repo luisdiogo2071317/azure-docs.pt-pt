@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216426"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
 
@@ -48,7 +48,7 @@ Por exemplo:
 <a name="Preparing data to customize the acoustic model"></a>
 *   Se estiver interessado na otimização do desempenho para um único orador, por exemplo, se quiser transcrever todas as Conversas Informais de FDR, os ficheiros de áudio devem ter muitos exemplos apenas desse orador.
 
-Um conjunto de dados acústico para personalizar o modelo acústico é constituído por duas partes: (1) um conjunto de ficheiros de áudio que contém os dados de voz e (2) um ficheiro com as transcrições de todos os ficheiros de áudio.
+Um conjunto de dados acústico para personalizar o modelo acústico é constituído por duas partes: (1) um conjunto de arquivos de áudio que contém os dados de voz e (2) um ficheiro que contenha as transcrições de todos os arquivos de áudio.
 
 ### <a name="audio-data-recommendations"></a>Recomendações de dados de áudio
 
@@ -135,7 +135,7 @@ Verá agora uma nova entrada na tabela de modelos acústicos correspondente a es
 
 ![experimente](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-models-creating.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, desenvolveu um modelo acústico personalizado para utilizar com ficheiros de áudio e transcrições. Para criar um ficheiro de idioma personalizado para utilizar com ficheiros de texto, avance para o tutorial sobre como criar um modelo de linguagem personalizado.
 

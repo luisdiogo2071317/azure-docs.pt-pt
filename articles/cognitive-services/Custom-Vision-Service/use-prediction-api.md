@@ -1,21 +1,21 @@
 ---
-title: 'Exemplo: utilize o ponto final de predição para testar imagens de forma programática com o classificador Serviço de Visão Personalizada'
+title: 'Exemplo: Utilizar o ponto final de predição através de programação testar imagens com classificador - visão personalizada'
 titlesuffix: Azure Cognitive Services
 description: Saiba como utilizar a API para testar imagens de forma programática com o nosso classificador Serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 4b65cb6bb8a9a8b7c5546c7859a4ce1544e8feff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363654"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218568"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utilizar o ponto final de predição para testar imagens de forma programática com o classificador Serviço de Visão Personalizada
 
@@ -121,6 +121,6 @@ Ao executar a aplicação, introduza o caminho para um ficheiro de imagem. A ima
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Export the model for mobile use](export-your-model.md) (Exportar o modelo para utilização em dispositivos móveis)

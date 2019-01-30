@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228292"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
@@ -28,8 +28,8 @@ Recuperação de sites permite a recuperação após desastre de VMs do Azure at
 
 O ExpressRoute permite-lhe expandir redes no local para a cloud do Microsoft Azure através de uma ligação privada facilitada por um fornecedor de conectividade. Se tiver o ExpressRoute configurado, ele se integra com o Site Recovery da seguinte forma:
 
-- **Durante a replicação entre regiões do Azure**: tráfego de replicação para a recuperação após desastre de VM do Azure é apenas no Azure e ExpressRoute não é necessário ou utilizado para replicação. No entanto, se estiver a ligar a partir de um site no local para as VMs do Azure no site primário do Azure, há uma série de problemas a ter em consideração quando estiver configurando a recuperação após desastre para essas VMs do Azure.
-- **Ativação pós-falha entre regiões do Azure**: quando ocorrem falhas, realizar a ativação pós-falha de VMs do Azure do primário para a região secundária do Azure. Após a ativação pós-falha para uma região secundária, há uma série de passos a efetuar para acessar as VMs do Azure na região secundária através do ExpressRoute.
+- **Durante a replicação entre regiões do Azure**: Tráfego de replicação para a recuperação após desastre de VM do Azure é apenas no Azure e ExpressRoute não é necessário ou utilizado para replicação. No entanto, se estiver a ligar a partir de um site no local para as VMs do Azure no site primário do Azure, há uma série de problemas a ter em consideração quando estiver configurando a recuperação após desastre para essas VMs do Azure.
+- **Ativação pós-falha entre regiões do Azure**: Quando ocorrem falhas, realizar a ativação pós-falha de VMs do Azure do primário para a região secundária do Azure. Após a ativação pós-falha para uma região secundária, há uma série de passos a efetuar para acessar as VMs do Azure na região secundária através do ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -93,7 +93,7 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 - **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
     - Esta vNet do hub atua como o controlador de chamadas.
     - Todas as comunicações entre sub-redes percorrer este hub.
- - ** Hub vNet sub-redes**. A vNet do hub tiver duas sub-redes:
+ - Hub vNet sub-redes * *. A vNet do hub tiver duas sub-redes:
      - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
      - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
 - O Centro de dados no local tem uma ligação de circuito do ExpressRoute através de um limite de parceiro em RAE de Hong Kong.
@@ -146,7 +146,7 @@ Depois de failover VMs do Azure para a região do Azure com o Site Recovery de d
 
 #### <a name="two-circuits-with-two-peering-locations"></a>Dois circuitos com duas localizações de peering
 
-Esta configuração ajuda protege os circuitos do ExpressRoute contra que desastre regional. Se sua loation peering primário ficar inativo, ligações podem continuar a partir da localização de outra.
+Esta configuração ajuda protege os circuitos do ExpressRoute contra que desastre regional. Se a sua localização de peering principal ficar inativa, ligações podem continuar a partir da localização de outra.
 
 - O circuito ligado ao ambiente de produção, normalmente, é o principal. O circuito secundário normalmente tem a menor largura de banda, que pode ser aumentada se ocorrer um desastre.
 - Após a ativação pós-falha, pode estabelecer ligações de circuito do ExpressRoute secundário para a vNet de destino. Em alternativa, pode ter ligações configuradas e pronto em caso de desastre, para reduzir o tempo de recuperação total.

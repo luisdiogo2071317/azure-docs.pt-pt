@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366817"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228122"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -23,9 +23,9 @@ Transferir ficheiros de registo que são produzidos pelo serviço de decisão pe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 3: O instalado e no seu caminho. Recomendamos que a versão de 64 bits para lidar com ficheiros grandes.
+- Python 3: Instalado e no seu caminho. Recomendamos que a versão de 64 bits para lidar com ficheiros grandes.
 - O *mwt/Microsoft-ds* repositório: [Clone o repositório](https://github.com/Microsoft/mwt-ds).
-- O *azure-storage-blob* pacote: para obter detalhes de instalação, aceda a [biblioteca de armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- O *azure-storage-blob* pacote: Para obter detalhes de instalação, aceda a [biblioteca de armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Introduza a cadeia de ligação de armazenamento do Azure no *mwt-ds/DataScience/ds.config*: Siga os *my_app_id: my_connectionString* modelo. Pode especificar várias `app_id`. Quando executa `LogDownloader.py`, se a entrada `app_id` não se encontra na `ds.config`, `LogDownloader.py` utiliza o `$Default` cadeia de ligação.
 
 ## <a name="usage"></a>Utilização
@@ -49,11 +49,11 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | O download data (incluída), além de início *DD-MM-AAAA* formato. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | A transferir data de fim (incluída), no *DD-MM-AAAA* formato. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | O modo de substituição a utilizar. | |
-| | `0`: Substituir nunca; Peça ao utilizador se os blobs são utilizadas atualmente. | Predefinição | |
-| | `1`: Pedir ao utilizador como proceder quando os ficheiros têm tamanhos diferentes ou os blobs estão atualmente a ser utilizados. | |
-| | `2`: Substituir sempre; Transferir blobs usados no momento. | |
-| | `3`: Substituir nunca e de acréscimo se o tamanho é maior, sem pedir; Transferir blobs usados no momento. | |
-| | `4`: Substituir nunca e de acréscimo se o tamanho é maior, sem pedir; blobs de ignorar atualmente a ser utilizado. | |
+| | `0`: Nunca substituir; Peça ao utilizador se os blobs são utilizadas atualmente. | Predefinição | |
+| | `1`: Peça ao utilizador como proceder quando os ficheiros têm tamanhos diferentes ou os blobs estão atualmente a ser utilizados. | |
+| | `2`: Substitui sempre; Transferir blobs usados no momento. | |
+| | `3`: Nunca substituir e, se o tamanho é maior, sem pedir; de acréscimo Transferir blobs usados no momento. | |
+| | `4`: Nunca substituir e, se o tamanho é maior, sem pedir; de acréscimo blobs de ignorar atualmente a ser utilizado. | |
 | `--dry_run` | Imprimir os blobs seriam tiverem sido descarregadas, sem a transferir. | `False` |
 | `--create_gzip` | Criar uma *gzip* ficheiro para o Vowpal Wabbit. | `False` |
 | `--delta_mod_t DELTA_MOD_T` | A janela de tempo, em segundos, para detectar se um ficheiro está atualmente em utilização. | `3600` s (`1` hora) |

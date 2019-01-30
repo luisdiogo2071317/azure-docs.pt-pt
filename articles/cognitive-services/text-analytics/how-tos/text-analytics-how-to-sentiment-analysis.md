@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632871"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212499"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: como detetar sentimentos na Análise de Texto
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: Como detetar o sentimento de análise de texto
 
 A [API de Análise de Sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e devolve uma pontuação de sentimento para cada documento entre 0 (negativo) e 1 (positivo).
 
@@ -73,11 +73,11 @@ Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (ID
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação sobre a API para este pedido: [API de Análise de Sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de análise de sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
 + Definir o ponto final HTTP para análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
@@ -88,14 +88,14 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) para estruturar o pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
 A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
 
-## <a name="step-3-view-results"></a>Passo 3: ver resultados
+## <a name="step-3-view-results"></a>Passo 3: Ver resultados
 
 O analisador de sentimentos classifica o texto como predominantemente positivo ou negativo. Para tal, atribui uma pontuação entre 0 e 1. Os valores próximos de 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de carateres não puder ser analisada em termos de sentimento ou não tiver sentimento, a pontuação será sempre exatamente 0,5. Por exemplo, se passar por uma cadeia de carateres em espanhol com um código de idioma em inglês, a pontuação é 0,5.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 959e58a58099b71a595f995e03cc70255fd6d059
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198032"
+ms.locfileid: "55224246"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -483,7 +483,14 @@ Este procedimento explica como restaurar dados para uma localização alternativ
 > Pode restaurar a base de dados para uma instância do SQL Server na mesma região do Azure. O servidor de destino tem de ser registados no Cofre de serviços de recuperação.
 >
 
-Sobre o **restaurar configuração** menu, o **servidor** caixa de lista pendente mostra apenas as instâncias do SQL Server que são registadas no Cofre de serviços de recuperação. Se o servidor que pretende não estiver na lista, consulte [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de deteção, os novos servidores são registados no Cofre de serviços de recuperação.
+Sobre o **restaurar configuração** menu, o **servidor** caixa de lista pendente mostra apenas as instâncias do SQL Server que são registadas no Cofre de serviços de recuperação. Se o servidor que pretende não estiver na lista, consulte [bases de dados do SQL Server detetar](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de deteção, os novos servidores são registados no Cofre de serviços de recuperação.<br>
+Para restaurar uma BD SQL, precisaria as seguintes permissões:
+
+* **Operador de cópia de segurança** permissões nos serviços de recuperação **cofre** em que estão a fazer a restauração.
+* **Contributor(Write)** aceder para o **VM do SQL Server de origem** (a VM em cópia de segurança e está a tentar restaurar a partir de).
+* **Contribuidor (escrita)** acesso para a VM de SQL de destino (a VM que está a restaurar para; irá ser a mesma VM da VM em caso de Original Recovery(OLR)) de localização de origem.
+
+Para restaurar para uma localização alternativa:
 
 1. Na **restaurar configuração** menu:
 

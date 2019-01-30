@@ -5,16 +5,16 @@ description: Quando seu treinamento é efetuada com êxito, reveja os testes de 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630347"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215254"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
@@ -32,7 +32,7 @@ O separador de teste mostra-lhe:
 
      **Pontuação de BLEU:** Pontuação de BLEU gerada para um modelo após a conclusão do treinamento.
 
-    **Estado:** Indica se o processo de teste for concluído ou em curso.
+    **Status:** Indica se o processo de teste for concluído ou em curso.
 
     ![Resultados do teste de sistema](media/how-to/how-to-system-test-results.png)
 
@@ -42,7 +42,7 @@ O separador de teste mostra-lhe:
 
     **Ref:** Esta frase é a conversão de referência da frase de origem fornecido no conjunto de dados de teste.
 
-    **TA:** Esta frase é a tradução automática da sentença origem feita com o modelo criado após a formação foi realizada.
+    **MT:** Esta frase é a tradução automática da sentença origem feita com o modelo criado após a formação foi realizada.
 
     ![Comparação de resultados do teste de sistema](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,9 +54,9 @@ Clique na ligação de traduções de transferir para transferir um ficheiro zip
 
 Este arquivo zip transferido contém três arquivos.
 
-1.  **Custom.MT.txt:** Este ficheiro contém traduções de máquina de frases de idioma de origem no idioma de destino efetuada pelo modelo preparado com dados do utilizador.
+1.  **custom.mt.txt:** Este ficheiro contém traduções de máquina de frases de idioma de origem no idioma de destino efetuada pelo modelo preparado com dados do utilizador.
 
-2.  **Ref.txt:** Este ficheiro contém utilizador fornecido traduções de frases de idioma de origem no idioma de destino.
+2.  **ref.txt:** Este ficheiro contém utilizador fornecido traduções de frases de idioma de origem no idioma de destino.
 
 3.  **Source.txt:** Este ficheiro contém as frases no idioma de origem.
 

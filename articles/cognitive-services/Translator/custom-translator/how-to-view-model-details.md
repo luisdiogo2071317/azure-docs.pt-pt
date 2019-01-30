@@ -5,16 +5,16 @@ description: Separador de modelos em qualquer projeto mostra detalhes de cada mo
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 80ee99fc4490f1fdc591093f357c8db55a97abb9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627652"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219125"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 
@@ -30,7 +30,7 @@ Para cada modelo do projeto, são apresentados os seguintes detalhes de modelo.
 
     -  TrainingQueued: Especifica que o treinamento é em fila para o sistema de MT para esse modelo.
 
-    -  Execução: Especifica que o treinamento está em execução no sistema de MT para esse modelo.
+    -  A executar: Especifica que o treinamento está em execução no sistema de MT para esse modelo.
 
     -  Foi efetuada com êxito: Especifica que o treinamento foi concluída com êxito no sistema de MT e um modelo está disponível. Este estado, uma pontuação de BLEU é apresentada para esse modelo.
 
@@ -50,17 +50,17 @@ Para cada modelo do projeto, são apresentados os seguintes detalhes de modelo.
 
 4.  Pontuação de BLEU: mostra a pontuação de BLEU (Understudy bilingue avaliação) do modelo, que indica a qualidade do seu sistema de tradução. Esta pontuação indica como as traduções feitas pelo sistema de tradução resultante desta formação correspondem as frases de referência no conjunto de dados de teste. A pontuação de BLEU é apresentada se o treinamento foi concluído com êxito. Se o treinamento não está completa / com falhas, não verá qualquer pontuação BLEU.
 
-5.  Treinamento de contagem de sentença: mostra o número total de frases utilizado como conjunto de preparação.
+5.  Contagem de sentença de treinamento: Mostra o número total de frases utilizado como conjunto de preparação.
 
-6.  Ajuste a contagem de sentença: mostra o número total de frases utilizado como conjunto de otimização.
+6.  Ajuste a contagem de sentença: Mostra o número total de frases utilizado como conjunto de otimização.
 
-7.  Treinamento de contagem de sentença: mostra o número total de frases utilizado como conjunto de teste.
+7.  Contagem de sentença de treinamento: Mostra o número total de frases utilizado como conjunto de teste.
 
-8.  Contagem de sentença mono: mostra o número total de frases utilizado como conjunto mono.
+8.  Contagem de sentença mono: Mostra o número total de frases utilizado como conjunto mono.
 
-9.  Botão de ação de implementar: para um modelo preparado com êxito, ela mostra "Implementar" botão se não for implementada. Se um modelo é implementado, é apresentado um botão "Undeploy".
+9.  Botão de ação de implementar: Um modelo preparado com êxito, ele mostra o botão "Deploy" se não for implementada. Se um modelo é implementado, é apresentado um botão "Undeploy".
 
-10. Eliminação: Pode utilizar este botão se de que pretende eliminar o modelo. A eliminar um modelo não elimina qualquer um dos documentos utilizados para criar esse modelo.
+10. Elimine: Pode utilizar este botão se de que pretende eliminar o modelo. A eliminar um modelo não elimina qualquer um dos documentos utilizados para criar esse modelo.
 
     ![Ver detalhes do modelo](media/how-to/how-to-view-model-details.png)
 
@@ -71,25 +71,25 @@ Para cada modelo do projeto, são apresentados os seguintes detalhes de modelo.
 
 Quando seu treinamento estiver concluído, pode rever os detalhes sobre o treinamento da página de detalhes. Selecione um projeto, localize e selecione o separador de modelos e escolha um modelo.
 
-A página do modelo tem dois separadores: detalhes de treinamento e teste.
+A página do modelo tem dois separadores: Detalhes de treinamento e teste.
 
-1.  **Detalhes de preparação:** este separador mostra a lista de document(s) usado no treinamento:
+1.  **Detalhes de treinamento:** Este separador mostra a lista de document(s) usado no treinamento:
 
     -  Nome de documentos: Este campo mostra o nome do documento
 
     -  Tipo de documento: Este campo mostra se este documento é paralela / mono.
 
-    -  Contagem de idioma de origem de frase: Este campo mostra o número de frases estão lá como parte da linguagem de código.
+    -  Contagem de frase no idioma de origem: Este campo mostra o número de frases estão lá como parte da linguagem de código.
 
-    -  Contagem no idioma de destino de frase: Este campo mostra o número de frases estão lá como parte do idioma de destino.
+    -  Contagem de frase no idioma de destino: Este campo mostra o número de frases estão lá como parte do idioma de destino.
 
-    -  Frases alinhadas: Este campo mostra o número de frases tem sido alinhado ao tradutor de personalizado durante a alinhar o processo.
+    -  Alinhados frases: Este campo mostra o número de frases tem sido alinhado ao tradutor de personalizado durante a alinhar o processo.
 
-    -  Frases utilizados: Este campo mostra o número de frases tem sido usado por personalizado Translator durante esta formação.
+    -  Utilizar frases: Este campo mostra o número de frases tem sido usado por personalizado Translator durante esta formação.
 
     ![Detalhes de treinamento de modelo](media/how-to/how-to-model-training-details.png)
 
-2.  **Teste:** este separador mostra os detalhes de teste para um treinamento bem-sucedido.
+2.  **Teste:** Este separador mostra os detalhes de teste para um treinamento bem-sucedido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

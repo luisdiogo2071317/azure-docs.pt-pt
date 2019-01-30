@@ -5,17 +5,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 41383b5bbad0eb5c32b98c57f3ea35e6018993e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973966"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218126"
 ---
 # <a name="part-of-speech-tagging"></a>Identificação de parte da voz
 
@@ -37,45 +37,45 @@ Estes incluem categorias, como *substantivo* (etc. em geral, que representa as p
 | '' | fechar as aspas | ' '' |
 | ( | Parêntese de abertura | ( [ { |
 | ) | parêntesis de fecho | ) ] } |
-| ,  | por vírgulas | ,  |
-| -- | Traço | -- |
+| ,  | comma | ,  |
+| -- | dash | -- |
 | . | terminador de frase | . ! ? |
 | : | dois pontos ou o botão de reticências | : ; ... |
 | Cc | conjunto, coordenação | e mas ou ainda|
-| CD | romano, cardinal | nove 20 1980 "96 |
+| CD | romano, cardinal | nine 20 1980 '96 |
 | DT | determiner |um a um todos os dois nenhum|
 | POR EXEMPLO | existencial daí | daí |
-| FIREWALL | word externa | enfant terrible hoi polloi je ne sais quoi |
+| FW | word externa | enfant terrible hoi polloi je ne sais quoi |
 | IN | preposition ou subordinating conjunto| no interior se após se |
 | JJ | adjetivo ou romano, ordinal | nono multimodal bastante execrável |
 | JJR | adjetivo, comparativa | melhor com mais rapidez mais barato |
 | JJS | adjetivo, importantes | melhor mais rápida mais barato |
-| LS | marcador do item de lista | (a) (b) 1 2 A B B. a. |
+| LS | marcador do item de lista | (a) (b) 1 2 A B A. B. |
 | MD | auxiliar modal | Pode pode deverá será poderia poderá deve deve |
 | NN | nome próprio, comum, singular ou em massa | Calçado de dinheiro Potato |
 | NNP | nome próprio, adequada, singular | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | plural adequada, do substantivo, | Springfields Bushes |
-| NNS | plural comuns, do substantivo, | campos de ratos de partes |
+| NNS | noun, common, plural | campos de ratos de partes |
 | PDT | pré-determiner | todos os dois metade muitos bastante tais-se de que isso |
-| PEDIDOS DE COMPRA | Marcador genitive | "do |
+| POS | Marcador genitive | "do |
 | PRP | pronoun, pessoal | ela ele-podemos |
-| $ PRP | pronoun, possessive | sua cópia seu respetivo meu nosso seus sua |
+| PRP$ | pronoun, possessive | sua cópia seu respetivo meu nosso seus sua |
 | RB | adverb | clinically única |
 | RBR | adverb, comparativa | ainda mais gloomier grander graver maior grimmer mais difícil harsher mais segura mais pesada superior entretanto maior posterior mais enxutos mais demorado menos perfeitamente menor lonelier mais DB mais alto inferior mais... |
 | RBS | adverb, importantes | melhor maiores bluntest mais antigo mais distante primeiro furthest mais difícil heartiest mais alto maior menos menos maioria mais próxima do segundo nesse pior |
 | RP | Nuvem de partículas | desativado no limite de segurança sobre |
 | SIMBÓLICO | Símbolo | % & |
 | PARA | "para" como marcador preposition ou infinitive | para |
-| OH | Interjection | OH felicidade howdy hello |
-| REFERÊNCIA DO VB | verbo, o formulário básico | daremos a atribuir dinamicamente |
+| UH | Interjection | OH felicidade howdy hello |
+| VB | verbo, o formulário básico | daremos a atribuir dinamicamente |
 | VBD | verbo, tempo verbal do passado | deu atribuído flew |
 | VBG | verbo, presente participle ou gerund | dando voar atribuição |
 | VBN | verbo, participle passado | Tendo em conta atribuída voou |
 | VBP | verbo, o tempo verbal presente, não 3º pessoa singular | daremos a atribuir dinamicamente |
 | VBZ | verbo, o tempo verbal presente, 3ª pessoa singular | dá atribui flies |
 | WDT | Q-determiner | que o que |
-| WP | Q-pronoun | que quem |
-| $ DO WP | Q-pronoun possessive | cujo |
+| WP | WH-pronoun | que quem |
+| WP$ | Q-pronoun possessive | cujo |
 | WRB | Q-adverb | como no entanto sempre que onde |
 
 ## <a name="specification"></a>Especificação

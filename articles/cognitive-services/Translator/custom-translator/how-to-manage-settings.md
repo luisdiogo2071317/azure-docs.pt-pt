@@ -5,16 +5,16 @@ description: Como gerir as definições, criar área de trabalho, Compartilhe a 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627570"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227085"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -85,11 +85,11 @@ Tradutor personalizado pode partilhar sua área de trabalho com outras pessoas, 
 
 ## <a name="sharing-permissions"></a>Permissões de partilha
 
-1.  **Leitor:** um leitor na área de trabalho vai conseguir ver todas as informações na área de trabalho. 
+1.  **Leitor de:** Um leitor na área de trabalho será capaz de ver todas as informações na área de trabalho. 
 
-2.  **Editor:** um editor na área de trabalho será possível adicionar documentos, formar modelos e eliminar documentos e projetos. Eles podem adicionar uma chave de subscrição, mas não é possível modificar que a área de trabalho é partilhada com, eliminar a área de trabalho ou altere o nome de área de trabalho.
+2.  **Editor:** Um editor na área de trabalho poderá adicionar documentos, formar modelos e eliminar documentos e projetos. Eles podem adicionar uma chave de subscrição, mas não é possível modificar que a área de trabalho é partilhada com, eliminar a área de trabalho ou altere o nome de área de trabalho.
 
-3.  **Proprietário:** um proprietário tem todas as permissões para a área de trabalho.
+3.  **Proprietário:** Um proprietário tem todas as permissões para a área de trabalho.
 
 ## <a name="change-sharing-permission"></a>Alterar permissões de partilha
 

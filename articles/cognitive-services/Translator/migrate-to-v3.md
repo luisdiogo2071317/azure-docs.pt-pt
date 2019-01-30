@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682602"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227782"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -41,14 +41,14 @@ A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a func
 
 | V2 o método API   | V3 Compatibilidade da API |
 |:----------- |:-------------|
-| Translate     | [Traduzir](reference/v3-0-translate.md)          |
+| Traduzir     | [Traduzir](reference/v3-0-translate.md)          |
 | TranslateArray      | [Traduzir](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Idiomas](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Detetar](reference/v3-0-detect.md)         |
-| DetectArray     | [Detetar](reference/v3-0-detect.md)         |
+| Fale     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detetar     | [Detect](reference/v3-0-detect.md)         |
+| DetectArray     | [Detect](reference/v3-0-detect.md)         |
 | AddTranslation     | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
 | BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -59,11 +59,11 @@ A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a func
 
 V2 de tradução de texto do Microsoft Translator aceites e devolveu dados em formato XML. Na V3 todos os dados enviados e recebidos através da API está no formato JSON. XML já não serão aceites ou devolvido na V3.
 
-Esta alteração irá afetar vários aspectos de um aplicativo escrito para a API de tradução de texto do V2. Por exemplo: A API de idiomas devolve as informações de idioma para tradução de texto, Transliteração e os métodos de dicionário de dois. Pode pedir a todas as informações de idioma para todos os métodos numa chamada ou pedi-los individualmente.
+Esta alteração irá afetar vários aspectos de um aplicativo escrito para a API de tradução de texto do V2. Por exemplo: A API de idiomas devolve informações de idioma para tradução de texto, Transliteração e os métodos de dicionário de dois. Pode pedir a todas as informações de idioma para todos os métodos numa chamada ou pedi-los individualmente.
 
 O método de idiomas não necessita de autenticação; ao clicar na ligação seguinte, pode ver todas as informações de idioma para V3 no JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, dicionário, Transliteração](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chave de Autenticação
 
@@ -75,18 +75,18 @@ Microsoft Translator V3 preço baseia-se da mesma forma que v2 foi um preço; po
 
 | Método v3   | Carateres contabilizados para faturação |
 |:----------- |:-------------|
-| Languages     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
-| Translate     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
-| Transliterate     | Número de carateres submetido para a Transliteração é contabilizado.         |
-| Dictionary lookup & example     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
+| Linguagens     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
+| Traduzir     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
+| Transliterar     | Número de carateres submetido para a Transliteração é contabilizado.         |
+| Pesquisa de dicionário & de exemplo     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
 | BreakSentence     | Sem custos.       |
-| Detect     | Sem custos.      |
+| Detetar     | Sem custos.      |
 
 ## <a name="v3-end-points"></a>V3 pontos finais
 
 Global
 
-* API.cognitive.microsofttranslator.com
+* api.cognitive.microsofttranslator.com
 
 
 ## <a name="v3-api-text-translations-methods"></a>Métodos de traduções de texto de v3 API
@@ -99,9 +99,9 @@ Global
 
 [BreakSentence](reference/v3-0-break-sentence.md)
 
-[Detetar](reference/v3-0-detect.md)
+[Detect](reference/v3-0-detect.md)
 
-[Dicionário/pesquisa](reference/v3-0-dictionary-lookup.md)
+[Dictionary/lookup](reference/v3-0-dictionary-lookup.md)
 
 [Dicionário/exemplo](reference/v3-0-dictionary-examples.md)
 
@@ -113,8 +113,8 @@ Tradução neural com a API de texto da V3 não suporta a utilização das categ
 
 | |Ponto Final|    Compatibilidade do processador GDPR|  Utilize o Hub de Microsoft Translator| Utilize o Translator personalizado (pré-visualização)|
 |:-----|:-----|:-----|:-----|:-----|
-|Versão de API de texto do Translator 2| API.microsofttranslator.com|    Não  |Sim    |Não|
-|Versão de API de texto do Translator 3| API.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
+|Versão de API de texto do Translator 2| api.microsofttranslator.com|    Não  |Sim    |Não|
+|Versão de API de texto do Translator 3| api.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
 
 **Versão de API de texto do Translator 3**
 * Está disponível em geral e é totalmente suportado.

@@ -4,22 +4,40 @@ description: Saiba como resolver erros de integração com a gestão de atualiza
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879647"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228785"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
 Pode encontrar erros quando soluções de integração como gestão de atualizações ou controlo de alterações e inventário. Este artigo descreve os vários erros que possam ocorrer e como resolvê-los.
 
 ## <a name="general-errors"></a>Erros de geral
+
+### <a name="missing-write-permissions"></a>Cenário: Falha de integração com a mensagem - a solução não pode ser ativada
+
+#### <a name="issue"></a>Problema
+
+Recebe a seguinte mensagem quando está tentando carregar uma máquina virtual para uma solução:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro é causado por permissões incorretas ou ausentes na máquina virtual ou para o utilizador.
+
+#### <a name="resolution"></a>Resolução
+
+Certifique-se de que tem permissões corretas para carregar a máquina virtual. Reveja os [permissões necessárias para carregar máquinas](../automation-role-based-access-control.md#onboarding) e repita para integrar a solução.
 
 ### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
@@ -55,7 +73,7 @@ Para poder implementar com êxito a solução, precisa considerar alterar a pol�
   * Filtragem novamente a política a um recurso específico (como para uma conta de automatização específica).
   * Revisando o conjunto de recursos que política foi configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** sob **definições** para ver a implementação. Para saber mais sobre a visita de política do Azure: [descrição geral do Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** sob **definições** para ver a implementação. Para saber mais sobre o Azure Policy, visite: [Descrição geral do Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Falhas de extensão do MMA
 
@@ -67,7 +85,7 @@ Instalação do agente MMA ou o Log Analytics para Linux pode falhar por vários
 
 A seguinte secção descreve vários problemas que pode encontrar ao integração que causar uma falha na implementação da extensão do MMA.
 
-### <a name="webclient-exception"></a>Cenário: Uma exceção ocorreu durante uma solicitação WebClient
+### <a name="webclient-exception"></a>Cenário: Ocorreu uma exceção durante uma solicitação WebClient
 
 A extensão MMA na máquina virtual não consegue comunicar com recursos externos e a implementação falhar.
 
@@ -95,7 +113,7 @@ Algumas causas possíveis para este erro são:
 
 Certifique-se de que tem as portas apropriadas e endereços abrir para a comunicação. Para obter uma lista de endereços e portas, consulte [planear a sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário: Falha na instalação devido a problemas de ambiente transitório
+### <a name="transient-environment-issue"></a>Cenário: A instalação falhou devido a problemas de ambiente transitório
 
 A instalação da extensão do Microsoft Monitoring Agent falhou durante a implementação devido a outra instalação ou ação bloqueando a instalação
 
@@ -126,7 +144,7 @@ Algumas causas possíveis para este erro são:
 
 Este erro é um erro transitório por natureza. Repetir a implementação para instalar a extensão.
 
-### <a name="installation-timeout"></a>Cenário: Tempo limite de instalação
+### <a name="installation-timeout"></a>Cenário: Tempo limite da instalação
 
 A instalação da extensão do MMA não foi concluída devido a um tempo limite.
 

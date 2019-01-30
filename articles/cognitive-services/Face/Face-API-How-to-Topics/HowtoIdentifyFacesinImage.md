@@ -1,25 +1,25 @@
 ---
-title: 'Exemplo: Identificar rostos em imagens – API Face'
+title: 'Exemplo: Identificar rostos em imagens - Face API'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API Face para identificar rostos em imagens.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129076"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208096"
 ---
 # <a name="example-how-to-identify-faces-in-images"></a>Exemplo: Como identificar rostos em imagens
 
-Este guia demonstra como identificar rostos desconhecidos com PersonGroups, que são criados com antecedência a partir de pessoas conhecidas. Os exemplos são escritos em C# com a biblioteca de cliente da API Face.
+Este guia demonstra como identificar rostos desconhecidos com PersonGroups, que são criados com antecedência a partir de pessoas conhecidas. Os exemplos foram escritos em C# com a biblioteca de cliente da API Face.
 
 ## <a name="concepts"></a>Conceitos
 
@@ -41,7 +41,7 @@ Para executar a demonstração deste exemplo, terá de preparar uma porção de 
 - Umas poucas fotografias com o rosto da pessoa. [Clique aqui para transferir as fotografias de exemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Ana, Bernardo e Clara.
 - Uma série de fotografias de teste, que podem conter ou não os rostos de Ana, Bernardo e Clara, são utilizadas para testar a identificação. Também pode selecionar algumas imagens de exemplo da ligação anterior.
 
-## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada da API
+## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada de API
 
 Todas as chamadas para a API Face requerem uma chave de subscrição. Esta chave pode passar por um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido. Para passar a chave de subscrição através da cadeia de consulta, veja o URL do pedido para [Rosto – Detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como exemplo:
 ```
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP: **ocp-apim-subscription-key: &lt;Chave de Subscrição&gt;**  Quando utilizar uma biblioteca de cliente, a chave de subscrição é passada através do construtor da classe FaceServiceClient. Por exemplo:
+Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP: **ocp-apim-subscription-key: &lt;Chave de subscrição&gt;**  quando utilizar uma biblioteca de cliente, a chave de subscrição é passada por meio do construtor da classe FaceServiceClient. Por exemplo:
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -59,7 +59,7 @@ A chave de subscrição pode ser obtida da página do Marketplace no portal do A
 
 ## <a name="step-2-create-the-persongroup"></a>Passo 2: Criar o PersonGroup
 
-Neste passo, criámos um PersonGroup com o nome "MyFriends" (Os meus amigos) que contém três pessoas: Ana, Bernardo e Clara. Cada pessoa tem vários rostos registados. Os rostos têm de ser detetados a partir das imagens. No final destes passos, tem um PersonGroup semelhante à imagem seguinte:
+Neste passo, criamos um PersonGroup com o nome "MyFriends" que contém três pessoas: A Anna, Bill e Clare. Cada pessoa tem vários rostos registados. Os rostos têm de ser detetados a partir das imagens. No final destes passos, tem um PersonGroup semelhante à imagem seguinte:
 
 ![HowToIdentify1](../Images/group.image.1.jpg)
 
@@ -106,7 +106,7 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 ``` 
 Note que, se a imagem tiver mais de um rosto, será apenas adicionado o rosto maior. Pode adicionar outros rostos à pessoa ao passar uma cadeia de caracteres no formato "targetFace =  esquerda, topo, largura, altura" para o parâmetro de consulta targetFace da API [Pessoa de PersonGroup – Adicionar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) ou pode utilizar o parâmetro opcional de targetFace para o método AddPersonFaceAsync para adicionar outros rostos. Cada rosto adicionado à pessoa ficará com um ID exclusivo de rosto persistente, que pode ser utilizado em [Pessoa do PersonGroup – Eliminar Rosto](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) e em [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="step-3-train-the-persongroup"></a>Passo 3: Treinar o PersonGroup
+## <a name="step-3-train-the-persongroup"></a>Passo 3: Preparar o PersonGroup
 
 O PersonGroup deve ser treinado para que ao utilizá-lo se possa fazer uma identificação. Além disso, ele deve ser treinado de novo após a adição ou remoção de qualquer pessoa ou se houve edição do rosto registado de uma pessoa. O treino é feito com a API [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249). Ao utilizar a biblioteca de cliente, é simplesmente uma chamada ao método TrainPersonGroupAsync:
  
@@ -170,7 +170,7 @@ Quando tiver concluídos os passos, poderá tentar identificar rostos diferentes
 
 ![HowToIdentify2](../Images/identificationResult.1.jpg )
 
-## <a name="step-5-request-for-large-scale"></a>Passo 5: Pedir para grande escala
+## <a name="step-5-request-for-large-scale"></a>Passo 5: Pedir para em grande escala
 
 Tal como é sabido, um PersonGroup pode conter até 10 000 pessoas devido à limitação do design anterior.
 Para obter mais informações sobre cenários na escala dos milhões, veja [Como utilizar a funcionalidade em grande escala](how-to-use-large-scale.md).

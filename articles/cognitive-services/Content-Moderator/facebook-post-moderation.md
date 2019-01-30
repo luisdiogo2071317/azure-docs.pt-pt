@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b43f3645a2fb9cc6ede4b27b4412b9e70e2b26f8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260452"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213842"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdos do Facebook com o Content Moderator
 
@@ -134,7 +134,7 @@ Inicie sessão no [Portal de Gestão do Azure](https://portal.azure.com/) para c
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Atualize estas variáveis de ambiente:
     
-    | Chave | Valor   | 
+    | Chave | Value   | 
     | -------------------- |-------------|
     | appId   | Insira aqui o seu Identificador da Aplicação do Facebook  | 
     | appSecret | Insira aqui o seu segredo da Aplicação do Facebook | 

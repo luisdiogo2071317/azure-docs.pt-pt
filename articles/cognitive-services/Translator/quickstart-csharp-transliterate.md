@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: converter script de texto, C# – Tradução de Texto'
+title: 'Início rápido: Converter o script de texto, C# – texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transcrição de texto (converter) a partir de um script para outro e usando a API de REST de texto do Translator e .NET Core. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889145"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220167"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto a utilizarC#
 

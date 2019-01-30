@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a49df0c18ef9db9d0d41ca2e714474e6386ae7d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904457"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228921"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definições
@@ -23,7 +23,7 @@ ms.locfileid: "48904457"
 <a name="point"></a>
 ### <a name="point"></a>Ponto de
 
-|Nome|Descrição|Esquema|
+|Name|Descrição|Esquema|
 |---|---|---|
 |**Timestamp**  <br>*Opcional*|O carimbo de hora para o ponto de dados. Certifique-se de que se alinha com a meia-noite e o uso de um UTC data hora de cadeia, por exemplo, 2017-08-01T00:00:00Z.|a cadeia de caracteres (data-hora)|
 |**Valor**  <br>*Opcional*|Um valor de medida de dados.|número (double)|
@@ -32,7 +32,7 @@ ms.locfileid: "48904457"
 <a name="request"></a>
 ### <a name="request"></a>Pedir
 
-|Nome|Descrição|Esquema|
+|Name|Descrição|Esquema|
 |---|---|---|
 |**Período**  <br>*Opcional*|O período dos pontos de dados. Se o valor é nulo ou não apresenta, a API determina o período de automaticamente.|número (double)|
 |**Pontos**  <br>*Opcional*|Pontos de dados de séries de tempo. Os dados devem ser classificados por timestamp ascendente de acordo com o resultado de anomalias. Se os dados não estão ordenados corretamente ou se estiver timestamp duplicado, a API irá detetar os pontos de anomalias corretamente, mas também não foi possível corresponder os pontos retornados com a entrada. Nesse caso, será adicionada uma mensagem de aviso na resposta.|< [aponte](#point) > matriz|
@@ -41,7 +41,7 @@ ms.locfileid: "48904457"
 <a name="response"></a>
 ### <a name="response"></a>Resposta
 
-|Nome|Descrição|Esquema|
+|Name|Descrição|Esquema|
 |---|---|---|
 |**ExpectedValues**  <br>*Opcional*|O valor previsto pelo aprendizado com base em modelo. Se os pontos de dados de entrada são ordenados por timestamp ascendente, o índice da matriz pode ser utilizado para mapear o valor esperado e o valor original.|matriz de < número (double) >|
 |**IsAnomaly**  <br>*Opcional*|O resultado no se os pontos de dados são anomalias ou não em ambas as direções (picos ou as quedas anormais). TRUE significa que o ponto é anomalias, false significa que o ponto é não anomalias. Se os pontos de dados de entrada são ordenados por timestamp ascendente, o índice da matriz pode ser utilizado para mapear o valor esperado e o valor original.|matriz de < booleano >|

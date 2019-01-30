@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214318"
 ---
 # <a name="calchistogram-method"></a>calchistogram método
 O *calchistogram* método computa os objetos que correspondem uma expressão de consulta estruturadas e calcula a distribuição de seus valores de atributo.
@@ -23,12 +23,12 @@ O *calchistogram* método computa os objetos que correspondem uma expressão de 
 ## <a name="request"></a>Pedir
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Nome|Valor|Descrição
+Name|Value|Descrição
 ----|-----|-----------
 expr | Cadeia de texto | Expressão de consulta estruturadas que especifica as entidades de índice sobre o qual calcular histogramas.
 Atributos | Cadeia de texto (predefinição = "") | Lista delimitada por vírgulas de atributo a ser incluído na resposta.
 count   | Número (predefinição = 10) | Número de resultados a devolver.
-deslocamento  | Número (predefinição = 0) | Índice do primeiro resultado a devolver.
+offset  | Número (predefinição = 0) | Índice do primeiro resultado a devolver.
 
 ## <a name="response-json"></a>Resposta (JSON)
 JSONPath | Descrição
@@ -36,13 +36,13 @@ JSONPath | Descrição
 $.expr | *expr* parâmetro no pedido.
 $.num_entities | Número total de entidades correspondentes.
 $.histograms |  Matriz de histogramas, um para cada atributo de pedido.
-$.histograms [\*] .attribute | Nome do atributo na qual o histograma foi computado.
-$.histograms [\*] .distinct_values | Número de valores distintos entre entidades para este atributo de correspondência.
-$.histograms [\*] .total_count | Número total de instâncias de valor entre entidades para este atributo de correspondência.
-$.histograms [\*] .histogram | Dados de histograma para este atributo.
-$.histograms [\*] .histogram [\*]. Value | Valor do atributo.
-$.histograms [\*] .histogram [\*] .logprob  | Probabilidade de registo natural total de correspondência de entidades com este valor de atributo.
-$.histograms [\*] .histogram [\*] .count    | Número de entidades correspondentes com este valor de atributo.
+$.histograms[\*].attribute | Nome do atributo na qual o histograma foi computado.
+$.histograms[\*].distinct_values | Número de valores distintos entre entidades para este atributo de correspondência.
+$.histograms[\*].total_count | Número total de instâncias de valor entre entidades para este atributo de correspondência.
+$.histograms[\*].histogram | Dados de histograma para este atributo.
+$.histograms[\*].histogram[\*].value | Valor do atributo.
+$.histograms[\*].histogram[\*].logprob  | Probabilidade de registo natural total de correspondência de entidades com este valor de atributo.
+$.histograms[\*].histogram[\*].count    | Número de entidades correspondentes com este valor de atributo.
 $.aborted | VERDADEIRO se o pedido excedeu o limite de tempo.
 
 ### <a name="example"></a>Exemplo

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210425"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorizar e resolver problemas de recuperação de sites
 
@@ -52,7 +52,7 @@ Pode ver o estado de ativação pós-falha de teste para máquinas no cofre.
 **Estado** | **Detalhes**
 --- | ---
 Teste recomendado | Máquinas que ainda não tinham uma ativação pós-falha de teste, uma vez que a proteção foi ativada.
-Executada com êxito | As máquinas com ou ativações pós-falha de teste mais bem-sucedida.
+Executado com êxito | As máquinas com ou ativações pós-falha de teste mais bem-sucedida.
 Não aplicável | Máquinas que não são atualmente elegíveis para uma ativação pós-falha de teste. Por exemplo, máquinas com ativação pós-falha, tem a ativação pós-falha de replicação inicial/teste/ativação pós-falha em curso.
 
 ## <a name="monitor-configuration-issues"></a>Problemas de configuração de monitor
@@ -97,7 +97,7 @@ O **vista de infraestrutura** mostra os componentes da infra-estrutura envolvido
 
     **Cenário** | **Estado**  | **O modo de exibição disponível?**
     --- |--- | ---
-    **Replicação entre sites no local** | Todos os Estados | Não 
+    **Replicação entre sites no local** | Todos os estados | Não 
     **Replicação de VM do Azure entre regiões do Azure**  | Replicação ativada/inicial de replicação em curso | Sim
     **Replicação de VM do Azure entre regiões do Azure** | A ativação pós-falha / reativação pós-falha | Não   
     **Replicação de VMware para o Azure** | Replicação ativada/inicial de replicação em curso | Sim     
@@ -149,17 +149,17 @@ No dashboard de adição, pode monitorar máquinas na página de máquinas virtu
     ![Recuperação de site replicados a vista de lista de itens](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Sobre o **itens replicados** página, pode ver e filtrar informações. No menu de ação na parte superior, pode executar ações para uma máquina específica, incluindo a executar uma ativação pós-falha de teste ou ao visualizar os erros específicos.
-3.  Clique em **colunas** para mostrar as colunas devolvidas adicionais, por exemplo, para mostrar o RPO, destino problemas de configuração e erros de replicação.
+3.  Clique em **colunas** para mostrar colunas adicionais como, por exemplo, para mostrar o RPO, destino problemas de configuração e erros de replicação.
 4. Clique em **filtro** para ver informações com base nos parâmetros específicos, como o estado de funcionamento da replicação ou uma política de replicação específico.
 5. Com o botão direito uma máquina para iniciar a operações como a ativação pós-falha de teste para o mesmo ou para ver os detalhes de erro específico associados ao mesmo.
 6. Clique numa máquina para explorar mais detalhes para o mesmo. Os detalhes incluem:
-      - **Informações de replicação**: status atual e o estado de funcionamento da máquina.
+      - **Informações de replicação**: Estado atual e o estado de funcionamento da máquina.
       - **RPO** (objetivo de ponto de recuperação): RPO atual para a máquina virtual e a hora em que o RPO pela última vez foi computado.
-      - **Pontos de recuperação**: pontos de recuperação disponível mais recente para a máquina.
-      - **Preparação de ativação pós-falha**: indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
-      - **Erros**: lista de sintomas de erro de replicação observada atualmente sobre as causas/ações de máquinas e possíveis.
-      - **Eventos**: uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
-      - **Vista de infraestrutura**: mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
+      - **Pontos de recuperação**: Pontos de recuperação disponível mais recente para a máquina.
+      - **Preparação de ativação pós-falha**: Indica se uma ativação pós-falha de teste foi executada para a máquina, a versão do agente em execução no computador (para máquinas que executa o serviço de mobilidade) e problemas de configuração.
+      - **Erros**: Lista de sintomas de erro de replicação observada atualmente na máquina e ações/causas possíveis.
+      - **Eventos**: Uma lista cronológica dos eventos recentes que afetem a máquina. Detalhes do erro mostra os sintomas de erro atualmente observable, enquanto os eventos é um registo histórico de problemas que tenham afetado a máquina.
+      - **Vista de infraestrutura**: Mostra o estado da infraestrutura para o cenário de quando as máquinas estão a replicar para o Azure.
 
     ![Recuperação de site replicados item detalhes/descrição geral](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

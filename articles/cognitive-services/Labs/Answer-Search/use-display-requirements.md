@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b57e80370c778e7cebdb4a5ccd888ced324be0aa
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 521deef5c09d80eb37a26de384704fcfe540b87e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469491"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225113"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Pesquisa de resposta de projeto usar e apresentam os requisitos
 
@@ -40,7 +40,7 @@ Não:
 
 Os requisitos em 3 nesta secção aplicam-se para as APIs de pesquisa.
 
-**R. Experiência de pesquisa da Internet.** Todos os dados retornados em respostas só podem ser utilizados em experiências de pesquisa da internet. Uma experiência de pesquisa da internet significa que o conteúdo exibido, conforme aplicável: 
+**A. Experiência de pesquisa da Internet.** Todos os dados retornados em respostas só podem ser utilizados em experiências de pesquisa da internet. Uma experiência de pesquisa da internet significa que o conteúdo exibido, conforme aplicável: 
 - é relevante e responsivo a consulta direta do utilizador final ou outra indicação do interesse de pesquisa do usuário e a intenção (por exemplo, a consulta de pesquisa indicado por utilizador); 
 - ajuda os usuários a localizar e navegue para as origens de dados (por exemplo, os URLs fornecidos são implementados como hiperlinks para que o conteúdo ou a atribuição é um link clicável visível apresentado com os dados); ou, se da API de pesquisa de entidades do Bing, visivelmente ligação para o URL de bing.com fornecido na resposta que permite que o usuário navegue para os resultados da pesquisa para a consulta relevante no bing.com;
 - inclui vários resultados para o utilizador final selecionar a partir de (por exemplo, vários resultados da resposta de notícias são apresentados ou são devolvidos todos os resultados se menos de vários); 

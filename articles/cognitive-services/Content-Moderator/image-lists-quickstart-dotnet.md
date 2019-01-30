@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: verifique as imagens face às listas personalizadas em C# - Content Moderator'
+title: 'Início rápido: Verificar imagens face às listas personalizadas no C# -Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como moderar imagens com uma lista personalizada de imagens através do SDK do Content Moderator para C#.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7165bdc4aebec886a57990281bc35c83b1d7bf04
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228190"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início Rápido: moderar com uma lista personalizada de imagens em C#
+# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início rápido: Moderar com listas de imagem personalizadaC#
 
 Este artigo apresenta informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 - Criar uma lista de imagens personalizadas
@@ -1089,6 +1089,6 @@ Response:
 []
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 96f73d7d1324de9e5531aefcc4ee3b9a054cf941
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713184"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228054"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte de idioma e região para a API de texto do tradutor
 
@@ -114,15 +114,15 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<> –" ind
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
-| Guzarate | `gu`  | Guzarate `Gujr` | --> | Latim `Latn` |
+| Guzarate | `gu`  | Gujarati `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Hindi | `hi` | Devanágari `Deva` | <--> | Latim `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | Canarim | `kn` | Kannada `Knda` | --> | Latim `Latn` |
 | Malayalam | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
-| Marata | `mr` | Devanágari `Deva` | --> | Latim `Latn` |
-| Odia | `or` | Oriá `Orya` | <--> | Latim `Latn` |
-| Punjabi | `pa` | Gurmuqui `Guru`  | <--> | Latim `Latn`  |
+| Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latim `Latn` |

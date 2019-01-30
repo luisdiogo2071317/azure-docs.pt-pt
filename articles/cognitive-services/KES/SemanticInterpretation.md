@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129357"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217276"
 ---
 # <a name="semantic-interpretation"></a>Interpretação semântica
 
@@ -33,7 +33,7 @@ Uma variável é especificada com um identificador de nome que começa com uma l
 
 Segue-se uma lista de tipos de dados atualmente suportados:
 
-|Tipo|Descrição|Exemplos|
+|Type|Descrição|Exemplos|
 |----|----|----|
 |Cadeia|Sequência de 0 ou mais carateres|"Hello World!"<br/>""|
 |Bool|Valor booleano|true<br/>false|
@@ -41,7 +41,7 @@ Segue-se uma lista de tipos de dados atualmente suportados:
 |Int64|inteiro assinado de 64 bits. -9.2e18 e 9.2e18|9876543210|
 |Valor de duplo|Vírgula flutuante de dupla precisão. 1.7E + /-308 (15 dígitos)|123.456789<br/>1.23456789e2|
 |GUID|Identificador exclusivo global|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
-|Consulta|Expressão de consulta que especifica um subconjunto de objetos de dados no índice|ALL()<br/>E (*q1*, *q2*)|
+|Consulta|Expressão de consulta que especifica um subconjunto de objetos de dados no índice|ALL()<br/>And(*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>Funções semânticas
 
@@ -139,7 +139,7 @@ Variáveis de âmbito do pedido são partilhadas entre todos os interpretações
 
 Variáveis do sistema estão predefinidas pelo serviço e podem ser usadas para recuperar várias estatísticas sobre o estado atual do sistema.  Segue-se o conjunto de variáveis do sistema atualmente suportados:
 
-|Nome|Tipo|Descrição|
+|Name|Tipo|Descrição|
 |----|----|----|
 |IsAtEndOfQuery|Bool|VERDADEIRO se a interpretação atual encontrou correspondências em todo o texto de consulta de entrada|
 |IsBeyondEndOfQuery|Bool|VERDADEIRO se a interpretação atual sugeriu conclusões além do texto de consulta de entrada|

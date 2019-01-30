@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632395"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216749"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: como extrair expressões-chave na Análise de Texto
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: Como extrair expressões-chave na análise de texto
 
 A [API de Extração de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e, para cada documento JSON, devolve uma lista de expressões-chave. 
 
@@ -67,11 +67,11 @@ Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (ID
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação sobre a API para este pedido: [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de expressões-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Definir o ponto final HTTP para extração de expressões-chave, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
@@ -82,13 +82,13 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
 A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: ver resultados
+## <a name="step-3-view-results"></a>Passo 3: Ver resultados
 
 Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 

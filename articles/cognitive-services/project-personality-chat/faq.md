@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219826"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219061"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
@@ -28,10 +28,10 @@ Bate-papo do projeto personalidade ampliará um bot com conversa pequeno comuns,
 
 Selecione a pessoa mais próxima das pessoas de predefinidas disponíveis. Hoje em dia, pode criar a biblioteca editorial e editar as respostas para se adequar melhor às sua marca. No futuro, pode carregar um conjunto de exemplo de expressões com de sua personalidade escolhida e encontrar a sua versão de ID de pessoa mais próximo. Também há formas de voltar a preparar e personalizar o modelo.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>Este serviço é que alimenta o agentes inteligentes existentes, como Zo?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Este serviço é que alimenta o agentes inteligentes existentes, como Zo?
 
 Os serviços que alimenta Zo, Cortana e Chat do projeto personalidade compartilham algumas técnicas semelhantes, mas são diferentes pilhas. Ele tem incorporado aprendizagens sobre a partir das experiências com Zo e Cortana.
 
 ## <a name="can-this-service-lead-to-bad-customer-experiences"></a>Este serviço pode levar a más experiências dos clientes?
 
-Para fornecer uma experiência mais rica, bate-papo de personalidade pode gerar respostas além no conjunto de dados editorial e tenta interpretar todas as entradas do usuário. Por isso, é possível que uma resposta não pareça correta no contexto. Uma série de controles tenha foi colocada para ajudar a evitar unfavorable respostas, criando-se em dados de conhecimento de agentes inteligentes, como Zo. Por predefinição, o Chat do projeto personalidade está definido para responder apenas a objetivos de utilizador reconhecido. Pode querer testar se Chat de personalidade de projeto é adequado para suas circunstâncias. Seu comentário é importante se vir alguma coisa que precisa de treinamentos. Se utilizar este serviço com os seus clientes no futuro, recomendamos que considere o registo anónimo para o ajudar a identificar problemas com as interações do utilizador em direto.
+Para fornecer uma experiência mais rica, bate-papo de personalidade pode gerar respostas além no conjunto de dados editorial e tenta interpretar todas as entradas do usuário. Por isso, é possível que uma resposta não pareça correta no contexto. Foi criada uma série de controlos para ajudar a evitar respostas desfavoráveis com base nos conhecimentos de agentes inteligentes, como o Zo. Por predefinição, o Personality Chat está definido para responder apenas às intenções reconhecidas do utilizador. Pode querer testar se o Project Personality Chat é adequado para as suas circunstâncias. Os seus comentários são importantes se vir algo que precise de mais preparação. Se utilizar este serviço com os seus clientes no futuro, recomendamos que considere o registo anónimo para o ajudar a identificar problemas com as interações do utilizador em direto.

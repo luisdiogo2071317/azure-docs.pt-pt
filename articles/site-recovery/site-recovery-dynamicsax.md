@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838145"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221968"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação após desastre para uma aplicação com várias camadas do Dynamics AX 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação após desastre para uma aplicação com várias camadas do Dynamics AX   
 
 
 
@@ -118,15 +118,15 @@ Pode criar um plano de recuperação no Site Recovery para automatizar o process
 Pode personalizar o plano de recuperação para a aplicação do Dynamics AX, adicionando os seguintes passos. O instantâneo anterior mostra o plano de recuperação completa depois de adicionar todas as etapas.
 
 
-* **Passos de ativação pós-falha do SQL Server**: para obter informações sobre passos de recuperação específicos para o SQL server, consulte [aplicativos de replicação com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
+* **Passos de ativação pós-falha do SQL Server**: Para obter informações sobre passos de recuperação específicos para o SQL server, consulte [aplicativos de replicação com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
 
-* **Grupo de ativação pós-falha 1**: ativação pós-falha de VMs de servidor de objeto do aplicativo.
+* **Grupo de ativação pós-falha 1**: Efetuar a ativação pós-falha de VMs de servidor de objeto de aplicação.
 Certifique-se de que o ponto de recuperação selecionado está mais próximo possível PIT, na base de dados, mas não um passo à frente ele.
 
-* **Script**: adicionar balanceador de carga (só E-A).
+* **script**: Adicionar balanceador de carga (só E-A).
 Adicione um script (através da automatização do Azure) após o grupo de VM de servidor de objeto do aplicativo é exibido para adicionar um balanceador de carga à mesma. Pode utilizar um script para executar esta tarefa. Para obter mais informações, consulte [como adicionar um balanceador de carga para recuperação após desastre de aplicações com múltiplas camadas](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Grupo 2 da ativação pós-falha**: efetuar a ativação pós-falha de VMs de clientes do Dynamics AX. Efetuar a ativação pós-falha de VMs de camada de web como parte do plano de recuperação.
+* **Grupo de ativação pós-falha 2**: Efetuar a ativação pós-falha de VMs de clientes do Dynamics AX. Efetuar a ativação pós-falha de VMs de camada de web como parte do plano de recuperação.
 
 
 ### <a name="perform-a-test-failover"></a>Executar uma ativação pós-falha de teste

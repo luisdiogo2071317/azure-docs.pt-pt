@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4118e52e8fac34e860f05e17effb01e9375582ec
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2571c4a1e5a3ff6228cd6647c4367555d0add866
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914071"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212596"
 ---
 # <a name="networking"></a>Redes
 
@@ -48,7 +48,7 @@ Maximizar o desempenho da sua máquina Virtual com redes aceleradas, ao declarar
 ```
 Cluster do Service Fabric pode ser provisionado em [Linux com redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), e [Windows com redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Funcionamento em rede acelerado é suportado para SKUs de série de Máquina Virtual do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. Funcionamento em rede acelerado foi testado com êxito com o SKU de Standard_DS8_v3 1/23/2019.
+Funcionamento em rede acelerado é suportado para SKUs de série de Máquina Virtual do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. Funcionamento em rede acelerado foi testado com êxito com o SKU de Standard_DS8_v3 1/23/2019 para um Cluster Windows do Service Fabric e o uso Standard_DS12_v2 01/29/2019 para um Linux Cluster do Service Fabric.
 
 Para ativar o Accelerated Networking num cluster do Service Fabric existente, precisa primeiro [dimensionar um cluster do Service Fabric out ao adicionar um conjunto de dimensionamento de Máquina Virtual](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), para efetuar o seguinte:
 1. Aprovisionar um NodeType com redes aceleradas ativada

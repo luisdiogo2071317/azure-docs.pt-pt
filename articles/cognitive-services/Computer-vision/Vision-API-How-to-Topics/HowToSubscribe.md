@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c4c7ee1ab756f458c6e9fed4ff5ee54dfaba919e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580812"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222240"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Como obter chaves de subscrição
 
@@ -30,10 +30,10 @@ As chaves de subscrição são válidas para apenas um destes [regiões do Micro
 | Região | Endereço |
 |---|---|
 | EUA Oeste | westus.API.cognitive.microsoft.com |
-| EUA Leste 2 | eastus2.API.cognitive.microsoft.com |
-| EUA Centro-Oeste | westcentralus.API.cognitive.microsoft.com |
-| Europa Ocidental | westeurope.API.cognitive.microsoft.com |
-| Sudeste Asiático | southeastasia.API.cognitive.microsoft.com |
+| EUA Leste 2 | eastus2.api.cognitive.microsoft.com |
+| EUA Centro-Oeste | westcentralus.api.cognitive.microsoft.com |
+| Europa Ocidental | westeurope.api.cognitive.microsoft.com |
+| Sudeste Asiático | southeastasia.api.cognitive.microsoft.com |
 
 Se se inscrever com a avaliação gratuita de imagem digitalizada, as chaves de subscrição são válidas para o **westcentral** região (`https://westcentralus.api.cognitive.microsoft.com/`). Que é o caso mais comum. No entanto, se se inscrever para imagem digitalizada com o Microsoft Azure da conta através da [ https://azure.microsoft.com/ ](https://azure.microsoft.com/) Web site, deve especificar a região para a versão de avaliação na lista anterior de regiões.
 

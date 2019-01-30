@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226048"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Início rápido: Utilizar a biblioteca de serviço de reconhecimento de voz do Bing em C&#35; para Windows .NET
 
@@ -56,7 +56,7 @@ A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford)
 
 Prima Ctrl + Shift + B ou selecione **criar** no menu da faixa de opções. Em seguida, selecione **compilar solução**.
 
-## <a name="step-3-run-the-sample-application"></a>Passo 3: Executar a aplicação de exemplo
+## <a name="step-3-run-the-sample-application"></a>Passo 3: Executar o exemplo de aplicação
 
 1. Depois de concluída a compilação, prima F5 ou selecione **iniciar** no menu da faixa de opções para executar o exemplo.
 
@@ -64,17 +64,17 @@ Prima Ctrl + Shift + B ou selecione **criar** no menu da faixa de opções. Em s
 
 3. Executar `SpeechClientSample.exe` com os argumentos a seguir:
 
-   * Arg [0]: Especifique um ficheiro de áudio WAV entrada.
-   * Arg [1]: Especifique a localidade de áudio.
-   * Arg [2]: Especificar os modos de reconhecimento: *curto* para o `ShortPhrase` modo e *longo* para o `LongDictation` modo.
-   * Arg [3]: Especifique a chave de subscrição para aceder ao serviço de reconhecimento de voz.
+   * Arg[0]: Especifique um ficheiro de áudio WAV entrada.
+   * Arg[1]: Especifique a localidade de áudio.
+   * Arg[2]: Especifique os modos de reconhecimento: *Curto* para o `ShortPhrase` modo e *longo* para o `LongDictation` modo.
+   * Arg[3]: Especifique a chave de subscrição para aceder ao serviço de reconhecimento de voz.
 
 ## <a name="samples-explained"></a>Exemplos de explicado
 
 ### <a name="recognition-modes"></a>Modos de reconhecimento
 
-* `ShortPhrase` modo de: uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um melhor resultado final.
-* `LongDictation` modo de: uma expressão até 10 minutos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e finais, com base em onde o servidor indica as pausas das frases.
+* `ShortPhrase` modo: Uma expressão até 15 segundos de tempo. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e um melhor resultado final.
+* `LongDictation` modo: Uma expressão até 10 minutos longa. Enquanto os dados são enviados para o servidor, o cliente recebe vários resultados parciais e finais, com base em onde o servidor indica as pausas das frases.
 
 ### <a name="supported-audio-formats"></a>Formatos de áudio suportados
 
@@ -88,7 +88,7 @@ A API de voz oferece suporte a áudio/WAV usando os codecs seguintes:
 
 Para criar um SpeechClient, terá de criar primeiro um objeto de preferências. O objeto de preferências é um conjunto de parâmetros que configura o comportamento do serviço de voz. Ele inclui os seguintes campos:
 
-* `SpeechLanguage`: O local de áudio enviado para o serviço de voz.
+* `SpeechLanguage`: A localidade de áudio enviado para o serviço de voz.
 * `ServiceUri`: O ponto final utilizado para chamar o serviço de voz.
 * `AuthorizationProvider`: Uma implementação de IAuthorizationProvider utilizada para obter tokens para poder aceder ao serviço de voz. Embora o exemplo oferece um fornecedor de autorização de serviços cognitivos, é altamente recomendável que crie sua própria implementação para lidar com tokens em cache.
 * `EnableAudioBuffering`: Uma opção avançada. Ver [gerenciamento de conexões](#connection-management).
@@ -97,11 +97,11 @@ Para criar um SpeechClient, terá de criar primeiro um objeto de preferências. 
 
 O objeto de SpeechInput consiste em dois campos:
 
-* **Áudio**: uma implementação de fluxo à sua escolha a partir do qual o SDK efetua pull áudio. Ele pode ser qualquer [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) que suporta a leitura.
+* **Áudio**: Uma implementação de fluxo à sua escolha a partir do qual o SDK efetua pull áudio. Ele pode ser qualquer [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) que suporta a leitura.
    > [!NOTE]
    > O SDK Deteta final da transmissão em fluxo, quando o fluxo retorna **0** na leitura.
 
-* **RequestMetadata**: metadados sobre o pedido de voz. Para obter mais informações, consulte a [referência](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+* **RequestMetadata**: Metadados sobre o pedido de voz. Para obter mais informações, consulte a [referência](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
 ### <a name="speech-request"></a>Pedido de voz
 

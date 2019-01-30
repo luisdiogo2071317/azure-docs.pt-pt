@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 601246ab537c72e787c25d43a190111983c2b350
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 9375b042885459ab88b7c1f2a76a471da55ff5c8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075606"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209541"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -28,11 +28,11 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Atualização de 10 de abril de 2018 do Windows ou o cliente mais recente:
-   * [Máquina associados ao Azure AD](../device-management-azure-portal.md) ou
-   * [Azure AD híbrido associou máquina](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
-* A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
-* Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall, tráfego HTTPS (443) para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` deve ser permitido.
+* Tem em execução, pelo menos, Windows 10, versão de Abril de 2018 atualização e os dispositivos tem de ser:
+   * [Azure AD associado](../device-management-azure-portal.md) ou
+   * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
+* Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
+* Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnet.cdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 

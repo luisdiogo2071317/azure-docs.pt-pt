@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: b098ce78143cbcfd53d6ab1c7e4127df336f2bc4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815876"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212040"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -64,7 +64,7 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 
 Para começar a desenvolver com blocos de notas do Azure, veja [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
 
-Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
 
@@ -248,7 +248,7 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
 
 1. Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) com as seguintes definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     |----|---|
     | Nome do cluster | yourclustername |
     | Runtime do Databricks | Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
@@ -257,7 +257,7 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
 
     Utilize estas definições apenas se irá utilizar aprendizagem automática no Databricks:
     
-    |   Definição | Valor |
+    |   Definição | Value |
     |----|---|
     | Tipos de VM de nós de trabalho | Com otimização de memória VM preferida |
     | Ativar o Dimensionamento Automático | Desmarque a opção |
@@ -271,13 +271,13 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
     * [Criar uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) com uma destas definições (_escolha apenas uma destas opções_):
     
         * Para instalar o Azure Machine Learning SDK _sem_ automatizada de capacidade do machine learning:
-            | Definição | Valor |
+            | Definição | Value |
             |----|---|
             |Origem | Carregar Python ovo ou PyPI
             |Nome de PyPi | azureml-sdk[databricks]
     
         * Para instalar o Azure Machine Learning SDK _com_ automatizada de aprendizagem:
-            | Definição | Valor |
+            | Definição | Value |
             |----|---|
             |Origem | Carregar Python ovo ou PyPI
             |Nome de PyPi | azureml-sdk[automl_databricks]

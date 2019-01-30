@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Reconhecer emoções nos rostos numa imagem – API de Emoções, Java'
+title: 'Início rápido: Reconhecer emoções no rostos numa imagem - API de emoções, de Java'
 description: Obtenha informações e um exemplo de código para o ajudar a começar a utilizar rapidamente a API de Emoções com Java para Android.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
+ms.openlocfilehash: a3250771c51495890c54060dc46b8bd88a8f54af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237625"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228683"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar uma aplicação para reconhecer emoções nos rostos numa imagem.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início rápido: Crie uma aplicação para reconhecer emoções no rostos numa imagem.
 
 > [!IMPORTANT]
 > A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/). 

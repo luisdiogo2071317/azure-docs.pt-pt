@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Análise de Texto com o C#'
+title: 'Tutorial: Análise de texto comC#'
 titleSuffix: Azure Cognitive Services
 description: Ligue à Análise de Texto a partir de uma aplicação Web ASP.NET Core.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 6527e053f685fd7947e123d15c0d33399d07e61f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227255"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: ligar ao Serviço Cognitivo de Análise de Texto através dos Serviços Ligados no Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: Ligar para o serviço cognitivos de análise de texto com os serviços ligados no Visual Studio
 
 Ao utilizar o Serviço de Análise de Texto, pode extrair informações detalhadas para categorizar e processar dados do elemento visual e para realizar moderação assistida por computador de imagens para ajudar a organizar os seus serviços.
 
@@ -265,6 +265,6 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o Serviço de Análise de Texto com a leitura da [Documentação do Serviço de Análise de Texto](index.yml).

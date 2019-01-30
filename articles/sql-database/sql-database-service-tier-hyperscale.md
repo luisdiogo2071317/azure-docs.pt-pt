@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872896"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227901"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviços de Hiperescala (pré-visualização) para até 100 TB
 
@@ -40,7 +40,7 @@ A camada de serviços de Hiperescala na base de dados do Azure SQL é a camada d
 A camada de serviços de Hiperescala na base de dados do Azure SQL fornece as seguintes capacidades adicionais:
 
 - Suporte para até 100 TB de tamanho de base de dados
-- Quase instantânea (baseadas em instantâneos de ficheiros armazenados no armazenamento de Blobs do Azure) de cópias de segurança de base de dados, independentemente do tamanho, sem qualquer impacto na e/s de computação
+- Quase instantânea (baseadas em instantâneos de ficheiros armazenados no armazenamento de Blobs do Azure) de cópias de segurança de base de dados, independentemente do tamanho, sem qualquer impacto na e/s de computação   
 - Rápido restaurações de base de dados (baseadas em instantâneos de ficheiros) em minutos em vez de horas ou dias (não um tamanho de operação de dados)
 - Maior desempenho geral devido a maior débito de registo e tempos mais rápidos de consolidação de transação, independentemente de volumes de dados
 - Rápido aumentar horizontalmente – pode aprovisionar nós só de leitura um ou mais para o descarregamento de sua carga de trabalho de leitura e para utilização como servidores de reserva quente
@@ -133,9 +133,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Encriptação de base de dados transparente (TDE)](transparent-data-encryption-azure-sql.md) deverá desativá-la antes de alterar uma base de dados não Hiperescala Hiperescala.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ligar a uma réplica de uma escala de leitura de uma base de dados de grande escala
 
 Em bancos de dados de grande escala, o `ApplicationIntent` argumento na cadeia de ligação fornecido pelo cliente determina se a ligação é encaminhada para a réplica de escrita ou para uma réplica secundária só de leitura. Se o `ApplicationIntent` definido como `READONLY` e a base de dados não tem uma réplica secundária, a ligação será encaminhada para a réplica primária e a predefinição é `ReadWrite` comportamento.
@@ -147,7 +144,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível nas seguintes regiões do Azure: EastUS1, Eualeste2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível nas seguintes regiões do Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
@@ -158,7 +155,8 @@ Camada de serviços de Hiperescala está atualmente em pré-visualização públ
 | Se um ficheiro de base de dados aumenta durante a migração devido a uma carga de trabalho do Active Directory e ultrapassar 1 TB por limite de ficheiro, a migração falhará | Atenuações: <br> -Se possível, migre a base de dados quando não existe nenhuma carga de trabalho de atualização em execução.<br> -Tente novamente a migração, será bem sucedida, desde que o limite de 1 TB não é cruzado durante a migração.|
 | Instância gerida não é atualmente suportada | Não são atualmente suportados |
 | A migração para Hiperescala atualmente é uma operação unidirecional | Depois de uma base de dados é migrada a Hiperescala, não é possível migrar diretamente para um escalão de serviço não Hiperescala. No momento, a única forma de migrar uma base de dados de Hiperescala para não Hiperescala é exportação/importação através de um ficheiro BACPAC.|
-| Migração de bases de dados com objetos em memória não é atualmente suportada | Objetos em memória tem de ser removidos e recriados como objetos não na memória antes de migrar uma base de dados para a camada de serviços de Hiperescala.
+| Migração de bases de dados com objetos em memória não é atualmente suportada | Objetos em memória tem de ser removidos e recriados como objetos não na memória antes de migrar uma base de dados para a camada de serviços de Hiperescala.|
+| Atualmente, o controlo de dados de alterações não é suportada. | Não será capaz de usar o controlo de dados de alterações com databasess de Hiperescala.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

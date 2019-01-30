@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341825"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217293"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
 
@@ -77,7 +77,7 @@ Content-Length: 0
 
 As seguintes informações de cabeçalho são necessárias para acesso de token.
 
-| Nome | Formato | Descrição |
+| Name | Formato | Descrição |
 |----|----|----|
 | OCP-Apim-Subscription-Key | ASCII | Chave de subscrição |
 
@@ -99,9 +99,9 @@ Os clientes *tem* utilizar um ponto final adequado do serviço de voz. O ponto f
 
 | Modo | Caminho | URI de serviço |
 | -----|-----|-----|
-| Interativo | /Speech/Recognition/Interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversação | /Speech/Recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| ditado | /Speech/Recognition/Dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interativo | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversação | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| ditado | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Para obter mais informações, consulte a [URI de serviço](../GetStarted/GetStartedREST.md#service-uri) página.
 
@@ -149,11 +149,11 @@ As principais mensagens enviadas pelo cliente para os serviços são `speech.con
 
 Os seguintes cabeçalhos são necessários para todas as mensagens originadas de cliente.
 
-| Cabeçalho | Valor |
+| Cabeçalho | Value |
 |----|----|
 | Caminho | O caminho de mensagem conforme especificado neste documento |
 | X-RequestId | UUID no formato de "não-dash" |
-| Timestamp de X | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
+| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
 
@@ -178,11 +178,11 @@ Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de est
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
 
-| Nome do cabeçalho | Valor |
+| Nome do cabeçalho | Value |
 |----|----|
 | Caminho | `speech.config` |
-| Timestamp de X | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
-| Content-Type | aplicação/json; charset = utf-8 |
+| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
+| Content-Type | application/json; charset=utf-8 |
 
 Tal como acontece com todas as mensagens originadas de cliente no protocolo serviço de voz, o `speech.config` mensagem *tem* incluem uma *X Timestamp* cabeçalho que regista o tempo de relógio de cliente UTC quando a mensagem foi enviada para o serviço. O `speech.config` mensagem *não* exigir uma *X-RequestId* cabeçalho porque esta mensagem não está associada a um pedido de voz específico.
 
@@ -218,17 +218,17 @@ O elemento de ter do `speech.config` mensagem contém a versão do software SDK 
 
 | Campo | Descrição | Utilização |
 |-|-|-|
-| os.Platform | O sistema operacional plataforma que aloja a aplicação, por exemplo, Windows, Android, iOS ou Linux |Necessário |
-| os.Name | O nome de produto do sistema operacional, por exemplo, o Debian ou o Windows 10 | Necessário |
-| os.Version | A versão do sistema operacional na forma *major.minor.build.branch* | Necessário |
+| os.platform | O sistema operacional plataforma que aloja a aplicação, por exemplo, Windows, Android, iOS ou Linux |Necessário |
+| os.name | O nome de produto do sistema operacional, por exemplo, o Debian ou o Windows 10 | Necessário |
+| os.version | A versão do sistema operacional na forma *major.minor.build.branch* | Necessário |
 
 ##### <a name="device-element"></a>Elemento de dispositivo
 
 | Campo | Descrição | Utilização |
 |-|-|-|
-| Device.Manufacturer | O fabricante de hardware do dispositivo | Necessário |
-| Device.Model | O modelo do dispositivo | Necessário |
-| Device.Version | A versão de software do dispositivo fornecida pelo fabricante do dispositivo. Este valor Especifica uma versão do dispositivo que pode ser controlado pelo fabricante. | Necessário |
+| device.manufacturer | O fabricante de hardware do dispositivo | Necessário |
+| device.model | O modelo do dispositivo | Necessário |
+| device.version | A versão de software do dispositivo fornecida pelo fabricante do dispositivo. Este valor Especifica uma versão do dispositivo que pode ser controlado pelo fabricante. | Necessário |
 
 ### <a name="message-audio"></a>mensagem `audio`
 
@@ -249,11 +249,11 @@ Serviço de voz utiliza a primeira `audio` mensagem que contém um identificador
 
 Os seguintes cabeçalhos são necessários para todos os `audio` mensagens.
 
-| Cabeçalho         |  Valor     |
+| Cabeçalho         |  Value     |
 | ------------- | ---------------- |
 | Caminho | `audio` |
 | X-RequestId | UUID no formato de "não-dash" |
-| Timestamp de X | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
+| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | O tipo de conteúdo de áudio. O tipo tem de ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
 
 #### <a name="supported-audio-encodings"></a>Codificações suportadas de áudio
@@ -308,7 +308,7 @@ Os clientes tem de confirmar o fim de uma vez através do envio de um `telemetry
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Texto |
 | Caminho | `telemetry` |
-| Timestamp de X | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
+| X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | `application/json` |
 | Corpo | Uma estrutura JSON que contém informações de cliente sobre a mão |
 
@@ -330,7 +330,7 @@ O `speech.startDetected` mensagem indica que o serviço de voz detetado fala no 
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Texto |
 | Caminho | `speech.startDetected` |
-| Content-Type | aplicação/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 | Corpo | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
@@ -416,7 +416,7 @@ O `speech.endDetected` mensagem Especifica que a aplicação cliente deverá ser
 | Codificação de mensagens do WebSocket | Texto |
 | Caminho | `speech.endDetected` |
 | Corpo | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
-| Content-Type | aplicação/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -440,7 +440,7 @@ O `turn.start` sinaliza o início de uma mão da perspectiva do serviço. O `tur
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Texto |
 | Caminho | `turn.start` |
-| Content-Type | aplicação/json; charset = utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 | Corpo | Estrutura JSON |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
@@ -507,7 +507,7 @@ O `Connection` métrica Especifica os detalhes sobre as tentativas de ligação 
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
-| Nome | `Connection` | Necessário |
+| Name | `Connection` | Necessário |
 | Id | O valor do identificador de ligação que foi utilizado na *X ConnectionId* cabeçalho para este pedido de ligação | Necessário |
 | Iniciar | A hora quando o cliente enviou um pedido de ligação | Necessário |
 | Terminar | O tempo quando o cliente recebeu a notificação de que a ligação foi estabelecida com êxito ou, em casos de erro, rejeitado, recusado ou falha | Necessário |
@@ -547,7 +547,7 @@ O *final* tempo valor para o `Microphone` métrica regista o tempo quando a apli
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
-| Nome | Microfone | Necessário |
+| Name | Microfone | Necessário |
 | Iniciar | A hora quando o cliente à utilização de entrada de áudio do microfone ou outro transmissão de áudio ou recebido um acionador de spotter a palavra-chave | Necessário |
 | Terminar | A hora quando o cliente parado com o fluxo de microfone ou de áudio | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se aplicável. Se as operações de microfone foram bem-sucedidas, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
@@ -567,7 +567,7 @@ Utilize os exemplos a seguir como diretrizes para gravação *começar* e *final
 
 | Campo | Descrição | Utilização |
 | ----- | ----------- | ----- |
-| Nome | ListeningTrigger | Opcional |
+| Name | ListeningTrigger | Opcional |
 | Iniciar | A hora de início o acionador de escuta do cliente | Necessário |
 | Terminar | O tempo em que o acionador de escuta do cliente foi concluído | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se aplicável. Se a operação de Acionador foi concluída com êxito, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |

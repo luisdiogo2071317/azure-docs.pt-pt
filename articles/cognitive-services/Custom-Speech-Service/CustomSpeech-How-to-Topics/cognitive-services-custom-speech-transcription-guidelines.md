@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d9b8b5a2ad8ccb447462ef7d34a8c25e5af6ef4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342471"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225028"
 ---
 # <a name="transcription-guidelines"></a>Diretrizes de transcrição
 
@@ -79,7 +79,7 @@ Aqui estão alguns exemplos
 | 14 NE 3rd Dr. | unidade Nordeste da terceira quatorze |
 | Dr. Strangelove | O doutor Strangelove |
 | James Bond 007 | James bond double AH sete |
-| KE$ ha | Kesha |
+| Ke$ha | Kesha |
 | Quanto tempo dura 2 x 4 | Quanto tempo dura a duas por quatro |
 | A reunião avança a partir de 1-3 pm | A reunião avança entre uma a três pm |
 | é o meu tipo de sangue S + | Meu tipo de sangue será O positivo |
@@ -178,7 +178,7 @@ Aqui estão alguns exemplos
 | Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf |
 | 3 < 5 | 3 kleiner als 5 | vier de als drei kleiner |
-| 2 + 3 a 4 | 2 e 3 menos 4 | zwei plus drei menos vier|
+| 2 + 3 - 4 | 2 e 3 menos 4 | zwei plus drei minus vier|
 | Das macht 12€ | Das macht Euros 12 | das macht zwölf euros |
 
 

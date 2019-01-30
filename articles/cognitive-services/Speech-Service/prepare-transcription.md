@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 44f2cb9e95a9a79c85c23b0eebd919851b94c1f8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467740"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228139"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
 
@@ -53,7 +53,7 @@ Eis alguns exemplos:
 | "E"? sidekick disse Batman, Round Robin. | round robin de sidekick que disse batman |
 | Vá obter - em! | Aceda get em |
 | Eu sou double-jointed | Eu sou double jointed |
-| 104 elm Rua | um AH quatro Elm Rua |
+| 104 Elm Street | um AH quatro Elm Rua |
 | Ajustar às 102.7 | Otimizar para um AH dois sete |
 | Instalador de plataforma está prestes a 3.14 | Instalador de plataforma é aproximadamente três quatro de um de ponto |
 | Custa us $3.14 | custa três quatorze |
@@ -73,7 +73,7 @@ Eis alguns exemplos:
 | 14 NE 3rd Dr. | unidade Nordeste da terceira quatorze |
 | Dr. Bruce faixa | O doutor Bruce faixa |
 | James Bond, 007 | James Bond, faça duplo AH sete |
-| KE$ ha | Kesha |
+| Ke$ha | Kesha |
 | Quanto tempo dura 2 x 4 | Quanto tempo dura a duas por quatro |
 | A reunião avança a partir de 1-3 pm | A reunião avança entre uma a três pm |
 | é o meu tipo de sangue S + | Meu tipo de sangue será O positivo |
@@ -166,7 +166,7 @@ Eis alguns exemplos:
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
-| 2 + 3 a 4 | 2 e 3 menos 4 | zwei plus drei menos vier|
+| 2 + 3 - 4 | 2 e 3 menos 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 331e932a328fabeb6dc4418bec92f9bae3c92fcb
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098395"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217684"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -138,7 +138,7 @@ Para restaurar uma VM encriptada, restaurar discos ao seguir os passos na secç�
 ## <a name="troubleshooting-errors"></a>Resolução de erros
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-|Cópia de segurança | Código do erro: UserErrorKeyVaultPermissionsNotConfigured<br><br>Mensagem de erro: Cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. | Cópia de segurança deve ser fornecida estas permissões ao seguir a [os passos na secção anterior](#provide-permissions-to-azure-backup). Ou pode seguir os passos de PowerShell na secção "Ativar a proteção" do artigo, [utilize o PowerShell para criar cópias de segurança e restaurar máquinas virtuais](backup-azure-vms-automation.md#enable-protection). |  
+|Cópia de segurança | Código do erro: UserErrorKeyVaultPermissionsNotConfigured<br><br>Mensagem de erro: O serviço de cópia de segurança do Azure não tem permissões suficientes para o Key Vault para cópia de segurança das máquinas virtuais encriptadas. | Cópia de segurança deve ser fornecida estas permissões ao seguir a [os passos na secção anterior](#provide-permissions-to-azure-backup). Ou pode seguir os passos de PowerShell na secção "Ativar a proteção" do artigo, [utilize o PowerShell para criar cópias de segurança e restaurar máquinas virtuais](backup-azure-vms-automation.md#enable-protection). |  
 | Restauro | Não é possível restaurar esta VM encriptada porque não existe o Cofre de chaves associado a esta VM. |Criar um cofre de chaves utilizando [introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md). Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
-| Restauro | Código do erro: UserErrorKeyVaultKeyDoesNotExist<br><br> Mensagem de erro: Não é possível restaurar esta VM encriptada porque a chave e o segredo associado esta VM não existem. |Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
-| Restauro | Código do erro: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Mensagem de erro: Cópia de segurança não tem autorização para aceder aos recursos na sua subscrição. |Restaurar, conforme mencionado anteriormente, discos primeiro ao seguir os passos na secção "Restaurar discos de cópia de segurança" na [escolha uma configuração de restauro de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, utilize o PowerShell para [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+| Restauro | Código do erro: UserErrorKeyVaultKeyDoesNotExist<br><br> Mensagem de erro: Não é possível restaurar esta VM encriptada, uma vez que a chave associada esta VM não existe. |Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
+| Restauro | Código do erro: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Mensagem de erro: O Serviço de Cópia de Segurança não tem autorização para aceder a recursos na sua subscrição. |Restaurar, conforme mencionado anteriormente, discos primeiro ao seguir os passos na secção "Restaurar discos de cópia de segurança" na [escolha uma configuração de restauro de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, utilize o PowerShell para [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
