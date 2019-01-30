@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724747"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240349"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK 
  
@@ -420,7 +421,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 <!-- 2403291 - IS ASDK --> 
 - Poderá não ter o uso da barra de deslocamento horizontal na parte inferior de portais de administrador e utilizador. Se não conseguir aceder a barra de deslocamento horizontal, utilize a estrutura de ligações para navegar até um painel anterior no portal ao selecionar o nome do painel pretende visualizar na lista de trilha encontrado na parte superior esquerda do portal.
-  ![Navegação estrutural](media/asdk-release-notes/breadcrumb.png)
+  ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos inteiro e, em seguida, eliminar subscrições de utilizador.

@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: abe245e6174cb947e78252941c71ce6857b77f77
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5cb406a52cb8fa9b5e40d9b0775f4a616950f507
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306796"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250862"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilizar a identidade para criar chaves alternativas no Azure SQL Data Warehouse
 Recomendações e exemplos para utilizar a propriedade de identidade para criar chaves alternativas em tabelas no armazém de dados SQL do Azure.
@@ -77,7 +77,7 @@ No exemplo anterior, duas linhas acabou de chegar na distribuição de 1. A prim
 ### <a name="skewed-data"></a>Dados distorcidos 
 O intervalo de valores para o tipo de dados são distribuídos uniformemente pelas distribuições. Se uma tabela distribuída sofre dados inclinadas nas quais, em seguida, o intervalo de valores disponíveis para o tipo de dados pode esgotar-se prematuramente. Por exemplo, se todos os dados acaba entrando numa única distribuição, em seguida, com eficiência a tabela tem acesso a apenas um sixtieth dos valores do tipo de dados. Por esse motivo, a propriedade de identidade é limitada a `INT` e `BIGINT` apenas tipos de dados.
 
-### <a name="selectinto"></a>SELECIONE.... EM
+### <a name="selectinto"></a>SELECT..INTO
 Quando uma coluna de identidade existente está selecionada para uma nova tabela, a nova coluna herda a propriedade de identidade, a menos que uma das seguintes condições for verdadeira:
 - A instrução SELECT contém uma associação.
 - Múltiplas instruções SELECIONADAS estão associadas ao utilizar a União.

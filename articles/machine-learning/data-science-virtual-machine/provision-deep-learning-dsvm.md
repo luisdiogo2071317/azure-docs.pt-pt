@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078761"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250811"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma Máquina Virtual no Azure de aprendizagem profunda 
 
@@ -38,21 +38,21 @@ Eis os passos para criar uma instância do Deep Learning Virtual Machine:
    
    1. **Noções básicas**
       
-      1. **Nome**: nome do seu servidor de ciência de dados que está a criar.
+      1. **Nome**: Nome do seu servidor de ciência de dados que está a criar.
       2. **Selecione o tipo de SO para a VM de aprendizagem profunda**: Escolha Windows ou Linux (para Windows 2016 e DSVM base do Ubuntu Linux)
-      2. **Nome de utilizador**: id de início de sessão da conta de administrador.
-      3. **Palavra-passe**: palavra-passe da conta de administrador.
+      2. **Nome de utilizador**: Id de início de sessão da conta de administrador.
+      3. **palavra-passe**: Palavra-passe da conta de administrador.
       4. **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas.
-      5. **Grupo de recursos**: pode criar uma nova ou utilize um **vazio** grupo de recursos do Azure existente na sua subscrição.
-      6. **Localização**: selecionar o Datacenter mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. 
+      5. **Grupo de recursos**: Pode criar um novo ou utilizar um **vazio** grupo de recursos do Azure existente na sua subscrição.
+      6. **Localização**: Selecione o Centro de dados mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. 
       
 > [!NOTE]
 > O DLVM suporta todos os NC e ND série instâncias de GPU VM. Quando o DLVM de aprovisionamento, tem de escolher uma das localizações no Azure com GPUs. Verifique os [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) página para as localizações disponíveis e procure **série NC**, **série NCv2**, **série NCv3** , ou **série ND** sob **computação**. 
 
-   2. **Definições**: selecione um da série NC (NCv3 NC, a NCv2,) ou série ND tamanhos de máquinas virtuais GPU que se adequa ao requisito funcional e restrições de custo. Crie uma conta de armazenamento para a sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Definições**: Selecione um da série NC (NC, a NCv2, NCv3) ou série ND tamanhos de máquinas virtuais GPU que se adequa ao requisito funcional e restrições de custo. Crie uma conta de armazenamento para a sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
-   5. **Compre**: clique em **comprar** para iniciar o aprovisionamento. Receberá uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
+   5. **Comprar**: Clique em **comprar** para iniciar o aprovisionamento. Receberá uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
 
 > [!NOTE]
 > O aprovisionamento deve demorar cerca de 10 a 20 minutos. O estado do provisionamento é apresentado no portal do Azure.
@@ -79,12 +79,12 @@ O DLVM Linux já está a ser aprovisionado com o servidor de X2Go e pronto para 
 1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
    * **Separador de sessão**:
-     * **Anfitrião**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
-     * **Início de sessão**: nome de utilizador na VM do Linux.
-     * **Porta SSH**: deixá-lo em 22, o valor predefinido.
+     * **Host**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
+     * **início de sessão**: Nome de utilizador na VM do Linux.
+     * **SSH porta**: Deixe-o em 22, o valor predefinido.
      * **Tipo de sessão**: Altere o valor para **XFCE**. Atualmente a DSVM do Linux só suporta o ambiente de trabalho XFCE.
-   * **Guia de suporte de dados**: pode desativar o suporte para som e cliente impressão se não precisar usá-los.
-   * **Pastas compartilhadas**: Se pretender que diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
+   * **Guia de suporte de dados**: Pode desativar a suporte para som e cliente impressão se não precisar usá-los.
+   * **Pastas compartilhadas**: Se quiser diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
 
 Depois de iniciar sessão na VM com o cliente SSH ou de uma área de trabalho gráfica do XFCE por meio do cliente de X2Go, está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. No XFCE, pode ver atalhos no menu aplicações e ícones para muitas das ferramentas.
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718231"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249910"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Instalar o Azure Stack Development Kit (ASDK)
 Após [preparar o computador do anfitrião ASDK](asdk-prepare-host.md), o ASDK pode ser implementado na imagem de CloudBuilder.vhdx através dos seguintes passos neste artigo.
@@ -38,7 +39,7 @@ Os passos neste artigo mostram como implementar o ASDK através de uma interface
     ![](media/asdk-install/1.PNG) 
 
 3. No fornecedor de identidade **tipo** caixa de lista pendente, selecione **na Cloud do Azure** ou **do AD FS**. Sob **palavra-passe de administrador Local** escreva a palavra-passe de administrador local (que tem de coincidir com a palavra-passe de administrador local configurado atual) a **palavra-passe** caixa e, em seguida, clique em  **Próxima**.
-    - **Cloud do Azure**: configura o Azure Active Directory (Azure AD) como o fornecedor de identidade. Para utilizar esta opção, terá de uma ligação à internet, o nome completo de um Azure AD inquilino do diretório na forma de *domainname*. onmicrosoft.com ou um Azure AD verificar o nome de domínio personalizado e credenciais de administrador global do especificado diretório. Após a implementação, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente instate novamente as permissões de administrador global da conta ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
+    - **Cloud do Azure**: Configura o Azure Active Directory (Azure AD) como o fornecedor de identidade. Para utilizar esta opção, terá de uma ligação à internet, o nome completo de um Azure AD inquilino do diretório na forma de *domainname*. onmicrosoft.com ou um Azure AD verificar o nome de domínio personalizado e credenciais de administrador global do especificado diretório. Após a implementação, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente instate novamente as permissões de administrador global da conta ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
     - **AD FS**: O serviço de diretório de carimbo de data / padrão é utilizado como o fornecedor de identidade. A conta predefinida para iniciar sessão com é azurestackadmin@azurestack.local, e a palavra-passe a utilizar é fornecido como parte da configuração.
 
     ![](media/asdk-install/2.PNG) 
@@ -61,8 +62,8 @@ Os passos neste artigo mostram como implementar o ASDK através de uma interface
       > Para localizar um servidor de horas de endereço IP, visite [pool.ntp.org](http://pool.ntp.org) ou fazer ping time.windows.com. 
 
     - **Opcionalmente,**, defina os seguintes valores:
-        - **ID de VLAN**: define o ID de VLAN. Utilize esta opção apenas se o anfitrião e AzS-BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e internet). 
-        - **Reencaminhador DNS**: um servidor DNS é criado como parte da implementação do Azure Stack. Para permitir que os computadores dentro da solução para resolver nomes fora o carimbo de data /, fornece o servidor DNS de infraestrutura existente. O servidor DNS no carimbo reencaminha os pedidos de resolução de nome desconhecido para este servidor.
+        - **ID DE VLAN**: Define o ID de VLAN. Utilize esta opção apenas se o anfitrião e AzS-BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e internet). 
+        - **Reencaminhador DNS**: Um servidor DNS é criado como parte da implementação do Azure Stack. Para permitir que os computadores dentro da solução para resolver nomes fora o carimbo de data /, fornece o servidor DNS de infraestrutura existente. O servidor DNS no carimbo reencaminha os pedidos de resolução de nome desconhecido para este servidor.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ Os passos neste artigo mostram como implementar o ASDK através de uma interface
 
     ![](media/asdk-install/7.PNG)
 
-11. O processo de implementação demorará algumas horas, período durante o qual o computador anfitrião será reinicializado automaticamente uma vez. Se quiser monitorizar o progresso da implementação, inicie sessão como azurestack\AzureStackAdmin depois de reinicia o anfitrião do kit de desenvolvimento. Quando a implementação com êxito, a consola do PowerShell apresenta: **concluída: ação "Implementação"**. 
+11. O processo de implementação demorará algumas horas, período durante o qual o computador anfitrião será reinicializado automaticamente uma vez. Se quiser monitorizar o progresso da implementação, inicie sessão como azurestack\AzureStackAdmin depois de reinicia o anfitrião do kit de desenvolvimento. Quando a implementação com êxito, exibe a consola do PowerShell: **CONCLUA: A ação "Implementação"**. 
     > [!IMPORTANT]
     > Se iniciar sessão como um administrador local depois da máquina está associada ao domínio, não verá o progresso da implementação. Não execute novamente a implementação, em vez disso, inicie sessão como azurestack\AzureStackAdmin validar que está em execução.
 

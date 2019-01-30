@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613100"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249685"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server na pilha do Azure Marketplace FAQ
 
@@ -37,10 +38,10 @@ Em seguida, se consultar quaisquer conjuntos de dimensionamento de Máquina Virt
 
 A Microsoft oferece duas versões de imagens do Windows Server através do Marketplace do Azure Stack:
 
-- **Pague à medida que usar**: estas imagens de executam os medidores de Windows de preço integral. 
-   Quem deve usar: os clientes do Enterprise Agreement (EA) que utilizam o *modelo de faturação do consumo*; CSPs que não pretende utilizar o licenciamento de SPLA.
-- **Traga a sua própria licença (BYOL)**: medidores básicas de executar essas imagens.
-   Quem deve usar: os clientes com EA com uma licença do Windows Server; CSPs que utilizam o licenciamento de SPLA.
+- **Pague à medida que usar**: Estas imagens de executam os medidores de Windows de preço integral. 
+   Quem deve usar: Os clientes do Enterprise Agreement (EA) que utilizam o *modelo de faturação do consumo*; CSPs que não pretende utilizar o licenciamento de SPLA.
+- **Traga a sua própria licença (BYOL)**: Estas imagens de medidores básicas de execução.
+   Quem deve usar: Clientes com EA com uma licença do Windows Server; CSPs que utilizam o licenciamento de SPLA.
 
 Benefício de utilização do Azure híbrido (AHUB) não é suportada no Azure Stack. Os clientes que de licenças através do modelo de "Capacidade" tem de utilizar a imagem BYOL. Se estiver a testar com o Azure Stack Development Kit (ASDK), pode utilizar uma destas opções.
 

@@ -78,7 +78,7 @@ Microsoft Translator V3 preço baseia-se da mesma forma que v2 foi um preço; po
 | Languages     | Não existem carateres submetidos, none contabilizados, sem encargos.          |
 | Translate     | Contagem de baseia-se o número de carateres é submetido para a tradução e quantos idiomas, os caracteres são convertidos em. submetido a 50 carateres e 5 idiomas solicitados serão 50 x 5.           |
 | Transliterate     | Número de carateres submetido para a Transliteração é contabilizado.         |
-| Pesquisa de dicionário & de exemplo     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
+| Dictionary lookup & example     | Número de carateres submetido para a pesquisa de dicionário e exemplos é contabilizado.         |
 | BreakSentence     | Sem custos.       |
 | Detect     | Sem custos.      |
 

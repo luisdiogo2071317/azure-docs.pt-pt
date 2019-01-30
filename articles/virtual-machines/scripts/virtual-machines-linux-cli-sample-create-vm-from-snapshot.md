@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure - Criar uma VM a partir de um instantâ
 description: Exemplo do Script da CLI do Azure - Criar uma VM a partir de um instantâneo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: f3e236cab559ffc1779ab301b153232d63ca2336
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847503"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239575"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Criar uma máquina virtual a partir de um instantâneo com a CLI
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um disco gerido, uma máqui
 | [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Cria discos geridos a partir de um instantâneo com o ID do instantâneo, o nome do disco, o tipo de armazenamento e o tamanho  |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria uma VM com um disco do SO gerido |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

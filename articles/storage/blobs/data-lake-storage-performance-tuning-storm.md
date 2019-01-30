@@ -3,17 +3,17 @@ title: Diretrizes de otimização do desempenho de Storm de geração 2 do Data 
 description: Diretrizes de otimização do desempenho de Storm de geração 2 do Data Lake Storage do Azure
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 845bb739408cb38d823ae662e261d6955726d28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975194"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247913"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Storm no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 
@@ -22,7 +22,7 @@ Compreenda os fatores que devem ser considerados quando ajustar o desempenho de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: criar um armazenamento de conta para análise](data-lake-storage-quickstart-create-account.md).
+* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar um armazenamento de conta para análise](data-lake-storage-quickstart-create-account.md).
 * **Um cluster do Azure HDInsight** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
 * **Executar um cluster do Storm na geração 2 de armazenamento do Data Lake**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md).   

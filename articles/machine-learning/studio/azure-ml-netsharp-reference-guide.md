@@ -1,6 +1,6 @@
 ---
 title: Crie redes neuronais personalizadas com Net # titleSuffix: Descrição do Azure Machine Learning Studio: Guia de sintaxe para a linguagem de especificação de redes neurais Net #. Saiba como criar modelos de rede neural personalizada no Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---

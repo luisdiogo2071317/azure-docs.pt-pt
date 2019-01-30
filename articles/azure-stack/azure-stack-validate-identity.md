@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0287ca78c8d2df4af1aab043b0575bd52f9d5eb1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 4fb636a91389309b44f2308efec1a6c257c41078
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094262"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242591"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 Utilize a ferramenta de Verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que o Azure Active Directory (Azure AD) está pronto para utilizar com o Azure Stack. Valide a sua solução de identidade do Azure antes de iniciar uma implementação do Azure Stack.  

@@ -10,16 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/07/2019
+ms.date: 01/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5b0c15fe5e4740a06af5de8a47b79c6d7528a2c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243819"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242812"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Validação como um conceito de principais de serviço
 
@@ -53,7 +54,7 @@ Para obter mais informações sobre tipos de fluxo de trabalho, consulte [o que 
 
 1. No dashboard de soluções, criar uma nova solução ou selecione um existente. Isso é atualizada e permite que os mosaicos de fluxo de trabalho.
 2. Para criar um novo fluxo de trabalho, selecione no **iniciar** em qualquer mosaico. Para obter informações específicas para cada fluxo de trabalho, consulte os artigos seguintes:
-    - Aprovação de teste: [Início rápido: Utilize a validação como um portal de serviço para agendar o seu primeiro teste](azure-stack-vaas-schedule-test-pass.md)
+    - Aprovação de teste: [Quickstart: Utilize a validação como um portal de serviço para agendar o seu primeiro teste](azure-stack-vaas-schedule-test-pass.md)
     - Validação de solução: [Validar uma nova solução do Azure Stack](azure-stack-vaas-validate-solution-new.md)
     - Validação de solução: [Validar as atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
     - Validação de solução: [Validar pacotes do OEM](azure-stack-vaas-validate-oem-package.md)

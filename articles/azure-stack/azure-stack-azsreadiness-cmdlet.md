@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247581"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250653"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência do cmdlet Start-AzsReadinessChecker
 
@@ -325,7 +326,7 @@ Especifica sistema de identidade valores válidos a implementação Azure Stack,
 |Escreva:                       |Cadeia        |
 |Posição:                   |com o nome         |
 |Valor predefinido:              |Nenhuma          |
-|Valores válidos:               |"AAD", "ADFS"  |
+|Valores válidos:               |'AAD','ADFS'  |
 |Aceite entrada de pipeline:      |Falso         |
 |Aceite carateres universais: |Falso         |
 
@@ -397,7 +398,7 @@ Especifica um dicionário ordenado do assunto para a geração de pedido de cert
 
 > -RequestType
 
-Especifica o tipo de SAN, o pedido de certificado. Valores válidos MultipleCSR, SingleCSR.
+Especifica o tipo de SAN, o pedido de certificado. Valid values MultipleCSR, SingleCSR.
 
 - *MultipleCSR* gera vários pedidos de certificado, uma para cada serviço.
 - *SingleCSR* gera um pedido de certificado para todos os serviços.
@@ -407,7 +408,7 @@ Especifica o tipo de SAN, o pedido de certificado. Valores válidos MultipleCSR,
 |Escreva:                       |Cadeia   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
-|Valores válidos:               |"MultipleCSR', 'SingleCSR' |
+|Valores válidos:               |'MultipleCSR','SingleCSR' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite carateres universais: |Falso    |
 
@@ -452,7 +453,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 |Escreva:                       |Cadeia   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
-|Valores válidos:               |"AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|Valores válidos:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite carateres universais: |Falso    |
 
@@ -507,7 +508,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, do Portal de administração, ARM de administ
 |----------------------------|---------|
 |Escreva:                       |Cadeia   |
 |Posição:                   |com o nome    |
-|Valor predefinido:              |. \Certificates |
+|Valor predefinido:              |.\Certificates |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite carateres universais: |Falso    |
 
@@ -531,7 +532,7 @@ Especifica se a Mostrar relatório de resumo, apenas omite detalhes.
 |Escreva:                       |Cadeia   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Todos      |
-|Valores válidos:               |"Certificado", 'AzureRegistration', "AzureIdentity", "Tarefas", "Todos" |
+|Valores válidos:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite carateres universais: |Falso    |
 
@@ -566,11 +567,11 @@ Especifica o caminho personalizado para guardar o relatório de preparação par
 |----------------------------|------------------|
 |Escreva:                       |Cadeia            |
 |Posição:                   |com o nome             |
-|Valor predefinido:              |$ENV: TEMP\AzsReadinessChecker  |
+|Valor predefinido:              |$ENV:TEMP\AzsReadinessChecker  |
 |Aceite entrada de pipeline:      |Falso             |
 |Aceite carateres universais: |Falso             |
 
-> -Confirmar
+> -Confirm
 
 Pedidos de confirmação antes de executar o cmdlet.
 |  |  |
@@ -588,7 +589,7 @@ Mostra o que aconteceria se a execução do cmdlet. O cmdlet não é executado.
 |  |  |
 |----------------------------|------------------|
 |Escreva:                       |SwitchParameter   |
-|Aliases:                    |Wi                |
+|Aliases:                    |wi                |
 |Posição:                   |com o nome             |
 |Valor predefinido:              |Falso             |
 |Aceite entrada de pipeline:      |Falso             |

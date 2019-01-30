@@ -7,16 +7,16 @@ author: swatig007
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100740"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240272"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Otimizar hiperparâmetros para o modelo com o serviço Azure Machine Learning
 
@@ -150,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 Especifique a métrica principal que pretende que a experimentação para otimizar a otimização de hiper-parâmetros. Cada execução de treinamento é avaliada para a métrica primária. Mau desempenho execuções (em que a métrica primária não cumpre os critérios definidos pela política de cessação antecipada) será terminada. Além do nome de métrica principal, também especificar o objetivo da otimização - se maximizar ou minimizar a métrica primária.
 
 * `primary_metric_name`: O nome da métrica primário para otimizar. O nome da métrica primário tem de corresponder exatamente ao nome da métrica registado pelo script de treinamento. Ver [iniciar sessão métricas para a otimização de hiper-parâmetros](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: Pode ser qualquer um `PrimaryMetricGoal.MAXIMIZE` ou `PrimaryMetricGoal.MINIMIZE` e determina se a métrica primária será maximizada ou minimizada ao avaliar as execuções. 
+* `primary_metric_goal`: Ele pode ser uma `PrimaryMetricGoal.MAXIMIZE` ou `PrimaryMetricGoal.MINIMIZE` e determina se a métrica primária será maximizada ou minimizada ao avaliar as execuções. 
 
 ```Python
 primary_metric_name="accuracy",

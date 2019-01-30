@@ -6,16 +6,16 @@ author: kavithaj
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 112d093946099e623d1edfa4555eda681069892e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300939"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243390"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Deteção de ameaças do Azure SQL Data Warehouse
 Configurar a deteção de ameaças e explorar eventos suspeitos no Azure SQL Data Warehouse.
@@ -54,7 +54,7 @@ Por exemplo, a Deteção de Ameaças deteta determinadas atividades anómalas da
    
     ![Painel de navegação](media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png)
 4. No painel Registos de Auditoria, clique em **Abrir no Excel** de modo a abrir um modelo do Excel pré-configurado para importar e executar uma análise mais aprofundada do registo de auditoria por volta da hora do evento suspeito.<br/>
-   **Nota:** no Excel 2010 ou posterior, o Power Query e o **combinação rápida** definição é necessária
+   **Nota:** No Excel 2010 ou posterior, o Power Query e o **combinação rápida** definição é necessária
    
     ![Painel de navegação](media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png)
 5. Para configurar a definição **Combinação Rápida**: no separador **POWER QUERY** do friso, selecione **Opções** para apresentar a caixa de diálogo Opções. Selecione a secção Privacidade e escolha a segunda opção, "Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho":

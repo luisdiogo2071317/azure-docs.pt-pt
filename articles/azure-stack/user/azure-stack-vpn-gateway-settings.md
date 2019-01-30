@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ab82e604eb1af3d5e64571b115dc48d213466328
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: e7a22e6699a69bf89a9c3828433affa0a212116f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414832"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240782"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN para o Azure Stack
 
@@ -169,7 +170,7 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parâmetros de IKE Fase 1 (Modo Principal)
 
-| Propriedade              | Valor|
+| Propriedade              | Value|
 |-|-|
 | Versão do IKE           | IKEv2 |
 |Grupo Diffie-Hellman   | Grupo 2 (1024 bits) |
@@ -179,7 +180,7 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parâmetros de IKE Fase 2 (Modo Rápido)
 
-| Propriedade| Valor|
+| Propriedade| Value|
 |-|-|
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|

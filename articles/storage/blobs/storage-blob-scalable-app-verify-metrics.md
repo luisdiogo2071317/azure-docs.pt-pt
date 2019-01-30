@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 811d653ea090298a9f57b5b0aac4c7b2e7f9f648
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.subservice: blobs
+ms.openlocfilehash: 2fde9b2b88b4c758065ba4b38da48724bfbfcd75
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397694"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250100"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de débito e latência de uma conta de armazenamento
 
@@ -65,7 +65,7 @@ As [dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fsto
 
 Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos da VM e clique em Eliminar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na quarta parte da série, ficou a saber mais sobre a visualização de métricas para a solução de exemplo, tal como:
 

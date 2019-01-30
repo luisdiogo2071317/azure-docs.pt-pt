@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.subservice: common
+ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140783"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240731"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticar com o Azure Active Directory a partir de uma aplicação para o acesso para blobs e filas (pré-visualização)
 
@@ -66,7 +66,7 @@ O **permissões obrigatórias** agora o windows mostra que a sua aplicação do 
 
 ![Captura de ecrã que mostra registar permissões de aplicações](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: criar um blob de blocos
+## <a name="net-code-example-create-a-block-blob"></a>Exemplo de código do .NET: Criar um blob de blocos
 
 O exemplo de código mostra como obter um acesso de token do Azure AD. O token de acesso é utilizado para autenticar o utilizador especificado e, em seguida, autorizar um pedido para criar um blob de blocos. Para que isso funcione de exemplo, primeiro siga os passos descritos nas secções anteriores.
 

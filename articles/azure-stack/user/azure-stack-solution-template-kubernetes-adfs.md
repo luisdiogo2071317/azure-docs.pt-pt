@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389070"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250440"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implementar o Kubernetes no Azure Stack com o Active Directory Federated Services
 
@@ -65,7 +66,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
     - Terá das seguintes partes de informações:
 
-        | Valor | Descrição |
+        | Value | Descrição |
         | ---   | ---         |
         | Ponto final do Gestor de recursos do Azure | O Gestor de recursos do Microsoft Azure é uma estrutura de gestão que permite aos administradores implementar, gerir e monitorizar recursos do Azure. O Azure Resource Manager pode lidar com essas tarefas, como um grupo, em vez de individualmente, numa única operação.<br>O ponto final no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/`<br>O ponto de extremidade em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | O ID de subscrição | O [ID de subscrição](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como acessa ofertas no Azure Stack. |
@@ -106,7 +107,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
     - Terá das seguintes partes de informações:
 
-        | Valor | Descrição |
+        | Value | Descrição |
         | ---   | ---         |
         | Caminho do certificado | O caminho de ficheiro ou o FQDN para o certificado. |
         | Palavra-passe de certificado | A palavra-passe do certificado. |

@@ -1,19 +1,19 @@
 ---
-title: 'Configure o peering para um circuito - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Configure o peering para um circuito - ExpressRoute: Azure | Microsoft Docs'
 description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2ed6d23d9fe89715e41c8a40f70534f5edc44236
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0cc0068f9e1d836800aa77b3057815962581d47b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189988"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243373"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar um peering de um circuito do ExpressRoute
 
@@ -121,7 +121,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração do p
   * Uma sub-rede /30 para a ligação primária. A sub-rede não pode ser parte de qualquer espaço de endereço reservado para redes virtuais. Esta sub-rede vai atribuir o primeiro endereço IP pode ser utilizado para o router como a Microsoft utiliza o segundo IP pode ser utilizado para o seu router.
   * Uma sub-rede /30 para a ligação secundária. A sub-rede não pode ser parte de qualquer espaço de endereço reservado para redes virtuais. Esta sub-rede vai atribuir o primeiro endereço IP pode ser utilizado para o router como a Microsoft utiliza o segundo IP pode ser utilizado para o seu router.
   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Para obter ligações primária e secundária tem de utilizar o mesmo ID de VLAN.
-  * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Assegure que não está a utilizar 65515.
+  * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode usar uma privada como número para este peering, exceto para o número do 65515 ao 65520, inclusivamente.
   * **Opcional –** um hash MD5 se optar por utilizar um.
 3. Selecione a linha de peering privado do Azure, conforme mostrado no exemplo a seguir:
 

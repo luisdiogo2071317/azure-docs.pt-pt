@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037911"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243186"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>A implementação do Azure ligada decisões para o Azure Stack de planeamento de sistemas integrados
 Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
@@ -30,7 +31,7 @@ Implementação do Azure Stack, ligado ao Azure significa que pode ter o Azure A
 ## <a name="choose-an-identity-store"></a>Escolher um arquivo de identidade
 Com uma implementação de ligado, pode escolher entre o Azure AD ou AD FS para seu armazenamento de identidade. Uma implementação de desligado, sem conectividade de internet, pode apenas utilizar o AD FS.
 
-Sua escolha de arquivo de identidade não tem nenhuma relevância em máquinas de virtuais de inquilino (VMs). VMs do inquilino podem escolher qual querem ligar ao dependendo de como serão configurados de armazenamento de identidade: Azure AD, Windows Server Active Directory associados a um domínio, grupo de trabalho, etc. Isso está relacionada com a decisão de fornecedor de identidade do Azure Stack. 
+Sua escolha de arquivo de identidade não tem nenhuma relevância em máquinas de virtuais de inquilino (VMs). VMs do inquilino podem escolher qual querem ligar ao dependendo de como serão configurados de armazenamento de identidade: O Azure AD, Windows Server Active Directory associados a um domínio, grupo de trabalho, etc. Isso está relacionada com a decisão de fornecedor de identidade do Azure Stack. 
 
 Por exemplo, se implementar o inquilino de IaaS VMs com base no Azure Stack e desejá-los para associar um domínio do Active Directory empresarial e utilizar contas a partir daí, ainda pode fazer isso. Não tem de utilizar o armazenamento de identidade do Azure AD, que selecione aqui para essas contas.
 
@@ -68,7 +69,7 @@ Faturação capacidade requer um Enterprise Agreement (EA) uma subscrição do A
 
 ## <a name="learn-more"></a>Saiba mais
 - Para obter informações sobre casos de utilização, de compra, parceiros e fornecedores de hardware de OEM, consulte a [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para saber mais sobre pacotes e preços do Microsoft Azure Stack [transferir o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passos Seguintes

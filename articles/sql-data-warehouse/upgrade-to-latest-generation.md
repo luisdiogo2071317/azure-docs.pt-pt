@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 173846e4828228bdc51fc42858e0c6c9b00cafd6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682559"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242795"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
@@ -78,7 +78,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Iniciar a atualização
 
-1. Vá para a computação otimizada geração 1 no portal do Azure do armazém de dados de escalão e clique nas **atualizar para ger2** cartão no separador tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Vá para a computação otimizada geração 1 no portal do Azure do armazém de dados de escalão e clique nas **atualizar para ger2** cartão no separador tarefas:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Se não vir a **atualizar para ger2** cartão no separador tarefas, o tipo de subscrição é limitado na região atual.
@@ -113,7 +113,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    A segunda etapa do processo de atualização é a migração de dados ("atualizando - Online"). Migração de dados é um processo de plano de fundo online trickle, que se move lentamente para armazenamento de dados da arquitetura do armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o seu armazém de dados estarão online para consultar e carregar. Todos os seus dados vão estar disponíveis para consultar, independentemente de se ter sido migrada ou não. A migração de dados acontece a uma taxa variada, dependendo do tamanho dos dados, o nível de desempenho e o número de segmentos de columnstore. 
 
-5. **Recomendação opcional:** para agilizar o processo de segundo plano de migração de dados, pode forçar imediatamente movimento de dados através da execução [recompilação de índice Alter](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas de columnstore primário poderia consultar num SLO maior e a classe de recursos. Esta operação é **offline** em comparação com o processo em segundo plano trickle que pode demorar horas a concluir consoante o número e os tamanhos de suas tabelas; no entanto, migração de dados será muito mais rápido em que o que, em seguida, pode tirar total partido da nova arquitetura de armazenamento avançado depois de concluído com grupos de linhas de alta qualidade. 
+5. **Recomendação opcional:** Para agilizar o processo de segundo plano de migração de dados, pode forçar imediatamente movimento de dados, executando [recompilação de índice Alter](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore principal teria de ser consultar numa classe de recursos e SLO maior. Esta operação é **offline** em comparação com o processo em segundo plano trickle que pode demorar horas a concluir consoante o número e os tamanhos de suas tabelas; no entanto, migração de dados será muito mais rápido em que o que, em seguida, pode tirar total partido da nova arquitetura de armazenamento avançado depois de concluído com grupos de linhas de alta qualidade. 
 
 A seguinte consulta gera os comandos necessários Alter Index Rebuild para agilizar o processo de migração de dados:
 

@@ -3,17 +3,17 @@ title: Descrição geral do controlo de acesso na geração 2 de armazenamento d
 description: Compreender como funciona o controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 52af1a45f920139ddda1d02734de91372fe4719d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974914"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240180"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -47,9 +47,9 @@ SAS tokens incluem permissões concedidas como parte do token. As permissões in
 
 Existem dois tipos de acesso (ACLs) de listas de controlo: aceder a ACL e ACLs padrão.
 
-* **ACLs de acesso**: acesso de controlo de ACLs de acesso a um objeto. Ficheiros e diretórios têm ACLs de acesso.
+* **ACLs de acesso**: Acesso de controlo de ACLs de acesso a um objeto. Ficheiros e diretórios têm ACLs de acesso.
 
-* **ACLs predefinidas**: um modelo de ACLs associado a um diretório que determinam o ACLs de acesso para todos os itens subordinados que são criadas nesse diretório. Ficheiros não têm ACLs padrão.
+* **ACLs predefinidas**: Um modelo de ACLs associado com um diretório que determinam o ACLs de acesso para todos os itens subordinados que são criadas nesse diretório. Ficheiros não têm ACLs padrão.
 
 Ambos ACLs de acesso e ACLs predefinidas têm a mesma estrutura.
 
@@ -131,7 +131,7 @@ Nas POSIX ACLs, cada utilizador está associado um *grupo primário*. Por exempl
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuir o grupo proprietário para um novo ficheiro ou diretório
 
 * **Caso 1**: O diretório de raiz "/". Este diretório é criado quando um sistema de ficheiros de geração 2 de armazenamento do Data Lake é criado. Neste caso, o grupo proprietário está definido para o utilizador que criou o sistema de ficheiros se foi feito com a OAuth. Se o sistema de ficheiros é criado usando a chave partilhada, uma SAS de conta ou uma SAS de serviço, em seguida, o proprietário e o grupo proprietário estão definidos como **$superuser**.
-* **Caso 2** (todos os outros casos): quando um novo item é criado, o grupo proprietário é copiado do diretório principal.
+* **Caso 2** (todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado do diretório principal.
 
 #### <a name="changing-the-owning-group"></a>Alterar o grupo proprietário
 

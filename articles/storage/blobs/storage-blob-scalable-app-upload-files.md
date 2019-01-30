@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565739"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240085"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
 
@@ -35,7 +35,7 @@ A [nomenclatura de partições](../common/storage-performance-checklist.md?toc=%
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, tem de concluir o tutorial de armazenamento anterior: [Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável][previous-tutorial].
+Para concluir este tutorial, tem de ter concluído o tutorial de armazenamento anterior: [Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
@@ -69,7 +69,7 @@ A aplicação cria cinco contentores aleatoriamente nomeados e começa a carrega
 
 Além de configurar as definições de threading e de ligação, as [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) do método [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) estão configuradas para utilizar o paralelismo e desativar a validação do hash MD5. Os ficheiros são carregados em blocos de 100 MB e esta configuração proporciona um melhor desempenho, mas poderá ser dispendiosa se utilizar uma rede com um desempenho fraco, uma vez que se houver uma falha, todo o bloco de 100 MB é repetido.
 
-|Propriedade|Valor|Descrição|
+|Propriedade|Value|Descrição|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| A definição divide o blob em blocos ao carregar. Para um desempenho mais elevado, este valor deve ser 8 vezes o número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos.   |

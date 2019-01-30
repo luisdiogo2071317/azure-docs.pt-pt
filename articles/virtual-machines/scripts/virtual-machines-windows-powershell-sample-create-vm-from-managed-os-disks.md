@@ -3,7 +3,7 @@ title: Exemplo do Script do PowerShell do Azure – Criar uma VM ao anexar um di
 description: Exemplo do Script do PowerShell do Azure – Criar uma VM ao anexar um disco gerido como disco do SO
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: d727b33c8b955667e78442387f27b9adecf66798
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 4fa3babbf8e757b6d40170440754c43e25ba83f8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386022"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252035"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Criar uma máquina virtual através de um disco de SO gerido existente com o PowerShell
 
@@ -65,7 +65,7 @@ Para imagens do marketplace utilize [Set-AzureRmVMPlan](https://docs.microsoft.c
 Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

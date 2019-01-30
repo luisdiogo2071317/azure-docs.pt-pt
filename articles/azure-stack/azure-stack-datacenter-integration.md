@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962686"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251882"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Sistemas integrados de considerações de integração do Centro de dados para o Azure Stack
 Se estiver interessado num sistema integrado do Azure Stack, deve compreender alguns das principais considerações de planeamento, à implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas questões para ajudar a tomar decisões importantes de infraestrutura para o seu sistema de vários nó do Azure Stack. Uma compreensão destas considerações ajuda ao trabalhar com o fornecedor do hardware de OEM, à medida que implementam o Azure Stack para o seu datacenter.  
@@ -87,7 +88,7 @@ Precisará pensar sobre como deve planejar seu espaço de nomes do Azure Stack, 
 
 A tabela seguinte resume essas decisões de nomenclatura de domínio.
 
-| Nome | Descrição | 
+| Name | Descrição | 
 | -------- | ------------- | 
 |Nome da região | O nome da sua primeira região do Azure Stack. Este nome é utilizado como parte do FQDN para os públicos endereços IP virtuais (VIPs) que gere o Azure Stack. Normalmente, o nome da região seria um identificador de localização física, como uma localização do datacenter.<br><br>O nome de região deve incluir apenas letras e números entre 0 a 9. Não existem carateres especiais, como "-" ou "#", etc. são permitidos.| 
 | Nome de domínio externo | O nome da zona de sistema de nomes de domínio (DNS) para pontos de extremidade com face externa VIPs. Utilizado no FQDN para estes VIPs públicas. | 
@@ -196,7 +197,7 @@ Para replicar dados para uma localização secundária e orquestrar a ativação
 ## <a name="learn-more"></a>Saiba mais
 
 - Para obter informações sobre casos de utilização, de compra, parceiros e fornecedores de hardware de OEM, consulte a [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Modelos de ligação de implementação do Azure Stack](azure-stack-connection-models.md)

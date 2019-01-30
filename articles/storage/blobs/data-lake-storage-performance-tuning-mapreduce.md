@@ -3,17 +3,17 @@ title: Azure Data Lake Gen2 MapReduce o desempenho do armazenamento diretrizes d
 description: Azure Data Lake Gen2 MapReduce o desempenho do armazenamento diretrizes de ajuste
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975299"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249117"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o MapReduce no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 
@@ -22,7 +22,7 @@ Compreenda os fatores que deve considerar quando ajustar o desempenho das tarefa
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
+* **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
 * **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
 * **Utilizar o MapReduce no HDInsight**.  Para obter mais informações, consulte [utilizar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md)
@@ -90,7 +90,7 @@ Neste exemplo, estiver a executar uma tarefa intensiva da e/s e decidir que 3GB 
 **Passo 3: Determinar a memória de Total YARN**
 
     Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Passo 4: Calcular n. º de contentores YARN**
+**Passo 4: Calcular o n. º de contentores YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 

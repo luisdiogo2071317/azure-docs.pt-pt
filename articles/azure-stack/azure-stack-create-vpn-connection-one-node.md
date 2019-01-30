@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078907"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247226"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Criar uma ligação de VPN de site a site entre duas redes virtuais em diferentes ambientes do Kit de desenvolvimento do Azure Stack
 ## <a name="overview"></a>Descrição geral
@@ -35,7 +36,7 @@ O diagrama seguinte mostra o que a configuração da ligação deve ser semelhan
 ### <a name="before-you-begin"></a>Antes de começar
 Para concluir a configuração da ligação, certifique-se de que tem os seguintes itens antes de começar:
 
-* Dois servidores e outros pré-requisitos que cumprem os requisitos de hardware do Kit de desenvolvimento do Azure Stack, conforme descrito em [início rápido: avaliar o Development Kit do Azure Stack](azure-stack-deploy-overview.md). 
+* Dois servidores e outros pré-requisitos que cumprem os requisitos de hardware do Kit de desenvolvimento do Azure Stack, conforme descrito em [início rápido: Avaliar o Kit de desenvolvimento do Azure Stack](azure-stack-deploy-overview.md). 
 * O [Development Kit do Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/) pacote de implementação.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Implementar os ambientes do Kit de desenvolvimento do Azure Stack
@@ -55,7 +56,7 @@ A tabela seguinte resume a configuração de rede em ambos os ambientes do Devel
 |---------|---------|---------|
 |Nome da rede virtual:     |VNET-01|VNET-02 |
 |Espaço de endereços de rede virtual |10.0.10.0/23|10.0.20.0/23|
-|Nome da sub-rede     |Sub-rede-01|Subnet-02|
+|Nome da sub-rede     |Subnet-01|Subnet-02|
 |Intervalo de endereços da sub-rede|10.0.10.0/24 |10.0.20.0/24 |
 |Sub-rede de gateway     |10.0.11.0/24|10.0.21.0/24|
 |Endereço BGPNAT externo     |         |         |
@@ -94,7 +95,7 @@ Um administrador de serviços pode iniciar sessão como um inquilino para testar
 1. Utilize uma conta de inquilino para iniciar sessão no portal de utilizador.
 2. No portal de utilizador, selecione **+ criar um recurso**.
 3. Aceda a **Marketplace**e, em seguida, selecione **Networking**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Para **Name**, **espaço de endereços**, **nome da sub-rede**, e **intervalo de endereços da sub-rede**, utilize os valores que são apresentados anteriormente na rede tabela de configuração.
 6. Na **subscrição**, aparece a subscrição que criou anteriormente.
 7. Para **grupo de recursos**, pode criar um grupo de recursos ou se já tiver um, selecione **utilizar existente**.
@@ -184,7 +185,7 @@ Um administrador de serviços pode iniciar sessão como um inquilino para testar
 1. Inicie sessão com uma conta de inquilino.
 2. No portal de utilizador, selecione **+ criar um recurso**.
 3. Aceda a **Marketplace**e, em seguida, selecione **Networking**.
-4. Selecione **rede Virtual**.
+4. Selecione **Rede virtual**.
 5. Utilize as informações que aparecem anteriormente na tabela de configuração de rede para identificar os valores para a POC2 **Name**, **espaço de endereços**, **nome da sub-rede**e **Intervalo de endereços da sub-rede**.
 6. Na **subscrição**, aparece a subscrição que criou anteriormente.
 7. Para **grupo de recursos**, crie um novo grupo de recursos ou, se já tiver um, selecione **utilizar existente**.
@@ -207,7 +208,7 @@ Um administrador de serviços pode iniciar sessão como um inquilino para testar
 3. Na lista de recursos de rede, selecione **gateway de rede Virtual**.
 4. Na **Name**, introduza **GW2**.
 5. Para escolher uma rede virtual, selecione **rede Virtual**. Em seguida, selecione **VNET-02** da lista.
-6. Selecione **endereço IP público**. Quando o **escolher endereço IP público** é apresentado o painel, selecione **criar nova**.
+6. Selecione **Endereço IP público**. Quando o **escolher endereço IP público** é apresentado o painel, selecione **criar nova**.
 7. Na **Name**, introduza **GW2-PiP**e, em seguida, selecione **OK**.
 8. Por predefinição, para **tipo de VPN**, **baseado na rota** está selecionada.
     Manter o **baseado na rota** tipo de VPN.
@@ -325,7 +326,7 @@ Para garantir que envia o tráfego através da ligação de site a site, certifi
      ![Botão Ligar](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 5. Inicie sessão com a conta que configurou quando criou a máquina virtual.
 6. Abra uma **Windows PowerShell** janela.
-7. Introduza **ipconfig/all**.
+7. Enter **ipconfig /all**.
 8. Na saída, localize a **endereço IPv4**e, em seguida, guarde o endereço para utilização posterior. Este é o endereço que ping irá enviar a partir da POC2. No ambiente de exemplo, o endereço é **10.0.10.4**, mas no seu ambiente poderá ser diferente. Ele deve coincidir com o **10.0.10.0/24** sub-rede que criou anteriormente.
 9. Para criar uma regra de firewall que permite que a máquina virtual responder a pings, execute o seguinte comando do PowerShell:
 
@@ -342,7 +343,7 @@ Para garantir que envia o tráfego através da ligação de site a site, certifi
 4. No painel da máquina virtual, clique em **Ligar**.
 5. Inicie sessão com a conta que configurou quando criou a máquina virtual.
 6. Abra uma **Windows PowerShell** janela.
-7. Introduza **ipconfig/all**.
+7. Enter **ipconfig /all**.
 8. Deverá ver um endereço IPv4, que se encontrem dentro **10.0.20.0/24**. No ambiente de exemplo, o endereço está **10.0.20.4**, mas seu endereço poderá ser diferente.
 9. Para criar uma regra de firewall que permite que a máquina virtual responder a pings, execute o seguinte comando do PowerShell:
 

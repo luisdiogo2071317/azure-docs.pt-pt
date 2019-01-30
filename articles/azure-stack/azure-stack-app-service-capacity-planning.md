@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: a769bb4cce84fe78f442cce8440e6e828ed7f76d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 03d29b7f072aaab09b0677031ee34bd61d876ce6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354143"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242846"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamento da capacidade para funções de servidor do App Service do Azure no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Para configurar uma implementação de produção pronto do serviço de aplicações do Azure no Azure Stack, terá de planear a capacidade de espera que o sistema para oferecer suporte.  
 
@@ -43,31 +44,31 @@ Pode planejar sua estratégia de capacidade do serviço de aplicações com essa
 
 ## <a name="controller-role"></a>Função de controlador
 
-**Mínimo recomendado**: duas instâncias do A1 Standard
+**Mínima recomendada**: Duas instâncias do A1 Standard
 
 O controlador de serviço de aplicações do Azure, normalmente, experiências de baixo consumo de CPU, memória e recursos de rede. No entanto, para elevada disponibilidade, tem de ter dois controladores. Dois controladores também são o número máximo de controladores permitido. Pode criar o segundo controlador de web sites direta do instalador durante a implementação.
 
 ## <a name="front-end-role"></a>Função front-end
 
-**Mínimo recomendado**: duas instâncias do A1 Standard
+**Mínima recomendada**: Duas instâncias do A1 Standard
 
 O front-end encaminha os pedidos para funções de web, dependendo da disponibilidade da função de trabalho web. Para elevada disponibilidade, deve ter mais de um front-end e pode ter mais de dois. Para fins de planejamento de capacidade, considere o que cada núcleo consegue processar cerca de 100 pedidos por segundo.
 
 ## <a name="management-role"></a>Função de gestão
 
-**Mínimo recomendado**: duas instâncias do A3 Standard
+**Mínima recomendada**: Duas instâncias do A3 Standard
 
 A função de gestão do serviço de aplicações do Azure é responsável pelo App Service do Azure Resource Manager e pontos finais de API, as extensões de portais (administração, inquilino, o portal de funções) e o serviço de dados. A função de servidor de gestão normalmente requer apenas a 4 GB de RAM num ambiente de produção. No entanto, ele poderá experienciar altos níveis de CPU quando são executadas muitas tarefas de gestão (por exemplo, a criação de web site). Para elevada disponibilidade, deve ter mais de um servidor atribuído a esta função e, pelo menos dois núcleos por servidor.
 
 ## <a name="publisher-role"></a>Função de publicador
 
-**Mínimo recomendado**: duas instâncias do A1 Standard
+**Mínima recomendada**: Duas instâncias do A1 Standard
 
 Se o número de utilizadores que está a publicar em simultâneo, a função de publicador poderá ter de uso intensivo da CPU. Para elevada disponibilidade, certifique-se de mais de uma função de publicador está disponível. O publicador processa apenas o tráfego FTP/FTPS.
 
 ## <a name="web-worker-role"></a>Função de trabalho Web
 
-**Mínimo recomendado**: duas instâncias do A1 Standard
+**Mínima recomendada**: Duas instâncias do A1 Standard
 
 Para elevada disponibilidade, deve ter, pelo menos, quatro funções de trabalho da web, dois para o modo do site de web compartilhado e dois para cada escalão de worker dedicado que planeia disponibilizar. Partilhados e dedicados de computação modos fornecem diferentes níveis de serviço aos inquilinos. Poderá ter funções de web mais se muitos dos seus clientes são:
 
@@ -80,9 +81,9 @@ Para fornecer as funções do Azure para os utilizadores no modelo de plano de c
 
 Ao decidir o número de funções de trabalho web partilhada a utilizar, consulte estas considerações:
 
-- **Memória**: memória é o recurso mais crítico para uma função de trabalho do web. Memória insuficiente afeta o desempenho do web site quando a memória virtual é trocada do disco. Cada servidor requer aproximadamente 1,2 GB de RAM para o sistema operativo. RAM acima deste limiar pode ser utilizado para executar web sites.
-- **Percentagem de web sites do Active Directory**: normalmente, cerca de 5 por cento dos aplicativos num serviço de aplicações do Azure na implementação do Azure Stack estão ativos. No entanto, a porcentagem de aplicativos que estão ativas em determinado momento pode ser superior ou inferior. Com uma taxa de aplicação Active Directory de % 5, o número máximo de aplicações para colocar num serviço de aplicações do Azure na implementação do Azure Stack deve ser inferior a 20 vezes o número de sites Active Directory (5 x 20 = 100).
-- **Requisitos de espaço de memória média**: O tamanho de memória médio para aplicações observados em ambientes de produção é cerca de 70 MB. Usando esta presença, a memória alocada em todos os computadores de função de trabalho de web ou VMs pode ser calculada da seguinte forma:
+- **Memória**: A memória é o recurso mais crítico para uma função de trabalho do web. Memória insuficiente afeta o desempenho do web site quando a memória virtual é trocada do disco. Cada servidor requer aproximadamente 1,2 GB de RAM para o sistema operativo. RAM acima deste limiar pode ser utilizado para executar web sites.
+- **Percentagem de web sites do Active Directory**: Normalmente, cerca de 5 por cento dos aplicativos num serviço de aplicações do Azure na implementação do Azure Stack estão ativos. No entanto, a porcentagem de aplicativos que estão ativas em determinado momento pode ser superior ou inferior. Com uma taxa de aplicação Active Directory de % 5, o número máximo de aplicações para colocar num serviço de aplicações do Azure na implementação do Azure Stack deve ser inferior a 20 vezes o número de sites Active Directory (5 x 20 = 100).
+- **Requisitos de espaço de memória média**: Os requisitos de espaço de memória médio para aplicações observados em ambientes de produção são cerca de 70 MB. Usando esta presença, a memória alocada em todos os computadores de função de trabalho de web ou VMs pode ser calculada da seguinte forma:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 

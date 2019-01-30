@@ -1,6 +1,6 @@
 ---
 title: TitleSuffix de exemplos de algoritmo: Descrição do Azure Machine Learning Studio: Uma descrição geral de fácil compreensão das noções básicas do machine learning inclui exemplos de algoritmo. O infográfico transferível abrange a maioria de machine learning perguntas.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
 ---
