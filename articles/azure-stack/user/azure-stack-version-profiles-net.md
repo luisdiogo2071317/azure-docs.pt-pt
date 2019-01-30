@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: e335f4cb112c0f029768ccf050f888e00a6efdc1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555018"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250627"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utilizar perfis de versão de API com .NET no Azure Stack
 
@@ -126,9 +127,9 @@ Ficheiro JSON de exemplo:
 
 ## <a name="existing-api-profiles"></a>Perfis de API existentes
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Perfil mais recentes, criado para o Azure Stack. Utilize este perfil para os serviços para ser mais compatível com o Azure Stack, desde que estiver a utilizar o carimbo de data / 1808 ou mais.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Perfil mais recentes, criado para o Azure Stack. Utilize este perfil para os serviços para ser mais compatível com o Azure Stack, desde que estiver a utilizar o carimbo de data / 1808 ou mais.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Se tiver um carimbo de data / menor do que a compilação de 1808, utilize este perfil.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Se tiver um carimbo de data / menor do que a compilação de 1808, utilize este perfil.
 
 3.  **Mais recente**: Perfil consistindo em versões mais recentes de todos os serviços. Utilize as versões mais recentes de todos os serviços. Este perfil faz parte do **Microsoft.Azure.Management** pacote NuGet.
 

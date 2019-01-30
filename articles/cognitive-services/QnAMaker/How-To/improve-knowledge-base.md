@@ -8,16 +8,16 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: da32d1e7a3cc9fc0c37418e24c1f1f270a104b09
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cf652c1b0edd469f29d14ed10d66ebe78b0fbb7c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105665"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247838"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar o Active Directory de aprendizagem para melhorar a base de dados de conhecimento
+# <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
 Aprendizagem ativa permite-lhe melhorar a qualidade da sua base de dados de conhecimento ao sugerir perguntas alternativas, com base no utilizador envios, para o par de perguntas e respostas. Examinar essas sugestões, a adicioná-las à existente perguntas ou rejeitá-los. 
 
@@ -39,6 +39,10 @@ Quando as consultas semelhantes são colocados num cluster, o QnA Maker sugere p
 Aprendizagem ativa é acionada com base em classificações de melhores respostas alguns devolvidas pelo QnA Maker para qualquer determinada consulta. Se as diferenças de pontuação se situam dentro de um pequeno intervalo, em seguida, a consulta é considerada uma possível _sugestão_ para cada uma das possíveis respostas. 
 
 Todas as sugestões sejam agrupadas por semelhança e sugestões principais para perguntas alternativas são apresentadas com base na frequência das consultas determinadas pelos usuários finais. Aprendizagem ativa fornece as sugestões de possíveis melhor em casos em que os pontos finais estão a obter uma quantidade razoável e a variedade de consultas de utilização.
+
+## <a name="upgrade-version-to-use-active-learning"></a>Atualizar a versão a utilizar a aprendizagem ativa
+
+Aprendizagem ativa é suportada na versão de runtime 4.4.0 e acima. Se a sua base de dados de conhecimento foi criado numa versão anterior, [atualizar o seu serviço](upgrade-qnamaker-service.md) para utilizar esta funcionalidade. 
 
 ## <a name="best-practices"></a>Melhores práticas
 
@@ -152,7 +156,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Saiba mais sobre como utilizar a aprendizagem ativa com um [Bot do Azure C# exemplo](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## <a name="next-steps"></a>Passos Seguintes
  
 > [!div class="nextstepaction"]
-> [Utilizar a API do QnAMaker](./upgrade-qnamaker-service.md)
+> [Utilizar a API do QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

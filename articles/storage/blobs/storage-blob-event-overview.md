@@ -7,13 +7,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735889"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247753"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
 
@@ -28,7 +28,7 @@ Dê uma olhada [eventos de armazenamento de BLOBs de rota para um personalizado 
 ![Modelo de grade do evento](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Contas do Blob Storage
-Eventos de armazenamento de BLOBs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. **Para fins gerais v2** contas de armazenamento suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo Blobs, ficheiros, filas e tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. **Para fins gerais v2** contas de armazenamento suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo Blobs, ficheiros, filas e tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Eventos de armazenamento de BLOBs disponíveis
 Grelha de eventos usa [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes.  Subscrições de eventos de armazenamento de BLOBs podem incluir dois tipos de eventos:  
@@ -44,7 +44,7 @@ Eventos de armazenamento de BLOBs contenham todas as informações que necessár
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |tópico|cadeia|Id do Azure Resource Manager completo da conta de armazenamento que emite o evento.|
-> |Assunto|cadeia|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
+> |assunto|cadeia|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
 > |eventTime|cadeia|Data/hora que o evento foi gerado, no formato ISO 8601|
 > |eventType|cadeia|"Microsoft.Storage.BlobCreated" ou "Microsoft.Storage.BlobDeleted"|
 > |Id|cadeia|Identificador exclusivo, se este evento|

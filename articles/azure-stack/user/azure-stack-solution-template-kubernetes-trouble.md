@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904221"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237856"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 
@@ -112,7 +113,7 @@ Ao implementar o cluster do Kubernetes, pode rever o estado de implementação p
     | Propriedade | Descrição |
     | ----     | ----        |
     | Recurso | O nome do recurso. |
-    | Tipo | O fornecedor de recursos e o tipo de recurso. |
+    | Type | O fornecedor de recursos e o tipo de recurso. |
     | Estado | O estado do item. |
     | Carimbo de data/hora | O carimbo de hora UTC do tempo. |
     | Detalhes da operação | Os detalhes da operação, como o fornecedor de recursos que estava envolvido a operação, o ponto final de recurso e o nome do recurso. |

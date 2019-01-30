@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389742"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242302"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utilizar perfis de versão de API com Python no Azure Stack
 
@@ -50,7 +51,7 @@ O Python SDK suporta perfis de versão de API para plataformas de cloud diferent
 
 Para poder utilizar o SDK do Python com o Azure Stack, tem de indicar os valores seguintes e, em seguida, definir valores com variáveis de ambiente. Veja as instruções depois da tabela para o seu sistema de operativo sobre como definir as variáveis de ambiente.
 
-| Valor | Variáveis de ambiente | Descrição |
+| Value | Variáveis de ambiente | Descrição |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | ID do inquilino | AZURE_TENANT_ID | O valor do seu Azure Stack [ID de inquilino](../azure-stack-identity-overview.md). |
 | ID de Cliente | AZURE_CLIENT_ID | O serviço de ID da aplicação principal guardado quando principal de serviço foi criado na secção anterior deste artigo. |

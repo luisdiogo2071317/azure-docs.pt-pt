@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.subservice: common
+ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065635"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244492"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -137,7 +137,7 @@ Todos os pedidos efetuados em relação a sua conta de armazenamento tem de ser 
 
 Pode conceder acesso aos dados na sua conta de armazenamento através de qualquer uma das seguintes abordagens:
 
-- **O Azure Active Directory:** Utilize as credenciais do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para o acesso a dados de BLOBs e filas (pré-visualização). Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
+- **Azure Active Directory:** Utilize as credenciais do Azure Active Directory (Azure AD) para autenticar um utilizador, grupo ou outra identidade para o acesso a dados de BLOBs e filas (pré-visualização). Se a autenticação de uma identidade é efetuada com êxito, o AD do Azure devolve um token para utilizar em autorizar a solicitação para o armazenamento de Blobs do Azure ou o armazenamento de filas. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory (pré-visualização)](storage-auth-aad.md).
 - **Autorização de chave partilhada:** Utilize a chave de acesso da conta de armazenamento para construir uma cadeia de ligação que a aplicação utiliza no tempo de execução para aceder ao armazenamento do Azure. Os valores na cadeia de ligação são utilizados para construir a *autorização* cabeçalho que é passado para o armazenamento do Azure. Para obter mais informações, consulte [cadeias de ligação de configurar o armazenamento do Azure](storage-configure-connection-string.md).
 - **Assinatura de acesso partilhado:** Utilize assinaturas de acesso partilhado para delegar acesso a recursos na sua conta de armazenamento, se não estiver a utilizar autenticação do Azure AD. Uma assinatura de acesso partilhado é um token que encapsula todas as informações necessárias para autorizar um pedido ao armazenamento do Azure no URL. Pode especificar o recurso de armazenamento, as permissões concedidas e o intervalo durante o qual as permissões são válidas como parte da assinatura de acesso partilhado. Para obter mais informações, consulte [Using partilhado assinaturas de acesso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086357"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247770"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados SQL no Microsoft Azure Stack
 
-Utilizar o adaptador de fornecedor de recursos do SQL Server para oferecer bases de dados SQL como um serviço de [do Azure Stack](azure-stack-poc.md). Depois de instalar o fornecedor de recursos e ligá-la a uma ou mais instâncias do SQL Server, e seus usuários podem criar:
+Utilizar o adaptador de fornecedor de recursos do SQL Server para oferecer bases de dados SQL como um serviço de [do Azure Stack](azure-stack-poc.md). Depois de instalar o fornecedor de recursos e de o ligar a uma ou mais instâncias do SQL Server, você e os seus utilizadores podem criar:
 
 - Bases de dados para aplicações nativas da cloud.
 - Web sites que utilizam o SQL.
@@ -46,4 +47,4 @@ Tem de criar pelo menos uma instância do SQL Server ou fornecer acesso a instâ
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Implementar o fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md)
+[Deploy the SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) (Implementar o fornecedor de recursos do SQL Server)

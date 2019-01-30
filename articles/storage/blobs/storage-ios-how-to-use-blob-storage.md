@@ -8,13 +8,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961931"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244767"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento de Blobs do iOS
 
@@ -28,7 +28,7 @@ Para saber mais sobre o armazenamento de BLOBs, veja [introdução ao armazename
 É possível importar a biblioteca do iOS de armazenamento do Azure na sua aplicação utilizando o [CocoaPod de armazenamento do Azure](https://cocoapods.org/pods/AZSClient) ou ao importar o **Framework** ficheiro. CocoaPod é a forma recomendada, pois isso torna a integração a biblioteca mais fácil, no entanto a importação do ficheiro framework é menos intrusiva para seu projeto existente.
 
 Para utilizar esta biblioteca, precisa do seguinte:
-- iOS 8 +
+- iOS 8+
 - Xcode 7 +
 
 ## <a name="cocoapod"></a>CocoaPod
@@ -129,9 +129,9 @@ Pode confirmar que isto funciona, observando a [Explorador de armazenamento do M
 ## <a name="set-container-permissions"></a>Definir permissões de contentor
 Permissões de um contentor estão configuradas para **privada** acesso por predefinição. No entanto, os contentores fornecem algumas opções diferentes para acesso ao contentor:
 
-* **Privada**: dados de contentor e blob podem ser lida por apenas o proprietário da conta.
-* **Blob**: dados de BLOBs dentro deste contentor podem ser lidos por meio de pedido anónimo, mas os dados de contentor não estão disponíveis. Os clientes não é possível enumerar os blobs no contentor através do pedido anónimo.
-* **Contentor**: dados de contentor e blob podem ser lido por meio de pedido anónimo. Os clientes podem enumerar os blobs no contentor através do pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
+* **Privada**: Dados de contentor e blob podem ser lido por apenas o proprietário da conta.
+* **Blob**: Dados de BLOBs dentro deste contentor podem ser lidos por meio de pedido anónimo, mas os dados de contentor não estão disponíveis. Os clientes não é possível enumerar os blobs no contentor através do pedido anónimo.
+* **contentor**: Dados de contentor e blob podem ser lido por meio de pedido anónimo. Os clientes podem enumerar os blobs no contentor através do pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
 
 O exemplo seguinte mostra como criar um contentor com o **contentor** permissões, que irão permitir o acesso público, só de leitura para todos os utilizadores na Internet de acesso:
 
@@ -216,12 +216,12 @@ O exemplo seguinte mostra como listar todos os blobs num contentor. Ao executar 
 * **prefixo** -pode especificar o prefixo a utilizar para a lista de Blobs. Apenas os blobs que começam com este prefixo serão listados.
 * **useFlatBlobListing** – tal como mencionado no [atribuir nomes e referenciar contentores e blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) secção, embora o serviço Blob é um esquema de armazenamento simples, é possível criar uma hierarquia virtual ao nomear blobs com o caminho informações. No entanto, não fixa listagem não é atualmente suportada. Esta funcionalidade estará disponível brevemente. Por enquanto, este valor deve ser **Sim**.
 * **blobListingDetails** -pode especificar quais os itens a incluir quando lista os blobs
-  * _AZSBlobListingDetailsNone_: listar apenas os blobs consolidados e não retornam metadados do blob.
-  * _AZSBlobListingDetailsSnapshots_: listar blobs consolidadas e instantâneos de blob.
-  * _AZSBlobListingDetailsMetadata_: obter metadados de blob para cada blob devolvido na listagem.
-  * _AZSBlobListingDetailsUncommittedBlobs_: listar blobs consolidadas e não consolidadas.
-  * _AZSBlobListingDetailsCopy_: incluir a cópia de propriedades na listagem.
-  * _AZSBlobListingDetailsAll_: lista de todos os blobs confirmadas disponíveis, os blobs não consolidadas e instantâneos e devolver todos os Estados de metadados e de cópia para os blobs.
+  * _AZSBlobListingDetailsNone_: Listar apenas os blobs consolidados e não retornam metadados do blob.
+  * _AZSBlobListingDetailsSnapshots_: Listar blobs consolidadas e instantâneos de blob.
+  * _AZSBlobListingDetailsMetadata_: Obter metadados de blob para cada blob devolvido na listagem.
+  * _AZSBlobListingDetailsUncommittedBlobs_: Liste blobs de consolidada e não consolidadas.
+  * _AZSBlobListingDetailsCopy_: Inclua propriedades de cópia na listagem.
+  * _AZSBlobListingDetailsAll_: Lista de todos os blobs confirmadas disponíveis, os blobs não consolidadas e instantâneos e devolver todos os Estados de metadados e de cópia para os blobs.
 * **maxResults** -o número máximo de resultados a devolver para esta operação. Utilize -1 para não definir um limite.
 * **completionHandler** - o bloco de código seja executado com os resultados da operação de listagem.
 

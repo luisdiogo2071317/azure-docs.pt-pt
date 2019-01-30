@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: f17a76b62c511e1cdcd98e387fe0132e2bd15c16
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971798"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238072"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Utilização e faturação no Azure Stack
 
@@ -59,7 +60,7 @@ Cada cliente tem a sua identidade representada por um inquilino diferente do Azu
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Registe-se com o Azure Stack](azure-stack-registration.md)
-- [Reportar dados de utilização do Azure Stack para o Azure](azure-stack-usage-reporting.md)
+- [Report Azure Stack usage data to Azure](azure-stack-usage-reporting.md) (Comunicar dados de utilização do Azure Stack ao Azure)
 - [API de utilização de recursos do fornecedor](azure-stack-provider-resource-api.md)
-- [API de utilização de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)
+- [Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md) (API de Utilização de Recursos de Inquilino)
 - [Perguntas Freqüentes relacionadas com a utilização](azure-stack-usage-related-faq.md)

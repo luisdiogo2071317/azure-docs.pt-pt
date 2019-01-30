@@ -1,22 +1,24 @@
 ---
-title: Utilizar modelos do TensorFlow com o Azure Machine Learning
+title: Utilizar modelos com o TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Saiba como executar o nó único e distribuída formação de TensorFlow modelos com o avaliador de TensorFlow
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5746180b894da265dfc02176c13b5f9b60f4df96
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872786"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244730"
 ---
-# <a name="how-to-train-tensorflow-models"></a>Como utilizar modelos do TensorFlow
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Utilizar modelos do TensorFlow com o serviço Azure Machine Learning
 
 Para aprender de rede neurais profundas (DNN) com o TensorFlow, o Azure Machine Learning fornece um personalizado `TensorFlow` classe do `Estimator`. O Azure SDK `TensorFlow` estimator (para não ser conflated com o [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) classe) permite-lhe submeter facilmente tarefas de formação de TensorFlow para execuções de nó único e distribuídas na computação do Azure.
 

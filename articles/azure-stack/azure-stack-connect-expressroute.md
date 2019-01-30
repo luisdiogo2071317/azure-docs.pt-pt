@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246233"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240833"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ligar o Azure Stack ao Azure através do ExpressRoute do Azure
 
@@ -107,7 +108,7 @@ Utilize os procedimentos seguintes para criar os recursos de rede necessária no
 
    |Campo  |Valor  |
    |---------|---------|
-   |Nome     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |Espaço de endereços     |10.1.0.0/16|
    |Nome da sub-rede     |Tenant1-Sub1|
    |Intervalo de endereços da sub-rede     |10.1.1.0/24|
@@ -295,7 +296,7 @@ O router é uma máquina de virtual do Windows Server (AzS-BGPNAT01) a executar 
 
 Depois de concluir a configuração do Azure Stack, pode implementar os recursos do Azure. A figura a seguir mostra um exemplo de uma rede virtual do inquilino no Azure. Pode utilizar qualquer nome e o esquema de endereçamento para a sua VNet no Azure. No entanto, o intervalo de endereços das VNets no Azure e o Azure Stack, tem de ser exclusivo e não pode sobrepor.
 
-*Figura 3. VNets do Azure*
+*Figura 3. Azure VNets*
 
 ![VNets do Azure](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 

@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9c4b66501cfb51088609de81fe00b5b041e056d3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 28ff7c9f6ca5fc6365b3fe1b9a91d2159c8b3f48
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037533"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247617"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API no Azure Stack
 
@@ -53,7 +54,7 @@ Os perfis de API do Azure mais recentes não são compatíveis com o Azure Stack
 **Latest**  
 Este perfil tem as versões mais atualizadas API encontradas no global Azure, que não funcionam no Azure Stack. **Mais recente** tem o maior número de alterações de última hora. O perfil coloca à parte, estabilidade e compatibilidade com outras clouds. Se estiver a tentar usar as versões de API mais atualizadas, **mais recente** é o perfil que deve utilizar.
 
-**Aaaa-mm-dd-híbrida**  
+**Yyyy-mm-dd-hybrid**  
 Este perfil é lançado em Março e Setembro, todos os anos. Ele tem ideal estabilidade e compatibilidade com várias nuvens. **Aaaa-mm-dd-híbrida** foi concebido para o Azure global e o Azure Stack de destino. As versões de API do Azure listadas neste perfil serão os mesmos que aqueles que estão listados no Azure Stack. Pode utilizar este perfil para desenvolver o código de soluções na cloud híbrida.
 
 **yyyy-mm-dd-profile**  

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como gerar um modelo de machine learning com aprendizagem automática. O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmo e seleção de hiper-parâmetros de maneira automatizada para. Em seguida, o modelo final é implementado com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823021"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244280"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -118,7 +118,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Tipo</th>
+      <th>Type</th>
       <th>Mín.</th>
       <th>Máx.</th>
       <th>Contagem</th>

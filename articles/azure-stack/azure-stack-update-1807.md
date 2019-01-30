@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 82343daa9fafe27ac814b6246a303e661a0a22d1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 10/07/2018
+ms.openlocfilehash: 2b36c5d31e9377335a9cc8a37d4e4e0e890bfc3b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231041"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245088"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -85,7 +86,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
   Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog](azure-stack-integrate-security.md).
 
 <!-- ####### | IS, ASDK | --> 
-- **O Azure Resource Manager inclui o nome da região.** Com esta versão, objetos obtidos a partir do Azure Resource Manager agora irão incluir o atributo de nome de região. Se um script de PowerShell existente passar diretamente o objeto em outro cmdlet, o script pode produzir um erro e falhar. Este é o comportamento de conformidade do Azure Resource Manager e requer o cliente da chamada subtrair o atributo de região. Para obter mais informações sobre o Azure Resource Manager, veja [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). Certifique-se de 8 a 10 mdb-->
+- **O Azure Resource Manager inclui o nome da região.** Com esta versão, objetos obtidos a partir do Azure Resource Manager agora irão incluir o atributo de nome de região. Se um script de PowerShell existente passar diretamente o objeto em outro cmdlet, o script pode produzir um erro e falhar. Este é o comportamento de conformidade do Azure Resource Manager e requer o cliente da chamada subtrair o atributo de região. Para obter mais informações sobre o Azure Resource Manager, veja [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). verify 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **Alterações à funcionalidade de fornecedores de delegado.** Começando com 1807 os fornecedores de delegado modelo é simplificado para melhor se alinham com o modelo do revendedor do Azure e fornecedores de delegado não poderá criar outros fornecedores de delegado, essencialmente, mesclar o modelo e tornando o fornecedor delegado funcionalidade disponível num único nível. Para ativar a transição para o novo modelo e a gestão das subscrições, as subscrições de utilizador agora podem ser movidas entre subscrições de fornecedor delegado novas ou existentes que pertencem ao mesmo inquilino do diretório. Subscrições de utilizador que pertence à subscrição do fornecedor predefinida também podem ser movidas para as subscrições do fornecedor delegado no mesmo diretório-inquilino.  Para obter mais informações, consulte [delegar ofertas no Azure Stack](azure-stack-delegated-provider.md).

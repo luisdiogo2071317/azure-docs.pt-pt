@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716031"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247736"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Implementar o ASDK da linha de comando
 O ASDK é um ambiente de teste e desenvolvimento que pode implementar para avaliar e demonstrar funcionalidades do Azure Stack e serviços. Para obtê-lo em execução, terá de preparar o hardware de ambiente e executar alguns scripts (vai demorar várias horas). Depois disso, pode iniciar sessão nos portais de administrador e utilizador para começar a utilizar o Azure Stack.
@@ -105,7 +106,7 @@ Para implementar o development kit **através do AD FS como o fornecedor de iden
 
 Nas implementações do AD FS, o serviço de diretório do carimbo de padrão é utilizado como o fornecedor de identidade. A conta predefinida para iniciar sessão com é azurestackadmin@azurestack.local, e a palavra-passe será definida como o que é fornecido como parte dos comandos de instalação do PowerShell.
 
-O processo de implementação pode demorar algumas horas, período durante o qual o automaticamente reinicializações do sistema, uma vez. Quando a implementação com êxito, a consola do PowerShell apresenta: **concluída: ação "Implementação"**. Se a implementação falhar, pode tentar executar o script novamente usando o - parâmetro de executar novamente. Também pode [Reimplementar ASDK](asdk-redeploy.md) do zero.
+O processo de implementação pode demorar algumas horas, período durante o qual o automaticamente reinicializações do sistema, uma vez. Quando a implementação com êxito, exibe a consola do PowerShell: **CONCLUA: A ação "Implementação"**. Se a implementação falhar, pode tentar executar o script novamente usando o - parâmetro de executar novamente. Também pode [Reimplementar ASDK](asdk-redeploy.md) do zero.
 
 > [!IMPORTANT]
 > Se quiser monitorizar o progresso da implementação, após o anfitrião ASDK é reiniciado, tem de iniciar sessão como AzureStack\AzureStackAdmin. Se iniciar sessão como administrador local depois do computador anfitrião é reiniciado (e associado ao domínio azurestack), não verá o progresso da implementação. Não execute novamente a implementação, em vez disso, inicie sessão como azurestack validar que está em execução.
@@ -148,7 +149,7 @@ Se o seu ambiente não tiver o DHCP ativado, tem de incluir os seguintes parâme
 |NatIPv4Address|Necessário para o suporte de NAT de DHCP|Define um endereço IP estático para MAS-BGPNAT01. Só utilize este parâmetro se o DHCP não conseguir atribuir um endereço IP válido para aceder à Internet.|
 |NatIPv4Subnet|Necessário para o suporte de NAT de DHCP|Prefixo de sub-rede IP utilizado para DHCP através de suporte NAT. Só utilize este parâmetro se o DHCP não conseguir atribuir um endereço IP válido para aceder à Internet.|
 |PublicVlanId|Opcional|Define o ID de VLAN. Só utilize este parâmetro se o anfitrião e MAS-BGPNAT01 tem de configurar o ID de VLAN para aceder à rede física (e Internet). Por exemplo,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Voltar a executar|Opcional|Utilize este sinalizador para executar novamente a implementação. Todas as entradas anteriores é utilizada. Volte a introduzir dados fornecidos anteriormente não são suportados porque vários valores exclusivos são gerados e utilizados para a implementação.|
+|Executar novamente|Opcional|Utilize este sinalizador para executar novamente a implementação. Todas as entradas anteriores é utilizada. Volte a introduzir dados fornecidos anteriormente não são suportados porque vários valores exclusivos são gerados e utilizados para a implementação.|
 
 
 ## <a name="perform-post-deployment-configurations"></a>Efetuar configurações de pós-implementação

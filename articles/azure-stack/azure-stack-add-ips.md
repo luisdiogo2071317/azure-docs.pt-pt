@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986232"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251627"
 ---
 # <a name="add-public-ip-addresses"></a>Adicionar endereços IP públicos
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
 
 Saiba como adicionar mais endereços IP públicos ao Azure Stack.  Neste artigo, nos Referimos a endereços externos como endereços IP públicos, mas no Azure Stack serve para fazer referência à adição de blocos de endereços IP à sua rede externa.  Realmente não importam se essa rede externa é encaminhável de Internet pública ou está numa Intranet e utiliza o espaço de endereços privados para as finalidades deste artigo.  Os passos são os mesmos. 
 

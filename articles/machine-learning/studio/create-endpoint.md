@@ -1,6 +1,6 @@
 ---
 title: A criar titleSuffix de pontos finais de serviço Web: Descrição do Azure Machine Learning Studio: Criação de pontos finais de serviço da Web no Azure Machine Learning. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
 ---

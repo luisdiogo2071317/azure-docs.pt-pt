@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 71821b71e2e6ca524e38d0e1eb4fa11f557bd799
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974921"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240884"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): um driver de armazenamento do Azure dedicado para o Hadoop
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): Um driver de armazenamento do Azure dedicado para o Hadoop
 
 Um dos métodos de acesso primária para os dados em pré-visualização do Azure Data Lake Storage Gen2 é através da [sistema de ficheiros Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Geração 2 de armazenamento do Data Lake permite aos utilizadores de acesso de armazenamento de Blobs do Azure para um novo driver, o driver de sistema de ficheiros de Blob do Azure ou `ABFS`. ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Utilizar este controlador, muitos aplicativos e estruturas podem aceder a dados no armazenamento de Blobs do Azure sem qualquer código referenciar explicitamente a geração 2 de armazenamento do Data Lake.
 
-## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Capacidade anterior: driver do Windows Azure Storage Blob
+## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Capacidade anterior: O driver do Windows Azure Storage Blob
 
 O driver do Windows Azure Storage Blob ou [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) fornecido o suporte original para o armazenamento de Blobs do Azure. Este controlador efetuada a complexa tarefa de sistema de ficheiros de mapeamento semântica (conforme exigido pela interface do sistema de ficheiros do Hadoop) para que o objeto armazenar interface no estilo exposto pelo armazenamento de Blobs do Azure. Este controlador continua a suportar esse modelo, fornecendo acesso de alto desempenho para dados armazenados em Blobs, mas contém uma quantidade significativa de código realizar esse mapeamento, tornando difícil de manter. Além disso, algumas operações, tais como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicado aos diretórios requerem o driver para executar um grande número de operações (devido à ausência de arquivos de objeto suporte para diretórios) que, muitas vezes, leva a degradação do desempenho. O driver ABFS foi projetado para superar as deficiências inerentes de WASB.
 
@@ -46,9 +46,9 @@ Internamente, o driver ABFS traduz-se o recurso ou recursos especificados no URI
 
 O driver ABFS suporta duas formas de autenticação para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake. Todos os detalhes de esquemas de autenticação disponíveis são fornecidos na [guia de segurança do armazenamento do Azure](../common/storage-security-guide.md). São:
 
-- **Chave partilhada:** isso permite aos utilizadores acesso a todos os recursos na conta. A chave é encriptada e armazenada na configuração do Hadoop.
+- **Chave partilhada:** Isto permite aos utilizadores acesso a todos os recursos na conta. A chave é encriptada e armazenada na configuração do Hadoop.
 
-- **O Azure Active Directory OAuth Token de portador:** os tokens de portador do Azure AD são obtidos e atualizados pelo driver usando a identidade do utilizador final ou um Principal de serviço configurado. Usando esse modelo de autenticação, todo o acesso está autorizado numa base por chamada usando a identidade associada ao token fornecido e avaliados em relação a atribuído POSIX controlo lista acesso (ACL).
+- **Token de portador do OAuth do Azure Active Directory:** Os tokens de portador do Azure AD são obtidos e atualizados pelo driver usando a identidade do utilizador final ou um Principal de serviço configurado. Usando esse modelo de autenticação, todo o acesso está autorizado numa base por chamada usando a identidade associada ao token fornecido e avaliados em relação a atribuído POSIX controlo lista acesso (ACL).
 
 ### <a name="configuration"></a>Configuração
 

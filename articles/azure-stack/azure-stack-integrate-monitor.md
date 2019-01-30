@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 66cd20eaa401261bcb18bedbbc16f5bcf40ee192
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342988"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241649"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com o Azure Stack
 
@@ -83,7 +84,7 @@ Configure o ficheiro de plug-in "Azurestack_plugin.py" com os seguintes parâmet
 | *User_name* | O nome de utilizador do operador subscrição | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Palavra-passe de subscrição de operador | mypassword |
 | *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *Região* |  Nome da região do Azure Stack | local |
+| *region* |  Nome da região do Azure Stack | local |
 |  |  |
 
 * O GUID do PowerShell que é fornecida é universal. Pode usá-lo para cada implementação.

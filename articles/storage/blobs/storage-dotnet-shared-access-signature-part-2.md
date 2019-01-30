@@ -8,15 +8,15 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240703"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244917"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com armazenamento de BLOBs
 
 [Parte 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) deste tutorial, explorada partilhado (SAS) de assinaturas de acesso e expliquei melhores práticas para usá-los. Parte 2 mostra-lhe como gerar e, em seguida, utilizar assinaturas de acesso partilhado com armazenamento de Blobs. Os exemplos são escritos em c# e utilizam a biblioteca de cliente de armazenamento do Azure para .NET. Os exemplos neste tutorial:
 
@@ -30,9 +30,9 @@ Neste tutorial, vamos criar duas aplicações de consola que demonstram a criaç
 
 **Aplicação 1**: A aplicação de gestão. Gera uma assinatura de acesso partilhado para um contentor e um blob. Inclui a chave de acesso da conta de armazenamento no código-fonte.
 
-**Aplicação 2**: A aplicação cliente. Acessos ao contentor e blob recursos com as assinaturas de acesso partilhado criadas com o primeiro aplicativo. Utiliza as assinaturas de acesso partilhado para o contentor de acesso e os recursos de blob, ele faz *não* incluem a chave de acesso da conta de armazenamento.
+**Aplicação 2**: A aplicação de cliente. Acessos ao contentor e blob recursos com as assinaturas de acesso partilhado criadas com o primeiro aplicativo. Utiliza as assinaturas de acesso partilhado para o contentor de acesso e os recursos de blob, ele faz *não* incluem a chave de acesso da conta de armazenamento.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Criar uma aplicação de consola para gerar assinaturas de acesso partilhado
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Crie uma aplicação de consola para gerar assinaturas de acesso partilhado
 Em primeiro lugar, certifique-se de que tem a biblioteca de cliente de armazenamento do Azure para .NET instalado. Pode instalar o [pacote de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "pacote NuGet") que contém os assemblies mais atualizados para a biblioteca de cliente. Este é o método recomendado para garantir que tem as correções mais recentes. Também pode transferir a biblioteca de cliente como parte da versão mais recente dos [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
 
 No Visual Studio, crie uma nova aplicação de consola do Windows e o nomeio **GenerateSharedAccessSignatures**. Adicionar referências aos [configurationmanager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) e [windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) ao utilizar uma das seguintes abordagens:
@@ -337,7 +337,7 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Parte 2: Criar uma aplicação de consola para testar as assinaturas de acesso partilhado
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Parte 2: Crie uma aplicação de consola para testar as assinaturas de acesso partilhado
 Para testar as assinaturas de acesso partilhado criadas nos exemplos anteriores, criamos um segundo aplicativo de console que utiliza as assinaturas para efetuar operações no contentor e num blob.
 
 > [!NOTE]
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* [Assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Assinaturas de acesso, parte 1 de partilhado: Compreender o modelo SAS](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Gerir o acesso de leitura anónimo a contentores e blobs](storage-manage-access-to-resources.md)
 * [Delegar acesso com uma assinatura de acesso partilhado (REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Apresentando o SAS da fila e de tabela](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

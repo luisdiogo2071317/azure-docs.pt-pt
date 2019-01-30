@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 13483333c2135f858191f62b255e2887c0e61f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975306"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244509"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espaço de nomes hierárquico pré-visualização de geração 2 de Data Lake Storage do Azure
 
@@ -23,11 +23,11 @@ Um mecanismo de chave que permite que o Azure Data Lake armazenamento Gen2 pré-
 
 Os seguintes benefícios estão associados a sistemas de ficheiros que implementam um espaço de nomes hierárquico sobre os dados de BLOBs:
 
-- **Manipulação de diretório atômicas:** os arquivos de objetos se aproximam de uma hierarquia de diretório ao adotar uma convenção de incorporação de barras (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar a objetos, a Convenção não fornece nenhuma assistência para ações como mover, mudar o nome ou eliminar diretórios. Sem diretórios real, aplicativos têm de processar potencialmente milhões de blobs individuais para atingir as tarefas de nível de diretório. Por outro lado, o espaço de nomes hierárquico processa estas tarefas mediante a atualização de uma única entrada (o diretório principal).
+- **Manipulação de diretório atômicas:** Os arquivos de objetos aproximam uma hierarquia de diretório ao adotar uma convenção de incorporação de barras (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar a objetos, a Convenção não fornece nenhuma assistência para ações como mover, mudar o nome ou eliminar diretórios. Sem diretórios real, aplicativos têm de processar potencialmente milhões de blobs individuais para atingir as tarefas de nível de diretório. Por outro lado, o espaço de nomes hierárquico processa estas tarefas mediante a atualização de uma única entrada (o diretório principal).
 
     É especialmente importante para muitas estruturas de análise de macrodados, essa otimização surpreendentes. Ferramentas como o Hive, Spark, etc., muitas vezes, escrever a saída para localizações temporárias em, em seguida, mude o nome a localização na conclusão da tarefa. Sem espaço de nomes hierárquico, esta mudança de nome, muitas vezes, pode demorar mais tempo do que a análise de processar em si. Latência mais baixa da tarefa é igual a menor custo total de propriedade (TCO) para cargas de trabalho de análise.
 
-- **Estilo de Interface familiar:** sistemas de ficheiros são bem compreendidos por desenvolvedores e usuários. Não é necessário para obter um novo paradigma de armazenamento ao mover para a cloud como a interface de sistema de ficheiros exposta pela geração 2 de armazenamento do Data Lake é o mesmo paradigma utilizado por computadores, grandes e pequenos.
+- **Estilo de familiar Interface:** Sistemas de ficheiros são bem compreendidos por desenvolvedores e usuários. Não é necessário para obter um novo paradigma de armazenamento ao mover para a cloud como a interface de sistema de ficheiros exposta pela geração 2 de armazenamento do Data Lake é o mesmo paradigma utilizado por computadores, grandes e pequenos.
 
 Uma das razões que os arquivos de objetos têm historicamente nepodporuje espaços de nomes hierárquicos é que os espaços de nomes hierárquicos limitado de dimensionamento. No entanto, o espaço de nomes hierárquico de geração 2 de armazenamento do Data Lake é dimensionado linearmente e não diminui a capacidade de dados ou o desempenho.
 

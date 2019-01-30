@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: eb469e6a654414b0411f8c45b73658f99a383751
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306588"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247515"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tipos de dados de tabela no Azure SQL Data Warehouse
 Recomendações para definir os tipos de dados de tabela no Azure SQL Data Warehouse. 
@@ -52,15 +52,15 @@ A lista seguinte mostra os tipos de dados que o SQL Data Warehouse não suporta 
 
 | Tipo de dados não suportado | Solução |
 | --- | --- |
-| [Geometry](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
-| [Geografia](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [geometry](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [geography](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
 | [image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Dividir coluna em várias colunas com rigidez de tipos. |
-| [Tabela](/sql/t-sql/data-types/table-transact-sql) |Converta em tabelas temporárias. |
-| [Timestamp](/sql/t-sql/data-types/date-and-time-types) |Refazer o código para usar [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) e o [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) função. São suportadas constantes de apenas como padrões, portanto current_timestamp não pode ser definida como uma restrição default. Se precisar de migrar os valores de versão de linha de uma coluna com tipos de timestamp, em seguida, utilize [binário](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) ou [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) para não nulo ou NULL valores da versão de linha. |
+| [table](/sql/t-sql/data-types/table-transact-sql) |Converta em tabelas temporárias. |
+| [timestamp](/sql/t-sql/data-types/date-and-time-types) |Refazer o código para usar [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) e o [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) função. São suportadas constantes de apenas como padrões, portanto current_timestamp não pode ser definida como uma restrição default. Se precisar de migrar os valores de versão de linha de uma coluna com tipos de timestamp, em seguida, utilize [binário](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) ou [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) para não nulo ou NULL valores da versão de linha. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [tipo definido pelo utilizador](/sql/relational-databases/native-client/features/using-user-defined-types) |Converta para o tipo de dados nativos sempre que possível. |
 | valores predefinidos | Valores predefinidos suportam literais e constantes apenas. |

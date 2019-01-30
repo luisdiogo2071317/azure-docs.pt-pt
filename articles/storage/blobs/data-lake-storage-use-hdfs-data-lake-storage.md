@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: b4485e234e19e93a852895c80775b8aadc7a15ce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 2691346433b3cc29b22446152ea797cefb02a380
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975404"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241275"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilizar a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -131,7 +131,7 @@ Consulte [chown faz parte dos](https://hadoop.apache.org/docs/r2.4.1/hadoop-proj
 
     hdfs dfs -chgrp [-R] <group> <URI>
 
-Consulte [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
+See [chgrp](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html#chgrp)
 
 ### <a name="change-the-permissions-of-files"></a>Alterar as permissões de ficheiros
 

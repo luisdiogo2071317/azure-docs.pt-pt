@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7439a2c5466784a881e71649fa86a8e51d757957
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226422"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251559"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre a API de texto para discurso
 
@@ -37,6 +37,9 @@ Os cenários em que fala síntese está a ser adotada incluem:
 ## <a name="voice-support"></a>Suporte de voz
 
 A Microsoft **voz** serviço oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar estes padrão "tipos de voz", só precisa de especificar o nome de voz com alguns outros parâmetros quando chama a API de REST do serviço. Para obter mais informações sobre vozes, localidades e idiomas suportados, consulte [idiomas suportados](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Os custos variam para vozes neurais, padrão e personalizados. Para obter mais informações, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Vozes neurais
 

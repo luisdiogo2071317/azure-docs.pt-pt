@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368783"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245155"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planeamento de capacidade de armazenamento de pilha do Azure
 As secções seguintes fornecem Azure Stack capacidade de armazenamento informações de planeamento para auxiliar no planejamento das necessidades de armazenamento as soluções.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Utiliza e a organização da capacidade de armazenamento
-A configuração hiperconvergida do Azure Stack permite o compartilhamento de dispositivos de armazenamento físico. As três divisões principais de armazenamento disponível são entre a infraestrutura de armazenamento temporário de máquinas virtuais inquilinas e o armazenamento de blobs, tabelas e filas, os serviços de armazenamento consistente do Azure (ACS) de segurança.
+A configuração hiperconvergida do Azure Stack permite a partilha de dispositivos de armazenamento físicos. As três divisões principais de armazenamento disponível são entre a infraestrutura de armazenamento temporário de máquinas virtuais inquilinas e o armazenamento de blobs, tabelas e filas, os serviços de armazenamento consistente do Azure (ACS) de segurança.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Cache e níveis de capacidade de espaços direto
 Há capacidade de armazenamento utilizada para o sistema operativo, o registo local, despejos e outro armazenamento temporário de infraestrutura necessidades. Esta capacidade de armazenamento local é separar (dispositivos e a capacidade) dos dispositivos de armazenamento colocados sob a gestão da configuração de espaços de armazenamento direto. O restante dos dispositivos de armazenamento é colocado num único conjunto de capacidade de armazenamento, independentemente do número de servidores em que a unidade de escala. Estes dispositivos são de dois tipos: Cache e a capacidade.  Os dispositivos de Cache são apenas esse – Cache. Espaços direto irá consumir estes dispositivos para repetição de escrita e colocação em cache de leitura. As capacidades desses dispositivos de Cache, embora utilizado, não são consolidadas a capacidade de formatado, "visível" dos formatado-discos virtuais. Os dispositivos de capacidade são utilizados para esta finalidade e fornecem a "localização principal" de dados geridos pelo espaços de armazenamento.
@@ -51,7 +52,7 @@ Os-discos virtuais criados automaticamente e as suas capacidades são os seguint
 
 
 
-|Nome|Cálculo de capacidade|Descrição|
+|Name|Cálculo de capacidade|Descrição|
 |-----|-----|-----|
 |Dispositivo de arranque/local|Mínimo de 340 GB<sup>1</sup>|Armazenamento de servidor individual para imagens do sistema operativo e as VMs de infraestrutura "local"|
 |Infraestrutura|3,5 TB|Todas as utilizações de infraestrutura do Azure Stack|
