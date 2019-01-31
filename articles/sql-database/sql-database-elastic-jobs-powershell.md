@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278462"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472658"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
@@ -189,7 +189,7 @@ A tabela seguinte lista as todos os tipos de objeto de **tarefas de bases de dad
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Tipos de grupo de tarefas de bases de dados elásticas suportadas
-A tarefa executa scripts do Transact-SQL (T-SQL) ou a aplicação de DACPACs longo de um grupo de bases de dados. Quando uma tarefa é submetida a ser executado num grupo de bases de dados, a tarefa "expande" o em tarefas subordinadas, onde cada um executa a execução do pedido em relação a uma base de dados no grupo. 
+A tarefa executa scripts do Transact-SQL (T-SQL) ou a aplicação de DACPACs longo de um grupo de bases de dados. Quando uma tarefa é submetida a ser executado num grupo de bases de dados, a tarefa "expande" o em tarefas subordinadas, onde cada executa a execução do pedido em relação a uma base de dados individual no grupo. 
 
 Existem dois tipos de grupos que podem ser criados: 
 
@@ -428,7 +428,7 @@ A política de execução predefinido utiliza os seguintes valores:
 * Intervalo de repetição inicial:  100 milissegundos
 * Intervalo de repetições máxima: 30 minutos
 * Coeficiente de intervalo de repetição: 2
-* Máximo de tentativas: 2 147 483 647
+* Máximo de tentativas: 2,147,483,647
 
 Crie a política de execução desejado:
 

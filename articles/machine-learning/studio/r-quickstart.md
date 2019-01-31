@@ -1,6 +1,6 @@
 ---
-title: Tutorial de início rápido para R linguagem titleSuffix: Descrição do Azure Machine Learning Studio: Utilize este tutorial de programação R para começar a trabalhar rapidamente com a linguagem R com o Azure Machine Learning Studio para criar uma solução de previsão.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Tutorial de início rápido para R linguagem titleSuffix: Descrição do Azure Machine Learning Studio: Utilize este tutorial de programação R para começar a trabalhar rapidamente com a linguagem R com o Azure Machine Learning Studio para criar uma solução de previsão.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---

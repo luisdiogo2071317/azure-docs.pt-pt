@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/25/2019
+ms.openlocfilehash: 6632d057a509103de3581c757555c6e2c1b827c6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262970"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465338"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Será descontinuada a camada de serviços do Azure SQL da base de dados Premium RS (pré-visualização) – opções para a migração
 

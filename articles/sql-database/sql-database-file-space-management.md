@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468636"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
@@ -27,6 +27,7 @@ Este artigo descreve os diferentes tipos de espaço de armazenamento na base de 
 Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
 
 Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encolher os ficheiros de dados poderá ser necessário:
+
 - Permita o crescimento dos dados num conjunto elástico quando o espaço de ficheiros alocado às respetivas bases de dados atingir o tamanho máximo do conjunto.
 - Permita a diminuição do tamanho máximo de uma base de dados individual ou de um conjunto elástico.
 - Permita a alteração de uma base de dados individual ou de um conjunto elástico para outro escalão de serviço ou escalão de desempenho com um tamanho máximo mais baixo.
@@ -34,10 +35,10 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 ### <a name="monitoring-file-space-usage"></a>Monitorizar a utilização do espaço de ficheiro
 A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:
 - O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
-- T-SQL: [DM db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bases de dados e elastic pools:
-- T-SQL: [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Reduzindo ficheiros de dados
@@ -118,6 +119,7 @@ Noções básicas sobre as seguintes quantidades de espaço de armazenamento sã
 As seguintes consultas podem ser utilizadas para determinar as quantidades de espaço de armazenamento para um conjunto elástico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espaço de dados do conjunto elástico utilizado
+
 Modifique a consulta seguinte para devolver a quantidade de espaço de dados do conjunto elástico utilizado.  As unidades do resultado da consulta são em MB.
 
 ```sql
@@ -234,9 +236,9 @@ Depois de arquivos de dados do banco de dados são Encolher, os índices podem s
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para informações sobre os tamanhos de máximo de base de dados, consulte:
-  - [Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Limites de recursos para conjuntos elásticos com o modelo de compra baseado em DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
+  - [Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limites de recursos para conjuntos elásticos com o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Para obter mais informações sobre o `SHRINKDATABASE` comando este problema, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Para obter mais informações sobre a fragmentação e reconstruir índices, consulte [Reorganize e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

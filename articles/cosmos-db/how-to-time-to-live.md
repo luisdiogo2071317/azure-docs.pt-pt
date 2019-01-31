@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: 681878d43422e86df3db1050da24be88881d4b2e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036295"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462159"
 ---
-# <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>Como configurar o TTL no Azure Cosmos DB
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 
 No Azure Cosmos DB, pode optar por configurar o tempo Live (TTL) ao nível do contentor ou pode substituí-la num nível de item após a definição do contentor. Pode configurar o TTL para um contentor com o portal do Azure ou os SDKs específicos de idiomas. Substituições TTL ao nível do item podem ser configuradas através de SDKs.
 

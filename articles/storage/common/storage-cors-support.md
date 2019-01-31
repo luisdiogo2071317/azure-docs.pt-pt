@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531558"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473770"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Recursos de várias origens (CORS) suporte para os serviços de armazenamento do Azure de partilha
 A partir da versão 2013-08-15, os serviços de armazenamento do Azure suportam Cross-Origin Resource Sharing (CORS) para os serviços de Blob, tabela, fila e ficheiro. CORS é uma funcionalidade HTTP que permite que uma aplicação web em execução num domínio aceder a recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy) que impede que uma página da web de chamar APIs num domínio diferente; CORS fornece uma forma segura de permitir que um domínio (o domínio de origem) chame APIs de outro domínio. Consulte a [especificação CORS](http://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
@@ -67,11 +67,11 @@ Eis um exemplo de uma única regra CORS, especificado por meio de uma operação
 
 Cada elemento incluído na regra CORS é descrito abaixo:
 
-* **AllowedOrigins**: os domínios de origem que têm permissão para fazer um pedido para o serviço de armazenamento através do CORS. O domínio de origem é o domínio a partir do qual o pedido tem origem. Tenha em atenção que a origem tem de ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Também pode utilizar o caráter universal "*" para permitir que todos os domínios de origem fazer pedidos através do CORS. No exemplo acima, os domínios [ http://www.contoso.com ](http://www.contoso.com) e [ http://www.fabrikam.com ](http://www.fabrikam.com) possa fazer pedidos para o serviço utilizando a CORS.
-* **AllowedMethods**: os métodos (verbos de pedido HTTP) que utiliza, o domínio de origem para um pedido CORS. No exemplo acima, apenas pedidos PUT e GET são permitidos.
-* **AllowedHeaders**: os cabeçalhos de pedido que o domínio de origem pode especificar no pedido CORS. No exemplo acima, todos os cabeçalhos de metadados a partir do x-ms-metadados, x-ms-meta-destino e x-ms-meta-abc são permitidos. Tenha em atenção que o caráter universal "*" indica que qualquer início de cabeçalho com o prefixo especificado é permitido.
-* **ExposedHeaders**: os cabeçalhos de resposta que podem ser enviados na resposta ao pedido de CORS e expostos pelo browser para o emissor do pedido. No exemplo acima, o navegador é instruído para expor qualquer início de cabeçalho com x-ms-meta.
-* **MaxAgeInSeconds**: O tempo máximo que um navegador deve OPTIONS prévio em cache do pedido.
+* **AllowedOrigins**: Os domínios de origem que têm permissão para fazer um pedido para o serviço de armazenamento através do CORS. O domínio de origem é o domínio a partir do qual o pedido tem origem. Tenha em atenção que a origem tem de ser uma correspondência exata de maiúsculas e minúsculas com a origem que a idade do usuário envia para o serviço. Também pode utilizar o caráter universal "*" para permitir que todos os domínios de origem fazer pedidos através do CORS. No exemplo acima, os domínios [ http://www.contoso.com ](http://www.contoso.com) e [ http://www.fabrikam.com ](http://www.fabrikam.com) possa fazer pedidos para o serviço utilizando a CORS.
+* **AllowedMethods**: Os métodos (verbos de pedido HTTP) que o domínio de origem pode utilizar para um pedido CORS. No exemplo acima, apenas pedidos PUT e GET são permitidos.
+* **AllowedHeaders**: Os cabeçalhos de pedido que o domínio de origem pode especificar no pedido CORS. No exemplo acima, todos os cabeçalhos de metadados a partir do x-ms-metadados, x-ms-meta-destino e x-ms-meta-abc são permitidos. Tenha em atenção que o caráter universal "*" indica que qualquer início de cabeçalho com o prefixo especificado é permitido.
+* **ExposedHeaders**: Os cabeçalhos de resposta que podem ser enviados na resposta ao pedido de CORS e expostos pelo browser para o emissor do pedido. No exemplo acima, o navegador é instruído para expor qualquer início de cabeçalho com x-ms-meta.
+* **MaxAgeInSeconds**: O tempo máximo que um navegador deve OPTIONS prévio em cache o pedido.
 
 Os serviços de armazenamento do Azure suportam a especificação de cabeçalhos com prefixo para ambos os **AllowedHeaders** e **ExposedHeaders** elementos. Para permitir uma categoria de cabeçalhos, pode especificar um prefixo comum para essa categoria. Por exemplo, pode especificar *x-ms-meta** como um cabeçalho com prefixo estabelece uma regra que irá corresponder a todos os cabeçalhos que começam com x-ms-meta.
 

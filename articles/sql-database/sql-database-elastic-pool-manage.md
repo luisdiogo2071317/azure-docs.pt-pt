@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388583"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468126"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -39,7 +39,7 @@ Aqui pode fazer qualquer combinação das seguintes alterações e guardá-los t
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerir conjuntos elásticos e bases de dados agrupadas
 
-Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir os servidores lógicos de um conjunto elástico, consulte [servidores lógicos, criar e gerida](sql-database-logical-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir os servidores de base de dados SQL para um conjunto elástico, consulte [criar e gerir servidores de base de dados SQL](sql-database-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para scripts de exemplo do PowerShell, consulte [criar conjuntos elásticos e mover bases de dados entre conjuntos e para fora de um conjunto com o PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) e [utilize o PowerShell para monitorizar e dimensionar um conjunto de elástico de SQL na base de dados do Azure SQL](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -47,11 +47,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um conjunto de bases de dados elásticas num servidor SQL lógico.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém conjuntos elásticos e os respetivos valores de propriedade num servidor SQL lógico.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um conjunto de bases de dados elásticas num servidor SQL lógico. Por exemplo, utilizar o **StorageMB** propriedade para modificar o armazenamento máximo de um conjunto elástico.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina um conjunto de bases de dados elásticas num servidor SQL lógico.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtém o estado de operações num conjunto elástico num servidor SQL lógico.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um conjunto elástico.|
+|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém conjuntos elásticos e os respetivos valores de propriedade.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um conjunto elástico, por exemplo, utilize o **StorageMB** propriedade para modificar o armazenamento máximo de um conjunto elástico.|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina um conjunto elástico.|
+|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtém o estado de operações num conjunto elástico|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém uma ou mais bases de dados.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para uma base de dados ou move uma base de dados existente para, de ou entre conjuntos elásticos.|
@@ -90,7 +90,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 |[Criar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Alterar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos de bases de dados elásticas num servidor lógico. Para cada conjunto de bases de dados elásticas, há uma linha para cada segundo 15 relatórios janela (quatro linhas por minuto). Isto inclui a utilização da CPU, e/s, registo, o consumo de armazenamento e pedido/sessões em simultâneo por todas as bases de dados no conjunto.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Devolve estatísticas de utilização de recursos para todos os conjuntos elásticos num servidor de base de dados SQL. Para cada conjunto elástico, há uma linha para cada segundo 15 relatórios janela (quatro linhas por minuto). Isto inclui a utilização da CPU, e/s, registo, o consumo de armazenamento e pedido/sessões em simultâneo por todas as bases de dados no conjunto.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se a sessão iniciada no banco de dados mestra num servidor de base de dados do Azure SQL, retorna informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: Gerir conjuntos elásticos e bases de dados agrupadas
@@ -104,8 +104,8 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 |[Conjuntos elásticos - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
 |[Conjuntos elásticos - lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
 |[Conjuntos elásticos - atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Atualiza um conjunto elástico existente.|
-|[Atividades de conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
-|[Conjunto elástico da base de dados de atividades](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
+|[Atividades do conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
+|[Atividades de base de dados do conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
 |[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
 |[Bases de dados - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém uma base de dados.|
 |[Bases de dados - lista por conjunto elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|

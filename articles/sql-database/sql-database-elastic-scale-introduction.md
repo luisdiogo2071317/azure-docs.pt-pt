@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463026"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
 Pode facilmente aumentar horizontalmente de bases de dados SQL do Azure com o **bases de dados elásticas** ferramentas. Essas ferramentas e recursos permitem-lhe utilizar os recursos de base de dados do **base de dados do Azure SQL** para criar soluções para cargas de trabalho transacionais e especialmente o Software como um aplicativo de serviço (SaaS). Recursos de banco de dados elásticos são compostas pela:
 
 * [Biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md): A biblioteca de cliente é uma funcionalidade que permite-lhe criar e manter bancos de dados em partição horizontal.  Ver [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
 * [Ferramenta de dividir / unir da base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md): move dados entre bases de dados em partição horizontal. Essa ferramenta é útil para mover dados de uma base de dados do multi-inquilino para uma base de dados de inquilino único (ou vice-versa). Ver [tutorial da ferramenta de dividir / unir da base de dados elásticas](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Tarefas de base de dados elásticas](sql-database-elastic-jobs-overview.md) (pré-visualização): utilizar tarefas para gerir um grande número de bases de dados SQL do Azure. Efetue facilmente operações administrativas, tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou coleção de telemetria do inquilino (cliente) usando trabalhos.
-* [Consulta de base de dados elástica](sql-database-elastic-query-overview.md) (pré-visualização): permite-lhe executar uma consulta de Transact-SQL que abrange várias bases de dados. Isto permite que a conexão com ferramentas de geração de relatórios, como o Excel, Power BI, Tableau, etc.
-* [Transações elásticas](sql-database-elastic-transactions-overview.md): esta funcionalidade permite-lhe executar transações que abrangem várias bases de dados na base de dados do Azure SQL. Transações de bases de dados elásticas estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [classes de System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Tarefas de base de dados elásticas](sql-database-elastic-jobs-overview.md) (pré-visualização): Utilize tarefas para gerir um grande número de bases de dados SQL do Azure. Efetue facilmente operações administrativas, tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou coleção de telemetria do inquilino (cliente) usando trabalhos.
+* [Consulta de base de dados elástica](sql-database-elastic-query-overview.md) (pré-visualização): Permite-lhe executar uma consulta de Transact-SQL que abrange várias bases de dados. Isto permite que a conexão com ferramentas de geração de relatórios, como o Excel, Power BI, Tableau, etc.
+* [Transações elásticas](sql-database-elastic-transactions-overview.md): Esta funcionalidade permite-lhe executar transações que abrangem várias bases de dados na base de dados do Azure SQL. Transações de bases de dados elásticas estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [classes de System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 O gráfico seguinte mostra uma arquitetura que inclui a **recursos de bases de dados elásticas** em relação a uma coleção de bases de dados.
 
@@ -67,8 +67,8 @@ A maioria dos aplicativos de banco de dados de escala da cloud utilizam uma comb
 ## <a name="sharding"></a>Fragmentação
 *Fragmentação* é uma técnica para distribuir grandes quantidades de dados de forma idêntica estruturados através de um número de bases de dados independentes. É especialmente popular com a criação de Software como um ofertas de serviço (SAAS) para clientes finais ou empresas de desenvolvedores de nuvem. Estes clientes finais são, muitas vezes, referidas como "inquilinos". Fragmentação poderá ser necessária por diversas razões:  
 
-* A quantidade total de dados é demasiado grande para caber dentro das restrições de uma base de dados
-* O débito de transação da carga de trabalho geral supera as capacidades de uma base de dados
+* A quantidade total de dados é demasiado grande para caber dentro das restrições de uma base de dados individual
+* O débito de transação da carga de trabalho geral supera as capacidades de uma base de dados individual
 * Os inquilinos podem exigir isolamento físico uns dos outros, para que os bancos de dados separados são necessários para cada inquilino
 * As seções diferentes de uma base de dados poderão ter de residem em diferentes geografias de conformidade, desempenho ou motivos geopolíticos.
 

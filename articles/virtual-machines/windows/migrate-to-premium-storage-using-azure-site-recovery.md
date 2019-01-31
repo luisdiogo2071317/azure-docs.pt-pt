@@ -9,13 +9,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
-ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.subservice: disks
+ms.openlocfilehash: 6db263dcfc3195c9b2ab3afe7587845a4632fd1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456532"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o armazenamento Premium com o Azure Site Recovery
 
@@ -74,7 +74,7 @@ Estes são os requisitos do Azure para este cenário de migração:
 
 Pode utilizar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou dentro da mesma região. As instruções seguintes são adaptadas para este cenário de migração do artigo [replicar VMs de VMware ou servidores físicos para o Azure](../../site-recovery/vmware-walkthrough-overview.md). Siga as ligações para obter passos detalhados, além das instruções neste artigo.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos serviços de recuperação
+### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos Serviços de Recuperação 
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 2. Selecione **criar um recurso** > **gestão** > **cópia de segurança e Site Recovery (OMS)**. Em alternativa, pode selecionar **navegue** > **cofre dos Recovery Services** > **adicionar**.
@@ -82,10 +82,10 @@ Pode utilizar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou de
    >Cópia de segurança e recuperação de sites foi anteriormente conhecido como parte dos ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
 1. Especifique uma região que as VMs serão replicadas. Para fins de migração na mesma região, selecione a região onde estão as VMs de origem e as contas de armazenamento de origem. 
 
-### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolher os seus objetivos de proteção 
+### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
 
 1. Na VM onde pretende instalar o servidor de configuração, abra a [portal do Azure](https://portal.azure.com).
-2. Aceda a **cofres dos serviços de recuperação** > **definições** > **Site Recovery** > **passo 1: preparar Infra-estrutura** > **objetivo de proteção**.
+2. Aceda a **cofres dos serviços de recuperação** > **definições** > **Site Recovery** > **passo 1: Preparar infraestrutura** > **objetivo de proteção**.
 
    ![Navegar para o painel objetivo de proteção][2]
 
@@ -162,7 +162,7 @@ Para verificar se o seu servidor de configuração está com êxito associado à
    3. Passo 2, especifique o modelo de implementação após a ativação pós-falha, uma conta de armazenamento premium para migrar para o, uma conta de armazenamento standard para guardar os registos e uma rede virtual para efetuar a ativação.
    4. Passo 3, adicione VMs protegidas por endereço IP. (Poderá ter um endereço IP interno para encontrá-los.)
    5. Passo 4, configure as propriedades ao selecionar as contas que configurou anteriormente no servidor de processos.
-   6. No passo 5, escolha a política de replicação que criou anteriormente em "passo 5: configurar as definições de replicação."
+   6. No passo 5, escolha a política de replicação que criou anteriormente em "passo 5: Configurar as definições de replicação."
    7. Selecione **OK**.
 
    > [!NOTE]
@@ -198,8 +198,8 @@ Recuperação de sites irá criar uma instância de VM cujo tipo é o mesmo como
 ## <a name="post-migration-steps"></a>Passos de pós-migração
 
 1. **Configurar as VMs replicadas para o conjunto se aplicável de disponibilidade**. Recuperação de sites não suporta a migração de VMs, juntamente com o conjunto de disponibilidade. Consoante a implementação da sua VM replicada, efetue um dos seguintes:
-   * De uma VM criada por meio do modelo de implementação clássica: adicionar a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
-   * De uma VM criada por meio do modelo de implementação do Resource Manager: guardar a configuração da VM e, em seguida, eliminar e voltar a criar as VMs no conjunto de disponibilidade. Para tal, utilize o script na [conjunto do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique suas limitações e planejar seu período de indisponibilidade.
+   * Para uma VM criada através do modelo de implementação clássica: Adicione a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
+   * Para uma VM criada através do modelo de implementação do Resource Manager: Guardar a configuração da VM e, em seguida, eliminar e voltar a criar as VMs no conjunto de disponibilidade. Para tal, utilize o script na [conjunto do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique suas limitações e planejar seu período de indisponibilidade.
 
 2. **Eliminar antigo VMs e os discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as novas VMs realizam a mesma função que as VMs de origem. Elimine a VM e eliminar os discos das suas contas de armazenamento de origem no portal do Azure. Se houver um problema que o disco não é eliminada, mesmo que tenha eliminado a VM, consulte [resolver problemas de erros de eliminação de recursos de armazenamento](storage-resource-deletion-errors.md).
 
@@ -222,7 +222,7 @@ Além disso, consulte os seguintes recursos para saber mais sobre o armazenament
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Armazenamento Premium: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md) (Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquinas virtuais do Azure)
+* [Premium Storage: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

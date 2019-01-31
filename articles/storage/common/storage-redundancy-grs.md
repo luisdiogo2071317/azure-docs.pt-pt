@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219227"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467072"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento georredundante (GRS): Replicação de inter-regional do armazenamento do Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Armazenamento georredundante com acesso de leitura
@@ -34,9 +34,9 @@ Algumas considerações a ter em conta ao utilizar o RA-GRS:
 * Para obter sugestões sobre como estruturar para elevada disponibilidade com RA-GRS, consulte [criação altamente disponíveis de aplicativos com o armazenamento RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>O que é o RPO e RTO com GRS?
-**Objetivo de ponto de recuperação (RPO):** no GRS e RA-GRS, o armazenamento de forma assíncrona service geo-replica os dados dos principais para a localização secundária. Em caso de desastre regional principais na região primária, a Microsoft efetua uma ativação pós-falha para a região secundária. Se ocorrer uma ativação pós-falha, as alterações recentes que ainda não tiverem sido georreplicado poderão perder-se. O número de minutos de dados possíveis que perdeu é conhecido como o RPO. O RPO indica o ponto no tempo para que os dados podem ser recuperados. Normalmente, o armazenamento do Azure tem um RPO de menos de 15 minutos, embora não existe atualmente nenhum SLA no georreplicação quanto tempo demora.
+**Objetivo de ponto de recuperação (RPO):** No GRS e RA-GRS, o armazenamento do serviço de forma assíncrona geo-replica os dados dos principais para a localização secundária. Em caso de desastre regional principais na região primária, a Microsoft efetua uma ativação pós-falha para a região secundária. Se ocorrer uma ativação pós-falha, as alterações recentes que ainda não tiverem sido georreplicado poderão perder-se. O número de minutos de dados possíveis que perdeu é conhecido como o RPO. O RPO indica o ponto no tempo para que os dados podem ser recuperados. Normalmente, o armazenamento do Azure tem um RPO de menos de 15 minutos, embora não existe atualmente nenhum SLA no georreplicação quanto tempo demora.
 
-**Objetivo de tempo de recuperação (RTO):** o RTO é uma medida de tempo que demora para efetuar a ativação pós-falha e obter a conta de armazenamento online. A hora a realizar a ativação pós-falha inclui as seguintes ações:
+**Objetivo de tempo de recuperação (RTO):** O RTO é uma medida de tempo que demora para efetuar a ativação pós-falha e obter a conta de armazenamento online. A hora a realizar a ativação pós-falha inclui as seguintes ações:
 
    * O tempo que a Microsoft requer para determinar se os dados podem ser recuperados na localização principal ou se uma ativação pós-falha é necessária
    * A hora a realizar a ativação pós-falha da conta do storage, alterando as entradas de DNS primárias para apontar para a localização secundária
@@ -44,9 +44,9 @@ Algumas considerações a ter em conta ao utilizar o RA-GRS:
 A Microsoft leva a responsabilidade de preservar os seus dados muito a sério. Se houver alguma chance de recuperação de dados na região primária, a Microsoft atrasa a ativação pós-falha e se concentra em recuperar seus dados. 
 
 ## <a name="paired-regions"></a>Regiões emparelhadas 
-Quando criar uma conta de armazenamento, selecione a região primária para a conta. Região secundária associada é determinado com base na região principal e não pode ser alterado. Para obter informações atualizadas sobre as regiões suportadas pelo Azure, consulte [Business continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md).
+Quando criar uma conta de armazenamento, selecione a região primária para a conta. Região secundária associada é determinado com base na região principal e não pode ser alterado. Para obter informações atualizadas sobre as regiões suportadas pelo Azure, consulte [Business continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="see-also"></a>Consulte também
 - [Replicação do Armazenamento do Azure](storage-redundancy.md)
-- [Armazenamento localmente redundante (LRS): redundância de dados de baixo custo do armazenamento do Azure](storage-redundancy-lrs.md)
-- [Armazenamento com redundância de zona (ZRS): aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md)
+- [Armazenamento localmente redundante (LRS): Redundância de dados de baixo custo do armazenamento do Azure](storage-redundancy-lrs.md)
+- [Armazenamento com redundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md)

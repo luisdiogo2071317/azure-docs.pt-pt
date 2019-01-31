@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01df34025c0389a4ea8bcd5eceaa29f0351df5f7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 556ec0b55ea2e62975661eb5f668b4d3acda7c30
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466358"
 documentType: LandingData
 title: Instância Gerida da Base de Dados SQL do Azure
 metadata:
@@ -55,7 +55,7 @@ sections:
       html: <p>Migre uma frota de bases de dados com o período de indisponibilidade mínimo com o serviço de migração de base de dados.</p>
     - title: Preços
       href: https://azure.microsoft.com/pricing/hybrid-benefit/
-      html: <p>Poupe até 40% com o Azure híbrido benefício (AHB) com suas licenças no local existente.</p>
+      html: <p>Poupe até 40% com o Azure híbrido benefício (AHB) com as suas licenças no local existentes.</p>
     - title: Recursos de PaaS
       href: /azure/sql-database/sql-database-paas
       html: <p>PaaS do Azure permite-lhe utilizar a instância 99,99% de disponibilidade com o mínimo de gerenciamento.</p>
@@ -78,7 +78,7 @@ sections:
     - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configurar a retenção de cópia de segurança até 35 dias</a> para o restauro de ponto no tempo. Tenha em atenção que retenção de cópia de segurança de longa duração (até 10 anos) ainda não está ativada para que possa usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">cópias de segurança apenas de cópia</a> como alternativa.
     - html: (Pré-visualização) Uso <a href="https://aka.ms/managed-instance-failover-groups">grupos de ativação pós-falha distribuída geograficamente</a> para manter uma cópia da instância noutra região e certifique-se de que os dados estarão disponíveis até mesmo no cenário de desastre regional.
     - html: (Pré-visualização) <a href="https://aka.ms/managed-instance-tde-byok">Traga as suas próprias chaves de encriptação</a> enquanto a migração no local bases de dados que já têm ativada a encriptação de dados transparente (TDE).
-    - html: Instâncias geridas estão protegidas com <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-management-endpoint-verify-built-in-firewall">firewall interno</a>.
+    - html: Instâncias geridas estão protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -134,7 +134,7 @@ sections:
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configurar</a> VNet do Azure onde a instância gerida vai ser implementada.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validar</a> que a VNet do Azure existente pode ser usado para implementar as instâncias geridas.
     - html: Ligar ao seu com instância <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Máquina Virtual do Azure</a> ou <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">ligaçãopontoasitede</a>, ou <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicativos</a>.
-    - html: Certifique-se de que a sua base de dados pode ser migrado usando <a href="https://www.microsoft.com/download/details.aspx?id=53595">Asisstant de migração de dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Assistente de experimentação de base de dados</a>.
+    - html: Certifique-se de que a sua base de dados pode ser migrado usando <a href="https://www.microsoft.com/download/details.aspx?id=53595">Assistente de migração de dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Assistente de experimentação de base de dados</a>.
     - html: Dê aos seus bancos de dados utilizando a instância gerida <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauro nativo</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Mover seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">do Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, e relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
     - html: Aplicam-se <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">práticas recomendadas de armazenamento e considerações sobre a camada de serviços de fins gerais</a>.

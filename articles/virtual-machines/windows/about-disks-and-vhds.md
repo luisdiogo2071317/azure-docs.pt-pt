@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234719"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467973"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows do Azure
 
@@ -55,7 +55,7 @@ Pode adicionar discos de dados a uma máquina virtual em qualquer altura, ao **a
 
 Para tamanhos de pré-visualização, consulte nosso [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em que regiões estão disponíveis.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma última Recomendação: utilização TRIM com discos standard não geridos
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma recomendação último: Utilizar TRIM com discos standard não geridos
 
 Se utilizar discos não geridos-standard (HDD), deverá ativar a limitação. TRIM descartará blocos não utilizados no disco, portanto, é-lhe cobrada apenas para o armazenamento de que, na verdade, está a utilizar. Isso pode poupar nos custos se cria arquivos grandes e, em seguida, eliminá-los.
 
@@ -72,7 +72,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Nota: O suporte para a libertação começa com o Windows Server 2012 / Windows 8 e superior, consulte [nova API permite que as aplicações enviar sugestões de "Cortar e Anular mapeamento" para mídias de armazenamento](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Nota: Suporte para a libertação começa com o Windows Server 2012 / Windows 8 e superior, consulte [nova API permite que as aplicações enviar sugestões de "Cortar e Anular mapeamento" para mídias de armazenamento](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

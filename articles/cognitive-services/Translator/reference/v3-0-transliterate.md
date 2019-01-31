@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a37b069d533dc51067aba4f9d9bd87608b116ae6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967338"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466460"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API 3.0 de texto de tradutor: Translitere
+# <a name="translator-text-api-30-transliterate"></a>Texto do Translator API 3.0: Transliterate
 
 Converte texto num idioma de um script para outro script.
 
@@ -60,7 +60,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
+    <td>_Uma autorização_<br/>_header_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -72,7 +72,7 @@ Cabeçalhos de pedido incluem:
     <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
@@ -163,7 +163,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
 
 O exemplo seguinte mostra como converter duas cadeias de caracteres japoneses em Romanized japonês.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 O payload JSON para o pedido neste exemplo:
 

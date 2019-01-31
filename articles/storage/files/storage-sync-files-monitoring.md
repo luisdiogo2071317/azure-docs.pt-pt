@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 7b03860fbcfd3380b92343575e88bd9cc7be5c13
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.subservice: files
+ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199172"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467463"
 ---
-# <a name="monitor-azure-file-sync"></a>Monitorizar a sincronização de ficheiros do Azure
+# <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 

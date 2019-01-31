@@ -1,19 +1,19 @@
 ---
-title: Débito de aprovisionamento para o Azure Cosmos DB
+title: Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 description: Saiba como configurar o débito aprovisionado para os seus contentores do Azure Cosmos DB e as bases de dados.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbcfaab7dc1b716b3978f1b19870d945e0eabf89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036437"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459106"
 ---
-# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
+# <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
 Uma base de dados do Cosmos do Azure é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de contentores de esquema desconhecido. Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito e armazenamento. Um contentor é particionado horizontalmente através de um conjunto de máquinas dentro de uma região do Azure e é distribuído por todas as regiões do Azure à sua conta do Cosmos do Azure.
 

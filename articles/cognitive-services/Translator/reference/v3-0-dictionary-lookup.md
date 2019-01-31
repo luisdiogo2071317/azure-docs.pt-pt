@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b6178c4e9c197539359058347b2409210d976569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957747"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458929"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Texto do Translator API 3.0: Pesquisa de dicionário
+# <a name="translator-text-api-30-dictionary-lookup"></a>Texto do Translator API 3.0: Pesquisa no Dicionário
 
 Fornece traduções alternativas para uma palavra e um pequeno número de frases idiomático. Cada tradução tem uma parte da voz e uma lista de traduções back. As back-traduções permitem que um utilizador compreender a tradução em contexto. O [exemplo de dicionário](./v3-0-dictionary-examples.md) operação permite desagregações ainda mais a ver exemplo utiliza de cada par de tradução.
 
@@ -56,7 +56,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
+    <td>_Uma autorização_<br/>_header_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -68,7 +68,7 @@ Cabeçalhos de pedido incluem:
     <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
@@ -107,7 +107,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
         | Nome da etiqueta | Descrição  |
         |----------|--------------|
         | ADJ      | Adjetivos   |
-        | AVD      | Adverbs      |
+        | ADV      | Adverbs      |
         | CONJ     | Conjunções |
         | DET      | Determiners  |
         | MODAL    | Verbos        |
@@ -140,7 +140,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
 Este exemplo mostra como procurar traduções alternativas em espanhol do termo em inglês `fly` .
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ O corpo de resposta (abreviado para efeitos de clareza) é:
 
 Este exemplo mostra o que acontece quando o termo que está a ser pesquisado não existe para o par de dicionário válido.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
