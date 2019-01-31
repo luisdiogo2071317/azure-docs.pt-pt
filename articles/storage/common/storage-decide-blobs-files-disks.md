@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474688"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar os Blobs do Azure, ficheiros do Azure ou discos do Azure
 
@@ -48,7 +48,7 @@ A tabela seguinte compara os ficheiros do Azure com Blobs do Azure.
 |Capacidade de faturação|Com base nos bytes escritos|Com base no tamanho de ficheiro|  
 |Bibliotecas de cliente|Vários idiomas|Vários idiomas|  
   
-## <a name="comparison-files-and-disks"></a>Comparação: Ficheiros e os discos
+## <a name="comparison-files-and-disks"></a>Comparação: Ficheiros e discos
 
 Os ficheiros do Azure complementam os discos do Azure. Um disco só pode ser anexado a uma Máquina Virtual do Azure ao mesmo tempo. Os discos são armazenadas como blobs de páginas no armazenamento do Azure de VHDs de formato fixo e são utilizados pela máquina virtual para armazenar dados durável. Partilhas de ficheiros nos ficheiros do Azure podem ser acedidas da mesma forma como o disco local é acessado (ao utilizar o sistema de arquivos nativos APIs) e podem ser partilhadas entre várias máquinas virtuais.  
  
@@ -63,7 +63,7 @@ A tabela seguinte compara os ficheiros do Azure com discos do Azure.
 |Autenticação|Incorporado|Configurar com utilização net|  
 |Limpeza|Automático|Manual|  
 |Acesso com REST|Não não possível aceder a ficheiros dentro do VHD|Armazenados numa partilha de ficheiros podem ser acedidos|  
-|Tamanho máx.|4 de TiB de disco|Partilha de ficheiros do 5 TiB e 1 TiB ficheiro na partilha|  
+|Tamanho Máx|4 de TiB de disco|Partilha de ficheiros do 5 TiB e 1 TiB ficheiro na partilha|  
 |máx IOps|500 IOps|1000 IOps|  
 |Débito|Até 60 MiB/s por disco|Destino é 60 MiB/s por partilha de ficheiros (pode obter superior para tamanhos de e/s superior)|  
 

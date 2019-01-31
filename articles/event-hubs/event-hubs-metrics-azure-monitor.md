@@ -1,5 +1,5 @@
 ---
-title: Métricas no Azure Monitor (pré-visualização) - Event Hubs do Azure | Documentos da Microsoft
+title: Métricas no Azure Monitor - Hubs de eventos do Azure | Documentos da Microsoft
 description: Este artigo fornece informações sobre como utilizar a monitorização do Azure para monitorizar os Hubs de eventos do Azure
 services: event-hubs
 documentationcenter: .NET
@@ -15,14 +15,14 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 148071d71030638ddec4095ef2e33482327f3db3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537925"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299695"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Hubs de eventos do Azure no Azure Monitor (pré-visualização)
+# <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de eventos do Azure no Azure Monitor
 
 Métricas de Hubs de eventos-lhe o estado dos recursos de Hubs de eventos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral os hubs de eventos não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado dos hubs de eventos. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
 
@@ -40,7 +40,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![Ver métricas de sucesso][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (Peview)**. Para apresentar métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e, em seguida, clique em **métricas (pré-visualização)**.
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em * * métricas * *. Para apresentar métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e, em seguida, clique em **métricas**.
 
 Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensão pretendida, conforme mostrado no exemplo a seguir:
 
@@ -48,7 +48,7 @@ Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensã
 
 ## <a name="billing"></a>Faturação
 
-Uso de métricas no Azure Monitor é atualmente gratuito enquanto está em pré-visualização. No entanto, se utilizar soluções adicionais que ingerir dados de métricas, pode ser cobrado por estas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelo Azure se os transmitir dados de métricas para o Log Analytics para análise avançada.
+Uso de métricas no Azure Monitor é atualmente gratuito. No entanto, se utilizar soluções adicionais que ingerir dados de métricas, pode ser cobrado por estas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelo Azure se os transmitir dados de métricas para o Log Analytics para análise avançada.
 
 As métricas seguintes dão-lhe uma descrição geral do Estado de funcionamento do seu serviço. 
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/29/2019
+ms.date: 1/31/2019
 ms.author: victorh
-ms.openlocfilehash: 7301460014e4d547d1950c8edfbd7534d8a4c103
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101673"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461445"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)
 
@@ -53,9 +53,9 @@ Durante a pré-visualização, não existe nenhum custo associado. É-lhe cobrad
 |Modo FIPS, o WebSocket|Estes não são atualmente suportadas.|
 |Modo só de ILB|Isso não é atualmente suportado. Público e o modo ILB é suportado em conjunto.|
 |Dimensionamento automático de firewall de aplicação Web|WAF não suporta o modo de dimensionamento automático. Modo de capacidade fixo é suportado.|
+|Integração de Netwatcher|Não é suportada na pré-visualização pública.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Criar um dimensionamento automático, o gateway de aplicação com redundância de zona com um endereço IP virtual reservado com o Azure PowerShell](tutorial-autoscale-ps.md)
 - Saiba mais sobre [Gateway de aplicação](overview.md).
-- Saiba mais sobre [Firewall do Azure](../firewall/overview.md). 
-
+- Saiba mais sobre [Firewall do Azure](../firewall/overview.md).

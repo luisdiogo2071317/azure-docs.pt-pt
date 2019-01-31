@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: API de Voz do Microsoft Translator em C#'
+title: 'Tutorial: API de voz do tradutorC#'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API de Voz do Microsoft Translator para traduzir textos em tempo real.
 services: cognitive-services
 author: v-jerkin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 01e56366fc8ae0e711664d35e95ac1aacc89730f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340431"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458504"
 ---
-# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicação Tradução de Voz em C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicativo de voz de tradutor noC#
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -427,7 +427,7 @@ Após a autenticação, o método cria a instância `SpeechClient`. A classe `Sp
 
 Os dados binários são o áudio (saída de conversão de texto em voz) que o serviço envia quando o TTS está ativado. Os dados de texto são uma tradução parcial ou completa do texto falado. Assim, após a instanciação, o método prepara funções para processar essas mensagens - o áudio, ao armazená-lo para ser reproduzido mais tarde, e o texto, ao apresentá-lo na janela.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este exemplo de código é uma aplicação com muita funcionalidades que demonstra a utilização da API de Voz do Microsoft Translator. Assim, é necessário compreender um número considerável de coisas. Percorreu as mais importantes. Quanto às restantes, pode ser instrutivo definir alguns pontos de interrupção no Visual Studio e seguir o processo de tradução. Quando compreender a aplicação de exemplo, estará preparado para utilizar o serviço Tradução de Voz nas suas aplicações.
 

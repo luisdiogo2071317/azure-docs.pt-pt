@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077392"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456022"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
@@ -73,6 +73,11 @@ Para instalar o agente num computador Linux:
 
 [Saiba mais](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) sobre a lista de suporte de sistemas operativos Linux por MMA.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Instalar o agente num computador monitorizado pelo SCOM
+
+Para computadores monitorizados pelo System Center Operations Manager 2012 R2 ou posterior, não é necessário para instalar o agente MMA. Mapa de serviço tem uma integração com SCOM que aproveita o MMA do SCOM para recolher os dados de dependência necessária. Pode ativar a integração com a orientação de utilização [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). No entanto, observe que o agente de dependência tem instalado nessas máquinas.
+
+
 ### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 1. Para instalar o agente de dependência num computador Windows, clique duas vezes o ficheiro de configuração e siga o assistente.
 2. Para instalar o agente de dependência numa máquina Linux, instale como raiz com o seguinte comando:
@@ -82,6 +87,7 @@ Para instalar o agente num computador Linux:
 Saiba mais sobre o suporte de agente de dependência para o [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) sistemas operativos.
 
 [Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como pode utilizar scripts para instalar o agente de dependência.
+
 
 ## <a name="create-a-group"></a>Criar um grupo
 
@@ -115,7 +121,7 @@ Assim que o grupo for criado, recomenda-se para instalar agentes em todas as má
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Dados de dependência de consulta do Log Analytics
 
-Dados de dependência capturados pelo mapa de serviço estão disponíveis para a consulta do Log Analytics. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
+Dados de dependência capturados pelo mapa de serviço estão disponíveis para consulta na área de trabalho do Log Analytics associada ao projeto do Azure Migrate. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
 
 Para executar as consultas do Log Analytics:
 

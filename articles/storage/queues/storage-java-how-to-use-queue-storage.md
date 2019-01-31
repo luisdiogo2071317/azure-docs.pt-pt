@@ -9,13 +9,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: queues
-ms.openlocfilehash: 594407ac5f5dc012ab542cedc6393b702fa31804
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: bec1632199e59994831efe4af583617b01374c53
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525404"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473804"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "39525404"
 ## <a name="overview"></a>Descrição geral
 Este guia irá mostrar como realizar cenários comuns utilizando o serviço de armazenamento de filas do Azure. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem **inserindo**, **observação**, **introdução**, e **a eliminar** fila de mensagens, que  **criando** e **eliminar** filas. Para obter mais informações sobre as filas, consulte a [próximos passos](#Next-Steps) secção.
 
-Nota: Um SDK está disponível para os desenvolvedores que estão a utilizar o armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
+Nota: Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -66,8 +66,8 @@ String storageConnectionString =
 
 Os exemplos seguintes partem do princípio de que utiliza um destes dois métodos para obter a cadeia de ligação de armazenamento.
 
-## <a name="how-to-create-a-queue"></a>Como: criar uma fila
-R **CloudQueueClient** objeto permite-lhe obter objetos de referência para filas. O código seguinte cria um **CloudQueueClient** objeto. (Nota: existem outras formas de criar **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** no [Azure Storage Client SDK Reference].)
+## <a name="how-to-create-a-queue"></a>Como: Criar uma fila
+R **CloudQueueClient** objeto permite-lhe obter objetos de referência para filas. O código seguinte cria um **CloudQueueClient** objeto. (Nota: Existem outras formas de criar **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** no [Azure Storage Client SDK Reference].)
 
 Utilizar o **CloudQueueClient** objeto para obter uma referência para a fila que pretende utilizar. Se não existir, é possível criar a fila.
 
@@ -94,7 +94,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Como: adicionar uma mensagem numa fila
+## <a name="how-to-add-a-message-to-a-queue"></a>Como: Adicione uma mensagem numa fila
 Para introduzir uma mensagem numa fila existente, primeiro crie um novo **CloudQueueMessage**. Em seguida, chame o **addMessage** método. R **CloudQueueMessage** podem ser criados a partir de uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes. Eis o código que cria uma fila (se não existir) e insere a mensagem "Olá, mundo".
 
 ```java
@@ -124,7 +124,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Como: pré-visualizar a mensagem seguinte
+## <a name="how-to-peek-at-the-next-message"></a>Como: Pré-visualização da mensagem seguinte
 Pode pré-visualizar a mensagem no início de uma fila sem a remover da fila chamando **peekMessage**.
 
 ```java
@@ -156,7 +156,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar os conteúdos de uma mensagem em fila
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: Alterar os conteúdos de uma mensagem em fila
 Pode alterar os conteúdos de uma mensagem no local na fila de espera. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O seguinte código atualiza a mensagem de filas com novos conteúdos e expande o tempo limite de visibilidade em 60 segundos. Isto guarda o estado do trabalho associado à mensagem e atribui ao cliente outro minuto para continuar a trabalhar na mensagem. Pode utilizar esta técnica para controlar fluxos de trabalho de vários passos em mensagens de filas, sem ser necessário recomeçar do início se falhar um passo de processamento devido a uma falha de hardware ou software. Normalmente, também manteria uma contagem de tentativas e se a mensagem for repetida mais do que *n* vezes, deveria eliminá-la. Esta ação protege contra uma mensagem que aciona um erro da aplicação sempre que é processada.
 
 As pesquisas de exemplo de código seguintes através da fila de mensagens, localiza a primeira mensagem que corresponde a "Olá, mundo" para o conteúdo, em seguida, modifica a conteúdo de mensagem e é encerrado.
@@ -239,7 +239,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Como: obter o comprimento da fila
+## <a name="how-to-get-the-queue-length"></a>Como: Obter o comprimento da fila
 Pode obter uma estimativa do número de mensagens numa fila. O **downloadAttributes** método pede ao serviço de fila para vários valores atuais, incluindo uma contagem de quantas mensagens estão numa fila. A contagem é apenas aproximada, porque as mensagens podem ser adicionadas ou removidas depois do serviço de fila responde ao seu pedido. O **getApproximateMessageCount** método retorna o último valor obtido pela chamada para **downloadAttributes**, sem chamar o serviço de fila.
 
 ```java
@@ -271,7 +271,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Como: remover da fila a mensagem seguinte
+## <a name="how-to-dequeue-the-next-message"></a>Como: Remover da fila a mensagem seguinte
 O código de retira da fila em dois passos. Quando chama **retrieveMessage**, obterá a seguinte mensagem numa fila. Uma mensagem devolvida por **retrieveMessage** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para concluir a remover a mensagem da fila, também tem de chamar **deleteMessage**. Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. A código chama **deleteMessage** imediatamente após a mensagem foi processada.
 
 ```java
@@ -335,7 +335,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Como: listar as filas
+## <a name="how-to-list-the-queues"></a>Como: Listar as filas
 Para obter uma lista das filas atuais, chame o **CloudQueueClient.listQueues()** método, que irá devolver uma coleção de **CloudQueue** objetos.
 
 ```java
@@ -363,7 +363,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Como: eliminar uma fila
+## <a name="how-to-delete-a-queue"></a>Como: Eliminar uma fila
 Para eliminar uma fila e todas as mensagens contidas no mesmo, chame o **deleteIfExists** método no **CloudQueue** objeto.
 
 ```java

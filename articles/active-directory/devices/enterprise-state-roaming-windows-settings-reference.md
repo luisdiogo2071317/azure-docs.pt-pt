@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 6698aa7e16b351190f9a5cdde62766cf5d7e1809
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095996"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300239"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidas ou uma cópia de segurança no Windows 10. 
@@ -50,15 +50,15 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 * Outras definições do Windows: veja os detalhes de definições do Windows
 * Definição do browser Microsoft Edge: Favoritos do Microsoft Edge, lista de leitura e outras definições
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Sincronizar as definições](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Sincronização de grupo (Favoritos, lista de leitura) de definição de browser Microsoft Edge pode ser ativado ou desativado pelos usuários finais através do browser Microsoft Edge opção de menu de definições.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Conta](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 Para Windows 10 versão 1803 ou posterior, Internet Explorer grupo de definições (Favoritos, digitado URLs) a sincronização pode ser ativada ou desabilitada pelos usuários finais por meio da opção de menu de configurações do Internet Explorer. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Definições](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Detalhes das definições do Windows
 Na tabela a seguir, outras entradas na coluna grupo de definições de refere-se às definições que podem ser desativadas acedendo às definições > contas > sincronizar as definições > definições Other Windows. 

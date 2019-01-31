@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: genli
-ms.openlocfilehash: e018cbf0c71a9acf76e60f38aff1aa1ba8a81516
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229316"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296043"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é o endereço IP 168.63.129.16?
 
@@ -35,8 +35,7 @@ Endereço IP 168.63.129.16 é um endereço IP público virtual que será utiliza
 
 Endereço IP público 168.63.129.16 virtual é utilizado em todas as regiões e todas as clouds nacionais. Este endereço IP público especial não será alterado. É permitido pela regra do grupo de segurança de rede padrão. Recomendamos que permite que este endereço IP em todas as políticas de local firewall. A comunicação entre este endereço IP especial e os recursos é segura porque apenas a plataforma do Azure interna pode obter uma mensagem a partir deste endereço IP. Se este endereço é bloqueado, pode ocorrer um comportamento inesperado numa variedade de cenários.
 
-Além disso, tráfegos de IP público virtual abordar 168.63.129.16 para o ponto de extremidade configurados para uma [sonda de estado de funcionamento do Balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md) não devem ser considerados como tráfego de ataque. Num cenário de rede não virtuais, a sonda de estado de funcionamento é obtida a partir de um IP privado.
-
+Além disso, pode esperar que o tráfego para o fluxo a partir do endereço IP público 168.63.129.16 virtual para o ponto final que está configurado para um [sonda de estado de funcionamento do Balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Num cenário de rede não virtuais, a sonda de estado de funcionamento é obtida a partir de um IP privado. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

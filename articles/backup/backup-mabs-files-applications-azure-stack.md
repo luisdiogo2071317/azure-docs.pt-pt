@@ -2,18 +2,18 @@
 title: Fazer uma cópia de segurança de ficheiros no Azure Stack das VMs
 description: Utilize o Azure Backup para fazer cópias de segurança e recuperar ficheiros do Azure Stack e aplicativos para o seu ambiente do Azure Stack.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579209"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301480"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Fazer uma cópia de segurança de ficheiros no Azure Stack
 Pode utilizar o Azure Backup para proteger (ou criar cópias de segurança) ficheiros e aplicações no Azure Stack. Para fazer uma cópia de segurança de ficheiros e aplicações, instale o Microsoft Azure Backup Server como uma máquina virtual em execução no Azure Stack. Pode proteger os ficheiros em qualquer servidor do Azure Stack na mesma rede virtual. Assim que tiver instalado o servidor de cópia de segurança do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para os dados de cópia de segurança de curta duração. O servidor de cópia de segurança do Azure utiliza o armazenamento do Azure para retenção a longo prazo.
@@ -55,7 +55,7 @@ Para configurar o servidor de cópia de segurança do Azure para proteger fichei
 
     ![Abre o Assistente de novo grupo de proteção](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Para selecionar **pretendo proteção online**, primeiro tem de selecionar **pretendo proteção curto prazo utilizando:** disco. O Azure Backup Server não protege em banda, para que o disco é a única opção para proteção de curta duração.
+    Para selecionar **pretendo proteção online**, tem de selecionar primeiro **pretendo proteção curto prazo utilizando:** Disco. O Azure Backup Server não protege em banda, para que o disco é a única opção para proteção de curta duração.
 
 5. Na **especificar objetivos a curto prazo** ecrã, selecione o período de tempo reter os pontos de recuperação salvos em disco e quando guardar cópias de segurança incrementais. Clique em **Seguinte**.
 

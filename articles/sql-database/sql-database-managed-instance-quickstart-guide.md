@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8eb6d483b9e7a92b50a269e5efbc8ca55946931
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 77deed43c106a451d3de768989233c749e1280e1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468177"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerida da base de dados SQL do Azure
 
-[O Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) é totalmente gerido de PaaS de versão do SQL Server alojado na cloud do Azure e colocada na sua própria VNet com o endereço IP privado. Nesta seção, aprenderá como configurar rapidamente e criar instância gerida e migrar as suas bases de dados.
+[O Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) é totalmente gerido de PaaS de versão do SQL Server alojado na cloud do Azure e colocada na sua própria VNet com o endereço IP privado. Nesta seção, aprenderá como configurar rapidamente e criar instância gerida e migrar as suas bases de dados.
 
 ## <a name="quickstart-overview"></a>Descrição geral do guia de introdução
 
@@ -30,6 +30,7 @@ Nesta secção, irá ver uma descrição geral dos artigos disponíveis que pode
 Se tem sua própria rede que pretende utilizar ou se pretender personalizar a rede, consulte como [configurar o ambiente de rede](#configure-network-environment) para a instância gerida.
 
 Ao criar a sua instância gerida, terá de ligar à instância utilizando uma das abordagens seguintes:
+
 * Crie [Máquina Virtual do Azure](sql-database-managed-instance-configure-vm.md) com instalado o SQL Server Management Studio e outras aplicações que podem ser utilizadas para aceder à sua instância gerida numa sub-rede na mesma VNet onde a sua instância gerida está colocada. VM não pode estar na mesma sub-rede com as instâncias geridas.
 * Configurar [ligaçãopontoasitede](sql-database-managed-instance-configure-p2s.md) no seu computador que irá permitir-lhe associar o seu computador para a VNet onde a instância gerida é colocada e utilizar a instância gerida de qualquer outro SQL Server na sua rede.
 

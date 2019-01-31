@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
-ms.component: common
-ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.subservice: common
+ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212503"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467123"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferir dados com v10 o AzCopy (pré-visualização)
 
@@ -21,7 +21,7 @@ AzCopy v10 (pré-visualização) é o utilitário de linha de comando da próxim
 
 ## <a name="whats-new-in-azcopy-v10"></a>O que há de novo no AzCopy v10
 
-- Sincronize um sistema de arquivos para BLOBs do Azure e vice-versa. Utilize `azcopy sync <source> <destination>`. Ideal para cenários de cópia incremental.
+- Sincronize um sistema de arquivos para BLOBs do Azure e vice-versa. Use `azcopy sync <source> <destination>`. Ideal para cenários de cópia incremental.
 - Oferece suporte a APIs de geração 2 de Lake armazenamento de dados do Azure. Utilize `myaccount.dfs.core.windows.net` como um URI para chamar as APIs de geração 2 do ADLS.
 - Suporta a copiar de uma conta de toda (serviço de BLOBs apenas) para outra conta.
 - Conta para cópia de conta agora está a utilizar a nova [colocar a partir do URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs. Nenhuma transferência de dados para o cliente é necessário que torna a transferência com mais rapidez!

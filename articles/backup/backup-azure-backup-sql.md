@@ -2,18 +2,18 @@
 title: Azure Backup para cargas de trabalho do SQL com o DPM
 description: Uma introdução ao backup bancos de dados do SQL Server com o serviço de cópia de segurança do Azure
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945659"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300698"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Criar cópias de segurança do SQL Server para o Azure como uma carga de trabalho do DPM
 Este artigo orienta-o através dos passos de configuração para cópia de segurança de bases de dados do SQL Server com cópia de segurança do Azure.
@@ -68,7 +68,7 @@ Antes de começar, certifique-se de que todos os [pré-requisitos](backup-azure-
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
-    A cópia de segurança inicial requer transferência da origem de dados inteiro (base de dados do SQL Server) de servidor de produção (máquina do SQL Server) para o servidor do DPM. Estes dados podem ser grandes e transferência de dados através da rede poderá exceder a largura de banda. Por esse motivo, os administradores podem optar transferir a cópia de segurança inicial: **manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda, ou **automaticamente através da rede** (numa hora específica).
+    A cópia de segurança inicial requer transferência da origem de dados inteiro (base de dados do SQL Server) de servidor de produção (máquina do SQL Server) para o servidor do DPM. Estes dados podem ser grandes e transferência de dados através da rede poderá exceder a largura de banda. Por esse motivo, os administradores podem optar transferir a cópia de segurança inicial: **Manualmente** (usando mídia removível) para evitar o congestionamento de largura de banda, ou **automaticamente através da rede** (numa hora específica).
 
     Quando a cópia de segurança inicial estiver concluída, o restante das cópias de segurança são cópias de segurança incrementais em cópia de segurança inicial. Cópias de segurança incrementais tendem a ser pequeno e são facilmente transferidas através da rede.
 10. Escolha quando pretende que a verificação de consistência para executar e clique em **seguinte**.

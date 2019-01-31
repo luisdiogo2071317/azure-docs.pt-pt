@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830010"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458130"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da base de SQL do Azure multi-inquilino em partição horizontal em aplicações SaaS multi-inquilino de
 
@@ -161,7 +161,7 @@ Se já tiver aprovisionado um novo inquilino na sua própria base de dados, igno
 
 O script irá aprovisionar este inquilino numa base de dados separado, registar a base de dados e o inquilino no catálogo e, em seguida, abra a página de eventos do inquilino no browser. Atualize a página de Hub de eventos e verá "Salix Salsa" foi adicionado como um local.
 
-## <a name="manage-performance-of-a-single-database"></a>Gerir o desempenho de uma base de dados
+## <a name="manage-performance-of-an-individual-database"></a>Gerir o desempenho de uma base de dados individual
 
 Se um único inquilino dentro de uma base de dados do multi-inquilino sofrer uma carga elevada constante, poderá ter tendência para dominar os recursos de base de dados e afetar outros inquilinos na mesma base de dados. Se a atividade é provável que continue durante algum tempo, o inquilino pode ser movido temporariamente fora da base de dados e em seu próprio banco de dados de inquilino único. Isso permite que o inquilino tenha os recursos extras que necessita e totalmente isola-a partir de outros inquilinos.
 

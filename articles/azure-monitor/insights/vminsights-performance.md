@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186993"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464301"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como desempenho gráfico com o Azure Monitor para VMs (pré-visualização)
 Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores chave de desempenho (KPIs) para ajudar a determinar a forma como uma máquina virtual está a efetuar. Os gráficos mostram a utilização de recursos durante um período de tempo para que possa identificar estrangulamentos de anomalias, ou mudar para um ponto de vista listagem cada máquina para ver a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com desempenho, Monitor do Azure para VMs se concentra no sistema operativo, conforme apresentado através do processador, memória, placas de rede e discos. Complementa a funcionalidade de monitorização de estado de funcionamento de desempenho e ajuda a expor problemas que indiquem uma falha de componente do sistema possíveis, ajuste de suporte e a otimização para alcançar a eficiência ou suportar o planeamento de capacidade.  
@@ -102,8 +102,8 @@ São fornecidos os seguintes gráficos de utilização de capacidade:
 
 ![VM insights desempenho diretamente a partir da VM ver](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>Gestão de alerta e alerta 
-Métricas de desempenho ativadas como parte do Azure Monitor para VMs não incluem as regras de alerta pré-configurado. Embora haja [alertas de estado de funcionamento](vminsights-health.md#alerting-and-alert-management) correspondentes a problemas de desempenho detetados na sua VM do Azure, como alta utilização da CPU, pouca memória disponível, disco e/s, espaço insuficiente no disco, etc., estes alertas de estado de funcionamento só são aplicadas a todas as VMs ligado à área de trabalho do Log Analytics mesmo ativada para o Azure Monitor para as VMs. 
+## <a name="alerts"></a>Alertas 
+Métricas de desempenho ativadas como parte do Azure Monitor para VMs não incluem as regras de alerta pré-configurado. Embora haja [alertas de estado de funcionamento](vminsights-health.md#alerts) correspondentes a problemas de desempenho detetados na sua VM do Azure, como alta utilização da CPU, pouca memória disponível, disco e/s, espaço insuficiente no disco, etc., estes alertas de estado de funcionamento só são aplicadas a todas as VMs ligado à área de trabalho do Log Analytics mesmo ativada para o Azure Monitor para as VMs. 
 
 No entanto, podemos pode apenas recolher e armazenar um subconjunto das métricas de desempenho que necessita na área de trabalho do Log Analytics. Se a sua estratégia de monitorização requer a análise ou alertas que incluem outras métricas de desempenho para avaliar efetivamente capacidade ou estado de funcionamento da máquina virtual, ou tem a flexibilidade para especificar seus próprios critérios ou lógica de alerta, pode configurar [coleção dos contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) no Log Analytics e definir [alertas de registo](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json). Embora o Log Analytics permite-lhe efetuar análises complexas com outros tipos de dados e fornecer uma retenção mais longa para suportar a análise de tendências, métricas por outro lado, são leves e com capacidade de oferecer suporte a cenários em tempo real em tempo quase. Eles são coletados pela [agente do diagnóstico do Azure](../../virtual-machines/windows/monitor.md) e armazenado no arquivo de métricas do Azure Monitor, permitindo-lhe criar alertas com menor latência e a um custo menor.
 

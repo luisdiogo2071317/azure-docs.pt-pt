@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384127"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457178"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do serviço de armazenamento do Azure para dados Inativos
 Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para Managed Disks do Azure, armazenamento de Blobs do Azure, filas ou tabelas ou ficheiros do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.

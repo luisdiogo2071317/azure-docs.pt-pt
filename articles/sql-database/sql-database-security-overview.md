@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250777"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462023"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -45,7 +45,7 @@ Regras de firewall do IP concedem acesso a bancos de dados com base no endereço
 ## <a name="access-management"></a>Gestão de acesso
 
 > [!IMPORTANT]
-> A gestão de bases de dados e servidores lógicos no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
+> Gestão de bases de dados e servidores de base de dados no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autenticação
 
@@ -53,7 +53,7 @@ A autenticação é o processo de comprovar o usuário é quem eles alegam ser. 
 
 - **Autenticação do SQL**:
 
-    Autenticação do SQL da base de dados refere-se para a autenticação de um utilizador quando se liga ao [base de dados do Azure SQL](sql-database-technical-overview.md) com o nome de utilizador e palavra-passe. Durante a criação do servidor lógico da base de dados, tem de ser especificado um início de sessão "Administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, um "administrador do servidor" pode autenticar qualquer base de dados nesse servidor lógico como o proprietário da base de dados. Depois disso, os utilizadores e inícios de sessão do SQL adicionais podem ser criados pelo administrador do servidor, que permitem aos utilizadores ligar com o nome de utilizador e palavra-passe.
+    Autenticação do SQL da base de dados refere-se para a autenticação de um utilizador quando se liga ao [base de dados do Azure SQL](sql-database-technical-overview.md) com o nome de utilizador e palavra-passe. Durante a criação de servidor de base de dados para a base de dados, tem de ser especificado um início de sessão "Administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, um "administrador do servidor" pode autenticar qualquer base de dados nesse servidor de base de dados como o proprietário da base de dados. Depois disso, os utilizadores e inícios de sessão do SQL adicionais podem ser criados pelo administrador do servidor, que permitem aos utilizadores ligar com o nome de utilizador e palavra-passe.
 
 - **O Azure Active Directory Authentication**:
 
@@ -63,7 +63,8 @@ A autenticação é o processo de comprovar o usuário é quem eles alegam ser. 
 
     Adicionais estão disponíveis as opções de autenticação do Azure AD [Active Directory Universal Authentication para o SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) ligações incluindo [multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) e [ Acesso condicional](sql-database-conditional-access.md).
 
-### <a name="authorization"></a>Autorização
+> [!IMPORTANT]
+> Gestão de bases de dados e servidores no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md). Controlar o acesso com regras de firewall faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure**. Veja o seguinte artigo sobre [ligar a uma instância gerida](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
 
 Autorização refere-se para as permissões atribuídas para um utilizador na base de dados SQL do Azure e determina o que o utilizador tem permissão para fazer. As permissões são controladas através da adição de contas de utilizador ao [funções de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles) que define permissões ao nível da base de dados ou conceder ao usuário determinado [ao nível do objeto permissões](/sql/relational-databases/security/permissions-database-engine). Para obter mais informações, consulte [inícios de sessão e utilizadores](sql-database-manage-logins.md)
 
@@ -75,7 +76,7 @@ Segurança ao nível da linha permite aos clientes controlar o acesso às linhas
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-### <a name="permissions"></a>Permissões
+  Este método de autenticação utiliza um nome de utilizador e palavra-passe. 
 
 Para uma descrição geral de permissões na base de dados do Azure SQL, consulte [inícios de sessão e utilizadores](sql-database-manage-logins.md#permissions)
 

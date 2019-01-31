@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136766"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475563"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um colaborador individual no Team Data Science Process
 
@@ -37,15 +37,15 @@ Para obter instruções sobre como executar um projeto de ciência de dados em T
 
 Este tutorial utiliza nomes abreviados para repositórios e diretórios. Esses nomes tornam mais fáceis de compreender as operações entre os repositórios e diretórios. Este notação (**R** repositórios do Git e **1!d** para diretórios locais na sua DSVM) é usado nas seções a seguir:
 
-- **R2**: GroupUtilities o repositório no Git que seu gerente de grupo tenha configurado no seu servidor de grupo do Azure DevOps.
-- **R4**: TeamUtilities o repositório no Git que configurou seu chefe de equipe.
-- **R5**: repositório do projeto no Git que foi configurado pelo seu líder de projeto.
+- **R2**: O repositório de GroupUtilities no Git que seu gerente de grupo tenha configurado no seu servidor de grupo do Azure DevOps.
+- **R4**: O repositório de TeamUtilities no Git que configurou seu chefe de equipe.
+- **R5**: O repositório do projeto no Git que foi configurado pelo seu líder de projeto.
 - **D2**: O diretório de local clonado a partir do R2.
 - **D4**: O diretório de local clonar a partir R4.
 - **D5**: O diretório de local clonar a partir R5.
 
 
-## <a name="step-0-prerequisites"></a>Passo-0: pré-requisitos
+## <a name="step-0-prerequisites"></a>Passo-0: Pré-requisitos
 
 Os pré-requisitos são cumpridos ao concluir as tarefas atribuídas para o seu Gestor de grupo descrita [tarefas de Gestor de grupo para uma equipa de ciência de dados](group-manager-tasks.md). Para resumir aqui, os seguintes requisitos tem de ser cumpridos antes de iniciar as tarefas de líder de equipe: 
 - O Gestor de grupo tiver configurado a **GroupUtilities** repositório (se houver). 
@@ -60,7 +60,7 @@ A segunda **TeamUtilities** repositório, pré-requisitos é opcional, dependend
 - Se estiver a utilizar **DSVM do Linux**, crie uma chave pública SSH na sua DSVM e adicioná-lo aos seus serviços de DevOps do Azure de grupo. Para obter mais informações sobre o SSH, consulte a **criar chave pública SSH** secção a [apêndice de ferramentas e plataformas](platforms-and-tools.md#appendix). 
 - Se o líder de equipe e/ou projeto tiver criado algum armazenamento de ficheiros do Azure que precisa montar à sua DSVM, deve obter as informações de armazenamento de ficheiros do Azure dos mesmos. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passo 1-3: clonar o grupo, a equipe e repositórios de projeto para o computador local
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passo 1 a 3: Grupo de clone, a equipe e repositórios de projeto para o computador local
 
 Esta secção fornece instruções sobre como concluir as três primeiras tarefas de colaboradores individuais do projeto: 
 
@@ -96,7 +96,7 @@ Confirme que vê as três pastas no seu diretório do projeto.
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Passo 4-5: armazenamento de ficheiros do Azure de montagem à sua DSVM (opcional)
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Passo 4-5: Armazenamento de ficheiros do Azure de montagem à sua DSVM (opcional)
 
 Para armazenamento de ficheiros do Azure de montagem à sua DSVM, consulte as instruções na secção 4 do [tarefas de líder de equipe para uma equipa de ciência de dados](team-lead-tasks.md)
 

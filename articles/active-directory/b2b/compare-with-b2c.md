@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/15/2017
+ms.date: 01/30/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1580171c0e363da9407c2f5f5bf4da7736119a39
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4ec9a891777cc8d33b1256a8eb68ea814563b8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074994"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471101"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar a colaboração B2B e o B2C no Azure Active Directory
 
@@ -32,7 +32,7 @@ Capacidades da colaboração B2B |     Oferta autónoma do Azure AD B2C
 -------- | --------
 Se destina a: Organizações que pretendem conseguir autenticar os utilizadores de uma organização de parceiro, independentemente do fornecedor de identidade. | Se destina a: Convidar os clientes do seu dispositivo móvel e aplicações web, se pessoas, os clientes institucionais ou organizacionais para o Azure AD.
 Suportada de identidades: Funcionários com o trabalho ou escola contas, parceiros com contas escolares ou profissionais ou qualquer endereço de e-mail. Em breve, irá suportar a federação direta.  | Suportada de identidades: Os utilizadores com contas de aplicação local (qualquer e-mail endereço ou nome de utilizador) ou qualquer suporte a identidade de redes sociais com a Federação direta.
-O diretório em que os usuários de parceiros estão na: Utilizadores de parceiros da organização externo são geridos no mesmo diretório que os funcionários, mas especialmente anotados. Estes podem ser geridos da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante  | O diretório as entidades de utilizador do cliente estão em: No diretório da aplicação. Gerido separadamente a partir do diretório de funcionários e parceiros da organização (se existir).
+Utilizadores externos são geridos no mesmo diretório que os funcionários, mas especialmente anotados. Podem ser geridos da mesma forma que os funcionários, eles podem ser adicionados aos mesmos grupos e assim por diante  | Utilizadores externos são geridos no diretório da aplicação. Que sejam geridos em separado do funcionário e diretório de parceiros (se houver) da organização.
 É suportado o início de sessão único (SSO) para todas as aplicações ligadas ao Microsoft Azure AD. Por exemplo, pode conceder acesso ao Office 365 ou às aplicações no local e a outras aplicações SaaS, como o Salesforce ou Workday.  |  É suportado o SSO em aplicações pertencentes aos cliente nos inquilinos do Azure AD B2C. O SSO no Office 365 ou outras aplicações SaaS da Microsoft e que não são da Microsoft não são suportados.
 Ciclo de vida de parceiro: Gerido pelo anfitrião/convidar organização.  | Ciclo de vida do cliente: Self-Service ou gerenciado pela aplicação.
 Política de segurança e conformidade: Gerido pelo anfitrião/convidar organização (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Política de segurança e conformidade: Geridos pela aplicação.

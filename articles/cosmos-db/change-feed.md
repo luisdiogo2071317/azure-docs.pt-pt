@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 011bb74a10b12c5170579d3b4c507fcfe0fc01b1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040732"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452265"
 ---
-# <a name="change-feed-in-azure-cosmos-db"></a>Alterar feed no Azure Cosmos DB
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed no Azure Cosmos DB - descrição geral
 
 Altere feed de suporte no Azure Cosmos DB funciona através da escuta de um contentor do Azure Cosmos DB para efetuar quaisquer alterações. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. As alterações são preservadas, podem ser processadas de forma assíncrona e incremental, e o resultado pode ser distribuído por um ou mais consumidores para processamento paralelo. 
 

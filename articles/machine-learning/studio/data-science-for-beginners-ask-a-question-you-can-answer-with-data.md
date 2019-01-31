@@ -1,6 +1,6 @@
 ---
-title: Peça que uma data de pergunta pode responder titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda a formular uma pergunta de ciência de dados pequenos em ciência de dados para principiantes 3 vídeo. Inclui uma comparação das perguntas sobre classificação e regressão.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Peça que uma data de pergunta pode responder titleSuffix: Descrição do Azure Machine Learning Studio: Aprenda a formular uma pergunta de ciência de dados pequenos em ciência de dados para principiantes 3 vídeo. Inclui uma comparação das perguntas sobre classificação e regressão.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---

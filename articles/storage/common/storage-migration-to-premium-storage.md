@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.component: common
-ms.openlocfilehash: c9e9dd0eab127fcb0deb3085915bd51eeb309089
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: d42183e1db49850afc115fcb5645baf7290cf3c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632845"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477608"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -180,9 +180,9 @@ Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependen
     Aqui estão as descrições dos parâmetros utilizados no comando do AzCopy:
 
    * **/ Origem:  *&lt;origem&gt;:*** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
-   * **/ SourceKey:  *&lt;chave da conta de origem&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
    * **/ Dest:  *&lt;destino&gt;:*** URL do contentor de armazenamento para copiar o VHD.
-   * **/ DestKey:  *&lt;chave da conta de dest&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
    * **/ Padrão:  *&lt;nome de ficheiro&gt;:*** Especifique o nome de ficheiro do VHD para copiar.
 
 Para obter detalhes sobre como utilizar o AzCopy ferramenta, consulte [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md).
@@ -277,10 +277,10 @@ Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependen
     Aqui estão as descrições dos parâmetros utilizados no comando do AzCopy:
 
    * **/ Origem:  *&lt;origem&gt;:*** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
-   * **/ SourceKey:  *&lt;chave da conta de origem&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
    * **/ Dest:  *&lt;destino&gt;:*** URL do contentor de armazenamento para copiar o VHD.
-   * **/ DestKey:  *&lt;chave da conta de dest&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
-   * **/ BlobType: página:** Especifica que o destino é um blob de página.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
+   * **/BlobType: page:** Especifica que o destino é um blob de página.
    * **/ Padrão:  *&lt;nome de ficheiro&gt;:*** Especifique o nome de ficheiro do VHD para copiar.
 
 Para obter detalhes sobre como utilizar o AzCopy ferramenta, consulte [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md).
@@ -765,7 +765,7 @@ Além disso, consulte os seguintes recursos para saber mais sobre o armazenament
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../../virtual-machines/windows/premium-storage.md)
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads (Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure)](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

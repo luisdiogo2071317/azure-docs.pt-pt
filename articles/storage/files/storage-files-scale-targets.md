@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 277c570079e8c3f051916452492ff62758688e03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159171"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454866"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo aborda os destinos de escalabilidade e desempenho para ficheiros do Azure e Azure File Sync.
@@ -59,7 +59,7 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 |-|-|
 | Número de objetos | 10 milhões de objetos | 
 | Tamanho do conjunto de dados| ~ 4 TiB |
-| Tamanho do arquivo média | ~ 500 KiB (maior arquivo: 100 giB) |
+| Tamanho do arquivo média | ~ 500 KiB (maior arquivo: 100 GiB) |
 | Carregar o débito | 20 objetos por segundo |
 | Espaço de nomes Download débito * | 400 objetos por segundo |
  

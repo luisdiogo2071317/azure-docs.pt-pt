@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: c2b2ba0e238887531297f6ac2a486d42d885794d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475191"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento de AD do Azure
 
@@ -50,7 +50,7 @@ Página de reposição de leitura, os seguintes passos para saber mais sobre a l
        * Se os métodos de autenticação não estiverem configurados, o utilizador recomenda que contacte o seu administrador para repor a palavra-passe.
      * Se a política requer dois métodos, em seguida, ele garante que o utilizador tem os dados apropriados definidos para, pelo menos, dois dos métodos de autenticação ativados pela política de administrador.
        * Se os métodos de autenticação não estiverem configurados, o utilizador recomenda que contacte o seu administrador para repor a palavra-passe.
-     * Se uma função de administrador do Azure é atribuída ao utilizador a política de palavra-passe de porta de dois segura é imposta. Obter mais informações sobre esta política podem ser encontradas na seção [diferenças de política de reposição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+     * Se uma função de administrador do Azure é atribuída ao utilizador, a política de palavra-passe de porta de dois segura é imposta. Obter mais informações sobre esta política podem ser encontradas na seção [diferenças de política de reposição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Verifica se a senha do usuário é gerida no local (autenticação federada de pass-through ou sincronizados de hash de palavra-passe).
      * Se a repetição de escrita é implementada e a senha do usuário é geridos no local, em seguida, o utilizador tem permissão para continuar para autenticar e repor a palavra-passe.
      * Se a repetição de escrita não estiver implementada e a senha do usuário é geridos no local, é pedido ao utilizador que contacte o seu administrador para repor a palavra-passe.
@@ -84,7 +84,7 @@ Se um utilizador não tem os métodos necessários mínimos registados, verão u
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicação móvel e SSPR (pré-visualização)
 
-Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticator, como um método para a reposição de palavra-passe, deve ter em atenção o seguinte:
+Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticator, como um método para a reposição de palavra-passe, deve ter em consideração os seguintes avisos:
 
 * Quando os administradores necessitam de um método a ser utilizado para repor uma palavra-passe, o código de verificação é a única opção disponível.
 * Quando os administradores necessitam de dois métodos a ser utilizado para repor uma palavra-passe, os utilizadores conseguem utilizar **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
@@ -119,7 +119,7 @@ Exemplo:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Exigir que os utilizadores se registem quando iniciam sessão
 
-Ativar esta opção requer que um utilizador concluir o registo de reposição de palavra-passe, iniciar sessão todas as aplicações com o Azure AD. Isto inclui as seguintes aplicações:
+Ativar esta opção requer que um utilizador concluir o registo de reposição de palavra-passe, iniciar sessão todas as aplicações com o Azure AD. Este fluxo de trabalho inclui as seguintes aplicações:
 
 * Office 365
 * Portal do Azure
@@ -132,7 +132,7 @@ Quando a necessidade de registo está desativada, os utilizadores podem registar
 > [!NOTE]
 > Os utilizadores podem dispensar o portal de registo de reposição de palavra-passe, selecionando **Cancelar** ou se fechar a janela. Mas, são-lhe pedido para se registar cada vez que iniciar sessão até que sejam concluídas seu registro.
 >
-> Tal não interromper a ligação do usuário se eles já tiver iniciados sessão.
+> Este interrupção não interromper a ligação do utilizador que já estejam assinados.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Definir o número de dias antes de ser pedido aos utilizadores que voltem as informações de autenticação a
 
@@ -169,7 +169,7 @@ Esta página fornece um rápido status do cliente de repetição de escrita no l
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Gravar palavras-passe no seu diretório no local
 
-Esse controle determina se a repetição de escrita de palavra-passe está ativada para este diretório. Se estiver repetição de escrita ativado, ele indica o estado do serviço de repetição de escrita no local. Isto é útil se pretender desativar temporariamente a repetição de escrita de palavra-passe sem ter de reconfigurar o Azure AD Connect.
+Esse controle determina se a repetição de escrita de palavra-passe está ativada para este diretório. Se estiver repetição de escrita ativado, ele indica o estado do serviço de repetição de escrita no local. Esse controle será útil se pretender desativar temporariamente a repetição de escrita de palavra-passe sem ter de reconfigurar o Azure AD Connect.
 
 * Se o parâmetro estiver definido como **Sim**, em seguida, a repetição de escrita é ativada e a autenticação federada, pass-through ou os utilizadores sincronizado de hash de palavra-passe são capazes de repor as palavras-passe.
 * Se o parâmetro estiver definido como **não**, em seguida, a repetição de escrita está desativada e a autenticação federada, pass-through ou os utilizadores sincronizado de hash de palavra-passe não são possível repor as palavras-passe.
@@ -180,6 +180,10 @@ Esse controle designa se os usuários que visitam o portal de reposição de pal
 
 * Se definido como **Sim**, em seguida, os utilizadores recebem a opção para repor a palavra-passe e desbloquear a conta de ou para desbloquear a conta sem ter de repor a palavra-passe.
 * Se definido como **não**, em seguida, os utilizadores são só poderá efetuar uma reposição de palavra-passe combinado e operação de desbloqueio de conta.
+
+### <a name="on-premises-active-directory-password-filters"></a>Filtros de palavra-passe do Active Directory no local
+
+O Azure AD self-service palavra-passe reposição executa o equivalente a um iniciada pelo administrador reposição palavra-passe no Active Directory. Se estiver a utilizar um filtro de palavras-passe de terceiros para impor regras de palavra-passe personalizada, e necessita que este filtro de palavras-passe é verificado durante do Azure AD self-service de reposição de palavra-passe, certifique-se de que a solução de filtro de palavras-passe de terceiros está configurada para ser aplicadas a cenário de reposição de palavra-passe de administrador. [Proteção de palavra-passe do Azure AD para o Windows Server Active Directory](concept-password-ban-bad-on-premises.md) é suportado por predefinição.
 
 ## <a name="password-reset-for-b2b-users"></a>Palavra-passe reposta para utilizadores B2B
 

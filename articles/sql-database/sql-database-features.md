@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 4ba34c35d2dd2d986b4a8c78f42fd4e97158391b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 8cda0b5a06eb4299c439b58ecf721971288fa5fb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885078"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455087"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
-Base de dados SQL do Azure partilha uma base de código comum com o SQL Server. Os recursos do SQL Server suportada pelo Azure SQL Database dependem do tipo de base de dados SQL do Azure que criar. Base de dados SQL do Azure, pode criar uma base de dados como parte de um [instância gerida](sql-database-managed-instance.md) ou pode criar uma base de dados que é parte do servidor lógico e, opcionalmente, colocá-la num conjunto elástico.
+Base de dados SQL do Azure partilha uma base de código comum com o SQL Server. Os recursos do SQL Server suportada pelo Azure SQL Database dependem do tipo de base de dados SQL do Azure que criar. Base de dados SQL do Azure, pode criar uma base de dados como parte de um [instância gerida](sql-database-managed-instance.md), como uma base de dados, ou como parte de um conjunto elástico.
 
 A Microsoft continua a adicionar funcionalidades à base de dados do Azure SQL. Visite a página de atualizações de serviço Web do Azure para as atualizações mais recentes com estes filtros:
 
@@ -32,7 +32,7 @@ A Microsoft continua a adicionar funcionalidades à base de dados do Azure SQL. 
 
 A tabela seguinte lista os principais recursos do SQL Server e fornece informações sobre se a funcionalidade é total ou parcialmente suportada e uma ligação para obter mais informações sobre a funcionalidade.
 
-| **Funcionalidade SQL** | **Suportado no servidor de base de dados/lógico SQL do Azure** | **Suportado na instância de base de dados/gerida de SQL do Azure** |
+| **Funcionalidade SQL** | **Suportado em conjuntos de bases de dados única/elástico** | **Suportado na instância de base de dados/gerida de SQL do Azure** |
 | --- | --- | --- |
 | [Georreplicação ativa](sql-database-active-geo-replication.md) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço| Não, consulte [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) |
 | [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço| [Sim-pré-visualização](sql-database-auto-failover-group.md)|
@@ -52,14 +52,14 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Captura de dados de alteração](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não | Sim |
 | [Registo de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sim |Sim |
 | [Agrupamento - base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sim | Sim |
-| [Agrupamento - servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não | [Sim (pré-visualização)](https://docs.microsoft.com/azure/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template)|
+| [Agrupamento - servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não | [Sim (pré-visualização)](/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [escalão Premium, o escalão Standard - S3 e superior, o escalão fins gerais e crítico para a empresa camadas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Tempo de execução comum para a linguagem (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim - veja [diferenças CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Sim |
 | [Utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sim | Sim |
 | [Controlo de palavras-chave language do fluxo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sim | Sim |
 | [Consultas entre bases de dados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não, consulte [consultas elásticas](sql-database-elastic-query-overview.md) | Sim, além de [consultas elásticas](sql-database-elastic-query-overview.md) |
-| [Transações entre bases de dados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não | Sim - veja [ligado diferenças de servidor](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers) |
+| [Transações entre bases de dados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não | Sim - veja [ligado diferenças de servidor](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
 | [Cursores](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Sim |Sim |
 | [Compressão de dados](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sim |Sim |
 | [Correio de base de dados](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Não | Sim |
@@ -90,7 +90,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Restauro geográfico](sql-database-recovery-using-backups.md#geo-restore) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço | Não, pode restaurar COPY_ONLY cópias de segurança completas que efetuar periodicamente - consulte [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) e [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Processamento de gráficos](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sim | Sim |
 | [Otimização dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [apenas escalões Premium e crítico para a empresa](sql-database-in-memory.md) | Sim - [comerciais críticos apenas no escalão](sql-database-managed-instance.md) |
-| [Suporte de dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
+| [Suporte de dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sim](sql-database-json-features.md) | [Sim](sql-database-json-features.md) |
 | [Elementos de linguagem](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Maioria - Consulte elementos individuais |  Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores ligados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não, consulte [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas para o SQL Server e base de dados SQL |
 | [Envio de log](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |[Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |
@@ -127,7 +127,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Não, consulte [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Não, consulte [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Auditoria do SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Não, consulte [auditoria de base de dados SQL](sql-database-auditing.md) | Sim - veja [diferenças de auditoria](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Sim | Sim |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS geridos no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB alojado pela base de dados do Azure SQL e executado no Runtime de integração de SSIS do Azure (IR), consulte [criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar as funcionalidades SSIS no servidor lógico de base de dados SQL e a instância gerida, veja [servidor lógico de comparar a base de dados do SQL e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). | Sim, com um SSIS geridos no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB alojado pela instância gerida e executado no Runtime de integração de SSIS do Azure (IR), consulte [criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar os recursos do SSIS na base de dados SQL e a instância gerida, veja [servidor lógico de comparar a base de dados do SQL e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sim, com um SSIS geridos no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB alojado pela base de dados do Azure SQL e executado no Runtime de integração de SSIS do Azure (IR), consulte [criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar as funcionalidades SSIS no servidor de base de dados SQL e a instância gerida, veja [conjuntos de bases de dados única/elástico de comparar a base de dados de SQL do Azure e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Sim, com um SSIS geridos no ambiente do Azure Data Factory (ADF), onde os pacotes são armazenados em SSISDB alojado pela instância gerida e executado no Runtime de integração de SSIS do Azure (IR), consulte [criar IR do Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar os recursos do SSIS na base de dados SQL e a instância gerida, veja [conjuntos de bases de dados única/elástico de comparar a base de dados de SQL do Azure e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não, consulte [eventos expandidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
@@ -139,7 +139,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Tabelas de sistema](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Alguns - Consulte tabelas individuais | Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Exibições de catálogo do sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Alguns - Consulte vistas individuais | Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Tabelas temporárias](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tabelas temporárias globais locais e no âmbito da base de dados | Tabelas temporárias globais locais e com âmbito de instância |
-| [Tabelas temporais](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [Sim](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
+| [Tabelas temporais](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Sim](sql-database-temporal-tables.md) | [Sim](sql-database-temporal-tables.md) |
 |Deteção de ameaças|  [Sim](sql-database-threat-detection.md)|[Sim](sql-database-managed-instance-threat-detection.md)|
 | [Sinalizadores de rastreio](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Não | Não |
 | [Variáveis](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sim | Sim |

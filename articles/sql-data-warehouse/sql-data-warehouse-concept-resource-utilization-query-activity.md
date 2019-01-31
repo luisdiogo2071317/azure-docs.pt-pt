@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b53a3f99f601f540723a9a383e3bf7bd2908de23
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499572"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460425"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorizar atividade de consulta e de utilização de recursos no Azure SQL Data Warehouse
-O Azure SQL Data Warehouse oferece uma Rica experiência de monitorização no portal do Azure para obter informações para a sua carga de trabalho do armazém de dados. O portal do Azure é a ferramenta recomendada quando o armazém de dados de monitorização, pois fornece períodos de retentions configuráveis, alertas, recomendações e personalizáveis gráficos e dashboards para métricas e registos. O portal também lhe permite integrar com outro serviços, como o Operations Management Suite (OMS) de monitorização do Azure / Log Analytics e o Azure Monitor para fornecer uma monitorização holística experiência para não apenas seu armazém de dados, mas também sua do Azure inteira plataforma de análise para uma experiência de monitorização integrada. Esta documentação descreve as capacidades de monitorização estão disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Data Warehouse. 
+O Azure SQL Data Warehouse oferece uma Rica experiência de monitorização no portal do Azure para obter informações para a sua carga de trabalho do armazém de dados. O portal do Azure é a ferramenta recomendada quando o armazém de dados de monitorização, pois fornece períodos de retenção configurável, alertas, recomendações e personalizáveis gráficos e dashboards para métricas e registos. O portal também lhe permite integrar com outro serviços, como o Operations Management Suite (OMS) de monitorização do Azure / Log Analytics e o Azure Monitor para fornecer uma monitorização holística experiência para não apenas seu armazém de dados, mas também sua do Azure inteira plataforma de análise para uma experiência de monitorização integrada. Esta documentação descreve as capacidades de monitorização estão disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilização de recursos 
 As métricas seguintes estão disponíveis no portal do Azure para o SQL Data Warehouse. Estas métricas são apresentadas [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
@@ -31,7 +31,7 @@ As métricas seguintes estão disponíveis no portal do Azure para o SQL Data Wa
 | Percentagem de CPU                          | Utilização da CPU de todos os nós para o armazém de dados | Máximo      |
 | Percentagem de ES de Dados                      | Utilização de e/s em todos os nós para o armazém de dados | Máximo   |
 | Ligações com êxito                  | Número de conexões com êxito para os dados | Total            |
-| Ligações Falhadas                      | Número de ligações falhadas ao armazém de dados | Total            |
+| Ligações com Falhas                      | Número de ligações falhadas ao armazém de dados | Total            |
 | Bloqueado pela Firewall                     | Número de inícios de sessão para o armazém de dados que foi bloqueado | Total            |
 | Limite de DWU                              | Objetivo de nível de serviço do data warehouse | Máximo   |
 | Percentagem DWU                          | Máximo entre a percentagem de CPU e percentagem de es de dados | Máximo   |

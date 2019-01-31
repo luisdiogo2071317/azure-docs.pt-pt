@@ -1,21 +1,22 @@
 ---
-title: Como a inscrever-se de texto do tradutor - API de texto do tradutor
+title: Introdução - API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Saiba como inscrever-se a API de texto do Translator e obter uma chave de subscrição.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 9f97b1ed30c3f8263c5c4c3465951bb7010466ac
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 74a0a15490164cfdbc97529bec63a74ef63dbfc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678292"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458470"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se para a API de texto do tradutor
 

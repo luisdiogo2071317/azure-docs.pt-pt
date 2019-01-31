@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526114"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456141"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure com .NET
 
@@ -25,11 +25,11 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de Exemplo</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Blob de acréscimo</td> 
+<td>Acrescentar Blob</td> 
 <td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemplo do método CloudBlobContainer.GetAppendBlobReference</a></td> 
 </tr> 
 <tr> 
-<td>Blob de blocos</td>
+<td>Blob de Blocos</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
 </tr> 
 <tr> 
-<td>BLOBs de páginas</td>
+<td>Blob de Página</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
 </tr>
 <tr> 
@@ -210,5 +210,5 @@ Confira os seguintes guias se estiver à procura para obter instruções sobre c
 
 Para informações sobre exemplos para outros idiomas:
 
-* Java: [exemplos de armazenamento do Azure com Java](storage-samples-java.md)
-* Todos os outros idiomas: [exemplos de armazenamento do Azure](../storage-samples.md)
+* Java: [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
+* Todos os outros idiomas: [Exemplos de armazenamento do Azure](../storage-samples.md)

@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar uma aplicação do WPF no C# - API de Texto do Microsoft Translator'
+title: 'Tutorial: Criar um aplicativo do WPF no C# -API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá aprender como utilizar a API de Tradução de Texto para traduzir texto, obter uma lista localizada dos idiomas suportados e muito mais, ao criar uma aplicação do WPF com o C#.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: erhopf
-ms.openlocfilehash: e302c1aa1cd4021b0d449fd981181b790546c0f8
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: f9fe1f40f758ead06c1e86fc0daeb64b72c5fd8b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647481"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476507"
 ---
-# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Tutorial: Escreva uma aplicação de WPF para a Tradução de Texto com C&#35;
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Tutorial: Escrever um aplicativo do WPF para o texto do tradutor com C&#35;
 
 Neste tutorial, irá criar uma ferramenta de tradução de texto interativa com a API de Tradução de Texto (V3), uma peça dos Serviços Cognitivos da Microsoft no Azure. Vai aprender a:
 
@@ -668,7 +668,7 @@ O cabeçalho de HTTP chamado `X-ClientTraceId` é opcional. O valor deve ser um 
 > [!NOTE]
 > Este tutorial concentra-se no serviço Microsoft Translator, então, os métodos `DetectLanguage()` e `CorrectSpelling()` não são descritos detalhadamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API de Texto do Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

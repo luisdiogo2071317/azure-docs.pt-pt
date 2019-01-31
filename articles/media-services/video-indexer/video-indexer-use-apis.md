@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190501"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299033"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -82,7 +82,7 @@ Aplicam-se os valores descritos na tabela abaixo. O **Valor do parâmetro** é o
 
 |**Nome**|**Valor do parâmetro**|**Descrição**|
 |---|---|---|
-|Avaliação|trial|Utilizado para contas de avaliação.|
+|Avaliação|registo|Utilizado para contas de avaliação.|
 |EUA Oeste|westus2|Utilizado para a região E.U.A. Oeste 2 do Azure.|
 |Europa do Norte |northeurope|Utilizado para a região Europa do Norte do Azure.|
 |Ásia Oriental|eastasia|Utilizado para a região Ásia Oriental do Azure.|

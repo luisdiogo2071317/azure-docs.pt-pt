@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: ed7e8346cba2a2243ef71cb9782219fb26481dc7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190084"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462176"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consultas de vários fragmentos usando ferramentas de bases de dados elásticas
 
@@ -59,7 +59,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-Uma diferença-chave é a construção de ligações de vários fragmentos. Em que **SqlConnection** opera num único banco de dados, o **MultiShardConnection** demora um ***coleção de partições horizontais*** como entrada. Popular a coleção de partições horizontais de um mapa de partições horizontais. A consulta, em seguida, é executada na coleção de partições horizontais usando **UNION ALL** semântica para montar um único resultado geral. Opcionalmente, o nome de partição horizontal em que a linha são originados por pode ser adicionado para a saída com o **ExecutionOptions** propriedade no comando.
+Uma diferença-chave é a construção de ligações de vários fragmentos. Em que **SqlConnection** opera numa base de dados individual, o **MultiShardConnection** demora um ***coleção de partições horizontais*** como entrada. Popular a coleção de partições horizontais de um mapa de partições horizontais. A consulta, em seguida, é executada na coleção de partições horizontais usando **UNION ALL** semântica para montar um único resultado geral. Opcionalmente, o nome de partição horizontal em que a linha são originados por pode ser adicionado para a saída com o **ExecutionOptions** propriedade no comando.
 
 Observe a chamada para **myShardMap.GetShards()**. Esse método obtém todas as partições horizontais de mapa de partições horizontais e fornece uma forma fácil de executar uma consulta em todas as bases de dados relevantes. A coleção de partições horizontais para uma consulta de vários fragmentos pode ser refinada ainda mais ao executar uma consulta LINQ sobre a recolha retornado da chamada para **myShardMap.GetShards()**. Em combinação com a política de resultados parciais, a capacidade atual de consultas de vários fragmentos foi projetada para funcionar bem para dezenas até centenas de partições horizontais.
 

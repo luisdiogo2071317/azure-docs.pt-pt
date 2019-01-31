@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 08/29/2018
 ms.author: kevinvngo
 ms.reviewer: igorstan
-ms.openlocfilehash: 5cb3b3b261bcb762187b165e297225080b0fee81
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 8c04e0409faa3b63a8a2957284ac7aa96740ae03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306063"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468381"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
 Veja estes artigos de desenvolvimento para compreender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
@@ -24,7 +24,7 @@ Veja estes artigos de desenvolvimento para compreender melhor as principais deci
 Os artigos seguintes realçam os conceitos e as decisões de design para o desenvolvimento de um armazém de dados distribuídos com o SQL Data Warehouse:
 
 * [Ligações][connections]
-* [simultaneidade][concurrency]
+* [concurrency][concurrency]
 * [Transações][transactions]
 * [esquemas definidos pelo utilizador][user-defined schemas]
 * [distribuição da tabela][table distribution]
@@ -40,8 +40,8 @@ Estes artigos realçam técnicas de codificação específicas, sugestões e rec
 * [labels][labels]
 * [Modos de exibição][views]
 * [Tabelas temporárias][temporary tables]
-* [SQL dinâmico][dynamic SQL]
-* [um loop][looping]
+* [dynamic SQL][dynamic SQL]
+* [looping][looping]
 * [Agrupar por opções][group by options]
 * [atribuição de variáveis][variable assignment]
 

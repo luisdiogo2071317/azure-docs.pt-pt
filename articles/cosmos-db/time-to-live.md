@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043435"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461173"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>TTL de dados do Azure Cosmos DB
+# <a name="time-to-live-in-azure-cosmos-db"></a>TTL no Azure Cosmos DB 
 
 Com "Time to Live" ou o valor de TTL, o Azure Cosmos DB oferece a capacidade de excluir itens automaticamente a partir de um contentor após um determinado período de tempo. Por predefinição, pode definir a hora em direto ao nível do contentor e substituir o valor numa base por item. Depois de definir o valor de TTL um contentor ou num nível de item, Azure Cosmos DB irá automaticamente remover estes itens após o período de tempo, desde a hora da que última foram modificados. Valor de TTL é configurado em segundos. Quando configura o valor de TTL, o sistema automaticamente irá eliminar os itens expirados com base no valor TTL, ao contrário de uma operação de eliminação explicitamente emitido pela aplicação de cliente.
 

@@ -1,6 +1,6 @@
 ---
-title: "Passo 4: Treine titleSuffix de modelos de Análise Preditiva: Descrição do Azure Machine Learning Studio: "Passo 4 da desenvolver uma solução preditiva passo a passo: Formar, Pontuar e avaliar os vários modelos no Azure Machine Learning Studio. "
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: "Passo 4: Treine titleSuffix de modelos de Análise Preditiva: Descrição do Azure Machine Learning Studio: "Passo 4 da desenvolver uma solução preditiva passo a passo: Formar, Pontuar e avaliar os vários modelos no Azure Machine Learning Studio. "
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
 ---

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2018
 ms.author: dech
-ms.openlocfilehash: 08cd8b332a34075d8e2f939aa9015aa1b0a33a07
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 689b0bb08e300efc7c5e93dbf346040b82a7c52d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036159"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468483"
 ---
-# <a name="cross-origin-resource-sharing-cors-in-azure-cosmos-db"></a>Recursos de várias origens (CORS) de partilha no Azure Cosmos DB 
+# <a name="configure-cross-origin-resource-sharing-cors"></a>Configurar recursos de várias origens (CORS) de partilha 
 
 Cross-Origin Resource Sharing (CORS) é uma funcionalidade HTTP que permite que uma aplicação web em execução num domínio aceder a recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como diretiva de mesma origem impede que uma página da web de chamar APIs num domínio diferente. No entanto, o CORS fornece uma forma segura para permitir que o domínio de origem chamar as APIs em outro domínio. API de SQL Core no Azure Cosmos DB suporta agora Cross-Origin Resource Sharing (CORS) com o cabeçalho "allowedOrigins". Depois de ativar o suporte do CORS para a sua conta do Cosmos do Azure, apenas pedidos autenticados são avaliados para determinar se são permitidos, de acordo com as regras que especificou.
 

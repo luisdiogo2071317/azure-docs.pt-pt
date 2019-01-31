@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: d7f0a40710d0cd7f017d9caa0da8e1644cdf56d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526517"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467616"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurar a ferramenta de importação/exportação do Azure
 A ferramenta de importação/exportação do Microsoft Azure é a ferramenta de preparação e reparação de unidade que pode utilizar com o serviço de importação/exportação do Microsoft Azure. Pode usar a ferramenta para as seguintes funções:  
@@ -70,7 +70,7 @@ Se está a tentar reparar uma importação que falhou parcialmente, será necess
   
 -   Microsoft.WindowsAzure.Storage.dll  
   
--   hddid.dll  
+-   Hddid.dll  
   
  Copiar esses arquivos para um diretório de trabalho, por exemplo, `c:\WAImportExport`. Em seguida, abra uma janela de linha de comandos no modo de administrador e definir o diretório acima como o diretório atual.  
   

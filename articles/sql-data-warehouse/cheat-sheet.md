@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245898"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461564"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
 Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.
@@ -50,7 +50,7 @@ Saiba mais sobre a [migração de dados], o [carregamento de dados] e o [process
 
 Utilize as seguintes estratégias, consoante as propriedades da tabela:
 
-| Tipo | Excelente opção para...| Tenha atenção se...|
+| Type | Excelente opção para...| Tenha atenção se...|
 |:--- |:--- |:--- |
 | Replicada | • Tabelas de pequenas dimensões num esquema em estrela com menos de 2 GB de armazenamento após compressão (compressão ~5x) |• Muitas transações de escrita na tabela (como inserir, upsert, eliminar, atualizar)<br></br>• Altera o aprovisionamento de Unidades do Data Warehouse (DWU) frequentemente<br></br>• Utiliza apenas 2 a 3 colunas, mas a tabela tem muitas colunas<br></br>•  Indexa uma tabela replicada |
 | Round Robin (predefinição) | • Tabela temporária/de teste<br></br> • Sem chave de associação óbvia ou coluna boa candidata |•   O desempenho é lento devido ao movimento de dados |
@@ -70,7 +70,7 @@ Saiba mais sobre as [tabelas replicadas] e as [tabelas distribuídas].
 
 A indexação é útil para ler as tabelas rapidamente. Com base nas suas necessidades, pode utilizar um conjunto único de tecnologias:
 
-| Tipo | Excelente opção para... | Tenha atenção se...|
+| Type | Excelente opção para... | Tenha atenção se...|
 |:--- |:--- |:--- |
 | Área dinâmica para dados | • Tabela de teste/temporária<br></br>• Tabelas pequenas com pesquisas pequenas |• Qualquer pesquisa procura na tabela inteira |
 | Índice em cluster | • Tabelas com até 100 milhões de linhas<br></br>• Tabelas grandes (mais de 100 milhões de linhas) com apenas 1 a 2 colunas muito utilizadas |•  Utilizado em tabelas replicadas<br></br>•    Tem consultas complexas que envolvem várias operações de associação e Agrupar Por<br></br>•  Faz atualizações nas colunas indexadas: requer memória |

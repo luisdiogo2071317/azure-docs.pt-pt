@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231571"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456277"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -80,7 +80,7 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem numa fila
+## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Introduzir uma mensagem numa fila
 Para introduzir uma mensagem numa fila, utilize o **create_message()** método para criar uma nova mensagem e adicioná-lo para a fila.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Como: A próxima mensagem da fila
+## <a name="how-to-dequeue-the-next-message"></a>Como: Remover da fila a mensagem seguinte
 Pode remover uma mensagem da fila em dois passos.
 
 1. Quando chama **lista\_messages()**, obterá a seguinte mensagem numa fila por predefinição. Também pode especificar quantas mensagens queira obter. As mensagens retornadas da **lista\_messages()** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Passa o tempo limite de visibilidade em segundos, como um parâmetro.

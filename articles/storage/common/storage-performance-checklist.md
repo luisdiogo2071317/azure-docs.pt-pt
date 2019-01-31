@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231793"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460834"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -147,7 +147,7 @@ Normalmente, um browser não permitirá que JavaScript numa página hospedada po
 Essas tecnologias podem ajudar a evitar uma carga desnecessária (e afunilamentos) na sua aplicação web.  
 
 #### <a name="useful-resources"></a>Recursos Úteis
-Para obter mais informações sobre SAS, consulte [assinaturas de acesso partilhado, parte 1: compreender o modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
+Para obter mais informações sobre SAS, consulte [assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](../storage-dotnet-shared-access-signature-part-1.md).  
 
 Para obter mais informações sobre o CORS, consulte [suporte de Cross-Origin Resource Sharing (CORS) para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -178,7 +178,7 @@ Tem de definir o limite de ligação antes de abrir todas as ligações.
 
 Para outras linguagens de programação, consulte a documentação desse idioma para determinar como definir o limite de ligação.  
 
-Para obter mais informações, consulte a mensagem de blogue [serviços da Web: ligações simultâneas](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Para obter mais informações, consulte a mensagem de blogue [serviços da Web: Ligações simultâneas](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Aumentar Threads do ThreadPool Min, se utilizar o código síncrono com tarefas assíncronas
 Esse código irá aumentar os threads do pool min:  
@@ -201,7 +201,7 @@ Embora seja ótimo para desempenho paralelismo, tenha cuidado ao utilizando o pa
 Utilize sempre o mais recentes da Microsoft fornecida ferramentas e bibliotecas de cliente. No momento da escrita, existem bibliotecas de cliente disponíveis para .NET, o Windows Phone, o tempo de execução do Windows, o Java e o C++, bem como bibliotecas de pré-visualização para outros idiomas. Além disso, a Microsoft lançou cmdlets do PowerShell e comandos da CLI do Azure para trabalhar com o armazenamento do Azure. Microsoft ativamente desenvolve essas ferramentas com o desempenho em mente, mantém-se atualizado com as versões mais recentes do serviço e garante que eles manipulam muitas das práticas de desempenho comprovados internamente.  
 
 ### <a name="retries"></a>Tentativas
-#### <a name="subheading14"></a>Limitação/ServerBusy
+#### <a name="subheading14"></a>Throttling/ServerBusy
 Em alguns casos, o serviço de armazenamento pode limitar a sua aplicação ou pode ser simplesmente não é possível atender à solicitação devido a alguma condição transitória e devolver uma mensagem de "503 servidor ocupado" ou "tempo limite de 500".  Isto pode acontecer se a sua aplicação está a aproximar-se qualquer um dos destinos de escalabilidade, ou se o sistema é reequilibrar os dados particionados para permitir um débito mais elevado.  O aplicativo cliente normalmente deve repetir a operação que faz com que este tipo de erro: a tentar mais tarde do mesmo pedido terá êxito. No entanto, se o serviço de armazenamento está a limitar a aplicação porque está a exceder os destinos de escalabilidade, ou mesmo que o serviço não foi possível atender à solicitação por algum motivo, as repetições agressivas normalmente piorar o problema. Por esse motivo, deve usar um (o padrão de bibliotecas de cliente para esse comportamento) de término exponencial. Por exemplo, seu aplicativo poderá novamente depois de 2 segundos, em seguida, de 4 segundos, depois de 10 segundos depois de 30 segundos e, em seguida, abrir mão completamente. Este comportamento resulta em seu aplicativo significativamente reduzindo a carga no serviço em vez de exacerbating quaisquer problemas.  
 
 Tenha em atenção que os erros de conectividade podem ser repetidos de imediato, porque eles não são o resultado de limitação e devem ser transitórios.  
@@ -255,10 +255,10 @@ Para carregar blobs rapidamente, a primeira pergunta para responder é: carregar
 #### <a name="subheading21"></a>Carregar um blob de grandes rapidamente
 Para carregar um único blob grandes rapidamente, a aplicação cliente deverá carregar os respetivos blocos ou páginas em paralelo (tocante dos destinos de escalabilidade para blobs individuais e a conta de armazenamento como um todo).  Tenha em atenção que as bibliotecas de disponibilizadas pela Microsoft os clientes de armazenamento RTM oficiais (.NET, Java) têm a capacidade de fazer isso.  Para cada uma das bibliotecas, utilize o abaixo de objeto ou propriedade especificada para definir o nível de simultaneidade:  
 
-* .NET: Conjunto ParallelOperationThreadCount num objeto de BlobRequestOptions a ser utilizado.
+* .NET: Definir ParallelOperationThreadCount num objeto de BlobRequestOptions a ser utilizado.
 * Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
-* NODE. js: Utilize parallelOperationThreadCount sobre as opções de pedido ou o serviço de Blobs.
-* C++: Use o método de blob_request_options::set_parallelism_factor.
+* Node.js: Utilize parallelOperationThreadCount sobre as opções de pedido ou o serviço de Blobs.
+* C++: Use o método blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Carregar os blobs rapidamente
 Para carregar rapidamente os blobs, carregar blobs em paralelo. Isso é mais rápido do que carregar blobs únicas cada vez com carregamentos de bloco paralelo, porque ele propaga o carregamento em várias partições do serviço de armazenamento. Um único blob só suporta um débito de 60 MB por segundo (aproximadamente 480 Mbps). No momento da escrita, uma conta LRS baseadas nos E.U.A., oferece suporte à entrada Gbps até 20, que é muito mais do que o débito suportado por um blob individual.  [AzCopy](#subheading18) executa carregamentos em paralelo, por predefinição e é recomendado para este cenário.  
@@ -286,7 +286,7 @@ Esta secção lista as várias definições de configuração rápida que pode u
 #### <a name="subheading25"></a>Utilizar o JSON
 A partir da versão de serviço de armazenamento 08-2013-15, o serviço de tabela suporta com JSON em vez do formato AtomPub baseado em XML para a transferência de dados da tabela. Isso pode reduzir a tamanhos de payload, até 75% e pode melhorar significativamente o desempenho da sua aplicação.
 
-Para obter mais informações, consulte a postagem [tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [formato de Payload para operações de serviço de tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para obter mais informações, consulte a postagem [tabelas do Microsoft Azure: Introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [formato de Payload para operações de serviço de tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle desativado
 Algoritmo do Nagle amplamente é implementado através de redes de TCP/IP como um meio para melhorar o desempenho de rede. No entanto, não é ideal em todas as circunstâncias (por exemplo, ambientes altamente interativas). Armazenamento do Azure, algoritmo do Nagle tem um impacto negativo no desempenho de pedidos para os serviços de tabela e fila e deve desabilitá-la se possível.  
@@ -304,7 +304,7 @@ Como representar e consultar os seus dados é o único fator maior que afeta o d
 Tabelas são divididas em partições. Todas as entidades armazenadas numa partição compartilha a mesma chave de partição e tem uma chave de linha exclusivo para o identificar dentro dessa partição. Partições fornecem benefícios, mas também introduzem limites de escalabilidade.  
 
 * Benefícios: Pode atualizar entidades na mesma partição numa única, batch transação atômica que contenha até 100 operações de armazenamento separada (limite de tamanho total de 4MB). Supondo que o mesmo número de entidades a serem obtidas, também pode consultar dados dentro de uma única partição mais eficiente do que os dados que abrangem várias partições (embora continue a ler para obter recomendações sobre como consultar dados da tabela).
-* Limite de escalabilidade: acesso a entidades armazenados numa única partição não pode ser com balanceamento de carga porque as partições suportam transações de batches atômica. Por esse motivo, o destino de escalabilidade de uma partição de tabela individual é inferior para o serviço de tabela como um todo.  
+* Limite de escalabilidade: Acesso a entidades armazenados numa única partição não pode ser com balanceamento de carga porque as partições suportam transações de batches atômica. Por esse motivo, o destino de escalabilidade de uma partição de tabela individual é inferior para o serviço de tabela como um todo.  
 
 Devido a essas características de tabelas e partições, deve adotar os seguintes princípios de design:  
 
@@ -359,7 +359,7 @@ Transações de batches são conhecidas como transações de grupo de entidade (
 ##### <a name="subheading36"></a>Upsert
 Tabela de utilização **Upsert** operações sempre que possível. Existem dois tipos de **Upsert**, que podem ser mais eficiente do que um tradicional **inserir** e **atualização** operações:  
 
-* **InsertOrMerge**: Utilize esta opção quando pretender carregar um subconjunto de propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existe, essa chamada atualiza as propriedades incluídas no **Upsert** operação e deixa de todas as propriedades existentes como estão, se a entidade não existir, ele insere a nova entidade. Isso é semelhante a usar a projeção numa consulta, só precisa de carregar as propriedades que estão mudando.
+* **InsertOrMerge**: Utilize esta opção quando deseja carregar um subconjunto de propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existe, essa chamada atualiza as propriedades incluídas no **Upsert** operação e deixa de todas as propriedades existentes como estão, se a entidade não existir, ele insere a nova entidade. Isso é semelhante a usar a projeção numa consulta, só precisa de carregar as propriedades que estão mudando.
 * **InsertOrReplace**: Utilize esta opção quando pretender carregar uma totalmente nova entidade, mas não tiver a certeza se já existe. Só deve utilizar isso, quando sabe que a entidade recém-carregada está totalmente correta porque ele substitui completamente a entidade antiga. Por exemplo, que pretende atualizar a entidade que armazena a localização atual de um usuário, independentemente de estar ou não a aplicação anteriormente armazenou os dados de localização para o usuário; a nova entidade de localização está concluída, e não tem quaisquer informações de qualquer entidade anterior.
 
 ##### <a name="subheading37"></a>Armazenamento de série de dados numa única entidade
@@ -395,7 +395,7 @@ Para informações de custo atualizado, consulte [preços de armazenamento do Az
 ### <a name="subheading44"></a>UpdateMessage
 Pode usar **UpdateMessage** para aumentar o tempo limite de invisibilidade ou para atualizar informações de estado de uma mensagem. Embora isso seja eficiente, lembre-se de que cada **UpdateMessage** operação conta para o destino de escalabilidade. No entanto, isso pode ser uma abordagem muito mais eficiente do que um fluxo de trabalho que passa um trabalho de uma fila para o próximo, como cada passo da tarefa é concluído. Utilizar o **UpdateMessage** operação permite que seu aplicativo guardar o estado da tarefa para a mensagem e, em seguida, continuar a trabalhar, em vez de voltar colocação em fila a mensagem para a próxima etapa do trabalho sempre que uma etapa de conclusão.  
 
-Para obter mais informações, consulte o artigo [como: alterar os conteúdos de uma mensagem em fila](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Para obter mais informações, consulte o artigo [como: Alterar os conteúdos de uma mensagem em fila](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Arquitetura de aplicativos
 Deve usar filas para tornar a sua arquitetura de aplicativos escalonáveis. A seguir listam-se algumas formas de usar filas para tornar a sua aplicação mais dimensionável:  

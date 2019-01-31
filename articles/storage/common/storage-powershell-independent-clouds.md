@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.subservice: common
+ms.openlocfilehash: 6a3fe8c7235a0cf475f188a3379e372cd777ce8c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214900"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477646"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o armazenamento em clouds independentes do Azure, com o PowerShell
 
@@ -81,12 +81,12 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Este comando devolve os seguintes resultados.
 
-| Nome| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | Core.usgovcloudapi.NET |
+| AzureUSGovernment | core.usgovcloudapi.net |
 
 Para obter todas as propriedades para o ambiente especificado, chame **Get-AzEnvironment** e especifique o nome de nuvem. Este fragmento de código devolve uma lista de propriedades; Procure **StorageEndpointSuffix** na lista. O exemplo seguinte é para a nuvem da Alemanha.
 
@@ -96,9 +96,9 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 Os resultados são semelhantes ao seguinte:
 
-|Nome da Propriedade|Valor|
+|Nome da Propriedade|Value|
 |----|----|
-| Nome | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | Falso |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

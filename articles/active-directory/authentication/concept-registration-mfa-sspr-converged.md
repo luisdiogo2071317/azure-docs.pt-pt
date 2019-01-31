@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: fd56d8e0500b80bcce743a8865b6ca90ca8658a6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080553"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472682"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública)
 
@@ -74,8 +74,6 @@ Nesta página, os utilizadores veem métodos de autenticação registrado anteri
 Registos de auditoria para esta nova experiência existem na categoria de métodos de autenticação de registo de auditoria.  
 
 ## <a name="known-issues"></a>Problemas conhecidos
-
-Identificámos um bug com registo convergido onde os utilizadores convidados B2B que estão ativados para o registo convergido não são possível registar para MFA. Quando este é direcionado para a página de registo, os erros de página horizontalmente. Nossos desenvolvedores estão cientes desse problema e estamos a trabalhar para fornecer uma solução. Por enquanto, a recomendação é criar um grupo e excluir qualquer utilizadores B2B desse grupo.
 
 **Método MFA de predefinição está definido para chamada telefónica quando um usuário registra um telefone usando a mensagem de texto**
 

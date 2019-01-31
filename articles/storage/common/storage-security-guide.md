@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243799"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454492"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -89,7 +89,7 @@ Aqui estão os pontos principais que precisa saber sobre como utilizar o RBAC pa
 * [Controlo de Acesso Baseado em Funções do Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Este artigo explica o Controlo de Acesso Baseado em Funções do Azure Active Directory e como funciona.
-* [RBAC: Funções Incorporadas](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
 
   Este artigo fornece detalhes sobre todas as funções incorporadas disponíveis no RBAC.
 * [Compreender a implementação do Resource Manager e a implementação clássica](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -98,7 +98,7 @@ Aqui estão os pontos principais que precisa saber sobre como utilizar o RBAC pa
 * [Gerir o Controlo de Acesso Baseado em Funções com a API REST](../../role-based-access-control/role-assignments-rest.md)
 
   Este artigo mostra como utilizar a API REST para gerir o RBAC.
-* [Referência de API de REST do fornecedor de recursos do armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Referência da API REST do Fornecedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta referência de API descreve as APIs que pode utilizar para gerir a sua conta de armazenamento por meio de programação.
 * [Utilize o recurso de API do Gerenciador de autenticação para aceder a subscrições](../../azure-resource-manager/resource-manager-api-authentication.md)
@@ -148,7 +148,7 @@ Outra vantagem de utilizar o Azure Key Vault é que também pode controlar o ace
 #### <a name="resources"></a>Recursos
 
 * [Gerir definições de conta de armazenamento no portal do Azure](storage-account-manage.md)
-* [Referência de API de REST do fornecedor de recursos do armazenamento do Azure](https://msdn.microsoft.com/library/mt163683.aspx)
+* [Referência da API REST do Fornecedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="data-plane-security"></a>Segurança de plano de dados
 Segurança de plano de dados refere-se para os métodos usados para proteger os objetos de dados armazenados no armazenamento do Azure – a blobs, filas, tabelas e ficheiros. Já vimos métodos para encriptar os dados e a segurança durante o trânsito dos dados, mas como fazer para informações sobre como controlar o acesso aos objetos?
@@ -240,7 +240,7 @@ Para obter informações mais detalhadas sobre como utilizar assinaturas de aces
 * Estes são os tutoriais para utilizar a biblioteca de cliente .NET para criar assinaturas de acesso partilhado e políticas de acesso armazenado.
 
   * [Utilizar assinaturas de acesso partilhado (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o serviço de BLOBs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com o serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Este artigo inclui uma explicação sobre o modelo SAS, exemplos de assinaturas de acesso partilhado, e recomendações para a prática recomendada usar de SAS. Também discuti é a revogação de permissão concedida.
 
@@ -307,7 +307,7 @@ O Azure Disk Encryption é um novo recurso. Esta funcionalidade permite-lhe encr
 A solução suporta os seguintes cenários para IaaS VMs quando forem ativadas no Microsoft Azure:
 
 * Integração com o Cofre de chaves do Azure
-* Escalão Standard VMs: [A, D, DS, G, GS e assim por diante série IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Escalão Standard VMs: [D, DS, G, GS e assim por diante série IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Ativar a encriptação em VMs de IaaS de Linux e Windows
 * A desativação da encriptação no SO e dados de unidades para VMs de IaaS do Windows
 * Desativar a encriptação em unidades de dados para VMs de IaaS Linux
@@ -411,7 +411,7 @@ Temos três casos que estamos interessados em.
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. O blob é privado e a chave de armazenamento foi utilizada para aceder ao mesmo. Neste caso, o estado do pedido é "**sucesso**"e o tipo de autorização é"**autenticado**".
 
-   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Sucesso**; 206; 59 22; **autenticado**; mystorage...
+   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
 Pode utilizar o Microsoft Message Analyzer para ver e analisar estes registos. Inclui capacidades de pesquisa e filtro. Por exemplo, pode querer pesquisar instâncias de GetBlob para ver se a utilização é o esperado, ou seja, para garantir que alguém é não aceder à sua conta de armazenamento inadequadamente.
 
@@ -479,7 +479,7 @@ Para obter mais informações sobre o CORS e como para ativá-la, veja estes rec
 * [Recursos de várias origens (CORS) suporte para os serviços de armazenamento do Azure no MSDN de partilha](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Esta é a documentação de referência para o suporte CORS para os serviços de armazenamento do Azure. Isso tem ligações para artigos que aplicar a cada serviço de armazenamento e mostra um exemplo e explica cada elemento no arquivo de CORS.
-* [Armazenamento do Microsoft Azure: Introdução ao CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Armazenamento do Microsoft Azure: Apresentando o CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Esta é uma ligação para o artigo de blogue inicial, apresentamos o CORS e Mostrar como usá-lo.
 
@@ -504,6 +504,6 @@ Para obter mais informações sobre o CORS e como para ativá-la, veja estes rec
 * [O FIPS 140 validação](https://technet.microsoft.com/library/cc750357.aspx)
 
   Este artigo fornece informações sobre como módulos criptográficos e produtos da Microsoft está em conformidade com a norma FIPS para o US Governo Federal.
-* ["Criptografia de sistema: Utilize FIPS algoritmos em conformidade para encriptação, hash e assinatura" efeitos de definições de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
+* ["Criptografia de sistema: Utilizar algoritmos compatíveis com FIPS para encriptação, hash e assinatura"no Windows XP e em versões posteriores do Windows o efeitos de definições de segurança](https://support.microsoft.com/kb/811833)
 
   Este artigo fala sobre a utilização do modo FIPS no computadores antigos do Windows.

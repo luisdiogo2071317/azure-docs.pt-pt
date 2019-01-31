@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar a sua primeira base de dados SQL do Azure com o SSMS | Microsoft Docs'
+title: 'Tutorial: Conceber a sua primeira base de dados único na base de dados do SQL Azure com o SSMS | Documentos da Microsoft'
 description: Saiba como criar a sua primeira base de dados SQL do Azure com o SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,13 +9,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 9fa36b9b87a8e9591b0c863826cd2278a29ba28e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: e7229a0816cf74fed08397a68dd34e305bf8c0ea
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956062"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459541"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Criar a sua primeira base de dados SQL do Azure com o SSMS
 
@@ -47,7 +47,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Criar uma base de dados vazia
 
-É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](sql-database-service-tiers-dtu.md). A base de dados é criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e, num [servidor lógico de base de dados SQL do Azure](sql-database-features.md).
+É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](sql-database-service-tiers-dtu.md). A base de dados é criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e, num [servidor de base de dados do Azure SQL](sql-database-features.md).
 
 Siga estes passos para criar uma base de dados SQL vazia.
 
@@ -82,7 +82,7 @@ Siga estes passos para criar uma base de dados SQL vazia.
    1. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada escalão de serviço. Por predefinição, o **padrão** [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) está selecionada, mas tem a opção de escolher o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
       > [!IMPORTANT]
-      > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: norte do Reino Unido, e.u.a. centro-oeste, South2 do Reino Unido, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, Gov Sul dos EUA, Nordeste da Alemanha, China Norte, E.U. a leste Gov. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+      > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: Norte do Reino Unido, EUA Centro-Oeste, South2 do Reino Unido, leste da China, USDoDCentral, Alemanha Central, USDoDEast, US Gov Sudoeste, E.U.A. centro-sul do Governo Central, Nordeste da Alemanha, Norte da China, leste do Governo dos EUA. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
       Depois de selecionar o escalão de serviço, o número de DTUs e a quantidade de armazenamento, clique em **aplicar**.
 
@@ -107,13 +107,13 @@ O serviço de base de dados SQL cria uma firewall ao nível do servidor. O firew
 
    ![nome do servidor](./media/sql-database-design-first-database/server-name.png)
 
-1. Clique em **Definir firewall do servidor** na barra de ferramentas. O **definições da Firewall** é aberta a página do servidor de base de dados SQL.
+1. Clique em **Definir firewall do servidor** na barra de ferramentas. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL.
 
    ![regra de firewall do servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 
    1. Clique em **Adicionar IP de cliente**, na barra de ferramentas, para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
 
-   1. Clique em **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
+   1. Clique em **Guardar**. É criada uma regra de firewall ao nível do servidor para o seu endereço IP atual abrindo a porta 1433 no servidor de base de dados SQL.
 
    1. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 
@@ -124,7 +124,7 @@ Agora pode transmitir o seu endereço IP através da firewall. Pode agora ligar 
 
 ## <a name="connect-to-the-database"></a>Ligar à base de dados
 
-Uso [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma ligação ao seu servidor de base de dados SQL do Azure.
+Utilize o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma ligação ao servidor da Base de Dados SQL do Azure.
 
 1. Abra o SQL Server Management Studio.
 

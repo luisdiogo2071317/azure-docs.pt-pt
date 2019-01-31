@@ -6,19 +6,19 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 57f20a6b3a8d2845b0459f05e7b9d9ccd8d44424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139627"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463298"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Team Data Science Process em ação: Utilizar clusters do Hadoop de HDInsight do Azure
 Nestas instruções, utilizamos o [Team Data Science Process (TDSP)](overview.md) num cenário ponto-a-ponto. Utilizamos uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e os dados de engenharia da funcionalidade de publicamente disponíveis [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e dimensionar os dados. Para lidar com classificação binária e várias classes e tarefas de previsão de regressão, desenvolvemos os modelos de dados com o Azure Machine Learning. 
 
 Para obter instruções que mostra como lidar com um conjunto de dados maior, veja [processo de ciência de dados de equipa - com o Azure HDInsight Clusters do Hadoop num conjunto de dados de 1 TB](hive-criteo-walkthrough.md).
@@ -50,18 +50,18 @@ A chave exclusiva para aderir a viagem\_dados e viagem\_Europeia é composta pel
 ## <a name="mltasks"></a>Exemplos de tarefas de predição
 Determine o tipo de previsões de indisponibilidade que deve escolher com base na análise de dados. Isto ajuda a esclarecer as tarefas que precisa incluir em seu processo. Seguem-se três exemplos de problemas de predição que abordamos nestas instruções. Eles se baseiam no *sugestão\_quantidade*:
 
-- **Classificação binária**: prever se ou não uma dica foi paga por uma viagem. Ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é um exemplo negativo.
+- **Classificação binária**: Prever se ou não uma dica foi paga por uma viagem. Ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é um exemplo negativo.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Classificação multiclasses**: prever o intervalo de quantidades de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco classes:
+- **Classificação multiclasses**: Prever o intervalo de quantidades de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco classes:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Tarefa de regressão**: prever a quantidade de sugestão pago por uma viagem.  
+- **Tarefa de regressão**: Prever a quantidade de sugestão pago por uma viagem.  
 
 ## <a name="setup"></a>Configurar um cluster do HDInsight Hadoop para análises avançadas
 > [!NOTE]
@@ -71,7 +71,7 @@ Determine o tipo de previsões de indisponibilidade que deve escolher com base n
 
 Pode configurar um ambiente do Azure para análise avançada que emprega um cluster do HDInsight em três passos:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): Esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Blobs do Azure. Os dados usados em clusters do HDInsight também residem aqui.
 2. [Personalizar clusters do Hadoop de HDInsight do Azure para o processo de análise avançada e tecnologia](customize-hadoop-cluster.md). Este passo cria um cluster de Hadoop do HDInsight com 64 bits Anaconda Python 2.7 instalados em todos os nós. Existem dois passos importantes a serem lembrados ao personalizar o seu cluster do HDInsight.
    
    * Lembre-se de vincular a conta de armazenamento que criou no passo 1 com o seu cluster do HDInsight quando estiver a criar. Esta conta de armazenamento aceda aos dados que são processados dentro do cluster.
@@ -435,7 +435,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
 
 Os resultados da consulta são escritos num ficheiro local, **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploração: Avaliar a qualidade dos dados ao verificar a existência de enviar registros de latitude ou longitude inválido
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Exploração: Avaliar a qualidade dos dados ao procurar por registos de longitude ou latitude inválidos
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -459,7 +459,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
 
 O *-S* argumento incluído neste comando suprime a impressão de ecrã de estado das tarefas do Hive mapa/redução. Isto é útil porque torna a tela de impressão da saída de consulta do Hive mais legível.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploração: Distribuições de classe binário dicas de viagem
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploração: Distribuições de classe binário de dicas de viagem
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -485,7 +485,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute:
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploração: Distribuições na definição de várias classes de classe
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploração: Distribuições de classe na definição de várias classes
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -508,7 +508,7 @@ Execute o seguinte comando a partir da consola da linha de comandos do Hadoop:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: A distância direta entre duas localizações de longitude-latitude de computação
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: Computar a distância direta entre duas localizações de longitude-latitude
 > [!NOTE]
 > Normalmente, trata-se uma tarefa de cientista de dados.
 > 
@@ -721,17 +721,17 @@ Para emitir consultas do Hive no [importar dados] [ import-data] módulo do Mach
 
 Aqui estão alguns detalhes sobre o [importar dados] [ import-data] módulo e os parâmetros de entrada:
 
-**URI do servidor de HCatalog**: se for o nome do cluster **abc123**, isso é simplesmente: https://abc123.azurehdinsight.net.
+**URI do servidor de HCatalog**: Se for o nome do cluster **abc123**, isso é simplesmente: https://abc123.azurehdinsight.net.
 
 **Nome de conta de utilizador do Hadoop**: O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
 
 **Palavra-passe de conta de utilizador Hadoop**: A palavra-passe escolhida para o cluster (e não a senha do acesso remoto).
 
-**Localização de dados de saída**: Isto é escolhido para ser o Azure.
+**Localização de dados de saída**: Isso é escolhido para ser o Azure.
 
-**Nome da conta de armazenamento do Azure**: nome da conta de armazenamento predefinida associada ao cluster.
+**Nome da conta de armazenamento do Azure**: Nome da conta de armazenamento predefinida associada ao cluster.
 
-**Nome do contentor do Azure**: Este é o nome de contentor predefinido para o cluster e, normalmente é o mesmo que o nome do cluster. Para um cluster chamado **abc123**, isso é abc123.
+**Nome do contentor do Azure**: Isso é o nome de contentor predefinido para o cluster e, normalmente é o mesmo que o nome do cluster. Para um cluster chamado **abc123**, isso é abc123.
 
 > [!IMPORTANT]
 > Qualquer tabela que Desejamos consultar com o [importar dados] [ import-data] módulo no Machine Learning tem de ser uma tabela interna.
@@ -757,9 +757,9 @@ O conjunto de dados pode agora ser utilizado como ponto de partida para a criaç
 ### <a name="mlmodel"></a>Criar modelos de Machine Learning
 Agora, pode avançar para a criação de modelo e implementação de modelo na [Machine Learning](https://studio.azureml.net). Os dados estão prontos para nós utilizar como trabalhar com os problemas de predição identificados anteriormente:
 
-- **Classificação binária**: prever se é ou não uma dica foi paga por uma viagem.
+- **Classificação binária**: Para prever se é ou não uma dica foi paga por uma viagem.
 
-  **Aprendiz utilizado:** regressão logística de duas classes
+  **Aprendiz utilizado:** Regressão logística de duas classes
 
   a. Para este problema, a etiqueta de destino (ou classe) é **colocado para**. O conjunto de dados original objeto de amostragem de baixo tem algumas colunas que são vazamentos de destino para esta experiência de classificação. Em particular, **sugestão\_classe**, **tip\_quantidade**, e **total\_quantidade** revelam informações sobre o destino da etiqueta que não está disponível em tempo de teste. Vamos remover essas colunas de consideração ao utilizar o [Select Columns in Dataset] [ select-columns] módulo.
 
@@ -777,13 +777,13 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   ![Gráfico de valor AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Classificação multiclasses**: prever o intervalo de quantidades de sugestão pago para a viagem, utilizando as classes definidas anteriormente.
+- **Classificação multiclasses**: Para prever o intervalo de quantidades de sugestão pagos para a viagem, utilizando as classes definidas anteriormente.
 
-  **Aprendiz utilizado:** várias classes regressão logística
+  **Aprendiz utilizado:** Regressão logística várias classes
 
   a. Para este problema, é nosso rótulo de destino (ou classe) **sugestão\_classe**, que pode efetuar uma das cinco valores (0,1,2,3,4). Como é o caso de classificação binária, temos algumas colunas que são vazamentos de destino para esta fase experimental. Em particular, **tipados**, **sugestão\_quantidade**, e **total\_quantidade** revelar informações sobre a etiqueta de destino que não está disponível em o tempo de teste. Vamos remover estas colunas utilizando a [Select Columns in Dataset] [ select-columns] módulo.
 
-  O diagrama seguinte mostra a experimentação para prever no qual bin uma dica é provável que enquadram-se. Os contentores são: classe 0: tip = US $0, 1 de classe: Sugestão > US $0 e sugestão < = US $5, 2 de classe: Sugestão > US $5 e sugestão < = US $10, 3 de classe: Sugestão > US $10 e sugestão < = us $20 e 4 de classe: Sugestão > us $20.
+  O diagrama seguinte mostra a experimentação para prever no qual bin uma dica é provável que enquadram-se. Os contentores são: Classe 0: Sugestão = US $0, 1 de classe: Sugestão > US $0 e sugestão < = US $5, 2 de classe: Sugestão > US $5 e sugestão < = US $10, 3 de classe: Sugestão > US $10 e sugestão < = us $20 e 4 de classe: Sugestão > us $20.
 
   ![Diagrama da experimentação para prever bin sugestão](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,9 +797,9 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   Tenha em atenção que, enquanto as precisões de classe nas classes predominantes são muito bons, o modelo não faz um bom trabalho "learning" nas classes mais raros.
 
-- **Tarefa de regressão**: para prever a quantidade de sugestão pago por uma viagem.
+- **Tarefa de regressão**: Para prever a quantidade de sugestão pagos por uma viagem.
 
-  **Aprendiz utilizado:** Boosted árvore de decisão
+  **Aprendiz utilizado:** árvore de decisões elevada
 
   a. Para este problema, a etiqueta de destino (ou classe) é **sugestão\_quantidade**. Neste caso são os vazamentos de destino: **tipados**, **sugestão\_classe**, e **total\_quantidade**. Todas essas variáveis revelam informações sobre a quantidade de sugestão que não está normalmente disponível em tempo de teste. Vamos remover estas colunas utilizando a [Select Columns in Dataset] [ select-columns] módulo.
 

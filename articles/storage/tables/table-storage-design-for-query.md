@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470744"
 ---
 # <a name="design-for-querying"></a>Design das consultas
 Soluções de serviço de tabela podem ser lido com uso intensivo, com uso intensivo de escrita ou uma combinação dos dois. Este artigo se concentra em coisas que deve ter em mente quando está a conceber o seu serviço de tabela para suportar operações de leitura com eficiência. Normalmente, um design que suporta operações de leitura com eficiência é também eficiente para operações de escrita. No entanto, existem considerações adicionais a ter em mente ao projetar para oferecer suporte a operações de escrita, discutidas no artigo [Design para modificação de dados](table-storage-design-for-modification.md).
@@ -42,7 +42,7 @@ Os exemplos seguintes partem do princípio do serviço de tabela é armazenar en
 | **FirstName** |Cadeia |
 | **LastName** |Cadeia |
 | **Idade** |Número inteiro |
-| **EmailAddress** |Cadeia |
+| **EmailAddress** |String |
 
 O artigo [descrição geral do armazenamento de tabelas do Azure](table-storage-overview.md) descreve alguns dos principais recursos do serviço de tabelas do Azure que tenham uma direta influência sobre a criação de uma consulta. Estes resultam nas seguintes diretrizes gerais para a criação de consultas do serviço de tabela. Tenha em atenção que a sintaxe de filtro utilizada nos exemplos abaixo é a partir da API de REST do serviço tabela para obter mais informações, consulte [consultar entidades](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

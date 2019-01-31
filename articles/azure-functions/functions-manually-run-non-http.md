@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466895"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -35,6 +35,9 @@ Para executar uma função não acionada por HTTP, terá de uma forma de enviar 
 - **Nome da função:** O nome da função que pretende executar.
 
 Utilize esta localização de pedido no Postman, juntamente com a chave mestra da função no pedido para o Azure para executar a função.
+
+> [!NOTE]
+> Ao executar localmente, não é necessária a chave de principal da função. Pode diretamente [chamar a função](#call-the-function) omitindo o `x-functions-key` cabeçalho.
 
 ## <a name="get-the-functions-master-key"></a>Obter a chave mestra da função
 

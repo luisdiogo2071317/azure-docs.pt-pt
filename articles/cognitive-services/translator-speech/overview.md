@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023582"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472495"
 ---
 # <a name="what-is-translator-speech-api"></a>O que é a API de Voz do Microsoft Translator?
 
@@ -57,7 +57,7 @@ Veja os idiomas suportados em [Microsoft.com](https://www.microsoft.com/en-us/tr
 
 Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Inscreva-se](translator-speech-how-to-signup.md)

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217242"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466597"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 
@@ -123,7 +123,7 @@ Depois da política ao nível do inquilino tiver sido definida, pode continuar c
 
 ## <a id="subheading-3"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma de proteção de informações é a capacidade de monitorizar o acesso a dados confidenciais. [Auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) foi aprimorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidas pelo a consulta.
+Um aspecto importante do paradigma de proteção de informações é a capacidade de monitorizar o acesso a dados confidenciais. [Auditoria de base de dados SQL do Azure](sql-database-auditing.md) foi aprimorado para incluir um novo campo no registo de auditoria chamado *data_sensitivity_information*, que regista as classificações de sensibilidade (etiquetas) dos dados reais que foi devolvidas pelo a consulta.
 
 ![Registo de auditoria](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -148,7 +148,7 @@ Também pode utilizar as APIs REST para gerir programaticamente classificações
 ## <a id="subheading-5"></a>Passos seguintes
 
 - Saiba mais sobre [segurança de dados avançada SQL](sql-advanced-threat-protection.md).
-- Considere configurar [auditoria de base de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) para monitorização e auditoria de acesso aos seus dados confidenciais classificados.
+- Considere configurar [auditoria de base de dados SQL do Azure](sql-database-auditing.md) para monitorização e auditoria de acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

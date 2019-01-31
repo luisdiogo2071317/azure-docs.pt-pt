@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Traduzir texto, Python - API de Texto do Microsoft Translator'
+title: 'Início rápido: Traduzir texto, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator com Python em menos de 10 minutos.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b5307db01cc7242ba73876409f18d511c2516091
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999590"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458164"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início Rápido: Utilizar a API de Texto do Microsoft Translator para traduzir uma cadeia com Python
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com Python
 
 Neste início rápido, vai aprender a traduzir uma cadeia de texto de inglês para italiano e alemão com Python e a API REST de Texto do Microsoft Translator.
 
@@ -69,7 +69,7 @@ Atualmente, está disponível um ponto final para Tradução de Texto e está de
 São utilizados `params` para definir os idiomas de saída. Neste exemplo, vamos traduzir de inglês para italiano e alemão: `it` e `de`.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

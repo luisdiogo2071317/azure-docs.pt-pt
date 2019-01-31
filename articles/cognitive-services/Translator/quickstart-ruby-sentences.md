@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter o comprimento de frases, Ruby – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, Ruby - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 18ef4e20c28b783738d2be929e063e6dada412d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 07da6172b53b9904eb30a61d8b69b0f5b6693fdd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644713"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470115"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (Ruby)
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Início rápido: Obter comprimentos de frase com a API de REST de texto do Translator (Ruby)
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -96,7 +96,7 @@ puts json
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

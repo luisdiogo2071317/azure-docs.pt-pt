@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/28/2019
+ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790846"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299882"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -27,7 +27,6 @@ Um cluster do Hadoop é composta por várias máquinas de virtuais (nós) que s�
 
 > [!IMPORTANT]  
 > A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Saiba como [eliminar um cluster.](hdinsight-delete-cluster.md)
->
 
 ## <a name="cluster-setup-methods"></a>Métodos de configuração de cluster
 A tabela seguinte mostra os diferentes métodos que pode utilizar para configurar um cluster do HDInsight.
@@ -67,8 +66,6 @@ Atualmente, o Azure HDInsight fornece os seguintes tipos de cluster, cada um com
 
 > [!IMPORTANT]  
 > HDInsight clusters estão disponíveis em vários tipos, cada uma para uma única carga de trabalho ou tecnologia. Não existe nenhum método suportado para criar um cluster que combina vários tipos, como o Storm e HBase num cluster. Se sua solução necessitar de tecnologias que são distribuídas por vários tipos de cluster do HDInsight, um [rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network) pode ligar-se os tipos de cluster necessários. 
->
->
 
 | Tipo de cluster | Funcionalidade |
 | --- | --- |
@@ -84,20 +81,12 @@ Atualmente, o Azure HDInsight fornece os seguintes tipos de cluster, cada um com
 ### <a name="hdinsight-version"></a>Versão do HDInsight
 Escolha a versão do HDInsight para este cluster. Para obter mais informações, consulte [versões suportadas HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="enterprise-security-package"></a>Pacote de segurança empresarial
 
-Para tipos de cluster do Hadoop, Spark e Interactive Query, pode optar por ativar os **Enterprise Security Package**. Este pacote fornece a opção para ter uma configuração de cluster mais segura ao utilizar o Apache Ranger e integração com o Azure Active Directory. Para obter mais informações, consulte [Enterprise Security Package no Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-![Opções de criação de hdinsight escolha o pacote de segurança empresarial](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-Para obter mais informações sobre a criação de HDInsight associado a um domínio do cluster, consulte [criar ambiente de sandbox de HDInsight associado a um domínio](./domain-joined/apache-domain-joined-configure.md).
-
-
-## <a name="cluster-login-and-ssh-user-name"></a>Início de sessão do cluster e nome de utilizador SSH
+## <a name="cluster-login-and-ssh-username"></a>Início de sessão do cluster e nome de utilizador SSH
 Com os clusters do HDInsight, pode configurar duas contas de usuário durante a criação do cluster:
 
-* Utilizador HTTP: O nome de utilizador predefinido é *administrador*. Ele usa a configuração básica no portal do Azure. Às vezes, isso é chamado de "Usuário do Cluster".
-* Utilizador SSH (clusters do Linux): Utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utilizador HTTP: O nome de utilizador predefinido é *admin*. Ele usa a configuração básica no portal do Azure. Às vezes, isso é chamado de "Usuário do Cluster".
+* Utilizador SSH: Utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 O pacote de segurança da empresa permite-lhe integrar o HDInsight no Active Directory e Apache Ranger. Vários utilizadores podem ser criados utilizando o pacote de segurança da empresa.
 
@@ -143,10 +132,19 @@ Para aumentar o desempenho ao utilizar o Oozie, utilize um metastore personaliza
 
 ## <a name="custom-cluster-setup"></a>Configuração de cluster personalizado
 Compilações de configuração de cluster personalizado no rápido criar definições e adiciona as seguintes opções:
+- [Pacote de segurança empresarial](#enterprise-security-package)
 - [Aplicações do HDInsight](#install-hdinsight-applications-on-clusters)
 - [Tamanho do cluster](#configure-cluster-size)
 - [Ações de script](#advanced-settings-script-actions)
 - [Rede virtual](#advanced-settings-extend-clusters-with-a-virtual-network)
+ 
+## <a name="enterprise-security-package"></a>Pacote de segurança empresarial
+
+Para tipos de cluster do Hadoop, Spark, HBase, Kafka e Interactive Query, pode optar por ativar os **Enterprise Security Package**. Este pacote fornece a opção para ter uma configuração de cluster mais segura ao utilizar o Apache Ranger e integração com o Azure Active Directory. Para obter mais informações, consulte [Enterprise Security Package no Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+![Opções de criação de hdinsight escolha o pacote de segurança empresarial](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+Para obter mais informações sobre a criação de HDInsight associado a um domínio do cluster, consulte [criar ambiente de sandbox de HDInsight associado a um domínio](./domain-joined/apache-domain-joined-configure.md). 
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicações do HDInsight em clusters
 
@@ -161,7 +159,7 @@ A maioria dos aplicativos HDInsight é instalada num nó de extremidade em branc
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nós para cada tipo de cluster
 Cada tipo de cluster tem seu próprio número de nós, a terminologia para nós e o tamanho da VM predefinida. Na tabela a seguir, o número de nós para cada tipo de nó é parênteses.
 
-| Tipo | Nós | Diagrama |
+| Type | Nós | Diagrama |
 | --- | --- | --- |
 | Hadoop |Nó principal (2), do nó de dados (1 +) |![Nós de cluster de Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeça (2), servidor de região (1 +), o nó de mestre/ZooKeeper (3) |![Nós de cluster do HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
@@ -245,9 +243,6 @@ Para obter mais informações sobre como utilizar uma rede virtual do Azure com 
 
 Para obter um exemplo do uso de dois tipos de cluster dentro de uma rede virtual do Azure, veja [utilizar o Apache Spark transmissão em fluxo estruturada com o Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Para obter mais informações sobre como utilizar o HDInsight com uma rede virtual, incluindo requisitos de configuração específicos para a rede virtual, consulte [capacidades de estender o HDInsight utilizando a rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="troubleshoot-access-control-issues"></a>Resolver problemas de controlo de acesso
-
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ac0513e2298877c63bb25c26de32834c07a55474
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514966"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294153"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
@@ -92,7 +92,7 @@ Este cenário é ilustrado no diagrama seguinte:
 
 Para resolução de problemas de conectividade, reveja o seguinte:
 - Se não é possível ligar à instância gerida a partir de uma máquina virtual do Azure dentro da mesma VNet, sub-rede diferente, mas, verifique se tem um grupo de segurança de rede definida na sub-rede VM que poderão estar a bloquear o acesso. Além disso tenha em atenção que tem de abrir a ligação de saída na porta 1433 do SQL, bem como portas no intervalo de 11000 12000, uma vez que os são necessários para ligar através do redirecionamento de dentro do limite do Azure. 
-- Certifique-se de que o BGP Propogation está definido como **ativado** para a tabela de rotas associada à VNet.
+- Certifique-se de que a propagação do BGP está definida como **ativado** para a tabela de rotas associada à VNet.
 - Se utilizar a P2S VPN, verifique a configuração no portal do Azure para ver se verá **entrada/saída** números. Números diferentes de zero indicam que Azure está a encaminhar o tráfego de/para no local.
 
    ![números de entrada/saída](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

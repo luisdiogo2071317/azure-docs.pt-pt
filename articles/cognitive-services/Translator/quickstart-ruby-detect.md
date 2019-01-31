@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: identificar o idioma do texto, Ruby – API de Texto do Microsoft Translator'
+title: 'Início rápido: Identifique o idioma do texto, Ruby - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: ee6792358e6d5852c259b8045f77df24d14a6397
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: d710f1ae1df04cf5e97a3583a0cbe9a7c59abdb3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644872"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461139"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Início Rápido: identificar o idioma do texto com a API de Texto do Microsoft Translator (Ruby)
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Início rápido: Identifique o idioma do texto com a API de REST de texto do Translator (Ruby)
 
 Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
@@ -105,7 +105,7 @@ puts json
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

@@ -1,41 +1,41 @@
 ---
-title: Introdução ao avançada de aprendizagem Máquina Virtual - Azure | Microsoft Docs
-description: Cenários de análise de chave e componentes para profunda Learning as máquinas virtuais.
-keywords: ligação avançada de aprendizagem, AI, ferramentas de ciência de dados, máquina de virtual de ciência de dados, as ferramentas para ciência de dados, ciência de dados de linux
+title: Introdução ao aprendizagem de Máquina Virtual - Azure | Documentos da Microsoft
+description: Cenários de análise de chave e componentes para profunda máquinas de virtuais de aprendizagem.
+keywords: as ferramentas de aprendizagem, IA, ferramentas de ciência de dados, máquina de virtual de ciência de dados, para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 35370d3d143fdc154728aa8b31b9874227e46168
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 879f5939f110fb841ad160bf09f597edcdd86d31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452843"
 ---
-# <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introdução ao avançada de aprendizagem Máquina Virtual
+# <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introdução ao aprendizagem de Máquina Virtual
 
-## <a name="why-deep-learning-virtual-machine"></a>Porquê profunda de aprendizagem Máquina Virtual? 
+## <a name="why-deep-learning-virtual-machine"></a>Por que a Máquina Virtual de aprendizagem profunda? 
 
-Algoritmos de aprendizagem de cada vez mais, profundo / as redes neurais profundo são a tornar-se um dos métodos populares utilizados em muitos problemas de aprendizagem máquina. São especialmente eficiente a tarefas de cognition de máquina, como a imagem, texto, áudio/vídeo compreender frequentemente a aproximar-se humana níveis cognitivos em alguns domínios específicos com acesso e arquiteturas de rede neuronal profundo avançadas para grande conjunto de dados para preparar os modelos. Learning profunda requer uma grande quantidade de cálculo adequada para preparar modelos com estes grandes conjuntos de dados. Com a nuvem e a disponibilidade de unidades de processamento gráfico (GPUs), cada vez possível criar arquiteturas de profundidade neuronal sofisticadas e dar formação sobre num grande conjunto de dados no poderosa infraestrutura de informática em nuvem.  O [máquinas de virtuais de ciência de dados](overview.md) tiver fornecido um conjunto avançado de ferramentas e exemplos de preparação de dados, o machine learning e learning profunda. Mas um dos desafios deparam pelos utilizadores detetar as ferramentas e exemplos de cenários específicos, como learning profunda facilmente também mais facilmente aprovisionar e instâncias VM baseadas em GPU. Esta máquina Virtual de aprendizagem profunda (DLVM) aborda estes desafios. 
+Algoritmos de aprendizagem de cada vez mais, profunda / redes neurais profundas estão se tornando um dos métodos populares empregados em muitos problemas de aprendizado de máquina. Eles são especialmente bons em tarefas de cognition de máquina, como imagens, texto, compreender, muitas vezes, a atingir níveis cognitivos humanas em alguns domínios específicos com avançadas arquiteturas de rede neural profunda e acesso a grande conjunto de dados a criar modelos de áudio/vídeo. Aprendizagem profunda requer grande quantidade de capacidade computacional a criar modelos com estes conjuntos de dados grandes. Com a cloud e a disponibilidade de unidades de processamento gráfico (GPUs), ele está se tornando possível crie sofisticadas arquiteturas neurais profundas e treiná-la de um grande conjunto de dados no poderosa infraestrutura de informática na cloud.  O [máquina de Virtual de ciência de dados](overview.md) forneceu um conjunto avançado de ferramentas e exemplos para preparação de dados, machine learning e aprendizagem aprofundada. Mas um dos desafios enfrentados pelos utilizadores é detetar as ferramentas e exemplos para cenários específicos, como a aprendizagem profunda facilmente e também aprovisionar mais facilmente as instâncias VM baseada em GPU. Esta máquina Virtual de aprendizagem profunda (DLVM) resolve esses desafios. 
 
-## <a name="what-is-deep-learning-virtual-machine"></a>O que é profunda virtual de Machine Learning? 
-A máquina de Virtual Learning profunda é uma variante especial configurada do [máquinas de virtuais de ciência de dados](overview.md) (DSVM) torna mais fácil de utilizar a VM com base em GPU instâncias modelos learning profunda de preparação. É suportada no Windows 2016 e a Máquina Virtual de ciência de dados de Ubuntu.  Partilha as imagens VM principal mesmas (e, por conseguinte, todos os o conjunto de ferramentas avançado) como o DSVM mas está configurada para facilitar a aprendizagem profunda. Também podemos fornecer exemplos de ponto a ponto para a imagem e a compreensão de texto, amplamente aplicáveis para vários cenários de AI vida real. A máquina virtual de aprendizagem profunda também tenta efetuar ao conjunto avançado de ferramentas e exemplos de DSVM mais facilmente Detetáveis pelo analisar um catálogo das ferramentas e exemplos na máquina virtual. Em termos de ferramentas, o Virtual Machine profunda Learning fornece várias arquiteturas populares learning profunda, ferramentas para adquirir e imagem previamente processo, dados textual. Para obter uma lista completa das ferramentas, pode consultar o [página de descrição geral de Máquina Virtual de ciência de dados](overview.md#whats-included-in-the-data-science-vm). 
+## <a name="what-is-deep-learning-virtual-machine"></a>O que é o Deep Learning Virtual Machine? 
+A máquina de Virtual de aprendizagem profunda é uma variante especialmente configurada dos [máquina de Virtual de ciência de dados](overview.md) (DSVM) para que seja mais simples de usar a VM baseada em GPU instâncias para modelos de aprendizagem profunda de formação. É suportado no Windows 2016 e a máquina de Virtual de ciência de dados do Ubuntu.  Ele compartilha as imagens de VM de núcleo mesmo (e, portanto, todo o conjunto de ferramentas avançado) como a DSVM mas está configurado para facilitar a aprendizagem profunda. Também fornecemos amostras ponto a ponto para a imagem e compreensão de texto, que são amplamente aplicável a vários cenários de IA da vida real. A máquina virtual de aprendizagem profunda também tenta tornar os ao conjunto avançado de ferramentas e exemplos sobre a DSVM mais facilmente Detetáveis colocando um catálogo com as ferramentas e exemplos na máquina virtual. Em termos de ferramentas, a máquina de Virtual de aprendizagem profunda fornece várias estruturas de aprendizagem profunda populares, ferramentas para adquirir e pré-processar imagem, dados textuais. Para obter uma lista abrangente de ferramentas, pode consultar o [página de descrição geral de Máquina Virtual de ciência de dados](overview.md#whats-included-in-the-data-science-vm). 
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Começar a utilizar com a profunda aprendizagem Máquina Virtual com os seguintes passos:
+Começar a trabalhar com o Deep Learning Virtual Machine com os seguintes passos:
 
-* [Aprovisionar uma profunda aprendizagem Máquina Virtual](provision-deep-learning-dsvm.md)
-* [Utilize a ligação avançada de aprendizagem Máquina Virtual](use-deep-learning-dsvm.md)
-* [Referência de ferramenta](dsvm-deep-learning-ai-frameworks.md)
+* [Aprovisionar uma Máquina Virtual de aprendizagem profunda](provision-deep-learning-dsvm.md)
+* [Utilizar a Máquina Virtual de aprendizagem profunda](use-deep-learning-dsvm.md)
+* [Referência da ferramenta](dsvm-deep-learning-ai-frameworks.md)
 * [Amostras](dsvm-samples-and-walkthroughs.md)

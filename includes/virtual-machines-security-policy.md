@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841447"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302364"
 ---
 É importante proteger a sua máquina virtual (VM) para as aplicações que executar. Proteger as VMs pode incluir um ou mais serviços do Azure e os recursos que abrangem o acesso seguro às suas VMs e armazenamento seguro dos seus dados. Este artigo fornece informações que lhe permite proteger a sua VM e aplicações.
 
@@ -20,6 +20,8 @@ O Panorama de ameaças modernas para ambientes de nuvem é dinâmico, aumentando
 ## <a name="azure-security-center"></a>Centro de Segurança do Azure
 
 [Centro de segurança do Azure](../articles/security-center/security-center-intro.md) ajuda a evitar, detetar e responder a ameaças às suas VMs. Centro de segurança fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
+
+Acesso de just-in-time do Centro de segurança pode ser aplicado em toda a implementação de VM para bloquear o tráfego de entrada para as VMs do Azure, reduzindo a exposição a ataques, fornecendo acesso fácil para ligar a VMs quando necessário. Quando o just-in-time estiver ativado e um utilizador pedir acesso a uma VM, o Centro de segurança verifica quais as permissões que o utilizador tem para a VM. Se eles tiverem as permissões corretas, o pedido for aprovado e Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir o tráfego de entrada para as portas selecionados durante um período limitado de tempo. Após a expiração do tempo, o Centro de segurança restaurar os NSGs para o respetivo estado anterior. 
 
 ## <a name="encryption"></a>Encriptação
 
@@ -33,7 +35,7 @@ Segredos e certificados podem ser modelados como recursos e fornecidos pela [Key
 
 Políticas de acesso do Cofre de chaves concedem permissões para chaves, segredos e certificados em separado. Por exemplo, pode dar a um utilizador acesso só a chaves, mas não permissões para segredos. No entanto, as permissões para aceder a chaves, segredos ou certificados são ao nível do cofre. Em outras palavras, [política de acesso do Cofre de chaves](../articles/key-vault/key-vault-secure-your-key-vault.md) não suporta permissões ao nível do objeto.
 
-Quando ligar às VMs, deve utilizar a criptografia de chave pública para fornecer uma forma mais segura de iniciar sessão para eles. Este processo envolve uma troca de chaves pública e privada usando o comando do secure shell (SSH) para autenticar-se em vez de um nome de utilizador e palavra-passe. As palavras-passe são vulneráveis a ataques, especialmente em VMs com acesso à Internet, tais como servidores web de força bruta. Com um par de chaves secure shell (SSH), pode criar uma [VM do Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) que usa chaves SSH para autenticação, eliminando a necessidade de palavras-passe iniciar sessão. Também pode utilizar chaves SSH para ligar a partir de um [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) para uma VM do Linux.
+Quando ligar às VMs, deve utilizar a criptografia de chave pública para fornecer uma forma mais segura de iniciar sessão para eles. Este processo envolve uma troca de chaves pública e privada usando o comando do secure shell (SSH) para autenticar-se em vez de um nome de utilizador e palavra-passe. As palavras-passe são vulneráveis a ataques, especialmente em VMs com acesso à Internet, tais como servidores web de força bruta. Com um par de chaves secure shell (SSH), pode criar uma [VM do Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) que usa chaves SSH para autenticação, eliminando a necessidade de palavras-passe para início de sessão. Também pode utilizar chaves SSH para ligar a partir de um [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) para uma VM do Linux.
 
 ## <a name="managed-identities-for-azure-resources"></a>Identidades geridas para os recursos do Azure
 

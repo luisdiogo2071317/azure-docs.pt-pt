@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457689"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento ágil de projetos de ciência de dados
 
@@ -38,17 +38,17 @@ A figura a seguir ilustra um sprint típico, planejamento, codificação e fluxo
 
 ##  1. <a name='Terminology-1'></a>Terminologia 
 
-No TDSP framework planejamento de sprint, existem quatro tipos mais usados de **itens de trabalho**: **funcionalidade**, **história de usuário**, **tarefas**, e **Bug**. Cada projeto mantém um registo de segurança único para todos os itens de trabalho. Não existe nenhum registo de segurança ao nível do repositório de Git num projeto. Aqui estão as respetivas definições:
+No TDSP framework planejamento de sprint, existem quatro tipos mais usados de **itens de trabalho**: **Funcionalidade**, **história de usuário**, **tarefas**, e **Bug**. Cada projeto mantém um registo de segurança único para todos os itens de trabalho. Não existe nenhum registo de segurança ao nível do repositório de Git num projeto. Aqui estão as respetivas definições:
 
-- **Funcionalidade**: um recurso corresponde a um compromisso de projeto. Diferentes esferas com um cliente são consideradas diferentes funcionalidades. Da mesma forma, é melhor considerar diferentes fases de um projeto com um cliente como diferentes funcionalidades. Se escolher um esquema, tal como ***ClientName EngagementName*** nomear seus recursos, em seguida, pode facilmente reconhecer o contexto do projeto/compromisso dos nomes próprios.
-- **História**: histórias são itens de trabalho diferentes que são necessárias para concluir uma recurso (projeto)-a-ponto. Exemplos de histórias incluem:
+- **Funcionalidade**: Um recurso corresponde a um compromisso de projeto. Diferentes esferas com um cliente são consideradas diferentes funcionalidades. Da mesma forma, é melhor considerar diferentes fases de um projeto com um cliente como diferentes funcionalidades. Se escolher um esquema, tal como ***ClientName EngagementName*** nomear seus recursos, em seguida, pode facilmente reconhecer o contexto do projeto/compromisso dos nomes próprios.
+- **História**: Histórias são itens de trabalho diferentes que são necessárias para concluir uma recurso (projeto)-a-ponto. Exemplos de histórias incluem:
     - Obtenção de dados 
     - Explorar dados 
     - Geração de recursos
     - Criar modelos
     - Operacionalizar modelos 
     - Reparametrizar modelos
-- **Tarefa**: as tarefas são atribuíveis itens de trabalho de documento ou de código ou outras atividades que precisam ser feito para concluir uma história específica. Por exemplo, tarefas na história *inserindo dados* poderia ser:
+- **Tarefa**: As tarefas são atribuível código ou de itens de trabalho de documento ou de outras atividades que precisam ser feito para concluir uma história específica. Por exemplo, tarefas na história *inserindo dados* poderia ser:
     -  Obter as credenciais do SQL Server 
     -  Carregar dados para o SQL Data Warehouse. 
 - **Bug**: Bugs normalmente se referem a correções que são necessários para um código existente ou um documento que são realizadas quando concluir uma tarefa. Se o erro é causado por falta fases ou tarefas, respetivamente, ele pode escalar a ser uma história ou uma tarefa. 

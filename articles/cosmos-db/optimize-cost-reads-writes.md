@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: c89374919087dc3bca435b8ce4af2dedd26ccb23
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041327"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455681"
 ---
-# <a name="optimize-the-cost-required-to-read-and-write-data-from-azure-cosmos-db"></a>Otimizar o custo necessário para ler e escrever dados do Azure Cosmos DB
+# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Otimizar as leituras e gravações de custos no Azure Cosmos DB
 
 Este artigo descreve como é calculado o custo necessário para ler e escrever dados do Azure Cosmos DB. Operações de leitura incluem operações de get nos itens e as operações de escrita incluem Inserir, substituir, eliminar e upsert de itens.  
 

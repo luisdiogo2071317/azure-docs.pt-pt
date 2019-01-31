@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: obter idiomas suportados, Ruby – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter idiomas suportados, Ruby - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá obter uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário, e exemplos que utilizam a API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 02ebeae83464aa9770854fd06468b3731d6b8549
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 67f1a7b4a064aa46ef7d258dd72b1d686a797349
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645274"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458113"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Início Rápido: obter idiomas suportados com a API de Texto do Microsoft Translator (Ruby)
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Início rápido: Obter idiomas com suporte com a API de REST de texto do Translator (Ruby)
 
 Neste guia de introdução, obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário e exemplos que utilizam a API de Texto do Microsoft Translator.
 
@@ -160,7 +160,7 @@ end
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 

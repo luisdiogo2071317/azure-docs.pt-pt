@@ -1,6 +1,6 @@
 ---
 title: Grupos de ativação pós-falha - base de dados SQL do Azure | Documentos da Microsoft
-description: Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL que lhe permite gerir a replicação e ativação pós-falha automática / coordenada de um grupo de bases de dados num servidor lógico ou todas as bases de dados na instância gerida.
+description: Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL que lhe permite gerir a replicação e ativação pós-falha automática / coordenada de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados na instância gerida.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468704"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
-Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor lógico ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
+Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
 
 > [!NOTE]
-> Ao trabalhar com bancos de dados individuais ou agrupados num servidor lógico e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
+> Ao trabalhar com autónoma ou de bases de dados agrupadas num servidor de base de dados SQL e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
 
 Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta uma ou várias das bases de dados os resultados de grupo na ativação pós-falha automática. Além disso, os grupos de ativação pós-falha automática fornecem leitura / escrita e pontos finais de serviço de escuta só de leitura que permanecem inalterados durante as ativações pós-falha. Se usa a ativação de ativação pós-falha manual ou automática, ativação pós-falha muda todas as bases de dados secundárias no grupo principal. Depois de concluída a ativação pós-falha de base de dados, o registo DNS é atualizado automaticamente para redirecionar os pontos finais para a nova região. Para os dados RPO e RTO específicos, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 
-Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta as bases de dados no servidor lógico ou geridos resultados de instância na ativação pós-falha automática. Pode gerir através do grupo de ativação pós-falha automática:
+Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta as bases de dados no servidor de base de dados SQL ou geridos resultados de instância na ativação pós-falha automática. Pode gerir através do grupo de ativação pós-falha automática:
 
 - O [portal do Azure](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: Grupo de ativação pós-falha](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,11 +42,11 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Grupo de ativação pós-falha**
 
-  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor lógico ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária.
+  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária.
 
-  - **Servidores lógicos**
+  - **Servidores de base de dados SQL**
 
-     Com os servidores lógicos, algumas ou todas as bases de dados do usuário num único servidor podem ser colocadas num grupo de ativação pós-falha. Além disso, um servidor lógico suporta vários grupos de ativação pós-falha num único servidor.
+     Com os servidores de base de dados SQL, algumas ou todas as bases de dados do usuário num único servidor de base de dados SQL podem ser colocadas num grupo de ativação pós-falha. Além disso, um servidor de base de dados SQL suporta vários grupos de ativação pós-falha num único servidor de base de dados SQL.
 
   - **Instâncias geridas**
   
@@ -54,15 +54,15 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Primário**
 
-  O servidor lógico ou uma instância gerida que aloja as bases de dados primárias do grupo de ativação pós-falha.
+  O servidor de base de dados SQL ou a instância gerida que aloja as bases de dados primárias do grupo de ativação pós-falha.
 
 - **Secundário**
 
-  O servidor lógico ou uma instância gerida que aloja as bases de dados secundárias no grupo de ativação pós-falha. Secundário não pode estar na mesma região que o primário.
+  O servidor de base de dados SQL ou a instância gerida que aloja as bases de dados secundárias no grupo de ativação pós-falha. Secundário não pode estar na mesma região que o primário.
 
-- **Adicionar bases de dados ao grupo de ativação pós-falha num servidor lógico**
+- **Adicionar bases de dados ao grupo de ativação pós-falha num servidor de base de dados SQL**
 
-  Pode colocar várias bases de dados individuais ou bases de dados dentro de um conjunto elástico no mesmo servidor lógico no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa replicação geográfica é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
+  Pode colocar várias bases de dados individuais ou bases de dados dentro de um conjunto elástico no mesmo servidor de base de dados SQL no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa replicação geográfica é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
   
 > [!IMPORTANT]
   > Na instância gerida, todas as bases de dados do utilizador são replicadas. Não é possível escolher um subconjunto de bases de dados de utilizador para a replicação no grupo de ativação pós-falha.
@@ -71,9 +71,9 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Um registo CNAME de DNS formado que aponta para o URL da principal atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha.
 
-  - **Servidor lógico de registo CNAME de DNS para o serviço de escuta de leitura / escrita**
+  - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta de leitura / escrita**
 
-     Num servidor lógico, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `failover-group-name.database.windows.net`.
+     Num servidor de base de dados SQL, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `failover-group-name.database.windows.net`.
 
   - **Gerido registo CNAME de DNS de instância para o serviço de escuta de leitura / escrita**
 
@@ -83,9 +83,9 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Um registo CNAME de DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas.
 
-  - **Servidor lógico de registo CNAME de DNS para o serviço de escuta só de leitura**
+  - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta só de leitura**
 
-     Num servidor lógico, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `failover-group-name.secondary.database.windows.net`.
+     Num servidor de base de dados SQL, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `failover-group-name.secondary.database.windows.net`.
 
   - **Gerido registo CNAME de DNS de instância para o serviço de escuta só de leitura**
 
@@ -128,7 +128,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Melhores práticas de utilização de grupos de ativação pós-falha com bases de dados individuais e conjuntos elásticos
 
-O grupo de ativação pós-falha automática tem de ser configurado no servidor lógico principal e ligá-la para o servidor secundário de lógico numa região diferente do Azure.  Os grupos podem incluir todas ou algumas bases de dados nestes servidores. O diagrama seguinte ilustra uma configuração típica de um aplicativo de cloud com redundância geográfica usando várias bases de dados e o grupo de ativação pós-falha automática.
+O grupo de ativação pós-falha automática tem de ser configurado no servidor de base de dados SQL principal e ligá-la para o servidor de base de dados SQL secundário numa região diferente do Azure.  Os grupos podem incluir todas ou algumas bases de dados nestes servidores. O diagrama seguinte ilustra uma configuração típica de um aplicativo de cloud com redundância geográfica usando várias bases de dados e o grupo de ativação pós-falha automática.
 
 ![ativação pós-falha automática](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -295,7 +295,7 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 | [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Obtém a configuração do grupo de ativação pós-falha |
 | [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifica a configuração do grupo de ativação pós-falha |
 | [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário |
-| [AzureRmSqlDatabaseToFailoverGroup adicionar](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adiciona um ou mais bases de dados a um grupo de ativação pós-falha da base de dados do Azure SQL|
+| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Adiciona um ou mais bases de dados a um grupo de ativação pós-falha da base de dados do Azure SQL|
 |  | |
 
 > [!IMPORTANT]
@@ -325,13 +325,13 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 
 | API | Descrição |
 | --- | --- |
-| Novo AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
-| Conjunto AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando cria um grupo de ativação pós-falha e regista-o nos servidores primário e secundários|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Obtém a configuração do grupo de ativação pós-falha|
-| Comutador AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com bases de dados únicos e em pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com o autónomo e bases de dados agrupadas
 
 | API | Descrição |
 | --- | --- |

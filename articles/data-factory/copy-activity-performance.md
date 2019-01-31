@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164950"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301276"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -243,11 +243,15 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
 
 2. **Diagnosticar e otimizar o desempenho**. Se o desempenho que observar não cumprir as suas expectativas, precisa identificar afunilamentos de desempenho. Em seguida, a otimizar o desempenho para remover ou reduzir o efeito de afunilamentos. 
 
-    Em alguns cenários, verá também uma "**sugestões de otimização de desempenho**" secção por cima da [página de monitorização de atividade de cópia](copy-activity-overview.md#monitor-visually), que indica o afunilamento identificado e orienta-o sobre como aumentar a cópia taxa de transferência para esse caso de cópia.
+    Em alguns casos, quando executar uma atividade de cópia no ADF, diretamente verá "**sugestões de otimização de desempenho**" na parte superior do [página de monitorização de atividade de cópia](copy-activity-overview.md#monitor-visually) conforme mostrado no exemplo a seguir. Ele não apenas diz a o afunilamento identificado para a execução de cópia determinada, mas também o orienta sobre o que alterar modo a aumentar o débito de cópia. O desempenho de sugestões de otimização atualmente fornecer sugestões, como a utilizar quando se copiam dados para o Azure SQL Data Warehouse, o PolyBase para aumentar o Azure Cosmos DB RU ou do Azure SQL DB DTU quando o recurso em dados armazenar lado é o afunilamento, para remover desnecessários de teste cópia, etc. O desempenho, otimização de regras de gradualmente irá ser enriquecido também.
 
-    **Exemplo: copie para o BD SQL do Azure com dicas de ajuste de desempenho** ![copiar a monitorização com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+    **Exemplo: cópia para o Azure SQL DB com dicas de ajuste de desempenho**
 
-    Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
+    Neste exemplo, durante a cópia em execução, o BD SQL do Azure de sink atinge a alta utilização de DTU que pode atrasar as operações de escrita, de aviso ADF, portanto, a sugestão é aumentar o escalão de BD SQL do Azure com mais de DTU. 
+
+    ![Copie a monitorização com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Além disso, seguem-se algumas considerações comuns. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo.
 
    * Recursos de desempenho:
      * [Cópia paralela](#parallel-copy)

@@ -3,7 +3,7 @@ title: Limites de recurso baseado em vcore da base de dados SQL do Azure - base 
 description: Esta página descreve alguns limites de recursos baseados em vCore comuns para uma base de dados na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,24 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 894922a80ab874e5304ef441571e03ef559a34b0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215427"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460170"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
 Este artigo fornece os limites de recursos detalhados para a base de dados do Azure SQL únicas bases de dados com o modelo de compra baseado em vCore.
 
-Para baseado em DTU compra modelo limites para bases de dados individuais num servidor lógico, consulte [limita a visão geral dos recursos num servidor lógico](sql-database-resource-limits-logical-server.md).
+Para baseado em DTU compra modelo limites para bases de dados individuais num servidor de base de dados SQL, consulte [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-Pode definir o escalão de serviço, o tamanho de computação e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), o [ CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), ou o [API de REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Pode definir o escalão de serviço, o tamanho de computação e a quantidade de armazenamento para uma base de dados individual utilizando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), o [ CLI do Azure](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), ou o [API de REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Escalão de serviço de fins geral: Tamanhos de armazenamento e tamanhos de computação
 
@@ -152,7 +152,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
 |Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
-|Armazenamento em OLTP na memória (GB)|7|8|9,5|11|20|36|
+|Armazenamento em OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo (GB)|307|307|307|307|307|307|

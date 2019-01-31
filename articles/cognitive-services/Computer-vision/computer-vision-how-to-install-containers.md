@@ -6,21 +6,19 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: eb586a71747bb1708b069f30a86421c691cb3d46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186404"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473498"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
-
-Contentorização é uma abordagem para distribuição de software em que uma aplicação ou serviço é empacotado como uma imagem de contentor. A configuração e dependências para a aplicação ou serviço estão incluídas na imagem de contentor. A imagem de contentor, em seguida, pode ser implementada num anfitrião de contentor com pouca ou nenhuma modificação. Os contentores são isolados umas das outras e o sistema operacional subjacente, com requisitos de espaço mais pequenos do que uma máquina virtual. Contentores podem ser instanciados a partir de imagens de contentor para tarefas de curta duração e removidos quando já não for necessário.
 
 A parte de reconhecer texto de imagem digitalizada também está disponível como um contentor do Docker. Permite-lhe detetar e extrair texto impresso de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.  
 > [!IMPORTANT]
@@ -28,108 +26,101 @@ A parte de reconhecer texto de imagem digitalizada também está disponível com
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="preparation"></a>Preparação
+## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de cumprir os seguintes pré-requisitos antes de utilizar o contentor de reconhecer texto:
+Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de reconhecer texto:
 
-**Motor do docker**: Tem de ter o motor do Docker instalado localmente. Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker tem de ser configurado para dar suporte a contentores do Linux. Também podem ser implementados diretamente para contentores do docker [do Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [o azure Stack](../../azure-stack/index.yml). Para obter mais informações sobre a implementação de Kubernetes no Azure Stack, veja [implementar o Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+|Necessário|Objetivo|
+|--|--|
+|Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
+|Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
+|Reconhecer o recurso de texto |Para utilizar o contentor, tem de ter:<br><br>R [ _reconhecer texto_ ](vision-api-how-to-topics/howtosubscribe.md) recursos do Azure para obter a chave de faturação associada e a faturação URI do ponto final. Ambos os valores estão disponíveis nas páginas de descrição geral de texto reconhecer e chaves do portal do Azure e são necessários para iniciar o contentor.<br><br>**{BILLING_KEY}** : chave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure.
-
-**Familiaridade com o registo de contentor da Microsoft e a Docker**: Deve ter um conhecimento básico dos conceitos de registo de contentor da Microsoft e a Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.  
-
-Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
-
-### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
-
-O contentor de reconhecer texto requer um mínimo de 1 núcleo de CPU, pelo menos 2,6 GHz (gigahertz) ou mais rápida e 8 gigabytes (GB) de memória alocada, mas recomendamos, pelo menos, 2 núcleos de CPU e 8 GB de memória alocada.
 
 ## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
 
-Primeiro tem de concluir e submeter o [formulário de pedido de contentores de imagem digitalizada dos serviços cognitivos](https://aka.ms/VisionContainersPreview) para pedir acesso para o contentor de reconhecer texto. O formulário solicita as informações sobre si, sua empresa e o cenário de utilizador que vai utilizar o contentor. Depois de submeter, a equipe de serviços cognitivos do Azure analisa o formulário para se certificar de que cumpre os critérios para acesso ao registo de contentor privado.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> Tem de utilizar um endereço de e-mail associado à conta de (Azure AD) de uma conta Microsoft (MSA) ou o Azure Active Directory no formulário.
+### <a name="the-host-computer"></a>O computador anfitrião
 
-Se o pedido for aprovado, em seguida, receber um e-mail com instruções que descrevem como obter as suas credenciais e aceder ao registo de contentor privado.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
-## <a name="create-a-computer-vision-resource-on-azure"></a>Criar um recurso de imagem digitalizada no Azure
 
-Tem de criar um recurso de imagem digitalizada no Azure, se quiser usar o contêiner de reconhecer texto. Depois de criar o recurso, em seguida, utilize o URL de ponto final e a chave de subscrição do recurso para instanciar o contentor. Para obter mais informações sobre como criar uma instância de um contentor, consulte [criar uma instância de um contentor a partir de uma imagem de contentor transferido](#instantiate-a-container-from-a-downloaded-container-image).
+### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
-Execute os seguintes passos para criar e recuperar informações a partir de um recurso do Azure:
+A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória para atribuir cada contentor de reconhecer texto.
 
-1. Crie um recurso do Azure no portal do Azure.  
-   Se quiser usar o contêiner de reconhecer texto, primeiro tem de criar um recurso de imagem digitalizada correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
+| Contentor | Mínimo | Recomendado |
+|-----------|---------|-------------|
+|Reconhecer texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|
 
-1. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure.  
-   Depois de criar o recurso do Azure, tem de utilizar a chave de subscrição e o URL de ponto final desse recurso para instanciar o contentor de reconhecer texto correspondente. Pode copiar a chave de subscrição e o URL do ponto final da, respectivamente, os início rápido e as chaves de páginas do recurso de imagem digitalizada no portal do Azure.
+Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
 
-## <a name="log-in-to-the-private-container-registry"></a>Inicie sessão particular registo de contentor
+Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
 
-Existem várias formas de autenticar com o registo de contentor privado para contentores de serviços cognitivos, mas o método recomendado na linha de comando é utilizando o [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Utilize o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) comando, conforme mostrado no exemplo a seguir, para iniciar sessão no `containerpreview.azurecr.io`, o registo de contentor privado para contentores de serviços cognitivos. Substitua *\<nome de utilizador\>* com o nome de utilizador e *\<palavra-passe\>* com a palavra-passe que forneceu as credenciais que recebeu do Azure Equipa de serviços cognitiva.
+## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
 
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
+Imagens de contentor para reconhecer texto estão disponíveis. 
 
-Se proteger as suas credenciais de um arquivo de texto, poderá concatenar os conteúdos de texto de ficheiros, com o `cat` comando, para o `docker login` comando conforme mostrado no exemplo a seguir. Substitua *\<passwordFile\>* com o caminho e nome do ficheiro de texto que contém a palavra-passe e *\<username\>* com o nome de utilizador fornecido as credenciais.
+| Contentor | Repositório |
+|-----------|------------|
+|Reconhecer texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
+Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor.
 
-## <a name="download-container-images-from-the-private-container-registry"></a>Transfira imagens de contentor a partir do registo de contentor privado
 
-A imagem de contentor para o contentor de reconhecer texto está disponível de um registo de contentor de Docker privado, com o nome `containerpreview.azurecr.io`, no Azure Container Registry. A imagem de contentor para o contentor de reconhecer texto deve ser transferida a partir do repositório para executar o contentor localmente.
-
-Utilize o [solicitação docker](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor a partir do repositório. Por exemplo, para transferir a imagem de contentor de reconhecer texto mais recente do repositório, utilize o seguinte comando:
+### <a name="docker-pull-for-the-recognize-text-container"></a>Solicitação de docker para o contentor de reconhecer texto
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
-Para obter uma descrição completa de etiquetas disponíveis para o contentor de reconhecer texto, consulte [reconhecer texto](https://go.microsoft.com/fwlink/?linkid=2018655) no Docker Hub.
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-> [!TIP]
-> Pode utilizar o [imagens do docker](https://docs.docker.com/engine/reference/commandline/images/) command para listar as imagens de contentor transferido. Por exemplo, o comando seguinte lista o ID, o repositório e a etiqueta de cada imagem de contentor transferido, formatada como uma tabela:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+## <a name="how-to-use-the-container"></a>Como utilizar o contentor
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Criar uma instância de um contentor a partir de uma imagem de contentor transferido
+Assim que o contentor estiver no [computador anfitrião](#the-host-computer), utilize o seguinte processo para trabalhar com o contentor.
 
-Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para criar uma instância de um contentor a partir de uma imagem de contentor transferido. Por exemplo, o seguinte comando:
+1. [Execute o contentor](#run-the-container-with-docker-run), o necessário com as definições de faturação. Obter mais [exemplos](computer-vision-resource-container-config.md) do `docker run` comandos estão disponíveis. 
+1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint). 
 
-* Cria uma instância de um contentor a partir da imagem de contentor de reconhecer texto
-* Aloca dois núcleos de CPU e 8 gigabytes (GB) de memória
+## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
+
+Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
+
+| Marcador de posição | Value |
+|-------------|-------|
+|{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível na página de chaves de texto de reconhecer o portal do Azure.  |
+|{BILLING_ENDPOINT_URI} | O ponto final faturação valor do URI.|
+
+Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Este comando:
+
+* Execute um contentor de reconhecer a partir da imagem de contentor
+* Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contentor depois sai
+* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião. 
 
-```docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westus.api.cognitive.microsoft.com/vision/v2.0 ApiKey=0123456789
-```
-
-Uma vez instanciado, pode chamar as operações do contêiner com o URI de anfitrião do contentor. Por exemplo, o URI de anfitrião do seguinte representa o contentor de reconhecer texto que foi instanciado no exemplo anterior:
-
-```http
-http://localhost:5000/
-```
+Obter mais [exemplos](./computer-vision-resource-container-config.md#example-docker-run-commands) do `docker run` comandos estão disponíveis. 
 
 > [!IMPORTANT]
-> Pode aceder a [especificação de OpenAPI](https://swagger.io/docs/specification/about/) (anteriormente conhecido como a especificação Swagger), que descreve as operações suportadas por um contentor instanciado, a partir do `/swagger` URI relativo para esse contentor. Por exemplo, o URI seguinte fornece acesso a especificação de OpenAPI para o contentor de reconhecer texto que foi instanciado no exemplo anterior:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+> O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 
-Pode [chamar as operações de REST API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) disponível a partir do seu contentor de forma assíncrona ou síncrona clama pelo reconhecimento de texto, ou utilize o [Azure SDK dos serviços cognitivos computador visão](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) cliente biblioteca para chamar essas operações.  
-> [!IMPORTANT]
-> Tem de ter o Azure SDK dos serviços cognitivos computador visão versão 3.2.0 ou posterior se pretender utilizar a biblioteca de cliente com o seu contentor.
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
+
+O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
+
+Usar o host, https://localhost:5000, para o contentor APIs.
 
 ### <a name="asynchronous-text-recognition"></a>Reconhecimento de texto assíncrona
 
@@ -139,29 +130,45 @@ Pode utilizar o `POST /vision/v2.0/recognizeText` e `GET /vision/v2.0/textOperat
 
 Pode utilizar o `POST /vision/v2.0/recognizeTextDirect` operação de forma síncrona reconhecer texto impresso numa imagem. Uma vez que esta operação é síncrona, o corpo do pedido para esta operação é o mesmo que para o `POST /vision/v2.0/recognizeText` operação, mas a resposta body para esta operação é o mesmo que devolvido pelo `GET /vision/v2.0/textOperations/*{id}*` operação.
 
-### <a name="billing"></a>Faturação
+## <a name="stop-the-container"></a>Parar o contentor
 
-O contentor de reconhecer texto envia informações de faturação para o Azure, através de um recurso de imagem digitalizada correspondente na sua conta do Azure. As opções seguintes são utilizadas pelo contentor de reconhecer texto para efeitos de faturação:
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se executar o contentor com uma saída [montar](./computer-vision-resource-container-config.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
+
+## <a name="containers-api-documentation"></a>Documentação da API do contentor
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+## <a name="billing"></a>Faturação
+
+O envio de contentores de reconhecer texto cobrança informações para o Azure, utilizando um _reconhecer texto_ recursos na sua conta do Azure. 
+
+Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente para a Microsoft. 
+
+O `docker run` comando utiliza os argumentos a seguir para fins de faturação:
 
 | Opção | Descrição |
 |--------|-------------|
-| `ApiKey` | A chave de API do recurso de imagem digitalizada utilizada para controlar informações de faturas.<br/>O valor desta opção tem de ser definido para uma chave de API para o recurso aprovisionado do Azure de visão do computador especificado no `Billing`. |
-| `Billing` | O ponto final do recurso de imagem digitalizada utilizado para controlar informações de faturas.<br/>O valor desta opção tem de ser definido para o ponto final do URI de um recurso do Azure de visão do computador aprovisionado.|
+| `ApiKey` | A chave de API dos _reconhecer texto_ recurso utilizado para controlar informações de faturação. |
+| `Billing` | O ponto final da _reconhecer texto_ recurso utilizado para controlar informações de faturação.|
 | `Eula` | Indica que aceite a licença para o contentor.<br/>O valor desta opção tem de ser definido `accept`. |
 
 > [!IMPORTANT]
 > Todas as três opções tem de ser especificadas com valores válidos ou não inicia o contentor.
 
-Para obter mais informações sobre estas opções, consulte [configurar contentores](computer-vision-resource-container-config.md).
+Para obter mais informações sobre estas opções, consulte [configurar contentores](./computer-vision-resource-container-config.md).
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e de imagem digitalizada contentores em execução. Em resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e reconhecer texto contentores em execução. Em resumo:
 
-* Imagem digitalizada fornece uma contentores do Linux para o Docker, para detetar e extrair texto impresso.
-* Imagens de contentor são transferidas a partir de um registo de contentor privado no Azure.
+* Reconhecer texto fornece um contentor do Linux para o Docker, encapsulando reconhecer texto.
+* Imagens de contentor são transferidas a partir do registo de contentor do Microsoft (MCR) no Azure.
 * Executam imagens de contentor no Docker.
-* Pode utilizar a REST API ou o SDK para chamar operações em contentores de imagem digitalizada, especificando o URI do contentor do anfitrião.
+* Pode utilizar a REST API ou o SDK para chamar operações em contentores de reconhecer texto ao especificar o URI do contentor do anfitrião.
 * Tem de especificar informações de faturação ao instanciar um contentor.
 
 > [!IMPORTANT]

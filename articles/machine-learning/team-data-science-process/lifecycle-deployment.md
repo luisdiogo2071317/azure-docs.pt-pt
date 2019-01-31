@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138573"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452520"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase da implementação de ciclo de vida do processo de ciência de dados de equipa
 
@@ -39,7 +39,7 @@ Implemente modelos com um pipeline de dados para um ambiente de produção simul
 ## <a name="how-to-do-it"></a>Como fazê-lo
 A tarefa principal abordada nessa etapa:
 
-**Operacionalizar o modelo**: implementar o modelo e um pipeline para um ambiente de produção simulado para consumo de aplicativo ou produção.
+**Operacionalizar o modelo**: Implemente o modelo e um pipeline para um ambiente de produção simulado para consumo de aplicativo ou produção.
 
 ### <a name="operationalize-a-model"></a>Operacionalizar um modelo
 Depois de ter um conjunto de modelos com bom desempenho, pode operacionalizá-las para outras aplicações para consumir. Consoante os requisitos de negócios, são feitas previsões em tempo real ou numa base de batch. Para implementar os modelos, expô-los com uma interface de API aberta. A interface permite que o modelo possa ser facilmente consumidos a partir de vários aplicativos, tais como:

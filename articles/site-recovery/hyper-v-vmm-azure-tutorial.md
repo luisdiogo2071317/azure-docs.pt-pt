@@ -1,7 +1,20 @@
 ---
-Título: Configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do VMM para o Azure com o Azure Site Recovery | Descrição do Microsoft Docs: Saiba como configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do System Center VMM para o Azure, com o serviço Azure Site Recovery.
-serviços: autor de recuperação de sites: rayne wiselman MS. Service de: MS. topic de recuperação de sites: conceitual MS: 12/27/2018 MS. Author: raynew MS. Custom: MVC
-
+title: Configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do VMM para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Saiba como configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do System Center VMM para o Azure, com o serviço Azure Site Recovery.
+services: site-recovery
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 12/27/2018
+ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 5dfa5bba41785532db07c7b8569f2e1e1d3e0004
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300460"
+---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do VMM para o Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
@@ -115,5 +128,5 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
  Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial estará concluída e a VM estará preparada para a ativação pós-falha.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)

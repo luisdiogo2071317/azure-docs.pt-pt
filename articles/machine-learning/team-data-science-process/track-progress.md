@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134308"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451993"
 ---
 # <a name="tracking-the-progress-of-data-science-projects"></a>Rastreamento do progresso de projetos de ciência de dados
 
@@ -39,7 +39,7 @@ Aqui está um dashboard de exemplo simples que foi criado para controlar as ativ
 
 Os painéis restantes mostram o diagrama de fluxo cumulativo (CFD), burndown e burnup para um projeto:
 
-- **Parte inferior esquerda**: CFD a quantidade de trabalho num determinado Estado, que mostra aprovados em cinza, aplicadas a azul e, feito em verde.
+- **Parte inferior esquerda**:  CFD a quantidade de trabalho num determinado Estado, que mostra aprovados em cinza, aplicadas a azul e, feito em verde.
 - **Canto superior direito**: gráfico de burndown do trabalho restante para concluir versus o tempo restante).
 - **Parte inferior direita**: burnup o trabalho que foi concluído em comparação com a quantidade total de trabalho do gráfico.
 

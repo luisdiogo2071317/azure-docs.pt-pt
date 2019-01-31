@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599761"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468908"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
 
-Este artigo mostra-lhe como configurar [georreplicação ativa para bases de dados individuais e em pool] numa lógica server(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) na base de dados SQL com o [Portal do azure](http://portal.azure.com) e iniciar a ativação pós-falha.
+Este artigo mostra-lhe como configurar [georreplicação ativa para bases de dados individuais e em pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) na base de dados do Azure SQL com o [portal do Azure](http://portal.azure.com) e iniciar a ativação pós-falha.
 
 Para obter informações sobre grupos de ativação pós-falha automática com bases de dados únicos e em pool, consulte [melhores práticas de utilização de grupos de ativação pós-falha com bases de dados únicos e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para obter informações sobre grupos de ativação pós-falha automática com instâncias de geridas (pré-visualização), consulte [melhores práticas de utilização de grupos de ativação pós-falha com bases de dados únicos e em pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ Os passos seguintes criam uma nova base de dados secundário numa parceria de re
 
 Para adicionar uma base de dados secundária, tem de ser o proprietário da subscrição ou coproprietário.
 
-A base de dados secundária tem o mesmo nome que a base de dados primário e tem, por predefinição, o mesmo serviço de camada e tamanho de computação. A base de dados secundária pode ser uma base de dados ou uma base de dados num conjunto elástico. Para obter mais informações, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+A base de dados secundária tem o mesmo nome que a base de dados primário e tem, por predefinição, o mesmo serviço de camada e tamanho de computação. A base de dados secundária pode ser uma base de dados ou uma base de dados em pool. Para obter mais informações, consulte [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 Depois do secundário é criado e implantado, dados começa a replicar a partir da base de dados primária para a nova base de dados secundário.
 
 > [!NOTE]

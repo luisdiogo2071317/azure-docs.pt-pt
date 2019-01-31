@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: d45f5b5c5945796e30c86b2e3ef48d6b8e693b99
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3028fd18bd9afefaa18f7f515a43a852ddef78a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464404"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Gerir recursos do Azure Cosmos DB com a CLI do Azure
+# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir recursos do Cosmos do Azure com a CLI do Azure
 
 O guia seguinte descreve os comandos para automatizar a gestão das contas do Azure Cosmos DB, bases de dados e contentores com a CLI do Azure. Ele também inclui comandos para dimensionar o débito de contentores. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Também pode encontrar mais exemplos [amostras de CLI do Azure para o Azure Cosmos DB](cli-samples.md), incluindo como criar e gerir contas do Cosmos DB, bases de dados e contentores para o MongoDB, Gremlin, Cassandra e API de tabela.
 

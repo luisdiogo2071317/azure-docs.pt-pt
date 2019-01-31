@@ -1,6 +1,6 @@
 ---
-title: Importar dados para Machine Learning Studio a partir de outra experimentação titleSuffix: Descrição do Azure Machine Learning Studio: Como guardar dados de formação no Azure Machine Learning Studio e utilizá-lo em outra experimentação.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Importar dados para Machine Learning Studio a partir de outra experimentação titleSuffix: Descrição do Azure Machine Learning Studio: Como guardar dados de formação no Azure Machine Learning Studio e utilizá-lo em outra experimentação.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=deguhath, previous-author=deguhath ms.date: 03/20/2017
 ---

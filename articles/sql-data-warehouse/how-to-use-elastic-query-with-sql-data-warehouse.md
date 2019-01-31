@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718306"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466290"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Melhores práticas para utilizar a consulta elástica na base de dados do Azure SQL para aceder a dados no Azure SQL Data Warehouse
 Aprenda as melhores práticas para a utilização de consulta elástica da base de dados do Azure SQL para aceder a dados no Azure SQL Data Warehouse. 
@@ -61,7 +61,7 @@ Utilize estas melhores práticas para utilizar a consulta elástica com eficiên
 ### <a name="general"></a>Geral
 
 - Ao utilizar a execução da consulta remota, certifique-se de que está apenas selecionar as colunas necessárias e aplicar os filtros corretos. Não apenas faz esse aumento de computação necessário, mas também aumenta o tamanho do conjunto de resultados e, portanto, a quantidade de dados que precisam de ser movidos entre as duas instâncias.
-- Manter os dados para fins analíticos no SQL Data Warehouse e base de dados SQL no columnstore em cluster para um desempenho analytiIcal.
+- Manter os dados para fins analíticos no SQL Data Warehouse e base de dados SQL no columnstore em cluster para um desempenho analítico.
 - Certifique-se de que as tabelas de origem são particionadas para movimento de dados e de consultas.
 - Certifique-se de que as instâncias do SQL da base de dados usadas como cache são particionadas para permitir atualizações mais granulares e uma gestão mais fácil. 
 - O ideal é que utilize bases de dados do PremiumRS porque fornecem os benefícios analíticos de indexação com foco em cargas de trabalho de e/s intensivas com um desconto de bases de dados Premium de columnstore em cluster.
@@ -125,29 +125,29 @@ Utilizar o Azure SQL da base de dados quando:
 
 ## <a name="faq"></a>FAQ
 
-P: Posso utilizar bases de dados dentro de um conjunto elástico com consulta elástica?
+P: Pode utilizar bases de dados dentro de um conjunto elástico com consulta elástica?
 
 R: Sim. Bases de dados SQL num conjunto elástico que pode utilizar a consulta elástica. 
 
-P: existe um limite para quantas bases de dados que pode utilizar para a consulta elástica?
+P: Existe um limite para quantas bases de dados que pode utilizar para a consulta elástica?
 
-R: não existe nenhum limite de máximo de disco rígido em quantos bancos de dados podem ser utilizados para a consulta elástica. No entanto, cada consulta elástica (consultas que atingem o SQL Data Warehouse) serão revertidas em limites de simultaneidade normal.
+R: Não há nenhum limite rígido sobre quantos bancos de dados podem ser utilizados para a consulta elástica. No entanto, cada consulta elástica (consultas que atingem o SQL Data Warehouse) serão revertidas em limites de simultaneidade normal.
 
-P: existem limites DTU envolvidas com a consulta elástica?
+P: Existem limites DTU envolvidas com a consulta elástica?
 
-R: limites de DTU de não são impostas qualquer modo diferente com a consulta elástica. A política padrão é, de modo a que os servidores lógicos têm limites DTU em vigor para impedir que os clientes ultrapassar o limite acidental. Se pretende ativar a vários bancos de dados para a consulta elástica juntamente com uma instância do SQL Data Warehouse, pode atingir o limite máximo de inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
+R: Limites de DTU não são impostas qualquer modo diferente com a consulta elástica. A política padrão é, de modo a que os servidores lógicos têm limites DTU em vigor para impedir que os clientes ultrapassar o limite acidental. Se pretende ativar a vários bancos de dados para a consulta elástica juntamente com uma instância do SQL Data Warehouse, pode atingir o limite máximo de inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
 
 P: Posso utilizar dados de linha nível segurança/dinâmico máscara com consulta elástica?
 
-R: clientes que pretendem utilizar recursos de segurança mais avançados com base de dados SQL podem fazê-lo, primeiro mover e armazenar os dados na base de dados SQL. Atualmente não é possível aplicar a segurança ao nível da linha ou de ddm de autor em dados consultados por meio de tabelas externas. 
+R: Os clientes que pretendem utilizar as funcionalidades de segurança mais avançadas com base de dados SQL podem fazê-lo, primeiro mover e armazenar os dados na base de dados SQL. Atualmente não é possível aplicar a segurança ao nível da linha ou de ddm de autor em dados consultados por meio de tabelas externas. 
 
-P: posso escrever da minha instância de base de dados SQL para a instância do armazém de dados?
+P: Posso escrever da minha instância de base de dados SQL para a instância do armazém de dados?
 
-R: atualmente esta funcionalidade não é suportada. Visite nosso [página de comentários] [ Feedback page] para criar/um voto para esta funcionalidade se se tratar de uma funcionalidade que gostaria de ver no futuro. 
+R: Atualmente esta funcionalidade não é suportada. Visite nosso [página de comentários] [ Feedback page] para criar/um voto para esta funcionalidade se se tratar de uma funcionalidade que gostaria de ver no futuro. 
 
-P: Posso utilizar tipos geográficos como geometria/geografia?
+P: Pode utilizar tipos geográficos como geometria/geografia?
 
-R: pode armazenar tipos espaciais no SQL Data Warehouse como valores de varbinary (Max). Quando consultar estas colunas com uma consulta elástica, pode convertê-los para os tipos apropriados em tempo de execução.
+R: Pode armazenar tipos espaciais no SQL Data Warehouse como valores de varbinary (Max). Quando consultar estas colunas com uma consulta elástica, pode convertê-los para os tipos apropriados em tempo de execução.
 
 ![tipos geográficos](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

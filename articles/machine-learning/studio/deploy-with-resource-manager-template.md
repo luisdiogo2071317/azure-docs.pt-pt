@@ -1,5 +1,5 @@
 ---
-title: Implemente a área de trabalho do Studio com o Azure Resource Manager titleSuffix: Descrição do Azure Machine Learning Studio: Como implementar uma área de trabalho para o Azure Machine Learning com os serviços de modelo do Azure Resource Manager: MS. Service de machine learning: ms.component de machine learning: studio topic: artigo
+title: Implemente a área de trabalho do Studio com o Azure Resource Manager titleSuffix: Descrição do Azure Machine Learning Studio: Como implementar uma área de trabalho para o Azure Machine Learning com os serviços de modelo do Azure Resource Manager: MS. Service de machine learning: ms.subservice de machine learning: studio topic: artigo
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---

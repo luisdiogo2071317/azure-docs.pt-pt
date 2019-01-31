@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 01/25/2019
+ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240663"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478343"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -75,9 +75,9 @@ A camada de serviços de Hiperescala foi criada primariamente para os clientes q
 
 Hiperescala está atualmente disponível para bases de dados individuais nas seguintes regiões:  US1 oeste, E.u.a. oeste2, US1 leste, E.U.A. Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, Sudeste asiático, leste do Japão, Coreia Central, Austrália Sudeste e leste da Austrália.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Pode criar várias bases de dados de grande dimensão por servidor lógico
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Pode criar várias bases de dados de grande dimensão por servidor de base de dados SQL
 
-Sim. Para obter mais informações e limites no número de bases de dados de grande dimensão por servidor lógico, consulte [limites de recursos de base de dados SQL para bases de dados únicos e agrupados num servidor lógico](sql-database-resource-limits-logical-server.md).
+Sim. Para obter mais informações e limites no número de bases de dados de grande dimensão por servidor de base de dados SQL, consulte [limites de recursos de base de dados SQL para bases de dados únicos e agrupados num servidor de base de dados SQL](sql-database-resource-limits-database-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>O que são características de desempenho de uma base de dados de grande escala
 
@@ -98,7 +98,7 @@ Hiperescala de base de dados SQL fornece uma rápida escalabilidade com base na 
 
 ## <a name="deep-dive-questions"></a>Perguntas de aprofundamento
 
-### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Posso combinar ligações Hiperescala e bases de dados individuais no meu servidor lógico
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Posso combinar Hiperescala e bases de dados individuais um meu servidor de base de dados SQL
 
 Sim, pode.
 
@@ -235,7 +235,7 @@ Ainda não conhecido (ainda em pré-visualização)
 
 Pode ler os dados do armazenamento do Azure e carregar o carregamento de dados para uma base de dados de grande escala (da mesma forma que pode fazer com uma base de dados regular). O Polybase não é atualmente suportado na base de dados do Azure SQL. Pode fazer usando o Polybase [do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou em execução uma tarefa do Spark no [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o [conector do Spark para o SQL](sql-database-spark-connector.md). O conector do Spark SQL suporta a inserção em massa.
 
-Recuperação simples ou modelo de registo em massa não é suportado em Hiperescala. Modelo de recuperação completa é necessário para fornecer elevada disponibilidade. No entanto, a Hiperescala fornece uma melhor em comparação comparada uma base de dados SQL do Azure devido a nova arquitetura de registo de velocidade de ingestão de dados.
+Recuperação simples ou modelo de registo em massa não é suportado em Hiperescala. Modelo de recuperação completa é necessário para fornecer elevada disponibilidade. No entanto, a Hiperescala fornece uma melhor em comparação comparada uma base de dados devido a nova arquitetura de registo de velocidade de ingestão de dados.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>O grande dimensão de base de dados SQL permite vários nós para ingerir grandes quantidades de dados de aprovisionamento
 

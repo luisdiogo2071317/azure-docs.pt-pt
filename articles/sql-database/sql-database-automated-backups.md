@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035428"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477816"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -42,7 +42,7 @@ Pode utilizar estas cópias de segurança para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem
 
-Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende do modelo de compra e a camada de serviços. Pode atualizar a cópia de segurança) período de retenção para uma base de dados num servidor lógico do Azure. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
+Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende do modelo de compra e a camada de serviços. Pode atualizar a cópia de segurança) período de retenção para uma base de dados no servidor de base de dados SQL. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 
@@ -63,7 +63,7 @@ O período de retenção predefinido para uma base de dados criada com o modelo 
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
-Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (para únicos, agrupados e instância bases de dados). Para todas as bases de dados SQL do Azure (único, agrupados, e de bases de dados de instância gerida, também pode [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-the-pitr-backup-retention-period).
+Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (autónomo, agrupados e bases de dados de instância). Para todas as bases de dados SQL do Azure (autónomo, agrupados e bases de dados de instância, pode [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se reduzir o período de retenção atual, todas as cópias de segurança existentes mais antigas do que o período de retenção do novo período são já não estar disponível. Se aumentar o período de retenção atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
@@ -80,7 +80,7 @@ Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-
 
 ### <a name="backups-for-long-term-retention"></a>Cópias de segurança de retenção de longa duração
 
-Base de dados SQL alojada num servidor lógico oferece a opção de configurar a retenção de longo prazo (LTR) de cópias de segurança completas para até 10 anos no armazenamento de Blobs do Azure. Se a política LTR estiver ativada, as cópias de segurança completas semanais são copiadas automaticamente para um contentor de armazenamento RA-GRS diferente. Para cumprir o requisito de conformidade diferentes, pode selecionar os períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. O consumo de armazenamento depende na frequência de cópias de segurança e a retenção period(s) selecionada. Pode utilizar o [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para calcular o custo de armazenamento LTR.
+Autónomo e bases de dados agrupadas oferecem a opção de configurar a retenção de longo prazo (LTR) de cópias de segurança completas para até 10 anos no armazenamento de Blobs do Azure. Se a política LTR estiver ativada, as cópias de segurança completas semanais são copiadas automaticamente para um contentor de armazenamento RA-GRS diferente. Para cumprir o requisito de conformidade diferentes, pode selecionar os períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. O consumo de armazenamento depende na frequência de cópias de segurança e a retenção period(s) selecionada. Pode utilizar o [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para calcular o custo de armazenamento LTR.
 
 Como PITR, as cópias de segurança LTR são georredundante e estão protegidas pela [replicação do armazenamento do Azure entre regiões](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -111,7 +111,7 @@ Pode alterar o período de retenção de cópia de segurança de PITR predefinid
 
 Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no Portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando.
 
-#### <a name="change-pitr-for-a-logical-server"></a>Alteração PITR para um servidor lógico
+#### <a name="change-pitr-for-a-sql-database-server"></a>Alteração PITR para um servidor de base de dados SQL
 
 ![Portal do PITR Azure de alteração](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 

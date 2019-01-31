@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086075"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473351"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizagem de máquina
 Máquinas de virtuais de ciência de dados do Azure tem um conjunto avançado de ferramentas e bibliotecas para machine learning (ML) disponível em linguagens populares, como Python, R e Julia. 
@@ -32,7 +32,7 @@ Aqui estão algumas das ferramentas de ML e bibliotecas em máquinas de virtuais
 |    |           |
 | ------------- | ------------- |
 | O que é?   |   O Azure Machine Learning é um serviço cloud que pode utilizar para desenvolver e implementar modelos de ML. Pode acompanhar os seus modelos como criar, formar, dimensionar e geri-los utilizando o SDK de Python. Implementar modelos como contentores e execute-os na cloud, no local, ou no Azure IoT Edge.   |
-| Edições suportadas     | Windows (ambiente de conda: AzureML), Linux (ambiente de conda: py36)    |
+| Edições suportadas     | Windows (ambiente de conda: AzureML), Linux (conda environment: py36)    |
 | Utilizações típicas      | Plataforma de ML geral      |
 | Como é ele configurado ou instalado?      |  Instalado com o suporte GPU   |
 | A utilização ou executá-lo      | Como o Python SDK e CLI do Azure. Ativar o ambiente de conda `AzureML` edição do Windows *ou* para `py36` na edição de Linux.      |

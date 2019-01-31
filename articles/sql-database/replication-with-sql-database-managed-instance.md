@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467668"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurar a replicação na instância gerida da base de dados SQL do Azure
 
-Replicação transacional permite-lhe replicar dados dos bancos de dados do SQL Server ou de instância gerida da base de dados SQL do Azure para a instância gerida, ou envie as alterações feitas em seus bancos de dados na instância gerida para outro SQL Server, base de dados do Azure ou outro Instância gerida. A replicação está em pré-visualização pública no [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Ver [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
+Replicação transacional permite-lhe replicar os dados dos bancos de dados do SQL Server ou de instância gerida da base de dados SQL do Azure para a instância gerida, ou para enviar por push as alterações feitas em seus bancos de dados na instância gerida para outro SQL Server, base de dados única base de dados SQL ou conjunto elástico ou outra instância gerida. A replicação está em pré-visualização pública no [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Ver [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -46,7 +46,7 @@ Suporta:
 
 - Combinação de replicação de instantâneo e transacional de instâncias de instância gerida da base de dados SQL do Azure e no local.
 
-- Os assinantes podem ser bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL, bases de dados individuais na base de dados do Azure SQL ou no local.
+- Os assinantes podem ser bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL, base de dados na base de dados do Azure SQL ou no local.
 
 - Unidirecional ou bidirecional de replicação.
 
@@ -71,7 +71,7 @@ Não são suportadas as seguintes funcionalidades:
 
    Nos scripts de exemplo abaixo, utilize `<SQL_USER>` e `<PASSWORD>` com esta conta do SQL Server da base de dados utilizador e palavra-passe.
 
-5. [Ligue-se para a instância gerida da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ligue-se para a instância gerida da base de dados SQL](sql-database-connect-query-ssms.md).
 
 6. Execute a consulta seguinte para adicionar o distribuidor e a base de dados de distribuição.
 
@@ -172,4 +172,4 @@ Não são suportadas as seguintes funcionalidades:
 ## <a name="see-also"></a>Consultar Também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
-- [O que é uma instância gerida?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [O que é uma instância gerida?](sql-database-managed-instance.md)

@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884356"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468330"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -34,7 +34,7 @@ Tem as seguintes opções de monitorização e resolução de problemas de desem
 - Uso [Assistente de base de dados SQL](sql-database-advisor-portal.md) para ver as recomendações para criar e remover índices, parametrização consultas e corrigir problemas de esquema.
 - Uso [informações inteligentes do SQL Azure](sql-database-intelligent-insights.md) para a monitorização automática de desempenho da sua base de dados. Depois de um problema de desempenho é detetado, é gerado um registo de diagnóstico com detalhes e análise de causa raiz (RCA) do problema. Recomendação de melhoria do desempenho é fornecida sempre que possível.
 - [Ativar o ajuste automático](sql-database-automatic-tuning-enable.md) e permita que o SQL do Azure, base de dados automaticamente problemas de desempenho de correção identificada.
-- Uso [vistas de gestão dinâmica (DMVs)](sql-database-monitoring-with-dmvs.md), [eventos expandidos](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr)e o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obter mais dos problemas de desempenho de resolução de problemas.
+- Uso [vistas de gestão dinâmica (DMVs)](sql-database-monitoring-with-dmvs.md), [eventos expandidos](sql-database-xevent-db-diff-from-svr.md)e o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obter mais dos problemas de desempenho de resolução de problemas.
 
 > [!TIP]
 > Ver [orientação de desempenho](sql-database-performance-guidance.md) para descobrir técnicas que pode utilizar para melhorar o desempenho da base de dados do Azure SQL depois de identificar o problema de desempenho com um ou mais dos métodos acima.
@@ -204,7 +204,7 @@ Conforme mostrado no gráfico anterior, as esperas mais comuns são:
 
 Por fim, se não existirem não existem itens passíveis de ação que podem melhorar o desempenho da base de dados, pode alterar a quantidade de recursos disponíveis no banco de dados do Azure SQL. Pode atribuir mais recursos ao alterar o [escalão de serviço DTU](sql-database-service-tiers-dtu.md) de um único banco de dados ou aumentar as eDTUs de um conjunto elástico em qualquer altura. Em alternativa, se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), pode alterar a camada de serviço ou aumentar os recursos alocados à base de dados.
 
-1. Para obter bases de dados individuais, pode [alterar escalões de serviço](sql-database-service-tiers-dtu.md) ou [recursos de computação](sql-database-service-tiers-vcore.md) sob demanda para melhorar o desempenho da base de dados.
+1. Para obter bases de dados individuais, pode [alterar escalões de serviço](sql-database-single-database-scale.md) ou [recursos de computação](sql-database-single-database-scale.md) sob demanda para melhorar o desempenho da base de dados.
 2. Para várias bases de dados, considere a utilização [conjuntos elásticos](sql-database-elastic-pool-guidance.md) Dimensionar recursos automaticamente.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Otimizar e um aplicativo do refactor ou código de base de dados

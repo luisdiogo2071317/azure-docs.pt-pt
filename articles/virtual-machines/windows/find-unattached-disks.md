@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 11ffba34fff10d488cb3c9d81b7853f99b2ed138
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: cc8813b0ac90ded1c777f9b1200f4e26737168b9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475157"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459704"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localize e elimine desanexados discos geridos e não geridos do Azure
 Quando elimina uma máquina virtual (VM) no Azure, por predefinição, não são eliminados todos os discos que estão ligados à VM. Esta funcionalidade ajuda a evitar a perda de dados devido à exclusão involuntária de VMs. Depois de eliminar uma VM, continuará a pagar pelos discos desanexados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos desanexados e reduzir custos desnecessários. 

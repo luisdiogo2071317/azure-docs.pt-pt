@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389109"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457943"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Transações de base de dados e o controlo de simultaneidade otimista
+# <a name="transactions-and-optimistic-concurrency-control"></a>Transações e o controlo de simultaneidade otimista
 
 Transações da base de dados fornecem um modelo de programação seguro e previsível para lidar com alterações simultâneas nos dados. O bases de dados de relacionais tradicionais, como o SQL Server permitem-lhe escrever a lógica de negócios usando procedimentos armazenados e/ou acionadores, enviá-lo para o servidor para execução diretamente no motor de base de dados. Com bases de dados relacionais tradicionais, é necessário para lidar com dois diferentes programação idiomas - o idioma, como JavaScript, Python, de programação de aplicações (não transacional) C#, Java, etc. e a linguagem de programação transacional (T-SQL) que é nativamente executada pela base de dados.
 

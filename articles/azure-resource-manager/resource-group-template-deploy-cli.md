@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5f27b34bda930d020461bd5f4f7986091ffd5549
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: a97e49c8d1a972e2b9d9ff34173d9aed07a22a19
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413664"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295547"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -153,7 +153,7 @@ O formato de arrayContent.json é:
 
 ### <a name="parameter-files"></a>Ficheiros de parâmetros
 
-Em vez de passar parâmetros como valores de inline no seu script, talvez ache mais fácil de utilizar um ficheiro JSON que contém os valores de parâmetro. O ficheiro de parâmetros tem de ser um ficheiro local. Ficheiros de parâmetros externas não são suportados com a CLI do Azure.
+Em vez de passar parâmetros como valores de inline no seu script, talvez ache mais fácil de utilizar um ficheiro JSON que contém os valores de parâmetro. O ficheiro de parâmetros tem de ser um ficheiro local. Não são suportados ficheiros de parâmetro externo com a CLI do Azure.
 
 O ficheiro de parâmetros tem de estar no seguinte formato:
 

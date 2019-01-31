@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358118"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477731"
 ---
-# <a name="ip-firewall-for-azure-cosmos-accounts"></a>Firewall do IP para contas do Cosmos do Azure
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall do IP no Azure Cosmos DB
 
 Para proteger os dados armazenados na sua conta, do Azure Cosmos DB suporta um modelo de autorização baseada em segredo que utiliza um forte baseada em Hash Message Authentication Code (HMAC). Além disso, o Azure Cosmos DB suporta controlos de acesso baseado em IP para o suporte de firewall de entrada. Esse modelo é semelhante para as regras de firewall de um sistema de base de dados tradicionais e fornece um nível adicional de segurança à sua conta. Com firewalls, pode configurar a sua conta do Cosmos do Azure para ser acessível apenas a partir de um conjunto aprovado de computadores e/ou serviços em nuvem. Acesso a dados armazenados na sua base de dados do Cosmos do Azure desses aprovados conjuntos de máquinas e serviços ainda exige o autor da chamada apresentar um token de autorização válida.
 

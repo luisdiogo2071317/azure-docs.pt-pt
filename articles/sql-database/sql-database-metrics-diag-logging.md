@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102194"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462805"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
 Base de dados SQL do Azure, conjuntos elásticos, instância gerida e bases de dados em podem de instância gerida transmita registos de diagnóstico e métricas para monitorizar o desempenho mais fácil. Pode configurar uma base de dados para transmitir a utilização de recursos, funções de trabalho e sessões e conectividade a um dos seguintes recursos do Azure:
 
-- **Análise de SQL do Azure**: para obter monitorização inteligentes de seus bancos de dados do Azure que inclui relatórios de desempenho, alertas e recomendações de atenuação.
+- **Análise de SQL do Azure**: para obter monitorização inteligentes de seus bancos de dados SQL do Azure, que inclui relatórios de desempenho, alertas e recomendações de atenuação.
 - **Os Hubs de eventos do Azure**: para integrar a telemetria de base de dados SQL com as soluções de monitorização personalizadas monitorizção ou em pipelines.
 - **O armazenamento do Azure**: para arquivar grandes quantidades de telemetria para uma fração do preço.
 
@@ -414,7 +414,7 @@ Consulte a tabela seguinte para obter detalhes sobre os registos para a instânc
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: ResourceUsageStats |
 |Recurso|Nome do recurso |
@@ -443,7 +443,7 @@ Consulte as tabelas seguintes para obter detalhes sobre os registos para bases d
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
@@ -494,7 +494,7 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
@@ -532,7 +532,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQ |
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
@@ -561,7 +561,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
@@ -613,7 +613,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
@@ -637,7 +637,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Impasses |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
@@ -658,7 +658,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: AutomaticTuning |
 |Recurso|Nome do recurso |

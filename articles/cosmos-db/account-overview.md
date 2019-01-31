@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034935"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459218"
 ---
-# <a name="working-with-azure-cosmos-account"></a>Trabalhar com a conta do Azure Cosmos
+# <a name="work-with-azure-cosmos-account"></a>Trabalhar com a conta do Cosmos do Azure
 
 O Azure Cosmos DB é um totalmente gerido plataforma-como-um-serviço (PaaS). Para começar a utilizar o Azure Cosmos DB, inicialmente deve criar uma conta do Cosmos do Azure na sua subscrição do Azure. Sua conta do Cosmos do Azure contém um nome DNS exclusivo e pode gerir uma conta com o portal do Azure, CLI do Azure ou através de SDKs de específicas de idiomas diferentes. Para obter mais informações, consulte [como gerir a sua conta do Azure Cosmos](how-to-manage-database-account.md).
 
@@ -42,4 +42,4 @@ Agora, pode avançar para saber como gerir a sua conta do Cosmos do Azure ou vej
 * [Ponto final de serviço VNET para a sua conta do Cosmos do Azure](vnet-service-endpoint.md)
 * [Firewall do IP para a sua conta do Cosmos do Azure](firewall-support.md)
 * [Procedimentos: adicionar e remover regiões do Azure à sua conta do Cosmos do Azure](how-to-manage-database-account.md)
-* [SLAs do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

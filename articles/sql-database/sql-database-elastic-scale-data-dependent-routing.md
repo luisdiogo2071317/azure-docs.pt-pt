@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: fe9098592fcfde2d5e23b78a3e33f2b4ebb9e2dc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201113"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468653"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento para encaminhar uma consulta para o banco de dados apropriado de dependente de dados
 
-**Encaminhamento dependente de dados** é a capacidade de utilizar os dados numa consulta para encaminhar a solicitação para um banco de dados apropriado. Encaminhamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados em partição horizontal. O contexto de solicitação também pode ser utilizado para encaminhar a solicitação, especialmente se a chave de fragmentação não é parte da consulta. Cada consulta específica ou a transação num aplicativo com o encaminhamento dependente de dados está limitada a aceder a uma base de dados por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, esse roteamento é realizado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) classe.
+**Encaminhamento dependente de dados** é a capacidade de utilizar os dados numa consulta para encaminhar a solicitação para um banco de dados apropriado. Encaminhamento dependente de dados é um padrão fundamental ao trabalhar com bancos de dados em partição horizontal. O contexto de solicitação também pode ser utilizado para encaminhar a solicitação, especialmente se a chave de fragmentação não é parte da consulta. Cada consulta específica ou a transação num aplicativo com o encaminhamento dependente de dados é restrita a acessar um banco de dados por pedido. Para as ferramentas do Azure SQL da base de dados elásticas, esse roteamento é realizado com o **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) classe.
 
 O aplicativo não precisa de controlar várias cadeias de ligação ou locais de DB associados diferentes setores de dados no ambiente em partição horizontal. Em vez disso, o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md) abre-se ligações às bases de dados corretos quando necessário, com base nos dados no mapa de partições horizontais e o valor da chave de fragmentação que é o destino do pedido da aplicação. A chave é, normalmente, o *customer_id*, *tenant_id*, *date_key*, ou um outro identificador específico, que é um parâmetro fundamental do pedido da base de dados.
 

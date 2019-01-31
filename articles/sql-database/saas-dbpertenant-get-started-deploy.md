@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232907"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453676"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -63,8 +63,8 @@ Escolha os nomes de agora e anotá-las.
     > [!IMPORTANT]
     > Alguns firewalls de autenticação e o servidor são intencionalmente não seguras para fins de demonstração. Recomendamos que crie um novo grupo de recursos. Não utilize grupos de recursos, servidores ou conjuntos existentes. Não utilize esta aplicação, scripts ou quaisquer recursos implementados para produção. Elimine este grupo de recursos quando tiver terminado com a aplicação para parar a faturação relacionada.
 
-    - **Grupo de recursos**: selecione **criar novo**e forneça o nome exclusivo que escolheu anteriormente para o grupo de recursos.
-    - **Localização**: selecione uma localização da lista pendente.
+    - **Grupo de recursos**: Selecione **criar novo**e forneça o nome exclusivo que escolheu anteriormente para o grupo de recursos.
+    - **Localização**: Selecione uma localização da lista pendente.
     - **Utilizador**: Utilize o valor de nome de utilizador que selecionou anteriormente.
 
 1. Implemente a aplicação.
@@ -123,14 +123,14 @@ Uma central **Hub de eventos** página fornece uma lista de links para os inquil
 
 Utiliza a aplicação Wingtip [*Gestor de tráfego do Azure* ](../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos recebidos. O URL para aceder à página de eventos para um inquilino específico utiliza o seguinte formato:
 
-- http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     As partes do formato anterior são explicadas na tabela seguinte.
 
     | Parte do URL        | Descrição       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue as *da base de dados por inquilino* implementação da Wingtip Tickets de outras implementações. Os exemplos são o *autónomo* aplicação por inquilino (*-sa*) ou *base de dados multi-inquilino* (*- mt*) implementações. |
-    | .  *&lt;utilizador&gt;* | *af1* no exemplo. |
+    | http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue as *da base de dados por inquilino* implementação da Wingtip Tickets de outras implementações. Os exemplos são o *único* aplicação por inquilino (*-sa*) ou *base de dados multi-inquilino* (*- mt*) implementações. |
+    | .*&lt;user&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gestor de tráfego, o URL de base. |
     | fabrikamjazzclub | Identifica o inquilino com o nome Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -248,7 +248,7 @@ Navegue para o servidor **tenants1-dpt -&lt;usuário&gt;** e selecione **Pool1*
 - O primeiro gráfico, rotulado **utilização de recursos**, mostra a utilização de eDTU do conjunto.
 - O segundo gráfico mostra a utilização de eDTU das cinco bases de dados mais ativos no conjunto.
 
-Dois gráficos ilustram a que os conjuntos elásticos e base de dados SQL são adequados para cargas de trabalho de aplicação do SaaS imprevisíveis. Os gráficos mostram que quatro bases de dados são cada segurança para o máximo de 40 eDTUs e ainda todas as bases de dados confortavelmente são suportados por um conjunto de 50 Edtus. O conjunto de eDTU de 50 pode suportar cargas de trabalho ainda mais pesadas. Se as bases de dados forem provisionados como bases de dados individuais, cada um deles tem de ser uma S2 (50 DTUS) para suportar a expansão. O custo de quatro bases de dados de S2 autónomas é quase três vezes o preço do conjunto. Em situações do mundo real, os clientes da base de dados SQL executam até 500 bases de dados em conjuntos de 200 Edtus. Para obter mais informações, consulte a [tutorial de monitorização do desempenho](saas-dbpertenant-performance-monitoring.md).
+Dois gráficos ilustram a que os conjuntos elásticos e base de dados SQL são adequados para cargas de trabalho de aplicação do SaaS imprevisíveis. Os gráficos mostram que quatro bases de dados são cada segurança para o máximo de 40 eDTUs e ainda todas as bases de dados confortavelmente são suportados por um conjunto de 50 Edtus. O conjunto de eDTU de 50 pode suportar cargas de trabalho ainda mais pesadas. Se as bases de dados forem provisionados como bases de dados individuais, cada um deles tem de ser uma S2 (50 DTUS) para suportar a expansão. O custo de quatro S2 bases de dados individuais é quase três vezes o preço do conjunto. Em situações do mundo real, os clientes da base de dados SQL executam até 500 bases de dados em conjuntos de 200 Edtus. Para obter mais informações, consulte a [tutorial de monitorização do desempenho](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

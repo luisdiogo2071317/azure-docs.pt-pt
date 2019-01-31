@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: converter script de texto, Ruby – API de Texto do Microsoft Translator'
+title: 'Início rápido: Converter o texto do script, Ruby - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Ruby.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: d78586243b47563440f629689800ad618cb411d8
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 10f74e04349984885f9c69ac17ac1aa9b41e710f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647090"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461190"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (Ruby)
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Início rápido: Transcrição de texto com a API de REST de texto do Translator (Ruby)
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -93,7 +93,7 @@ puts json
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o código de exemplo para este guia de início rápido e outros, incluindo a tradução e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 

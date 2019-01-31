@@ -9,21 +9,21 @@ manager: mtillman
 ms.author: markvi
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.date: 01/25/2019
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.reviewer: raluthra
-ms.openlocfilehash: 25482d9cfc634b63b05e944cf7ca91f90b24f5f1
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f72819bacd7c65ced7ccff3665789d3b96c5e30f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478377"
 ---
-# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Como: Investigar os utilizadores de risco e inícios de sessão 
+# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Como: Investigar utilizadores e inícios de sessão de risco 
 
 
 Utilizar os relatórios de inícios de sessão de risco e utilizadores de risco pode investigar e obtenha uma perceção de risco no seu ambiente. Com a capacidade de filtrar e ordenar os inícios de sessão de risco e usuários, possa entender melhor intrusões potenciais na sua organização. 
@@ -45,7 +45,7 @@ O primeiro ponto de entrada para este relatório é o **investigar** secção na
 
 O relatório de utilizadores de risco tem uma vista predefinida que mostra:
 
-- Nome
+- Name
 
 - Estado de risco
 
@@ -55,7 +55,7 @@ O relatório de utilizadores de risco tem uma vista predefinida que mostra:
 
 - Última atualizado de risco
 
-- Tipo
+- Type
 
 - Estado
  
@@ -104,7 +104,7 @@ Além disso, pode:
 
 Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados de utilizador de risco através dos seguintes campos predefinidos:
 
-- Nome
+- Name
 
 - Nome de utilizador
 
@@ -112,7 +112,7 @@ Para limitar os dados comunicados para um nível que funcione para si, pode filt
 
 - Nível de risco
 
-- Tipo
+- Type
 
 - Estado
 

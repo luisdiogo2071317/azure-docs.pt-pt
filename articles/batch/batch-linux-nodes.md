@@ -3,7 +3,7 @@ title: Nós – Azure Batch de computação do Linux de execução na máquina v
 description: Saiba como processar as suas cargas de trabalho de computação paralelas em conjuntos de máquinas virtuais do Linux no Azure Batch.
 services: batch
 documentationcenter: python
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45407fb2eca5527c8b24f199c9470311a0e5d6a9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a841fae791648d179975c2a5330bb41d48d388dd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453557"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
 
@@ -32,7 +32,7 @@ Pode utilizar o Azure Batch para executar cargas de trabalho de computação par
 >
 
 ## <a name="virtual-machine-configuration"></a>Configuração da máquina virtual
-Quando cria um conjunto de nós de computação no Batch, tem duas opções a partir do qual pode selecionar o tamanho de nó e o sistema operativo: configuração de serviços Cloud e a configuração da Máquina Virtual.
+Quando cria um conjunto de nós de computação no Batch, tem duas opções a partir do qual pode selecionar o tamanho de nó e o sistema operativo: Configuração de serviços cloud e a configuração da Máquina Virtual.
 
 A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas*. Tamanhos de nó de computação disponíveis estão listados na [tamanhos para os serviços Cloud](../cloud-services/cloud-services-sizes-specs.md), e sistemas operativos disponíveis estão listados na [versões de SO convidado do Azure e matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria um conjunto que contém nós de serviços Cloud do Azure, especifique o tamanho do nó e a família de SO, que são descritas nos artigos mencionados anteriormente. Para nós de computação de agrupamentos do Windows, serviços em nuvem é geralmente utilizado.
 
@@ -67,7 +67,7 @@ O agente de nó do Batch é um programa que é executado em cada nó no conjunto
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Criar um conjunto do Linux: Python do Batch
+## <a name="create-a-linux-pool-batch-python"></a>Crie um conjunto do Linux: Batch Python
 O fragmento de código seguinte mostra um exemplo de como utilizar o [biblioteca de clientes do Microsoft Azure Batch para Python] [ py_batch_package] para criar um conjunto do Ubuntu Server nós de computação. Documentação de referência para o módulo de Python do Batch pode ser encontrada em [azure.batch pacote] [ py_batch_docs] na leitura dos Docs.
 
 Este fragmento cria um [ImageReference] [ py_imagereference] explicitamente e especifica cada uma das suas propriedades (publicador, oferta, SKU, versão). No código de produção, no entanto, recomendamos que utilize o [list_node_agent_skus] [ py_list_skus] método para determinar e selecione as disponíveis imagem nó agente SKU combinações e em tempo de execução.
@@ -145,7 +145,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id = ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Criar um conjunto do Linux: .NET do Batch
+## <a name="create-a-linux-pool-batch-net"></a>Crie um conjunto do Linux: .NET do Batch
 O fragmento de código seguinte mostra um exemplo de como utilizar o [.NET do Batch] [ nuget_batch_net] biblioteca de cliente para criar um conjunto do Ubuntu Server nós de computação. Pode encontrar os [documentação de referência de .NET do Batch] [ api_net] no docs.microsoft.com.
 
 O seguinte código trecho de código utiliza a [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] Marketplace imagem e o nó o agente SKU combinações suportadas de método para selecionar a partir da lista de atualmente. Essa técnica é desejável porque a lista de combinações suportadas pode ser alterada ocasionalmente. Normalmente, são adicionadas combinações suportadas.
@@ -216,21 +216,21 @@ A tabela seguinte lista as imagens de máquina virtual do Marketplace que são c
 
 | **Publicador** | **Oferta** | **SKU de imagem** | **Versão** | **ID de SKU do agente de nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| lote | composição centos73 | composição | mais recente | batch.node.centos 7 |
-| lote | composição windows2016 | composição | mais recente | batch.node.Windows amd64 |
+| lote | rendering-centos73 | composição | mais recente | batch.node.centos 7 |
+| lote | rendering-windows2016 | composição | mais recente | batch.node.Windows amd64 |
 | Canónico | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
 | Canónico | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
 | credativ | Debian | 9 | mais recente | batch.node.debian 9 |
 | credativ | Debian | 8 | mais recente | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |
 | microsoft-ads | standard-data-science-vm | standard-data-science-vm | mais recente | batch.node.Windows amd64 |
-| Microsoft-azure-batch | centos-container | 7-4 | mais recente | batch.node.centos 7 |
-| Microsoft-azure-batch | centos-container-rdma | 7-4 | mais recente | batch.node.centos 7 |
-| Microsoft-azure-batch | contentor do servidor do ubuntu | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
-| Microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | mais recente | batch.node.Windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | mais recente | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | mais recente | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | mais recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | mais recente | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter com contentores | mais recente | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | mais recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | mais recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | mais recente | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | mais recente | batch.node.Windows amd64 |
@@ -242,7 +242,7 @@ A tabela seguinte lista as imagens de máquina virtual do Marketplace que são c
 | OpenLogic | CentOS-HPC | 7.3 | mais recente | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.1 | mais recente | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7.4 | mais recente | batch.node.centos 7 |
-| SUSE | SLES HPC | 12 SP2 | mais recente | batch.node.OpenSuSE 42.1 |
+| SUSE | SLES-HPC | 12-SP2 | mais recente | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Ligar a nós do Linux através de SSH
 Durante o desenvolvimento ou durante a resolução de problemas, pode ser necessário para iniciar sessão para os nós do conjunto. Ao contrário de nós de computação do Windows, é possível utilizar o protocolo RDP (Remote Desktop) para ligar a nós do Linux. Em vez disso, o serviço Batch permite o acesso SSH em cada nó de ligação remota.

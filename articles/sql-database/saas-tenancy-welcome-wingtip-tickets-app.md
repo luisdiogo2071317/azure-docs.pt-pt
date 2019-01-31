@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056323"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462147"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação Wingtip Tickets SaaS
 
@@ -46,7 +46,7 @@ Veja a [tutoriais] [ docs-tutorials-for-wingtip-dpt] e o código no GitHub [.../
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de base de dados de multi-inquilino em partição horizontal
 
-Bases de dados do multi-inquilinos são eficazes para fornecedores de serviços à procura de custo mais baixo por inquilino e OK com o isolamento de inquilino reduzida. Este padrão permite empacotar um grande número de inquilinos para uma base de dados, impulsionando o custo por inquilino a para baixo. Dimensionamento infinito quase é possível por fragmentação os inquilinos em várias bases de dados. Uma base de dados do catálogo mapeia os inquilinos para bases de dados.  
+Bases de dados do multi-inquilinos são eficazes para fornecedores de serviços à procura de custo mais baixo por inquilino e OK com o isolamento de inquilino reduzida. Este padrão permite empacotar um grande número de inquilinos para uma base de dados individual, impulsionando o custo por inquilino a para baixo. Dimensionamento infinito quase é possível por fragmentação os inquilinos em várias bases de dados. Uma base de dados do catálogo mapeia os inquilinos para bases de dados.  
 
 Este padrão também permite que um *híbrida* modelo no qual pode otimizar o custo com vários inquilinos numa base de dados ou otimizar o isolamento com um único inquilino na sua própria base de dados. Tanto a escolha pode ser feita de forma inquilino por inquilino, quando o inquilino é aprovisionado ou posterior, sem afetar o aplicativo.  Esse modelo pode ser utilizado eficazmente quando os grupos de inquilinos têm de ser tratados de forma diferente. Por exemplo, os inquilinos de baixo custo podem ser atribuídos a bases de dados partilhados, enquanto inquilinos premium podem ser atribuídos a suas próprias bases de dados. 
 

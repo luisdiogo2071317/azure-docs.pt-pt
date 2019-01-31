@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101061"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475687"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do HDInsight do Azure (pré-visualização)
 
@@ -27,17 +27,17 @@ Cluster do Azure HDInsight recurso dimensiona automaticamente o número de nós 
 > [!Note]
 > A escala automática é atualmente suportado apenas para a versão de clusters do Hive do Azure HDInsight, o MapReduce e o Spark 3.6.
 
-Passos de criação de cluster de HDInsight completos com o Portal do Azure podem ser encontrados em [baseado em Linux criar clusters no HDInsight com o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  Ativar o dimensionamento automático durante o processo de criação requer alguns desvios em relação aos passos de instalação normal.  
+Para ativar a funcionalidade de dimensionamento automático, efetue o seguinte como parte do processo de criação do normal cluster:
 
 1. Selecione **personalizado (tamanho, definições, aplicações)** vez **criação rápida**.
-2. Custom passo 5 **tamanho do Cluster**, verifique o **dimensionamento automático do nó de trabalho** caixa de verificação.
+2. No **personalizada** passo 5 (**tamanho do Cluster**) verificar o **dimensionamento automático do nó de trabalho** caixa de verificação.
 3. Introduza os valores pretendidos para:  
-  &#8226;Inicial **nós de número de trabalho**.  
-  &#8226;**Mínimo** número de nós de trabalho.  
-  &#8226;**Máximo** número de nós de trabalho.  
+
+    * Inicial **nós de número de trabalho**.  
+    * **Mínimo** número de nós de trabalho.  
+    * **Máximo** número de nós de trabalho.  
 
 ![Ativar a opção de dimensionamento automático do nó de trabalho](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
-
 
 O número inicial de nós de trabalho deve estar entre o mínimo e máximo, inclusive. Este valor define o tamanho inicial do cluster quando for criado. O número mínimo de nós de trabalho tem de ser maior que zero.
 
@@ -48,9 +48,11 @@ A sua subscrição tem uma quota de capacidade para cada região. O número tota
 > [!Note]  
 > Se ultrapassar o limite de quota de núcleos total, receberá uma mensagem de erro dizendo "máxima de nós excedeu os núcleos disponíveis nesta região, escolha outra região ou contacte o suporte para aumentar a quota."
 
+Para obter mais informações sobre a criação de clusters do HDInsight com o portal do Azure, consulte [baseado em Linux criar clusters no HDInsight com o portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md).  
+
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Criar um cluster com um modelo do Resource Manager
 
-Concluir passos de criação do cluster HDInsight utilizando modelos do Resource Manager podem ser encontrados em [Apache Hadoop criar clusters no HDInsight utilizando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Quando cria um cluster do HDInsight com um modelo Azure Resource Manager, terá de adicionar as seguintes definições na secção de "workernode" de "computeProfile" e editá-lo em conformidade:
+Para criar um cluster do HDInsight com um modelo Azure Resource Manager, adicione uma `autoscale` nó para o `computeProfile`  >  `workernode` seção com as propriedades `minInstanceCount` e `maxInstanceCount` conforme mostrado no fragmento json abaixo.
 
 ```json
 {                            
@@ -73,6 +75,8 @@ Concluir passos de criação do cluster HDInsight utilizando modelos do Resource
     "scriptActions": []
 }
 ```
+
+Para obter mais informações sobre a criação de clusters com modelos do Resource Manager, consulte [Apache Hadoop criar clusters no HDInsight utilizando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Ativar e desativar o dimensionamento automático para um cluster em execução
 
@@ -106,7 +110,7 @@ Quando forem detetadas as seguintes condições, o dimensionamento automático i
 * Total pendente da CPU é superior ao total de CPU gratuita por mais de 1 minuto.
 * Total pendente memória é superior ao total de memória livre para mais de 1 minuto.
 
-Será Calculamos que novos nós de trabalho de N são necessárias para cumprir os requisitos de CPU e memória atuais e, em seguida, emitir um pedido de dimensionamento ao solicitar novos nós de trabalho de N.
+Será Calculamos que um determinado número de nós de trabalho novos é necessárias para cumprir os requisitos de CPU e memória atuais e, em seguida, emitir um pedido que adiciona esse número de novos nós de trabalho de dimensionamento.
 
 ### <a name="cluster-scale-down"></a>Dimensionamento do cluster pendente
 
@@ -115,7 +119,7 @@ Quando forem detetadas as seguintes condições, o dimensionamento automático i
 * Total pendente da CPU é inferior a total de CPU gratuita durante mais de 10 minutos.
 * Total pendente memória é inferior a total de memória livre para mais de 10 minutos.
 
-Com base no número de contentores de AM por nó, bem como os requisitos de CPU e memória atuais, dimensionamento automático irá emitir um pedido para remover os N nós, especificando os nós nos quais são possíveis candidatos para remoção. Por predefinição, serão removidos um ciclo de dois nós.
+Com base no número de contentores de AM por nó, bem como os requisitos de CPU e memória atuais, dimensionamento automático irá emitir um pedido para remover um determinado número de nós, especificando os nós nos quais são possíveis candidatos para remoção. Por predefinição, serão removidos um ciclo de dois nós.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

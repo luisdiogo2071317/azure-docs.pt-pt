@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452046"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Aceder a recursos do Azure Cosmos DB a partir de redes virtuais
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acesso do Azure Cosmos DB a partir de redes virtuais (VNet)
 
-Pode configurar a conta do Cosmos do Azure para permitir o acesso apenas a partir de uma sub-rede específica da rede virtual (VNET). Ativando [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para aceder ao Azure Cosmos DB na sub-rede numa rede virtual, o tráfego a partir dessa sub-rede é enviado para o Azure Cosmos DB com a identidade do sub-rede e da rede Virtual. Assim que o ponto de extremidade de serviço do Azure Cosmos DB está ativado, pode limitar o acesso à sub-rede, adicionando-o à sua conta do Cosmos do Azure.
+Pode configurar a conta do Cosmos do Azure para permitir o acesso apenas a partir de uma sub-rede específica da rede virtual (VNet). Ativando [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para aceder ao Azure Cosmos DB na sub-rede numa rede virtual, o tráfego a partir dessa sub-rede é enviado para o Azure Cosmos DB com a identidade do sub-rede e da rede Virtual. Assim que o ponto de extremidade de serviço do Azure Cosmos DB está ativado, pode limitar o acesso à sub-rede, adicionando-o à sua conta do Cosmos do Azure.
 
-Por predefinição, uma conta do Cosmos do Azure é acessível a partir de qualquer origem se o pedido seja acompanhado por um token de autorização válida. Quando adiciona um ou mais sub-redes nas VNETs, apenas os pedidos com origem dessas sub-redes irão obter uma resposta válida. Pedidos com origem em qualquer outra origem irão receber uma resposta (proibido) 403. 
+Por predefinição, uma conta do Cosmos do Azure é acessível a partir de qualquer origem se o pedido seja acompanhado por um token de autorização válida. Quando adiciona um ou mais sub-redes nas VNets, apenas os pedidos com origem dessas sub-redes irão obter uma resposta válida. Pedidos com origem em qualquer outra origem irão receber uma resposta (proibido) 403. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -41,7 +41,7 @@ Quando acedem a firewall do IP ou de rede virtual regras são adicionadas, apena
 Assim que o ponto final de serviço para o Azure Cosmos DB está ativado numa sub-rede, muda a origem do tráfego atingir a conta do IP público para a rede virtual e sub-rede. Se a sua conta do Cosmos do Azure tem firewall baseado em IP apenas, o tráfego da sub-rede de serviço ativado já não corresponderia as regras de firewall do IP e, portanto, ser rejeitado. Abordar os passos para migrar forma totalmente integrada de firewall baseado em IP para o controlo de acesso baseados na rede virtual.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>As redes virtuais em modo de peering têm também acesso à conta do Cosmos do Azure? 
-Apenas a rede virtual e a suas sub-redes adicionados à conta do Cosmos do Azure têm acesso. As VNETs em modo de peering não é possível aceder à conta até que as sub-redes dentro de redes virtuais em modo de peering são adicionadas à conta.
+Apenas a rede virtual e a suas sub-redes adicionados à conta do Cosmos do Azure têm acesso. As VNets em modo de peering não é possível aceder à conta até que as sub-redes dentro de redes virtuais em modo de peering são adicionadas à conta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>O que é o número máximo de sub-redes permissão para aceder a uma única conta do Cosmos? 
 Atualmente, pode ter no máximo 64 sub-redes permitidas para uma conta do Cosmos do Azure.
@@ -52,7 +52,7 @@ Para aceder à conta do Cosmos do Azure através de Express route no local, ter�
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>É necessário atualizar as regras de grupos de segurança de rede (NSG)? 
 As regras do NSG são utilizadas para limitar a conectividade de e para uma sub-rede com a rede virtual. Quando adiciona o ponto final de serviço para o Azure Cosmos DB para a sub-rede, não é necessário para abrir a conectividade de saída no NSG para a sua conta do Cosmos do Azure. 
 
-### <a name="are-service-endpoints-available-for-all-vnets"></a>Pontos finais de serviço estão disponíveis para todas as VNETs?
+### <a name="are-service-endpoints-available-for-all-vnets"></a>Pontos finais de serviço estão disponíveis para todas as VNets?
 Não, apenas o Azure Resource Manager redes virtuais podem ter o ponto final de serviço ativado. Redes virtuais clássicas não suportam os pontos finais de serviço.
 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 8e46f47f1d3a95e4635609f24dc413141304d3c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228173"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301514"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -169,7 +169,7 @@ Depois de concluída a criação de perfis, pode executar a ferramenta no modo d
 |-Currency|(Opcional) A moeda na qual os custos são mostrados no relatório gerado. A predefinição é o Dólar Norte-Americano ($) ou a última moeda utilizada.<br>Consulte a lista de [moedas suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
 Por predefinição, a ferramenta está configurada para criar perfis e gerar relatórios até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
-```
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exemplo 4: Gerar um relatório com um fator de crescimento de 5 por cento, em vez dos 30 por cento predefinidos
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exemplo 5: Gerar um relatório com um subconjunto de dados de criação de perfis
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 A ferramenta é predefinida para os valores de percentil de 95 de IOPS de leitura/escrita, IOPS de escrita e alterações a dados recolhidas durante a criação de perfis para todas as VMs. Esta métrica garante que o pico de percentil 100 que as suas VMs poderão verificar devido a eventos temporários não é utilizado para determinar os requisitos de conta de armazenamento de destino e de largura de banda de origem. Por exemplo, um evento temporário pode consistir numa tarefa de cópia de segurança que é executada uma vez por dia, uma base de dados periódica a indexar ou uma atividade de geração de relatórios de atividades ou, ainda, outros eventos pontuais de curta duração semelhantes.
 
 Utilizar valores de percentil 95 proporciona uma imagem verdadeira das características reais das cargas de trabalho e confere-lhe o melhor desempenho se essas cargas de trabalho forem executadas no Azure. Não prevemos que tenha de alterar este número. No entanto, se vier a alterá-lo (para o percentil 90, por exemplo), pode atualizar o ficheiro de configuração *ASRDeploymentPlanner.exe.config* na pasta predefinida e guardá-lo para gerar um relatório novo sobre os dados de criação de perfis existentes.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />

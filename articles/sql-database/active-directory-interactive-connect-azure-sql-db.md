@@ -10,23 +10,20 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a05c6b4fac031482d77827a817ef56920a0c314
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958822"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464556"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Utilizar o modo de ActiveDirectoryInteractive para ligar à base de dados do Azure SQL
 
 Este artigo fornece um executável c# exemplo de código que se liga a sua base de dados de SQL do Microsoft Azure. O programa c# usa o modo interativo da autenticação, que suporte do Azure AD a autenticação multifator (MFA). Por exemplo, uma tentativa de ligação pode incluir um código de verificação a ser enviado para o telemóvel.
 
 Para obter mais informações sobre o suporte MFA para ferramentas SQL, consulte [suporte do Azure Active Directory no SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
-
-
-
 
 ## <a name="sqlauthenticationmethod-activedirectoryinteractive-enum-value"></a>SqlAuthenticationMethod. Valor de enumeração de ActiveDirectoryInteractive
 
@@ -54,11 +51,9 @@ Para capturas de ecrã dessas caixas de diálogo, consulte [configurar a autenti
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-
 ## <a name="preparations-for-c-by-using-the-azure-portal"></a>Preparativos para c#, utilizando o portal do Azure
 
 Partimos do princípio que já tem um [servidor de base de dados do Azure SQL criada](sql-database-get-started-portal.md) e está disponível.
-
 
 ### <a name="a-create-an-app-registration"></a>R. Criar um registo de aplicações
 
@@ -87,7 +82,7 @@ Para utilizar autenticação do Azure AD, seu programa de cliente do c# tem de f
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Definir o administrador do Azure AD no seu servidor de base de dados SQL
 
-Cada servidor de base de dados do Azure SQL tem seu próprio servidor lógico da SQL do Azure AD. Para o nosso c# cenário, tem de definir o administrador do Azure AD para o seu servidor SQL do Azure.
+Cada base de dados SQL do Azure e o conjunto elástico tem seu próprio servidor de base de dados SQL do Azure AD. Para o nosso c# cenário, tem de definir o administrador do Azure AD para o seu servidor SQL do Azure.
 
 1. **SQL Server** &gt; **administrador do Active Directory** &gt; **definir administrador**
 
@@ -124,13 +119,13 @@ O programa c# baseia-se no espaço de nomes **ActiveDirectory**. As classes para
 
 É um espaços de nomes que depende de exemplo de c# **SqlClient**. De especial interesse é o enum **SqlAuthenticationMethod**. Essa enumeração possui os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory * Interactive ***:&nbsp; utilizá-lo com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * interativo ***:&nbsp;  Utilize esta opção com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
     - Este valor é o foco deste artigo presente. Produz uma experiência interativa ao apresentar caixas de diálogo para a palavra-passe de utilizador e, em seguida, para a validação de MFA, se a MFA é imposta este utilizador.
     - Este valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * integrado ***:&nbsp; utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * integrada ***:&nbsp;  Utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * palavra-passe ***:&nbsp; utilizá-lo para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory * palavra-passe ***:&nbsp;  Utilize esta opção para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
 
 
 
@@ -142,11 +137,11 @@ Para uma execução com êxito do programa em C#, tem de atribuir os valores ade
 
 | Nome do campo estático | Fingir valor | Onde no portal do Azure |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "meu-favorito-sqldb-svr.database.windows.net" | **Servidores SQL** &gt; **filtrar por nome** |
+| Az_SQLDB_svrName | "my-favorite-sqldb-svr.database.windows.net" | **Servidores SQL** &gt; **filtrar por nome** |
 | AzureAD_UserID | "user9@abc.onmicrosoft.com" | **O Azure Active Directory** &gt; **utilizador** &gt; **novo utilizador convidado** |
 | Initial_DatabaseName | "principal" | **Servidores SQL** &gt; **bases de dados SQL** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **O Azure Active Directory** &gt; **registos das aplicações**<br /> &nbsp; &nbsp; &gt; **Procurar por nome** &gt; **ID da aplicação** |
-| RedirectUri | novo Uri ("https://bing.com/") | **O Azure Active Directory** &gt; **registos das aplicações**<br /> &nbsp; &nbsp; &gt; **Procurar por nome** &gt; *[Your-App-regis]* &gt;<br /> &nbsp; &nbsp; **As definições** &gt; **RedirectURIs**<br /><br />Neste artigo, qualquer valor válido é adequado para RedirectUri. Na verdade, não é utilizado o valor em nosso caso. |
+| RedirectUri | novo Uri ("https://bing.com/") | **O Azure Active Directory** &gt; **registos das aplicações**<br /> &nbsp; &nbsp; &gt; **Procurar por nome** &gt; *[Your-App-regis]* &gt;<br /> &nbsp; &nbsp; **Settings** &gt; **RedirectURIs**<br /><br />Neste artigo, qualquer valor válido é adequado para RedirectUri. Na verdade, não é utilizado o valor em nosso caso. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 
@@ -181,13 +176,13 @@ Para compilar este exemplo do c#, tem de adicionar uma referência ao assembly D
 
 #### <a name="reference-documentation"></a>Documentação de referência
 
-- **SqlClient** espaço de nomes:
+- **System.Data.SqlClient** namespace:
     - Pesquisa:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - Direct:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
+    - Direto:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
 
-- **ActiveDirectory** espaço de nomes:
+- **Microsoft.IdentityModel.Clients.ActiveDirectory** namespace:
     - Pesquisa:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Direct:&nbsp; [ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - Direto:&nbsp; Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>C# código-fonte, em duas partes

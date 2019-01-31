@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: d20ba372a23d2d4865bd9d6c5c004f955c896201
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199188"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299542"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure Data Factory
 
@@ -37,14 +37,14 @@ Pode copiar dados do SAP Business Warehouse através do Hub de abrir qualquer ar
 
 Especificamente, este conector SAP Business Warehouse aberto Hub suporta:
 
-- SAP Business Warehouse **versão 7.30 ou superior com SAPK 73013INPIBASIS suportam o pacote instalado**.
+- SAP Business Warehouse **versão 7.30 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)**.
 - Cópia de dados por meio da tabela de local de destino de Hub aberto que, por baixo, pode ser DSO, consulta do InfoCube, MultiProvider, origem de dados, etc.
 - Cópia de dados usando a autenticação básica.
 - A ligar ao servidor de aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector SAP Business Warehouse, tem de:
+Para utilizar este conector SAP Business Warehouse aberto Hub, terá de:
 
 - Configure um Runtime de integração autoalojado com a versão 3.13 ou superior. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
 
@@ -57,17 +57,17 @@ Para utilizar este conector SAP Business Warehouse, tem de:
     - Autorização para RFC e SAP BW. 
     - Permissões para a atividade "Executar" do objeto de autorização "S_SDSAUTH".
 
-- Tipo de destino de Hub do Craete SAP aberto como **tabela de base de dados** com opção de "Chave técnicos" marcada.  Também é recomendável deixar os dados a eliminação da tabela como não verificados, embora não seja necessário. Executar o DTP para mover dados de objeto de origem (por exemplo, o cubo) que escolheu para a tabela de destino de hub aberto.
+- Criar tipo de destino de Hub aberto SAP como **tabela de base de dados** com opção de "Chave técnicos" marcada.  Também é recomendável deixar os dados a eliminação da tabela como não verificados, embora não seja necessário. Tire partido do DTP (diretamente executar ou integrar a cadeia de processo existente) para entrada de dados de objeto de origem (por exemplo, o cubo) que escolheu para a tabela de destino de hub aberto.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector SAP Business Warehouse.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do SAP Business Warehouse aberto Hub.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço de SAP Business Warehouse (BW) ligado:
+As seguintes propriedades são suportadas para o serviço de SAP Business Warehouse aberto Hub ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -75,6 +75,7 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 | servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
+| language | Idioma utilizado pelo sistema SAP. | Não (valor predefinido é **EN**)|
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
 | palavra-passe | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -128,7 +129,7 @@ Para copiar dados de e para o Hub aberto do SAP BW, defina a propriedade de tipo
     "properties": {
         "type": "SapOpenHubTable",
         "linkedServiceName": {
-            "referenceName": "<SAP BW linked service name>",
+            "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -140,7 +141,7 @@ Para copiar dados de e para o Hub aberto do SAP BW, defina a propriedade de tipo
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do SAP BW.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem de Hub aberto do SAP BW.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW aberto Hub, como origem
 
@@ -179,18 +180,18 @@ Para copiar dados de Hub aberto do SAP BW, definir o tipo de origem na atividade
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>Mapeamento de tipo de dados para o Hub aberto do SAP BW
 
-Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utilizados entre tipos de dados do SAP BW aos tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Quando se copiam dados a partir do Hub aberto do SAP BW, os seguintes mapeamentos são utilizados entre tipos de dados do SAP BW aos tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
 | Tipo ABAP SAP | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| C (cadeia) | Cadeia |
+| C (cadeia) | String |
 | Eu (número inteiro) | Int32 |
-| F (número de vírgula flutuante) | Valor de duplo |
-| 1!d (data) | Cadeia |
-| T (hora) | Cadeia |
+| F (número de vírgula flutuante) | Double |
+| 1!d (data) | String |
+| T (hora) | String |
 | P (BCD incluídos, moeda, Decimal,. de defeitos) | Decimal |
-| N (Numc) | Cadeia |
-| X (binário e não processados) | Cadeia |
+| N (Numc) | String |
+| X (binário e não processados) | String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

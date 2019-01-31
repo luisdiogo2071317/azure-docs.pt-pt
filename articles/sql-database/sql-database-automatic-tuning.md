@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a0b7d3f059001aec28dd52c9666ea7b5af3c6f95
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603800"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478173"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -65,6 +65,7 @@ Para uma visão geral de como automática funciona de Otimização e para cenár
 ## <a name="automatic-tuning-options"></a>Opções de otimização automática
 
 Opções de otimização automática disponíveis no banco de dados do Azure SQL são:
+
  1. **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas.
  2. **DROP INDEX** -identifica os índices redundantes e duplicados diariamente, exceto para índices exclusivos e os que não foram utilizados por um longo tempo (> 90 dias). Tenha em atenção que, de momento a opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição.
  3. **FORÇAR último plano bom** -identifica as consultas SQL com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido.
@@ -73,7 +74,7 @@ A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **for�
 
 Pode optar por manualmente aplicar recomendações de otimização com o portal ou pode permitir que a otimização automática forma autónoma aplicar recomendações de otimização para. Os benefícios de deixar o sistema de forma autónoma aplicar recomendações de otimização para si é que ele valida automaticamente lá existe um ganho de positivo para o desempenho da carga de trabalho e, se não houver nenhuma melhora no desempenho significativo detetada, será reverta automaticamente a recomendação de otimização. Tenha em atenção que no caso de consultas afetadas por recomendações que não são executadas com maior freqüência de otimização, a fase de validação pode demorar até 72 horas por predefinição. No caso de está aplicando manualmente o ajuste de recomendações, a validação de desempenho automática e mecanismos de reversão não estão disponíveis.
 
-Opções de otimização automática podem ser ativadas ou desativadas por base de dados independente, ou podem ser configuradas em servidores lógicos e aplicados em cada base de dados que herda as definições do servidor. Servidores lógicos podem herdar as predefinições do Azure para definições de sintonização automática. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
+Opções de otimização automática podem ser ativadas ou desativadas por base de dados independente, ou podem ser configurados em servidores de base de dados SQL e aplicados em cada base de dados que herda as definições do servidor. Servidores de base de dados SQL podem herdar as predefinições do Azure para definições de sintonização automática. Predefinições do Azure neste momento estão definidas para FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 
 Configurar opções num servidor de otimização automática e a herdar as definições para bases de dados que pertencem ao servidor principal é um método recomendado para configurar a otimização automática como ele simplifica a gestão de opções de otimização automática para um grande número de bases de dados.
 

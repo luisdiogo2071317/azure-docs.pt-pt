@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.openlocfilehash: 05793afc5de8b6c8285c1f700929e4f110bdfc8d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.date: 01/28/2019
+ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912573"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295768"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -35,7 +35,7 @@ O armazenamento do Azure é uma solução de armazenamento para fins gerais robu
 | Para fins gerais V1   | Blobs               | Standard                    | N/A                    |
 | Armazenamento de blobs         | Blobs               | Standard                    | Frequente, esporádico, arquivo *    |
 
-Não recomendamos a utilização do contentor de blobs predefinido para armazenar dados empresariais. Eliminar o contentor de blobs predefinido depois de cada utilização para reduzir o custo de armazenamento é uma prática recomendada. Tenha em atenção que o contentor predefinido contém os registos da aplicação e do sistema. Certifique-se de que obtém os registos antes de eliminar o contentor.
+Não recomendamos a utilização do contentor de blobs predefinido para armazenar dados empresariais. Eliminar o contentor de blobs predefinido depois de cada utilização para reduzir o custo de armazenamento é uma prática recomendada. O contentor predefinido contém o aplicativo e sistema de registos. Certifique-se de que obtém os registos antes de eliminar o contentor.
 
 A partilha de um contentor de blobs como sistema de ficheiros predefinido para múltiplos clusters não é suportada.
  
@@ -63,9 +63,8 @@ Seguem-se algumas considerações sobre a utilização da conta do Azure Storage
   
   > [!NOTE]  
   > Os contentores públicos permitem obter uma lista de todos os blobs disponíveis nesse contentor, bem como os metadados do mesmo. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">gerir o acesso a contentores e blobs</a>.
-  > 
-  > 
-* **Contentores privados em contas de armazenamento que não estão ligados a um cluster:** Não é possível aceder os blobs dos contentores, a menos que define a conta de armazenamento, ao submeter as tarefas de WebHCat. Isto é explicado posteriormente neste artigo.
+
+* **Contentores privados em contas de armazenamento que não estão ligados a um cluster:** Não é possível aceder os blobs dos contentores, a menos que define a conta de armazenamento, ao submeter tarefas de WebHCat. Isto é explicado posteriormente neste artigo.
 
 As contas do Storage definidas durante o processo de criação e as respetivas chaves são armazenadas em %HADOOP_HOME%/conf/core-site.xml nos nós do cluster. O comportamento predefinido do HDInsight é utilizar as contas do Storage definidas no ficheiro core-site.xml. Pode modificar esta definição através de [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
@@ -102,7 +101,7 @@ O contentor de blobs predefinido armazena informações específicas do cluster,
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 Ao criar um cluster do HDInsight a partir do Portal, tem as opções (tal como apresentado abaixo) de fornecer os detalhes da conta de armazenamento. Também pode especificar se pretende que uma conta de armazenamento adicional associada ao cluster e, se assim for, escolher a partir do armazenamento do Data Lake ou outro Azure Storage blob como armazenamento adicional.
 
-![origem de dados de criação do HDInsight hadoop](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![origem de dados de criação do HDInsight hadoop](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
 > Não é suportado utilizar uma conta de armazenamento adicional numa localização diferente do cluster do HDInsight.
@@ -184,7 +183,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 > [!NOTE]  
 > O nome de ficheiro é <i>hadoop-examples.jar</i> nos clusters do HDInsight versões 2.1 e 1.6.
 
-O &lt;path&gt; é o nome do caminho do HDFS do ficheiro ou do diretório. Como os contentores no armazenamento do Azure são simplesmente arquivos de chave-valor, não existe qualquer sistema de ficheiros hierárquico verdadeiro. Um caráter de barra (/) numa chave de blob é interpretado como um separador de diretório. Por exemplo, o nome do blob de *hadoop-mapreduce-examples.jar* é:
+O &lt;path&gt; é o nome do caminho do HDFS do ficheiro ou do diretório. Como os contentores no armazenamento do Azure são arquivos de chave-valor, não existe qualquer sistema de ficheiros hierárquico verdadeiro. Um caráter de barra (/) numa chave de blob é interpretado como um separador de diretório. Por exemplo, o nome do blob de *hadoop-mapreduce-examples.jar* é:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
@@ -348,7 +347,7 @@ Para obter mais informações, consulte:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

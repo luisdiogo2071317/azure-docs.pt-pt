@@ -1,6 +1,6 @@
 ---
 title: O exemplo da CLI dimensiona uma Base de Dados SQL do Azure do conjunto elástico | Microsoft Docs
-description: Script de exemplo da CLI do Azure para dimensionar um conjunto elástico SQL na Base de Dados SQL do Azure
+description: Script de exemplo da CLI do Azure para dimensionar um conjunto elástico na base de dados do Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: af7af24497054f7868e373150eefae9141239ec6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 444c93ea8c25e9f1ca9d906fd6d8fc69169163ae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605037"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452027"
 ---
-# <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Utilize a CLI para dimensionar um conjunto elástico SQL na Base de Dados SQL do Azure
+# <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Utilizar a CLI para dimensionar um conjunto elástico na base de dados do Azure SQL
 
-Este exemplo de script da CLI do Azure cria conjuntos elásticos SQL, move bases de dados agrupadas e altera os tamanhos de computação do conjunto elástico. 
+Este exemplo de script da CLI do Azure cria conjuntos elásticos, move bases de dados agrupadas e tamanhos de computação do conjunto elástico de alterações. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,15 +43,15 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, servidor lógico, Base de Dados SQL e regras de firewall. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, servidor de base de dados SQL, base de dados e regras de firewall da base de dados SQL. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Cria um servidor lógico que aloja a Base de Dados SQL. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Cria um conjunto de bases de dados elásticas dentro de um servidor lógico. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Cria uma Base de Dados SQL no servidor lógico. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Atualiza um conjunto de bases de dados elásticas, neste exemplo altera a eDTU atribuída. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de base de dados SQL que aloja as bases de dados individuais e conjuntos elásticos. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Cria um conjunto elástico. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Cria um autónoma ou de bases de dados agrupadas. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Atualiza um conjunto elástico, neste exemplo altera a eDTU atribuída. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f38c9e3bed93a77cd9b35c6d23983ee5785a34a7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 412c2faead0102d3995e3df9db31b81c4dd4aa22
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714473"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452010"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets do PowerShell e APIs REST para o SQL Data Warehouse
 Muitas tarefas de administração do SQL Data Warehouse podem ser geridas através de cmdlets do Azure PowerShell ou REST APIs.  Seguem-se alguns exemplos de como utilizar comandos do PowerShell para automatizar tarefas comuns no seu armazém de dados SQL.  Para alguns bons exemplos REST, consulte o artigo [gerir escalabilidade com REST][Manage scalability with REST].
@@ -74,13 +74,13 @@ Estes cmdlets do PowerShell são suportados com o Azure SQL Data Warehouse.
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
 * [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
-* [Novo-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
+* [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
 * [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
 * [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
 * [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]
-* [SELECT-AzureRmSubscription][Select-AzureRmSubscription]
+* [Select-AzureRmSubscription][Select-AzureRmSubscription]
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
-* [Suspender-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
+* [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais exemplos do PowerShell, consulte:

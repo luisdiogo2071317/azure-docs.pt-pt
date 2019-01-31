@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997688"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467820"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças do Transact-SQL durante a migração para a base de dados SQL
 
@@ -39,43 +39,43 @@ As instruções DDL (linguagem de definição de dados) de núcleo estão dispon
 
 - Instruções de criar e alterar a base de dados têm mais dúzia de três opções. As instruções incluem o posicionamento de arquivos, FILESTREAM e opções de Mediador de serviço aplicam-se apenas ao SQL Server. Isso pode não importa se criar bases de dados antes de migrar, mas se estiver a migrar o código T-SQL que cria bases de dados deve comparar [CREATE DATABASE (base de dados do Azure SQL)](https://msdn.microsoft.com/library/dn268335.aspx) com a sintaxe do SQL Server em [CREATE Base de dados (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para se certificar de que todas as opções que usar são suportadas. Criar base de dados para a base de dados do Azure SQL também tem o objetivo de serviço e as opções de escala elástica que se aplicam apenas a base de dados SQL.
 - As instruções CREATE e ALTER TABLE tem opções FileTable que não podem ser utilizadas na base de dados SQL, pois FILESTREAM não é suportado.
-- CRIAR e alterar as declarações de início de sessão são suportadas mas a base de dados SQL não oferece todas as opções. Para tornar a sua base de dados mais portátil, base de dados SQL estimula o uso de utilizadores de base de dados contida em vez de inícios de sessão sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [controlando e conceder acesso de base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- CRIAR e alterar as declarações de início de sessão são suportadas mas a base de dados SQL não oferece todas as opções. Para tornar a sua base de dados mais portátil, base de dados SQL estimula o uso de utilizadores de base de dados contida em vez de inícios de sessão sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) e [controlando e conceder acesso de base de dados](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintaxe do Transact-SQL não suportada na base de dados do Azure SQL
 
 Além de instruções de Transact-SQL relacionadas com as funcionalidades não suportadas descritas [comparação de funcionalidades de base de dados do Azure SQL](sql-database-features.md), as seguintes instruções e grupos de instruções não são suportadas. Assim, se a sua base de dados a serem migradas utilizar qualquer uma das seguintes funcionalidades, fazer a reengenharia seu T-SQL para eliminar estas funcionalidades de T-SQL e instruções.
 
 - Agrupamento de objetos de sistema
-- Ligação relacionada: instruções de ponto final. A Base de Dados SQL não suporta a autenticação do Windows, mas suporta a autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação precisam da versão mais recente do SSMS. Para mais informações, consulte [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Ligar à Base de Dados SQL ou SQL Data Warehouse, utilizando a Autenticação do Azure Active Directory)](sql-database-aad-authentication.md).
+- Ligação relacionada: Instruções de ponto final. A Base de Dados SQL não suporta a autenticação do Windows, mas suporta a autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação precisam da versão mais recente do SSMS. Para mais informações, consulte [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication (Ligar à Base de Dados SQL ou SQL Data Warehouse, utilizando a Autenticação do Azure Active Directory)](sql-database-aad-authentication.md).
 - Consultas entre bases de dados com três ou quatro nomes de partes. (As consultas entre bases de dados só de leitura são suportadas através da [consulta de base de dados elástica](sql-database-elastic-query-overview.md).)
 - Encadeamento de propriedade entre bases de dados, `TRUSTWORTHY` definição
 - `EXECUTE AS LOGIN`Em vez disso, utilize "EXECUTAR COMO UTILIZADOR".
 - A encriptação é suportada, exceto para a gestão de chaves extensível
 - Eventos: Eventos, notificações de eventos, notificações de consulta
-- Colocação de ficheiros: sintaxe relacionadas com a colocação de ficheiros de base de dados, tamanho e ficheiros de base de dados que são geridos automaticamente pelo Microsoft Azure.
-- Elevada disponibilidade: sintaxe relacionada com disponibilidade elevada, o que é gerenciada através da sua conta do Microsoft Azure. Isto inclui a sintaxe da cópia de segurança, restauro, Always On, espelhamento da base de dados, envio de registos, modos de recuperação.
-- Leitor de registo: sintaxe que se baseia no leitor de log, que não está disponível na base de dados SQL: replicação Push, captura de dados alterados. A Base de Dados SQL pode ser um subscritor de um artigo de replicação push.
+- Colocação de ficheiros: Sintaxe relacionada com a colocação de ficheiros de base de dados, tamanho e ficheiros de base de dados que são geridas automaticamente pelo Microsoft Azure.
+- Elevada disponibilidade: Sintaxe relacionada com disponibilidade elevada, que é gerida através da sua conta do Microsoft Azure. Isto inclui a sintaxe da cópia de segurança, restauro, Always On, espelhamento da base de dados, envio de registos, modos de recuperação.
+- Leitor do registo: Sintaxe que se baseia no leitor de log, que não está disponível na base de dados SQL: Enviar por push a replicação, captura de dados de alteração. A Base de Dados SQL pode ser um subscritor de um artigo de replicação push.
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: Sintaxe relacionada às definições do servidor relacionadas a hardware:, como memória, threads de trabalho, afinidade de CPU, sinalizadores de rastreio. Utilizar os escalões de serviço e tamanhos de computação em vez disso.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`e os nomes de quatro partes
-- .NET framework: Integração de CLR com o SQL Server
+- .NET Framework: Integração do CLR com o SQL Server
 - Pesquisa semântica
-- As credenciais do servidor: uso [da base de dados no âmbito de credenciais](https://msdn.microsoft.com/library/mt270260.aspx) em vez disso.
-- Itens ao nível do servidor: funções de servidor, `sys.login_token`. `GRANT`, `REVOKE`, e `DENY` das permissões ao nível do servidor não estão disponíveis, apesar de algumas serem substituídas por permissões ao nível da base de dados. Algumas DMVs ao nível do servidor útil têm DMVs equivalentes ao nível da base de dados.
+- Credenciais do servidor: Uso [da base de dados no âmbito de credenciais](https://msdn.microsoft.com/library/mt270260.aspx) em vez disso.
+- Itens ao nível do servidor: Funções de servidor, `sys.login_token`. `GRANT`, `REVOKE`, e `DENY` das permissões ao nível do servidor não estão disponíveis, apesar de algumas serem substituídas por permissões ao nível da base de dados. Algumas DMVs ao nível do servidor útil têm DMVs equivalentes ao nível da base de dados.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
 - `sp_configure` opções e `RECONFIGURE`. Algumas opções estão disponíveis com [ALTERAR BASE DE DADOS NO ÂMBITO DA CONFIGURAÇÃO](https://msdn.microsoft.com/library/mt629158.aspx).
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
-- SQL Server Agent: Sintaxe que se baseia no SQL Server Agent ou a base de dados do MSDB: alertas, operadores, servidores de gestão central. Ao invés, utilize o scripting, como o Azure PowerShell.
-- Auditoria de SQL Server: auditoria de base de dados de SQL de utilização, em vez disso.
+- SQL Server Agent: Sintaxe que se baseia no Agente do SQL Server ou na base de dados do MSDB: alertas, operadores, servidores de gestão central. Ao invés, utilize o scripting, como o Azure PowerShell.
+- Auditoria de SQL Server: Ao invés, utilize a auditoria da Base de Dados SQL.
 - Rastreio do SQL Server
-- Sinalizadores de rastreio: alguns itens do sinalizador de rastreio foram movidos para modos de compatibilidade.
+- Sinalizadores de rastreio: Alguns itens do sinalizador de rastreio foram movidos para modos de compatibilidade.
 - Depuração do Transact-SQL
-- Acionadores: no âmbito do servidor ou acionadores de início de sessão
-- `USE` instrução: para alterar o contexto da base de dados para outra base de dados, tem de efetuar uma nova ligação para a nova base de dados.
+- Acionadores: No âmbito do servidor ou acionadores de início de sessão
+- `USE` Instrução: Para alterar o contexto de base de dados para outra base de dados, tem de efetuar uma nova ligação para a nova base de dados.
 
 ## <a name="full-transact-sql-reference"></a>Referência do Transact-SQL completa
 

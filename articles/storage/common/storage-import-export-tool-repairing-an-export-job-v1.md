@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522728"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454764"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
 Depois de uma tarefa de exportação foi concluída, pode executar a ferramenta de importação/exportação do Microsoft Azure no local para:  
@@ -32,15 +32,15 @@ Os seguintes parâmetros podem ser especificados com **RepairExport**:
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|**r: < RepairFile\>**|Necessário. Caminho para o ficheiro de reparação, que controla o progresso do reparo e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, passará no caminho para um ficheiro de reparação que ainda não existe. Para retomar uma reparação de interrompido, deve passar no nome de um ficheiro existente de reparação. Sempre é necessário especificar o ficheiro de reparação correspondente para a unidade de destino.|  
-|**/LOGDIR: < LogDirectory\>**|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
-|**/d: < TargetDirectory\>**|Necessário. O diretório para validar e reparar. Isto é normalmente o diretório de raiz da unidade de exportação, mas poderia também ser uma partilha de ficheiros de rede que contém uma cópia dos ficheiros exportados.|  
-|**/BK: < BitLockerKey\>**|Opcional. Deve especificar a chave do BitLocker, se pretender que a ferramenta para desbloquear um encriptados onde estão armazenados os ficheiros exportados.|  
-|**/SN: < StorageAccountName\>**|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
-|**/SK: < StorageAccountKey\>**|**Necessário** se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
-|**/csas: < ContainerSas\>**|**Necessário** se e apenas se a chave de conta de armazenamento não está especificado. O contentor de SAS para aceder aos blobs associados com a tarefa de exportação.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Necessário. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço importar/exportar do Azure Windows e pode ser baixado do armazenamento de BLOBs associado à tarefa. O ficheiro de registo de cópia contém informações sobre blobs com falhas ou ficheiros que estão a ser reparado.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Opcional. O caminho para o ficheiro de manifesto a unidade de exportação. Este ficheiro é gerado pelo serviço importar/exportar do Azure Windows e armazenado na unidade de exportação e, opcionalmente, num blob na conta de armazenamento associado à tarefa.<br /><br /> O conteúdo dos ficheiros na unidade de exportação será verificado com os hashes MD5 contidos neste ficheiro. Todos os ficheiros que são determinados estar danificado serão transferidos e reescritos para os diretórios de destino.|  
+|**/r:<RepairFile\>**|Necessário. Caminho para o ficheiro de reparação, que controla o progresso do reparo e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, passará no caminho para um ficheiro de reparação que ainda não existe. Para retomar uma reparação de interrompido, deve passar no nome de um ficheiro existente de reparação. Sempre é necessário especificar o ficheiro de reparação correspondente para a unidade de destino.|  
+|**/logdir:<LogDirectory\>**|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
+|**/d:<TargetDirectory\>**|Necessário. O diretório para validar e reparar. Isto é normalmente o diretório de raiz da unidade de exportação, mas poderia também ser uma partilha de ficheiros de rede que contém uma cópia dos ficheiros exportados.|  
+|**/bk:<BitLockerKey\>**|Opcional. Deve especificar a chave do BitLocker, se pretender que a ferramenta para desbloquear um encriptados onde estão armazenados os ficheiros exportados.|  
+|**/sn:<StorageAccountName\>**|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
+|**/sk:<StorageAccountKey\>**|**Necessário** se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
+|**/csas:<ContainerSas\>**|**Necessário** se e apenas se a chave de conta de armazenamento não está especificado. O contentor de SAS para aceder aos blobs associados com a tarefa de exportação.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|Necessário. O caminho para o ficheiro de registo de cópia de unidade. O ficheiro é gerado pelo serviço importar/exportar do Azure Windows e pode ser baixado do armazenamento de BLOBs associado à tarefa. O ficheiro de registo de cópia contém informações sobre blobs com falhas ou ficheiros que estão a ser reparado.|  
+|**/ManifestFile:<DriveManifestFile\>**|Opcional. O caminho para o ficheiro de manifesto a unidade de exportação. Este ficheiro é gerado pelo serviço importar/exportar do Azure Windows e armazenado na unidade de exportação e, opcionalmente, num blob na conta de armazenamento associado à tarefa.<br /><br /> O conteúdo dos ficheiros na unidade de exportação será verificado com os hashes MD5 contidos neste ficheiro. Todos os ficheiros que são determinados estar danificado serão transferidos e reescritos para os diretórios de destino.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Utilizar o modo de RepairExport para corrigir o exporta com falhas  
 Pode utilizar a ferramenta de importação/exportação do Azure para transferir os ficheiros que falha ao exportar. O ficheiro de registo de cópia irá conter uma lista de ficheiros que falha ao exportar.  

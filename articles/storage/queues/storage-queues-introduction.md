@@ -8,13 +8,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: d2d4a31097c4050ba9193fc9d6fa076fe9c6e27f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: b173934db17b8c3ac5a48e599b75478fb214c240
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524836"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458402"
 ---
 # <a name="introduction-to-queues"></a>Introdução às Filas
 
@@ -33,18 +33,18 @@ O serviço Fila contém os seguintes componentes:
 
 ![Conceitos de fila](./media/storage-queues-introduction/queue1.png)
 
-* **Formato do URL:** os ficheiros são endereçáveis com o seguinte formato de URL:   
+* **Formato de URL:** Ficheiros são endereçáveis através do formato de URL seguinte:   
     https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     O seguinte URL endereça uma fila no diagrama:  
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Conta de armazenamento:** todos os acessos ao armazenamento do Azure são feitos através de uma conta de armazenamento. Veja [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) para obter detalhes acerca da capacidade das contas de armazenamento.
+* **Conta de armazenamento:** Todos os acessos ao armazenamento do Azure é feito através de uma conta de armazenamento. Veja [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) para obter detalhes acerca da capacidade das contas de armazenamento.
 
-* **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Fila:** Uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila é de sete dias.
+* **mensagem:** Uma mensagem, em qualquer formato, de até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila é de sete dias.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

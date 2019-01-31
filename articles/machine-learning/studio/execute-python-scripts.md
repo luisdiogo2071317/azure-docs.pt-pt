@@ -1,6 +1,6 @@
 ---
-title: Execute o machine learning scripts titleSuffix Python: Descrição do Azure Machine Learning Studio: Contornos princípios subjacentes suporte a scripts de Python no Azure Machine Learning Studio e cenários de utilização básica, capacidades e limitações de design.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Execute o machine learning scripts titleSuffix Python: Descrição do Azure Machine Learning Studio: Contornos princípios subjacentes suporte a scripts de Python no Azure Machine Learning Studio e cenários de utilização básica, capacidades e limitações de design.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---

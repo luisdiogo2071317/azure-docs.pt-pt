@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 85c5ff33fbf5979dd07ab27ccf5993149151b38a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7941938b089034565307b0104034589ee44c24bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252416"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470405"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a base de dados do Azure SQL
 
@@ -76,16 +76,16 @@ A aplicação apresenta os locais que alojam os eventos.  Os locais são inquili
 
 1. Abra a página de eventos para cada um dos três inquilinos no separadores de browser separados:
 
-    - http://events.contosoconcerthall.&lt; utilizador&gt;. trafficmanager.net
-    - http://events.dogwooddojo.&lt; utilizador&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt; utilizador&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (No cada URL, substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar a distribuição de pedidos recebidos, a aplicação utiliza [ *Gestor de tráfego do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância de aplicação específico de inquilino inclui o nome de inquilino como parte do nome do domínio no URL. Todo o inquilino URLs incluem sua específicas **utilizador** valor. Os URLs seguem o formato seguinte:
-- http://events.&lt; venuename&gt;.&lt; utilizador&gt;. trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 Base de dados de cada inquilino **localização** está incluído nas definições da aplicação da aplicação implementada correspondente.
 
@@ -105,9 +105,9 @@ Cada base de dados do inquilino é uma DTU 50 *autónomo* base de dados.
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
+* Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
 -->
 
 - Para saber mais sobre aplicações SaaS multi-inquilino, veja [padrões de Design para aplicações SaaS multi-inquilino](saas-tenancy-app-design-patterns.md).

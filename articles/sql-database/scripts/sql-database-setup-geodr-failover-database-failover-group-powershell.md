@@ -1,6 +1,6 @@
 ---
-title: Grupo único de ativação pós-falha de georreplicação de exemplo do PowerShell - Base de Dados SQL do Azure | Microsoft Docs
-description: Script de exemplo do Azure PowerShell para configurar o grupo de ativação pós-falha de georreplicação ativa para uma base de dados SQL do Azure e realizar a ativação pós-falha.
+title: PowerShell ativação pós-falha de exemplo-georreplicação grupo-autónomo base de dados SQL do Azure | Documentos da Microsoft
+description: Script de exemplo do Azure PowerShell para configurar a ativação pós-falha de georreplicação ativa de grupo para uma base de dados na base de dados do Azure SQL e realizar a ativação pós-falha.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: d8ec80f417883874796d25c2c1a427d03073080b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 31027e266f29ae0308ed70abfea5dbec3736f824
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390770"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469299"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Utilizar o PowerShell para configurar um grupo de ativação pós-falha de georreplicação ativa para uma base de dados SQL do Azure
+# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Utilize o PowerShell para configurar um grupo de ativação pós-falha de georreplicação ativa para uma base de dados na base de dados do Azure SQL
 
-Este exemplo de script do PowerShell configura um grupo de ativação pós-falha de georreplicação ativa para uma base de dados SQL do Azure e realiza a ativação pós-falha para uma réplica secundária da base de dados SQL do Azure.
+Este exemplo de script do PowerShell configura um grupo de ativação pós-falha de georreplicação ativa para uma base de dados e realiza a ativação pós-falha para uma réplica secundária da base de dados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -48,8 +48,8 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Cria um servidor lógico que aloja uma base de dados ou conjunto elástico. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Cria um conjunto elástico dentro de um servidor lógico. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Cria um servidor de base de dados SQL que aloja as bases de dados individuais e conjuntos elásticos. |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Cria um conjunto elástico. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Atualiza as propriedades de base de dados ou move uma base de dados para, de ou entre conjuntos elásticos. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Obtém uma ou mais bases de dados. |

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: dd36147688f4c53383d31db8b4aa860b5bbf39a7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214171"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296975"
 ---
 # <a name="api-reference"></a>Referência da API
 
@@ -28,5 +28,6 @@ A API Face do Azure é uma API com base na cloud que fornece os algoritmos de de
 - [APIs de gestão de LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): Utilizado para gerir um LargeFaceList para [encontrar semelhante](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [APIs de gestão de pessoa PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): Utilizado para gerir PersonGroup rostos de pessoas para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [APIs de gestão de PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): Utilizado para gerir um conjunto de dados de PersonGroup para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [APIs de gestão do instantâneo](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Utilizado para gerir um instantâneo para a migração de dados entre subscrições.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

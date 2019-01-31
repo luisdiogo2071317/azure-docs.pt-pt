@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139961"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474025"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
 
@@ -41,8 +41,8 @@ Esta é uma representação visual de ciclo de vida do TDSP:
 ## <a name="how-to-do-it"></a>Como fazê-lo
 Existem três tarefas principais abordadas neste estágio:
 
-  * **"Feature Engineering"**: criar recursos de dados a partir dos dados não processados para facilitar a preparação de modelos.
-  * **Treinamento de modelo**: localizar o modelo que responde a pergunta com mais precisão ao comparar as suas métricas de sucesso.
+  * **"Feature Engineering"**: Crie recursos de dados dos dados brutos para facilitar a preparação de modelos.
+  * **Treinamento de modelo**: Encontre o modelo que responde a pergunta com mais precisão ao comparar as suas métricas de sucesso.
   * Determinar se o seu modelo fica **adequado para produção.**
 
 ### <a name="feature-engineering"></a>Com engenharia
@@ -63,7 +63,7 @@ O processo de preparação de modelos inclui os seguintes passos:
    * **Determinar a solução de "melhor"** para responder à pergunta ao comparar as métricas de sucesso entre métodos alternativos.
 
 > [!NOTE]
-> **Evitar a fuga**: pode causar vazamento de dados se incluir dados a partir de fora do conjunto de dados de treinamento que permite a um modelo ou o algoritmo de aprendizagem automática para fazer previsões inacreditavelmente boas. Fuga é um motivo comum, por que dados cientistas obtém nervoso só quando recebem preditivos resultados que parecem muito boas para ser verdade. Estas dependências podem ser difíceis de detetar. Para evitar a fuga de muitas vezes requer a iteração entre a criação de um conjunto de dados de análise, criação de um modelo e avaliar a precisão dos resultados. 
+> **Evitar a fuga**: Pode fazer com que a fuga de dados se incluir dados a partir de fora do conjunto de dados de treinamento que permite a um modelo ou o algoritmo de aprendizagem automática para fazer previsões inacreditavelmente boas. Fuga é um motivo comum, por que dados cientistas obtém nervoso só quando recebem preditivos resultados que parecem muito boas para ser verdade. Estas dependências podem ser difíceis de detetar. Para evitar a fuga de muitas vezes requer a iteração entre a criação de um conjunto de dados de análise, criação de um modelo e avaliar a precisão dos resultados. 
 > 
 > 
 
@@ -72,9 +72,9 @@ Fornecemos uma [automatizada de modelagem e ferramenta de relatório](https://gi
 ## <a name="artifacts"></a>Artefactos
 Os artefactos produzidos nesse estágio incluem:
 
-   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): os recursos desenvolvidos para a Modelagem são descritos no **conjuntos de recursos** seção o **definição de dados** relatório. Ela contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
-   * [Relatório de modelos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo é experimentado uma norma de relatório baseado em modelo, que fornece detalhes sobre cada experimentação é produzido.
-   * **Decisão de ponto de verificação**: avaliar se o desempenho do modelo bem o suficiente para implantá-la num sistema de produção. Seguem-se algumas perguntas importantes para perguntar:
+   * [Conjuntos de funcionalidades](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): Os recursos desenvolvidos para a Modelagem são descritos na **conjuntos de funcionalidades** secção a **definição de dados** relatório. Ela contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
+   * [Relatório de modelos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): Para cada modelo é experimentado uma norma de relatório baseado em modelo, que fornece detalhes sobre cada experimentação é produzido.
+   * **Decisão de ponto de verificação**: Avalie se o desempenho do modelo bem o suficiente para implantá-la num sistema de produção. Seguem-se algumas perguntas importantes para perguntar:
      * O modelo de responder à pergunta com confiança suficiente, tendo em conta os dados de teste? 
      * Se tentasse qualquer abordagens alternativas? Deve recolher dados adicionais, fazer a engenharia de funcionalidades mais ou experimentar outros algoritmos?
 

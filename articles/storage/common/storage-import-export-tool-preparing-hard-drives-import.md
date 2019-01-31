@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.subservice: common
+ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828371"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454407"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígidas para uma tarefa de importação
 
@@ -107,7 +107,7 @@ H,Format,SilentMode,Encrypt,
 
 ### <a name="driveset-csv-file-fields"></a>Campos do ficheiro CSV de Driveset
 
-| Campos | Valor |
+| Campos | Value |
 | --- | --- |
 | DriveLetter | **[Necessário]**<br/> Cada unidade de disco que está a ser fornecida para a ferramenta, como o destino tem de ter um volume NTFS simple no mesmo e uma letra de unidade atribuída à mesma.<br/> <br/>**Exemplo**: R ou r |
 | FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Formato**: Especificar isso irá formatar todos os dados no disco. <br/>**AlreadyFormatted**: A ferramenta irá ignorar a formatação quando este valor for especificado. |

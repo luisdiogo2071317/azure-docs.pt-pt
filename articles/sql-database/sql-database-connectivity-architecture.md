@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469123"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -34,7 +34,7 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 >
 > Os utilizadores do ponto final de serviço ainda poderão ser afetados nos seguintes cenários:
 > - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos
-> - Lógica de implementação automatizada cria um servidor lógico, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
+> - Lógica de implementação automatizada cria um servidor de base de dados SQL, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
 >
 > Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
 > [!NOTE]

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450495"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302126"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão de pré-visualização de Gateway de caixa de dados do Azure
 
@@ -50,7 +50,9 @@ A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de c
 | **5.** |Tipos de ficheiro | Os seguintes tipos de ficheiro do Linux não são suportados: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. |
 | **6.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
 | **7.** |Atualizar | Permissões e listas de controle de acesso (ACLs) não são mantidas numa operação de atualização.  | |
-| **8.** |Ajuda online |As ligações de ajuda no portal do Azure não podem ligar à documentação.|As ligações de ajuda irão funcionar na versão de disponibilidade geral. |
+| **8.** |Copiar | Cópia de dados pode falhar com o erro:  Não foi possível concluir a operação pedida devido a uma limitação do sistema de ficheiros.  |Este erro ocorre quando o alternativo dados Stream (ADS) associada ao ficheiro exceder 128 KB (limite máximo para ReFS).  |
+| **9.** |Links simbólicos |Links simbólicos não são suportados.  |Links simbólicos aos diretórios resultam em diretórios nunca introdução marcada como offline. Como resultado, não poderá ver em cinzento vários nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado para o Azure. |
+| **10.** |Ajuda online |As ligações de ajuda no portal do Azure não podem ligar à documentação.|As ligações de ajuda irão funcionar na versão de disponibilidade geral. |
 
 
 

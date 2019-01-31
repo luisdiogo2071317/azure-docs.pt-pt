@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469197"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de tabela. Além disso, irá ver como pode praticamente solucionar alguns problemas e compensações abordadas em outros artigos de design do armazenamento de tabela. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -197,11 +197,11 @@ Para ativar a pesquisa por apelido com a estrutura de entidade mostrada acima, t
 * Crie entidades de índice na mesma partição que as entidades de funcionários.  
 * Crie entidades de índice numa partição separada ou a tabela.  
 
-<u>Opção #1: Armazenamento de Blobs do uso</u>  
+<u>Opção #1: Utilizar o armazenamento de BLOBs</u>  
 
 Para a primeira opção, crie um blob para cada nome de última exclusivo e, em cada armazenamento de BLOBs uma lista do **PartitionKey** (department) e **RowKey** (identificação do funcionário) valores para os funcionários que tenham esse nome passado. Quando adicionar ou eliminar um funcionário deve garantir que o conteúdo do blob relevante é eventualmente consistente com as entidades de funcionários.  
 
-<u>Opção #2:</u> criar entidades de índice na mesma partição  
+<u>Opção #2:</u> Criar entidades de índice na mesma partição  
 
 Para a segunda opção, utilize entidades de índice que armazenam os dados seguintes:  
 
@@ -223,7 +223,7 @@ Os passos seguintes descrevem o processo que deve seguir quando precisar de pesq
 2. Analisar a lista de Ids no campo EmployeeIDs do funcionário.  
 3. Se precisar de informações adicionais sobre cada uma destes funcionários (por exemplo, os endereços de e-mail), obter cada uma dessas entidades employee usando **PartitionKey** valor "Sales" e **RowKey** valores do lista de funcionários que obteve no passo 2.  
 
-<u>Opção #3:</u> criar entidades de índice numa partição separada ou de uma tabela  
+<u>Opção #3:</u> Criar entidades de índice numa partição separada ou de uma tabela  
 
 Para a terceira opção, utilize entidades de índice que armazenam os dados seguintes:  
 
@@ -730,7 +730,7 @@ O serviço de tabela é um *esquema* armazenamento de tabela, que significa que 
 <table>
 <tr>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -750,7 +750,7 @@ O serviço de tabela é um *esquema* armazenamento de tabela, que significa que 
 <table>
 <tr>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -787,7 +787,7 @@ O serviço de tabela é um *esquema* armazenamento de tabela, que significa que 
 <table>
 <tr>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -823,7 +823,7 @@ Tenha em atenção que cada entidade tem de ter ainda **PartitionKey**, **RowKey
 <tr>
 <th>entityType</th>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -845,7 +845,7 @@ Tenha em atenção que cada entidade tem de ter ainda **PartitionKey**, **RowKey
 <tr>
 <th>entityType</th>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -886,7 +886,7 @@ Tenha em atenção que cada entidade tem de ter ainda **PartitionKey**, **RowKey
 <tr>
 <th>entityType</th>
 <th>FirstName</th>
-<th>Apelido</th>
+<th>LastName</th>
 <th>Idade</th>
 <th>Email</th>
 </tr>
@@ -916,7 +916,7 @@ O resto desta secção descreve alguns dos recursos na biblioteca de cliente de 
 ### <a name="retrieving-heterogeneous-entity-types"></a>Obter tipos de entidade heterogênea
 Se estiver a utilizar a biblioteca de cliente de armazenamento, tem três opções para trabalhar com vários tipos de entidade.  
 
-Se souber o tipo da entidade armazenado com um específico **RowKey** e **PartitionKey** valores, em seguida, pode especificar o tipo de entidade ao obter a entidade, conforme mostrado nos dois exemplos anteriores que obter entidades do tipo **EmployeeEntity**: [executa uma consulta de ponto usando a biblioteca de cliente de armazenamento](#executing-a-point-query-using-the-storage-client-library) e [obter várias entidades usando o LINQ](#retrieving-multiple-entities-using-linq).  
+Se souber o tipo da entidade armazenado com um específico **RowKey** e **PartitionKey** valores, em seguida, pode especificar o tipo de entidade ao obter a entidade, conforme mostrado nos dois exemplos anteriores que obter entidades do tipo **EmployeeEntity**: [Execução de uma consulta de ponto usando a biblioteca de cliente de armazenamento](#executing-a-point-query-using-the-storage-client-library) e [recuperar várias entidades usando o LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção consiste em utilizar o **DynamicTableEntity** tipo (uma matriz de propriedades), em vez de um tipo de entidade POCO concreto (esta opção também pode melhorar o desempenho porque não é necessário para serializar e desserializar a entidade para tipos .NET). O seguinte código c# potencialmente obtém várias entidades de diferentes tipos de tabela, mas retorna todas as entidades como **DynamicTableEntity** instâncias. Em seguida, utiliza a **EntityType** propriedade para determinar o tipo de cada entidade:  
 

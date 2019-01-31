@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191144"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463944"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Trabalhar com a consulta integrada à linguagem JavaScript API com o Azure Cosmos DB
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta de JavaScript API no Azure Cosmos DB
 
 Para além de emitir consultas com a API de SQL no Azure Cosmos DB, o [SDK do lado do servidor do Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) permite-lhe efetuar consultas otimizadas através de uma interface de JavaScript. Não tem de conhecer a linguagem SQL para usar essa interface de JavaScript. A consulta de JavaScript que API permite-lhe criar programaticamente consultas ao transmitir as funções de predicado em seqüência da função chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e bibliotecas JavaScript populares, como Lodash. Consultas são analisadas pelo tempo de execução de JavaScript e executadas com eficiência usando os índices do Azure Cosmos DB.
 
@@ -54,10 +54,10 @@ A tabela seguinte apresenta várias consultas SQL e as consultas de JavaScript c
 |**SQL**|**Consulta de JavaScript API**|**Descrição**|
 |---|---|---|
 |SELECIONE *<br>ATRAVÉS da documentação| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;devolver o documento;<br>});|Resultados em todos os documentos (paginados com o token de continuação), como é.|
-|SELECIONAR <br>&nbsp;&nbsp;&nbsp;Docs.ID,<br>&nbsp;&nbsp;&nbsp;Docs.Message como msg,<br>&nbsp;&nbsp;&nbsp;Docs.Actions <br>ATRAVÉS da documentação|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|O id, a mensagem (um alias para msg) e a ação a partir de todos os documentos de projetos.|
-|SELECIONE *<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;Docs.ID="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|Consultas para documentos com o predicado: id = "X998_Y998".|
-|SELECIONE *<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS (docs. Etiquetas, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver x.Tags & & x.Tags.indexOf(123) > -1;<br>});|Consultas para documentos que têm uma propriedade de etiquetas e marcas é uma matriz que contém o valor ' 123.|
-|SELECIONAR<br>&nbsp;&nbsp;&nbsp;Docs.ID,<br>&nbsp;&nbsp;&nbsp;Docs.Message como msg<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;Docs.ID="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Consultas para documentos com um predicado, id = "X998_Y998" e, em seguida, projeta o id e a mensagem (um alias para msg).|
+|SELECIONAR <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;Docs.Message como msg,<br>&nbsp;&nbsp;&nbsp;Docs.Actions <br>ATRAVÉS da documentação|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|O id, a mensagem (um alias para msg) e a ação a partir de todos os documentos de projetos.|
+|SELECIONE *<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|Consultas para documentos com o predicado: id = "X998_Y998".|
+|SELECIONE *<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;devolver x.Tags & & x.Tags.indexOf(123) > -1;<br>});|Consultas para documentos que têm uma propriedade de etiquetas e marcas é uma matriz que contém o valor ' 123.|
+|SELECIONAR<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;Docs.Message como msg<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Consultas para documentos com um predicado, id = "X998_Y998" e, em seguida, projeta o id e a mensagem (um alias para msg).|
 |Etiqueta de SELECT VALUE<br>ATRAVÉS da documentação<br>Junte-se docs IN de marca. Etiquetas<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolva o documento. As etiquetas & & Array.isArray (documento. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|Filtros para documentos que tem uma propriedade de matriz, etiquetas e ordena os documentos resultantes pela propriedade de sistema TS timestamp e, em seguida, projetos + nivela a matriz de etiquetas.|
 
 ## <a name="next-steps"></a>Passos Seguintes

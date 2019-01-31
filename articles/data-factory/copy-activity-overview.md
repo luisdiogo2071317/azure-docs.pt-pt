@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: ac50078dcc60e925f1e2e27a1296b2644939baef
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153730"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296550"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -155,7 +155,10 @@ Clique para ver a lista de atividades nesta execução de pipeline. Na **ações
 
 ![Monitorização de execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Clique em de "**detalhes**" ligação sob **ações** para ver os detalhes da execução da atividade de cópia e características de desempenho. Mostra-lhe informações incluindo volume/linhas/ficheiros de dados copiados da origem para o sink, débito, passos, ele passa por com duração correspondente e usado configurações para o seu cenário de cópia. Em alguns cenários, verá também uma "**sugestões de otimização de desempenho**" secção na parte superior, que indica o afunilamento identificado e orienta-o sobre como aumentar o débito de cópia para esse caso de cópia, veja o exemplo [aqui](#performance-and-tuning).
+Clique em de "**detalhes**" ligação sob **ações** para ver os detalhes da execução da atividade de cópia e características de desempenho. Mostra-lhe informações incluindo volume/linhas/ficheiros de dados copiados da origem para o sink, débito, passos, ele passa por com duração correspondente e usado configurações para o seu cenário de cópia. 
+
+>[!TIP]
+>Em alguns cenários, também verá "**sugestões de otimização do desempenho**" sobre a cópia de monitorização de página, que indica o afunilamento identificado e orienta-o sobre o que alterar modo a aumentar o débito de cópia, veja o exemplo com detalhes [aqui](#performance-and-tuning).
 
 **Exemplo: copiar do Amazon S3 para o Azure Data Lake Store**
 ![detalhes da execução da atividade do Monitor](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -233,10 +236,13 @@ Por predefinição, a atividade de cópia parar a cópia de dados e retorna falh
 
 Consulte a [guia de sintonização de desempenho de atividade de cópia e](copy-activity-performance.md), que descreve os principais fatores que afetam o desempenho de movimento de dados (atividade de cópia) no Azure Data Factory. Também o desempenho observado durante o teste interno de lista e descreve várias formas de otimizar o desempenho de atividade de cópia.
 
-Em alguns cenários, quando executa uma atividade de cópia no ADF, também verá um "**sugestões de otimização de desempenho**" secção por cima da [página de monitorização de atividade de cópia](#monitor-visually), que informa o afunilamento identificado e serve de orientação sobre como aumentar o débito de cópia para esse caso de cópia.
+Em alguns casos, quando executar uma atividade de cópia no ADF, diretamente verá "**sugestões de otimização de desempenho**" na parte superior do [página de monitorização de atividade de cópia](#monitor-visually) conforme mostrado no exemplo a seguir. Ele não apenas diz a o afunilamento identificado para a execução de cópia determinada, mas também o orienta sobre o que alterar modo a aumentar o débito de cópia. O desempenho de sugestões de otimização atualmente fornecer sugestões, como a utilizar quando se copiam dados para o Azure SQL Data Warehouse, o PolyBase para aumentar o Azure Cosmos DB RU ou do Azure SQL DB DTU quando o recurso em dados armazenar lado é o afunilamento, para remover desnecessários de teste cópia, etc. O desempenho, otimização de regras de gradualmente irá ser enriquecido também.
 
-**Exemplo: copie para o BD SQL do Azure com dicas de ajuste de desempenho**
-![copiar a monitorização com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+**Exemplo: cópia para o Azure SQL DB com dicas de ajuste de desempenho**
+
+Neste exemplo, durante a cópia em execução, o BD SQL do Azure de sink atinge a alta utilização de DTU que pode atrasar as operações de escrita, de aviso ADF, portanto, a sugestão é aumentar o escalão de BD SQL do Azure com mais de DTU. 
+
+![Copie a monitorização com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Cópia incremental 
 O Data Factory suporta cenários de forma incremental copiar os dados delta de um arquivo de dados de origem para um arquivo de dados de destino. Ver [Tutorial: copiar dados de forma incremental](tutorial-incremental-copy-overview.md). 

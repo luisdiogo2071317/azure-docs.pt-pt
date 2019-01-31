@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600051"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461598"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manual otimizar o desempenho de consulta na base de dados do Azure SQL
 
@@ -235,18 +235,18 @@ Se uma carga de trabalho tem um conjunto de repetição de consultas, muitas vez
 
 ### <a name="cross-database-sharding"></a>Fragmentação de entre bases de dados
 
-Como o SQL Database do Azure é executado no hardware do produto, os limites de capacidade para uma base de dados são mais baixos que uma instalação do SQL Server tradicionais no local. Alguns clientes usam técnicas de fragmentação para distribuir as operações de base de dados ao longo de várias bases de dados quando as operações não se ajustam dentro dos limites de uma base de dados na base de dados do Azure SQL. A maioria dos clientes que usam técnicas de fragmentação na base de dados do Azure SQL dividir os dados numa única dimensão em várias bases de dados. Para essa abordagem, precisa entender o que os aplicativos de OLTP costumam realizam muitas transações que se apliquem a apenas uma linha ou um pequeno grupo de linhas no esquema.
+Como o SQL Database do Azure é executado no hardware do produto, os limites de capacidade para uma base de dados individual são mais baixos que uma instalação do SQL Server tradicionais no local. Alguns clientes usam técnicas de fragmentação para distribuir as operações de base de dados ao longo de várias bases de dados quando as operações não se ajustam dentro dos limites de uma base de dados individual na base de dados do Azure SQL. A maioria dos clientes que usam técnicas de fragmentação na base de dados do Azure SQL dividir os dados numa única dimensão em várias bases de dados. Para essa abordagem, precisa entender o que os aplicativos de OLTP costumam realizam muitas transações que se apliquem a apenas uma linha ou um pequeno grupo de linhas no esquema.
 
 > [!NOTE]
 > Agora, a base de dados SQL fornece uma biblioteca para ajudar a fragmentação. Para obter mais informações, consulte [descrição geral da biblioteca de cliente da linha de base de dados elástica](sql-database-elastic-database-client-library.md).
 
-Por exemplo, se uma base de dados tem o nome do cliente, ordem e os detalhes de pedido (como o tradicional de exemplo Northwind fornecido com o SQL Server), pode dividir dados em várias bases de dados através do agrupamento de um cliente com o relativas às encomendas e orderdetail informações. Pode garantir que os dados do cliente permanecem na base de dados individual. O aplicativo é dividido diferentes clientes entre bases de dados, com eficiência distribuição da carga entre várias bases de dados. Com a fragmentação, os clientes não só podem evitar o limite de tamanho máximo da base de dados, mas a base de dados do Azure SQL também pode processar cargas de trabalho que são significativamente maiores que os limites de tamanhos de computação diferentes, desde que cada base de dados individual se encaixa no seu DTU.
+Por exemplo, se uma base de dados tem o nome do cliente, ordem e os detalhes de pedido (como o tradicional de exemplo Northwind fornecido com o SQL Server), pode dividir dados em várias bases de dados através do agrupamento de um cliente com o relativas às encomendas e orderdetail informações. Pode garantir que os dados do cliente permanecem num banco de dados individual. O aplicativo é dividido diferentes clientes entre bases de dados, com eficiência distribuição da carga entre várias bases de dados. Com a fragmentação, os clientes não só podem evitar o limite de tamanho máximo da base de dados, mas a base de dados do Azure SQL também pode processar cargas de trabalho que são significativamente maiores que os limites de tamanhos de computação diferentes, desde que cada base de dados individual se encaixa no seu DTU.
 
 Embora a fragmentação de base de dados não reduz a capacidade do recurso agregado de uma solução, é altamente uma forma eficaz de suporte a soluções muito grandes que são distribuídas por várias bases de dados. Cada base de dados pode ser executado num tamanho de computação diferentes para oferecer suporte a muito grandes, bases de dados "eficiente" com requisitos de recursos elevados.
 
 ### <a name="functional-partitioning"></a>Criação de partições funcionais
 
-Utilizadores do SQL Server, muitas vezes, combinam várias funções numa base de dados. Por exemplo, se um aplicativo tem lógica para gerir o inventário de um arquivo, essa base de dados pode ter lógica associados com controle de inventário, ordens de compra, procedimentos armazenados e modos de exibição indexados ou materializados que gerir relatórios do fim do mês. Essa técnica torna mais fácil administrar a base de dados para operações como cópia de segurança, mas ele também requer que o hardware para processar o pico de carga em todas as funções de uma aplicação de tamanho.
+Utilizadores do SQL Server, muitas vezes, combinam várias funções numa base de dados individual. Por exemplo, se um aplicativo tem lógica para gerir o inventário de um arquivo, essa base de dados pode ter lógica associados com controle de inventário, ordens de compra, procedimentos armazenados e modos de exibição indexados ou materializados que gerir relatórios do fim do mês. Essa técnica torna mais fácil administrar a base de dados para operações como cópia de segurança, mas ele também requer que o hardware para processar o pico de carga em todas as funções de uma aplicação de tamanho.
 
 Se utilizar uma arquitetura de escalamento horizontal na base de dados do Azure SQL, é uma boa idéia dividir funções diferentes de uma aplicação em diferentes bases de dados. Usando essa técnica, cada aplicativo dimensionamento independente. Como um aplicativo torna-se quanto mais ocupado (e aumenta a carga na base de dados), o administrador pode escolher tamanhos de computação independente para cada função no aplicativo. Atingiu o limite, com essa arquitetura, um aplicativo pode ser maior do que uma máquina de mercadoria único pode manipular uma vez que a carga é distribuída em várias máquinas.
 

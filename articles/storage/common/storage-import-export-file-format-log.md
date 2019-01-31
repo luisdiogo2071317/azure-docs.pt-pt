@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454849"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure formato de ficheiro do registo de serviço de importação/exportação
 Quando o serviço de importação/exportação do Microsoft Azure realiza uma ação numa unidade como parte de uma tarefa de importação ou uma tarefa de exportação, os registos são escritos para bloquear os blobs na conta de armazenamento associadas com essa tarefa.  
@@ -101,19 +101,19 @@ properties-status ::=
 
 A tabela seguinte descreve os elementos do ficheiro de registo.  
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Type|Descrição|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um registo de unidade.|  
 |`Version`|Atributo de cadeia de caracteres|A versão do formato de registo.|  
-|`DriveId`|Cadeia|Número de série de hardware da unidade.|  
-|`Status`|Cadeia|Estado do processamento da unidade. Consulte o `Drive Status Codes` da tabela abaixo para obter mais informações.|  
+|`DriveId`|String|Número de série de hardware da unidade.|  
+|`Status`|String|Estado do processamento da unidade. Consulte o `Drive Status Codes` da tabela abaixo para obter mais informações.|  
 |`Blob`|Elemento XML aninhado|Representa um blob.|  
-|`Blob/BlobPath`|Cadeia|O URI do blob.|  
-|`Blob/FilePath`|Cadeia|O caminho relativo para o ficheiro na unidade.|  
+|`Blob/BlobPath`|String|O URI do blob.|  
+|`Blob/FilePath`|String|O caminho relativo para o ficheiro na unidade.|  
 |`Blob/Snapshot`|DateTime|A versão de instantâneo de blob, para apenas uma tarefa de exportação.|  
 |`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
 |`Blob/LastModified`|DateTime|A data/hora que o blob foi modificado pela última vez, para apenas uma tarefa de exportação.|  
-|`Blob/ImportDisposition`|Cadeia|A disposição de importação do blob, para apenas uma tarefa de importação.|  
+|`Blob/ImportDisposition`|String|A disposição de importação do blob, para apenas uma tarefa de importação.|  
 |`Blob/ImportDisposition/@Status`|Atributo de cadeia de caracteres|O estado da eliminação de importação.|  
 |`PageRangeList`|Elemento XML aninhado|Representa uma lista de intervalos de página para um blob de página.|  
 |`PageRange`|Elemento XML|Representa um intervalo de páginas.|  
@@ -130,17 +130,17 @@ A tabela seguinte descreve os elementos do ficheiro de registo.
 |`Block/@Status`|Atributo de cadeia de caracteres|Estado de processamento do bloco.|  
 |`Metadata`|Elemento XML aninhado|Representa os metadados do blob.|  
 |`Metadata/@Status`|Atributo de cadeia de caracteres|Estado do processamento dos metadados do blob.|  
-|`Metadata/GlobalPath`|Cadeia|Caminho relativo para o ficheiro de metadados globais.|  
+|`Metadata/GlobalPath`|String|Caminho relativo para o ficheiro de metadados globais.|  
 |`Metadata/GlobalPath/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do ficheiro de metadados globais.|  
-|`Metadata/Path`|Cadeia|Caminho relativo para o ficheiro de metadados.|  
+|`Metadata/Path`|String|Caminho relativo para o ficheiro de metadados.|  
 |`Metadata/Path/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do ficheiro de metadados.|  
 |`Properties`|Elemento XML aninhado|Representa as propriedades do blob.|  
 |`Properties/@Status`|Atributo de cadeia de caracteres|Estado do processamento de propriedades do blob, por exemplo, ficheiro não encontrado, foi concluída.|  
-|`Properties/GlobalPath`|Cadeia|Caminho relativo para o arquivo de propriedades globais.|  
+|`Properties/GlobalPath`|String|Caminho relativo para o arquivo de propriedades globais.|  
 |`Properties/GlobalPath/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do arquivo de propriedades globais.|  
-|`Properties/Path`|Cadeia|Caminho relativo para o arquivo de propriedades.|  
+|`Properties/Path`|String|Caminho relativo para o arquivo de propriedades.|  
 |`Properties/Path/@Hash`|Atributo de cadeia de caracteres|Com codificação Base16 hash MD5 do arquivo de propriedades.|  
-|`Blob/Status`|Cadeia|Estado do processamento de blob.|  
+|`Blob/Status`|String|Estado do processamento de blob.|  
   
 ## <a name="drive-status-codes"></a>Códigos de estado de unidade  
 A tabela seguinte lista os códigos de estado para uma unidade de processamento.  

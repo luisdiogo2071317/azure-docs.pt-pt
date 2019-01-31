@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Java para API de Voz do Microsoft Translator'
+title: 'Início rápido: Java de API de voz do tradutor'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ebff07a68975f3629b57df4cfc8a5bbcf564ce27
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412929"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459177"
 ---
-# <a name="quickstart-translator-speech-api-with-java"></a>Início Rápido: API de Voz do Microsoft Translator com Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: Voz do Translator API com Java 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -272,7 +272,7 @@ Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)

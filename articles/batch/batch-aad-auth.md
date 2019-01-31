@@ -3,7 +3,7 @@ title: Utilizar o Azure Active Directory para autenticar soluções de serviços
 description: O batch suporta o Azure AD para autenticação do serviço Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
-ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: lahugh
+ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722060"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477607"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -171,7 +171,7 @@ Os exemplos de código nesta secção mostram como autenticar com o Azure AD uti
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemplo de código: utilizar o Azure AD autenticação integrada com o Batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemplo de código: Utilizar o Azure AD autenticação integrada com o Batch .NET
 
 Para autenticar com a autenticação integrada do .NET do Batch, fazer referência a [do Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) pacote e o [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pacote.
 
@@ -244,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemplo de código: utilizar um principal de serviço do Azure AD com o .NET do Batch
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemplo de código: Utilizar um principal de serviço do Azure AD com o .NET do Batch
 
 Para autenticar com um principal de serviço do Batch .NET, fazer referência a [do Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) pacote e o [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) pacote.
 
@@ -311,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemplo de código: utilizar um principal de serviço do Azure AD com o Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemplo de código: Utilizar um principal de serviço do Azure AD com o Batch Python
 
 Para se autenticar com um principal de serviço do Batch Python, instale e fazer referência a [azure-batch](https://pypi.org/project/azure-batch/) e [comuns do azure](https://pypi.org/project/azure-common/) módulos.
 

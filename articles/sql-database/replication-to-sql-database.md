@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330165"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467701"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação de bases de dados de base de dados SQL, únicas e em pool
 
-Replicação do SQL Server pode ser configurada para bases de dados únicos e em pool numa [servidor lógico](sql-database-logical-servers.md) na base de dados do Azure SQL.  
+Replicação do SQL Server pode ser configurada para bases de dados únicos e em pool numa [servidor de base de dados SQL](sql-database-servers.md) na base de dados do Azure SQL.  
 
 ## <a name="supported-configurations"></a>**Configurações suportadas:**
   
@@ -65,7 +65,7 @@ Replicação do SQL Server pode ser configurada para bases de dados únicos e em
 
 1. Crie uma publicação de replicação transacional num banco de dados do SQL Server no local.  
 2. No SQL Server no local, utilize o **Assistente de nova subscrição** ou instruções de Transact-SQL para criar um esforço para subscrição para a base de dados do Azure SQL.  
-3. Com o únicos e em pool bases de dados na base de dados do Azure SQL, o conjunto de dados inicial é um instantâneo que é criado pelo agente de instantâneo e distribuído e aplicado pelo agente de distribuição. Com o Azure SQL Database Managed Instance, também pode utilizar uma cópia de segurança da base de dados para efetuar o seeding da base de dados do subscritor.
+3. Com o únicos e em pool bases de dados na base de dados do Azure SQL, o conjunto de dados inicial é um instantâneo que é criado pelo agente de instantâneo e distribuído e aplicado pelo agente de distribuição. Com uma instância gerida da base de dados, também pode utilizar uma cópia de segurança da base de dados para efetuar o seeding da base de dados do subscritor.
 
 ### <a name="data-migration-scenario"></a>Cenário de migração de dados  
 
@@ -107,7 +107,7 @@ As seguintes opções não são suportadas para as subscrições do Azure SQL Da
 Crie uma publicação e uma subscrição de emissão. Para obter mais informações, consulte:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição de Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) ao utilizar o nome de servidor lógico de base de dados SQL do Azure como o subscritor (por exemplo **N'azuresqldbdns.database.windows.net'**) e o nome de base de dados SQL do Azure como o (de base de dados de destino Por exemplo **AdventureWorks**).  
+- [Criar uma subscrição de Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) ao utilizar o nome do servidor de base de dados do Azure SQL como o subscritor (por exemplo **N'azuresqldbdns.database.windows.net'**) e o nome de base de dados SQL do Azure como a base de dados de destino (para exemplo **AdventureWorks**).  
 
 ## <a name="see-also"></a>Consultar Também  
 

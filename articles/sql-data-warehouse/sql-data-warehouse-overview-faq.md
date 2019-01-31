@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306745"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462550"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse perguntas mais frequentes
 
@@ -23,78 +23,78 @@ ms.locfileid: "43306745"
 
 P. O que o SQL DW oferece segurança de dados?
 
-A. O SQL DW oferece várias soluções para proteger os dados, como o TDE e auditoria. Para obter mais informações, consulte [segurança].
+R. O SQL DW oferece várias soluções para proteger os dados, como o TDE e auditoria. Para obter mais informações, consulte [segurança].
 
 P. Onde posso saber quais normas legais ou comerciais é o SQL DW em conformidade com?
 
-A. Visite o [Conformidade da Microsoft] página para várias ofertas de conformidade por produto, como SOC e ISO. Em primeiro lugar selecione por título de conformidade e depois expanda do Azure na Microsoft cloud no âmbito seção serviços no lado direito da página para ver os serviços que estão Azure serviços estão em conformidade.
+R. Visite o [Conformidade da Microsoft] página para várias ofertas de conformidade por produto, como SOC e ISO. Em primeiro lugar selecione por título de conformidade e depois expanda do Azure na Microsoft cloud no âmbito seção serviços no lado direito da página para ver os serviços que estão Azure serviços estão em conformidade.
 
 P. Ligar o Power BI?
 
-A. Sim! Apesar do Power BI suporta a consulta direta com o SQL DW, mas não é adequado para o grande número de utilizadores ou dados em tempo real. Para efeitos de produção do Power BI, recomendamos que utilize o Power BI com base no Azure Analysis Services ou do IaaS do serviço de análise. 
+R. Sim! Apesar do Power BI suporta a consulta direta com o SQL DW, mas não é adequado para o grande número de utilizadores ou dados em tempo real. Para efeitos de produção do Power BI, recomendamos que utilize o Power BI com base no Azure Analysis Services ou do IaaS do serviço de análise. 
 
 P. Quais são os limites de capacidade de armazém de dados SQL?
 
-A. Consulte nossa atual [limites de capacidade] página. 
+R. Consulte nossa atual [limites de capacidade] página. 
 
 P. Por que motivo é meu dimensionamento/colocar em pausa/retomar demorando tanto?
 
-A. Uma variedade de fatores pode influenciar o tempo para operações de gestão de computação. Uma comum caso para operações de longa execução é a reversão transacional. Quando é iniciada uma operação de dimensionamento ou colocar em pausa, todas as sessões de entrada são bloqueadas e consultas são drenadas. Para deixar o sistema num estado estável, as transações tem de ser revertidas volta antes de pode começar uma operação. O maior número e maior o tamanho do registo de transações, será parada mais tempo a operação de restauro do sistema para um estado estável.
+R. Uma variedade de fatores pode influenciar o tempo para operações de gestão de computação. Uma comum caso para operações de longa execução é a reversão transacional. Quando é iniciada uma operação de dimensionamento ou colocar em pausa, todas as sessões de entrada são bloqueadas e consultas são drenadas. Para deixar o sistema num estado estável, as transações tem de ser revertidas volta antes de pode começar uma operação. O maior número e maior o tamanho do registo de transações, será parada mais tempo a operação de restauro do sistema para um estado estável.
 
 ## <a name="user-support"></a>Suporte de utilizador
 
 P. Tenho um pedido de funcionalidade, onde submetê-lo?
 
-A. Se tiver um pedido de funcionalidade, submetê-lo no nosso [UserVoice] página
+R. Se tiver um pedido de funcionalidade, submetê-lo no nosso [UserVoice] página
 
 P. Como posso fazer x?
 
-A. Para obter ajuda no desenvolvimento com o SQL Data Warehouse, poderá fazer perguntas nos nossos [Stack Overflow] página. 
+R. Para obter ajuda no desenvolvimento com o SQL Data Warehouse, poderá fazer perguntas nos nossos [Stack Overflow] página. 
 
 P. Como posso submeter um pedido de suporte?
 
-A. [Pedidos de suporte] pode ser arquivado através do portal do Azure.
+R. [Pedidos de suporte] pode ser arquivado através do portal do Azure.
 
 ## <a name="sql-languagefeature-support"></a>Suporte de idioma/funcionalidades do SQL 
 
 P. Que tipos de dados suporta o SQL Data Warehouse?
 
-A. Consulte o SQL Data Warehouse [tipos de dados].
+R. Consulte o SQL Data Warehouse [tipos de dados].
 
 P. Que funcionalidades tabela suporta?
 
-A. Embora o SQL Data Warehouse suporta muitos recursos, alguns não são suportados e estão documentados em [Recursos de tabelas não suportado].
+R. Embora o SQL Data Warehouse suporta muitos recursos, alguns não são suportados e estão documentados em [Recursos de tabelas não suportado].
 
 ## <a name="tooling-and-administration"></a>As ferramentas e administração
 
 P. Suporta projetos de banco de dados no Visual Studio.
 
-A. Atualmente não suportamos a projetos de banco de dados no Visual Studio para o SQL Data Warehouse. Se gostaria de converter um voto para obter esta funcionalidade, visite nosso User Voice [pedido de funcionalidade de projetos de banco de dados].
+R. Atualmente não suportamos a projetos de banco de dados no Visual Studio para o SQL Data Warehouse. Se gostaria de converter um voto para obter esta funcionalidade, visite nosso User Voice [pedido de funcionalidade de projetos de banco de dados].
 
 P. O SQL Data Warehouse suporta REST APIs?
 
-A. Sim. A maioria das funcionalidades REST que podem ser utilizadas com a base de dados SQL também está disponível com o SQL Data Warehouse. Pode encontrar informações de API em páginas de documentação do REST ou [MSDN].
+R. Sim. A maioria das funcionalidades REST que podem ser utilizadas com a base de dados SQL também está disponível com o SQL Data Warehouse. Pode encontrar informações de API em páginas de documentação do REST ou [MSDN].
 
 
 ## <a name="loading"></a>A carregar
 
 P. Que controladores de cliente suporta?
 
-A. Suporte a Driver para o armazém de dados pode ser encontrado no [cadeias de ligação] página
+R. Suporte a Driver para o armazém de dados pode ser encontrado no [cadeias de ligação] página
 
-P: quais formatos de ficheiro suportados pelo PolyBase com o SQL Data Warehouse?
+P: Que formatos de ficheiro suportados pelo PolyBase com o SQL Data Warehouse?
 
-R: Orc, o RC, o Parquet e o texto delimitado simples
+R: ORC, o RC, o Parquet e o texto delimitado simples
 
-P: o que posso ligar a partir do armazém de dados SQL com o PolyBase? 
+P: O que posso ligar a partir do armazém de dados SQL com o PolyBase? 
 
 R: [Azure Data Lake Store] e [Blobs de armazenamento do Azure]
 
-P: é possível propagação de computação ao ligar a Blobs de armazenamento do Azure ou do ADLS? 
+P: Propagação de computação é possível ao ligar a Blobs de armazenamento do Azure ou do ADLS? 
 
-R: não, o PolyBase do SQL DW interage apenas os componentes de armazenamento. 
+R: Não, o PolyBase do SQL DW interage apenas os componentes de armazenamento. 
 
-P: posso ligar a HDI?
+P: Pode ligar para HDI?
 
 R: HDI pode utilizar o ADLS ou WASB como a camada HDFS. Se tiver como sua camada de HDFS, em seguida, pode carregar esses dados no armazém de dados do SQL. No entanto, não é possível gerar o cálculo de propagação para a instância do HDI. 
 

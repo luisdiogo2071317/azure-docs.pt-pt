@@ -1,5 +1,5 @@
 ---
-title: Implementação e consumo titleSuffix: Descrição do Azure Machine Learning Studio: Pode utilizar o Azure Machine Learning para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da internet para fazer previsões em tempo real ou no modo de lote. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Implementação e consumo titleSuffix: Descrição do Azure Machine Learning Studio: Pode utilizar o Azure Machine Learning para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da internet para fazer previsões em tempo real ou no modo de lote. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

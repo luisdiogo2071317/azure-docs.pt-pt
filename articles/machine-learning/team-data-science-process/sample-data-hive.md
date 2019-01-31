@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6d833dc41677ddb027964ff535b27324e2b0c3da
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133082"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452333"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo em tabelas do Hive do HDInsight
 Este artigo descreve como dimensionar os dados armazenados em tabelas de ramo de registo do Azure HDInsight com consultas do Hive para reduzi-lo para um tamanho mais gerenciável para análise. Ele abrange três métodos de amostragem popularmente usado:
@@ -81,7 +81,7 @@ Aqui está um exemplo de consulta que exemplos por grupo:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Amostragem stratified
-Amostragem aleatória é stratified em relação a uma variável categórica, quando os exemplos de obteve tem valores categóricos que estão presentes na mesma proporção como estavam na população principal. Seguindo o exemplo anterior, conforme apresentado acima, vamos supor que seus dados têm as seguintes observações por Estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se especificar a taxa de amostragem stratified ser 0,5, em seguida, o exemplo de obteve deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respetivamente.
+Amostragem aleatória é stratified em relação a uma variável categórica, quando os exemplos de obteve tem valores categóricos que estão presentes na mesma proporção como estavam na população principal. Conforme apresentado acima a utilizar o mesmo exemplo, suponha que seus dados têm as seguintes observações por Estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se especificar a taxa de amostragem stratified ser 0,5, em seguida, o exemplo de obteve deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respetivamente.
 
 Segue-se uma consulta de exemplo:
 

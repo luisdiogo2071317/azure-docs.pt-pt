@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455761"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -34,9 +34,9 @@ Os detalhes sobre como são cobrados os clientes empresariais e os clientes de p
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Determinar a dimensão certa de SQL antes da compra
 
-O tamanho da reserva deve ser com base na quantidade total de computação utilizada pelo SQL existente ou em breve-em--implementado único bases de dados e/ou conjuntos elásticos dentro de uma região específica e utilizar a mesma geração de hardware e de camada de desempenho. 
+O tamanho da reserva deve basear-se na quantidade total de computação utilizada pelo único existente ou em breve-em--implementado bases de dados e/ou conjuntos elásticos dentro de uma região específica e utilizar a mesma geração de hardware e de camada de desempenho. 
 
-Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 vCore de conjunto elástico e dois crítico para a empresa, Gen5 – 4 vCore único bases de dados. Além disso, vamos suposto que planeja implantar no próximo mês, um para fins gerais adicionais, Gen5 – 16 vCore de conjunto elástico e um crítico para a empresa, Gen5 – conjunto elástico de vCore 32. Além disso, vamos supor que saiba que precisará estes recursos para, pelo menos, 1 ano. Neste caso, deve comprar um 32 vCores (2 x 16), a reserva de 1 ano de SQL da base de dados única/Elastic Pool de fins gerais da-computação Gen5 e um 40 (2 x 4 + 32) reserva de 1 ano de vCore para SQL da base de dados única/Elastic Pool críticas para a empresa - computação Gen5.
+Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 vCore de conjunto elástico e dois crítico para a empresa, Gen5 – 4 vCore único bases de dados. Além disso, vamos suposto que planeja implantar no próximo mês, um para fins gerais adicionais, Gen5 – 16 vCore de conjunto elástico e um crítico para a empresa, Gen5 – conjunto elástico de vCore 32. Além disso, vamos supor que saiba que precisará estes recursos para, pelo menos, 1 ano. Neste caso, deve comprar um 32 vCores (2 x 16), a reserva de 1 ano para a base de dados SQL autónoma/elastic pool para fins gerais - computação Gen5 e um 40 (2 x 4 + 32) reserva de 1 ano de vCore para base de dados SQL autónoma/elastic pool críticas para a empresa - computação Gen5.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Comprar capacidade de base de dados de SQL reservadas
 
@@ -49,8 +49,8 @@ Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 
 
     | Campo      | Descrição|
     |:------------|:--------------|
-    |Nome        |O nome desta reserva.| 
-    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade de base de dados de SQL reservadas. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva de capacidade de base de dados de SQL reservadas. O tipo de subscrição tem de ser um Contrato Enterprise (número da oferta: MS-AZR-0017P) ou o modelo Pay As You Go (número da oferta: MS-AZR-0003P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
+    |Name        |O nome desta reserva.| 
+    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade de base de dados de SQL reservadas. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva de capacidade de base de dados de SQL reservadas. O tipo de subscrição tem de ser um contrato enterprise (número da oferta: MS-AZR-0017P) ou pay as you go (número da oferta: MS-AZR-0003P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
     |Âmbito       |Âmbito da reserva de vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva de vCore é aplicada às instâncias de base de dados SQL nesta subscrição. </li><li>O desconto de reserva de vCore partilhado - é aplicado às instâncias de base de dados SQL em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de desenvolvimento/teste) na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
     |Região      |A região do Azure que é abrangida por base de dados SQL reservado reserva de capacidade.|    
     |Tipo de Implementação|O tipo de recurso SQL que deseja comprar a reserva para.|

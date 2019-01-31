@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320366"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463570"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no Azure SQL Data Warehouse? Agosto de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Agosto de 2018.
@@ -30,9 +30,9 @@ Pode explorar cada categoria para ver as recomendações para o alerta específi
 
 ## <a name="bug-fixes"></a>Correções de erros
 
-| Cargo | Descrição |
+| Título | Descrição |
 |:---|:---|
-| **Potenciais falhas de consulta quando a contagem de dividir excede o limite máximo** |Quando o limite de divisão de ficheiro de 1 milhão de limite for excedido uma exceção não tratada causou o motor do SQL Despejar e todas as consultas de falha. Esta correção addresse o problema ao processar a exceção corretamente e devolver um erro sem causar a falha das consultas. |
+| **Potenciais falhas de consulta quando a contagem de dividir excede o limite máximo** |Quando o limite de divisão de ficheiro de 1 milhão de limite for excedido uma exceção não tratada causou o motor do SQL Despejar e todas as consultas de falha. Esta correção de resolver o problema ao processar a exceção corretamente e devolver um erro sem causar a falha das consultas. |
 | **Valor de predefinição ExternalMoveReadersPerNode maior para melhorar o desempenho de carga** |Este problema foi causado pela definição de propriedade ExternalMoveReadersPerNode a ser sincronizada com o definição do service fabric. Este regressão causado uma geração 2 degradação do desempenho de carga. A correção oferece desempenho de carregamento de geração 2 novamente dentro de parâmetros de design otimizadas.|
 
 

@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307827"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452435"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instruções T-SQL suportadas no Azure SQL Data Warehouse
 Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
@@ -24,9 +24,9 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTERAR O ÍNDICE](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTERAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms189762.aspx)
-* [ALTERAR ESQUEMA](https://msdn.microsoft.com/library/ms173423.aspx)
+* [ALTER SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
-* [CRIAR O ÍNDICE COLUMNSTORE](https://msdn.microsoft.com/library/gg492153.aspx)
+* [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
 * [CRIAR UM ÂMBITO DE BASE DE DADOS CREDENCIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 * [CRIAR ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
@@ -47,7 +47,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [LARGAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms174969.aspx)
 * [ESTATÍSTICAS DE SOLTAR](https://msdn.microsoft.com/library/ms175075.aspx)
 * [REMOVER TABELA](https://msdn.microsoft.com/library/ms173790.aspx)
-* [REMOVER O ESQUEMA](https://msdn.microsoft.com/library/ms186751.aspx)
+* [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [VISTA DE LISTA](https://msdn.microsoft.com/library/ms173492.aspx)
 * [MUDAR O NOME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
@@ -86,11 +86,11 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [Subconsultas](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Declarações de segurança
-* Permissões: [concessão](https://msdn.microsoft.com/library/ms187965.aspx), [NEGAR](https://msdn.microsoft.com/library/ms188338.aspx), [REVOGAR](https://msdn.microsoft.com/library/ms187728.aspx)
+* Permissões: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTERAR A AUTORIZAÇÃO](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTERAR O CERTIFICADO](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ALTERAR A CHAVE DE ENCRIPTAÇÃO DA BASE DE DADOS](https://msdn.microsoft.com/library/bb630389.aspx)
-* [ALTERAR INÍCIO DE SESSÃO](https://msdn.microsoft.com/library/ms189828.aspx)
+* [ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
 * [ALTERAR A CHAVE MESTRA](https://msdn.microsoft.com/library/ms186937.aspx)
 * [ALTERAR FUNÇÃO](https://msdn.microsoft.com/library/ms189775.aspx)
 * [ALTERAR UTILIZADOR](https://msdn.microsoft.com/library/ms176060.aspx)

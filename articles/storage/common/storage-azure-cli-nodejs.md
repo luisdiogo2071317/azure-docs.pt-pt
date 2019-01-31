@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258719"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464845"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilizar a CLI clássica do Azure com o armazenamento do Azure
 
@@ -35,7 +35,7 @@ Este guia assume que compreende os conceitos básicos do armazenamento do Azure.
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Introdução ao armazenamento do Azure e a CLI clássica do Azure em 5 minutos
 Este guia utiliza Ubuntu para obter exemplos, mas outras plataformas de SO devem efetuar da mesma forma.
 
-**Novo para o Azure:** obter uma subscrição do Microsoft Azure e uma conta Microsoft associada a essa subscrição. Para obter informações sobre as opções de compra do Azure, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [opções de compra](https://azure.microsoft.com/pricing/purchase-options/), e [ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para os membros do MSDN e BizSpark, Microsoft Partner Network e outros programas da Microsoft).
+**Novo para o Azure:** Obtenha uma subscrição do Microsoft Azure e uma conta Microsoft associada a essa subscrição. Para obter informações sobre as opções de compra do Azure, consulte [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [opções de compra](https://azure.microsoft.com/pricing/purchase-options/), e [ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para os membros do MSDN e BizSpark, Microsoft Partner Network e outros programas da Microsoft).
 
 Ver [atribuir funções de administrador no Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) para obter mais informações sobre as subscrições do Azure.
 
@@ -78,7 +78,7 @@ Ver [atribuir funções de administrador no Azure Active Directory (Azure AD)](h
 5. No seu computador local, abra o seu editor de texto preferido (vim por exemplo). Escreva o script acima no editor de texto.
 6. Agora, tem de atualizar as variáveis de script com base nas suas definições de configuração.
 
-   * **< Storage_account_name >** utilizar o nome fornecido no script ou introduza um novo nome para a sua conta de armazenamento. **Importante:** o nome da conta de armazenamento tem de ser exclusivo no Azure. Tem de ser minúscula, demais!
+   * **< Storage_account_name >** utilizar o nome fornecido no script ou introduza um novo nome para a sua conta de armazenamento. **Importante:** O nome da conta de armazenamento tem de ser exclusivo no Azure. Tem de ser minúscula, demais!
    * **< Storage_account_key >** a chave de acesso da conta de armazenamento.
    * **< Container_name >** utilizar o nome fornecido no script ou introduza um novo nome para o contentor.
    * **< Image_to_upload >** introduza um caminho para uma imagem no seu computador local, como: "~ / images/HelloWorld.png".
@@ -132,7 +132,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Existem três níveis de acesso de leitura anónimo: **Off**, **Blob**, e **contentor**. Para impedir o acesso anónimo para blobs, defina o parâmetro de permissão para **desativar**. Por predefinição, o novo contentor é privado e pode ser acedido apenas pelo proprietário da conta. Para permitir anónimo o acesso de leitura público aos recursos de blob, mas não para os metadados do contentor ou à lista de blobs no contentor, defina o parâmetro de permissão como **BLOBs**. Para permitir o acesso de leitura público completa para recursos, metadados de contentor e a lista de blobs no contentor de BLOBs, defina o parâmetro de permissão para **contentor**. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+> Existem três níveis de acesso de leitura anónimo: **Desativar**, **Blob**, e **contentor**. Para impedir o acesso anónimo para blobs, defina o parâmetro de permissão para **desativar**. Por predefinição, o novo contentor é privado e pode ser acedido apenas pelo proprietário da conta. Para permitir anónimo o acesso de leitura público aos recursos de blob, mas não para os metadados do contentor ou à lista de blobs no contentor, defina o parâmetro de permissão como **BLOBs**. Para permitir o acesso de leitura público completa para recursos, metadados de contentor e a lista de blobs no contentor de BLOBs, defina o parâmetro de permissão para **contentor**. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 >
 >
 

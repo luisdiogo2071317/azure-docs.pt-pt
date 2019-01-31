@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Carregar a partir do Azure Data Lake Storage Gen1 armazém de dados SQL do Azure | Documentos da Microsoft'
+title: 'Tutorial: Carregamento de geração 1 Lake armazenamento de dados do Azure para o armazém de dados SQL do Azure | Documentos da Microsoft'
 description: Utilize tabelas externas do PolyBase para carregar dados de geração 1 de armazenamento do Azure Data Lake para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297201"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472237"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Carregar dados de geração 1 de armazenamento do Azure Data Lake para o SQL Data Warehouse
 Utilize tabelas externas do PolyBase para carregar dados de geração 1 de armazenamento do Azure Data Lake para o Azure SQL Data Warehouse. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage Gen1, recomendamos que importar os dados para o SQL Data Warehouse para um melhor desempenho.

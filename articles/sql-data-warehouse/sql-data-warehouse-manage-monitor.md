@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301087"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466988"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
 Este artigo descreve como utilizar as vistas de gestão dinâmica (DMVs) para monitorizar a carga de trabalho. Isto inclui a execução da consulta no Azure SQL Data Warehouse a investigar.
@@ -99,7 +99,7 @@ Para investigar mais detalhes sobre um único passo, o *operation_type* coluna d
 * Continuar passo 3a para **operações SQL**: OnOperation, RemoteOperation, ReturnOperation.
 * Continuar com a etapa 3b para **operações de movimento de dados**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASSO 3a: investigar SQL nas bases de dados distribuídas
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>PASSO 3a: Investigar SQL nas bases de dados distribuídas
 Utilize o ID do pedido e o índice de passos para obter detalhes de [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], que contém informações de execução do passo de consulta em todos os bancos de dados distribuídos.
 
 ```sql
@@ -119,7 +119,7 @@ Quando o passo de consulta está em execução, [DBCC PDW_SHOWEXECUTIONPLAN] [ D
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>Passo 3b: investigar o movimento de dados nas bases de dados distribuídas
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>Passo 3b: Investigar o movimento de dados nas bases de dados distribuídas
 Utilizar o ID do pedido e o índice de passos para obter informações sobre um passo de movimento de dados em execução em cada distribuição do [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

@@ -1,6 +1,6 @@
 ---
-title: "Passo 3: Criar uma nova experimentação de Machine Learning Studio' titleSuffix: Descrição do Azure Machine Learning Studio: "A desenvolver uma solução preditiva passo a passo, o passo 3: Criar uma nova experimentação de formação no Azure Machine Learning Studio. "
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: "Passo 3: Criar uma nova experimentação de Machine Learning Studio' titleSuffix: Descrição do Azure Machine Learning Studio: "A desenvolver uma solução preditiva passo a passo, o passo 3: Criar uma nova experimentação de formação no Azure Machine Learning Studio. "
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
 ---

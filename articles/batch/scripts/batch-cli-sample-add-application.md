@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure - Adicionar uma Aplicação no Batch | 
 description: Exemplo do Script da CLI do Azure - Adicionar uma Aplicação no Batch
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
-ms.openlocfilehash: a407522e1c5e674dcaee2a4bf019bc858668969a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: lahugh
+ms.openlocfilehash: a2abcfeee6fe1a08e2b02ff87e75217daddcfad4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968735"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472274"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo da CLI: Adicionar uma aplicação a uma conta do Azure Batch
 
@@ -57,6 +57,6 @@ Cada comando na tabela liga à documentação específica do comando.
 | [az batch application set](/cli/azure/batch/application#az-batch-application-set) | Atualiza as propriedades de uma aplicação.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

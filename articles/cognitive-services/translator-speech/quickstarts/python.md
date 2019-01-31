@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Python da API de Voz do Microsoft Translator'
+title: 'Início rápido: Python de API de voz do tradutor'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f6386fbb54ab78def289f5eee9f957bb7a11ff65
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 3cecb09488c40ee23ea34c75e666788a4ec47fdb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341227"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459286"
 ---
-# <a name="quickstart-translator-speech-api-with-python"></a>Início Rápido: API de Voz do Microsoft Translator com Python
+# <a name="quickstart-translator-speech-api-with-python"></a>Início rápido: Voz do Translator API com Python
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -26,7 +26,7 @@ Este artigo mostra como utilizar a API de Voz do Microsoft Translator para tradu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [Python 3.x](https://www.python.org/downloads/) para executar este código.
+Vai precisar do [Python 3.x](https://www.python.org/downloads/) para executar este código.
 
 Terá de instalar o [pacote websocket-client](https://pypi.python.org/pypi/websocket-client) para Python.
 
@@ -127,7 +127,7 @@ Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)

@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/25/2019
+ms.openlocfilehash: f347543bbea11329cf4bb7c03dac6ccf7f04ac77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160813"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455393"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
+
 Criação de batches de operações para a base de dados do Azure SQL significativamente melhora o desempenho e escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo aborda alguns resultados de teste de exemplo que comparam seqüenciais e em lote pedidos para uma base de dados SQL. O restante do artigo mostra as técnicas, cenários e considerações para ajudá-lo a utilizar a criação de batches com êxito nas suas aplicações do Azure.
 
-## <a name="why-is-batching-important-for-sql-database"></a>Por que é criação de batches importante para a base de dados SQL?
+## <a name="why-is-batching-important-for-sql-database"></a>Por que é criação de batches importante para a base de dados SQL
+
 Criação de batches de chamadas para um serviço remoto é uma estratégia bem conhecida para aumentar o desempenho e escalabilidade. É corrigido que são os custos de processamento para todas as interações com um serviço remoto, como serialização e desserialização transferência de rede. Empacotar várias transações separadas num único lote minimiza esses custos.
 
 Neste documento, queremos examinar a base de dados do SQL vários cenários e estratégias de criação de batches. Embora essas estratégias também são importantes para aplicações no local que utilizam o SQL Server, existem vários motivos para realçar a utilização de criação de batches de base de dados SQL:
@@ -36,13 +38,14 @@ Uma das vantagens da utilização de base de dados SQL é que não precisa de ge
 A primeira parte do documento examina várias técnicas de criação de batches para aplicações de .NET que utilizam a base de dados SQL. As últimas duas secções abrangem cenários e as diretrizes de criação de batches.
 
 ## <a name="batching-strategies"></a>Estratégias de criação de batches
+
 ### <a name="note-about-timing-results-in-this-article"></a>Tenha em atenção sobre os resultados de temporização neste artigo
+
 > [!NOTE]
 > Resultados não são parâmetros de comparação, mas devem mostrar **desempenho relativo**. Temporizações baseiam-se uma média de, pelo menos, 10 execuções de teste. As operações são inserções numa tabela vazia. Esses testes foram medidos pré-V12, e não necessariamente correspondem às débito que podem ocorrer numa base de dados V12 utilizando o novo [escalões de serviço DTU](sql-database-service-tiers-dtu.md) ou [escalões de serviço de vCore](sql-database-service-tiers-vcore.md). O benefício relativo da criação de batches técnica deve ser semelhante.
-> 
-> 
 
 ### <a name="transactions"></a>Transações
+
 Parece estranho para iniciar uma revisão de processamento em lote, discutindo as transações. Mas o uso de transações do lado do cliente tem um efeito de criação de batches do lado do servidor sutil que melhora o desempenho. E transações podem ser adicionadas com apenas algumas linhas de código, para que eles fornecem uma maneira rápida para melhorar o desempenho de operações seqüenciais.
 
 Considere o seguinte código c# que contém uma seqüência de inserção e operações numa tabela simple de atualização.
@@ -118,6 +121,7 @@ O exemplo anterior demonstra que pode adicionar uma transação local para qualq
 Para obter mais informações sobre transações no ADO.NET, consulte [transações locais no ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
 ### <a name="table-valued-parameters"></a>parâmetros de valor de tabela
+
 Parâmetros de valor de tabela suportam tipos de tabela definido pelo utilizador como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de criação de batches de lado do cliente permite-lhe enviar várias linhas de dados em que o parâmetro de valor de tabela. Para utilizar os parâmetros de valor de tabela, primeiro defina um tipo de tabela. A instrução de Transact-SQL seguinte cria um tipo de tabela com o nome **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -196,6 +200,7 @@ O ganho de desempenho do processamento em lote é imediatamente aparente. O test
 Para obter mais informações sobre os parâmetros de valor de tabela, consulte [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb510489.aspx).
 
 ### <a name="sql-bulk-copy"></a>Cópia em massa SQL
+
 Cópia em massa SQL é outra forma de inserir grandes quantidades de dados num banco de dados de destino. As aplicações de .NET podem utilizar o **SqlBulkCopy** operações de inserção de classe para executar em massa. **SqlBulkCopy** é semelhante em função para a ferramenta de linha de comandos **Bcp.exe**, ou a instrução de Transact-SQL **BULK INSERT**. O exemplo de código seguinte mostra como cópia em massa as linhas na fonte **DataTable**, tabela, para a tabela de destino no SQL Server, MyTable.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,6 +238,7 @@ Em tamanhos mais pequenos de lote, os parâmetros de valor de tabela de utiliza�
 Para obter mais informações sobre a cópia em massa no ADO.NET, consulte [operações de cópia em massa no SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
 ### <a name="multiple-row-parameterized-insert-statements"></a>Instruções de parametrizado inserir várias linhas
+
 Uma alternativa para pequenos lotes é construir uma instrução de inserção de parametrizado grandes que insere várias linhas. O exemplo de código seguinte demonstra essa técnica.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -272,12 +278,15 @@ Os resultados do teste ad hoc seguintes mostram o desempenho deste tipo de instr
 Esta abordagem pode ser um pouco mais rápida para lotes que são menos de 100 linhas. Embora a melhoria é pequena, essa técnica é outra opção que pode funcionar bem no seu cenário de aplicação específica.
 
 ### <a name="dataadapter"></a>DataAdapter
+
 O **DataAdapter** classe permite-lhe modificar um **conjunto de dados** de objeto e, em seguida, submeter as alterações como operações INSERT, UPDATE e DELETE. Se estiver a utilizar o **DataAdapter** desta forma, é importante observar que as chamadas separadas sejam feitas para cada operação distinta. Para melhorar o desempenho, utilize o **UpdateBatchSize** propriedade para o número de operações que devem ser loteados cada vez. Para obter mais informações, consulte [execução de Batch operações usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Estrutura de entidades
+
 Estrutura de entidades não suporta atualmente a criação de batches. Diferentes desenvolvedores da Comunidade foi efetuada uma tentativa demonstrar as soluções alternativas, como substituição a **SaveChanges** método. Mas as soluções geralmente são complexos e personalizados para o aplicativo e o modelo de dados. O projeto do Entity Framework codeplex tem atualmente uma página de discussão sobre essa solicitação de recurso. Para ver esta discussão, consulte [anotações de reuniões de Design - 2 de Agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
+
 Para ser completo, Achamos que é importante falar sobre o XML como uma estratégia de criação de batches. No entanto, o uso de XML tem nenhuma vantagem sobre outros métodos e várias desvantagens. A abordagem é semelhante aos parâmetros de valor de tabela, mas um arquivo XML ou uma cadeia de caracteres é passada para um procedimento armazenado em vez de uma tabela definida pelo utilizador. O procedimento armazenado analisa os comandos no procedimento armazenado.
 
 Existem várias desvantagens nessa abordagem:
@@ -289,14 +298,17 @@ Existem várias desvantagens nessa abordagem:
 Por esses motivos, o uso de XML para consultas em lote não é recomendado.
 
 ## <a name="batching-considerations"></a>Considerações sobre a criação de batches
+
 As secções seguintes fornecem mais orientações para a utilização de criação de batches em aplicativos de base de dados SQL.
 
 ### <a name="tradeoffs"></a>Vantagens e desvantagens
+
 Dependendo da sua arquitetura, o processamento em lote pode envolver uma compensação entre o desempenho e resiliência. Por exemplo, considere o cenário em que sua função inesperadamente fica inativo. Se perder uma linha de dados, o impacto é menor do que o impacto da perda de um lote grande de linhas unsubmitted. Existe um risco maior quando a memória intermédia linhas antes de os enviar para a base de dados numa janela de tempo especificado.
 
 Devido a essa compensação, avalie o tipo de operações que o batch. Batch de forma mais agressiva (lotes maiores e mais tempo do windows de tempo) com dados que são menos críticos.
 
 ### <a name="batch-size"></a>Tamanho do batch
+
 No nossos testes, normalmente, não havia nenhuma vantagem de divisão de lotes grandes em segmentos mais pequenos. Na verdade, muitas vezes, essa subdivisão resultou num desempenho mais lento do que submeter um único lote grande. Por exemplo, considere um cenário onde deseja inserir 1000 linhas. A tabela seguinte mostra o tempo que demora a utilizar os parâmetros de valor de tabela para inserir 1000 linhas quando são divididos em menores lotes.
 
 | Tamanho do batch | Iterações | Parâmetros de valor de tabela de mensagens em fila (ms) |
@@ -318,6 +330,7 @@ Outro fator a ter em consideração é que, se o batch total ficar demasiado gra
 Por fim, equilibrar o tamanho do batch com os riscos associados à criação de batches. Se existem erros transitórios ou a função falha, considere as conseqüências de repetir a operação ou de perda de dados no lote.
 
 ### <a name="parallel-processing"></a>Processamento paralelo
+
 E se a abordagem de reduzir o tamanho do lote mas utilizado vários threads para executar o trabalho? Novamente, os nossos testes mostraram que vários lotes mais pequenos multithread, normalmente a realizadas pior do que um único lote maior. O seguinte teste tenta inserir 1000 linhas num ou mais lotes paralelas. Este teste mostra como mais lotes simultâneas, na verdade, diminuíram o desempenho.
 
 | Tamanho do lote [iterações] | Dois threads (ms) | Quatro threads (ms) | Seis segmentos (ms) |
@@ -346,14 +359,17 @@ Em alguns designs, execução paralela de lotes mais pequenos pode resultar num 
 Se usar a execução paralela, considere a controlar o número máximo de threads de trabalho. Um número mais pequeno pode resultar em menos contenção e um menor tempo de execução. Além disso, considere a carga adicional que isso coloca sobre a base de dados de destino no ligações e transações.
 
 ### <a name="related-performance-factors"></a>Fatores de desempenho relacionados
+
 Documentação de orientação típica no desempenho da base de dados também afeta a criação de batches. Por exemplo, inserir desempenho é reduzido para as tabelas que têm uma chave primária grandes ou muitos índices não em cluster.
 
 Se os parâmetros de valor de tabela usa um procedimento armazenado, pode usar o comando **SET NOCOUNT ON** no início do procedimento. Esta declaração suprime o retorno de contagem de linhas afetadas no procedimento. No entanto, no nossos testes, a utilização de **SET NOCOUNT ON** tinha sem qualquer efeito ou diminui o desempenho. O procedimento armazenado de teste foi simples com um único **inserir** comando do parâmetro de valor de tabela. É possível que procedimentos armazenados mais complexos beneficiariam com a presente declaração. Mas não pense que adicionar **SET NOCOUNT ON** para seu procedimento armazenado automaticamente melhora o desempenho. Para compreender o efeito, testar seu procedimento armazenado com e sem o **SET NOCOUNT ON** instrução.
 
 ## <a name="batching-scenarios"></a>Cenários de criação de batches
+
 As secções seguintes descrevem como utilizar os parâmetros de valor de tabela em três cenários de aplicações. O primeiro cenário mostra como colocação em memória intermédia e processamento em lote podem trabalhar em conjunto. O segundo cenário melhora o desempenho ao realizar operações de mestre-detalhes numa chamada de procedimento armazenado único. O último cenário mostra como utilizar os parâmetros de valor de tabela numa operação de "UPSERT".
 
 ### <a name="buffering"></a>Colocação em memória intermédia
+
 Embora existam alguns cenários que são candidatos óbvios para processamento em lote, significa que existem muitos cenários em que fosse possível tirar partido de processamento em lote pelo processamento atrasado. No entanto, o processamento atrasado também carrega um risco maior do que os dados são perdidos se ocorrer uma falha inesperada. É importante compreender este risco e considerar as conseqüências.
 
 Por exemplo, considere uma aplicação web que controla o histórico de navegação de cada utilizador. Em cada solicitação de página, o aplicativo poderia fazer uma chamada para gravar a vista de página do utilizador de base de dados. Mas o mais elevado desempenho e escalabilidade podem ser alcançados ao armazenamento em buffer atividades de navegação dos usuários e, em seguida, enviar estes dados para a base de dados em lotes. Pode acionar a atualização da base de dados por tempo decorrido e/ou tamanho da memória intermédia. Por exemplo, uma regra pode especificar que o batch deve ser processado após 20 segundos ou quando a memória intermédia atinge 1000 itens.
@@ -362,6 +378,7 @@ O seguinte código de exemplo utiliza [Reactive Extensions - Rx](https://msdn.mi
 
 A seguinte classe NavHistoryData modela os detalhes de navegação do usuário. Contém informações básicas, como o identificador de utilizador, o URL acedidos e a hora de acesso.
 
+```c#
     public class NavHistoryData
     {
         public NavHistoryData(int userId, string url, DateTime accessTime)
@@ -370,9 +387,11 @@ A seguinte classe NavHistoryData modela os detalhes de navegação do usuário. 
         public string URL { get; set; }
         public DateTime AccessTime { get; set; }
     }
+```
 
 A classe NavHistoryDataMonitor é responsável pela colocação em memória intermédia os dados de navegação do utilizador para a base de dados. Contém um método, RecordUserNavigationEntry, que responde ao criar uma **OnAdded** eventos. O código seguinte mostra a lógica do construtor que usa Rx para criar uma coleção observable com base no evento. Ele, em seguida, assina nessa observablecollection com o método de memória intermédia. A sobrecarga Especifica que a memória intermédia deve ser enviada a cada 20 segundos ou entradas de 1000.
 
+```c#
     public NavHistoryDataMonitor()
     {
         var observableData =
@@ -380,9 +399,11 @@ A classe NavHistoryDataMonitor é responsável pela colocação em memória inte
 
         observableData.Buffer(TimeSpan.FromSeconds(20), 1000).Subscribe(Handler);           
     }
+```
 
 O manipulador converte todos os itens em buffer num tipo de valor de tabela e, em seguida, passa este tipo para um procedimento armazenado que processa o batch. O código a seguir mostra a definição completa para o NavHistoryDataEventArgs e as classes de NavHistoryDataMonitor.
 
+```c#
     public class NavHistoryDataEventArgs : System.EventArgs
     {
         public NavHistoryDataEventArgs(NavHistoryData data) { Data = data; }
@@ -439,12 +460,15 @@ O manipulador converte todos os itens em buffer num tipo de valor de tabela e, e
             }
         }
     }
+```
 
 Para usar essa classe de armazenamento em buffer, o aplicativo cria um objeto de NavHistoryDataMonitor estático. Sempre que um usuário acessa uma página, o aplicativo chama o método NavHistoryDataMonitor.RecordUserNavigationEntry. Continua a lógica de armazenamento em buffer para cuidar de enviar estas entradas para a base de dados em lotes.
 
 ### <a name="master-detail"></a>Mestra de detalhes
+
 Parâmetros de valor de tabela são úteis para cenários de inserção simples. No entanto, pode ser mais complicadas de inserções de batch que envolvem mais do que uma tabela. O cenário de "mestre/Detalhes" é um bom exemplo. A tabela mestra identifica a entidade principal. Uma ou mais tabelas de detalhe armazenam mais dados sobre a entidade. Neste cenário, as relações de chaves externas impõem a relação de detalhes para uma entidade principal exclusiva. Considere uma versão simplificada de uma tabela de PurchaseOrder e sua tabela OrderDetail associada. O Transact-SQL seguinte cria a tabela de PurchaseOrder com quatro colunas: OrderID, OrderDate, CustomerID e o estado.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrder](
     [OrderID] [int] IDENTITY(1,1) NOT NULL,
     [OrderDate] [datetime] NOT NULL,
@@ -452,9 +476,11 @@ Parâmetros de valor de tabela são úteis para cenários de inserção simples.
     [Status] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrder] 
     PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
+```
 
 Cada pedido contém um ou mais compras de produto. Estas informações são capturadas na tabela PurchaseOrderDetail. O Transact-SQL seguinte cria a tabela de PurchaseOrderDetail com cinco colunas: OrderID, OrderDetailID, ProductID, UnitPrice e OrderQty.
 
+```sql
     CREATE TABLE [dbo].[PurchaseOrderDetail](
     [OrderID] [int] NOT NULL,
     [OrderDetailID] [int] IDENTITY(1,1) NOT NULL,
@@ -463,15 +489,19 @@ Cada pedido contém um ou mais compras de produto. Estas informações são capt
     [OrderQty] [smallint] NULL,
      CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
     ( [OrderID] ASC, [OrderDetailID] ASC ))
+```
 
 A coluna de OrderID na tabela PurchaseOrderDetail tem de referenciar uma ordem da tabela PurchaseOrder. A seguinte definição de uma chave estrangeira impõe essa restrição.
 
+```sql
     ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
     CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
     REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+```
 
 Para poder utilizar os parâmetros de valor de tabela, tem de ter um tipo de tabela definido pelo utilizador para cada tabela de destino.
 
+```sql
     CREATE TYPE PurchaseOrderTableType AS TABLE 
     ( OrderID INT,
       OrderDate DATETIME,
@@ -485,9 +515,11 @@ Para poder utilizar os parâmetros de valor de tabela, tem de ter um tipo de tab
       UnitPrice MONEY,
       OrderQty SMALLINT );
     GO
+```
 
 Em seguida, defina um procedimento armazenado que aceita tabelas de um desses tipos. Este procedimento permite que um aplicativo para o lote localmente um conjunto de pedidos e detalhes do pedido numa única chamada. O Transact-SQL seguinte fornece a declaração de procedimento armazenado concluído para este exemplo de ordem de compra.
 
+```sql
     CREATE PROCEDURE sp_InsertOrdersBatch (
     @orders as PurchaseOrderTableType READONLY,
     @details as PurchaseOrderDetailTableType READONLY )
@@ -528,11 +560,13 @@ Em seguida, defina um procedimento armazenado que aceita tabelas de um desses ti
     FROM @details D
     JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
     GO
+```
 
 Neste exemplo, definida localmente @IdentityLink tabela armazena os valores de OrderID reais de linhas recentemente inseridas. Estes identificadores de ordem são diferentes entre os valores de OrderID temporários no @orders e @details parâmetros de valor de tabela. Por esse motivo, o @IdentityLink tabela liga-se, em seguida, os valores de OrderID do @orders parâmetro para os valores de OrderID real para as novas linhas na tabela PurchaseOrder. Após este passo, o @IdentityLink tabela pode facilitar a inserir os detalhes da encomenda com o OrderID real que satisfaz a restrição de chave estrangeira.
 
 Este procedimento armazenado pode ser utilizado a partir do código ou a partir de outras chamadas de Transact-SQL. Consulte a secção de parâmetros de valor de tabela deste documento para obter um exemplo de código. O Transact-SQL seguinte mostra como chamar o sp_InsertOrdersBatch.
 
+```sql
     declare @orders as PurchaseOrderTableType
     declare @details as PurchaseOrderDetailTableType
 
@@ -550,16 +584,19 @@ Este procedimento armazenado pode ser utilizado a partir do código ou a partir 
     (3, 4, $10.00, 1)
 
     exec sp_InsertOrdersBatch @orders, @details
+```
 
 Esta solução permite que cada batch utilizar um conjunto de valores de OrderID, que começam em 1. Estes valores de OrderID temporários descrevem as relações no lote, mas os valores de OrderID reais são determinados no momento da operação de inserção. Pode executar repetidamente as mesmas instruções no exemplo anterior e gerar ordens exclusivos na base de dados. Por esse motivo, considere adicionar mais lógica de código ou a base de dados que o impede de pedidos duplicados ao utilizar esta técnica de criação de batches.
 
 Este exemplo demonstra que possam ser loteadas operações de banco de dados ainda mais complexas, como o mestre-detalhes de operações, utilizando parâmetros de valor de tabela.
 
 ### <a name="upsert"></a>UPSERT
+
 Outro cenário de lotes envolve simultaneamente atualizar linhas existentes e a inserção de novas linhas. Esta operação é por vezes referida como uma operação de "UPSERT" (atualização + insert). Em vez de fazer chamadas separadas para inserir e ATUALIZAR, a instrução MERGE é mais adequada para esta tarefa. A instrução MERGE pode executar ambos os insert e operações numa única chamada de atualização.
 
 Parâmetros de valor de tabela podem ser utilizados com a instrução de intercalação para executar atualizações e inserções. Por exemplo, considere uma tabela de funcionários simplificada, que contém as seguintes colunas: EmployeeID, FirstName, LastName, Númerodoinps:
 
+```sql
     CREATE TABLE [dbo].[Employee](
     [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
     [FirstName] [nvarchar](50) NOT NULL,
@@ -567,18 +604,22 @@ Parâmetros de valor de tabela podem ser utilizados com a instrução de interca
     [SocialSecurityNumber] [nvarchar](50) NOT NULL,
      CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
     ([EmployeeID] ASC ))
+```
 
 Neste exemplo, pode usar o fato de que o Númerodoinps são exclusivo para executar uma intercalação das vários funcionários. Primeiro, crie o tipo de tabela definido pelo utilizador:
 
+```sql
     CREATE TYPE EmployeeTableType AS TABLE 
     ( Employee_ID INT,
       FirstName NVARCHAR(50),
       LastName NVARCHAR(50),
       SocialSecurityNumber NVARCHAR(50) );
     GO
+```
 
 Em seguida, crie um procedimento armazenado ou escrever um código que usa a instrução MERGE para efetuar a atualização e inserir. O exemplo seguinte utiliza a instrução MERGE num parâmetro de valor de tabela, @employees, do tipo EmployeeTableType. O conteúdo do @employees tabela não são mostrados aqui.
 
+```sql
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
     AS source ([FirstName], [LastName], [SocialSecurityNumber])
@@ -590,10 +631,12 @@ Em seguida, crie um procedimento armazenado ou escrever um código que usa a ins
     WHEN NOT MATCHED THEN
        INSERT ([FirstName], [LastName], [SocialSecurityNumber])
        VALUES (source.[FirstName], source.[LastName], source.[SocialSecurityNumber]);
+```
 
 Para obter mais informações, consulte a documentação e exemplos para a instrução MERGE. Embora o mesmo trabalho pode ser realizado de uma várias etapas armazenadas chamada de procedimento com separar INSERT e operações de ATUALIZAÇÃO, a instrução MERGE é mais eficiente. Código de base de dados também pode construir as chamadas de Transact-SQL que utilizam a instrução MERGE diretamente sem a necessidade de duas chamadas de base de dados para o INSERT e UPDATE.
 
 ## <a name="recommendation-summary"></a>Resumida de recomendação
+
 A lista seguinte fornece um resumo das recomendações de criação de batches discutidos neste artigo:
 
 * Utilize o armazenamento em buffer e criação de batches para aumentar o desempenho e escalabilidade das aplicações de base de dados SQL.
@@ -614,5 +657,6 @@ A lista seguinte fornece um resumo das recomendações de criação de batches d
 * Considere a colocação em memória intermédia no tamanho e o tempo como uma forma de implementar a criação de batches de mais cenários.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Este artigo concentra-se sobre como as técnicas relacionadas a criação de batches de codificação e de design de banco de dados podem melhorar o desempenho da aplicação e a escalabilidade. Mas isso é apenas um dos fatores na sua estratégia geral. Para obter mais formas de melhorar o desempenho e escalabilidade, consulte [orientações de desempenho de base de dados do Azure SQL para bases de dados individuais](sql-database-performance-guidance.md) e [considerações sobre preço e desempenho de um conjunto elástico](sql-database-elastic-pool-guidance.md).
 

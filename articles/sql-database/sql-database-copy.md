@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: fa76762fc9a2eb178e2edce2de254894bde1934c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651423"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461344"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacional consistente de uma base de dados SQL do Azure
 
@@ -32,11 +32,11 @@ Uma cópia da base de dados é um instantâneo da base de dados de origem no mom
 
 ## <a name="logins-in-the-database-copy"></a>A cópia da base de dados de inícios de sessão
 
-Quando copiar uma base de dados para o mesmo servidor lógico, os inícios de sessão mesmo podem ser utilizados em ambas as bases de dados. O principal de que usar para copiar a base de dados de segurança se torna o proprietário da base de dados na base de dados nova. Todos os utilizadores de base de dados, as respetivas permissões e seus identificadores de segurança (SIDs) são copiados para a cópia da base de dados.  
+Quando copiar uma base de dados para o mesmo servidor de base de dados SQL, inícios de sessão mesmo podem ser utilizados em ambas as bases de dados. O principal de que usar para copiar a base de dados de segurança se torna o proprietário da base de dados na base de dados nova. Todos os utilizadores de base de dados, as respetivas permissões e seus identificadores de segurança (SIDs) são copiados para a cópia da base de dados.  
 
-Quando copiar uma base de dados para um servidor lógico diferente, o principal no novo servidor de segurança se torna o proprietário da base de dados na base de dados nova. Se usar [utilizadores de base de dados contidos](sql-database-manage-logins.md) para acesso a dados, certifique-se de que as bases de dados primários e secundários têm sempre as mesmas credenciais de utilizador, para que quando a cópia estiver concluída pode imediatamente acessá-lo com as mesmas credenciais . 
+Quando copiar uma base de dados para um servidor de base de dados SQL diferente, o principal no novo servidor de segurança se torna o proprietário da base de dados na base de dados nova. Se usar [utilizadores de base de dados contidos](sql-database-manage-logins.md) para acesso a dados, certifique-se de que as bases de dados primários e secundários têm sempre as mesmas credenciais de utilizador, para que quando a cópia estiver concluída pode imediatamente acessá-lo com as mesmas credenciais . 
 
-Se usar [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), pode eliminar completamente a necessidade de gerir as credenciais na cópia. No entanto, quando copiar a base de dados para um novo servidor, o acesso com base no início de sessão poderão não funcionar, porque os inícios de sessão não existe no novo servidor. Para saber mais sobre a gestão de inícios de sessão quando copiar uma base de dados para um servidor lógico diferente, veja [como gerir a segurança de base de dados SQL do Azure após a recuperação após desastre](sql-database-geo-replication-security-config.md). 
+Se usar [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), pode eliminar completamente a necessidade de gerir as credenciais na cópia. No entanto, quando copiar a base de dados para um novo servidor, o acesso com base no início de sessão poderão não funcionar, porque os inícios de sessão não existe no novo servidor. Para saber mais sobre a gestão de inícios de sessão quando copiar uma base de dados para um servidor diferente da base de dados SQL, veja [como gerir a segurança de base de dados SQL do Azure após a recuperação após desastre](sql-database-geo-replication-security-config.md). 
 
 Depois da cópia for concluída com êxito e antes de outros utilizadores são remapeados, apenas o início de sessão que iniciou a cópia, o proprietário da base de dados, pode iniciar sessão para a nova base de dados. Para resolver os inícios de sessão depois de concluída a operação de cópia, veja [resolver inícios de sessão](#resolve-logins).
 
@@ -78,7 +78,7 @@ Este comando copia Database1 para uma nova base de dados com o nome base de dado
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Copiar uma base de dados SQL para um servidor diferente
 
-Inicie sessão na base de dados mestra do servidor de destino, o servidor de base de dados SQL, onde a nova base de dados está a ser criada. Utilize um início de sessão que tenha o mesmo nome e palavra-passe como o proprietário da base de dados da base de dados de origem no servidor de base de dados do SQL de origem. O início de sessão no servidor de destino também tem de ser um membro da função dbmanager ou ser o início de sessão principal ao nível do servidor.
+Inicie sessão na base de dados mestra do servidor de destino, o servidor de base de dados SQL onde a nova base de dados está a ser criada. Utilize um início de sessão que tenha o mesmo nome e palavra-passe como o proprietário da base de dados da base de dados de origem no servidor de base de dados SQL de origem. O início de sessão no servidor de destino também tem de ser um membro da função dbmanager ou ser o início de sessão principal ao nível do servidor.
 
 Este comando copia Database1 no servidor1 para uma nova base de dados com o nome base de dados2 no Servidor2. Dependendo do tamanho da base de dados, a operação de cópia pode demorar algum tempo a concluir.
 
@@ -104,7 +104,7 @@ Depois da nova base de dados está online no servidor de destino, utilize o [alt
 
 Todos os utilizadores na nova base de dados retém as permissões que eles tinham no banco de dados de origem. O utilizador que iniciou a cópia da base de dados torna-se o proprietário da base de dados da base de dados novo e é atribuído um novo identificador de segurança (SID). Depois da cópia for concluída com êxito e antes de outros utilizadores são remapeados, apenas o início de sessão que iniciou a cópia, o proprietário da base de dados, pode iniciar sessão para a nova base de dados.
 
-Para saber mais sobre a gestão de utilizadores e inícios de sessão quando copiar uma base de dados para um servidor lógico diferente, veja [como gerir a segurança de base de dados SQL do Azure após a recuperação após desastre](sql-database-geo-replication-security-config.md).
+Para saber mais sobre a gestão de utilizadores e inícios de sessão quando copiar uma base de dados para um servidor diferente da base de dados SQL, veja [como gerir a segurança de base de dados SQL do Azure após a recuperação após desastre](sql-database-geo-replication-security-config.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f63a42afd9dc629bd87dfb23e07e14737ea42a2f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393269"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299848"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de entre inquilinos com extraídos dados - aplicação de inquilino único
  
-Neste tutorial, é necessário percorrer um cenário de completas de análise para implementatoin um único inquilino. O cenário demonstra como a análise pode ativar as empresas a tomarem decisões inteligentes. Usando dados extraídos de cada base de dados de inquilinos, utilize o analytics para obter informações sobre o comportamento de inquilino, incluindo o uso do exemplo de aplicação Wingtip Tickets SaaS. Este cenário envolve três etapas: 
+Neste tutorial, é necessário percorrer um cenário de análise completa para uma implementação de inquilino único. O cenário demonstra como a análise pode ativar as empresas a tomarem decisões inteligentes. Usando dados extraídos de cada base de dados de inquilinos, utilize o analytics para obter informações sobre o comportamento de inquilino, incluindo o uso do exemplo de aplicação Wingtip Tickets SaaS. Este cenário envolve três etapas: 
 
 1.  **Extrair** dados de cada base de dados de inquilinos e **carga** para um arquivo de análise.
 2.  **Transformar os dados extraídos** para processamento de análise.

@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478479"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -83,7 +83,7 @@ Existem [dois métodos de autenticação](sql-database-control-access.md#authent
 - [Autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 - Autenticação do SQL
 
-Não é suportada a autenticação tradicional do windows. O Azure Active Directory (AD) é um serviço centralizado de gestão de identidades e acessos. Com isso muito convenientemente pode fornecer um único início de sessão acesso (SSO) a todas as pessoas na sua organização. Isso significa que as credenciais são partilhadas entre todos os serviços do Azure para a autenticação mais simples. Oferece suporte a AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) e com um [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) AAD pode ser integrado no Windows Server Active Directory. Autenticação do SQL funciona exatamente da mesma forma que utilizado no passado. Fornecer uma nome de utilizador/palavra-passe e pode autenticar os utilizadores a qualquer base de dados num determinado servidor lógico. Isso também permite que a base de dados do SQL e SQL Data Warehouse oferecer autenticação multifator e contas de utilizador convidado dentro de um domínio do Azure AD. Se já tiver um Active Directory no local, pode federar o diretório com o Azure Active Directory para expandir o seu diretório para o Azure.
+Não é suportada a autenticação tradicional do windows. O Azure Active Directory (AD) é um serviço centralizado de gestão de identidades e acessos. Com isso muito convenientemente pode fornecer um único início de sessão acesso (SSO) a todas as pessoas na sua organização. Isso significa que as credenciais são partilhadas entre todos os serviços do Azure para a autenticação mais simples. Oferece suporte a AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) e com um [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) AAD pode ser integrado no Windows Server Active Directory. Autenticação do SQL funciona exatamente da mesma forma que utilizado no passado. Fornecer uma nome de utilizador/palavra-passe e pode autenticar os utilizadores a qualquer base de dados num determinado servidor de base de dados SQL. Isso também permite que a base de dados do SQL e SQL Data Warehouse oferecer autenticação multifator e contas de utilizador convidado dentro de um domínio do Azure AD. Se já tiver um Active Directory no local, pode federar o diretório com o Azure Active Directory para expandir o seu diretório para o Azure.
 
 |**Se...**|**Base de dados SQL / do SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Existem várias técnicas à sua disposição que pode utilizar para a competên
 
 #### <a name="firewall"></a>Firewall
 
-Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir apenas acesso de entidades específicas ao seu servidor lógico. Por predefinição, todas as ligações e bases de dados no interior do servidor lógico não são permitidas, exceto ligações proveniente de outros serviços do Azure. Com uma regra de firewall é possível abrir o acesso ao seu servidor apenas para entidades (por exemplo, uma máquina de programador), aprovar, ao permitir que o endereço IP do computador através da firewall. Ele também permite-lhe especificar um intervalo de IPs que gostaria de permitir o acesso ao servidor lógico. Por exemplo, endereços IP de máquinas do programador na sua organização podem ser adicionados ao mesmo tempo, especificando um intervalo na página de definições de Firewall.
+Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir apenas acesso de entidades específicas ao seu servidor de base de dados SQL. Por predefinição, todas as ligações e bases de dados contidas no servidor de base de dados SQL não são permitidas, exceto ligações proveniente de outros serviços do Azure. Com uma regra de firewall é possível abrir o acesso ao seu servidor apenas para entidades (por exemplo, uma máquina de programador), aprovar, ao permitir que o endereço IP do computador através da firewall. Ele também permite-lhe especificar um intervalo de IPs que gostaria de permitir o acesso ao servidor de base de dados SQL. Por exemplo, endereços IP de máquinas do programador na sua organização podem ser adicionados ao mesmo tempo, especificando um intervalo na página de definições de Firewall.
 
 Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem ser criadas através do Azure no portal ou com o SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [Criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -240,7 +240,7 @@ Na base de dados SQL, pode aproveitar as informações inteligentes da plataform
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-O portal do Azure mostra a utilização de uma base de dados individual, selecionando a base de dados e clicar no gráfico no painel de descrição geral. Pode modificar o gráfico para mostrar várias métricas, incluindo a percentagem de CPU, percentagem de DTU, percentagem de es de dados, percentagem de sessões e percentagem do tamanho da base de dados.
+O portal do Azure mostra a utilização de uma base de dados ao selecionar a base de dados e clicar no gráfico no painel de descrição geral. Pode modificar o gráfico para mostrar várias métricas, incluindo a percentagem de CPU, percentagem de DTU, percentagem de es de dados, percentagem de sessões e percentagem do tamanho da base de dados.
 
 ![Gráfico de monitorização](./media/sql-database-manage-after-migration/monitoring-chart.png)
 

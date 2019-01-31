@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141888"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458028"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.
@@ -136,26 +136,26 @@ As equações de matemáticas calcular a distância entre duas coordenadas do GP
 
 Uma lista completa de Hive UDFs incorporados que podem ser encontradas no **funções incorporadas** secção no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Tópicos avançados: parâmetros de Hive otimizar para melhorar a velocidade de consulta
+## <a name="tuning"></a> Tópicos avançados: Otimizar os parâmetros de Hive para melhorar a velocidade de consulta
 As predefinições de parâmetro de cluster de Hive podem não ser adequadas para as consultas do Hive e os dados que as consultas estão a processar. Esta secção descreve alguns parâmetros que utilizadores podem sintonizar para melhorar o desempenho das consultas do Hive. Os utilizadores têm de adicionar o parâmetro ajustar consultas antes das consultas do processamento de dados.
 
-1. **Espaço de área dinâmica para dados de Java**: para consultas que envolvem ingressar em grandes conjuntos de dados ou processar registos de longo **ficar sem espaço de área dinâmica para dados** é um dos erros comuns. Este erro pode ser evitado ao definir os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores pretendidos. Segue-se um exemplo:
+1. **Espaço de área dinâmica para dados de Java**: Para consultas que envolvem ingressar em grandes conjuntos de dados ou processar registos de longo **ficar sem espaço de área dinâmica para dados** é um dos erros comuns. Este erro pode ser evitado ao definir os parâmetros *mapreduce.map.java.opts* e *mapreduce.task.io.sort.mb* para valores pretendidos. Segue-se um exemplo:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Este parâmetro aloca memória de 4GB de espaço de área dinâmica para dados de Java e também torna a classificação mais eficiente ao alocar mais memória para o mesmo. É uma boa idéia para brincar com essas alocações, se houver qualquer tarefa relacionados ao espaço de área dinâmica para dados de erros de falha.
 
-1. **Bloquear o DFS tamanho**: este parâmetro define a menor unidade de dados que armazena o sistema de ficheiros. Por exemplo, se o tamanho do bloco DFS é 128 MB, em seguida, quaisquer dados e de tamanho menor e até 128 MB é armazenado num único bloco. Dados que é maiores do que 128 MB são alocados blocos extras. 
+1. **Bloquear o DFS tamanho**: Este parâmetro define a menor unidade de dados que armazena o sistema de ficheiros. Por exemplo, se o tamanho do bloco DFS é 128 MB, em seguida, quaisquer dados e de tamanho menor e até 128 MB é armazenado num único bloco. Dados que é maiores do que 128 MB são alocados blocos extras. 
 2. Escolher um tamanho de pequeno bloco faz com que grandes sobrecargas no Hadoop, uma vez que o nó de nome tem de processar mais pedidos para localizar o bloco relevante relativas ao ficheiro. Uma configuração recomendada quando lidando com gigabytes (ou superior) os dados são:
 
         set dfs.block.size=128m;
 
-2. **Otimizando a operação de associação no Hive**: enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, os ganhos enorme podem ser alcançados ao agendamento associações na fase de mapa (também chamada de "mapjoins"). Para direcionar o Hive para fazer isso, sempre que possível, defina:
+2. **Otimizando a operação de associação no Hive**: Enquanto as operações de associação do Framework de mapa/redução, normalmente ocorrem na fase de reduza, às vezes, enormes ganhos podem ser obtidos pelo agendamento associações na fase de mapa (também chamada de "mapjoins"). Para direcionar o Hive para fazer isso, sempre que possível, defina:
    
        set hive.auto.convert.join=true;
 
-3. **Especificar o número de mapeadores Hive**: Hadoop enquanto permite que o usuário definir o número de redutores, o número de mapeadores é, normalmente, não estar definido pelo utilizador. Um truque que permite algum grau de controle neste número tem de escolher as variáveis de Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho do mapa de cada tarefa é determinada por:
+3. **Especificar o número de mapeadores Hive**: Enquanto o Hadoop permite ao utilizador para definir o número de redutores, o número de mapeadores é, normalmente, não estar definido pelo utilizador. Um truque que permite algum grau de controle neste número tem de escolher as variáveis de Hadoop *mapred.min.split.size* e *mapred.max.split.size* como o tamanho do mapa de cada tarefa é determinada por:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

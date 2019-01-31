@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956990"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470880"
 ---
-# <a name="translator-text-api-30-translate"></a>API 3.0 de texto de tradutor: traduzir
+# <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
 Traduz texto.
 
@@ -57,11 +57,11 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*O parâmetro opcional*.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com [Translator personalizado](../customization.md). Valor predefinido é: `general`.</td>
   </tr>
   <tr>
-    <td>ProfanityAction</td>
+    <td>profanityAction</td>
     <td>*O parâmetro opcional*.<br/>Especifica como profanities devem ser tratados de traduções. Os valores possíveis são: `NoAction` (predefinição), `Marked` ou `Deleted`. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
   </tr>
   <tr>
-    <td>ProfanityMarker</td>
+    <td>profanityMarker</td>
     <td>*O parâmetro opcional*.<br/>Especifica como profanities devem ser marcados em traduções. Os valores possíveis são: `Asterisk` (predefinição) ou `Tag`. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*O parâmetro opcional*.<br/>Especifica o script do texto traduzido.</td>
   </tr>
   <tr>
-    <td>AllowFallback</td>
+    <td>allowFallback</td>
     <td>*O parâmetro opcional*.<br/>Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe. Os valores possíveis são: `true` (predefinição) ou `false`.<br/><br/>`allowFallback=false` Especifica que a tradução só deve utilizar sistemas de preparação para o `category` especificado pelo pedido. Se precisar de uma tradução para a linguagem X para a linguagem Y encadeamento por meio de uma linguagem dinâmica E, em seguida, todos os sistemas na cadeia (X -> i e I -> Y) tem de ser personalizado e ter a mesma categoria. Se não for encontrado nenhum sistema com uma categoria específica, o pedido irá devolver um código de 400 estado. `allowFallback=true` Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe.
 </td>
   </tr>
@@ -97,7 +97,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
+    <td>_Uma autorização_<br/>_header_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -109,7 +109,7 @@ Cabeçalhos de pedido incluem:
     <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
@@ -161,7 +161,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
       * `srcSentLen`: Uma matriz de número inteiro que representa os comprimentos das sentenças no texto introduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença.
 
-      * `transSentLen`: Uma matriz de número inteiro que representa os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença.
+      * `transSentLen`:  Uma matriz de número inteiro que representa os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de frases e os valores são o comprimento de cada sentença.
 
     Limites de sentença só estão incluídos quando o parâmetro de pedido `includeSentenceLength` é `true`.
 
@@ -231,7 +231,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
 
 Este exemplo mostra como traduzir uma frase única de inglês para chinês simplificado.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -257,7 +257,7 @@ O `translations` matriz inclui um elemento, que fornece a tradução da única p
 
 Este exemplo mostra como traduzir uma frase única de inglês para chinês simplificado. O pedido não especifica o idioma de entrada. Deteção automática de idioma de origem é utilizada em vez disso.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -283,7 +283,7 @@ A resposta é semelhante à resposta do exemplo anterior. Uma vez que foi solici
 
 Vamos ampliar o exemplo anterior, adicionando Transliteração. O pedido seguinte solicita uma tradução chinês escrita em scripts latinos.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -314,7 +314,7 @@ O resultado de tradução agora inclui uma `transliteration` propriedade, que fo
 
 A tradução de várias cadeias de caracteres de uma só vez é simplesmente uma questão de especificar uma matriz de cadeias de caracteres no corpo do pedido.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -343,7 +343,7 @@ O corpo de resposta é:
 
 Este exemplo mostra como traduzir a mesma entrada para vários idiomas numa solicitação.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -377,14 +377,14 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
     <td>`NoAction`</td>
     <td>Este é o comportamento padrão. Linguagem inapropriada passará de origem ao destino.<br/><br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (em inglês)**: ele é um jackass.
+    **Tradução de exemplo (em inglês)**: Ele é um jackass.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Palavras profanas serão removidas da saída sem substituição.<br/><br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (em inglês)**: ele é um.
+    **Tradução de exemplo (em inglês)**: Ele é um.
     </td>
   </tr>
   <tr>
@@ -392,16 +392,16 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
     <td>Palavras profanas são substituídas por um marcador no resultado. Depende de marcador a `ProfanityMarker` parâmetro.<br/><br/>
 Para `ProfanityMarker=Asterisk`, palavras profanas são substituídas por `***`:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (em inglês)**: ele é um \* \* \*.<br/><br/>
+    **Tradução de exemplo (em inglês)**: Ele é um \* \* \*.<br/><br/>
 Para `ProfanityMarker=Tag`, palavras profanas são cercadas por marcas XML &lt;linguagem inapropriada&gt; e &lt;/profanity&gt;:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (em inglês)**: ele é um &lt;linguagem inapropriada&gt;jackass&lt;/profanity&gt;.
+    **Tradução de exemplo (em inglês)**: Ele é um &lt;linguagem inapropriada&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
 Por exemplo:
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -423,7 +423,7 @@ Esta ação devolve:
 
 Compare com:
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -454,7 +454,7 @@ Devolve a que a última solicitação:
 
 Aqui está um pedido de exemplo para ilustrar.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -478,7 +478,7 @@ A resposta é:
 
 Para receber informações de alinhamento, especifique `includeAlignment=true` na seqüência de consulta.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -516,7 +516,7 @@ Tenha em atenção as seguintes restrições:
 
 Para receber informações sobre o tamanho da sentença no texto de origem e o texto traduzido, especifique `includeSentenceLength=true` na seqüência de consulta.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

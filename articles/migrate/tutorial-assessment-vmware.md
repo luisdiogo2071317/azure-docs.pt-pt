@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 58a4f60a5ef01f8f2757aeb04c2dd7165d68179a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824104"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298726"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de um anfitrião ESXi com a versão 5.0 ou superior para implementar a VM do recoletor.
+- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de uma versão em execução de anfitrião ESXi 5.5 ou superior para implementar a VM do recoletor.
 - **conta do vCenter Server**: Precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: No vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no. Formato de OVA.
 
@@ -102,6 +102,14 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
 3. O hash gerado deve corresponder a estas definições.
 
 #### <a name="continuous-discovery"></a>Deteção contínua
+
+  Para a versão ova 1.0.10.11
+
+  **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   Para a versão ova 1.0.10.9
 

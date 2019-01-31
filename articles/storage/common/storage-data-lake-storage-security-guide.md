@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: d2182942b8d1ce78fd4a72ff387c7a6a1cfead5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975089"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473787"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança de geração 2 de armazenamento do Data Lake do Azure
 
@@ -79,7 +79,7 @@ Aqui estão os pontos principais que precisa saber sobre como utilizar o RBAC pa
 * [Controlo de Acesso Baseado em Funções do Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Este artigo explica o Controlo de Acesso Baseado em Funções do Azure Active Directory e como funciona.
-* [RBAC: Funções Incorporadas](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
 
   Este artigo fornece detalhes sobre todas as funções incorporadas disponíveis no RBAC.
 * [Compreender a implementação do Resource Manager e a implementação clássica](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -225,7 +225,7 @@ Para obter informações mais detalhadas sobre como utilizar assinaturas de aces
 * Estes são os tutoriais para utilizar a biblioteca de cliente .NET para criar assinaturas de acesso partilhado e políticas de acesso armazenado.
 
   * [Utilizar assinaturas de acesso partilhado (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com o serviço de BLOBs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com o serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Este artigo inclui uma explicação sobre o modelo SAS, exemplos de assinaturas de acesso partilhado, e recomendações para a prática recomendada usar de SAS. Também discuti é a revogação de permissão concedida.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa3c94854f8f67da9caa2955f5c62581843e39c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156110"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465628"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação do Service Fabric e manifestos de serviço
 Este artigo descreve como os serviços e aplicações do Service Fabric são definidos e com a versão usando os arquivos applicationmanifest. XML e servicemanifest. XML.  Para obter exemplos mais detalhados, consulte [exemplos de manifesto de aplicação e serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado no [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 </Settings>
 ```
 
-**Recursos**, tais como pontos de extremidade, que são utilizados pelo serviço para ser declarado/alterar sem alterar o código compilado.  Acesso aos recursos especificados no manifesto do serviço pode ser controlado através da **SecurityGroup** no manifesto do aplicativo.  Quando um **ponto final** recurso é definido no manifesto do serviço, o Service Fabric atribui portas a partir do intervalo de portas de aplicação reservado quando uma porta não for especificada explicitamente.  Leia mais sobre [especificando ou a substituição de recursos de ponto final](service-fabric-service-manifest-resources.md).
+Um serviço do Service Fabric **ponto final** é um exemplo de um recurso de infraestrutura do serviço; Um recurso de infraestrutura do serviço pode ser declarado/alterar sem alterar o código compilado. O acesso para os recursos de infraestrutura do serviço que são especificados no manifesto do serviço pode ser controlado através da **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto final é definido no manifesto do serviço, o Service Fabric atribui portas o intervalo de portas reservado do aplicativo quando uma porta não for especificada explicitamente. Leia mais sobre [especificando ou a substituição de recursos de ponto final](service-fabric-service-manifest-resources.md).
 
 
 <!--

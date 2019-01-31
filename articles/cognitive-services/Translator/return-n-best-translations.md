@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646478"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464828"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar traduções múltipla
 
@@ -46,7 +46,7 @@ A assinatura é:
 
 * Categoria: O único suportado e a predefinição, a opção é "geral".
 * ContentType: O único suportado e a predefinição, a opção é "text/plain".
-* Estado: Estado do utilizador para ajudar a correlacionar pedido e resposta. O mesmo conteúdo será devolvido na resposta.
+* Estado: Estado do utilizador para o ajudar a correlacionar pedido e resposta. O mesmo conteúdo será devolvido na resposta.
 * IncludeMultipleMTAlternatives: sinalizador para determinar se deve devolver mais do que um alternativas do mecanismo de MT. Padrão é false e inclui apenas 1 alternativa.
 
 ## <a name="ratings"></a>Classificações

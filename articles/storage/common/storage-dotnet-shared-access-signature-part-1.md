@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228815"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470353"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -40,11 +40,11 @@ Um cenário comum em que é útil uma SAS é um serviço em que os utilizadores 
 
 1. Os clientes carregar e transferir dados através de um serviço de proxy de front-end, que efetua a autenticação. Este serviço de proxy de front-end tem a vantagem de permitir que a validação de regras de negócios, mas para grandes quantidades de dados ou transações de grande volume, criação de um serviço que possa ser dimensionada para corresponder a pedido pode ser difícil ou dispendioso.
 
-  ![Diagrama do cenário: serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Diagrama do cenário: Serviço de proxy de front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Um serviço simples autentica o cliente conforme necessário e, em seguida, gera uma SAS. Assim que o cliente recebe a SAS, podem aceder a recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido a SAs. A SAS, reduz a necessidade para todos os dados através do serviço de front-end de proxy de encaminhamento.
 
-  ![Diagrama do cenário: serviço de fornecedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![Diagrama do cenário: Serviço do fornecedor SAS](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Muitos serviços do mundo real, podem utilizar uma mistura dessas duas abordagens. Por exemplo, alguns dados possam ser processados e validados através do proxy de front-end, enquanto outros dados são guardados e/ou diretamente através da SAS de leitura.
 
@@ -108,7 +108,7 @@ Eis um exemplo de um serviço de URI de SAS que fornece permissões de escrita p
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nome | Parte SAS | Descrição |
+| Name | Parte SAS | Descrição |
 | --- | --- | --- |
 | URI de blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |O endereço do blob. Tenha em atenção que através de HTTPS é altamente recomendado. |
 | Versão de serviços de armazenamento |`sv=2015-04-05` |Para a versão 2012-02-12 dos serviços de armazenamento e mais tarde, esse parâmetro indica a versão a utilizar. |
@@ -128,7 +128,7 @@ Eis um exemplo de uma conta SAS que utiliza os mesmos parâmetros comuns no toke
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nome | Parte SAS | Descrição |
+| Name | Parte SAS | Descrição |
 | --- | --- | --- |
 | URI do recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |O Blob ponto final de serviço, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado conjunto). |
 | Serviços |`ss=bf` |A SAS se aplica aos serviços Blob e ficheiro |
@@ -140,8 +140,8 @@ Considerando que permissões são restritas para o nível de serviço, as opera�
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Controlar um SAS com uma política de acesso armazenadas
 Uma assinatura de acesso partilhado pode efetuar uma das duas formas:
 
-* **SAS ad hoc:** quando cria uma SAS ad hoc, a hora de início, a hora de expiração, e as permissões a SAs são todos especificado no URI de SAS (ou implícitas, no caso em que a hora de início é omitida). Este tipo de SAS pode ser criado como uma conta SAS ou um serviço SAS.
-* **SAS com a política de acesso armazenadas:** uma política de acesso armazenado é definido num contêiner de recursos – um contentor de BLOBs, tabela, fila, ou partilha – de ficheiros e pode ser utilizado para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenado, a SAS herda as restrições, a hora de início, hora de expiração e permissões – definidas para a política de acesso armazenado.
+* **SAS ad hoc:** Quando cria uma SAS ad hoc, a hora de início, hora de expiração e as permissões para a SAS são todos especificadas no URI de SAS (explícita ou implícita, no caso em que a hora de início é omitida). Este tipo de SAS pode ser criado como uma conta SAS ou um serviço SAS.
+* **SAS com a política de acesso armazenado:** Uma política de acesso armazenado é definido num contêiner de recursos – um contentor de BLOBs, tabela, fila, ou partilha – de ficheiros e pode ser utilizado para gerir restrições para um ou mais assinaturas de acesso partilhado. Quando associa um SAS com uma política de acesso armazenado, a SAS herda as restrições, a hora de início, hora de expiração e permissões – definidas para a política de acesso armazenado.
 
 > [!NOTE]
 > Atualmente, uma conta SAS tem de ser SAS ad hoc. Armazenados acesso políticas ainda não são suportadas para a conta SAS.
@@ -421,7 +421,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Assinaturas de acesso partilhado são úteis para fornecer permissões limitadas à sua conta de armazenamento para os clientes que não devem ter a chave da conta. Como tal, são uma parte vital do modelo de segurança para qualquer aplicação com o armazenamento do Azure. Se seguir as melhores práticas indicadas aqui, pode utilizar a SAS para fornecer mais flexibilidade de acesso aos recursos na sua conta de armazenamento, sem comprometer a segurança da sua aplicação.
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com armazenamento de BLOBs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gerir o acesso de leitura anónimo a contentores e blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegar Acesso com uma Assinatura de Acesso Partilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Apresentando o SAS da fila e de tabela](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

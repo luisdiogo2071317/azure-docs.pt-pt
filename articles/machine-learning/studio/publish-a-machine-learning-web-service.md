@@ -1,6 +1,6 @@
 ---
-title: Implemente um titleSuffix de serviço web Machine Learning Studio: Descrição do Azure Machine Learning Studio: Como converter uma experimentação de preparação para uma experimentação preditiva, prepará-lo para a implementação, em seguida, implementá-lo como um serviço web do Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Implemente um titleSuffix de serviço web Machine Learning Studio: Descrição do Azure Machine Learning Studio: Como converter uma experimentação de preparação para uma experimentação preditiva, prepará-lo para a implementação, em seguida, implementá-lo como um serviço web do Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: anterior ms.author=yahajiza, autor anterior = YasinMSFT MS: 01/06/2017
 ---

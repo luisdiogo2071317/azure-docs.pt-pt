@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.date: 01/25/2019
+ms.openlocfilehash: 911380539e3558e8bb1384449e415a6f0c1cd69b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141973"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465236"
 ---
 # <a name="dtu-based-service-tiers"></a>Escalões de serviço baseado em DTU
 
@@ -72,7 +72,7 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 ||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto as seguintes: e.u.a. centro-oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, USGov Iowa, Nordeste da Alemanha, Norte da China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: EUA Centro-Oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, USGov Iowa, Alemanha Nordeste, Norte da China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 

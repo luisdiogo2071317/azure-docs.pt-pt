@@ -2,19 +2,18 @@
 title: Preparar o servidor do DPM para efetuar cópias de segurança de cargas de trabalho para o Azure
 description: Uma introdução à cópia de segurança de dados do DPM para um cofre dos serviços de recuperação do Azure.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, do data protection manager, a cópia de segurança do dpm
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024482"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301072"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar a cópia de segurança de cargas de trabalho no Azure com o System Center DPM
 
@@ -51,7 +50,7 @@ DPM numa VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012
 DPM numa VM do VMware | System Center 2012 R2 com Update Rollup 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalado.
 Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode criar cópias de segurança.
-Tipos de ficheiro suportados | Estes tipos de ficheiro podem ser uma cópia de segurança com o Azure Backup: encriptado (cópias de segurança completas só); Comprimidos (cópias de segurança incrementais suportadas); Dispersos (cópias de segurança incrementais suportadas); Comprimidos e dispersos (tratados como dispersos).
+Tipos de ficheiro suportados | Estes tipos de ficheiro podem ser uma cópia de segurança com o Azure Backup: Encriptados (cópias de segurança completas só); Comprimidos (cópias de segurança incrementais suportadas); Dispersos (cópias de segurança incrementais suportadas); Comprimidos e dispersos (tratados como dispersos).
 Tipos de ficheiro não suportado | Servidores em sistemas de ficheiros sensíveis a maiúsculas; ligações diretas (ignoradas); (ignorados); de pontos de reanálise encriptados e comprimidos (ignorados); encriptados e dispersos (ignorados); Fluxo comprimido; analisar o fluxo.
 Armazenamento local | Cada máquina que pretende criar cópias de segurança tem de ter armazenamento local livre é de, pelo menos, 5% do tamanho dos dados que estão a cópia de segurança.  Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização de rascunho.
 Armazenamento do Cofre | Não há limite para a quantidade de dados, que pode criar cópias de segurança para um cofre de cópia de segurança do Azure, mas o tamanho de uma origem de dados (por exemplo uma máquina virtual ou a base de dados) não deve exceder os 54400 GB.

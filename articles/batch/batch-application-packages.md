@@ -3,7 +3,7 @@ title: Instalar pacotes de aplicações em nós de computação - Azure Batch | 
 description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch para gerir facilmente várias aplicações e versões para instalação em Batch nós de computação.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094140"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454614"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós de computação com pacotes de aplicações do Batch
 
@@ -115,7 +115,7 @@ Esta janela exibe o ID de cada aplicação na sua conta e as seguintes proprieda
 
 * **Pacotes**: O número de versões associadas esta aplicação.
 * **Versão predefinida**: A versão do aplicativo instalada se não indicam uma versão quando especificar a aplicação para um conjunto. Esta definição é opcional.
-* **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidos. Se isto estiver definido como **não**, as atualizações de pacotes e eliminações, estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
+* **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidas. Se isto estiver definido como **não**, as atualizações de pacotes e eliminações, estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
 Para ver os detalhes para uma aplicação, selecione a aplicação no **aplicativos** janela.

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351651"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300613"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351651"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Processamento melhorado de exceções de observador.
+* Obter informações mais detalhadas sobre os erros de observador:
+ * Quando um observador é fechado devido a uma exceção gerada pelo ProcessChangesAsync do observador, o CloseAsync agora receberá o parâmetro de motivo definido como ChangeFeedObserverCloseReason.ObserverError.
+ * Foi adicionados rastreios para identificar erros no código do usuário num observador.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Foi adicionado suporte para a manipulação de divisão em coleções que utilizam o débito de base de dados partilhada.
@@ -157,6 +163,7 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |29 de Janeiro de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de Dezembro de 2018 |--- |
 | [2.2.4](#2.2.4) |29 de Novembro de 2018 |--- |
 | [2.2.3](#2.2.3) |19 de Novembro de 2018 |--- |

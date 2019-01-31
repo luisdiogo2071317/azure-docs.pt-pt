@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528127"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453404"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Encriptação do lado do cliente com o Python para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,12 +125,12 @@ Depois de ter sido criado um objeto de serviço de armazenamento (ou seja, block
 
 A KEK deve implementar os métodos seguintes para encriptar os dados com êxito:
 
-* wrap_key(cek): encapsula CEK especificado com um algoritmo de preferência do utilizador (bytes). Devolve a chave encapsulada.
-* get_key_wrap_algorithm(): devolve o algoritmo utilizado para encapsular as chaves.
-* get_kid(): retorna a id de chave de cadeia de caracteres para este KEK.
+* wrap_key(cek): Encapsula CEK especificado com um algoritmo de preferência do utilizador (bytes). Devolve a chave encapsulada.
+* get_key_wrap_algorithm(): Devolve o algoritmo utilizado para encapsular as chaves.
+* get_kid(): Devolve o id de chave de cadeia de caracteres para este KEK.
   A KEK deve implementar os seguintes métodos para desencriptar os dados com êxito:
-* unwrap_key (cek, algoritmo): devolve o formulário não encapsulado do CEK especificado utilizando o algoritmo de cadeia especificada.
-* get_kid(): retorna uma identificação de chave de cadeia de caracteres para este KEK.
+* unwrap_key(cek, algorithm): Devolve o formulário não encapsulado do CEK especificado utilizando o algoritmo de cadeia especificada.
+* get_kid(): Devolve um id de chave de cadeia de caracteres para este KEK.
 
 O Resolvedor de chave tem de implementar, pelo menos, um método que, tendo em conta um id de chave, retorna a KEK correspondente, a implementação da interface acima. Apenas esse método é atribuído à propriedade key_resolver_function no objeto de serviço.
 

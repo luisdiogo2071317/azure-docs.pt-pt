@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121741"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474008"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -471,12 +471,12 @@ Se a aplicação cliente que está a gerar erros de HTTP 403 (proibido), das cau
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;is = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A aguardar resposta. |
-| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar a resposta: O servidor remoto devolveu um erro: Proibido (403). |
+| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar a resposta: O servidor remoto devolveu um erro: (403) Proibido. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Resposta recebida. Código de estado 403, ID do pedido de = = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, MD5 de conteúdo = ETag =. |
 | Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Ocorreu uma excepção durante a operação: O servidor remoto devolveu um erro: Proibido (403).... |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A verificar se a operação deve ser repetida. Contagem de repetições = 0, o código de estado HTTP 403, exceção de = = o servidor remoto devolvido um erro: Proibido (403).... |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A localização seguinte foi definida como principal, com base no modo de local. |
-| Microsoft.WindowsAzure.Storage |Erro |1 |85d077ab-... |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: Proibido (403). |
+| Microsoft.WindowsAzure.Storage |Erro |1 |85d077ab-... |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: (403) Proibido. |
 
 Neste cenário, deve investigar por que o token SAS está prestes a expirar antes do cliente envia o token para o servidor:
 
@@ -515,7 +515,7 @@ Entradas de registo:
 | ID do pedido | Texto de operação |
 | --- | --- |
 | 07b26a5d-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign = HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 de Jun de 2014 10 minutos e 33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |A aguardar resposta. |
 | 07b26a5d-... |Resposta recebida. Código de estado 200, ID do pedido de = = eeead849... MD5 de conteúdo = ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Cabeçalhos de resposta foram processados com êxito, prosseguir com o restante da operação. |
@@ -529,7 +529,7 @@ Entradas de registo:
 | 07b26a5d-... |Baixar o corpo da resposta. |
 | 07b26a5d-... |Operação concluída com êxito. |
 | e2d06d78-... |A partir de uma solicitação assíncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
-| e2d06d78-... |StringToSign = HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 de Jun de 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |A aguardar resposta. |
 | de8b1c3c-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
@@ -560,7 +560,7 @@ Se a aplicação cliente tenta utilizar uma chave SAS que não inclui as permiss
 
 A tabela seguinte mostra uma mensagem de registo do lado do servidor de exemplo de ficheiro de registo registo de armazenamento:
 
-| Nome | Valor |
+| Name | Value |
 | --- | --- |
 | Hora de início de pedido | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |

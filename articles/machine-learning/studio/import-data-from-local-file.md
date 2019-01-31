@@ -1,6 +1,6 @@
 ---
-title: Importar dados de ficheiro titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como carregar um ficheiro de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Esta ação cria um módulo de conjunto de dados na área de trabalho.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Importar dados de ficheiro titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como carregar um ficheiro de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Esta ação cria um módulo de conjunto de dados na área de trabalho.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

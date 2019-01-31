@@ -1,6 +1,6 @@
 ---
-title: Gerir os serviços de web do Machine Learning Studio com a gestão de API titleSuffix: Descrição do Azure Machine Learning Studio: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API. Gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Gerir os serviços de web do Machine Learning Studio com a gestão de API titleSuffix: Descrição do Azure Machine Learning Studio: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API. Gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/03/2017
 ---

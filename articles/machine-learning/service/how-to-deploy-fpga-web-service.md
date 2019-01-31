@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 12/06/2018
+ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59af9bef586393726222e8d4d306ea806e31efe3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252086"
+ms.locfileid: "55301310"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
-Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md).  A utilização de FPGAs fornece a inferência de latência Ultra baixas, mesmo com um tamanho de lote única.   
+Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md).  A utilização de FPGAs fornece a inferência de latência Ultra baixas, mesmo com um tamanho de lote única.  Estes modelos estão atualmente disponíveis:
+  - ResNet 50
+  - ResNet 152
+  - DenseNet-121
+  - VGG-16   
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,10 +38,20 @@ Pode implementar um modelo como um serviço web no [campo matrizes de porta prog
 
     ```shell
     pip install --upgrade azureml-sdk[contrib]
-    ```  
+    ```
+
+  - Atualmente apenas tensorflow versão < = 1.10 é suportada, por isso, instalá-lo Depois de concluir todas as outras instalações:
+
+    ```shell
+    pip install "tensorflow==1.10"
+    ```
+
+### <a name="get-the-notebook"></a>Obter o bloco de notas
+
+Para sua comodidade, este tutorial está disponível como bloco de notas do Jupyter. Siga o código aqui ou execute o [bloco de notas do guia de introdução](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Criar e implementar o seu modelo
-Criar um pipeline para pré-processar a imagem de entrada, caracterização usando 50 de utilizar o ResNet num FPGA e, em seguida, execute os recursos através de um classifer com base em com o conjunto de dados ImageNet.
+Criar um pipeline para pré-processar a imagem de entrada, caracterização usando 50 de utilizar o ResNet num FPGA e, em seguida, execute os recursos através de um classificador com base em com o conjunto de dados ImageNet.
 
 Siga as instruções para:
 
@@ -69,7 +83,7 @@ print(image_tensors.shape)
 Inicializar o modelo e transfira um ponto de verificação do TensorFlow da versão quantificada do ResNet50 para ser utilizado como um featurizer.
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+from azureml.contrib.brainwave.models import QuantizedResnet50
 model_path = os.path.expanduser('~/models')
 model = QuantizedResnet50(model_path, is_frozen = True)
 feature_tensor = model.import_graph_def(image_tensors)
@@ -82,11 +96,11 @@ print(feature_tensor.shape)
 Este classificador foi treinado no conjunto de dados ImageNet.
 
 ```python
-classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+classifier_output = model.get_default_classifier(feature_tensor)
 ```
 
 ### <a name="create-service-definition"></a>Criar definição de serviço
-Agora que tem definidas, o processamento prévio de imagem, featurizer e classificador que executa o serviço, pode criar uma definição de serviço. A definição de serviço é um conjunto de arquivos gerados a partir do modelo que é implementado para o serviço FPGA. A definição de serviço é constituído por um pipeline. O pipeline é uma série de fases que são executados na ordem.  Fases do TensorFlow, Keras fases e fases BrainWave são suportadas.  As fases são executadas na ordem no serviço, com a saída de cada entrada de fase para a fase subsequente.
+Agora que definiu o pré-processamento de imagem, featurizer e classificador que executa o serviço, pode criar uma definição de serviço. A definição de serviço é um conjunto de arquivos gerados a partir do modelo que é implementado para o serviço FPGA. A definição de serviço é constituído por um pipeline. O pipeline é uma série de fases que são executados na ordem.  Fases do TensorFlow, Keras fases e fases BrainWave são suportadas.  As fases são executadas na ordem no serviço, com a saída de cada estágio tornar-se a entrada para a fase subsequente.
 
 Para criar um estágio de TensorFlow, especifique uma sessão que contém o gráfico (neste caso é usado gráfico do padrão) e a entrada e saída tensors para esta fase.  Estas informações são utilizadas para guardar o gráfico para que ele pode ser executado no serviço.
 
@@ -94,13 +108,13 @@ Para criar um estágio de TensorFlow, especifique uma sessão que contém o grá
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
 
 save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'service_def.zip')
+model_def_path = os.path.join(save_path, 'model_def.zip')
 
 model_def = ModelDefinition()
 with tf.Session() as sess:
     model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
     model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
     model_def.save(model_def_path)
     print(model_def_path)
 ```
@@ -129,7 +143,7 @@ except WebserviceException:
     image_config = BrainwaveImage.image_configuration()
     deployment_config = BrainwaveWebservice.deploy_configuration()
     service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
+    service.wait_for_deployment(True)
 ```
 
 ### <a name="test-the-service"></a>Testar o serviço

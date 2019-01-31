@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 27204710cb6a94efaebc0b8f075b0a8f50b45a6c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079839"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478445"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs Linux IaaS 
 
@@ -24,7 +24,7 @@ Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-dis
 >[!WARNING]
 > - Se tiver utilizado anteriormente [do Azure Disk Encryption, com a aplicação do Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para encriptar esta VM, terá de continuar a utilizar esta opção para encriptar a sua VM. Não é possível usar [do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nesta VM encriptada como isso não é um cenário suportado, significado mudar para fora da aplicação do AAD para encriptados esta VM não é suportada ainda.
  > - O Azure Disk Encryption tem o Cofre de chaves e as VMs para estar colocalizados na mesma região. Criar e utilizar um cofre de chaves que está na mesma região que a VM ser encriptada.
-> - Quando encriptar os volumes do SO Linux, o processo pode demorar algumas horas. É normal para volumes de SO Linux para a demorar mais do que os volumes de dados para encriptar. 
+> - Quando encriptar os volumes do SO Linux, a VM não estará disponível e será desabilitado SSH. Para verificar o progresso, o [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) ou [show de encriptação de vm](/cli/azure/vm/encryption#az-vm-encryption-show) comandos podem ser utilizados. Este processo é obrigado a demorar algumas horas para um volume de sistema operacional de 30GB, além de mais tempo para criptografar volumes de dados. Tempo de criptografia de volume de dados será proporcional ao tamanho e a quantidade dos volumes de dados, a menos que todas as opção de formato de criptografar é utilizada. 
 > - A desativação da encriptação em VMs do Linux só é suportada em volumes de dados. Não é suportada em dados ou volumes de sistema operacional se o volume do sistema operacional tenha sido criptografado.  
 
 

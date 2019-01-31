@@ -3,7 +3,7 @@ title: Dimensionar automaticamente nós num conjunto do Azure Batch computação
 description: Ative dimensionamento automático num agrupamento de cloud ajustar dinamicamente o número de nós de computação no conjunto.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459847"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para dimensionar nós de computação de um conjunto do Batch
 
@@ -136,7 +136,7 @@ Esses tipos são suportados numa fórmula:
   * hora (no formato de número de 24 horas; por exemplo, 13 significa 1 PM)
   * minuto (00 59)
   * segundo (00 59)
-* TimeInterval
+* timeinterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -155,16 +155,16 @@ Estas operações são permitidas sobre os tipos que estão listados na secção
 | Operação | Operadores suportados | Tipo de resultado |
 | --- | --- | --- |
 | duplo *operador* duplo |+, -, *, / |double |
-| duplo *operador* timeinterval |* |TimeInterval |
+| duplo *operador* timeinterval |* |timeinterval |
 | doubleVec *operador* duplo |+, -, *, / |doubleVec |
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operador* duplo |*, / |TimeInterval |
-| TimeInterval *operador* timeinterval |+, - |TimeInterval |
+| TimeInterval *operador* duplo |*, / |timeinterval |
+| TimeInterval *operador* timeinterval |+, - |timeinterval |
 | TimeInterval *operador* timestamp |+ |carimbo de data/hora |
 | Timestamp *operador* timeinterval |+ |carimbo de data/hora |
-| Timestamp *operador* timestamp |- |TimeInterval |
+| Timestamp *operador* timestamp |- |timeinterval |
 | *operador*duplo |-, ! |double |
-| *operator*timeinterval |- |TimeInterval |
+| *operator*timeinterval |- |timeinterval |
 | duplo *operador* duplo |<, <=, ==, >=, >, != |double |
 | cadeia de caracteres *operador* cadeia |<, <=, ==, >=, >, != |double |
 | Timestamp *operador* timestamp |<, <=, ==, >=, >, != |double |
@@ -215,7 +215,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | --- | --- |
 | GetSample() |O `GetSample()` método retorna um vetor de amostras de dados.<br/><br/>Um exemplo é 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, como indicado abaixo, existe um atraso entre quando um exemplo é recolhido e quando se encontra disponível como uma fórmula. Como tal, nem todos os exemplos para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras para obter as mais recentes amostras que foram recolhidas.<br/><br/>`GetSample(1)` Devolve o último exemplo disponível. Como de métricas `$CPUPercent`, no entanto, isso não deve ser utilizado porque é impossível saber *quando* o exemplo foi recolhido. Poderá ser recente, ou, devido a problemas de sistema, ele pode ser muito mais antigo. É melhor em tais casos, para utilizar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a recolha de dados de exemplo. Opcionalmente, também especifica a percentagem de exemplos que tem de estar disponível no período de tempo de pedido.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornaria 20 amostras se todos os exemplos nos últimos 10 minutos estão presentes no histórico de CPUPercent. Se não estava disponível no último minuto do histórico, no entanto, apenas 18 exemplos seriam retornados. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` não serviria porque apenas 90 por cento dos exemplos estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` serão bem-sucedidas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a recolha de dados, com uma hora de início e uma hora de fim.<br/><br/>Conforme mencionado acima, existe um atraso entre quando um exemplo é recolhido e quando se encontra disponível como uma fórmula. Considere este atraso quando utiliza o `GetSample` método. Consulte `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Devolve o período de amostras que foram executadas num conjunto de dados de exemplo históricas. |
-| Contagem) |Devolve o número total de amostras no histórico de métrica. |
+| Count() |Devolve o número total de amostras no histórico de métrica. |
 | HistoryBeginTime() |Devolve o carimbo de data / hora do exemplo de dados disponíveis mais antigo para a métrica. |
 | GetSamplePercent() |Devolve a percentagem de exemplos que estão disponíveis para um determinado intervalo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Uma vez que o `GetSample` método falha se a percentagem de amostras devolvido é menos do que o `samplePercent` especificado, pode usar o `GetSamplePercent` método para verificar primeiro. Em seguida, pode executar uma ação alternativa se amostras insuficientes estiverem presentes, sem parar a avaliação de dimensionamento automática. |
 
@@ -579,7 +579,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>Fórmulas de dimensionamento automático de exemplo
 Vamos examinar algumas fórmulas que apresentam diferentes formas para ajustar a quantidade de recursos de computação num conjunto.
 
-### <a name="example-1-time-based-adjustment"></a>Exemplo 1: Ajuste de baseados no tempo
+### <a name="example-1-time-based-adjustment"></a>Exemplo 1: Ajuste baseados no tempo
 Suponha que deseja ajustar o tamanho do conjunto com base no dia da semana e hora do dia. Este exemplo mostra como aumentar ou diminuir o número de nós no conjunto em conformidade.
 
 Primeiro, a fórmula obtém a hora atual. Se for um dia da semana (1 a 5) e no horário de trabalho (8 00 às 18:00), o tamanho do conjunto de destino é definido como 20 nós. Caso contrário, ele é definido como 10 nós.
@@ -592,7 +592,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajuste de baseado em tarefas
+### <a name="example-2-task-based-adjustment"></a>Exemplo 2: Ajuste e baseado em tarefas
 Neste exemplo, o tamanho do conjunto é ajustado com base no número de tarefas na fila. Comentários e quebras de linha são aceitáveis em cadeias de caracteres de fórmulas.
 
 ```csharp

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601581"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471672"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente recursos de banco de dados com o tempo de inatividade mínimo
 
@@ -54,9 +54,9 @@ Pode alterar [escalões de serviço DTU](sql-database-service-tiers-dtu.md) ou [
 
 Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade de dimensionar dinamicamente o seus bancos de dados:
 
-- Na [base de dados do Azure SQL única](sql-database-single-database-scale.md), pode utilizar tanto [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) modelos para definir a quantidade máxima de recursos que serão atribuídos a cada base de dados.
-- [Instância gerida do SQL do Azure](sql-database-managed-instance.md) usa [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modo e permite-lhe definir o máximo de núcleos de CPU e máximo de armazenamento atribuído à sua instância. Todas as bases de dados dentro da instância irão partilhar os recursos alocados à instância.
-- [Os conjuntos elásticos SQL do Azure](sql-database-elastic-pool-scale.md) permitem-lhe definir o limite máximo de recursos por grupo de bases de dados no conjunto.
+- Com um [base de dados individual](sql-database-single-database-scale.md), pode utilizar tanto [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) modelos para definir a quantidade máxima de recursos que serão atribuídos a cada base de dados.
+- R [instância gerida](sql-database-managed-instance.md) utiliza [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modo e permite-lhe definir o máximo de núcleos de CPU e máximo de armazenamento atribuído à sua instância. Todas as bases de dados dentro da instância irão partilhar os recursos alocados à instância.
+- [Conjuntos elásticos](sql-database-elastic-pool-scale.md) permitem-lhe definir o limite máximo de recursos por grupo de bases de dados no conjunto.
 
 ## <a name="alternative-scale-methods"></a>Métodos de dimensionamento alternativo
 
