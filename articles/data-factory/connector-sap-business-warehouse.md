@@ -167,27 +167,27 @@ Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utiliza
 | Tipo de dados do SAP BW | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Cadeia |
-| CLNT | Cadeia |
-| MÊS | Decimal |
-| CUKY | Cadeia |
-| DEZEMBRO | Decimal |
-| FLTP | Valor de duplo |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Cadeia |
-| LCHR | Cadeia |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| NÃO PROCESSADOS | Byte[] |
+| RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| CADEIA DE CARACTERES | Cadeia |
-| UNIDADE | Cadeia |
-| DATS | Cadeia |
-| NUMC | Cadeia |
-| TIMS | Cadeia |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
