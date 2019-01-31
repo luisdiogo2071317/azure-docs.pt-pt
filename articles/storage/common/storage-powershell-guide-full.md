@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628139"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460323"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
 
@@ -181,8 +181,8 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 Por predefinição, todas as contas de armazenamento estão acessíveis por qualquer rede que tenha acesso à internet. No entanto, pode configurar regras de rede para permitir apenas aplicações de redes virtuais específicas aceder a uma conta de armazenamento. Para obter mais informações, consulte [configurar Firewalls de armazenamento do Azure e redes virtuais](storage-network-security.md). 
 
 O artigo mostra como gerenciar essas configurações usando os seguintes cmdlets do PowerShell:
-* [AzStorageAccountNetworkRule adicionar](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
-* [Atualização-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Utilizar a análise de armazenamento  

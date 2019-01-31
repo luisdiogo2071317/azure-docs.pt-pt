@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427921"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456039"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução ao Azure SQL da base de dados geridos instância de auditoria
 
@@ -207,7 +207,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 - Pode explorar os registos de auditoria utilizando uma ferramenta como [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). No armazenamento do Azure, os registos de auditoria são guardados como uma coleção de ficheiros de blob num contentor que foi definida para armazenar os registos de auditoria. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e formato de registo, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > Visualizar os registos de auditoria do portal do Azure (painel de registos de auditoria) não está atualmente disponível para a instância gerida.
@@ -242,7 +242,7 @@ A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
 - Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: Como configurar a base de dados SQL do Azure - Singleton | Documentos da Microsoft
-description: Saiba como configurar e gerir a base de dados SQL do Azure - base de dados.
+title: Como configurar o SQL Database do Azure - autónomo | Documentos da Microsoft
+description: Saiba como configurar e gerir a base de dados SQL do Azure - base de dados autónoma
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440654"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477799"
 ---
-# <a name="how-to-use-single-database"></a>Como utilizar a base de dados
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como utilizar uma base de dados na base de dados do Azure SQL
 
-Nesta seção encontrará várias guias, scripts e explicações que podem ajudar a gerir e configurar a sua base de dados de SQL do Azure - base de dados.
+Nesta seção encontrará várias guias, scripts e explicações que podem ajudar a gerir e configurar a sua base de dados na base de dados do Azure SQL
 
 ## <a name="migrate"></a>Migrar
 
-- [Migrar para a base de dados SQL](sql-database-cloud-migrate.md) – Saiba mais sobre o processo de migração recomendado e ferramentas para a migração para a instância gerida.
+- [Migrar para a base de dados SQL](sql-database-cloud-migrate.md) – Saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma instância gerida.
 - Saiba como [gerir a base de dados SQL após a migração](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurar funcionalidades
@@ -66,7 +66,7 @@ Nesta seção encontrará várias guias, scripts e explicações que podem ajuda
 - Execute [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 - [Mover dados em partição horizontal](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configurar a segurança](sql-database-elastic-scale-split-merge-security-configuration.md) em partições horizontais da base de dados.
-- [Adicionar uma partição horizontal](sql-database-elastic-scale-add-a-shard.md) para o atual conjunto de od shards de base de dados.
+- [Adicionar uma partição horizontal](sql-database-elastic-scale-add-a-shard.md) para o conjunto atual de partições horizontais da base de dados.
 - [Corrigir problemas de mapa de partições horizontais](sql-database-elastic-database-recovery-manager.md).
 - [Migrar BD em partição horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Criar contadores](sql-database-elastic-database-perf-counters.md).
@@ -74,4 +74,4 @@ Nesta seção encontrará várias guias, scripts e explicações que podem ajuda
 - [Framework de usar o Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados em partição horizontal.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [guias de procedimentos na instância gerida](sql-database-howto-managed-instance.md)
+- Saiba mais sobre [guias de procedimentos para a instância gerida](sql-database-howto-managed-instance.md)

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 63a7602deee402bed056937c8465fd87c8256cd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962851"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300205"
 ---
-# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: criar e utilizar um par de chaves públicas-privadas SSH para VMs do Linux no Azure
+# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Passos rápidos: Criar e utilizar um par de chaves públicas-privadas SSH para VMs do Linux no Azure
 
-Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar um par de ficheiros de chaves públicas-privadas de SSH para VMs do Linux rapidamente. Pode concluir estes passos com o Azure Cloud Shell, um macOS ou anfitrião Linux, o subsistema Windows para Linux e outras ferramentas que suportam o OpenSSH. 
+Com um par de chaves secure shell (SSH), pode criar máquinas virtuais (VMs) no Azure que utilizar chaves SSH para autenticação, eliminando a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar um par de ficheiros de chaves públicas-privadas de SSH para VMs do Linux rapidamente. Pode concluir estes passos com o Azure Cloud Shell, um macOS ou anfitrião Linux, o subsistema Windows para Linux e outras ferramentas que suportam o OpenSSH. 
 
 > [!NOTE]
 > As VMs criadas com chaves SSH são, por predefinição, configuradas com as palavras-passe desativadas, que aumenta muito a dificuldade de ataques de adivinhação de força bruta. 
@@ -65,7 +65,7 @@ Se não estiver familiarizado com o formato de uma chave pública SSH, pode apre
 cat ~/.ssh/id_rsa.pub
 ```
 
-Um valor de chave público típico tem o seguinte aspeto:
+Um valor de chave público típico é semelhante a este exemplo:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
@@ -88,6 +88,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Se tiver especificado uma frase de acesso quando criou o par de chaves, introduza essa frase de acesso quando lhe for pedido durante o processo de início de sessão. A VM é adicionada ao ficheiro ~/.ssh/known_hosts e não precisará para ligar novamente até a chave pública nas alterações de VM do Azure ou o nome do servidor é removido do ~/.ssh/known_hosts.
+
+Se a VM estiver a utilizar a política de acesso just-in-time, terá de pedir acesso antes de poder ligar à VM. Para obter mais informações sobre a política de acesso just-in-time, consulte [gerir o acesso de máquina virtual utilizando o apenas na política de tempo](../../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

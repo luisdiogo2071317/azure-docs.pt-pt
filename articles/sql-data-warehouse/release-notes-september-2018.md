@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577987"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460731"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>O que há de novo no Azure SQL Data Warehouse? Setembro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Setembro de 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Novo ponto de entrada inferior para o SQL Data Warehouse Gen2
-Em Abril de 2018 [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 que oferece 5 vezes o desempenho, 5x a escala de computação, 4 x a simultaneidade e o armazenamento ilimitado. Conforme observado na [armazém de dados na cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) por Gigaom, o SQL Data Warehouse Gen2 **supera o Amazon Redshift em 42%**.
+Em Abril de 2018 [Microsoft anunciada](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 que oferece 5 vezes o desempenho, 5x a escala de computação, 4 x a simultaneidade e o armazenamento ilimitado. Conforme observado na [armazém de dados na cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) por Gigaom, o SQL Data Warehouse Gen2 **supera o Amazon Redshift em 42%**.
 
 Geração 2 agora está disponível em geral num menor entrada ponto de DWU500c permitindo-lhe gerir um ambientes de menor tamanho data warehouse ou de programador/teste com todos os aprimoramentos mais recentes do serviço. Ponto de entrada novo retém todos os recursos de geração 2, incluindo [colocação em cache adaptável](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [iluminação rapidamente dados descarte](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/)e suporte para [armazém de dados em tempo real](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 
@@ -96,7 +96,7 @@ Por fim, a melhoria reduz a execução geral de instruções executadas através
 
 ## <a name="bug-fixes"></a>Correções de erros
 
-| Cargo | Descrição |
+| Título | Descrição |
 |:---|:---|
 | **Corrigir ao criar estatísticas em distribuições para as restrições exclusivas** | Esta correção resolve um erro que os utilizadores encontram quando em execução de ATUALIZAÇÃO de estatísticas, com apenas a tabela especificado, quando a tabela tivesse uma restrição exclusiva definida. |
 | **Corrigir ao compilar a consultas em tabelas externas** | Esta correção resolve um defeito que afetados tempo de compilação para consultas que envolvem tabelas externas.|

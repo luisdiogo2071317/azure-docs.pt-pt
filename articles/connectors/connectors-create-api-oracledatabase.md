@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230238"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295363"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Começar com o conector da base de dados Oracle
 
@@ -95,27 +95,27 @@ Este artigo mostra-lhe como utilizar o conector da base de dados Oracle numa apl
 
 ## <a name="common-errors"></a>Erros comuns
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: não é possível aceder ao Gateway
+#### <a name="error-cannot-reach-the-gateway"></a>**Erro**: Não é possível aceder ao Gateway
 
-**Causa**: O gateway de dados no local não é possível estabelecer uma ligação para a cloud. 
+**Motivo**: O gateway de dados no local não é possível estabelecer uma ligação para a cloud. 
 
-**Atenuação**: Certifique-se de que o seu gateway está em execução na máquina no local onde a instalou e que possa estabelecer ligação à internet.  Recomendamos que não instale o gateway num computador que possa ser desativado ou modo de suspensão. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
+**Atenuação**: Certificar-se de que o gateway está em execução na máquina no local onde a instalou e que possa estabelecer ligação à internet.  Recomendamos que não instale o gateway num computador que possa ser desativado ou modo de suspensão. Também pode reiniciar o serviço de gateway de dados no local (PBIEgwService).
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: O fornecedor utilizado foi preterido: "System.Data.OracleClient requer Oracle versão do software de cliente 8.1.7 ou superior.". Ver [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o fornecedor oficial.
 
-**Causa**: cliente Oracle o SDK não está instalado no computador onde está a executar o gateway de dados no local.  
+**Motivo**: O SDK do cliente Oracle não está instalado no computador onde está a executar o gateway de dados no local.  
 
 **Resolução**: Transfira e instale o SDK do cliente Oracle no mesmo computador que o gateway de dados no local.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: a tabela "[Tablename]" não define quaisquer colunas de chave
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erro**: A tabela "[Tablename]" não define quaisquer colunas de chave
 
-**Causa**: A tabela não tem nenhuma chave primária.  
+**Motivo**: A tabela não tem nenhuma chave primária.  
 
-**Resolução**: conector a base de dados Oracle requer que uma tabela com uma coluna de chave primária ser usado.
+**Resolução**: O conector da base de dados Oracle requer que uma tabela com uma coluna de chave primária ser usado.
 
 #### <a name="currently-not-supported"></a>Atualmente não suportado
 
-* As vistas e procedimentos armazenados 
+* Vistas 
 * Qualquer tabela com as chaves compostas
 * Tipos de objetos aninhados em tabelas
  

@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599438"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473430"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -46,7 +46,7 @@ Em seguida, pode aprender sobre os mecanismos adicionais que pode utilizar para 
 
 - [Tabelas temporais](sql-database-temporal-tables.md) permitem-lhe restaurar versões de linha a partir de qualquer ponto no tempo.
 - [Incorporado de cópias de segurança automatizadas](sql-database-automated-backups.md) e [um ponto anterior no tempo de restauro](sql-database-recovery-using-backups.md#point-in-time-restore) permite-lhe restaurar o banco de dados completo para algum ponto no tempo nos últimos 35 dias.
-- Pode [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que tiver sido eliminado se a **servidor lógico não foi eliminado**.
+- Pode [restaurar uma base de dados eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) para o ponto em que tiver sido eliminado se a **servidor de base de dados SQL não foi eliminada**.
 - [Retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) permite-lhe acompanhar as cópias de segurança para os 10 anos.
 - [Replicação geográfica activa](sql-database-active-geo-replication.md) permite-lhe criar réplicas legíveis e manualmente a ativação pós-falha para qualquer réplica em caso de uma atualização de aplicação ou de indisponibilidade da Centro de dados.
 - [Grupo de ativação pós-falha automática](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) permite que o aplicativo automaticamente a recuperação em caso de uma indisponibilidade do Centro de dados.
@@ -58,12 +58,12 @@ A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os tr�
 | Capacidade | Básica | Standard | Premium | Fins Gerais | Crítico para a Empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro dentro de sete dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
-| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12h<br> RPO < 1 hora |ERT < 12h<br>RPO < 1 hora |ERT < 12h<br>RPO < 1 hora |ERT < 12h<br>RPO < 1 hora|ERT < 12h<br>RPO < 1 hora|
-| Grupos de ativação pós-falha automática |RTO = 1 hora<br>RPO < 5s |RTO = 1 hora<br>RPO < 5 s |RTO = 1 hora<br>RPO < 5 s |RTO = 1 hora<br>RPO < 5 s|RTO = 1 hora<br>RPO < 5 s|
+| Georrestauro a partir de cópias de segurança georreplicado |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
+| Grupos de ativação pós-falha automática |RTO = 1 h<br>RPO < 5s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
-Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, geralmente adotam a cada 12 horas, cópias de segurança da base de dados diferenciais e backups de log a cada 5 a 10 minutos para proteger a sua empresa contra perda de dados de transações. As cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para todos os escalões de serviço, exceto os escalões de serviço básico DTU onde as cópias de segurança são armazenadas durante sete dias. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md). Pode restaurar um formulário de base de dados existente as cópias de segurança automáticas para um ponto anterior no tempo como uma nova base de dados no mesmo servidor lógico com o portal do Azure, PowerShell ou a API REST. Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore).
+Base de dados SQL efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanalmente, geralmente adotam a cada 12 horas, cópias de segurança da base de dados diferenciais e backups de log a cada 5 a 10 minutos para proteger a sua empresa contra perda de dados de transações. As cópias de segurança são armazenadas no armazenamento RA-GRS durante 35 dias para todos os escalões de serviço, exceto os escalões de serviço básico DTU onde as cópias de segurança são armazenadas durante sete dias. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md). Pode restaurar um formulário de base de dados existente as cópias de segurança automáticas para um ponto anterior no tempo como uma nova base de dados no mesmo servidor de base de dados SQL com o portal do Azure, PowerShell ou a API REST. Para obter mais informações, consulte [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se o máximo suportado ponto anterior no tempo restaurar (PITR), o período de retenção não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (LTR) de longo prazo para as bases de dados. Para obter mais informações, consulte [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
 

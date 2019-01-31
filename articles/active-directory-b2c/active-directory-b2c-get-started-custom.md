@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2d5cc846b6ca2eadacfcc8223e4ba3932e961ece
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173603"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298744"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[As políticas personalizadas](active-directory-b2c-overview-custom.md) são ficheiros de configuração que definem o comportamento do seu inquilino do Azure Active Directory (Azure AD) B2C. Neste artigo, vai criar uma política personalizada que suporta uma conta local inscrição ou início de sessão com um endereço de e-mail e palavra-passe. Também preparar o ambiente para o adicionar fornecedores de identidade, como o Facebook.
+[As políticas personalizadas](active-directory-b2c-overview-custom.md) são ficheiros de configuração que definem o comportamento do seu inquilino do Azure Active Directory (Azure AD) B2C. Neste artigo, vai criar uma política personalizada que suporta uma conta local inscrição ou início de sessão com um endereço de e-mail e palavra-passe. Também preparar o ambiente para o adicionar fornecedores de identidade.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,17 +63,32 @@ Se já tiver um [segredo de aplicação do Facebook](active-directory-b2c-setup-
 5. Para **utilização de chave**, selecione **assinatura**.
 6. Clique em **Criar**.
 
-## <a name="register-an-application"></a>Registar uma aplicação
+## <a name="register-applications"></a>Registar aplicações
 
-Um aplicativo está registado no Azure Active Directory (Azure AD) B2C para permitir que um utilizador inscrever-se e iniciar sessão com uma conta local que existe no seu inquilino. Os utilizadores inscrever-se com um endereço de e-mail exclusivo e uma palavra-passe para aceder à aplicação registada.
+O Azure AD B2C requere que registe duas aplicações que são utilizadas para inscrição e início de sessão dos utilizadores: IdentityExperienceFramework (uma aplicação web) e ProxyIdentityExperienceFramework (uma aplicação nativa) com uma permissão delegada a partir da aplicação de IdentityExperienceFramework. Contas locais existem apenas no seu inquilino. Os utilizadores inscrever-se com uma combinação de endereço/palavra-passe de e-mail exclusivo para aceder às suas aplicações de inquilino registado.
+
+### <a name="register-the-identityexperienceframework-application"></a>Registar a aplicação de IdentityExperienceFramework
 
 1. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **registos das aplicações**.
 2. Selecione **Novo registo de aplicação**.
-3. Para **Name**, introduza `ProxyIdentityExperienceFramework`.
-4. Para **tipo de aplicação**, escolha **nativo**.
-5. Para **URI de redirecionamento**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `your-tenant-name` é o nome do inquilino do Azure AD B2C.
-6. Clique em **Criar**. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
-7. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
+3. Para **Name**, introduza `IdentityExperienceFramework`.
+4. Para **tipo de aplicação**, escolha **aplicação/API Web**.
+5. Para **URL de início de sessão**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `your-tenant-name` é o seu nome de domínio de inquilino do Azure AD B2C.
+6. Clique em **Criar**. 
+7. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
+
+### <a name="register-the-proxyidentityexperienceframework-application"></a>Registar a aplicação de ProxyIdentityExperienceFramework
+
+1. Selecione **registos de aplicações**e, em seguida, selecione **novo registo de aplicação**.
+2. Para **Name**, introduza `ProxyIdentityExperienceFramework`.
+3. Para **tipo de aplicação**, escolha **nativo**.
+4. Para **URI de redirecionamento**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
+5. Clique em **Criar**. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
+6. Na página Definições, selecione **permissões obrigatórias**e, em seguida, selecione **Add**.
+7. Selecione **Selecionar uma API**.
+8. Procure e selecione **IdentityExperienceFramework**e, em seguida, clique em **selecione**.
+9. Selecione a caixa de verificação junto a **acesso IdentityExperienceFramework**, clique em **selecione**e, em seguida, clique em **feito**.
+10. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Transferir o pacote de iniciante e modificar as políticas
 
@@ -87,8 +102,8 @@ As políticas personalizadas são um conjunto de arquivos XML que devem ser carr
 Cada pacote de iniciante contém:
 
 - O ficheiro de base. Algumas modificações são necessárias para a base.
-* O ficheiro de extensão.  Este ficheiro é onde a maior parte das alterações de configuração são feitas.
-* Os ficheiros da entidade confiadora de terceiros. Arquivos de tarefa específica chamados pelo seu aplicativo.
+- O ficheiro de extensão.  Este ficheiro é onde a maior parte das alterações de configuração são feitas.
+- Os ficheiros da entidade confiadora de terceiros. Arquivos de tarefa específica chamados pelo seu aplicativo.
 
 >[!NOTE]
 >Se o seu editor de XML dá suporte a validação, Valide os ficheiros no esquema de TrustFrameworkPolicy_0.3.0.0.xsd XML que está localizado no diretório de raiz do pacote de iniciante. Validação do esquema XML identifica os erros antes de carregar.
@@ -103,10 +118,10 @@ Cada pacote de iniciante contém:
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Adicionar IDs de aplicação para a política personalizada
 
-Adicione o ID da aplicação para o arquivo de extensões *TrustFrameworkExtensions.xml*.
+Adicionar os IDs de aplicação para o arquivo de extensões *TrustFrameworkExtensions.xml*.
 
 1. Abra o *TrustFrameworkExtensions.xml* de ficheiros e localizar o elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Substitua os dois o valor de `client_id` e `resource_id` com o ID da aplicação do aplicativo ProxyIdentityExperienceFramework que criou anteriormente.
+2. Substitua as duas instâncias de `IdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade que criou anteriormente. Substitua as duas instâncias de `ProxyIdentityExperienceFrameworkAppId` com o ID de aplicação a arquitetura de experiências de identidade de Proxy que criou anteriormente.
 3. Guarde o ficheiro de extensões.
 
 ## <a name="upload-the-policies"></a>Carregar as políticas

@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 323879fff90fa478797f85415faae9ae02ea5bcd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301060"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461513"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna 
 Segurança de nível de coluna (CLS) permite aos clientes controlar o acesso às colunas da tabela de base de dados com base no contexto de execução do utilizador ou a respetiva associação a grupos.  
@@ -26,7 +26,7 @@ CLS simplifica o design e programação da segurança na sua aplicação. CLS pe
 
 Poderia implementar CLS com o [concessão](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) instrução T-SQL. Com esse mecanismo, autenticação de SQL e o Azure Active Directory (AAD) são suportados.
 
-![CLS](./media/column-level-security/cls.png)
+![cls](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Sintaxe 
 
@@ -76,7 +76,7 @@ Msg 230, Level 14, State 1, Line 12
 The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'. 
 ``` 
 
-## <a name="use-cases"></a>Casos de utilização
+## <a name="use-cases"></a>Casos de Utilização
 Alguns exemplos de como o CLS está a ser utilizado atualmente: 
 - Uma empresa de serviços financeiros permite que a única conta gestores a ter acesso aos números da segurança social (SSN) dos clientes, os números de telefone e outras informações de identificação pessoal (PII).
 - Um fornecedor de cuidados de saúde permite que apenas os médicos e enfermeiras ter acesso a registos médicos confidenciais e não permite que os membros do departamento de faturação ver estes dados.

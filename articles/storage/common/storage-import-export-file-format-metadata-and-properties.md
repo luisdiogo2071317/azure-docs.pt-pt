@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526237"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457008"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure importar/exportar metadados e propriedades de formato de ficheiro serviço
 Pode especificar propriedades para um ou mais blobs e metadados como parte de uma tarefa de importação ou uma tarefa de exportação. Para definir metadados ou as propriedades de blobs a ser criadas como parte de uma tarefa de importação, forneça um ficheiro de metadados ou as propriedades no disco rígido que contém os dados a serem importados. Para uma tarefa de exportação, metadados e propriedades são escritas para um ficheiro de metadados ou as propriedades que está incluído no disco rígido retornado para.  
@@ -30,10 +30,10 @@ O formato de um ficheiro de metadados é o seguinte:
 </Metadata>  
 ```
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Type|Descrição|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento de raiz|O elemento raiz do ficheiro de metadados.|  
-|`metadata-name`|Cadeia|Opcional. O elemento XML Especifica o nome dos metadados do blob e seu valor Especifica o valor da definição de metadados.|  
+|`metadata-name`|String|Opcional. O elemento XML Especifica o nome dos metadados do blob e seu valor Especifica o valor da definição de metadados.|  
   
 ## <a name="properties-file-format"></a>Formato de arquivo de propriedades  
 O formato de um arquivo de propriedades é o seguinte:  
@@ -52,17 +52,17 @@ O formato de um arquivo de propriedades é o seguinte:
 </Properties>  
 ```
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Type|Descrição|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento de raiz|O elemento raiz do arquivo de propriedades.|  
-|`Last-Modified`|Cadeia|Opcional. A hora de última modificação de mensagens em fila para o blob. Para tarefas de exportação apenas.|  
-|`Etag`|Cadeia|Opcional. Valor de ETag do blob. Para tarefas de exportação apenas.|  
-|`Content-Length`|Cadeia|Opcional. O tamanho do blob em bytes. Para tarefas de exportação apenas.|  
-|`Content-Type`|Cadeia|Opcional. O tipo de conteúdo do blob.|  
-|`Content-MD5`|Cadeia|Opcional. Hash do MD5 do blob.|  
-|`Content-Encoding`|Cadeia|Opcional. Conteúdo do blob de codificação.|  
-|`Content-Language`|Cadeia|Opcional. Idioma do conteúdo do blob.|  
-|`Cache-Control`|Cadeia|Opcional. A cadeia de controlo de cache para o blob.|  
+|`Last-Modified`|String|Opcional. A hora de última modificação de mensagens em fila para o blob. Para tarefas de exportação apenas.|  
+|`Etag`|String|Opcional. Valor de ETag do blob. Para tarefas de exportação apenas.|  
+|`Content-Length`|String|Opcional. O tamanho do blob em bytes. Para tarefas de exportação apenas.|  
+|`Content-Type`|String|Opcional. O tipo de conteúdo do blob.|  
+|`Content-MD5`|String|Opcional. Hash do MD5 do blob.|  
+|`Content-Encoding`|String|Opcional. Conteúdo do blob de codificação.|  
+|`Content-Language`|String|Opcional. Idioma do conteúdo do blob.|  
+|`Cache-Control`|String|Opcional. A cadeia de controlo de cache para o blob.|  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

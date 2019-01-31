@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454135"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tarefas para o projeto levam no Team Data Science Process
 
@@ -36,7 +36,7 @@ Este tópico inclui atualmente tarefas 1,2 e 6, este fluxo de trabalho para opor
 Este tutorial utiliza nomes abreviados para repositórios e diretórios. Esses nomes tornam mais fáceis de compreender as operações entre os repositórios e diretórios. Este notação (R repositórios do Git) e D para diretórios locais na sua DSVM é usada nas seções a seguir:
 
 - **R3**: A equipe **ProjectTemplate** repositório de Git configurou seu chefe de equipe.
-- **R5**: O repositório do projeto no Git para o seu projeto de configuração.
+- **R5**: O repositório do projeto no Git, configurar para o seu projeto.
 - **D3**: O diretório de local clonar a partir R3.
 - **D5**: O diretório de local clonar a partir R5.
 
@@ -90,9 +90,9 @@ Se precisar de personalizar seu **DSProject1** repositório de projeto para aten
 
 - Repositório de modelos de projeto de clone para diretório local: R3 - clonado a -> local D3 da equipe.
 - Repositório de DSProject1 clone para um diretório local: R5 - clonado a -> local D5 da equipe.
-- Copiar o conteúdo do modelo de projeto clonado para o clone local do repositório de DSProject1: D3 - conteúdo copiado a -> D5.
+- Copie o conteúdo de modelo de projeto clonado para o clone local do repositório de DSProject1:  D3 - conteúdo copiado a -> D5.
 - (Opcional) D5 local de personalização.
-- Conteúdo por push local DSProject1 para repositórios de equipe: adicionar de conteúdo D5 - a -> equipa R5.
+- Envie conteúdo de DSProject1 local para repositórios de equipe: D5 - adicionar conteúdo a -> equipa R5.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone o repositório de modelos de projeto (R3) para um diretório (D3) no seu computador local.

@@ -1,6 +1,6 @@
 ---
-title: Interprete os resultados de modelo no Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Como escolher o parâmetro ideal definido para um algoritmo a utilizar e visualizar as saídas do modelo de pontuação.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Interprete os resultados de modelo no Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Como escolher o parâmetro ideal definido para um algoritmo a utilizar e visualizar as saídas do modelo de pontuação.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---

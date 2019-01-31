@@ -1,6 +1,6 @@
 ---
-title: Voltar a preparar o Machine Learning Studio por meio de programação modela titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como voltar por meio de programação a preparar um modelo com C# e o serviço de Machine Learning Batch Execution.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Voltar a preparar o Machine Learning Studio por meio de programação modela titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como voltar por meio de programação a preparar um modelo com C# e o serviço de Machine Learning Batch Execution.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

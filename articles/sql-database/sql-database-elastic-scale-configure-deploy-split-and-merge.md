@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969588"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458062"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de divisão / intercalação para mover dados entre bases de dados em partição horizontal
 
@@ -204,7 +204,7 @@ Os arquivos de script incluídos são:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Utilize o PowerShell para verificar a implementação
 1. Abra uma nova janela do PowerShell e navegue para o diretório onde transferiu o pacote de dividir / Unir e, em seguida, navegue para o diretório de "powershell".
-2. Criar um servidor de base de dados SQL do Azure (ou escolha um servidor existente) onde serão criadas o Gestor de mapas de partições horizontais e as partições horizontais.
+2. Criar um servidor de base de dados do Azure SQL (ou escolha um servidor existente) onde serão criadas o Gestor de mapas de partições horizontais e as partições horizontais.
    
    > [!NOTE]
    > O script de SetupSampleSplitMergeEnvironment.ps1 cria todos esses bancos de dados no mesmo servidor, por predefinição, para manter o script simples. Isso não é uma restrição do serviço de divisão / intercalação em si.

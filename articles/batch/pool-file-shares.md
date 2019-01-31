@@ -1,9 +1,9 @@
 ---
-title: Partilha de ficheiros do Azure para conjuntos do Azure Batch | Microsoft Docs
-description: Como montar uma partilha de ficheiros do Azure a partir de nós de computação num conjunto Linux ou do Windows no Azure Batch.
+title: Partilha de ficheiros do Azure para conjuntos do Azure Batch | Documentos da Microsoft
+description: Como montar uma partilha de ficheiros do Azure a partir de nós de computação de um conjunto do Linux ou Windows no Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,72 +13,72 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 88d7c0d033d7b517a396df27468de8be7ae20be9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469571"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utilizar uma partilha de ficheiros do Azure com um conjunto do Batch
 
-[Ficheiros do Azure](../storage/files/storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo Server Message Block (SMB). Este artigo fornece exemplos de código e informações para montar e utilizar uma partilha de ficheiros do Azure em nós de computação do conjunto. Os exemplos de código utilizam o .NET do Batch e Python SDKs, mas pode efetuar operações semelhantes utilizando outras ferramentas e os SDKs do Batch.
+[Os ficheiros do Azure](../storage/files/storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo de bloco de mensagem de servidor (SMB). Este artigo fornece informações e exemplos de código para montar e a utilizar uma partilha de ficheiros do Azure em nós de computação do conjunto. Os exemplos de código utilizam o .NET do Batch e SDKs de Python, mas pode efetuar operações semelhantes com outras ferramentas e SDKs do Batch.
 
-O batch fornece suporte nativo de API para ler e escrever dados utilizando o blobs Storage do Azure. No entanto, em alguns casos, que poderá aceder a uma partilha de ficheiros do Azure do seu conjunto de nós de computação. Por exemplo, ter uma carga de trabalho de legado que depende de uma partilha de ficheiros SMB ou as suas tarefas tiverem aceder a dados partilhados ou produzir resultados partilhado. 
+O batch fornece suporte de API nativa para usar os blobs de armazenamento do Azure para ler e escrever dados. No entanto, em alguns casos, que pode querer aceder a uma partilha de ficheiros do Azure do seu conjunto de nós de computação. Por exemplo, tem uma carga de trabalho de legado que depende de uma partilha de ficheiros SMB ou as suas tarefas tiverem acessar dados compartilhados ou produzir saída partilhados. 
 
 ## <a name="considerations-for-use-with-batch"></a>Considerações para utilização com o Batch
 
-* Considere utilizar uma partilha de ficheiros do Azure quando tiver agrupamentos que executam um número relativamente baixo de tarefas paralelas. Reveja o [metas de desempenho e dimensionamento](../storage/files/storage-files-scale-targets.md) para determinar se os ficheiros do Azure (que utiliza uma conta de armazenamento do Azure) deve ser utilizados, o tamanho do conjunto esperado e número de ficheiros de recurso. 
+* Considere utilizar uma partilha de ficheiros do Azure quando tiver agrupamentos que executam um número relativamente baixo de tarefas paralelas. Reveja os [metas de desempenho e dimensionamento](../storage/files/storage-files-scale-targets.md) para determinar se os ficheiros do Azure (que utiliza uma conta de armazenamento do Azure) deve ser utilizados, dado o tamanho do conjunto esperado e o número de ficheiros de elemento. 
 
-* Partilhas de ficheiros do Azure são [económico](https://azure.microsoft.com/pricing/details/storage/files/) e pode ser configurada com dados de replicação noutra região, por isso, são globalmente redundante. 
+* Partilhas de ficheiros do Azure estão [económico](https://azure.microsoft.com/pricing/details/storage/files/) e pode ser configurado com dados de replicação para outra região são então globalmente redundante. 
 
-* Podem montar uma partilha de ficheiros do Azure em simultâneo a partir de um computador local.
+* Pode montar uma partilha de ficheiros do Azure em simultâneo a partir de um computador no local.
 
-* Consulte também o geral [considerações de planeamento](../storage/files/storage-files-planning.md) partilhas de ficheiros para o Azure.
+* Consulte também gerais [considerações sobre planeamento](../storage/files/storage-files-planning.md) partilhas de ficheiros para o Azure.
 
 
 ## <a name="create-a-file-share"></a>Criar uma partilha de ficheiros
 
-[Criar uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md) numa conta do storage que está ligada à sua conta do Batch ou numa conta de armazenamento separada.
+[Criar uma partilha de ficheiros](../storage/files/storage-how-to-create-file-share.md) numa conta de armazenamento que está ligada à sua conta do Batch, ou numa conta de armazenamento separada.
 
-## <a name="mount-a-share-on-a-windows-pool"></a>Montar uma partilha num agrupamento de Windows
+## <a name="mount-a-share-on-a-windows-pool"></a>Montar uma partilha de um agrupamento do Windows
 
-Esta secção fornece os passos e exemplos de código para montar e utilizar um ficheiro do Azure partilham um conjunto de nós do Windows. Para obter informações adicionais, consulte o [documentação](../storage/files/storage-how-to-use-files-windows.md) para montar um Azure partilha de ficheiros no Windows. 
+Esta secção fornece os passos e exemplos de código para montar e utilizar um ficheiro do Azure partilham num conjunto de nós do Windows. Para obter informações adicionais, veja a [documentação](../storage/files/storage-how-to-use-files-windows.md) para montar um Azure partilha de ficheiros no Windows. 
 
-No lote, terá de montar a partilha de cada vez que uma tarefa é executada num nó do Windows. Atualmente, não é possível manter a ligação de rede entre tarefas em nós do Windows.
+No lote, precisa montar a partilha de cada vez que uma tarefa é executada num nó do Windows. Atualmente, não é possível manter a ligação de rede entre as tarefas em nós do Windows.
 
-Por exemplo, incluir uma `net use` comandos para montar a partilha de ficheiros como parte de cada linha de comandos da tarefa. Para montar a partilha de ficheiros, são necessárias as seguintes credenciais:
+Por exemplo, incluir um `net use` comandos para montar a partilha de ficheiros como parte de cada linha de comandos da tarefa. Para montar a partilha de ficheiros, são necessárias as seguintes credenciais:
 
 * **Nome de utilizador**: AZURE\\\<storageaccountname\>, por exemplo, AZURE\\*mystorageaccountname*
 * **Palavra-passe**: < StorageAccountKeyWhichEnds no = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O seguinte comando monta uma partilha de ficheiros *myfileshare* na conta do storage *mystorageaccountname* como o *s:* unidade:
+O seguinte comando monta uma partilha de ficheiros *myfileshare* na conta de armazenamento *mystorageaccountname* como o *s:* unidade:
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
 ```
 
-De simplicidade, os exemplos aqui passaram as credenciais diretamente no texto. Na prática, recomendamos vivamente que gerir as credenciais utilizando variáveis de ambiente, certificados ou uma solução, tais como o Cofre de chaves do Azure.
+Para simplificar, os exemplos aqui passam as credenciais diretamente no texto. Na prática, recomendamos vivamente gerenciamento das credenciais com variáveis de ambiente, certificados ou uma solução, tais como o Azure Key Vault.
 
-Para simplificar a operação de montagem, opcionalmente, manter as credenciais em nós. Em seguida, pode montar a partilha sem credenciais. Execute os seguintes dois passos:
+Para simplificar a operação de montagem, manter, opcionalmente, as credenciais em nós. Em seguida, pode montar a partilha sem credenciais. Execute os seguintes dois passos:
 
-1. Execute o `cmdkey` utilitário de linha de comandos utilizando uma tarefa de início na configuração do agrupamento. Este problema persistir, as credenciais em cada nó do Windows. A linha de comandos da tarefa de início é semelhante a:
+1. Execute o `cmdkey` utilitário de linha de comando usando uma tarefa de início na configuração do conjunto. Isto persiste as credenciais em cada nó do Windows. A linha de comandos da tarefa de início é semelhante a:
 
   ```
   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
   ```
 
-2. Montar a partilha em cada nó como parte de cada tarefa utilizando `net use`. Por exemplo, a seguinte linha de comandos de tarefas montar a partilha de ficheiros como o *s:* unidade. Isto poderia ser seguido de um comando ou script que faça referência a partilha. Credenciais em cache são utilizadas na chamada para `net use`. Este passo parte do princípio de que está a utilizar a mesma identidade de utilizador para as tarefas que utilizou na tarefa de início no conjunto, o que não é adequada para todos os cenários.
+2. Montar a partilha em cada nó como parte de cada tarefa utilizando `net use`. Por exemplo, a seguinte linha de comandos de tarefas monta a partilha de ficheiros como o *s:* unidade. Isso poderia ser seguido de um comando ou script que faça referência a partilha. Credenciais em cache são usadas na chamada para `net use`. Este passo pressupõe que está a utilizar a mesma identidade de utilizador para as tarefas que utilizou na tarefa de início no conjunto, que não é adequado para todos os cenários.
 
   ```
   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
   ```
 
 ### <a name="c-example"></a>Exemplo do c#
-O exemplo do c# seguinte mostra como manter as credenciais de um conjunto de Windows com uma tarefa de início. O nome de serviço do ficheiro de armazenamento e credenciais de armazenamento são transmitidas como constantes definidas. Aqui, a tarefa de início é executado sob uma conta de auto-utilizador (não-administrador) padrão com âmbito de agrupamento.
+O seguinte C# exemplo mostra como manter as credenciais num agrupamento de Windows através de uma tarefa de início. O nome do serviço de ficheiro de armazenamento e as credenciais de armazenamento são transmitidas como constantes definidas. Aqui, a tarefa de início é executado sob uma conta de auto-utilizador (não-administrador) padrão com âmbito de agrupamento.
 
 ```csharp
 ...
@@ -102,7 +102,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-Depois de armazenar as credenciais, utilize as linhas de comandos de tarefas para montar a partilha e a partilha de referência na leitura ou operações de escrita. Como obter um exemplo básico, a linha de comandos de tarefas no seguinte fragmento utiliza o `dir` comando para listar ficheiros na partilha de ficheiros. Certifique-se de que executa cada tarefa com o mesmo [a identidade do utilizador](batch-user-accounts.md) utilizado para executar a tarefa de início no conjunto. 
+Depois de armazenar as credenciais, utilize as linhas de comandos de tarefas para montar a partilha e a partilha de referência na leitura ou operações de escrita. Como um exemplo básico, a linha de comandos de tarefas no fragmento seguinte utiliza o `dir` comando para listar ficheiros na partilha de ficheiros. Certifique-se executar cada tarefa de tarefa com o mesmo [identidade do usuário](batch-user-accounts.md) utilizou para executar a tarefa de início do conjunto. 
 
 ```csharp
 ...
@@ -116,34 +116,34 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(
 tasks.Add(task);
 ```
 
-## <a name="mount-a-share-on-a-linux-pool"></a>Montar uma partilha num agrupamento de Linux
+## <a name="mount-a-share-on-a-linux-pool"></a>Montar uma partilha de um conjunto do Linux
 
-Partilhas de ficheiros do Azure podem ser montadas nas distribuições do Linux utilizando o [cliente de kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo seguinte mostra como montar uma partilha de ficheiros num agrupamento Ubuntu 16.04 LTS de nós de computação. Se utilizar uma distribuição diferente do Linux, os passos gerais são semelhantes, mas o Gestor de pacotes apropriado para a distribuição. Para obter detalhes e exemplos adicionais, consulte [utilizar Azure Files com o Linux](../storage/files/storage-how-to-use-files-linux.md).
+Partilhas de ficheiros do Azure podem ser montadas em distribuições do Linux com o [cliente de kernel do CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo seguinte mostra como montar uma partilha de ficheiros num conjunto de nós de computação do Ubuntu 16.04 LTS. Se utilizar uma distribuição Linux diferente, os passos gerais são semelhantes, mas utilizam o Gestor de pacotes adequado de distribuição. Para obter detalhes e exemplos adicionais, consulte [ficheiros do Azure de utilização com o Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-Primeiro, com uma identidade de utilizador administrador, instale o `cifs-utils` do pacote e criar o ponto de montagem (por exemplo, *mnt/MyAzureFileShare*) no sistema de ficheiros local. Uma pasta para um ponto de montagem pode ser criada em qualquer local no sistema de ficheiros, mas é Convenção comuns para criar esta sob o `/mnt` pasta. Lembre-se de que não crie um ponto de montagem diretamente em `/mnt` (no Ubuntu) ou `/mnt/resource` (em outras distribuições).
+Em primeiro lugar, sob uma identidade de utilizador de administrador, instalar o `cifs-utils` empacotamento e a criar o ponto de montagem (por exemplo, */mnt/MyAzureFileShare*) no sistema de ficheiros local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é Convenção comuns para criar este sob o `/mnt` pasta. Certifique-se de que não criar um ponto de montagem diretamente num `/mnt` (no Ubuntu) ou `/mnt/resource` (em outras distribuições).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Em seguida, execute o `mount` comandos para montar a partilha de ficheiros, fornecer estas credenciais:
+Em seguida, execute o `mount` comandos para montar a partilha de ficheiros, estas credenciais:
 
 * **Nome de utilizador**: \<storageaccountname\>, por exemplo, *mystorageaccountname*
 * **Palavra-passe**: < StorageAccountKeyWhichEnds no = = >, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
-O seguinte comando monta uma partilha de ficheiros *myfileshare* na conta do storage *mystorageaccountname* em *mnt/MyAzureFileShare*: 
+O seguinte comando monta uma partilha de ficheiros *myfileshare* na conta de armazenamento *mystorageaccountname* na */mnt/MyAzureFileShare*: 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-De simplicidade, os exemplos aqui passaram as credenciais diretamente no texto. Na prática, recomendamos vivamente que gerir as credenciais utilizando variáveis de ambiente, certificados ou uma solução, tais como o Cofre de chaves do Azure.
+Para simplificar, os exemplos aqui passam as credenciais diretamente no texto. Na prática, recomendamos vivamente gerenciamento das credenciais com variáveis de ambiente, certificados ou uma solução, tais como o Azure Key Vault.
 
-Num agrupamento de Linux, pode combinar todos estes passos numa tarefa de início único ou executá-los num script. Execute a tarefa de início como um utilizador de administrador no conjunto. Defina a tarefa de início de espera para concluir com êxito antes de executar tarefas adicionais no conjunto que façam referência a partilha.
+Num conjunto do Linux, pode combinar todas essas etapas numa tarefa de início único ou executá-los num script. Execute a tarefa de início como um utilizador de administrador no conjunto. Defina a tarefa de início de espera para concluir com êxito antes de executar tarefas adicionais no conjunto que fazem referência a partilha.
 
 ### <a name="python-example"></a>Exemplo de Python
 
-O exemplo de Python seguinte mostra como configurar um conjunto de Ubuntu para montar a partilha de uma tarefa de início. O ponto de montagem, ponto final de partilha de ficheiro e as credenciais de armazenamento são transmitidas como constantes definidas. A tarefa de início é executado sob uma conta de utilizador automática de administrador com âmbito de agrupamento.
+O exemplo de Python seguinte mostra como configurar um conjunto de Ubuntu para montar a partilha de uma tarefa de início. O ponto de montagem, ponto final de partilha de ficheiros e as credenciais de armazenamento são transmitidas como constantes definidas. A tarefa de início é executado sob uma conta de utilizador automático de administrador com âmbito de agrupamento.
 
 ```python
 pool = batch.models.PoolAddParameter(
@@ -169,7 +169,7 @@ pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(pool)
 ```
 
-Depois de montar a partilha e definir uma tarefa, utilize a partilha as linhas de comandos de tarefas. Por exemplo, utiliza o seguinte comando básico `ls` para listar ficheiros na partilha de ficheiros.
+Depois de montar a partilha e definir uma tarefa, utilize a partilha em suas linhas de comandos de tarefas. Por exemplo, utiliza o seguinte comando básico `ls` para listar ficheiros na partilha de ficheiros.
 
 ```python
 ...
@@ -183,6 +183,6 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para outras opções ler e escrever dados no Batch, consulte o [descrição geral da funcionalidade do Batch](batch-api-basics.md) e [manter tarefas e saída](batch-task-output.md).
+* Para outras opções ler e escrever dados no Batch, consulte a [descrição geral da funcionalidade do Batch](batch-api-basics.md) e [manter a saída de trabalhos e tarefas](batch-task-output.md).
 
-* Consulte também o [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit, que inclui [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) para implementar sistemas de ficheiros para cargas de trabalho do Batch contentor.
+* Consulte também os [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit, que inclui [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) para implementar sistemas de ficheiros para cargas de trabalho do Batch contentor.

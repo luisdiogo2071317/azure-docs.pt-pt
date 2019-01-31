@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470456"
 ---
 # <a name="cloud-tiering-overview"></a>Descrição geral de camadas da cloud
 Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que frequentemente ficheiros acedidos são colocadas em cache localmente no servidor, enquanto todos os outros ficheiros são dispostos em camadas para ficheiros do Azure com base nas definições de política. Quando um ficheiro é em camadas, o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que aplicativos de terceiros com segurança podem identificar os ficheiros em camadas.
@@ -21,7 +21,7 @@ Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que f
 Quando um utilizador abre um ficheiro em camadas, o Azure File Sync solicitar forma totalmente integrada os dados de arquivo de ficheiros do Azure sem que o utilizador necessidade de saber que o arquivo é realmente armazenado no Azure. 
  
  > [!Important]  
-    > Importante: Na Cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server e apenas superiores a 64 KiB de tamanho de ficheiros podem ser colocado em camadas para ficheiros do Azure.
+    > Importante: Na cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server e apenas superiores a 64 KiB de tamanho de ficheiros podem ser colocado em camadas para ficheiros do Azure.
     
 O Azure File Sync não suporta a disposição em camadas arquivos menores do que 64 KiB como a sobrecarga de desempenho de disposição em camadas e recupera um desses arquivos pequenos seria superam a economia de espaço.
 
@@ -86,7 +86,7 @@ Existem várias formas para verificar se um ficheiro tem sido em camadas para a 
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Se o ficheiro tiver um ponto de reanálise, que pode esperar **valor de etiqueta de reanálise: 0x8000001e**. Este valor hexadecimal é o valor do ponto de reanálise que é propriedade de sincronização de ficheiros do Azure. A saída também contém os dados de reanálise que representa o caminho para o ficheiro na partilha de ficheiros do Azure.
+        Se o ficheiro tiver um ponto de reanálise, pode esperar ver **reanálise valor de etiqueta: 0x8000001e**. Este valor hexadecimal é o valor do ponto de reanálise que é propriedade de sincronização de ficheiros do Azure. A saída também contém os dados de reanálise que representa o caminho para o ficheiro na partilha de ficheiros do Azure.
 
         > [!WARNING]  
         > O `fsutil reparsepoint` comando utilitário também tem a capacidade de eliminar um ponto de reanálise. Não execute este comando, a menos que a equipa de engenharia do Azure File Sync pede para. Executar este comando pode resultar na perda de dados. 
@@ -105,7 +105,7 @@ Também pode utilizar o PowerShell para forçar um ficheiro a ser recolhido. Est
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Por que não a *tamanho no disco* propriedade uma correspondência de ficheiro para o *tamanho* propriedade depois de utilizar o Azure File Sync? 
-Explorador de ficheiros do Windows expõe duas propriedades para representar o tamanho de um ficheiro: **tamanho** e **tamanho no disco**. Estas propriedades uma diferença sutil na significado. **Tamanho** representa o tamanho total do ficheiro. **Tamanho no disco** representa o tamanho do fluxo de ficheiros que está armazenado no disco. Os valores para estas propriedades podem ser diferentes para diversas razões, tais como compressão, utilize da eliminação de duplicados de dados ou na cloud em camadas com o Azure File Sync. Se um ficheiro é em camadas para uma partilha de ficheiros do Azure, o tamanho no disco for zero, uma vez que a sequência de ficheiros é armazenada na partilha de ficheiros do Azure e não no disco. Também é possível para um arquivo seja parcialmente em camadas (ou parcialmente recolhido). Num arquivo parcialmente em camadas, parte do arquivo é efetuada no disco. Esta situação pode ocorrer quando os ficheiros parcialmente são lidas pelas aplicações, como leitores de multimídia ou zip utilitários. 
+Explorador de ficheiros do Windows expõe duas propriedades para representar o tamanho de um ficheiro: **Tamanho** e **tamanho no disco**. Estas propriedades uma diferença sutil na significado. **Tamanho** representa o tamanho total do ficheiro. **Tamanho no disco** representa o tamanho do fluxo de ficheiros que está armazenado no disco. Os valores para estas propriedades podem ser diferentes para diversas razões, tais como compressão, utilize da eliminação de duplicados de dados ou na cloud em camadas com o Azure File Sync. Se um ficheiro é em camadas para uma partilha de ficheiros do Azure, o tamanho no disco for zero, uma vez que a sequência de ficheiros é armazenada na partilha de ficheiros do Azure e não no disco. Também é possível para um arquivo seja parcialmente em camadas (ou parcialmente recolhido). Num arquivo parcialmente em camadas, parte do arquivo é efetuada no disco. Esta situação pode ocorrer quando os ficheiros parcialmente são lidas pelas aplicações, como leitores de multimídia ou zip utilitários. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Como posso forçar um ficheiro ou diretório para ser colocado em camadas?

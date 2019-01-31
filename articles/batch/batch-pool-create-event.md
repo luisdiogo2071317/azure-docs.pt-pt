@@ -2,7 +2,7 @@
 title: Evento de criação de conjunto do Batch do Azure | Documentos da Microsoft
 description: Evento de criação de referência para o conjunto do Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259845"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470604"
 ---
 # <a name="pool-create-event"></a>Evento de criação de conjunto
 
@@ -47,11 +47,11 @@ ms.locfileid: "54259845"
 }
 ```
 
-|Elemento|Tipo|Notas|
+|Elemento|Type|Notas|
 |-------------|----------|-----------|
-|ID|Cadeia|O id do conjunto.|
-|displayName|Cadeia|O nome a apresentar do conjunto.|
-|vmSize|Cadeia|O tamanho das máquinas virtuais no conjunto. Todas as máquinas virtuais num conjunto têm o mesmo tamanho. <br/><br/> Para informações sobre os tamanhos disponíveis das máquinas virtuais para serviços em nuvem pools (conjuntos criados com cloudServiceConfiguration), consulte [tamanhos para os serviços Cloud](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O batch suporta todos os tamanhos de VM dos serviços Cloud, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre a VM disponível tamanhos de conjuntos utilizando imagens do mercado de máquinas virtuais (conjuntos criados com virtualMachineConfiguration) veja [tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [tamanhos para Virtual Máquinas](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|ID|String|O id do conjunto.|
+|displayName|String|O nome a apresentar do conjunto.|
+|vmSize|String|O tamanho das máquinas virtuais no conjunto. Todas as máquinas virtuais num conjunto têm o mesmo tamanho. <br/><br/> Para informações sobre os tamanhos disponíveis das máquinas virtuais para serviços em nuvem pools (conjuntos criados com cloudServiceConfiguration), consulte [tamanhos para os serviços Cloud](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O batch suporta todos os tamanhos de VM dos serviços Cloud, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre a VM disponível tamanhos de conjuntos utilizando imagens do mercado de máquinas virtuais (conjuntos criados com virtualMachineConfiguration) veja [tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [tamanhos para Virtual Máquinas](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
 |[cloudServiceConfiguration](#bk_csconf)|Tipo complexo|A configuração do serviço cloud para o conjunto.|
 |[virtualMachineConfiguration](#bk_vmconf)|Tipo complexo|A configuração de máquina virtual para o conjunto.|
 |[networkConfiguration](#bk_netconf)|Tipo complexo|A configuração de rede para o conjunto.|
@@ -61,40 +61,40 @@ ms.locfileid: "54259845"
 |enableInterNodeCommunication|Bool|Especifica se o conjunto está configurado para comunicação direta entre nós.|
 |isAutoPool|Bool|Especifica se o conjunto foi criado por meio de mecanismo de AutoPool de uma tarefa.|
 |maxTasksPerNode|Int32|O número máximo de tarefas que pode ser executado simultaneamente num único nó de computação no conjunto.|
-|vmFillType|Cadeia|Define como o serviço Batch distribui as tarefes entre nós de computação no conjunto. Valores válidos encontram-se distribuídas ou pacote.|
+|vmFillType|String|Define como o serviço Batch distribui as tarefes entre nós de computação no conjunto. Valores válidos encontram-se distribuídas ou pacote.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|osFamily|Cadeia|A família de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> Os valores possíveis são:<br /><br /> **2** – 2 de família de SO, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – 3 de família de SO, equivalente para o Windows Server 2012.<br /><br /> **4** – 4 de família de SO, equivalente para o Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|targetOSVersion|Cadeia|A versão de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> O valor predefinido é **\*** que especifica a versão mais recente do sistema operativo para a família especificada.<br /><br /> Para outros valores permitidos, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|osFamily|String|A família de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> Os valores possíveis são:<br /><br /> **2** – 2 de família de SO, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – 3 de família de SO, equivalente para o Windows Server 2012.<br /><br /> **4** – 4 de família de SO, equivalente para o Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|targetOSVersion|String|A versão de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> O valor predefinido é **\*** que especifica a versão mais recente do sistema operativo para a família especificada.<br /><br /> Para outros valores permitidos, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Tipo complexo|Especifica informações sobre a plataforma ou imagem do Marketplace para utilizar.|
-|nodeAgentSKUId|Cadeia|O SKU do agente de nó do Batch aprovisionado no nó de computação.|
+|nodeAgentSKUId|String|O SKU do agente de nó do Batch aprovisionado no nó de computação.|
 |[windowsConfiguration](#bk_winconf)|Tipo complexo|Especifica as definições do sistema operativo Windows na máquina virtual. Esta propriedade não pode ser especificado se o imageReference está a referenciar uma imagem de SO Linux.|
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|publicador|Cadeia|O publicador da imagem.|
-|oferta|Cadeia|A oferta da imagem.|
-|sku|Cadeia|O SKU da imagem.|
-|versão|Cadeia|A versão da imagem.|
+|publicador|String|O publicador da imagem.|
+|oferta|String|A oferta da imagem.|
+|sku|String|O SKU da imagem.|
+|versão|String|A versão da imagem.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|Booleano|Indica se a máquina virtual está ativada para as atualizações automáticas. Se esta propriedade não for especificada, o valor predefinido é verdadeiro.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|--------------|----------|
-|subnetId|Cadeia|Especifica o identificador de recurso da sub-rede na qual nós de computação do conjunto são criados.|
+|subnetId|String|Especifica o identificador de recurso da sub-rede na qual nós de computação do conjunto são criados.|

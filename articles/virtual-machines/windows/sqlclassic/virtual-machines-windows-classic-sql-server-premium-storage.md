@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332171"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300273"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral
@@ -545,7 +545,7 @@ Este documento não demonstre um exemplo completo de ponto a ponto, no entanto, 
 * Atualize o serviço de escuta através de:
   * Colocar offline o grupo Always On e atualizar o sempre no serviço de escuta com ILB novo / endereço IP de ELB.
   * Ou ao adicionar o recurso de endereço IP do novo Cloud Service ILB/ELB através do PowerShell para clustering do Windows. Em seguida, defina os possíveis proprietários do recurso de endereço IP para o nó migrado, SQL2 e isso como a dependência OR no nome da rede. Consulte a secção "Adicionar recurso de endereço IP na mesma sub-rede" a [apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Verifique a configuração de DNS/propogation aos clientes.
+* Verifique a configuração/propagação de DNS para os clientes.
 * Migrar SQL1 VM e executar etapas de 2 a 4.
 * Se utilizar passos 5ii, em seguida, adicione SQL1 como um possível proprietário para o recurso de endereço IP foi adicionado
 * Ativações pós-falha de teste.

@@ -2,19 +2,18 @@
 title: Modelo de dados para cópia de segurança do Azure
 description: Este artigo fala sobre detalhes de modelo de dados do Power BI para relatórios de cópia de segurança do Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877138"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299423"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios do Azure Backup
 Este artigo descreve o modelo de dados do Power BI utilizado para a criação de relatórios do Azure Backup. Usando esse modelo de dados, pode filtrar relatórios existentes com base nos campos relevantes e mais importante, criar seus próprios relatórios com tabelas e campos no modelo. 
@@ -31,8 +30,8 @@ Esta tabela fornece campos básicos e agregações ao longo de vários campos re
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Número inteiro |Número de alertas criados no período de tempo selecionado |
-| % ActiveAlertsCreatedInPeriod |Percentagem |Percentagem de alertas ativos no período de tempo selecionado |
-| % CriticalAlertsCreatedInPeriod |Percentagem |Percentagem de alertas críticos no período de tempo selecionado |
+| %ActiveAlertsCreatedInPeriod |Percentagem |Percentagem de alertas ativos no período de tempo selecionado |
+| %CriticalAlertsCreatedInPeriod |Percentagem |Percentagem de alertas críticos no período de tempo selecionado |
 | AlertOccurrenceDate |Date |Data de quando o alerta foi criado |
 | AlertSeverity |Texto |Gravidade do alerta, por exemplo, crítico |
 | AlertStatus |Texto |Estado do alerta, por exemplo, Active Directory |
@@ -83,7 +82,7 @@ Esta tabela fornece campos básicos e agregações ao longo de vários campos re
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Número inteiro |Número de tarefas criadas no período de tempo selecionado |
-| % FailuresForJobsCreatedInPeriod |Percentagem |Percentagem de falhas em tarefas gerais no período de tempo selecionado |
+| %FailuresForJobsCreatedInPeriod |Percentagem |Percentagem de falhas em tarefas gerais no período de tempo selecionado |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Número decimal |valor de percentil 80th dos dados transferidos em MB para **cópia de segurança** tarefas criadas no período de tempo selecionado |
 | AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para que **cópia de segurança concluída** tarefas criadas no período de tempo selecionado |

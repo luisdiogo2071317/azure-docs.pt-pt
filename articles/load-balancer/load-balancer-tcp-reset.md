@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257305"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296924"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
 
-Pode usar [Balanceador de carga Standard](load-balancer-standard-overview.md) para criar um comportamento mais previsível em termos de aplicação para os seus cenários com bidirecional TCP redefine (pacote de RST de TCP) para cada tempo de limite de inatividade configurável.  Comportamento do Balanceador de carga predefinido é descartar silenciosamente fluxos quando é atingido o tempo limite de inatividade de um fluxo.
+Pode usar [Balanceador de carga Standard](load-balancer-standard-overview.md) para criar um comportamento mais previsível em termos de aplicação para os seus cenários ao ativar a reposição TCP inativo para uma determinada regra. Comportamento do Balanceador de carga predefinido é descartar silenciosamente fluxos quando é atingido o tempo limite de inatividade de um fluxo.  Ativar esta funcionalidade fará com que o Balanceador de carga enviar a bidirecional TCP redefine (pacotes de TCP RST) de mensagens em fila no tempo limite de inatividade.  Isso informará seus pontos de extremidade do aplicativo que a ligação foi excedido e já não é utilizável.  Pontos de extremidade imediatamente podem estabelecer uma nova ligação se for necessário.
 
 ![Reposição de TCP de Balanceador de carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Utilizar a versão 2018-01 07 de API, pode permitir o envio de bidirecional TCP 
 
 ## <a name="regions"></a> Disponibilidade de região
 
-Este parâmetro é atualmente em vigor nas seguintes regiões.  Regiões não listado aqui, o parâmetro não tem qualquer efeito.
-
-| Região |
-|---|
-| Sudeste Asiático |
-| Sul do Brasil |
-| Canadá Central |
-| Europa Ocidental |
-| Índia Central |
-| Oeste da Índia |
-| Oeste do Japão |
-| Coreia do Sul Central |
-| Coreia do Sul |
-| Norte do Reino Unido |
-| Sul do Reino Unido 2 |
-| E.U.A Leste |
-| Este dos EUA 2 |
-| Norte dos EUA |
-| E.U.A. Oeste |
-
-Esta tabela será atualizada à medida que a pré-visualização é expandida para outras regiões.  
+Disponível em todas as regiões.
 
 ## <a name="limitations"></a>Limitações
 
-- Limitado [disponibilidade das regiões](#regions).
 - Não é possível utilizar o portal para configurar ou visualizar a reposição de TCP.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
 
 ## <a name="next-steps"></a>Passos Seguintes

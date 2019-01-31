@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: dbb8417975d051b4a13d6f94fca76fd3bf321a35
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074248"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302109"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -150,8 +150,8 @@ Para implementar automaticamente esta extensão para navegadores de Chrome, crie
 |    |    |
 |--- | ---|
 |Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Nome | 1 |
-|Tipo | REG_SZ (String) |
+|Name | 1 |
+|Type | REG_SZ (String) |
 |Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
@@ -159,8 +159,8 @@ Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 |    |    |
 |--- | ---|
 |Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Nome | 1 |
-|Tipo | REG_SZ (String) |
+|Name | 1 |
+|Type | REG_SZ (String) |
 |Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Esses navegadores suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificados e validadas em relação uma política. A verificação de dispositivo falha se o browser está em execução no modo privado. 
@@ -244,7 +244,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 
 - O **requer aplicação aprovada do cliente** requisito:
 
-    - Só suporta o iOS e Android para [condição de plataforma de dispositivo](#device-platforms-condition).
+    - Só suporta o iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

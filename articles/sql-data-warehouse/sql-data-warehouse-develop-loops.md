@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301213"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456294"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Usando loops de T-SQL no SQL Data Warehouse
 Dicas para o uso de loops de T-SQL e substituindo cursores no armazém de dados SQL do Azure para o desenvolvimento de soluções.
@@ -25,7 +25,7 @@ Dicas para o uso de loops de T-SQL e substituindo cursores no armazém de dados 
 SQL Data Warehouse suporta o [enquanto](/sql/t-sql/language-elements/while-transact-sql) loop para repetidamente executar blocos de instrução. Esse loop WHILE continua para, desde que as condições especificadas são true ou até que o código especificamente termina o loop usando a palavra-chave BREAK. Loops são úteis para substituir os cursores definidas no código SQL. Felizmente, cursores quase todos os que são escritos em código SQL são da gama progressiva rápidos, só de leitura. Por conseguinte, [enquanto] loops são uma ótima alternativa para substituir os cursores.
 
 ## <a name="replacing-cursors-in-sql-data-warehouse"></a>Substituição de cursores no SQL Data Warehouse
-No entanto, antes de mergulhar na memória, primeiro deve se perguntar a seguinte pergunta: "deste cursor poderia ser reescrito a utilizar operações baseadas em conjunto?." Em muitos casos, a resposta é Sim e, muitas vezes, é a melhor abordagem. Muitas vezes, uma operação baseada em conjunto, executa mais rapidamente do que uma abordagem iterativa, linha por linha.
+No entanto, antes de mergulhar na memória, primeiro deve se perguntar a pergunta a seguir: "Deste cursor poderia ser reescrito a utilizar operações baseadas em conjunto?." Em muitos casos, a resposta é Sim e, muitas vezes, é a melhor abordagem. Muitas vezes, uma operação baseada em conjunto, executa mais rapidamente do que uma abordagem iterativa, linha por linha.
 
 Cursores de somente avanço rápido podem ser facilmente substituídos com uvozuje konstruktor cyklu. Segue-se um exemplo simples. Este exemplo de código atualiza as estatísticas de cada tabela na base de dados. Iterando sobre as tabelas no loop, cada comando é executado na sequência.
 

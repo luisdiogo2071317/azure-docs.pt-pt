@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251598"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455597"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para aumentar horizontalmente
 Gerencie facilmente sua aumentadas horizontalmente em partição horizontal bases de dados existentes com as ferramentas de base de dados de base de dados do Azure SQL (por exemplo, o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Comece por converter um conjunto existente de bases de dados para utilizar o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ Para um modelo do inquilino único, crie uma **mapeamento de lista** mapa de par
 
 ![Mapeamento de lista][1]
 
-O modelo do multi-inquilino atribui vários inquilinos para uma base de dados (e pode distribuir os grupos de inquilinos em várias bases de dados). Utilize este modelo quando esperar de cada inquilino ter necessidades de dados pequeno. Nesse modelo, atribuir um intervalo de inquilinos para uma base de dados com **mapeamento de intervalo**. 
+O modelo do multi-inquilino atribui vários inquilinos para uma base de dados individual (e pode distribuir os grupos de inquilinos em várias bases de dados). Utilize este modelo quando esperar de cada inquilino ter necessidades de dados pequeno. Nesse modelo, atribuir um intervalo de inquilinos para uma base de dados com **mapeamento de intervalo**. 
 
 ![Mapeamento de intervalo][2]
 
-Ou pode implementar um modelo de base de dados do multi-inquilino com um *mapeamento de lista* atribuir vários inquilinos para uma base de dados. Por exemplo, DB1 tem um é utilizado para armazenar informações sobre o inquilino do ID de 1 e 5 e DB2 armazena dados de inquilinos 7 e inquilinos 10. 
+Ou pode implementar um modelo de base de dados do multi-inquilino com um *mapeamento de lista* atribuir vários inquilinos para uma base de dados individual. Por exemplo, DB1 tem um é utilizado para armazenar informações sobre o inquilino do ID de 1 e 5 e DB2 armazena dados de inquilinos 7 e inquilinos 10. 
 
 ![Vários inquilinos numa único DB][3] 
 
@@ -98,10 +98,10 @@ Para utilizar este padrão de mapeamento, valores de ID de inquilino tem de ser 
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Opção 3: Lista de mapeamentos de uma base de dados
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Opção 3: Lista de mapeamentos numa base de dados individual
 Também como configurar este padrão requer a criação de um mapa de lista, conforme mostrado no passo 2, a opção 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Passo 3: Preparar a partições horizontais individuais
+## <a name="step-3-prepare-individual-shards"></a>Passo 3: Preparar as partições horizontais individuais
 Adicione cada partição horizontal (base de dados) para o Gestor de mapas de partições horizontais. Isto prepara as bases de dados individuais para armazenar informações de mapeamento. Execute esse método em cada partição horizontal.
 
     Add-Shard 
@@ -138,7 +138,7 @@ Adicione os mapeamentos de intervalo para todos os inquilinos ID intervalo - ass
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Opção 3 do passo 4: mapear os dados de vários inquilinos numa única base de dados
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Opção 3 do passo 4: mapear os dados de vários inquilinos numa base de dados individual
 Para cada inquilino, execute o Add-ListMapping (opção 1). 
 
 ## <a name="checking-the-mappings"></a>A verificar os mapeamentos
@@ -154,7 +154,7 @@ Depois de concluir a configuração, pode começar a utilizar a biblioteca de cl
 ## <a name="next-steps"></a>Passos Seguintes
 Obter os scripts do PowerShell da [scripts de ferramentas de base de dados do Azure SQL DB elástica](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-As ferramentas também estão disponíveis no GitHub: [do Azure/elástico-db-tools](https://github.com/Azure/elastic-db-tools).
+As ferramentas também estão disponíveis no GitHub: [Azure/elástico-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Utilize a ferramenta de dividir / unir para mover dados de ou para um modelo do multi-inquilino para um modelo de inquilino único. Ver [ferramenta de intercalação de divisão](sql-database-elastic-scale-get-started.md).
 

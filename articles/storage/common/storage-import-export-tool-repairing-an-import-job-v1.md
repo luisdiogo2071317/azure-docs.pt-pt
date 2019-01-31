@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: e2eb580df0a90e07e79c7f080ba31e5418fc5956
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: fda1d3d626c91ba984f08b96c79ab6a2fd2ec74b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523789"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471746"
 ---
 # <a name="repairing-an-import-job"></a>Reparação de uma tarefa de importação
 O serviço de importação/exportação do Microsoft Azure poderá não conseguir copiar alguns dos seus arquivos ou partes de um ficheiro para o serviço de Blobs do Windows Azure. Algumas razões para falhas incluem:  
@@ -32,15 +32,15 @@ Os seguintes parâmetros podem ser especificados com **RepairImport**:
   
 |||  
 |-|-|  
-|**r:**< RepairFile\>|**É necessário.** Caminho para o ficheiro de reparação, que controla o progresso do reparo e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, transmita o caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação de interrompido, deve passar no nome de um ficheiro existente de reparação. Sempre é necessário especificar o ficheiro de reparação correspondente para a unidade de destino.|  
-|**/LOGDIR:**< LogDirectory\>|**Opcional.** O diretório de registo. Arquivos de log detalhado são gravados para este diretório. Se não for especificado nenhum diretório de registo, o diretório atual é utilizado como o diretório de registo.|  
-|**/d:**< TargetDirectories\>|**É necessário.** Um ou mais separados por ponto e vírgula diretórios que contêm os arquivos originais que foram importados. A unidade de importação também pode ser utilizada, mas não é necessária se alternativo localizações de ficheiros originais estão disponíveis.|  
-|**/BK:**< BitLockerKey\>|**Opcional.** Deve especificar a chave do BitLocker, se pretender que a ferramenta para desbloquear uma unidade encriptada, onde os arquivos originais estão disponíveis.|  
-|**/SN:**< StorageAccountName\>|**É necessário.** O nome da conta de armazenamento para a tarefa de importação.|  
-|**/SK:**< StorageAccountKey\>|**Necessário** se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de importação.|  
-|**/csas:**< ContainerSas\>|**Necessário** se e apenas se a chave de conta de armazenamento não está especificado. O contentor de SAS para aceder aos blobs associados à tarefa de importação.|  
-|**/ CopyLogFile:**< DriveCopyLogFile\>|**É necessário.** Caminho para o ficheiro de registo de cópia de unidade (de qualquer log ou erro log detalhado). O ficheiro é gerado pelo serviço importar/exportar do Azure Windows e pode ser baixado do armazenamento de BLOBs associado à tarefa. O ficheiro de registo de cópia contém informações sobre blobs com falhas ou arquivos, que estão a ser reparado.|  
-|**/ PathMapFile:**< DrivePathMapFile\>|**Opcional.** Caminho para um ficheiro de texto que pode ser utilizado para resolver ambiguidades se tiver vários ficheiros com o mesmo nome que foram importar na mesma tarefa. Na primeira vez que a ferramenta é executada, pode preencher este ficheiro com todos os nomes ambíguos. As execuções posteriores da ferramenta de utilizam este ficheiro para resolver a ambigüidade.|  
+|**/r:**<RepairFile\>|**É necessário.** Caminho para o ficheiro de reparação, que controla o progresso do reparo e permite-lhe retomar uma reparação de interrompida. Cada unidade tem de ter apenas um ficheiro de reparação. Quando iniciar uma reparação de uma determinada unidade, transmita o caminho para um ficheiro de reparação, que ainda não existe. Para retomar uma reparação de interrompido, deve passar no nome de um ficheiro existente de reparação. Sempre é necessário especificar o ficheiro de reparação correspondente para a unidade de destino.|  
+|**/logdir:**<LogDirectory\>|**Opcional.** O diretório de registo. Arquivos de log detalhado são gravados para este diretório. Se não for especificado nenhum diretório de registo, o diretório atual é utilizado como o diretório de registo.|  
+|**/d:**<TargetDirectories\>|**É necessário.** Um ou mais separados por ponto e vírgula diretórios que contêm os arquivos originais que foram importados. A unidade de importação também pode ser utilizada, mas não é necessária se alternativo localizações de ficheiros originais estão disponíveis.|  
+|**/bk:**<BitLockerKey\>|**Opcional.** Deve especificar a chave do BitLocker, se pretender que a ferramenta para desbloquear uma unidade encriptada, onde os arquivos originais estão disponíveis.|  
+|**/sn:**<StorageAccountName\>|**É necessário.** O nome da conta de armazenamento para a tarefa de importação.|  
+|**/sk:**<StorageAccountKey\>|**Necessário** se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de importação.|  
+|**/csas:**<ContainerSas\>|**Necessário** se e apenas se a chave de conta de armazenamento não está especificado. O contentor de SAS para aceder aos blobs associados à tarefa de importação.|  
+|**/CopyLogFile:**<DriveCopyLogFile\>|**É necessário.** Caminho para o ficheiro de registo de cópia de unidade (de qualquer log ou erro log detalhado). O ficheiro é gerado pelo serviço importar/exportar do Azure Windows e pode ser baixado do armazenamento de BLOBs associado à tarefa. O ficheiro de registo de cópia contém informações sobre blobs com falhas ou arquivos, que estão a ser reparado.|  
+|**/PathMapFile:**<DrivePathMapFile\>|**Opcional.** Caminho para um ficheiro de texto que pode ser utilizado para resolver ambiguidades se tiver vários ficheiros com o mesmo nome que foram importar na mesma tarefa. Na primeira vez que a ferramenta é executada, pode preencher este ficheiro com todos os nomes ambíguos. As execuções posteriores da ferramenta de utilizam este ficheiro para resolver a ambigüidade.|  
   
 ## <a name="using-the-repairimport-command"></a>Com o comando RepairImport  
 Para reparar a importar dados por transmissão em fluxo os dados através da rede, tem de especificar os diretórios que contêm os arquivos originais que foram importar com o `/d` parâmetro. Também tem de especificar o ficheiro de registo de cópia que transferiu a partir da sua conta de armazenamento. Uma linha de comando típica para reparar uma tarefa de importação com falhas parciais é semelhante a:  

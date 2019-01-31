@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216210"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296907"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -40,11 +40,7 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 
 ### <a name="the-host-computer"></a>O computador anfitrião
 
-O **anfitrião** é o computador que executa o contentor do docker. Pode ser um computador no local ou um docker a alojar o serviço no Azure incluindo:
-
-* [Serviço Kubernetes do Azure](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster implementado [do Azure Stack](../../azure-stack/index.yml). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
@@ -52,9 +48,11 @@ Este contentor suporta valores mínimos e recomendados para as definições:
 
 |Definição| Mínimo | Recomendado |
 |-----------|---------|-------------|
-|Núcleos<BR>`--cpus`|1 núcleo<BR>pelo menos 2,6 GHz (gigahertz) ou mais rápido|1 núcleo|
+|Núcleos<BR>`--cpus`|1 núcleo|1 núcleo|
 |Memória<BR>`--memory`|2 GB|4GB|
 |Transações por segundo<BR>(TPS)|20 TPS|40 TPS|
+
+Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
 
 O `--cpus` e `--memory` as definições são utilizadas como parte do `docker run` comando.
 
@@ -66,17 +64,12 @@ Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor.
+
 Para obter uma descrição completa de etiquetas disponíveis, como `latest` utilizado no comando anterior, consulte [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) no Docker Hub.
 
-> [!TIP]
-> Pode utilizar o [imagens do docker](https://docs.docker.com/engine/reference/commandline/images/) command para listar as imagens de contentor transferido. Por exemplo, o comando seguinte lista o ID, o repositório e a etiqueta de cada imagem de contentor transferido, formatada como uma tabela:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>Como utilizar o contentor
 
@@ -325,14 +318,7 @@ Se executar o contentor com uma saída [montar](luis-container-configuration.md#
 
 ## <a name="containers-api-documentation"></a>Documentação da API do contentor
 
-O contentor fornece um conjunto completo de documentação para os pontos finais, bem como um `Try it now` funcionalidade. Esta funcionalidade permite-lhe introduzir as definições num formulário HTML baseada na web e fazer a consulta sem ter de escrever qualquer código. Depois da consulta de volta, um exemplo de comando CURL é fornecida para demonstrar os cabeçalhos HTTP e corpo formato necessário. 
-
-> [!TIP]
-> Leitura a [especificação de OpenAPI](https://swagger.io/docs/specification/about/), que descreve as operações de API suportadas pelo contêiner, da `/swagger` URI relativo. Por exemplo:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Faturação
 
@@ -371,7 +357,7 @@ Configurações de aplicações não suportado|Detalhes|
 
 Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e contentores de compreensão de idiomas (LUIS) em execução. Em resumo:
 
-* Compreensão de idiomas (LUIS) fornece um contentores do Linux para Docker fornecendo endpoint consulta predições de expressões.
+* Compreensão de idiomas (LUIS) fornece um contentor do Linux para Docker fornecendo endpoint consulta predições de expressões.
 * Imagens de contentor são transferidas a partir do registo de contentor do Microsoft (MCR).
 * Executam imagens de contentor no Docker.
 * Pode utilizar a REST API para consultar os pontos finais de contentor ao especificar o URI do contentor do anfitrião.

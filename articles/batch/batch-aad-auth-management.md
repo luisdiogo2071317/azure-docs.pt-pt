@@ -3,7 +3,7 @@ title: Utilizar o Azure Active Directory para autenticar soluções de gestão d
 description: Os aplicativos criados com o Gestor de recursos do Azure e o fornecedor de recursos do Batch autenticar com o Azure AD.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: danlep
-ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: lahugh
+ms.openlocfilehash: 67aced11d885be949e7e7dc14ba7aa59e903716a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870425"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467854"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão do Batch com o Active Directory
 

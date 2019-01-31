@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7c0a48c22e6fe1d1904771915aef401ffa58d588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470491"
 ---
 # <a name="design-process-overview"></a>Descrição geral do processo de design
 Pode expressar sua intenção de design em todas as três fases do fluxo de trabalho do projeto Acoustics: pré-inserir instalação de cena, Colocação de origem de som e design de pós-criar. O processo exige menos marcação associada com a colocação de reverberação volumes, mantendo o controle de designer sobre como pode parecer uma cena.
@@ -39,7 +39,7 @@ Visualizar voxels e sonda pontos no tempo de execução pode ajudar a depurar pr
 A exibição de voxel pode ajudar a determinar se os componentes visuais no jogo tem uma transformação aplicada às mesmas. Se assim for, aplicam-se a mesma transformação para a hospedagem de GameObject a **Acoustics Manager**.
 
 ### <a name="voxel-size-discrepancies"></a>Voxel discrepâncias de tamanho
-Poderá reparar que o tamanho do voxels usados para ilustrar o que, da cena, as malhas participam na criar acoustics é diferente nas vistas de tempo de execução e de tempo de design. Essa diferença não afeta a qualidade/granularidade de sua frequência de simulação selecionado, mas é bastante um biproduct do uso de tempo de execução da cena voxelized. No tempo de execução as voxels de simulação são "refinados" para suportar a interpolação entre localizações de origem. Isto também permite design tempo posicionamento de som origens mais próximo para as malhas de cena de que o tamanho de voxel simulação permite – uma vez que as origens dentro de um voxel que contêm uma malha acoustically treated não fazem qualquer som.
+Poderá reparar que o tamanho do voxels usados para ilustrar o que, da cena, as malhas participam na criar acoustics é diferente nas vistas de tempo de execução e de tempo de design. Essa diferença não afeta a qualidade/granularidade de sua frequência de simulação selecionado, mas é bastante um biproduct do uso de tempo de execução da cena voxelized. No tempo de execução, os voxels de simulação são "refinados" para suportar a interpolação entre localizações de origem. Isto também permite design tempo posicionamento de som origens mais próximo para as malhas de cena de que o tamanho de voxel simulação permite – uma vez que as origens dentro de um voxel que contêm uma malha acoustically treated não fazem qualquer som.
 
 Seguem-se duas imagens que mostra a diferença entre voxels de design (pré-criar) e voxels de tempo de execução (pós-criar) como visualizado pelo plug-in do Unity:
 
@@ -61,24 +61,30 @@ O áudio DSP fornecida pelos **Microsoft Acoustics** Plug-in do Unity spatialize
 
 ![Atenuação de distância](media/distanceattenuation.png)
 
-Acoustics executa o cálculo numa caixa "região de simulação" centrada a localização de player. Se uma origem de som é distante do jogador, localizado fora desta região de simulação, apenas a geometria na caixa de afetará a propagação de som (por exemplo, fazendo com que oclusão) que funciona razoavelmente bem quando occluders estão perto o jogador. No entanto, em casos quando o jogador está no espaço aberto, mas os occluders estão próximos da origem de som distante, o som pode se tornar inacreditavelmente disoccluded. Nossa solução sugerida é Certifique-se nestes casos que a atenuação de som recai como 0 em cerca de 45m, a distância de horizontal padrão do player na periferia da caixa.
+Acoustics executa o cálculo numa caixa "região de simulação" centrada a localização de player. Se uma origem de som é distante do jogador, localizado fora desta região de simulação, apenas a geometria na caixa de afetará a propagação de som (por exemplo, fazendo com que oclusão) que funciona razoavelmente bem quando occluders estão perto o jogador. No entanto, em casos quando o jogador está no espaço aberto, mas os occluders estão próximos da origem de som distante, o som pode se tornar inacreditavelmente disoccluded. Nossa solução sugerida é Certifique-se nestes casos que a atenuação de som recai como 0 em cerca de 45 m, a distância de horizontal padrão do player na periferia da caixa.
 
 ### <a name="tuning-scene-parameters"></a>Ajuste os parâmetros de cenas
-Para ajustar os parâmetros para todas as origens, clique na faixa do canal do Unity **Mixer de áudio**e ajustar os parâmetros na **Acoustics Mixer** efeito.
+Para ajustar os parâmetros para todas as origens, clique na faixa do canal do Unity **Mixer de áudio**e ajustar os parâmetros na **projeto Acoustics Mixer** efeito.
 
 ![Personalização do Mixer](media/MixerParameters.png)
+
+* **Ajustar umidade** -ajusta o poder de reverberação no dB, em todas as origens da cena com base na distância do serviço de escuta de origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry.
+* **Dimensionamento RT60** - multiplicadora escalar para o tempo de reverberação.
+* **Utilizar Panning** -controles se áudio é saída como binaural (0) ou multicanal movimento panorâmico (1). Qualquer valor, além de 1 indica binaural. Binaural saída é spatialized com HRTFs para utilização com auscultadores e multicanal de saída é spatialized com VBAP para utilização com sistemas de orador surround multicanal. Se utilizar o panner multicanal, não se esqueça de selecionar o modo de altifalante que corresponde a definições do dispositivo, encontra-se em **definições do projeto** > **áudio**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Ajuste os parâmetros de origem
 A anexar o **AcousticsAdjust** script para uma origem permite parâmetros de ajuste para essa origem. Para anexar o script, clique em **Add Component** na parte inferior dos **Inspetor** painel e navegue para **Scripts > Acoustics ajustar**. O script tem seis controles:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Ativar Acoustics** -controla se acoustics se aplica a esta origem. Quando desmarcado, a origem será spatialized com HRTFs, mas sem acoustics, ou seja, sem obstrução, oclusão e parâmetros de reverberation dinâmica, como o tempo de nível e Win32/decay. Reverberation ainda está a ser aplicada com um nível fixo e tempo de Win32/decay.
+* **Ativar Acoustics** -controla se acoustics se aplica a esta origem. Quando desmarcado, a origem irá ser spatialized com HRTFs ou de movimento panorâmico mas não haverá nenhuma acoustics. Isso significa que nenhum obstrução, oclusão e parâmetros de reverberation dinâmica, como o tempo de nível e Win32/decay. Reverberation ainda está a ser aplicada com um nível fixo e tempo de Win32/decay.
 * **Oclusão** -aplicar um multiplicador para o nível de dB oclusão calculado pelo sistema acoustics. Se este multiplicador for superior a 1, irá ser exagerada oclusão, enquanto valores inferior a 1 fazer o efeito de oclusão mais sutil e um valor de 0 desativa oclusão.
 * **Transmissão (dB)** -definir a atenuação (no dB) causada por transmissão por meio de geometria. Defina este controlo de deslize para o nível mais baixo para desativar a transmissão. Acoustics spatializes o áudio de dry inicial como que chegam em torno de geometria da cena (portaling). Transmissão fornece uma chegada de dry adicional que é spatialized na direção de linha de visão. Tenha em atenção que a curva de atenuação de distância para a origem também é aplicada.
-* **Umidade (dB)** -ajusta o poder de reverberação no dB, de acordo com a distância da origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curva. Modificar a curva left-clicking para adicionar pontos e arrastando esses pontos para formar a função que pretende. O eixo x é a distância de origem e o eixo y é o ajuste de reverberação no dB. Ver isso [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html) para obter mais detalhes sobre a edição de curvas. Repor a curva predefinido, clique em **Umidade** e selecione **repor**.
+* **Umidade (dB)** -ajusta o poder de reverberação no dB, de acordo com a distância da origem. Valores positivos emitir um som mais reverberant, enquanto valores negativos emitir um som mais dry. Clique no controle de curva (linha verde) para abrir o editor de curva. Modificar a curva left-clicking para adicionar pontos e arrastando esses pontos para formar a função que pretende. O eixo x é a distância de origem e o eixo y é o ajuste de reverberação no dB. Para obter mais informações sobre a edição de curvas, consulte esta [Manual do Unity](https://docs.unity3d.com/Manual/EditingCurves.html). Repor a curva predefinido, clique em **Umidade** e selecione **repor**.
 * **Win32/decay escala de tempo** -ajusta um multiplicador para a hora de Win32/decay. Por exemplo, se o resultado de criar Especifica um tempo de Win32/decay de 750 milissegundos, mas este valor é definido como 1,5, o tempo de Win32/decay aplicado para a origem é 1.125 milissegundos.
-* **Outdoorness** -um ajuste aditiva na estimativa do sistema acoustics do como "pessoas" reverberation numa origem deve parecer. Definir este para 1 fará com que uma origem sempre som completamente pessoas, durante a definição-como -1 fará com que uma origem de som indoors.
+* **Outdoorness** -um ajuste aditiva na estimativa do sistema acoustics do como "pessoas" reverberation numa origem deve parecer. A definição deste valor como 1 fará com que uma origem sempre som completamente pessoas, enquanto a defini-la como -1 fará com que uma origem de som indoors.
 
 Origens diferentes podem requerer diferentes configurações alcançar certos efeitos estética ou jogo. Caixa de diálogo é um exemplo de possíveis. O ouvido humano é mais attuned para reverberation na conversão de voz, enquanto a caixa de diálogo, muitas vezes, tem de ser inteligível para o jogo. Pode justificar isso sem ter que fazer a caixa de diálogo não-diegetic ao mover o **Umidade** baixo, ajustar a **Warp de distância Percetual** parâmetro descrito a seguir, adicionando alguns  **Transmissão** para alguns boost áudio dry se propaguem por intermédio de paredes de e/ou reduzir a **oclusão** de 1 para ter mais som chegam através de portais.
 
@@ -86,5 +92,5 @@ A anexar o **AcousticsAdjustExperimental** script para uma origem permite parâm
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Warp de distância percetual** -aplicar um distorcendo exponencial para a distância usada para calcular o rácio de dry wet. O sistema de acoustics calcula wet níveis por todo o espaço, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Distorcendo valores maiores que 1 exaggerate esse efeito, aumentando os níveis de reverberation relacionados com a distância, tornando o som "distantes", enquanto distorcendo valores marca menos de 1 a alteração com base na distância reverberation mais sutil, tornando o som mais "apresentam".
+* **Warp de distância percetual** -aplicar um distorcendo exponencial para a distância usada para calcular o rácio de dry wet. O sistema de acoustics calcula wet níveis por todo o espaço, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Distorcendo valores maiores que 1 exaggerate esse efeito, aumentando os níveis de reverberation relacionados com a distância, tornando o som "distante". Distorcendo valores de marca de menos de 1 a reverberation com base na distância alterar mais sutil, garantindo o som mais "presente".
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 17e0cf170197b99037e2892d1b74a699a3a9eef5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275334"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301888"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -326,7 +326,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Configurar o nível de rastreio para o registo da consola
 
-As funções permitem-lhe definir o nível de rastreio de limiar para escrever na consola, o que torna mais fácil para controlar os rastreios de forma são escritos na consola da sua função. Para definir o limiar para todos os rastreios escritos na consola, utilize o `tracing.consoleLevel` propriedade no arquivo de Host. JSON. Esta definição aplica-se a todas as funções na sua aplicação de função. O exemplo seguinte define o limiar de rastreio para ativar o registo verboso:
+As funções 1.x lhe permite que definir o nível de rastreio de limiar para escrever na consola, que facilita a controla a forma como os rastreios são escritos na consola da sua função. Para definir o limiar para todos os rastreios escritos na consola, utilize o `tracing.consoleLevel` propriedade no arquivo de Host. JSON. Esta definição aplica-se a todas as funções na sua aplicação de função. O exemplo seguinte define o limiar de rastreio para ativar o registo verboso:
 
 ```json
 {
@@ -336,7 +336,7 @@ As funções permitem-lhe definir o nível de rastreio de limiar para escrever n
 }  
 ```
 
-Os valores da **consoleLevel** correspondem aos nomes do `context.log` métodos. Para desativar todos os registos de rastreio para a consola, defina **consoleLevel** ao _desativar_. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json.md).
+Os valores da **consoleLevel** correspondem aos nomes do `context.log` métodos. Para desativar todos os registos de rastreio para a consola, defina **consoleLevel** ao _desativar_. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json-v1.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP acionadores e enlaces
 
@@ -348,8 +348,8 @@ O `context.req` (pedido) objeto tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _Corpo_        | Um objeto que contém o corpo do pedido.               |
-| _Cabeçalhos_     | Um objeto que contém os cabeçalhos de pedido.                   |
+| _body_        | Um objeto que contém o corpo do pedido.               |
+| _headers_     | Um objeto que contém os cabeçalhos de pedido.                   |
 | _Método_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
 | _params_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
@@ -363,8 +363,8 @@ O `context.res` objeto (resposta) tem as seguintes propriedades:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
-| _Corpo_    | Um objeto que contém o corpo da resposta.         |
-| _Cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
+| _body_    | Um objeto que contém o corpo da resposta.         |
+| _headers_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
 | _status_  | O código de estado HTTP da resposta.                     |
 

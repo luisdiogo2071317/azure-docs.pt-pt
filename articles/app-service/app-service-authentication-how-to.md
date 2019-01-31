@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722656"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301582"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilização avançada de autenticação e autorização no serviço de aplicações do Azure
 
@@ -165,7 +165,7 @@ A partir do código de servidor, os tokens de específica do fornecedor serão i
 | Fornecedor | Nomes de cabeçalho |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
-| Token do Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
+| Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Conta Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
@@ -176,15 +176,15 @@ A partir do código de cliente (por exemplo, uma aplicação móvel ou JavaScrip
 > [!NOTE]
 > São tokens de acesso para aceder a recursos de fornecedor, para que estejam presentes apenas se configurar o seu fornecedor com um segredo do cliente. Para ver como obter tokens de atualização, consulte [tokens de acesso de atualização](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Tokens de acesso de atualização
+## <a name="refresh-identity-provider-tokens"></a>Tokens de fornecedor de identidade de atualização
 
-Quando o token de acesso do seu fornecedor expira, terá de autenticar o utilizador. Pode evitar a expiração do token, fazendo uma `GET` chamar para o `/.auth/refresh` ponto final do seu aplicativo. Quando chamado, o serviço de aplicações atualiza automaticamente os tokens de acesso no arquivo de tokens para o usuário autenticado. Pedidos subsequentes para tokens pelo seu código de aplicação obtém os tokens de atualização. No entanto, para a atualização de token funcionar, o arquivo de tokens tem de conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização estão documentados pelo cada fornecedor, mas a lista seguinte é um breve resumo:
+Quando o token de acesso do seu fornecedor (não o [token de sessão](#extend-session-token-expiration-grace-period)) expirar, terá de autenticar o utilizador antes de utilizar esse token novamente. Pode evitar a expiração do token, fazendo uma `GET` chamar para o `/.auth/refresh` ponto final do seu aplicativo. Quando chamado, o serviço de aplicações atualiza automaticamente os tokens de acesso no arquivo de tokens para o usuário autenticado. Pedidos subsequentes para tokens pelo seu código de aplicação obtém os tokens de atualização. No entanto, para a atualização de token funcionar, o arquivo de tokens tem de conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização estão documentados pelo cada fornecedor, mas a lista seguinte é um breve resumo:
 
 - **Google**: Acrescentar um `access_type=offline` consultar o parâmetro de cadeia de caracteres para seu `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um da `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Não fornece tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração do Facebook e extensão de Tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Tokens de acesso não expiram (consulte [FAQ de OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
 - **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](configure-authentication-provider-microsoft.md), selecione o `wl.offline_access` âmbito.
-- **O Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
+- **Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
     1. Na parte superior da página, selecione **leitura/escrita**.
     2. No navegador à esquerda, navegue até **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **provedores** > **Microsoft. Web** > **sites** > _**\<aplicação \_name >**_ > **config** > **authsettings**. 
     3. Clique em **Editar**.
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 Se um utilizador revoga as permissões concedidas à sua aplicação, a chamada para `/.auth/me` poderá falhar com um `403 Forbidden` resposta. Para diagnosticar erros, verifique os registos da aplicação para obter detalhes.
 
-## <a name="extend-session-expiration-grace-period"></a>Estender o período de tolerância de expiração de sessão
+## <a name="extend-session-token-expiration-grace-period"></a>Estender o período de tolerância de expiração do token de sessão
 
-Depois de uma sessão autenticada expira, existe um período de tolerância de 72 horas por predefinição. Durante este período de tolerância, tem permissão para atualizar o cookie de sessão ou o token de sessão com o serviço de aplicações sem reautenticar o utilizador. Pode simplesmente chamar `/.auth/refresh` quando o cookie de sessão ou o token de sessão se torna inválido e não precisa de controlar a expiração do token por conta própria. Após o período de tolerância de 72 horas encerraram, o utilizador deve iniciar sessão novamente para obter um token de sessão ou o cookie de sessão válido.
+Sessão autenticada expira após oito horas. Depois de uma sessão autenticada expira, existe um período de tolerância de 72 horas por predefinição. Durante este período de tolerância, tem permissão para atualizar o token de sessão com o serviço de aplicações sem reautenticar o utilizador. Pode simplesmente chamar `/.auth/refresh` quando o token de sessão se torna inválido e não precisa de controlar a expiração do token por conta própria. Assim que o período de tolerância de 72 horas encerraram, o utilizador deve iniciar sessão novamente para obter o token de uma sessão válida.
 
 Se 72 horas não estiver tempo suficiente para, pode estender esta janela de expiração. Estendendo a expiração durante um longo período pode ter implicações de segurança significativos (por exemplo, quando um token de autenticação for perdido ou roubado). Por isso, deve deixá-lo com a predefinição 72 horas ou definir o período de extensão para o valor mais baixo.
 

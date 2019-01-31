@@ -2,27 +2,27 @@
 title: Proteger uma base de dados no SQL Data Warehouse | Documentos da Microsoft
 description: Sugestões para proteger uma base de dados no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8abb40b0c1a5b9cd3f8d1e23124090c00e8cfadb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302544"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472189"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Descrição geral da segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
 > * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Avalie titleSuffix de desempenho do modelo: Descrição do Azure Machine Learning Studio: Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio e fornece uma breve explicação sobre as métricas disponíveis para esta tarefa.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Avalie titleSuffix de desempenho do modelo: Descrição do Azure Machine Learning Studio: Este artigo demonstra como avaliar o desempenho de um modelo no Azure Machine Learning Studio e fornece uma breve explicação sobre as métricas disponíveis para esta tarefa.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

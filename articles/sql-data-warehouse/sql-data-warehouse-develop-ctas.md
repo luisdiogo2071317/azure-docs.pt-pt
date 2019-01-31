@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: dad0b1570f54cde1b1d474d8ebfc78f793724ef4
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 6b66b6018ed5f6f427896db00b5348983b76a0e5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247758"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472155"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Usando CREATE TABLE AS SELECT (CTAS) no armazém de dados SQL do Azure
 Dicas para codificar com a instrução CREATE TABLE AS SELECT (CTAS). o T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
@@ -24,7 +24,7 @@ Dicas para codificar com a instrução CREATE TABLE AS SELECT (CTAS). o T-SQL no
 
 O [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou instrução CTAS é um dos recursos mais importantes de T-SQL disponíveis. É uma operação simultânea que cria uma nova tabela com base no resultado de uma instrução SELECT. CTASD é a forma mais simples e mais rápida para criar uma cópia de uma tabela. 
 
-## <a name="selectinto-vs-ctas"></a>SELECIONE.... NO vs. CTAS
+## <a name="selectinto-vs-ctas"></a>SELECT..INTO vs. CTAS
 Pode considerar CTAS como uma versão extremamente cobrada do [SELECIONE... EM](/sql/t-sql/queries/select-into-clause-transact-sql) instrução.
 
 Segue-se um exemplo de um simple SELECT.... PARA:
@@ -276,11 +276,11 @@ WHERE NOT EXISTS
 ;
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 
 ```
 
-## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>Recomendação de CTAS: declare explicitamente o tipo de dados e de nulidade da saída
+## <a name="ctas-recommendation-explicitly-state-data-type-and-nullability-of-output"></a>Recomendação de CTAS: Declare explicitamente o tipo de dados e de nulidade da saída
 Ao migrar o código poderá considerar que encontrar este tipo de padrão de codificação:
 
 ```sql

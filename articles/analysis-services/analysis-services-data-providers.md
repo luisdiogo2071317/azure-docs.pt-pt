@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7be89a2c02769d09f93e8d5d1545cf814c86bba
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c67b9185f38137113b34c8f3a74ae199e50091f1
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296329"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para ligar ao Azure Analysis Services
 
@@ -55,7 +55,7 @@ Bibliotecas de cliente para ligações de cliente são diferentes de fornecedore
   
  OLE DB fornecedor do Analysis Services é instalado automaticamente pela maioria das ferramentas e aplicativos cliente usados para acessar bancos de dados do Analysis Services. Tem de ser instalado em computadores utilizados para aceder a dados do Analysis Services.  
   
- Fornecedores de OLE DB, muitas vezes, são especificados em cadeias de ligação. Uma cadeia de ligação do Analysis Services utiliza uma nomenclatura diferente para consultar o fornecedor de OLE DB: MSOLAP. \<versão >. dll.
+ Fornecedores de OLE DB, muitas vezes, são especificados em cadeias de ligação. Uma cadeia de ligação do Analysis Services utiliza uma nomenclatura diferente para consultar o fornecedor de OLE DB: MSOLAP.\<version>.dll.
 
 ### <a name="amo"></a>AMO  
 

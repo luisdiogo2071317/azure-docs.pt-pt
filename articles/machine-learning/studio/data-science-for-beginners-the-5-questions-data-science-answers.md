@@ -1,6 +1,6 @@
 ---
 title: Ciência de dados para principiantes titleSuffix: Descrição do Azure Machine Learning Studio: Ciência de dados para principiantes é ensina conceitos básicos em 5 vídeos curtos, começando com a respostas de ciência de dados a perguntas de 5. Partir do Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

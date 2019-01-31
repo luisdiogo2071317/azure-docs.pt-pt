@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259431"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466188"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
 
@@ -69,7 +69,7 @@ Assim que a ligação é estabelecida, o cliente começa a transmissão em fluxo
 
 Entrada de áudio está no formato de ficheiro de áudio de forma de onda (WAVE, ou mais comumente conhecido como WAV devido a sua extensão de nome de ficheiro). O aplicativo cliente deve transmitir em fluxo canal único, o áudio do PCM assinado de 16 bits como amostrado em 16 kHz. O primeiro conjunto de bytes transmitidos pelo cliente incluirá o cabeçalho WAV. Um cabeçalho de 44 bytes para um canal único com sessão iniciada stream PCM 16 bits, como amostra em 16 kHz é:
 
-|Desvio|Valor|
+|Desvio|Value|
 |:---|:---|
 |0 - 3|"RIFF"|
 |4 - 7|0|
@@ -82,7 +82,7 @@ Entrada de áudio está no formato de ficheiro de áudio de forma de onda (WAVE,
 |28 - 31|32000|
 |32 - 33|2|
 |34 - 35|16|
-|36 - 39|"dados"|
+|36 - 39|"data"|
 |40 - 43|0|
 
 Tenha em atenção que o tamanho total do ficheiro (bytes 4-7) e o tamanho de "dados" (bytes 40-43) estão definidos como zero. Isso está OK para o cenário de transmissão em fluxo em que o tamanho total não é necessariamente conhecido inicialmente.
@@ -165,7 +165,7 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:---|:---|:---|:---|:---|
 |versão de API|1.0|Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|consulta   |cadeia|
 |de|(vazio)   |Especifica o idioma de conversão de voz recebida. O valor é um dos identificadores de idiomas do `speech` âmbito na resposta da API de idiomas.|consulta|cadeia|
@@ -178,11 +178,11 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 |Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Utilize o prefixo `Bearer` seguido o valor da `access_token` valor devolvido pelo serviço de token de autenticação.|cabeçalho   |cadeia|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `Authorization` cabeçalho não for especificado.|cabeçalho|cadeia|
 |access_token|(vazio)   |Forma alternativa de passar um token de acesso OAuth válido. O token de portador, normalmente, é fornecido com o cabeçalho `Authorization`. Algumas bibliotecas de websocket não permitem que o código de cliente definir cabeçalhos. Nesse caso, o cliente pode utilizar o `access_token` parâmetro para passar um token válido de consulta. Ao utilizar um token de acesso para se autenticar, se `Authorization` cabeçalho não for definido, em seguida, `access_token` tem de ser definido. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado. Os clientes só devem utilizar um método para transmitir o token.|consulta|cadeia|
-|chave de subscrição|(vazio)   |Forma alternativa para passar a chave de subscrição. Algumas bibliotecas de websocket não permitem que o código de cliente definir cabeçalhos. Nesse caso, o cliente pode utilizar o `subscription-key` consultar o parâmetro para transmitir uma chave de subscrição válido. Ao utilizar uma chave de subscrição para autenticar, se `Ocp-Apim-Subscription-Key` cabeçalho não for definido, tem de definir a chave de subscrição. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado. Os clientes só devem utilizar um método para passar o `subscription key`.|consulta|cadeia|
-|X ClientTraceId    |(vazio)    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para adequada resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-ClientTraceId`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
-|X CorrelationId|(vazio)    |Um identificador gerados pelo cliente utilizado para correlacionar vários canais numa conversa. Várias sessões de tradução de voz podem ser criados para permitir que as conversações entre os utilizadores. Em tal cenário, todas as sessões de tradução de voz, utilize o mesmo ID de correlação para associar os canais em conjunto. Isso facilita o diagnóstico e de rastreio. O identificador deve estar em conformidade com: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-CorrelationId`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
-|X ClientVersion|(vazio)    |Identifica a versão da aplicação cliente. Exemplo: "2.1.0.123".<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-ClientVersion`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
-|X OsPlatform|(vazio)   |Identifica o nome e versão do sistema operativo, que o aplicativo cliente está em execução no. Exemplos: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-OsPlatform`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
+|subscription-key|(vazio)   |Forma alternativa para passar a chave de subscrição. Algumas bibliotecas de websocket não permitem que o código de cliente definir cabeçalhos. Nesse caso, o cliente pode utilizar o `subscription-key` consultar o parâmetro para transmitir uma chave de subscrição válido. Ao utilizar uma chave de subscrição para autenticar, se `Ocp-Apim-Subscription-Key` cabeçalho não for definido, tem de definir a chave de subscrição. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado. Os clientes só devem utilizar um método para passar o `subscription key`.|consulta|cadeia|
+|X-ClientTraceId    |(vazio)    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para adequada resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-ClientTraceId`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
+|X-CorrelationId|(vazio)    |Um identificador gerados pelo cliente utilizado para correlacionar vários canais numa conversa. Várias sessões de tradução de voz podem ser criados para permitir que as conversações entre os utilizadores. Em tal cenário, todas as sessões de tradução de voz, utilize o mesmo ID de correlação para associar os canais em conjunto. Isso facilita o diagnóstico e de rastreio. O identificador deve estar em conformidade com: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-CorrelationId`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
+|X-ClientVersion|(vazio)    |Identifica a versão da aplicação cliente. Exemplo: "2.1.0.123".<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-ClientVersion`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
+|X-OsPlatform|(vazio)   |Identifica o nome e versão do sistema operativo, que o aplicativo cliente está em execução no. Exemplos: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Em vez de usar um cabeçalho, este valor pode ser passado com o parâmetro de consulta `X-OsPlatform`. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado.|cabeçalho|cadeia|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 

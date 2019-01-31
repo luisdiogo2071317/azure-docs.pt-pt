@@ -2,20 +2,20 @@
 title: Ligar ao Azure SQL Data Warehouse | Microsoft Docs
 description: Conecte-se ao Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b2d8cec03c54ebd5bd780a2524da61d718a9673
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 85bce59563cf0424816661c97406060bcbb423ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247863"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460459"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
 Conecte-se ao Azure SQL Data Warehouse.
@@ -61,7 +61,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Definições de ligação
 O SQL Data Warehouse uniformiza algumas definições durante a ligação e a criação do objeto. Estas definições não podem ser substituídas e incluem:
 
-| Definição de base de dados | Valor |
+| Definição de base de dados | Value |
 |:--- |:--- |
 | [ANSI_NULLS][ANSI_NULLS] |ON |
 | [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |

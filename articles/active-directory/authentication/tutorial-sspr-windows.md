@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 9375b042885459ab88b7c1f2a76a471da55ff5c8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209541"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474875"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -32,7 +32,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
    * [Azure AD associado](../device-management-azure-portal.md) ou
    * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
-* Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnet.cdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
+* Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 

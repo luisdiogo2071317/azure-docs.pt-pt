@@ -12,22 +12,24 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/31/2018
-ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/25/2019
+ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317462"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464743"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
 
 Este artigo apresenta uma lista de códigos de erro SQL para aplicações de cliente de base de dados SQL, incluindo erros de ligação de base de dados, os erros transitórios (também chamados de falhas transitórias), erros de governação de recursos, problemas de cópia do banco de dados, conjunto elástico e outros erros. A maioria das categorias são específicas para a base de dados do Azure SQL e não se aplicam ao Microsoft SQL Server. Consulte também [mensagens de erro do sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erros de ligação de base de dados, de erros transitórios e de outros erros temporários
+
 A tabela seguinte abrange os códigos de erro SQL para erros de perda de ligação e outros erros transitórios que poderão surgir quando a aplicação tenta aceder a base de dados SQL. Para obter tutoriais de introdução sobre como ligar à base de dados do Azure SQL, consulte [ligar à base de dados do Azure SQL](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erros de ligação de base de dados mais comuns e erros de falhas transitórias
+
 A infraestrutura do Azure tem a capacidade de reconfigurar os servidores dinamicamente quando surgem de cargas de trabalho pesadas no serviço de base de dados SQL.  Este comportamento dinâmico pode fazer com que o seu programa cliente perca a ligação à base de dados SQL. Esse tipo de condição de erro é chamado um *falhas transitórias*.
 
 É altamente recomendável que o seu programa cliente tem a lógica de repetição para que ele foi possível restabelecer uma ligação depois de fornecer o tempo de falhas transitórias para corrigir-se.  Recomendamos que atraso por 5 segundos antes de sua primeira repetição. Repetir após um atraso menor do que os riscos de 5 segundos sobrecarregar o serviço em nuvem. Para cada repetição posterior, o atraso deve aumentar exponencialmente, até um máximo de 60 segundos.
@@ -35,7 +37,7 @@ A infraestrutura do Azure tem a capacidade de reconfigurar os servidores dinamic
 Erros de falhas transitórias normalmente manifestam como uma das seguintes mensagens de erro de seus programas do cliente:
 
 * Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;
-* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, erro: 40613)
+* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Uma ligação existente foi forçado a fechar pelo anfitrião remoto.
 * System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Veja a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro de nível de transporte ao receber os resultados do servidor. (fornecedor: Fornecedor de sessão, erro: 19 - ligação física não é utilizável)
 * Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo de reconfiguração, é ocupado aplicar novas páginas no meio de uma transação ativa na base de dados primária. 
@@ -48,6 +50,7 @@ Para obter exemplos de código da lógica de repetição, consulte:
 Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível no [SQL Server ligação agrupamento (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Códigos de erro de falhas transitórias
+
 Os seguintes erros estão transitórios e devem ser repetidos na lógica do aplicativo: 
 
 | Código de erro | Gravidade | Descrição |
@@ -62,6 +65,7 @@ Os seguintes erros estão transitórios e devem ser repetidos na lógica do apli
 | 4221 |16 |Início de sessão para a leitura secundária falhou devido a longa espera em "HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING". A réplica não está disponível para início de sessão porque as versões de linha estão em falta para transações que estavam a decorrer quando a réplica foi reciclada. O problema pode ser resolvido pelo reverta ou consolide as transações ativas na réplica primária. Ocorrências desta condição podem ser minimizadas, evitando transações de escrita prolongada na primária. |
 
 ## <a name="database-copy-errors"></a>Erros de cópia da base de dados
+
 Podem ser encontrados os seguintes erros ao copiar uma base de dados na base de dados do Azure SQL. Para mais informações, consulte [Copiar uma Base de Dados SQL do Azure](sql-database-copy.md).
 
 | Código de erro | Gravidade | Descrição |
@@ -81,6 +85,7 @@ Podem ser encontrados os seguintes erros ao copiar uma base de dados na base de 
 | 40571 |16 |Falha na cópia do banco de dados devido a um erro interno. Remova a base de dados de destino e tente novamente mais tarde. |
 
 ## <a name="resource-governance-errors"></a>Erros de governação de recursos
+
 Os seguintes erros são causados por uso excessivo de recursos durante o trabalho com a base de dados do Azure SQL. Por exemplo:
 
 * Uma transação foi aberta durante demasiado tempo.
@@ -94,8 +99,8 @@ Tópicos relacionados:
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para autónomo e bases de dados agrupadas](sql-database-resource-limits-database-server.md).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter mais informações, consulte [limites de recursos de base de dados SQL para autónomo e bases de dados agrupadas](sql-database-resource-limits-database-server.md). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. |
 | 40549 |16 |A sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi terminada porque obteve muito muitos bloqueios. Tente ler ou modificar algumas linhas numa única transação. |
@@ -104,15 +109,16 @@ Tópicos relacionados:
 | 40553 |16 |A sessão foi terminada devido a utilização de memória excessiva. Tente modificar a consulta para processar menos linhas.<br/><br/>Reduzindo o número de `ORDER BY` e `GROUP BY` operações no seu código Transact-SQL reduz os requisitos de memória da sua consulta. |
 
 ## <a name="elastic-pool-errors"></a>Erros de conjunto elástico
+
 Para criar e utilizar os conjuntos elásticos relacionados com os seguintes erros:
 
 | Código de erro | Gravidade | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |O conjunto elástico atingiu o limite de armazenamento. A utilização do armazenamento para o conjunto elástico não pode exceder (%d) MBs. A tentar gravar dados num banco de dados quando for atingido o limite de armazenamento do conjunto elástico. |Considere aumentar as DTUs de e/ou adicionar armazenamento para o conjunto elástico se possível para aumentar o limite de armazenamento, reduzir o armazenamento utilizado pelas bases de dados individuais dentro do conjunto elástico ou remover bases de dados do conjunto elástico. |
-| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
+| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [limites de recursos de base de dados SQL para bases de dados únicos e em pool](sql-database-resource-limits-database-server.md) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
 | 40844 | 16 |Base de dados "%ls" no servidor "%ls" é uma base de dados de edição de "%ls" num conjunto elástico e não pode ter uma relação de cópia contínua.  |N/A |
 | 40857 | 16 |Conjunto elástico não encontrado para o servidor: '%ls', nome do conjunto elástico: "%ls". Conjunto elástico especificado não existe no servidor especificado. | Forneça um nome de conjunto elástico válido. |
-| 40858 | 16 |Conjunto elástico "%ls" já existe no servidor: "%ls". Conjunto elástico especificado já existe no servidor lógico especificado. | Forneça o nome do novo conjunto elástico. |
+| 40858 | 16 |Conjunto elástico "%ls" já existe no servidor: "%ls". Conjunto elástico especificado já existe no servidor de base de dados SQL especificado. | Forneça o nome do novo conjunto elástico. |
 | 40859 | 16 |Conjunto elástico não suporta a camada de serviço "%ls". Escalão de serviço especificado não é suportado para o aprovisionamento do conjunto elástico. |Forneça a edição correta ou deixe o escalão de serviço em branco para usar a camada de serviço predefinida. |
 | 40860 | 16 |Combinação de conjunto elástico "%ls" e o serviço de objetivo "%ls" é inválida. Elástico escalão do conjunto e o serviço pode ser especificado em conjunto, apenas se o tipo de recurso é especificado como 'ElasticPool'. |Especifica a correta combinação de conjunto elástico e o escalão de serviço. |
 | 40861 | 16 |A edição de base de dados ' %. *ls não podem ser diferentes do que o escalão de serviço do conjunto elástico que é ' %.* dos ls. A edição de base de dados é diferente do que o escalão de serviço do conjunto elástico. |Não especifica uma edição de base de dados que é diferente do que o escalão de serviço do conjunto elástico.  Tenha em atenção que a edição de base de dados não precisa de ser especificado. |
@@ -137,6 +143,7 @@ Tópicos relacionados:
 * [Monitorizar e gerir um conjunto elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## <a name="general-errors"></a>Erros gerais
+
 Os seguintes erros se encontra em qualquer categorias anteriores.
 
 | Código de erro | Gravidade | Descrição |
@@ -204,10 +211,11 @@ Os seguintes erros se encontra em qualquer categorias anteriores.
 | 40671 |17 |Falha na comunicação entre o gateway e o serviço de gestão. Tente novamente mais tarde. |
 | 40852 |16 |Não é possível abrir a base de dados ' %. \*dos ls no servidor "%. \*ls solicitada pelo início de sessão. Acesso à base de dados só é permitido através de uma cadeia de ligação com segurança ativada. Para aceder a esta base de dados, modifique as cadeias de ligação para conter "seguro" no servidor FQDN - "name server".database.windows .net deve ser modificado para .database "name server". `secure`. windows.net. |
 | 40914 | 16 | Não é possível abrir o servidor de '*[nome do servidor]*"pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.<br /><br />Para corrigir o problema, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |O sistema do SQL Azure está sob carga e é colocar um limite superior em operações CRUD de DB simultâneas para um único servidor (por exemplo, criar base de dados). O servidor especificado na mensagem de erro foi excedido o número máximo de ligações simultâneas. Tente novamente mais tarde. |
+| 45168 |16 |O sistema do SQL Azure está sob carga e é colocar um limite superior em operações CRUD de DB simultâneas para um único servidor de base de dados SQL (por exemplo, criar base de dados). O servidor especificado na mensagem de erro foi excedido o número máximo de ligações simultâneas. Tente novamente mais tarde. |
 | 45169 |16 |O sistema SQL do azure está sob carga e é colocar um limite superior no número de operações de CRUD do servidor em simultâneo para uma única subscrição (por exemplo, criar servidor). A subscrição especificada na mensagem de erro foi excedido o número máximo de ligações simultâneas e o pedido foi negado. Tente novamente mais tarde. |
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Leia sobre [funcionalidades de base de dados do Azure SQL](sql-database-features.md).
 * Leia sobre [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md).
 * Leia sobre [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).

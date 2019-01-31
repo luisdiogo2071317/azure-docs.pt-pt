@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102350"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475198"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Referência de linguagem do Azure Cosmos DB SQL 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
 Azure Cosmos DB suporta consultas de documentos através de uma consulta de SQL (Structured Query Language), como gramática através de documentos JSON hierárquicos sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe de linguagem de consulta SQL, que é compatível com contas da API de SQL. Para obter instruções de consultas SQL de exemplo, consulte [consultas SQL no Cosmos DB](how-to-sql-query.md).  
   

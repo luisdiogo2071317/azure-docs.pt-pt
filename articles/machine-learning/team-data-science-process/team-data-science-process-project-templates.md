@@ -6,17 +6,17 @@ manager: cgronlun
 editor: cgronlun
 services: machine-learning
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137916"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474467"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento do projeto do processo de ciência de dados de equipa
 
@@ -35,7 +35,7 @@ Para obter descrições de cada um desses estágios, veja [ciclo de vida do proc
  
 ## <a name="microsoft-project-template"></a>Modelo do Microsoft Project
 
-O modelo do Microsoft Project para o processo de ciência de dados de equipa que está disponível a partir daqui: [modelo do Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+O modelo do Microsoft Project para o processo de ciência de dados de equipa está disponível a partir daqui: [Modelo do Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
 Quando abre o plano, clique na ligação mais à esquerda para o TDSP. Alterar o nome e descrição e, em seguida, adicionar outros recursos de equipe que precisa. Estime as datas necessárias da sua experiência.
 
@@ -48,7 +48,7 @@ Cada tarefa tem uma nota. Abra essas tarefas para ver quais os recursos que já 
 
 ## <a name="excel-template"></a>Modelo do Excel
 
-Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos dados também está disponível para download aqui: [modelo do Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) pode extrai-lo para ferramentas de que preferir usar.
+Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos dados também está disponível para download aqui: [Modelo do Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) pode extrai-lo para ferramentas de que preferir usar.
 
 Utilize estes modelos em seu próprio risco. O [avisos de isenção habituais](https://www.gnu.org/licenses/gpl-3.0.en.html) aplicam-se.
 

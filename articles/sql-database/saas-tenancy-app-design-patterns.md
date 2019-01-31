@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227491"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471203"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de bases de dados de SaaS de multi-inquilino
 
@@ -33,8 +33,8 @@ Ao pagar aluguel, cada inquilino recebe acesso para os componentes da aplicaçã
 
 O termo *modelo de inquilinos* refere-se para como os dados armazenados dos inquilinos são organizados:
 
-- *Single-inquilinos:* &nbsp; cada base de dados armazena dados de apenas um inquilino.
-- *Vários inquilinos:* &nbsp; cada base de dados armazena dados a partir de vários inquilinos separados (com mecanismos para proteger a privacidade de dados).
+- *Single-inquilinos:*&nbsp; Cada base de dados armazena os dados de apenas um inquilino.
+- *Vários inquilinos:*&nbsp; Cada base de dados armazena os dados a partir de vários inquilinos separados (com mecanismos para proteger a privacidade de dados).
 - Modelos de inquilinos híbridos também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo de inquilinos adequados
@@ -47,9 +47,9 @@ Em geral, o modelo de inquilinos não afeta a função de um aplicativo, mas é 
     - Armazenamento em forma agregada.
     - Carga de trabalho.
 
-- **Isolamento de inquilino:** &nbsp; isolamento e de desempenho (se a carga de trabalho de um inquilino afeta outras pessoas).
+- **Isolamento de inquilino:**&nbsp; Isolamento de dados e o desempenho (se a carga de trabalho de um inquilino afeta outras pessoas).
 
-- **Custo por inquilino:** &nbsp; os custos de base de dados.
+- **Custo por inquilino:**&nbsp; Custos da base de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações ao esquema.
@@ -61,7 +61,7 @@ Em geral, o modelo de inquilinos não afeta a função de um aplicativo, mas é 
     - Restaurar um inquilino.
     - Recuperação após desastre.
 
-- **Capacidade de personalização:** &nbsp; facilidade de oferecer suporte a personalizações de esquema que são específicas do inquilino ou classe específico de inquilino.
+- **Capacidade de personalização:**&nbsp; Facilidade de oferecer suporte a personalizações de esquema que são específicas do inquilino ou inquilinos específicos da classe.
 
 A discussão de inquilinos enfoca a *dados* camada.  Mas considere por um momento a *aplicativo* camada.  A camada de aplicativo é tratada como uma entidade monolítica.  Se dividir o aplicativo em muitos componentes pequenos, à sua escolha do modelo de inquilinos podem ser alteradas.  Pode tratar alguns componentes diferente das outras pessoas em relação aos inquilinos e a tecnologia de armazenamento ou plataforma utilizada.
 
@@ -95,7 +95,7 @@ Com a base de dados por inquilino, é simples conseguir personalizar o esquema p
 
 #### <a name="elastic-pools"></a>Conjuntos elásticos
 
-Quando as bases de dados são implementadas no mesmo grupo de recursos, eles podem ser agrupados em conjuntos de bases de dados elásticas.  Os conjuntos oferecem uma maneira econômica de compartilhar recursos entre muitas bases de dados.  Esta opção de agrupamento é mais barata do que a necessidade de cada base de dados para ser suficientemente grande para acomodar os picos de utilização que experienciar.  Apesar de bases de dados agrupadas partilham o acesso aos recursos eles ainda podem alcançar um alto grau de isolamento do desempenho.
+Quando as bases de dados são implementadas no mesmo grupo de recursos, eles podem ser agrupados em conjuntos elásticos.  Os conjuntos oferecem uma maneira econômica de compartilhar recursos entre muitas bases de dados.  Esta opção de agrupamento é mais barata do que a necessidade de cada base de dados para ser suficientemente grande para acomodar os picos de utilização que experienciar.  Apesar de bases de dados agrupadas partilham o acesso aos recursos eles ainda podem alcançar um alto grau de isolamento do desempenho.
 
 ![Design da aplicação multi-inquilino com a base de dados por inquilino, utilizando o conjunto elástico.][image-mt-app-db-per-tenant-pool-153p]
 
@@ -126,9 +126,9 @@ Outro padrão disponível é armazenar muitos inquilinos numa base de dados do m
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Isolamento de inquilino é sacrificado
 
-*Dados:* &nbsp; uma base de dados do multi-inquilino necessariamente sacrificará o isolamento de inquilino.  Os dados de vários inquilinos são armazenados em conjunto numa base de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca expõem os dados de mais do que um inquilino.  Base de dados SQL suporta [segurança de nível de linha][docu-sql-svr-db-row-level-security-947w], que pode impor que os dados devolvidos por uma consulta ser confinada para um único inquilino.
+*Dados:*&nbsp; Uma base de dados do multi-inquilino necessariamente sacrificará o isolamento de inquilino.  Os dados de vários inquilinos são armazenados em conjunto numa base de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca expõem os dados de mais do que um inquilino.  Base de dados SQL suporta [segurança de nível de linha][docu-sql-svr-db-row-level-security-947w], que pode impor que os dados devolvidos por uma consulta ser confinada para um único inquilino.
 
-*Processamento:* &nbsp; uma base de dados do multi-inquilino partilha os recursos de computação e armazenamento em todos os seus inquilinos.  A base de dados como um todo pode ser monitorado para garantir que está a funcionar de forma aceitável.  No entanto, o sistema do Azure tem uma maneira interna para monitorar ou gerenciar o uso desses recursos por um inquilino individual.  Por conseguinte, a base de dados do multi-inquilino acarreta um risco maior de encontrar vizinhos ruidosos, em que a carga de trabalho de um inquilino overactive tem impacto sobre a experiência de desempenho de outros inquilinos na mesma base de dados.  Monitorização de nível de aplicativo adicional pode monitorizar o desempenho de nível de inquilino.
+*Processamento:*&nbsp; Uma base de dados do multi-inquilino partilha os recursos de computação e armazenamento em todos os seus inquilinos.  A base de dados como um todo pode ser monitorado para garantir que está a funcionar de forma aceitável.  No entanto, o sistema do Azure tem uma maneira interna para monitorar ou gerenciar o uso desses recursos por um inquilino individual.  Por conseguinte, a base de dados do multi-inquilino acarreta um risco maior de encontrar vizinhos ruidosos, em que a carga de trabalho de um inquilino overactive tem impacto sobre a experiência de desempenho de outros inquilinos na mesma base de dados.  Monitorização de nível de aplicativo adicional pode monitorizar o desempenho de nível de inquilino.
 
 #### <a name="lower-cost"></a>Custo mais baixo
 

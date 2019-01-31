@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: a3bf6557bce10eddabaa52cc4a997ed661a8fc31
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 12327f60fd8e8fca391200839be1b52f35af3167
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459405"
 ---
-# <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso a dados do Azure Cosmos DB
+# <a name="secure-access-to-data-in-azure-cosmos-db"></a>Acesso seguro a dados no Azure Cosmos DB
+
 Este artigo fornece uma descrição geral da proteção de acesso a dados armazenados no [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 O Azure Cosmos DB utiliza dois tipos de chaves para autenticar os utilizadores e fornecer acesso aos seus dados e recursos. 

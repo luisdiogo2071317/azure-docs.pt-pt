@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139644"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465270"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tarefas para a equipe de liderar em à equipa de processo de ciência de dados de equipa
 
@@ -45,10 +45,10 @@ Depois de vários pré-requisitos a tarefas especificadas numa seção seguinte 
 
 Este tópico utiliza nomes abreviados para repositórios e diretórios. Esses nomes tornam mais fáceis de compreender as operações entre os repositórios e diretórios. Este notação (**R** repositórios do Git e **1!d** para diretórios locais na sua DSVM) é usado nas seções a seguir:
 
-- **R1**: A **GroupProjectTemplate** repositório de Git que o seu Gestor de Grupo configurar no seu servidor de grupo do Azure DevOps.
+- **R1**: O **GroupProjectTemplate** repositório de Git que o seu Gestor de Grupo configurar no seu servidor de grupo do Azure DevOps.
 - **R3**: A equipe **ProjectTemplate** repositório de Git que configurou.
-- **R4**: A **TeamUtilities** repositório de Git que configurou.
-- **D1**: O diretório de local clonar a partir R1 e copiados para D3.
+- **R4**: O **TeamUtilities** repositório de Git que configurou.
+- **D1**: O diretório de local clonar a partir R1 e copiado para D3.
 - **D3**: O diretório de local clonar a partir R3, personalizar e copiados de volta para R3.
 - **D4**: O diretório de local clonar a partir R4, personalizar e copiados de volta para R4.
 
@@ -140,9 +140,9 @@ O procedimento de propagação utiliza os diretórios na sua DSVM local como sit
 
 - Repositório de grupo do clone para diretório local: R1 - clonado a -> local D1 da Equipe
 - Clone os repositórios de equipe para diretórios locais: R3 & R4 - clonado a -> local D3 & D4 da Equipe
-- Copie o conteúdo de modelo de projeto de grupo para a pasta de equipe local: D1 - conteúdo copiado a -> D3
+- Copie o conteúdo de modelo de projeto de grupo para a pasta de equipe local:  D1 - conteúdo copiado a -> D3
 - (Opcional) personalização do local D3 & D4
-- Enviar conteúdo de diretório local para repositórios de equipe: D3 & D4 - conteúdo Adicionar -> R3 & R4 da Equipe
+- Envie conteúdo de diretório local para repositórios de equipe: D3 & D4 - conteúdo Adicionar -> R3 & R4 da Equipe
 
 
 ### <a name="initialize-the-team-repositories"></a>Inicializar os repositórios de equipa
@@ -355,7 +355,7 @@ Certifique-se que uma nova unidade F foi montada com êxito para o seu computado
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Como introduzir manualmente as informações de armazenamento de ficheiros do Azure:** se não tiver as informações de armazenamento de ficheiros do Azure num arquivo de texto, pode seguir as instruções no ecrã seguinte, digite o subscrição obrigatório, a conta de armazenamento e o Azure informações de armazenamento de ficheiros:
+**Como introduzir manualmente as informações de armazenamento de ficheiros do Azure:** Se não tiver as informações de armazenamento de ficheiros do Azure num arquivo de texto, pode seguir as instruções no ecrã seguinte para o tipo na subscrição obrigatório, conta de armazenamento e informações de armazenamento de ficheiros do Azure:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Certifique-se que uma nova unidade F foi montada com êxito para o seu computado
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Como introduzir manualmente as informações de armazenamento de ficheiros do Azure:** se não tiver as informações de armazenamento de ficheiros do Azure num arquivo de texto, pode seguir as instruções no ecrã seguinte, digite o subscrição obrigatório, a conta de armazenamento e o Azure informações de armazenamento de ficheiros:
+**Como introduzir manualmente as informações de armazenamento de ficheiros do Azure:** Se não tiver as informações de armazenamento de ficheiros do Azure num arquivo de texto, pode seguir as instruções no ecrã seguinte para o tipo na subscrição obrigatório, conta de armazenamento e informações de armazenamento de ficheiros do Azure:
 
 - Entrada **n**.
 - Selecione o índice do nome da subscrição em que o armazenamento de ficheiros do Azure foi criado no passo anterior:

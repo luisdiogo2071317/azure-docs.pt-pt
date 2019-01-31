@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541626"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463961"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Base de dados SQL perguntas mais frequentes (FAQ)
 
@@ -35,7 +35,7 @@ Não. O impacto da aplicação de patches em geral, não é perceptível se [emp
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>O que é o novo vCore com base no modelo de compra para a base de dados do Azure SQL
 
-O novo modelo de compra é um acréscimo ao modelo existente baseado na DTU. O modelo baseado em vCore desenvolvido para fornecer flexibilidade aos clientes, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Ela também permite aos clientes dimensionar os seus recursos de computação e armazenamento com base nas suas necessidades de carga de trabalho. Base de dados e opções do conjunto elástico com o modelo de vCore também são elegíveis para a economia de 30 por cento com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Ver [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter mais informações.
+O novo modelo de compra é um acréscimo ao modelo existente baseado na DTU. O modelo baseado em vCore desenvolvido para fornecer flexibilidade aos clientes, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Ela também permite aos clientes dimensionar os seus recursos de computação e armazenamento com base em suas necessidades de carga de trabalho. Base de dados e opções do conjunto elástico com o modelo de vCore também são elegíveis para a economia de 30 por cento com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Ver [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter mais informações.
 
 ## <a name="what-is-a-vcore"></a>O que é um vCore
 
@@ -141,9 +141,9 @@ Sempre que quiser. Ver [gerir conjuntos elásticos](sql-database-elastic-pool.md
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo demora alterar o escalão de serviço ou a calcular o tamanho de uma base de dados ou a mover uma base de dados dentro e fora de um conjunto elástico
 
-Alterar o escalão de serviço de uma base de dados e saem de um agrupamento requerem a base de dados ser copiados na plataforma como uma operação em segundo plano. A alteração da camada de serviço pode demorar entre alguns minutos ou diversas horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, as bases de dados permanecem online e disponíveis durante a mudança. Para obter detalhes sobre como alterar as bases de dados individuais, consulte [alterar o escalão de serviço das bases de dados](sql-database-service-tiers-dtu.md).
+Alterar o escalão de serviço de uma base de dados e saem de um agrupamento requerem a base de dados ser copiados na plataforma como uma operação em segundo plano. A alteração da camada de serviço pode demorar entre alguns minutos ou diversas horas, dependendo do tamanho dos bancos de dados. Em ambos os casos, as bases de dados permanecem online e disponíveis durante a mudança. Para obter detalhes sobre como alterar as bases de dados individuais, consulte [alterar o escalão de serviço das bases de dados](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando devo utilizar uma base de dados individual versus bases de dados elásticas
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>Quando devo utilizar uma base de dados vs. conjuntos elásticos
 
 Em geral, os conjuntos elásticos foram concebidos para típica [padrão da aplicação software-como-serviço (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md), onde existe uma base de dados por inquilino ou cliente. Comprar bases de dados individuais e sobreaprovisionar para satisfazer os picos de procura para cada base de dados é, muitas vezes, não rentável. Com os conjuntos, gerir o desempenho coletivo do conjunto e as bases de dados aumente e diminua automaticamente. Motor de inteligente do Azure recomenda um agrupamento para bases de dados ao garante um padrão de utilização. Para obter detalhes, consulte [documentação de orientação do conjunto elástico](sql-database-elastic-pool.md).
 

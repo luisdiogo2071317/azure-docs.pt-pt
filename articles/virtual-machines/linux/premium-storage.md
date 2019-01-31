@@ -8,13 +8,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 5a5b29de7c87317c88257c783120f4fe9a28edf4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: c9c01bfc53ccba7ede1b64153e8fbbac18370716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250684"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455643"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
@@ -27,4 +27,4 @@ ms.locfileid: "51250684"
 
 ### <a name="blog-posts"></a>Publicações no blogue
 * [Armazenamento Premium do Azure em disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [Anunciamos a série GS: suporte de adicionar o armazenamento Premium para as maiores VMs na cloud pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+* [Anunciamos a série GS: Adicionar suporte de armazenamento Premium para as maiores VMs na cloud pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

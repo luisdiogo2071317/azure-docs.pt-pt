@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466228"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Elementos de linguagem do T-SQL suportados no Azure SQL Data Warehouse
 Ligações para a documentação para os elementos de linguagem T-SQL suportado no Azure SQL Data Warehouse.
@@ -25,20 +25,20 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [regras de nomenclatura de objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
 * [agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
-* [comentários](https://msdn.microsoft.com/library/ms181627.aspx)
+* [comments](https://msdn.microsoft.com/library/ms181627.aspx)
 * [constants](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
-* [EXECUTAR](https://msdn.microsoft.com/library/ms188332.aspx)
+* [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
 * [expressions](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [Solução de propriedade de identidade](https://msdn.microsoft.com/library/ms186775.aspx)
-* [IMPRESSÃO](https://msdn.microsoft.com/library/ms176047.aspx)
+* [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
 * [UTILIZAÇÃO](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Variáveis, controle de fluxo e lotes
 * [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 * [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-* [DECLARAR @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
+* [DECLARE @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -56,7 +56,7 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Carateres universais para corresponder
-* [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (Equals)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Maior do que)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [> = (ótimo que ou igual a)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -64,11 +64,11 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [<> (Diferente de)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Diferente de)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [E](https://msdn.microsoft.com/library/ms188372.aspx)
-* [ENTRE](https://msdn.microsoft.com/library/ms187922.aspx)
+* [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
 * [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
-* [ÍNDIA](https://msdn.microsoft.com/library/ms177682.aspx)
+* [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[NOT] É NULO](https://msdn.microsoft.com/library/ms188795.aspx)
-* [COMO](https://msdn.microsoft.com/library/ms179859.aspx)
+* [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NÃO](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
@@ -176,7 +176,7 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADIANOS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
-* [CLASSIFICAÇÃO](https://msdn.microsoft.com/library/ms176102.aspx)
+* [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 * [SUBSTITUIR](https://msdn.microsoft.com/library/ms186862.aspx)
 * [REPLICAR](https://msdn.microsoft.com/library/ms174383.aspx)
 * [INVERTER](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -200,7 +200,7 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [COISAS](https://msdn.microsoft.com/library/ms188043.aspx)
+* [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
 * [SUBCADEIA](https://msdn.microsoft.com/library/ms187748.aspx)
 * [SOMA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
@@ -222,7 +222,7 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 * [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-* [ANO](https://msdn.microsoft.com/library/ms186313.aspx)
+* [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transações
@@ -259,22 +259,22 @@ Ligações para a documentação para os elementos de linguagem T-SQL suportado 
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
 * [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
-* [CONJUNTO ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
-* [CONJUNTO ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
+* [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
+* [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
 * [CONJUNTO ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
 * [CONJUNTO ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
 * [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [SET FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
-* [CONJUNTO IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
-* [CONJUNTO LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
-* [CONJUNTO NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
-* [CONJUNTO QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
+* [SET IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
+* [SET LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
+* [SET NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
+* [SET QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
 * [CONTAGEM DE LINHAS DO CONJUNTO](https://msdn.microsoft.com/library/ms188774.aspx)
 * [TEXTSIZE DE CONJUNTO](https://msdn.microsoft.com/library/ms186238.aspx)
-* [NÍVEL DE ISOLAMENTO DE TRANSAÇÃO DE CONJUNTO](https://msdn.microsoft.com/library/ms173763.aspx)
-* [CONJUNTO XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+* [SET TRANSACTION ISOLATION LEVEL](https://msdn.microsoft.com/library/ms173763.aspx)
+* [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [instruções T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), e [vistas de sistema no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).

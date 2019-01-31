@@ -6,22 +6,22 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124988"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458538"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>API 3.0 de texto de tradutor: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>Texto do Translator API 3.0: BreakSentence
 
 Identifica o posicionamento dos limites da sentença num pedaço de texto.
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `POST` pedido para:
 
@@ -41,7 +41,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*Parâmetro de consulta necessário*.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
-    <td>Idioma</td>
+    <td>language</td>
     <td>*Parâmetro de consulta opcionais*.<br/>Etiqueta de idioma, identificando o idioma do texto de entrada. Se não for especificado um código, deteção de idioma automática será aplicada.</td>
   </tr>
   <tr>
@@ -56,7 +56,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
+    <td>_Uma autorização_<br/>_header_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -68,7 +68,7 @@ Cabeçalhos de pedido incluem:
     <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Tenha em atenção que pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
@@ -98,7 +98,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
   * `detectedLanguage`: Um objeto que descreve o idioma detetado através das seguintes propriedades:
 
-     * `language`: O código do idioma detetado.
+     * `language`: Código do idioma detetado.
 
      * `score`: Um valor de vírgula flutuante que indica a confiança no resultado. A classificação é entre zero e outro e uma pontuação baixa indica uma confiança de baixa.
      
@@ -170,7 +170,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
 
 O exemplo seguinte mostra como obter os limites de frase para uma única frase. O idioma da sentença é detetado automaticamente pelo serviço.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

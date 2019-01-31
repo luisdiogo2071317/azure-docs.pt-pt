@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134357"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468517"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS
 O [SQL Server Integration Services Feature Pack para o Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para ligar ao Azure, transferir dados entre origens de dados do Azure e no local e processar os dados armazenados no Azure.
@@ -42,8 +42,8 @@ Para executar as tarefas descritas neste artigo, tem de ter uma subscrição do 
 
 Para utilizar o **conectores SSIS**, tem de transferir:
 
-* **SQL Server 2014 ou 2016 Standard (ou superior)**: instalação inclui o SQL Server Integration Services.
-* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack para o Azure**: estes podem ser transferidos, respectivamente, a partir de [serviços de integração do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=47366) e [integração do SQL Server 2016 Serviços](https://www.microsoft.com/download/details.aspx?id=49492) páginas.
+* **SQL Server 2014 ou 2016 Standard (ou superior)**: Instalação inclui o SQL Server Integration Services.
+* **Feature Pack para o Azure dos serviços de integração do Microsoft SQL Server 2014 ou 2016**: Estes podem ser transferidos, respectivamente, a partir da [serviços de integração do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=47366) e [serviços de integração do SQL Server 2016](https://www.microsoft.com/download/details.aspx?id=49492) páginas.
 
 > [!NOTE]
 > SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, consulte [edições do SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Para utilizar o **conectores SSIS**, tem de transferir:
 
 Para obter materiais de treinamento sobre o SSIS, veja [mãos no treinamento para SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Para obter informações sobre como obter a cópia de segurança operacional com SISS para criar Consulte de extração, transformação e carregamento (ETL) de pacotes, simple [SSIS Tutorial: criar um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
+Para obter informações sobre como obter a cópia de segurança operacional com SISS para criar simple extração, transformação e carregamento (ETL) de pacotes, consulte [Tutorial do SSIS: Criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Transferir o conjunto de dados de táxis de NYC
 O exemplo descrito aqui usar um conjunto de dados publicamente disponível – a [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O conjunto de dados consiste em cerca de 173 milhões táxis passes em NYC no ano de 2013. Existem dois tipos de dados: viagem fornece detalhes sobre os dados de dados e Europeia. Como há um arquivo para todos os meses, temos 24 ficheiros em todos, cada uma delas é aproximadamente 2GB descomprimido.

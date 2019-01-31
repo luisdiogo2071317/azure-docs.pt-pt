@@ -1,6 +1,6 @@
 ---
-title: Crie uma área de trabalho titleSuffix: Descrição do Azure Machine Learning Studio: Para utilizar o Azure Machine Learning Studio, tem de ter uma área de trabalho do Machine Learning Studio. Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
+title: Crie uma área de trabalho titleSuffix: Descrição do Azure Machine Learning Studio: Para utilizar o Azure Machine Learning Studio, tem de ter uma área de trabalho do Machine Learning Studio. Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/07/2017
 ---

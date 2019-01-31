@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264755"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470603"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilizar o restauro geográfico para recuperar uma aplicação SaaS multi-inquilino de cópias de segurança da base de dados
 
-Este tutorial analisa um cenário de recuperação após desastre para uma aplicação SaaS multi-inquilino implementado com a base de dados por modelo de inquilino. Utilizar [georrestauro](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante para uma região de recuperação alternativo. Depois da falha for resolvida, utilize [georreplicação](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para repatriate bases de dados alterados para sua região original.
+Este tutorial analisa um cenário de recuperação após desastre para uma aplicação SaaS multi-inquilino implementado com a base de dados por modelo de inquilino. Utilizar [georrestauro](sql-database-recovery-using-backups.md) para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante para uma região de recuperação alternativo. Depois da falha for resolvida, utilize [georreplicação](sql-database-geo-replication-overview.md) para repatriate bases de dados alterados para sua região original.
 
 ![Arquitetura de restauro geográfico](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ Recuperação após desastre (DR) é uma consideração importante para muitos a
 Este tutorial utiliza recursos do Azure SQL Database e a plataforma do Azure para enfrentar esses desafios:
 
 * [Modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar capacidade necessária todas as mais depressa possível. Modelos Azure Resource Manager são utilizados para Aprovisionar uma imagem espelhada dos servidores originais e conjuntos elásticos na região de recuperação. Um servidor separado e o agrupamento também são criados para o aprovisionamento de novos inquilinos.
-* [Biblioteca de clientes de base de dados elástica](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL), para criar e manter um catálogo de base de dados do inquilino. O catálogo expandido inclui informações de configuração de agrupamento e a base de dados atualizadas periodicamente.
-* [Recursos de recuperação de gestão de partições horizontais](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) de EDCL, para manter as entradas de localização de base de dados no catálogo durante a recuperação e repatriation.  
-* [O restauro geográfico](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante. 
+* [Biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de base de dados do inquilino. O catálogo expandido inclui informações de configuração de agrupamento e a base de dados atualizadas periodicamente.
+* [Recursos de recuperação de gestão de partições horizontais](sql-database-elastic-database-recovery-manager.md) de EDCL, para manter as entradas de localização de base de dados no catálogo durante a recuperação e repatriation.  
+* [O restauro geográfico](sql-database-disaster-recovery.md), para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante. 
 * [Operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), enviados por ordem de prioridade de inquilino, são colocados em fila para cada conjunto pelo sistema e processados em lotes para que o conjunto não está sobrecarregado. Estas operações podem ser canceladas antes ou durante a execução, se necessário.   
-* [Replicação geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), para repatriate bases de dados para a região original após a falha. Não existe nenhuma perda de dados e um impacto mínimo sobre o inquilino ao utilizar a georreplicação.
-* [Aliases DNS do SQL server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)para permitir que o processo de sincronização do catálogo para ligar ao catálogo do Active Directory, independentemente da respetiva localização.  
+* [Replicação geográfica](sql-database-geo-replication-overview.md), para repatriate bases de dados para a região original após a falha. Não existe nenhuma perda de dados e um impacto mínimo sobre o inquilino ao utilizar a georreplicação.
+* [Aliases DNS do SQL server](dns-alias-overview.md)para permitir que o processo de sincronização do catálogo para ligar ao catálogo do Active Directory, independentemente da respetiva localização.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter scripts de recuperação de desastre
 
@@ -378,4 +378,4 @@ Experimente o [recuperação após desastre para uma aplicação SaaS multi-inqu
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-[Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

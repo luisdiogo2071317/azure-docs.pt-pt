@@ -2,26 +2,25 @@
 title: Configurar relatórios para o Azure Backup
 description: Configure relatórios do Power BI para o Azure Backup com um cofre dos serviços de recuperação.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/30/2019
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418284"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297733"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra os passos a seguir para configurar relatórios para o Azure Backup com um cofre dos serviços de recuperação. Ela também mostra como acessar relatórios com o Power BI. Depois de concluir estes passos, pode aceder diretamente ao Power BI para visualizar, personalizar e criar relatórios.
 
 > [!IMPORTANT]
 > A partir de 1 de Novembro de 2018, alguns clientes podem ver problemas em carregar os dados na aplicação de cópia de segurança do Azure no Power BI, dizendo "encontrámos carateres adicionais no final da entrada JSON. A exceção foi gerada pela interface do IDataReader."
-Isso é devido a uma alteração no formato no qual os dados são carregados para a conta de armazenamento.
+Tal deve-se a uma alteração no formato em que os dados são carregados para a conta de armazenamento.
 Transfira a aplicação mais recente (versão 1.8) para evitar este problema.
 >
 >

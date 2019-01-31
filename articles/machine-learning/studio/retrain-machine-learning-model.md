@@ -1,6 +1,6 @@
 ---
-title: Voltar a preparar um titleSuffix do modelo de Machine Learning Studio: Descrição do Azure Machine Learning Studio: Saiba como voltar a preparar um modelo e atualizar o serviço Web para utilizar o modelo treinado recentemente no Azure Machine Learning.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Voltar a preparar um titleSuffix do modelo de Machine Learning Studio: Descrição do Azure Machine Learning Studio: Saiba como voltar a preparar um modelo e atualizar o serviço Web para utilizar o modelo treinado recentemente no Azure Machine Learning.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

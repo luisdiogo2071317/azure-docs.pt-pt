@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b12b9d56f42911da606e3bdcfedbe3f789d2c4e8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968002"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466942"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Texto do Translator API 3.0: Exemplos de dicionário
+# <a name="translator-text-api-30-dictionary-examples"></a>Texto do Translator API 3.0: Exemplos do dicionário
 
 Fornece exemplos que mostram como os termos no dicionário são utilizados no contexto. Esta operação é utilizada em conjunto com [pesquisa de dicionário](./v3-0-dictionary-lookup.md).
 
@@ -56,7 +56,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_Cabeçalho_</td>
+    <td>_Uma autorização_<br/>_header_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -68,7 +68,7 @@ Cabeçalhos de pedido incluem:
     <td>*Cabeçalho do pedido necessário*.<br/>O comprimento do corpo do pedido.</td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
   </tr>
 </table> 
@@ -106,7 +106,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `sourcePrefix`: A cadeia de caracteres para concatenar _antes de_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, uma vez que ainda estiver lá quando deve ser. Este valor pode ser uma cadeia vazia.
 
-    * `sourceTerm`: Uma igual de cadeia de caracteres para o termo real pesquisar o tempo limite. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que ele pode ser marcado numa interface de utilizador, por exemplo, por em negrito-lo.
+    * `sourceTerm`: Uma cadeia de caracteres de igual ao termo real pesquisar o tempo limite. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que ele pode ser marcado numa interface de utilizador, por exemplo, por em negrito-lo.
 
     * `sourceSuffix`: A cadeia de caracteres para concatenar _após_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, uma vez que ainda estiver lá quando deve ser. Este valor pode ser uma cadeia vazia.
 
@@ -123,7 +123,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
 Este exemplo mostra como procurar exemplos para o par formado do termo em inglês `fly` e a tradução do espanhol `volar`.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

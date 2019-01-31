@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9a1d0775c12d424c35e9e9d366f69e07ec9b1468
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096981"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464794"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -27,6 +27,8 @@ Geração de armazenamento 2 do Azure Data Lake está disponível como uma opç�
 > Depois de selecionar geração 2 de armazenamento do Data Lake como sua **tipo de armazenamento primário**, não é possível selecionar uma conta de geração 1 de armazenamento do Data Lake como armazenamento adicional.
 
 ## <a name="creating-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Criar um cluster do HDInsight com geração 2 de armazenamento do Data Lake
+
+## <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
 Para criar um cluster do HDInsight, que usa a geração 2 de armazenamento do Data Lake para o armazenamento, utilize os seguintes passos para criar uma conta de geração 2 de armazenamento do Data Lake está configurada corretamente.
 
@@ -62,6 +64,48 @@ Para criar um cluster do HDInsight, que usa a geração 2 de armazenamento do Da
         * Sob **identidade** selecione a subscrição correta e o recém-criado atribuído ao utilizador identidade gerida.
         
             ![Definições de identidade para a utilização de geração 2 de armazenamento do Data Lake com o Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
+### <a name="using-a-resource-manager-template-deployed-with-azure-cli"></a>Com um modelo de Gestor de recursos implementado com a CLI do Azure
+
+Pode baixar um exemplo [aqui o ficheiro de modelo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e uma [aqui o ficheiro de parâmetros de exemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de utilizar o modelo, substitua o ID de subscrição do Azure real para a cadeia de caracteres `<SUBSCRIPTION_ID>`. Além disso, substitua a palavra-passe escolhida para a cadeia de caracteres `<PASSWORD>` para definir a senha de logon que irá utilizar para iniciar sessão no seu cluster, bem como a palavra-passe SSH.
+
+O trecho de código abaixo executa as seguintes etapas iniciais:
+
+1. Início de sessão sua conta do Azure.
+1. Defina a subscrição ativa em que serão executadas as operações de criar.
+1. Criar um novo grupo de recursos para as atividades de implementação novo `hdinsight-deployment-rg`.
+1. Criar um utilizador Managed Service Identity (MSI) `test-hdinsight-msi`.
+1. Adicione uma extensão a CLI do Azure para utilizar as funcionalidades de geração 2 de armazenamento do Data Lake.
+1. Criar uma nova conta de geração 2 de armazenamento do Data Lake `hdinsightadlsgen2`, utilizando o `--hierarchical-namespace true` sinalizador.
+
+```azurecli
+az login
+az account set --subscription <subscription_id>
+
+#create resource group
+az group create --name hdinsight-deployment-rg --location eastus
+
+# Create managed identity
+az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+
+az extension add --name storage-preview
+
+az storage account create --name hdinsightadlsgen2 \
+    --resource-group hdinsight-deployment-rg \
+    --location eastus --sku Standard_LRS \
+    --kind StorageV2 --hierarchical-namespace true
+```
+
+Em seguida, inicie sessão no portal e adicione o novo MSI para o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento, conforme descrito no passo 3 acima sob [com o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+
+Depois de concluir a atribuição de função no portal do MSI, avance para implementar o modelo com o trecho de código abaixo.
+
+```azurecli
+az group deployment create --name HDInsightADLSGen2Deployment \
+    --resource-group hdinsight-deployment-rg \
+    --template-file hdinsight-adls-gen2-template.json \
+    --parameters parameters.json
+```
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Controlo de acesso para a geração 2 de Lake armazenamento de dados no HDInsight
 

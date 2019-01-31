@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 550201e692bb79197d50c2f44017c43ab9ea2016
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039491"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477339"
 ---
-# <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Aprovisionar débito para um contentor do Azure Cosmos DB
+# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Débito de aprovisionar num contentor do Cosmos do Azure
 
 Este artigo explica como aprovisionar débito para um contentor (coleção, gráfico, tabela) no Azure Cosmos DB. Pode aprovisionar débito para um único contentor ou [aprovisionar uma base de dados](how-to-provision-database-throughput.md) e partilhá-la entre os contentores na base de dados. Pode aprovisionar débito para um contentor com o portal do Azure, a CLI do Azure ou SDKs do CosmosDB.
 

@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c1029d5efe0c8e87cd9bc84887826ddf837d32c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713270"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456260"
 ---
 # <a name="change-a-maintenance-schedule"></a>Alterar uma agenda de manutenção 
 
@@ -40,9 +40,9 @@ Para alterar a agenda de manutenção para o seu armazém de dados, conclua os s
    ![Painel de definições de manutenção](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Escolha as janelas de manutenção preferencial de primário e secundário utilizando as caixas de lista pendente:
-   - **Dia**: dia preferencial para realizar a manutenção durante o período selecionado.
-   - **Hora de início**: hora de início preferencial para a janela de manutenção.
-   - **Janela de tempo**: preferencial a duração da janela do tempo.
+   - **Dia**: Dia preferencial para realizar a manutenção durante o período selecionado.
+   - **Hora de início**: Hora de início para a janela de manutenção de preferência.
+   - **Janela de tempo**: Duração preferencial da sua janela de tempo.
 
    O **resumo de agenda** área na parte inferior do painel é atualizada com base nos valores que selecionou. 
   

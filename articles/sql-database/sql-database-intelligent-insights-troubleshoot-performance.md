@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600867"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455070"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -43,14 +43,14 @@ Informações inteligentes Deteta automaticamente os problemas de desempenho com
 | [Nova consulta](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Nova consulta foi detetada que afetam o desempenho geral da base de dados SQL. | Nova consulta foi detetada que afetam o desempenho geral da base de dados. |
 | [Estatística de aumento de espera](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Tempos de espera de base de dados aumentada foram detetados que afetam o desempenho de base de dados SQL. | Tempos de espera de base de dados aumentada foram detetados que afetam o desempenho da base de dados. |
 | [Contenção do TempDB](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados SQL. | Vários threads estão a tentar aceder ao mesmo recurso de TempDB provocar um estrangulamento. Isto está a afetar o desempenho da base de dados. |
-| [Falta DTU do conjunto elástico](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Falta de eDTUs disponíveis num conjunto elástico está a afetar o desempenho da base de dados SQL. | Não está disponível para a instância gerida como ele usa o modelo de vCore. |
+| [Conjunto elástico insuficiência de DTU](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Falta de eDTUs disponíveis num conjunto elástico está a afetar o desempenho da base de dados SQL. | Não está disponível para a instância gerida como ele usa o modelo de vCore. |
 | [Regressão do plano](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados SQL. | Foi detetado o novo plano ou uma alteração na carga de trabalho de um plano existente. Isto está a afetar o desempenho da base de dados. |
 | [Alteração do valor de configuração do âmbito de base de dados](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Alteração de configuração na base de dados SQL foi detetada que afetam o desempenho da base de dados. | Alteração de configuração na base de dados foi detetada que afetam o desempenho da base de dados. |
 | [Cliente lentas](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Cliente de lenta do aplicativo é não é possível consumir o resultado da base de dados rápido o bastante. Isto está a afetar o desempenho da base de dados SQL. | Cliente de lenta do aplicativo é não é possível consumir o resultado da base de dados rápido o bastante. Isto está a afetar o desempenho da base de dados. |
 | [Mudança para versão anterior do escalão de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Ação de mudança para versão anterior do escalão de preço reduzido recursos disponíveis. Isto está a afetar o desempenho da base de dados SQL. | Ação de mudança para versão anterior do escalão de preço reduzido recursos disponíveis. Isto está a afetar o desempenho da base de dados. |
 
 > [!TIP]
-> Para a otimização de desempenho contínuo de base de dados SQL, ative [otimização automática da base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esse recurso exclusivo de inteligência incorporada da base de dados SQL continuamente monitoriza a base de dados SQL, automaticamente adaptável índices e aplica-se as correções de plano de execução de consulta.
+> Para a otimização de desempenho contínuo de base de dados SQL, ative [otimização automática da base de dados do Azure SQL](sql-database-automatic-tuning.md). Esse recurso exclusivo de inteligência incorporada da base de dados SQL continuamente monitoriza a base de dados SQL, automaticamente adaptável índices e aplica-se as correções de plano de execução de consulta.
 >
 
 A secção seguinte descreve os padrões de desempenho detetável mais detalhadamente.
@@ -61,7 +61,7 @@ A secção seguinte descreve os padrões de desempenho detetável mais detalhada
 
 Este padrão de desempenho detetável combina os problemas de desempenho relacionados com a atingir os limites de recursos disponíveis, limites de trabalho e limites de sessão. Depois deste problema de desempenho é detectado, um campo de descrição do registo de diagnóstico indica se o problema de desempenho está relacionado com recursos, trabalho ou os limites de sessão.
 
-Recursos na base de dados SQL, normalmente, são referidos [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
+Recursos na base de dados SQL, normalmente, são referidos [DTU](sql-database-what-is-a-dtu.md) ou [vCore](sql-database-service-tiers-vcore.md) recursos. O padrão de atingir os limites de recursos é reconhecido quando detectado degradação do desempenho de consulta é causada por atingir qualquer um dos limites de recursos de medida.
 
 O recurso de limites de sessão indica o número de inícios de sessão simultâneos disponíveis para a base de dados SQL. Este padrão de desempenho é reconhecido quando aplicativos que estão ligados às bases de dados SQL atingiu o número de inícios de sessão simultâneos disponíveis para a base de dados. Se as aplicações tentam utilizar mais sessões que estão disponíveis numa base de dados, o desempenho de consulta é afetado.
 
@@ -73,7 +73,7 @@ O registo de diagnóstico produz hashes de consulta de consultas afetado o desem
 
 Se atingiu os limites de sessão disponíveis, pode otimizar seus aplicativos, reduzindo o número de inícios de sessão feitas no banco de dados. Se não for possível reduzir o número de inícios de sessão das suas aplicações para a base de dados, considere aumentar o escalão de preço da base de dados. Ou pode dividir e mover a base de dados em várias bases de dados para uma distribuição mais com balanceamento de carga de trabalho.
 
-Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Ver [limita a visão geral dos recursos num servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
+Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Ver [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 
 ## <a name="workload-increase"></a>Aumento de carga de trabalho
 
@@ -231,7 +231,7 @@ O registo de diagnóstico produz os detalhes de contenção do tempDB. Pode util
 
 Para obter mais informações, consulte [introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Falta DTU do conjunto elástico
+## <a name="elastic-pool-dtu-shortage"></a>Conjunto elástico insuficiência de DTU
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 

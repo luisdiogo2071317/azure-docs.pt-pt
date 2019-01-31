@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634512"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473209"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -357,7 +357,7 @@ Agora que está familiarizado com o Message Analyzer para analisar os seus dados
 | Entradas de registo PercentSuccess baixa ou análise tem operações com o estado de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Servidor |
 | Aviso de Nagle |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize < 1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Servidor |
 | Intervalo de tempo nos registos de servidor e da rede |#Timestamp > = 2014-10-20T16:36:38 e #Timestamp < = 2014-10-20T16:36:39 |Servidor de rede |
-| Intervalo de tempo em registos do servidor |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 e AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Servidor |
+| Intervalo de tempo em registos do servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Servidor |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os cenários de resolução de problemas ponto a ponto no armazenamento do Azure, veja estes recursos:

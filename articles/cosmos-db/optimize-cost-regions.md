@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032606"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457654"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Otimizar o custo para implementações em várias regiões do Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões do Azure Cosmos DB
 
 Pode adicionar e remover regiões à sua conta do Cosmos do Azure em qualquer altura. O débito que configurar para vários bancos de dados do Cosmos do Azure e contentores está reservado em cada região associada à sua conta. Se o débito aprovisionado por hora, que é a soma de RU/s configurado em todos os bancos de dados e contentores para a sua conta do Cosmos do Azure é `T` e o número de regiões do Azure associado à conta de base de dados é `N`, em seguida, o total débito aprovisionado para a sua conta do Cosmos, para uma determinada hora é igual a:
 
@@ -33,11 +33,11 @@ Considere tem um contentor em E.U.A. oeste aprovisionado com um débito de 10 mi
 
 |**Item**|**Utilização (mensal)**|**Taxa de**|**Custo mensal**|
 |----|----|----|----|
-|Conta de débito para o contentor em E.U.A. oeste (várias regiões de escrita) |10 mil RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |US $1,190.40 |
-|Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10 mil RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |US $4,761.60 |
-|Conta de armazenamento para o contentor em E.U.A. Oeste |100 GB |US $ 0,25/GB |US $25 |
-|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental |3 * 1 TB |US $ 0,25/GB |US $75 |
-|**Total**|||**US $6,052** |
+|Conta de débito para o contentor em E.U.A. oeste (várias regiões de escrita) |10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$1,190.40 |
+|Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$4,761.60 |
+|Conta de armazenamento para o contentor em E.U.A. Oeste |100 GB |US $ 0,25/GB |$25 |
+|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental |3 * 1 TB |US $ 0,25/GB |$75 |
+|**Total**|||**$6,052** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização de débito num por região base
 

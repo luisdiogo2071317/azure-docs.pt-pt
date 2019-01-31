@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633066"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467089"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no armazenamento do Azure
 
@@ -50,7 +50,7 @@ Pode ativar a "transferência segura necessária" definição quando criar uma c
 Para requer transferência segura através de programação, utilize a definição _supportsHttpsTrafficOnly_ nas propriedades da conta de armazenamento com a REST API, ferramentas ou bibliotecas:
 
 * [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versão: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versão: 0,7)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versão: 0.7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versão: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versão: 1.1.0)
 * [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versão: 6.3.0)

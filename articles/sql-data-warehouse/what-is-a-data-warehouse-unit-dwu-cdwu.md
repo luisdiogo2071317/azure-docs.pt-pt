@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6fc3aa3810fa79e0995fd94708d03310cc5cef53
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244985"
+ms.locfileid: "55299899"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e de computação (cDWUs) de unidades do Data Warehouse
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e desempenho e como alterar o número de unidades. 
@@ -62,7 +62,7 @@ WITH
 Cada escalão de desempenho utiliza uma unidade ligeiramente diferente de medida para suas unidades de armazém de dados. Essa diferença é refletida da nota fiscal, como a unidade de escala traduz-se diretamente à faturação.
 
 - Armazéns de dados de geração 1 são medidos em unidades do Data Warehouse (DWUs).
-- Warehousesr de dados de geração 2 são medidos em unidades do Data Warehouse (cDWUs) de computação. 
+- Dados de geração 2 armazéns são medidos em unidades do Data Warehouse (cDWUs) de computação. 
 
 As DWUs e cDWUs suportam computação de dimensionamento ou reduzir verticalmente e colocar em pausa a computação quando não precisar de utilizar o armazém de dados. Essas operações são tudo sob demanda. Geração 2 utiliza um cache em disco local em nós de computação para melhorar o desempenho. Ao dimensionar ou colocar em pausa o sistema, o cache é invalidado e por isso, um período de cache warming é necessário antes do desempenho ideal é alcançado.  
 

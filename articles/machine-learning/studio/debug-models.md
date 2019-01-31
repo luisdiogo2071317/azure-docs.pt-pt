@@ -1,6 +1,6 @@
 ---
-title: Depure seu titleSuffix do modelo: Descrição do Azure Machine Learning Studio: Como depurar erros produzidos por módulos preparar modelo e Pontuar modelo no Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Depure seu titleSuffix do modelo: Descrição do Azure Machine Learning Studio: Como depurar erros produzidos por módulos preparar modelo e Pontuar modelo no Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---

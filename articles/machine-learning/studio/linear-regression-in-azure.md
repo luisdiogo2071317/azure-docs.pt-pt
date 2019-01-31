@@ -1,5 +1,5 @@
 ---
-title: Migre analytics a partir do Excel para o Azure Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e nos serviços do Azure Machine Learning Studio: MS. Service de machine learning: ms.component de machine learning: studio topic: artigo
+title: Migre analytics a partir do Excel para o Azure Machine Learning Studio titleSuffix: Descrição do Azure Machine Learning Studio: Uma comparação dos modelos de regressão linear no Excel e nos serviços do Azure Machine Learning Studio: MS. Service de machine learning: ms.subservice de machine learning: studio topic: artigo
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

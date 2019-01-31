@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354194"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478200"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Agente de compilação de utilização do Azure Container Instances, como um Jenkins
 
@@ -26,28 +26,28 @@ Para obter mais informações sobre o Azure Container Instances, consulte [sobre
 
 2. Introduza as seguintes informações o **Noções básicas** formam e, em seguida, selecione **OK**.
 
-   - **Nome**: introduza um nome para a implementação do Jenkins.
-   - **Nome de utilizador**: introduza um nome para o utilizador de administrador da máquina virtual Jenkins.
+   - **Nome**: Introduza um nome para a implementação do Jenkins.
+   - **Nome de utilizador**: Introduza um nome para o utilizador de administrador da máquina virtual Jenkins.
    - **Tipo de autenticação**: Recomendamos que uma chave pública de SSH para autenticação. Se selecionar esta opção, cole uma chave pública de SSH a ser utilizado para iniciar sessão para a máquina virtual do Jenkins.
-   - **Subscrição**: selecione uma subscrição do Azure.
-   - **Grupo de recursos**: crie um grupo de recursos ou selecione um grupo existente.
-   - **Localização**: selecione uma localização para o servidor Jenkins.
+   - **Subscrição**: Selecione uma subscrição do Azure.
+   - **Grupo de recursos**: Crie um grupo de recursos ou selecione um existente.
+   - **Localização**: Selecione uma localização para o servidor Jenkins.
 
    ![Definições básicas para a implementação de portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-01.png)
 
 3. Sobre o **definições adicionais** de formulário, conclua os seguintes itens:
 
-   - **Tamanho**: selecione a opção de dimensionamento apropriado para a máquina virtual do Jenkins.
-   - **Tipo de disco VM**: especifique **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
-   - **Rede virtual**: selecione a seta, se pretender modificar as predefinições.
-   - **Sub-redes**: selecione a seta, verifique as informações e selecione **OK**.
-   - **Endereço IP público**: selecione a seta para fornecer o endereço IP público um nome personalizado, configure o SKU e definir o método de atribuição.
+   - **Tamanho**: Selecione a opção de dimensionamento apropriado para a máquina virtual do Jenkins.
+   - **Tipo de disco VM**: Especifique **HDD** (unidade de disco rígido) ou **SSD** (unidade de estado sólido) para o servidor Jenkins.
+   - **Rede virtual**: Se pretender modificar as predefinições, selecione a seta.
+   - **Sub-redes**: Selecione a seta, verifique as informações e selecione **OK**.
+   - **Endereço IP público**: Selecione a seta para fornecer o endereço IP público um nome personalizado, configure o SKU e definir o método de atribuição.
    - **Etiqueta de nome de domínio**: Especifique um valor para criar um URL completamente qualificado para a máquina virtual do Jenkins.
-   - **Tipo de versão do Jenkins**: selecione o tipo de versão desejada entre as opções: **LTS**, **semanalmente compilar**, ou **Azure verificado**.
+   - **Tipo de versão do Jenkins**: Selecione o tipo de versão desejada entre as opções: **LTS**, **semanalmente crie**, ou **Azure verificado**.
 
    ![Definições adicionais para a implementação de portal do Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Para a integração de principal de serviço, selecione **Auto(MSI)** para [gerencia identidades para recursos do Azure] [-identidades-azure-recursos geridos] Criar automaticamente uma identidade de autenticação para a instância do Jenkins. Selecione **Manual** para fornecer suas próprias credenciais de principal de serviço.
+4. Para a integração de principal de serviço, selecione **Auto(MSI)** ter [geridos identidades para recursos do Azure] [ managed-identities-azure-resources] criar automaticamente uma identidade de autenticação para o Instância do Jenkins. Selecione **Manual** para fornecer suas próprias credenciais de principal de serviço.
 
 5. Agentes de cloud configurar uma plataforma com base na cloud, para tarefas de compilação do Jenkins. Neste artigo, selecione **ACI**. Com o agente de cloud ACI, cada tarefa de compilação do Jenkins é executada numa instância de contentor.
 
@@ -138,4 +138,4 @@ Para saber mais acerca do Jenkins no Azure, veja [do Azure e o Jenkins][jenkins-
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

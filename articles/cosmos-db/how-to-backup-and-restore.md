@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040851"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455937"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>Como restaurar dados do Azure Cosmos DB a partir de uma cópia de segurança
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados a partir de uma cópia de segurança no Azure Cosmos DB 
 
 Se eliminar acidentalmente a base de dados ou um contentor, pode [enviar um pedido de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados a partir de cópias de segurança online automáticas. Suporte do Azure só está disponível para planos selecionados como **padrão**, * * para desenvolvedores e os planos superiores-los. Suporte do Azure não está disponível com **básica** plano. Para saber mais sobre os planos de suporte a diferentes, veja a [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
 

@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150755"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461751"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
@@ -30,7 +30,9 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
+* Uma regra de firewall de ao nível do servidor configurada. Para obter mais informações, consulte [criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
+
+## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 
 Antes de começar, certifique-se de que instalou a versão mais recente [SSMS][ssms-install-latest-84g]. 
 
@@ -43,7 +45,7 @@ Antes de começar, certifique-se de que instalou a versão mais recente [SSMS][s
 No SMSS, ligue ao seu servidor de base de dados do Azure SQL. 
 
 > [!IMPORTANT]
-> Um servidor lógico da Base de Dados SQL do Azure ouve na porta 1433. Para ligar a um servidor lógico atrás de uma firewall empresarial, o firewall tem de ter esta porta abrir.
+> Um servidor de base de dados do Azure SQL escuta na porta 1433. Para ligar a um servidor de base de dados SQL através de uma firewall empresarial, o firewall tem de ter esta porta abrir.
 >
 
 1. Abra o SQL Server Management Studio. A caixa de diálogo **Ligar ao Servidor** é apresentada.

@@ -7,25 +7,25 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229549"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478139"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento do Azure
 
 Para ajudar as organizações a cumprir os requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados dos indivíduos, Microsoft Azure e o armazenamento do Azure oferecem o conjunto mais abrangente de certificações e atestados, de qualquer fornecedor de serviços cloud.
 
-Pode encontrar abaixo as ofertas de conformidade no armazenamento do Azure para garantir que seu serviço regulado sessão com o serviço de armazenamento do Azure. Estas forem aplicáveis às seguintes ofertas de armazenamento do Azure: Blobs, ficheiros, filas, tabelas, discos, armazenamento de acesso esporádico e o armazenamento Premium.
+Pode encontrar abaixo as ofertas de conformidade no armazenamento do Azure para garantir que seu serviço regulado sessão com o serviço de armazenamento do Azure. Eles são aplicáveis para as ofertas de armazenamento do Azure seguintes: BLOBs, ficheiros, filas, tabelas, discos, armazenamento de acesso esporádico e o armazenamento Premium.
 
 ## <a name="global"></a>Global
 
-* [Atestado de CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-attestation)
-* [CSA Star-certificação](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification)
-* [CSA STAR-Self-avaliação](https://www.microsoft.com/en-us/trustcenter/compliance/csa-self-assessment)
+* [CSA-STAR-Attestation](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-attestation)
+* [CSA-Star-Certification](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification)
+* [CSA-STAR-Self-Assessment](https://www.microsoft.com/en-us/trustcenter/compliance/csa-self-assessment)
 * [ISO 20000-1:2011](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-20000-1)
 * [ISO 22301](https://www.microsoft.com/en-us/trustcenter/compliance/iso-22301)
 * [ISO 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27017)
@@ -51,9 +51,9 @@ Pode encontrar abaixo as ofertas de conformidade no armazenamento do Azure para 
 * [Parte de 23 NYCRR 500](https://www.microsoft.com/en-us/trustcenter/compliance/NYCRR)
 * [APRA (Austrália)](https://aka.ms/AzureCompliance)
 * [CDSA](https://www.microsoft.com/en-us/trustcenter/compliance/cdsa)
-* [O PROTOCOLO DPP (REINO UNIDO)](https://aka.ms/AzureCompliance)
+* [DPP (UK)](https://aka.ms/AzureCompliance)
 * [FATO (REINO UNIDO)](https://www.microsoft.com/en-us/trustcenter/compliance/fact)
-* [FCA (REINO UNIDO)](https://aka.ms/AzureCompliance)
+* [FCA (UK)](https://aka.ms/AzureCompliance)
 * [FFIEC](https://www.microsoft.com/en-us/trustcenter/compliance/FFIEC)
 * [FISC (Japão)](https://www.microsoft.com/en-us/trustcenter/compliance/fisc)
 * [GLBA](https://aka.ms/AzureCompliance)
@@ -81,13 +81,13 @@ Pode encontrar abaixo as ofertas de conformidade no armazenamento do Azure para 
 * [Cláusulas do modelo da UE](https://www.microsoft.com/en-us/trustcenter/compliance/eu-model-clauses)
 * [UE-EUA Escudo de proteção](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (China)](https://www.trustcenter.cn/compliance/default.html#GB18030)
-* [GDPR (UE)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
+* [GDPR (EU)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
 * [Pasta de trabalho do IT Grundschutz (Alemanha)](https://www.microsoft.com/en-us/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Espanha)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapura)](https://www.microsoft.com/en-us/trustcenter/compliance/mtcs)
 * [Meu número (Japão)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
 * [Framework CC NZ (Nova Zelândia)](https://www.microsoft.com/en-us/trustcenter/compliance/nzcc)
-* [PASF (REINO UNIDO)](https://aka.ms/AzureCompliance)
+* [PASF (UK)](https://aka.ms/AzureCompliance)
 * [PDPA (Argentina)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)
 * [PIPEDA (Canadá)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
 * [TRUCS (China)](https://www.trustcenter.cn/compliance/default.html#TCS)

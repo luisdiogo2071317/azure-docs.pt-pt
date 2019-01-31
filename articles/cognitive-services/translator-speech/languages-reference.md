@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: ac8de247f09ba3b4e38cabb565fe332eba909ccc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f377e073f42e96264fe4c7edb31ea58c68c46494
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118137"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474977"
 ---
-# <a name="translator-speech-api-languages"></a>API de voz de tradutor: Linguagens
+# <a name="translator-speech-api-languages"></a>API de voz de tradutor: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -131,7 +131,7 @@ Langagues {voz (object, opcional), texto (object, opcional), tts (object, opcion
 
 ### <a name="headers"></a>Cabeçalhos
 
-|Cabeçalho|Descrição|Tipo|
+|Cabeçalho|Descrição|Type|
 :--|:--|:--|
 X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada para fins de resolução de problemas.|cadeia|
 
@@ -141,8 +141,8 @@ X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada par
 |:--|:--|:--|:--|
 |versão de API    |Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|consulta|cadeia|
 |scope  |Conjuntos de idiomas suportados ou vozes para devolver ao cliente. Este parâmetro for especificado como uma lista separada por vírgulas de palavras-chave. As palavras-chave seguintes estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas suportados para transcrição de voz.</li><li>`tts`: Fornece o conjunto de vozes suportado para conversão de voz de texto.</li><li>`text`: Fornece o conjunto de idiomas suportados para a tradução de texto.</li></ul>Se não for especificado um valor, o valor de `scope` assume a predefinição `text`.|consulta|cadeia|
-|X ClientTraceId    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para facilitar a resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.|cabeçalho|cadeia|
-|Aceite-Language    |Alguns dos campos na resposta são nomes de idiomas ou regiões. Utilize este parâmetro para definir o idioma em que os nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Selecione uma etiqueta na lista de identificadores de idioma devolvida com o `text` âmbito. Para os idiomas sem suporte, os nomes são fornecidos em inglês.<br/>Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.|cabeçalho|cadeia|
+|X-ClientTraceId    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para facilitar a resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.|cabeçalho|cadeia|
+|Accept-Language    |Alguns dos campos na resposta são nomes de idiomas ou regiões. Utilize este parâmetro para definir o idioma em que os nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Selecione uma etiqueta na lista de identificadores de idioma devolvida com o `text` âmbito. Para os idiomas sem suporte, os nomes são fornecidos em inglês.<br/>Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.|cabeçalho|cadeia|
     
 ### <a name="response-messages"></a>Mensagens de resposta
 

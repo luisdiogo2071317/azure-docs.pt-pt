@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219758"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294728"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do docker de compreensão de idiomas 
+# <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do Docker de compreensão de idiomas 
 
-O ambiente de tempo de execução do contentor de compreensão de idiomas (LUIS) é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do contentor são a entrada [definições de montagem](#mount-settings) e as definições de faturas. 
+O **compreensão de idiomas** ambiente de tempo de execução de contentores (LUIS) é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais. Várias [exemplos](#example-docker-run-commands) do comando estão disponíveis. As definições específicas do contentor são a entrada [definições de montagem](#mount-settings) e as definições de faturas. 
 
 Definições de contentor são [hierárquica](#hierarchical-settings) e podem ser definidas com [variáveis de ambiente](#environment-variable-settings) ou docker [argumentos da linha de comandos](#command-line-argument-settings).
 

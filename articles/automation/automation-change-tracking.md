@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901144"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301446"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -40,7 +40,7 @@ As seguintes distribuições de Linux são suportadas oficialmente. No entanto, 
 * Oracle Linux 6 e 7
 * Red Hat Enterprise Linux Server 6 e 7
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* Ubuntu Linux 14.04 LTS e 16.04 LTS e 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
 ### <a name="32-bit"></a>32 bits
@@ -62,7 +62,7 @@ Para iniciar o controle de alterações, terá de ativar a solução de controlo
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o controlo de alterações e inventário
 
-Para saber como para integrar computadores para a solução visite: [Soluções de automatização de inclusão](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a integração com a solução de controlo de alterações e inventário pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, ele é habilitado para controlo de alterações e inventário.
+Para saber como para integrar computadores para a solução visite: [Soluções de automatização de inclusão](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma máquina a integração com a solução de controlo de alterações e inventário, pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, ele é habilitado para controlo de alterações e inventário.
 
 Para controlar alterações em arquivos no Windows e Linux, são usados hashes MD5 dos ficheiros. Theses hashes, em seguida, são utilizados para detetar se uma alteração foi efetuada desde o último inventário.
 
@@ -108,7 +108,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Definições de caráter universal, recursão e ambiente
 
-Recursão permite-lhe especificar carateres universais para simplificar o controle em diretórios e variáveis de ambiente para que possa controlar os ficheiros em ambientes com múltiplos ou dinâmico nomes da unidade. Segue-se uma lista de informações comuns que deve saber quando configurar a recursão:
+Recursão permite-lhe especificar carateres universais para simplificar o controle em diretórios e variáveis de ambiente para que possa controlar os ficheiros em ambientes com múltiplos ou dinâmico nomes da unidade. A lista seguinte mostra as informações comuns que deve saber quando configurar a recursão:
 
 * Carateres universais são necessários para vários ficheiros de controlo
 * Se utilizar carateres universais, só pode ser utilizados no último segmento de um caminho. (por exemplo, C:\Folder\\**ficheiro** ou /etc/*.conf)
@@ -117,7 +117,7 @@ Recursão permite-lhe especificar carateres universais para simplificar o contro
 
 ## <a name="configure-file-content-tracking"></a>Configurar o controlo de conteúdo do ficheiro
 
-Pode ver o conteúdo antes e após uma alteração de um ficheiro com o ficheiro de conteúdo controlo de alterações. Está disponível para os ficheiros do Windows e Linux, para cada alteração para o ficheiro, o conteúdo do arquivo é armazenada numa conta de armazenamento e mostra o arquivo antes e depois da alteração, embutidas ou lado pelo lado. Para obter mais informações, consulte [exibir o conteúdo de um ficheiro controlado](change-tracking-file-contents.md).
+Pode ver o conteúdo antes e após uma alteração de um ficheiro com o ficheiro de conteúdo controlo de alterações. Está disponível para os ficheiros do Windows e Linux, para cada alteração para o ficheiro, o conteúdo do arquivo é armazenada numa conta de armazenamento e mostra o arquivo antes e após a alteração, inline ou lado pelo lado. Para obter mais informações, consulte [exibir o conteúdo de um ficheiro controlado](change-tracking-file-contents.md).
 
 ![Ver alterações num arquivo](./media/change-tracking-file-contents/view-file-changes.png)
 
@@ -138,7 +138,7 @@ Utilize os seguintes passos para configurar o controlo de chave de registo em co
 
 ## <a name="limitations"></a>Limitações
 
-A solução de controlo de alterações não suporta atualmente os seguintes itens:
+A solução de controlo de alterações atualmente não suporta os seguintes itens:
 
 * Recursão para o registo do Windows de controlo
 * Sistemas de ficheiros de rede
@@ -154,7 +154,7 @@ Outras limitações:
 
 A solução de controlo de alterações está atualmente com os seguintes problemas:
 
-* Atualizações de correção não são recolhidas para máquinas de atualização para criativos do Windows 10 e Windows Server 2016 Core RS3.
+* Atualizações de correção não são recolhidas em máquinas do Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Alterar detalhes de recolha de dados de controlo
 
@@ -187,7 +187,7 @@ A frequência de recolha predefinido para os serviços do Windows é de 30 minut
 
 ![Controlo de deslize de serviços de Windows](./media/automation-change-tracking/windowservices.png)
 
-O agente apenas controla as alterações, esta ação otimiza o desempenho do agente. Ao definir um limiar demasiado elevado, as alterações poderão ser perdidas se o serviço foi revertida para o seu estado original. Definir a frequência para um valor menor permite-lhe capturar alterações que podem ser omitidas caso contrário.
+O agente apenas controla as alterações, esta ação otimiza o desempenho do agente. Definir um limite elevado pode perder as alterações, se o serviço foi revertida para o seu estado original. Definir a frequência para um valor menor permite-lhe capturar alterações que podem ser omitidas caso contrário.
 
 > [!NOTE]
 > Embora o agente pode registo de alterações para baixo para um segundo intervalo 10, os dados ainda demora alguns minutos a ser apresentado no portal. As alterações durante o período de tempo para apresentar no portal do ainda sejam rastreadas e com sessão iniciadas.
@@ -269,6 +269,41 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para alterar re
 |---------|---------|
 |ConfigurationData<br>&#124;onde ConfigDataType = = "WindowsServices" e SvcStartupType = = "Auto"<br>&#124;onde SvcState = = "Parada"<br>&#124;resumir arg_max(TimeGenerated, *) por SoftwareName, computador         | Mostra os registos de inventário de mais recentes para os serviços do Windows que estivesse definido para automático, mas foram comunicados como a ser parado<br>Os resultados estão limitados para o registo mais recente para essa SoftwareName e computador      |
 |ConfigurationChange<br>&#124;onde ConfigChangeType = = "Software" e ChangeCategory = = "Removido"<br>&#124;Ordenar por TimeGenerated desc|Mostra os registos de alteração de software foi removido|
+
+## <a name="alert-on-changes"></a>Alerta relativamente a alterações
+
+Um recurso chave do controlo de alterações e inventário é a capacidade de alerta sobre o estado de configuração e quaisquer alterações para o estado de configuração do seu ambiente híbrido.  
+
+No exemplo seguinte, a captura de ecrã mostra que o arquivo `C:\windows\system32\drivers\etc\hosts` foi modificado num computador. Este ficheiro é importante porque o ficheiro de anfitriões é utilizado pelo Windows para resolver os nomes de anfitrião para IP endereços e tem precedência sobre DNS até mesmo, o que pode resultar em problemas de conectividade ou o redirecionamento de tráfego para os Web sites maliciosos ou caso contrário, perigosos.
+
+![Um gráfico que mostra os anfitriões de alteração de ficheiros](./media/automation-change-tracking/changes.png)
+
+Para analisar ainda mais esta alteração, aceda a pesquisa de registos desde o clique **do Log Analytics**. Uma vez na pesquisa de registos, procure alterações de conteúdo para o ficheiro de anfitriões com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura alterações que incluía uma alteração de conteúdo do ficheiro para os ficheiros cujo caminho totalmente qualificado contém a palavra "anfitriões". Também pode fazer para um ficheiro específico, alterando a parte de caminho para sua forma completamente qualificada (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+Depois da consulta devolve os resultados pretendidos, clique nas **nova regra de alerta** botão na experiência de pesquisa de registo para abrir a página de criação do alerta. Também pode navegar para esta experiência através de **do Azure Monitor** no portal do Azure. A experiência de criação do alerta, verificar a nossa consulta novamente e modificar a lógica de alerta. Neste caso, pretende que o alerta para ser acionado se há até mesmo uma alteração, detetada em todas as máquinas no ambiente.
+
+![Uma imagem que mostra a consulta de alteração para o controlo de alterações ao ficheiro de anfitriões](./media/automation-change-tracking/change-query.png)
+
+Depois da lógica de condição for definida, atribua grupos de ação para executar ações em resposta ao alerta a ser acionado. Neste caso, configurei um pedido de ITSM a ser criado e os e-mails sejam enviados.  Também podem ser realizadas várias outras ações úteis, como acionar uma função do Azure, o runbook de automatização, Webhook, ou uma aplicação lógica.
+
+![Uma imagem de configurar um grupo de ação do alerta na alteração](./media/automation-change-tracking/action-groups.png)
+
+Depois de todos os parâmetros e lógica são definidas, podemos pode aplicar o alerta para o ambiente.
+
+### <a name="alert-suggestions"></a>Sugestões de alerta
+
+Embora alertas sobre as alterações ao ficheiro de anfitriões seja uma boa aplicação de alertas de dados de controlo de alterações ou inventário, existem muito mais cenários para alertas, incluindo os casos definido juntamente com as consultas de exemplo na secção abaixo.
+
+|Consulta  |Descrição  |
+|---------|---------|
+|ConfigurationChange <br>&#124;onde ConfigChangeType = = "Arquivo" e FileSystemPath contém "c:\\windows\\system32\\drivers\\"|Útil para rastrear alterações em arquivos críticos do sistema|
+|ConfigurationChange <br>&#124;em que FieldsChanged contém "FileContentChecksum" e FileSystemPath = = "c:\\windows\\system32\\controladores\\etc\\anfitriões"|Útil para controlar modificações aos ficheiros de configuração da chave|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Útil para controlar as alterações a serviços críticos do sistema|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para controlar as alterações a serviços críticos do sistema|
+|ConfigurationChange <br>&#124;onde ConfigChangeType = = "Software" e ChangeCategory = = "Adicionado"|Útil para ambientes essa necessidade bloqueado as configurações de software|
+|ConfigurationData <br>&#124;em que SoftwareName contém "Monitoring Agent" e CurrentVersion! = "8.0.11081.0"|Útil para ver quais máquinas têm uma versão de software desatualizados ou não conformes instalada. Comunica o último Estado de configuração comunicados, não as alterações.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Útil para controlar as alterações a cruciais chaves de software antivírus|
+|ConfigurationChange <br>&#124;em que contém o RegistryKey "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\serviços\\SharedAccess\\parâmetros\\FirewallPolicy"| Útil para controlar as alterações a definições de firewall|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

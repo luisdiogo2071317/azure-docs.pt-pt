@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132623"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451908"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase de aceitação do cliente do ciclo de vida do processo de ciência de dados de equipa
 
@@ -40,7 +40,7 @@ Esta é uma representação visual de ciclo de vida do TDSP:
 Existem duas tarefas principais abordadas neste estágio:
 
    * **Validação do sistema**: Confirme que o modelo implementado e o pipeline atendem às necessidades do cliente.
-   * **Transição paraoperações de projeto**: passá o projeto para a entidade que vai ser executado o sistema na produção.
+   * **Transição paraoperações de projeto**: Passá o projeto para a entidade que vai ser executado o sistema na produção.
 
 O cliente deve validar que o sistema atenda às suas necessidades de negócios e que responde as perguntas com a precisão aceitável para implantar o sistema para a produção para utilização pela aplicação de seu cliente. Toda a documentação é finalizada e revista. O projeto é entregue inicial para a entidade responsável por operações. Esta entidade pode ser, por exemplo, uma TI ou equipa de ciência de dados do cliente ou com um agente do cliente que é responsável por executar o sistema em produção. 
 

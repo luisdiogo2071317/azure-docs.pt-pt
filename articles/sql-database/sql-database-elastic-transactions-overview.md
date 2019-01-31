@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720721"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463876"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
+
 Transações de base de dados elástica de base de dados do Azure SQL (SQL DB) permitem-lhe executar transações que abrangem várias bases de dados no SQL DB. Transações de base de dados elástica para a BD SQL estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. Para obter a biblioteca, consulte [.NET Framework 4.6.1 (instalador Web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 No local, um cenário desse tipo normalmente necessário executar o coordenador de transações distribuídas ' (MSDTC) da Microsoft. Uma vez que o MSDTC não está disponível para aplicações de plataforma-como-serviço no Azure, a capacidade de coordenar transações distribuídas agora foi diretamente integrada para o SQL DB. Aplicativos podem se conectar a qualquer base de dados SQL para iniciar transações distribuídas, e uma das bases de dados transparente coordenará a transação distribuída, conforme mostrado na figura a seguir. 
@@ -27,6 +28,7 @@ No local, um cenário desse tipo normalmente necessário executar o coordenador 
   ![Transações distribuídas com a base de dados do SQL Azure usando transações da base de dados elástica ][1]
 
 ## <a name="common-scenarios"></a>Cenários comuns
+
 Transações de bases de dados elásticas para o SQL DB permitem aplicações fazer alterações atômicas para dados armazenados em vários diferentes bancos de dados do SQL. A pré-visualização se concentra em experiências de desenvolvimento do lado do cliente em c# e .NET. Uma experiência de lado do servidor com o T-SQL está prevista para um horário posterior.  
 Transações de bases de dados elásticas destina-se os seguintes cenários:
 
@@ -35,6 +37,7 @@ Transações de bases de dados elásticas destina-se os seguintes cenários:
   Transações de bases de dados elásticas utilizam confirmação de duas fases para se certificar de atomicidade transações entre bases de dados. É uma boa opção para transações que envolvem menos de 100 bases de dados ao mesmo tempo numa única transação. Estes limites não são impostos, mas um deve esperar, desempenho e taxas de êxito para transações da base de dados elástica afetado quando exceder estes limites.
 
 ## <a name="installation-and-migration"></a>Instalação e migração
+
 As capacidades para as transações de bases de dados elásticas SQL DB são fornecidas por meio de atualizações para as bibliotecas .NET Transactions. dll e. As DLLs Certifique-se de que confirmação de duas fases é utilizada quando necessário para se certificar de atomicidade. Para começar a desenvolver aplicativos usando transações da base de dados elástica, instale [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) ou uma versão posterior. Quando em execução numa versão anterior do .NET framework, as transações falhará promover a uma transação distribuída e vai ser gerada uma exceção.
 
 Após a instalação, pode usar a transação distribuída APIs System. Transactions com ligações a BD SQL. Se tiver aplicativos existentes do MSDTC utilizando essas APIs, apenas recompilar os aplicativos existentes para o .NET 4.6 depois de instalar o 4.6.1 Framework. Se seus projetos de destino .NET 4.6, eles irão utilizar automaticamente as DLLs atualizadas da nova versão do Framework e transações distribuídas a chamadas de API em combinação com ligações ao SQL DB agora terá êxito.
@@ -42,7 +45,9 @@ Após a instalação, pode usar a transação distribuída APIs System. Transact
 Lembre-se de que as transações de bases de dados elásticas não requerem instalação MSDTC. Em vez disso, as transações de bases de dados elásticas são geridas diretamente pelo e dentro de BD SQL. Isso simplifica significativamente a cenários de nuvem, uma vez que uma implementação do MSDTC não é necessária utilizar transações distribuídas com a BD SQL. Secção 4 explica mais detalhadamente como implementar as transações de bases de dados elásticas e o .NET framework necessário em conjunto com as suas aplicações na cloud para o Azure.
 
 ## <a name="development-experience"></a>Experiência de desenvolvimento
+
 ### <a name="multi-database-applications"></a>Aplicações de múltiplas base de dados
+
 O código de exemplo seguinte utiliza a experiência de programação familiar com System. Transactions do .NET. A classe TransactionScope estabelece uma transação de ambiente no .NET. (Uma "transação de ambiente" é aquele que reside no thread atual.) Todas as ligações abertas no TransactionScope participam na transação. Se os diferentes bancos de dados participam, a transação seja automaticamente elevada a uma transação distribuída. O resultado da transação é controlado através da definição do escopo para concluir para indicar uma consolidação.
 
     using (var scope = new TransactionScope())
@@ -67,6 +72,7 @@ O código de exemplo seguinte utiliza a experiência de programação familiar c
     }
 
 ### <a name="sharded-database-applications"></a>Aplicações de base de dados em partição horizontal
+
 Transações de bases de dados elásticas para o SQL DB também suportam a coordenação de transações distribuídas em que usar o método de OpenConnectionForKey da biblioteca de clientes de bases de dados elásticas para abrir ligações para um dados aumentados horizontalmente camadas. Considere casos em que precisa para garantir a consistência transacional para alterações em vários valores de chave de fragmentação diferentes. Ligações para as partições horizontais que aloja os valores de chave de fragmentação diferentes são mediadas OpenConnectionForKey a utilizar. No caso geral, as ligações podem ser a partições horizontais diferentes, de modo a que garantir garantias transacionais requer uma transação distribuída. O exemplo de código a seguir ilustra essa abordagem. Parte do princípio de que uma variável chamada shardmap é usada para representar um mapa de partições horizontais da biblioteca de cliente de bases de dados elásticas:
 
     using (var scope = new TransactionScope())
@@ -92,6 +98,7 @@ Transações de bases de dados elásticas para o SQL DB também suportam a coord
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação do .NET para serviços Cloud do Azure
+
 O Azure fornece várias ofertas para alojar aplicações .NET. Uma comparação das ofertas diferentes está disponível no [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/overview-compare.md). Se o SO convidado da oferta é menor do que o .NET 4.6.1 necessários para transações elásticas, terá de atualizar o SO convidado para 4.6.1. 
 
 Para serviços de aplicações do Azure, as atualizações para o SO convidado não são atualmente suportadas. Para máquinas de virtuais do Azure, basta iniciar sessão na VM e execute o instalador para o .NET framework mais recente. Serviços Cloud do Azure, terá de incluir a instalação de uma versão mais recente do .NET para as tarefas de arranque da sua implementação. Os conceitos e passos documentados em [instalar o .NET numa função de serviço Cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
@@ -118,24 +125,27 @@ Tenha em atenção que o instalador para o .NET 4.6.1 pode exigir mais armazenam
     </Startup>
 
 ## <a name="transactions-across-multiple-servers"></a>Transações entre vários servidores
-Transações de bases de dados elásticas são suportadas em diferentes servidores lógicos no Azure SQL Database. Quando as transações ultrapassam os limites do servidor lógico, os servidores participantes primeiro tem de ser introduzidos numa relação de comunicação bidirecional. Assim que tiver sido estabelecida a relação de comunicação, qualquer base de dados em qualquer um dos dois servidores pode participar em transações elásticas com bases de dados de outro servidor. Com transações que abrangem mais de dois servidores lógicos, uma relação de comunicação tem de estar no local para qualquer par de servidores lógicos.
+
+Transações de bases de dados elásticas são suportadas em diferentes servidores de base de dados SQL na base de dados do Azure SQL. Quando as transações ultrapassam os limites do servidor de base de dados SQL, os servidores participantes primeiro tem de ser introduzidos numa relação de comunicação bidirecional. Assim que tiver sido estabelecida a relação de comunicação, qualquer base de dados em qualquer um dos dois servidores pode participar em transações elásticas com bases de dados de outro servidor. Com transações que abrange mais de dois servidores de base de dados SQL, uma relação de comunicação tem de estar no local para qualquer par de servidores de base de dados SQL.
 
 Utilize os seguintes cmdlets do PowerShell para gerir as relações de comunicação entre servidores de transações de bases de dados elásticas:
 
-* **Novo AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores lógicos numa BD SQL do Azure. A relação é simétrica, que significa que ambos os servidores podem iniciar transações com o outro servidor.
+* **New-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores de base de dados SQL na base de dados do Azure SQL. A relação é simétrica, que significa que ambos os servidores podem iniciar transações com o outro servidor.
 * **Get-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para obter as relações de comunicação existentes e as respetivas propriedades.
 * **Remove-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para remover uma relação de comunicação existente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorização do Estado de transação
+
 Utilize vistas de gestão dinâmica (DMVs) no SQL DB para monitorizar o estado e o progresso das suas transações de bases de dados elásticas em curso. Todas as DMVs relacionados com transações são relevantes para transações distribuídas na BD SQL. Pode encontrar a lista correspondente de DMVs aqui: [Transações relacionadas a funções (Transact-SQL) e exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Esses DMVs são particularmente úteis:
 
-* **sys.dm\_tran\_Active Directory\_transações**: Apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho) pode identificar as transações de diferentes filho que pertencem à mesma transação distribuída. Todas as transações na mesma transação distribuída realizar o mesmo valor UOW. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
-* **sys.dm\_tran\_base de dados\_transações**: Fornece informações adicionais sobre transações, como posicionamento da transação no registo. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
-* **sys.dm\_tran\_bloqueios**: Fornece informações sobre os bloqueios que atualmente são mantidas por transações em curso. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
+* **sys.dm\_tran\_active\_transactions**: Apresenta uma lista de transações atualmente ativas e o respetivo estado. A coluna UOW (unidade de trabalho) pode identificar as transações de diferentes filho que pertencem à mesma transação distribuída. Todas as transações na mesma transação distribuída realizar o mesmo valor UOW. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms174302.aspx) para obter mais informações.
+* **sys.dm\_tran\_database\_transactions**: Fornece informações adicionais sobre transações, como posicionamento da transação no registo. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms186957.aspx) para obter mais informações.
+* **sys.dm\_tran\_locks**: Fornece informações sobre os bloqueios que atualmente são mantidas por transações em curso. Consulte a [documentação de DMV](https://msdn.microsoft.com/library/ms190345.aspx) para obter mais informações.
 
 ## <a name="limitations"></a>Limitações
+
 As seguintes limitações aplicam-se atualmente a transações de bases de dados elásticas na BD SQL:
 
 * Somente as transações entre bases de dados no SQL DB são suportadas. Outros [X / abra XA](https://en.wikipedia.org/wiki/X/Open_XA) bases de dados fora da BD SQL e fornecedores de recursos não podem participar em transações de bases de dados elásticas. Isso significa que transações de bases de dados elásticas não podem esticar no local do SQL Server e base de dados do Azure SQL. Para as transações distribuídas no local, continue a utilizar o MSDTC. 
@@ -143,10 +153,8 @@ As seguintes limitações aplicam-se atualmente a transações de bases de dados
 * Não são suportadas transações em todos os serviços do WCF. Por exemplo, tem um método de serviço do WCF que executa uma transação. Colocar a chamada dentro de um âmbito de transação falhará como um [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para fazer perguntas, contacte-no [fórum de base de dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, adicione-os para o [fórum de comentários de base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
-
-

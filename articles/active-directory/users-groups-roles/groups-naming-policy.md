@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro;seo-update-jan
-ms.openlocfilehash: bf357a4f46f0aed26b8f06c524faffa9e7431de2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 08009324ea44b9c31602ebddd19e50588a0dbc65
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176561"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296856"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -47,7 +47,7 @@ Os prefixos e sufixos podem conter carateres especiais que são suportadas no no
 
 Pode usar cadeias de caracteres para facilitar a análise e a distinguir a grupos na lista de endereços global e nas ligações de navegação à esquerda das cargas de trabalho de grupo. Alguns dos prefixos de comuns são palavras-chave como "Grp\_Name', '\#nome ','\_nome"
 
-#### <a name="user-attributes"></a>Atributos de utilizador
+#### <a name="user-attributes"></a>Atributos do utilizador
 
 Pode usar os atributos que podem ajudá-lo e os seus utilizadores identificam quais departamento, o office ou a região geográfica para a qual o grupo foi criado. Por exemplo, se definir a política de nomenclatura como `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, e `User’s department = Engineering`, em seguida, um nome do grupo de imposto pode ser "GRP My Group Engineering." Suporte do Azure AD atributos são \[departamento\], \[empresa\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Atributos de utilizador não suportados são tratados como cadeias de caracteres fixas; Por exemplo, "\[postalCode\]". Atributos de extensão e os atributos personalizados não são suportados.
 
@@ -72,7 +72,7 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 - Parceiro de suporte de escalão 1
 - Parceiro de suporte de camada 2
 - Administrador de conta de utilizador
-- Gravadores de diretórios
+- Escritores de diretórios
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalar os cmdlets do PowerShell para configurar uma política de nomes
 

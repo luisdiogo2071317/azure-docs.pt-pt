@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7f58e851ab7783e43cd6235b2169847cbf0ac5a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 80ed88bbc901d2cbcd6bc8104e55de73549744f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036635"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477833"
 ---
-# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>Criar e gerir recursos do Azure Cosmos DB com o PowerShell
+# <a name="manage-azure-cosmos-resources-using-powershell"></a>Gerir recursos do Cosmos do Azure com o PowerShell
 
 O guia seguinte descreve os comandos para automatizar a gestão das suas contas de base de dados do Azure Cosmos DB com o Azure Powershell. Ele também inclui comandos para gerir as chaves da conta e as prioridades de ativação pós-falha no [contas de base de dados de várias regiões][distribute-data-globally]. A atualizar a sua conta de base de dados permite-lhe modificar as políticas de consistência e adicionar/remover regiões. Para a gestão de várias plataformas da sua conta do Azure Cosmos DB, pode usar [CLI do Azure](cli-samples.md), o [API de REST do fornecedor de recursos][rp-rest-api], ou o [portal do Azure ](create-sql-api-dotnet.md#create-account).
 

@@ -9,13 +9,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
-ms.openlocfilehash: 36fa2e5bc7eda7c47017713008aec2a245213462
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521572"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457366"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o armazenamento de filas do C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -41,8 +41,8 @@ Para tal, terá de instalar a biblioteca de clientes de Armazenamento do Microso
 
 Para instalar a biblioteca de clientes de Armazenamento do Microsoft Azure para C++, pode utilizar os seguintes métodos:
 
-* **Linux:** siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.
-* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet > Consola do Gestor de Pacotes**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.
+* **Linux:** Siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.
+* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet >Consola do Gestor de Pacotes**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.
 
 ```  
 Install-Package wastorage
@@ -83,7 +83,7 @@ Pode utilizar o **cloud_storage_account** classe para representar as informaçõ
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Como: criar uma fila
+## <a name="how-to-create-a-queue"></a>Como: Criar uma fila
 R **cloud_queue_client** objeto permite-lhe obter objetos de referência para filas. O código seguinte cria um **cloud_queue_client** objeto.
 
 ```cpp
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem numa fila
+## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Introduzir uma mensagem numa fila
 Para inserir uma mensagem numa fila existente, primeiro crie um novo **cloud_queue_message**. Em seguida, chame o **add_message** método. R **cloud_queue_message** podem ser criados em qualquer um uma cadeia de caracteres ou uma **bytes** matriz. Eis o código que cria uma fila (se não existir) e introduz a mensagem "Olá, Mundo":
 
 ```cpp
@@ -125,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Como: pré-visualizar a mensagem seguinte
+## <a name="how-to-peek-at-the-next-message"></a>Como: Pré-visualização da mensagem seguinte
 Pode pré-visualizar a mensagem no início de uma fila sem a remover da fila ao chamar o **peek_message** método.
 
 ```cpp
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar os conteúdos de uma mensagem em fila
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: Alterar os conteúdos de uma mensagem em fila
 Pode alterar os conteúdos de uma mensagem no local na fila de espera. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O seguinte código atualiza a mensagem de filas com novos conteúdos e expande o tempo limite de visibilidade em 60 segundos. Isto guarda o estado do trabalho associado à mensagem e atribui ao cliente outro minuto para continuar a trabalhar na mensagem. Pode utilizar esta técnica para controlar fluxos de trabalho de vários passos em mensagens de filas, sem ser necessário recomeçar do início se falhar um passo de processamento devido a uma falha de hardware ou software. Normalmente, também manteria uma contagem de tentativas e se a mensagem for repetida mais do que n vezes, deveria eliminá-la. Esta ação protege contra uma mensagem que aciona um erro da aplicação sempre que é processada.
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Como: remover da fila a mensagem seguinte
+## <a name="how-to-de-queue-the-next-message"></a>Como: Remover a mensagem seguinte da fila
 O código remove uma mensagem da fila em dois passos. Quando chama **get_message**, obterá a seguinte mensagem numa fila. Uma mensagem devolvida por **get_message** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Para concluir a remover a mensagem da fila, também tem de chamar **delete_message**. Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. A código chama **delete_message** imediatamente após a mensagem foi processada.
 
 ```cpp
@@ -192,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Como: tirar partido das opções adicionais para remover a atribuição de enfileiramento de mensagens
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Como: Tirar maior partido das opções adicionais para remover as mensagens da fila
 Existem duas formas através das quais pode personalizar a obtenção de mensagens a partir de uma fila. Em primeiro lugar, pode obter um lote de mensagens (até 32). Em segundo lugar, pode definir um tempo limite de invisibilidade superior ou inferior, dando mais ou menos tempo ao código para processar totalmente cada mensagem. O seguinte código de exemplo utiliza a **get_messages** método para obter 20 mensagens numa chamada. Em seguida, processa cada mensagem, usando uma **para** loop. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem. Tenha em atenção que os 5 minutos começam para todas as mensagens ao mesmo tempo, então, 5 minutos após transmitido a chamada para **get_messages**, as mensagens que não foram eliminadas ficarão visíveis novamente.
 
 ```cpp
@@ -220,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Como: obter o comprimento da fila
+## <a name="how-to-get-the-queue-length"></a>Como: Obter o comprimento da fila
 Pode obter uma estimativa do número de mensagens numa fila. O **download_attributes** método pede ao serviço de fila para obter os atributos de fila, incluindo a contagem de mensagens. O **approximate_message_count** método obtém o número aproximado de mensagens na fila.
 
 ```cpp
@@ -243,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Como: eliminar uma fila
+## <a name="how-to-delete-a-queue"></a>Como: Eliminar uma fila
 Para eliminar uma fila e todas as mensagens contidas no mesmo, chame o **delete_queue_if_exists** método no objeto de fila.
 
 ```cpp

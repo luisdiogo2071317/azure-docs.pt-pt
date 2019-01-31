@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/30/2019
+ms.openlocfilehash: 48cdd064155bfbdfa2fef2ce5a8410e4c95e4c3b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215478"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461071"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Base de dados do SQL do Azure limites de modelo para conjuntos elásticos de compra baseado em vCore
 
@@ -53,7 +53,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) * |210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|200|300|500|500|500|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0,25, 0, 1... e 0,5 3|0,25, 0, 1... e 0,5 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
@@ -79,7 +79,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|200|500|500|500|500|500|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1... 7|0,25, 0, 1... e 0,5 8|0,25, 0, 1... e 0,5 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
@@ -105,7 +105,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|200|500|500|500|500|500|500|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1, 2|0,25, 0, 1... e 0,5 4|0, 0,25, 0,5, 1... 6|0,25, 0, 1... e 0,5 8|0, 0,25, 0,5, 1... 10|0,25, 0, 1... e 0,5 12|0,25, 0, 1... e 0,5 14|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
@@ -130,7 +130,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Destino IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|33600|4200|8400|
 |Número de DBs máximo por conjunto|500|500|500|500|500|500|500|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0,25, 0, 1... e 0,5 16|0,25, 0, 1... e 0,5 18|0,25, 0, 1... e 0,5 20|0,25, 0, 1... e 0,5 20, 24|0,25, 0, 1... e 0,5 20, 24, 32|0,25, 0, 1... e 0,5 16, 24, 32, 40|0,25, 0, 1... e 0,5 16, 24, 32, 40, 80|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
@@ -158,7 +158,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|Apenas únicos bds são suportadas para este tamanho de computação|50|100|100|100|100|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0,25, 0,5, 1, 2|0,25, 0, 1... e 0,5 3|0,25, 0, 1... e 0,5 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -174,7 +174,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
-|Armazenamento em OLTP na memória (GB)|7|8|9,5|11|20|36|
+|Armazenamento em OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
 |Tamanho máximo do registo (GB)|307|307|307|307|307|307|
@@ -184,7 +184,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|100|100|100|100|100|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0,25, 0,5, 1... 7|0,25, 0, 1... e 0,5 8|0,25, 0, 1... e 0,5 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -210,7 +210,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|Apenas únicos bds são suportadas para este tamanho de computação|50|100|100|100|100|100|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0,25, 0, 1... e 0,5 4|0, 0,25, 0,5, 1... 6|0,25, 0, 1... e 0,5 8|0, 0,25, 0,5, 1... 10|0,25, 0, 1... e 0,5 12|0,25, 0, 1... e 0,5 14|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -236,7 +236,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|3360|4200|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|100|100|100|100|100|100|
-|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0,25, 0, 1... e 0,5 16|0,25, 0, 1... e 0,5 18|0,25, 0, 1... e 0,5 20|0,25, 0, 1... e 0,5 20, 24|0,25, 0, 1... e 0,5 20, 24, 32|0,25, 0, 1... e 0,5 24, 20, 40 e 32|0,25, 0, 1... e 0,5 20, 24, 32, 40, 80|
+|Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -260,5 +260,5 @@ A tabela seguinte descreve as propriedades de bases de dados agrupadas.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
-- Ver [limita a visão geral dos recursos num servidor lógico](sql-database-resource-limits-logical-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
+- Ver [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141412"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453659"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -46,15 +46,15 @@ A chave exclusiva para aderir a viagem\_dados e viagem\_Europeia é composta pel
 ## <a name="mltasks"></a>Exemplos de tarefas de predição
 Podemos irá formular três problemas de previsão com base na *sugestão\_quantidade*, ou seja:
 
-1. Classificação binária: prever se ou não uma dica foi paga por uma viagem, ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é uma exemplo negativo.
-2. Classificação multiclasses: prever o intervalo de sugestão pago para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco contentores ou classes:
+1. Classificação binária: Prever se ou não uma dica foi paga por uma viagem, ou seja, um *sugestão\_quantidade* superior de US $0 é um exemplo positivo, enquanto uma *tip\_quantidade* de US $0 é um exemplo negativo.
+2. Classificação de várias classes: Para prever o intervalo de sugestão pagos para a viagem. Vamos dividir o *sugestão\_quantidade* em cinco contentores ou classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tarefa de regressão: para prever a quantidade de sugestão pago por uma viagem.  
+3. Tarefa de regressão: Para prever a quantidade de sugestão pagos por uma viagem.  
 
 ## <a name="setup"></a>Ambiente de ciência de dados de configuração cópia de segurança do Azure para análise avançada
 Como pode ver a partir do [planear o ambiente](plan-your-environment.md) guia, há várias opções para trabalhar com o conjunto de dados de viagens de táxis de NYC no Azure:
@@ -87,7 +87,7 @@ Para obter o [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunt
 Para copiar os dados com AzCopy:
 
 1. Inicie sessão na sua máquina virtual (VM)
-2. Criar um novo diretório no disco de dados da VM (Nota: não utilize o disco temporário que vem com a VM como um disco de dados).
+2. Criar um novo diretório no disco de dados da VM (observação: Não utilize o disco temporário que vem com a VM como um disco de dados).
 3. Numa janela de linha de comandos, execute a seguinte linha de comando do Azcopy substituir < path_to_data_folder > a sua pasta de dados criada no (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -200,7 +200,7 @@ Neste exemplo localiza o número de viagens que foram tipados versus não tipado
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Exploração: Distribuição de classe/intervalo de sugestão
+#### <a name="exploration-tip-classrange-distribution"></a>Exploração: Sugestão de distribuição de classe/intervalo
 Neste exemplo calcula a distribuição de intervalos de sugestão num determinado período de tempo (ou no conjunto de dados completo se abrangendo o ano completo). Esta é a distribuição das classes de etiqueta que será utilizado mais tarde para a Modelagem de classificação multiclasses.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Neste exemplo calcula a distribuição de intervalos de sugestão num determinad
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: Comparar a distância de viagem e de computação
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: Computação e Compare a distância de viagem
 Neste exemplo converte a recolha e de redução de longitude e latitude para geografia SQL aponta, computa a distância de viagem com a diferença de pontos de geografia SQL e devolve uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados para as coordenadas válidos apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     SELECT
@@ -456,7 +456,7 @@ No exemplo a seguir, vamos gerar dois conjuntos de etiquetas a utilizar para a M
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de funcionalidades: Contagem de recursos para colunas Categóricas
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de funcionalidades: Funcionalidades de contagem de colunas Categóricas
 Neste exemplo transforma um campo categórico num campo numérico, substituindo cada categoria com a contagem de seu ocorrências nos dados.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ Neste exemplo transforma um campo categórico num campo numérico, substituindo 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de funcionalidades: Funcionalidades de reciclagem para colunas numéricas
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de funcionalidades: Funcionalidades de bin para colunas numéricas
 Neste exemplo transforma um campo numérico contínuo em intervalos de categoria predefinidas, ou seja, transformação campo numérico num campo categórico.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ Neste exemplo transforma um campo numérico contínuo em intervalos de categoria
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de funcionalidades: Extrair recursos de localização de Decimal Latitude/Longitude
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de funcionalidades: Extrair funcionalidades de localização de Decimal Latitude/Longitude
 Neste exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como, país, cidade, cidade, bloquear, etc. Tenha em atenção que os novos campos de geo não são mapeados para localizações reais. Para obter informações sobre localizações de geocode de mapeamento, consulte [serviços de REST do Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ Neste exemplo divide a representação decimal de um campo de latitude e/ou long
 
 Vamos agora está prontos para avançar para a criação de modelo e implementação de modelo na [do Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para os problemas de predição identificadas anteriormente, ou seja:
 
-1. Classificação binária: prever se é ou não uma dica foi paga por uma viagem.
-2. Classificação multiclasses: prever o intervalo de sugestão paga, de acordo com as classes definidas anteriormente.
-3. Tarefa de regressão: para prever a quantidade de sugestão pago por uma viagem.  
+1. Classificação binária: Para prever se é ou não uma dica foi paga por uma viagem.
+2. Classificação de várias classes: Para prever o intervalo de sugestão paga, de acordo com as classes definidas anteriormente.
+3. Tarefa de regressão: Para prever a quantidade de sugestão pagos por uma viagem.  
 
 ## <a name="mlmodel"></a>Modelos de construção no Azure Machine Learning
 Para iniciar o exercício de modelagem, inicie sessão na sua área de trabalho do Azure Machine Learning. Se ainda não tiver criado um área de trabalho de aprendizagem automática, consulte [criar uma área de trabalho do Azure Machine Learning](../studio/create-workspace.md).

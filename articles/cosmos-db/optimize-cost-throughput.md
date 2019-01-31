@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230174"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465593"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de débito no Azure Cosmos DB
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
 Ao fornecer o modelo de débito aprovisionado, o Azure Cosmos DB oferece um desempenho previsível em qualquer escala. Reservar ou débito antes do tempo de aprovisionamento elimina o "efeito de vizinhos ruidosos" no seu desempenho. Especifique a quantidade exata de débito de que precisa e Azure Cosmos DB garante o débito configurado, apoiado por um SLA.
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 52bcedace5d8a039be4a72dcfcc3cdeb653b3e0c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a9883edc712b1524561f3bac3efd1608da695313
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354370"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477289"
 ---
-# <a name="manage-conflicts-between-regions"></a>Gerir conflitos entre regiões
+# <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflito no Azure Cosmos DB
 
 Com gravações entre várias regiões, quando ocorre um conflito de dados, pode resolver o conflito com políticas de resolução de conflito diferentes. Este artigo descreve como gerir políticas de resolução de conflito através da utilização de plataformas de idioma diferente.
 

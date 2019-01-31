@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: common
+ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140524"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478326"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -60,7 +60,7 @@ Durante a encriptação, a biblioteca de cliente irá gerar um Vetor de iniciali
 > 
 > 
 
-Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo** / **métodos de conveniência BlobReadStream**\*. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
+Transferir um blob encriptado envolve a obtenção dos conteúdos do blob inteiro com o **DownloadTo *** /** métodos de conveniência BlobReadStream * *. O CEK encapsulada é não envolto e utilizado em conjunto com o IV (armazenado como metadados do blob neste caso) para retornar os dados descriptografados para os utilizadores.
 
 Transferir um intervalo de arbitrário (**DownloadRange*** métodos) no blob criptografado envolve a ajustar o intervalo fornecido por utilizadores para obter uma pequena quantidade de dados adicionais que podem ser utilizados com êxito desencriptar a pedido intervalo.
 

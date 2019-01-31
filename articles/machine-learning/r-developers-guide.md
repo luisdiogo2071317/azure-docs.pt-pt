@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081114"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211445"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guia para programadores de R para o Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -114,7 +114,7 @@ Uma terceira opção é utilizar o [Toolkit do Azure distribuídas dados engenha
 
 [Blocos de notas do Azure](https://notebooks.azure.com) é um método de baixo custo, de baixa fricção para desenvolvedores de R que preferem trabalhar com blocos de notas para utilizar código próprio para o Azure.  É um serviço gratuito para qualquer pessoa desenvolver e executar código no seu navegador usando [Jupyter](https://jupyter.org/), que é um projeto de código-fonte aberto que permite que combinam prosa de markdown, código executável e gráficos para uma única tela.
 
-O escalão de serviço gratuito de blocos de notas do Azure é uma opção viável para projetos de pequena escala, como ela limita o processo de cada bloco de anotações para 4GB de memória e 1GB de conjuntos de dados. Se precisar de energia de dados e computação além destas limitações, no entanto, pode executar blocos de notas numa instância de máquina de Virtual de ciência de dados. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+O escalão de serviço gratuito de blocos de notas do Azure é uma opção viável para projetos de pequena escala, como ela limita o processo de cada bloco de anotações para 4GB de memória e 1GB de conjuntos de dados. Se precisar de energia de dados e computação além destas limitações, no entanto, pode executar blocos de notas numa instância de máquina de Virtual de ciência de dados. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) é o serviço de base de dados do Microsoft cloud relacional completamente gerido inteligente.  Pode usar toda a potência do SQL Server sem qualquer necessidade de configurar a infraestrutura.  Isto inclui [Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), que é uma das adições mais recentes para o serviço do SQL.

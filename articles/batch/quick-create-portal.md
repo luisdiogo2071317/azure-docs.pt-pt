@@ -2,22 +2,22 @@
 title: Início Rápido do Azure - Executar Trabalho do Batch - Portal
 description: Aprenda rapidamente a executar um trabalho do Batch com o portal do Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7daaf042d22ba4ac0369b732b586a3760d8cd51c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859579"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471220"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: Executar o seu primeiro trabalho do Batch no portal do Azure
 
 Este início rápido mostra como utilizar o portal do Azure para criar uma conta do Batch, um *conjunto* de nós de computação (máquinas virtuais) e um *trabalho* que executa *tarefas* no conjunto. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
@@ -57,7 +57,7 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
 3. Em **Sistema Operativo**, selecione as definições seguintes (pode explorar outras opções).
   
-  |Definição  |Valor  |
+  |Definição  |Value  |
   |---------|---------|
   |**Tipo de Imagem**|Marketplace (Linux/Windows)|
   |**Publicador**     |MicrosoftWindowsServer|
@@ -68,7 +68,7 @@ Agora que tem uma conta do Batch, crie um conjunto de exemplo de nós de computa
 
 4. Desloque-se para baixo para introduzir as definições de **Tamanho do Nó** e **Dimensionamento**. Neste exemplo rápido, o tamanho do nó sugerido oferece um bom equilíbrio de desempenho em comparação com o custo.
   
-  |Definição  |Valor  |
+  |Definição  |Value  |
   |---------|---------|
   |**Escalão de preço do nó**     |Standard_A1|
   |**Nós dedicados de destino**     |2|
@@ -131,7 +131,7 @@ Se pretender continuar com os tutoriais e exemplos do Batch, utilize a conta do 
 
 Quando já não for necessário, elimine o grupo de recursos, a conta do Batch e todos os recursos relacionados. Para tal, selecione o grupo de recursos da conta do Batch e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma conta, um conjunto e um trabalho do Batch. O trabalho executou tarefas de exemplo e viu os resultados num dos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para saber mais acerca do Azure Batch, avance para os tutoriais do Azure Batch. 
 

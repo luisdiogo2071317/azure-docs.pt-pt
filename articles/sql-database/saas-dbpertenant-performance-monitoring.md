@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459490"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
 Neste tutorial, serão explorados vários cenários de gerenciamento de chave de desempenho utilizados nas aplicações SaaS. Utilizar um gerador de carga para simular atividade em todas as bases de dados do inquilino, a monitorização incorporada e funcionalidades de base de dados SQL e conjuntos elásticos de alerta são demonstrados.
 
-A aplicação Wingtip Tickets SaaS da base de dados por inquilino utiliza um modelo de dados de inquilino único, onde cada local (inquilino) tem sua própria base de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização típica da base de dados, as bases de dados de inquilinos são implementadas em conjunto de bases de dados elásticas. Os conjuntos elásticos otimizam o custo de uma solução ao partilhar recursos em muitas bases de dados. Com este tipo de padrão, é importante monitorizar a utilização das bases de dados e dos recursos dos conjuntos para confirmar que as cargas estão razoavelmente equilibradas entre os conjuntos. Também tem de garantir que as bases de dados individuais têm os recursos adequados e que os conjuntos não estão a atingir os seus limites [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial analisa formas de monitorizar e gerir bases de dados e conjuntos e como tomar uma medida corretiva em resposta a variações na carga de trabalho.
+A aplicação Wingtip Tickets SaaS da base de dados por inquilino utiliza um modelo de dados de inquilino único, onde cada local (inquilino) tem sua própria base de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização típica da base de dados, bases de dados de inquilinos são implementadas em conjuntos elásticos. Os conjuntos elásticos otimizam o custo de uma solução ao partilhar recursos em muitas bases de dados. Com este tipo de padrão, é importante monitorizar a utilização das bases de dados e dos recursos dos conjuntos para confirmar que as cargas estão razoavelmente equilibradas entre os conjuntos. Também tem de garantir que as bases de dados individuais têm os recursos adequados e que os conjuntos não estão a atingir os seus limites [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial analisa formas de monitorizar e gerir bases de dados e conjuntos e como tomar uma medida corretiva em resposta a variações na carga de trabalho.
 
 Neste tutorial, ficará a saber como:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gestão do desempenho de SaaS
 
-Gerir o desempenho da base de dados consiste em compilar e analisar dados de desempenho e, em seguida, reagir a estes dados ajustando os parâmetros para manter um tempo de resposta aceitável para a aplicação. Ao alojar vários inquilinos, os Conjunto de bases de dados elásticas são uma forma económica de fornecer e gerir os recursos de um grupo de bases de dados com cargas de trabalho imprevisíveis. Com determinados padrões de carga de trabalho, um mínimo de duas bases de dados S3 pode beneficiar ao serem geridas num conjunto.
+Gerir o desempenho da base de dados consiste em compilar e analisar dados de desempenho e, em seguida, reagir a estes dados ajustando os parâmetros para manter um tempo de resposta aceitável para a aplicação. Ao alojar vários inquilinos, conjuntos elásticos são uma maneira econômica de fornecer e gerir os recursos de um grupo de bases de dados com cargas de trabalho imprevisíveis. Com determinados padrões de carga de trabalho, um mínimo de duas bases de dados S3 pode beneficiar ao serem geridas num conjunto.
 
 ![Diagrama de aplicação](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mov
 
 1. Na [portal do Azure](https://portal.azure.com), abra o **tenants1-dpt -&lt;utilizador&gt;**  server.
 1. Clique em **+ novo conjunto** para criar um conjunto no servidor atual.
-1. Sobre o **conjunto de bases de dados elásticas** modelo:
+1. Sobre o **conjunto elástico** modelo:
 
     1. Definir **Name** ao *Pool2*.
     1. Deixe o escalão de preço como **Conjunto Padrão**.
@@ -189,9 +189,9 @@ Navegue até **Pool2** (no *tenants1-dpt -\<utilizador\>*  server) para abrir o 
 
 Ver agora que a utilização de recursos em *Pool1* caiu e que *Pool2* agora é carregado da mesma forma.
 
-## <a name="manage-performance-of-a-single-database"></a>Gerir o desempenho de uma base de dados
+## <a name="manage-performance-of-an-individual-database"></a>Gerir o desempenho de uma base de dados individual
 
-Se uma base de dados individual num conjunto tiver uma carga elevada constante, consoante a configuração do conjunto, essa base de dados poderá ter tendência para dominar os recursos no conjunto e afetar as outras bases de dados. Se a atividade é provável que continue durante algum tempo, a base de dados pode ser movido temporariamente para fora do conjunto. Isso permite que o banco de dados para os recursos extras que necessita e isola-a partir de outras bases de dados.
+Se uma base de dados individual num conjunto sofrer uma carga elevada constante, dependendo da configuração de agrupamento, poderá ter tendência para dominar os recursos no conjunto e afetar as outras bases de dados. Se a atividade é provável que continue durante algum tempo, a base de dados pode ser movido temporariamente para fora do conjunto. Isso permite que o banco de dados para os recursos extras que necessita e isola-a partir de outras bases de dados.
 
 Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, quando são colocados à venda os bilhetes para um concerto popular.
 
@@ -203,7 +203,7 @@ Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, qu
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para a lista de bases de dados no *tenants1-dpt -\<utilizador\>*  server. 
 1. Clique nas **contosoconcerthall** base de dados.
-1. Clique no conjunto que **contosoconcerthall** é na. Localize o conjunto no **conjunto de bases de dados elásticas** secção.
+1. Clique no conjunto que **contosoconcerthall** é na. Localize o conjunto no **conjunto elástico** secção.
 
 1. Inspecionar a **monitorização do conjunto elástico** do gráfico e procure a utilização de eDTU do conjunto de maior. Depois de um minuto ou dois, o aumento de carga deve começar a surgir e deve poder ver rapidamente que o conjunto atinge os 100% de utilização.
 2. Inspecionar a **bases de dados elásticas monitorização** apresentar, que mostra as bases de dados mais interessantes na hora anterior. O *contosoconcerthall* base de dados deverá ser logo apresentada como uma das cinco bases de dados mais interessantes.

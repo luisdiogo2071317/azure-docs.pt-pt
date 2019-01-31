@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Obter o comprimento de frases, Python – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter comprimentos de sentença, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a determinar os comprimentos de frases (em carateres) com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458249"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para determinar os comprimentos de frases com o Python
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Python
 
 Neste início rápido, irá aprender a determinar os comprimentos de frases (em carateres) com o Python e a API REST de Texto do Microsoft Translator.
 
@@ -69,7 +69,7 @@ Atualmente, está disponível um ponto final para Tradução de Texto e está de
 Os `params` neste exemplo são utilizados para definir o idioma do texto fornecido. Os `params` não são necessários para a rota `breaksentence`. Se forem deixados de fora do pedido, a API irá tentar detetar o idioma do texto fornecido e fornecer estas informações juntamente com uma pontuação de confiança na resposta.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

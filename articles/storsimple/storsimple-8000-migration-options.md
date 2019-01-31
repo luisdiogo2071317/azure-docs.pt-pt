@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242964"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456056"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções de migração de dados do StorSimple 5000-7000 série 
 
@@ -45,11 +45,13 @@ Os clientes que utilizam o séries StorSimple 5000 a 7000 tem as seguintes opç�
 
     - **Migrar para o Panzura liberdade NAS** -StorSimple 5000 a 7000 clientes podem optar por migrar para Panzura de liberdade para manter os seus dados no Azure. Solução de liberdade de Panzura fornece uma solução NAS que abranja centros de dados, escritórios, nuvens públicas e privadas. A solução permite local, híbridos e fluxos de trabalho de dados na cloud para NFS, SMB e clientes móveis. Esta migração é suportada pelo Panzura e podem começar a utilizar ao pedir suporte para a migração de clientes do [Panzura site](https://panzura.com/storsimple-migration/).
 
+    - **Migrar para o Cohesity** -Cohesity permite-lhe migrar dados do StorSimple 5000 – 7000 atual para a plataforma de dados de Cohesity no Azure. A plataforma de dados Cohesity é uma solução de escala da web definida pelo software que consolida os ficheiros, as cópias de segurança, objetos e as VMs numa única solução nativa da cloud. Após a migração para a plataforma de dados, pode gerir, proteger e aprovisionar aplicações da cloud para principais através de um único painel de vidro e dados. Com a Cohesity, comece com um mínimo de três nós. Obter mais informações sobre [migração para o Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
 ## <a name="migration---frequently-asked-questions"></a>Migração - perguntas mais frequentes
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>P. Ao o StorSimple 5000 e os dispositivos das 7000 séries alcançar final do serviço? 
 
-R. StorSimple 5000-7000 série alcançar [final do serviço](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) em Julho de 2019. O final do serviço implica que Microsoft já não será capaz de fornecer suporte para hardware e software destes dispositivos depois de Julho de 2019. É altamente recomendável que começar a formular um plano para migrar os dados dos seus dispositivos agora.
+R. StorSimple 5000-7000 série alcançar [final do serviço](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) em Julho de 2019. O final do serviço implica que Microsoft já não será capaz de fornecer suporte para hardware e software desses dispositivos depois de Julho de 2019. É altamente recomendável que começar a formular um plano para migrar os dados dos seus dispositivos agora.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>P. O que acontece com os dados que tem armazenados no Azure?  
 
@@ -68,8 +70,8 @@ R. Enquanto os serviços poderão continuar a funcionar, a Microsoft já não se
 
 R. Dependendo do seu cenário, os utilizadores de séries StorSimple 5000 a 7000 tem as seguintes opções de migração. 
 
- - **Atualizar para a 8000 série**: Utilize esta opção se pretende continuar na plataforma do StorSimple. 
- - **Migrar para o Azure File Sync**: Utilize esta opção se desejar alternar para o formato nativo do Azure. Pode utilizar o Azure File Sync para o gerenciamento centralizado de partilhas de ficheiros. 
+ - **Atualizar para a 8000 série**: Utilize esta opção quando pretender continuar com a plataforma do StorSimple. 
+ - **Migrar para o Azure File Sync**: Utilize esta opção quando desejar alternar para o formato nativo do Azure. Pode utilizar o Azure File Sync para o gerenciamento centralizado de partilhas de ficheiros. 
 
 Pode contactar o Support da Microsoft para discutir as opções de migração não listadas aqui.
 

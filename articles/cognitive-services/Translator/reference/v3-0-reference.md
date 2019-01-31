@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459096"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -43,10 +43,10 @@ Para forçar o pedido deve ser processada por um Data Center específico, altere
 
 |Descrição|Região|URL Base|
 |:--|:--|:--|
-|Azure|Global|  API.cognitive.microsofttranslator.com|
-|Azure|América do Norte|   API nam.cognitive.microsofttranslator.com|
-|Azure|Europa|  API eur.cognitive.microsofttranslator.com|
-|Azure|Ásia-Pacífico|    API apc.cognitive.microsofttranslator.com|
+|Azure|Global|  api.cognitive.microsofttranslator.com|
+|Azure|América do Norte|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Autenticação
@@ -59,7 +59,7 @@ Existem três cabeçalhos que pode utilizar para autenticar a sua subscrição. 
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Utilizar com a subscrição de serviços cognitivos, se estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure para a sua subscrição para a API de texto do Translator.|
 |Autorização|*Utilizar com subscrição dos serviços cognitivos, se estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
-|OCP-Apim-subscrição-região|*Utilizar com a subscrição de tudo-em-um dos serviços cognitivos, se estiver passando uma chave secreta de tudo-em-um.*<br/>O valor é a região da subscrição tudo-em-um. Este valor é opcional quando não utilizar uma subscrição de tudo-em-um.|
+|Ocp-Apim-Subscription-Region|*Utilizar com a subscrição de tudo-em-um dos serviços cognitivos, se estiver passando uma chave secreta de tudo-em-um.*<br/>O valor é a região da subscrição tudo-em-um. Este valor é opcional quando não utilizar uma subscrição de tudo-em-um.|
 
 ###  <a name="secret-key"></a>Chave secreta
 A primeira opção é autenticar com o `Ocp-Apim-Subscription-Key` cabeçalho. Basta adicionar o `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` cabeçalho para o seu pedido.

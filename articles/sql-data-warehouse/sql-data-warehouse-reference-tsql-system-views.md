@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: c4663c71bb3aee3547174345cfe9fb1d06c4015e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e68fe624a92d0a2d5a8accd3f34b1c5c10f2868
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256209"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472172"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Vistas de sistema suportadas no Azure SQL Data Warehouse
 Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
@@ -219,16 +219,16 @@ As DMVs a seguir se aplicam ao SQL Data Warehouse, mas tem de ser executadas ao 
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## <a name="sql-server-informationschema-views"></a>Modos de exibição INFORMATION_SCHEMA do SQL Server
+## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA views
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
 * [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
-* [PARÂMETROS](https://msdn.microsoft.com/library/ms173796.aspx)
+* [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
 * [ROTINAS DE](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
 * [TABELAS](https://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [MODOS DE EXIBIÇÃO](https://msdn.microsoft.com/library/ms181381.aspx)
+* [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações de referência, consulte [instruções T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), e [elementos de linguagem T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

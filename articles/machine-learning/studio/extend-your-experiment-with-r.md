@@ -1,6 +1,6 @@
 ---
-title: Expanda a sua experiência com R titleSuffix: Descrição do Azure Machine Learning Studio: Como estender a funcionalidade do Azure Machine Learning Studio pela linguagem R com o módulo de executar o Script de R.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Expanda a sua experiência com R titleSuffix: Descrição do Azure Machine Learning Studio: Como estender a funcionalidade do Azure Machine Learning Studio pela linguagem R com o módulo de executar o Script de R.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527293"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459057"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de amostra para preparar unidades de disco rígido para uma tarefa de importação
 Este tópico descreve o processo completo de preparar as unidades para uma tarefa de importação.  
@@ -67,7 +67,7 @@ Neste exemplo, duas unidades de disco rígido de 3 TB devem ser suficientes. No 
   
 Além disso, pode definir os seguintes metadados para todos os ficheiros:  
   
--   **UploadMethod:** serviço importar/exportar do Windows Azure  
+-   **UploadMethod:** Serviço de importação/exportação do Windows Azure  
   
 -   **DataSetName:** SampleData  
   
@@ -86,9 +86,9 @@ Para definir metadados para os ficheiros de importados, crie um ficheiro de text
   
 Também pode definir algumas propriedades para o `FavoriteMovie.ISO` blob:  
   
--   **Tipo de conteúdo:** application/octet-stream  
+-   **Content-Type:** application/octet-stream  
   
--   **MD5 de conteúdo:** Q2hlY2sgSW50ZWdyaXR5IQ = =  
+-   **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==  
   
 -   **Controlo de cache:** no cache  
   
@@ -169,4 +169,4 @@ Depois de concluíram as sessões de cópia, pode desligar as duas unidades do c
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Referência rápida para comandos utilizados com frequência](../storage-import-export-tool-quick-reference-v1.md) 
+* [Referência rápida para comandos utilizados com frequência](../storage-import-export-tool-quick-reference-v1.md) 

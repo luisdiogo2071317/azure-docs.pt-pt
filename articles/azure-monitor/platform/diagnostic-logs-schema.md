@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ebadf69d5740dc9b9907880917516419129db170
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890099"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300222"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de registos de diagnóstico de nível superior
 
-| Nome | Obrigatório/opcional | Descrição |
+| Name | Obrigatório/opcional | Descrição |
 |---|---|---|
 | hora | Necessário | O carimbo de hora (UTC) do evento. |
 | resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. Para os serviços de inquilino, esta é a de /tenants/tenant-id/providers/provider-name o formulário. |
@@ -76,7 +76,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Service Bus |[Registos de diagnóstico do Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registo de diagnóstico de base de dados SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Registos de diagnóstico de tarefa](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Gestor de Tráfego | Esquema não está disponível. |
+| Gestor de Tráfego | [Esquema de registo do Gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Esquema não está disponível. |
 | Gateways de Rede Virtual | Esquema não está disponível. |
 

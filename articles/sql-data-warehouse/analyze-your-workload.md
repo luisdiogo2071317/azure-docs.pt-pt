@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248098"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476762"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar a sua carga de trabalho no Azure SQL Data Warehouse
 Técnicas de análise de priorização de consulta para a sua carga de trabalho no Azure SQL Data Warehouse.
@@ -144,10 +144,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL Data Warehouse tem os seguintes tipos de espera:
 
-* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora do framework da ranhura de simultaneidade. Consultas DMV e o sistema funciona como `SELECT @@VERSION` são exemplos de consultas locais.
-* **UserConcurrencyResourceType**: consultas que ficam dentro do framework da ranhura de simultaneidade. Consultas em tabelas de utilizador final representam exemplos que usaria este tipo de recurso.
-* **DmsConcurrencyResourceType**: aguarda resultantes de operações de movimento de dados.
-* **BackupConcurrencyResourceType**: este wait indica que uma base de dados é a cópia de segurança. O valor máximo para este tipo de recurso é 1. Se várias cópias de segurança foram solicitadas ao mesmo tempo, os outros fila.
+* **LocalQueriesConcurrencyResourceType**: Consultas que ficam fora do framework da ranhura de simultaneidade. Consultas DMV e o sistema funciona como `SELECT @@VERSION` são exemplos de consultas locais.
+* **UserConcurrencyResourceType**: Consultas que ficam dentro do framework da ranhura de simultaneidade. Consultas em tabelas de utilizador final representam exemplos que usaria este tipo de recurso.
+* **DmsConcurrencyResourceType**: Esperas resultantes de operações de movimento de dados.
+* **BackupConcurrencyResourceType**: Este wait indica que uma base de dados é a cópia de segurança. O valor máximo para este tipo de recurso é 1. Se várias cópias de segurança foram solicitadas ao mesmo tempo, os outros fila.
 
 O `sys.dm_pdw_waits` DMV pode ser utilizado para ver quais os recursos que um pedido está a aguardar.
 

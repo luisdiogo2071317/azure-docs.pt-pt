@@ -11,31 +11,36 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 50c5071ce672e3a2aba130817628ad0d26f656e5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: f51b31903953f9a1d4959f78d570d3de92478f50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653489"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455308"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Carregar dados de ficheiros CSV para a Base de Dados SQL do Azure (ficheiros simples)
+
 Pode utilizar o utilitário da linha de comandos do bcp para importar dados a partir de um ficheiro CSV para uma Base de Dados SQL do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 ### <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir os passos neste artigo, precisa:
 
-* Uma base de dados e um servidor lógico da Base de Dados SQL do Azure
+* Um servidor de base de dados do Azure SQL e a base de dados
 * Ter instalado o utilitário bcp de linha de comandos
 * Ter instalado o utilitário sqlcmd de linha de comandos
 
 Pode transferir os utilitários bcp e sqlcmd a partir do [Centro de Transferências da Microsoft][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Dados no formato ASCII ou UTF-16
+
 Se estiver a experimentar este tutorial com os seus dados, estes têm de utilizar a codificação ASCII ou UTF-16, uma vez que o bcp não suporta UTF-8. 
 
 ## <a name="1-create-a-destination-table"></a>1. Criar uma tabela de destino
+
 Defina uma tabela na Base de Dados SQL como a tabela de destino. As colunas na tabela têm de corresponder aos dados em cada linha do ficheiro de dados.
 
 Para criar uma tabela, abra uma linha de comandos e utilize sqlcmd.exe para executar o seguinte comando:
@@ -54,6 +59,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Criar um ficheiro de dados de origem
+
 Abra o Bloco de Notas e copie as seguintes linhas de dados para um novo ficheiro de texto e, em seguida, guarde este ficheiro no diretório temporário local, C:\Temp\DimDate2.txt. Estes dados estão no formato ASCII.
 
 ```
@@ -78,6 +84,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 ```
 
 ## <a name="3-load-the-data"></a>3. Carregar os dados
+
 Para carregar os dados, abra uma linha de comandos e execute o seguinte comando, substituindo os valores para o Nome do Servidor, nome da Base de Dados, Nome de Utilizador e Palavra-passe pelas suas informações.
 
 ```bcp
@@ -108,6 +115,7 @@ Os resultados devem ter o seguinte aspeto:
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para migrar uma base de dados do SQL Server, veja [SQL Server database migration (Migração da base de dados do SQL Server)](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->

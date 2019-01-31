@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 8c5e56baacc6f17fcd88bbc9b95e3634839e2ad8
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d497f3c5e3d64e13b0c6ad4d3021ad2e451f3ae5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884849"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296718"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -318,20 +318,20 @@ Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** 
         //ADD THIS PART TO YOUR CODE
         await this.CreateContainer();
     }
-    ´´´
-Select **F5** to run your application.
+    ```
+Selecione **F5** para executar a sua aplicação.
 
-Congratulations! You have successfully created an Azure Cosmos DB container.  
+Parabéns! Criou um contentor do Azure Cosmos DB com êxito.  
 
-## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+## <a id="CreateDoc"></a>Passo 6: Adicionar itens ao contentor
+Um item pode ser criado utilizando o [ **CreateItemAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) função dos **CosmosItems** classe. Quando é utilizada a API SQL, os itens são projetados como documentos, que são conteúdos JSON definidos pelo utilizador (arbitrários). Pode agora inserir um item no seu contentor do Azure Cosmos DB.
 
-First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
-1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
+Em primeiro lugar, temos de criar uma classe **Família** que irá representar objetos armazenados no Azure Cosmos DB neste exemplo. Também iremos criar subclasses **Principal**, **Subordinado**, **Animal de estimação** e **Endereço** utilizadas dentro da **Família**. Tenha em atenção que os documentos têm de ter um **Id** propriedade serializado como **id** no JSON. 
+1. Selecione **Ctrl + Shift + A** para abrir o **Add New Item** caixa de diálogo. Adicionar uma nova classe **Family.cs** ao seu projeto. 
 
-    ![Screen shot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Captura de ecrã da adição de uma nova classe de Family.cs no projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
-1. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** class into **Family.cs**. 
+1. Copie e cole o **família**, **principal**, **filho**, **animal de estimação**, e **endereço** classe **Family.cs**. 
     ```csharp
     using Newtonsoft.Json;
 
@@ -596,15 +596,15 @@ Agora, vamos atualizar um item no Azure Cosmos DB.
         //ADD THIS PART TO YOUR CODE
         await this.ReplaceFamilyItem();
     }
-    ´´´
-Select **F5** to run your application.
+    ```
+Selecione **F5** para executar a sua aplicação.
 
-Congratulations! You have successfully replaced an Azure Cosmos DB item.
+Parabéns! Substituiu um item do Azure Cosmos DB com êxito.
 
-## <a id="DeleteDocument"></a>Step 9: Delete item
-Now, we will delete an item in Azure Cosmos DB.
+## <a id="DeleteDocument"></a>Passo 9: Eliminar item
+Agora, iremos eliminar um item no Azure Cosmos DB.
 
-1. Copy and paste the **DeleteFamilyItem** method below your **ReplaceFamilyItem** method.
+1. Copie e cole o **DeleteFamilyItem** método abaixo sua **ReplaceFamilyItem** método.
     ```csharp
     /*
     Delete an item in the container

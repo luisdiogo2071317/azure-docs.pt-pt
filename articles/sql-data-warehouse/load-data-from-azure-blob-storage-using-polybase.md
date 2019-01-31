@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Dados de táxis de Nova Iorque da carga Azure SQL Data Warehouse | Documentos da Microsoft'
+title: 'Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse | Documentos da Microsoft'
 description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque a partir de um público do Azure blob para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 09/12/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b9c42f5b0fc6fb9468d8fd0a1c34270d1734391a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579924"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466534"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Dados de táxis de Nova Iorque da carga Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse
 
 Este tutorial utiliza o PolyBase para carregar dados de táxis de Nova Iorque a partir de um público do Azure blob para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 

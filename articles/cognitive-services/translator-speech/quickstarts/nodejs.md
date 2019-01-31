@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Node. js da API de Voz do Microsoft Translator'
+title: 'Início rápido: NODE. js API de voz de Microsoft Translator'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: a88eade0d5fbfe4fd951e3e98c72a1e697099f1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389705"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466324"
 ---
-# <a name="quickstart-translator-speech-api-with-nodejs"></a>Início Rápido: Node. js da API de Voz do Microsoft Translator 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Início rápido: Voz do Translator API com node. js 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -164,7 +164,7 @@ Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)

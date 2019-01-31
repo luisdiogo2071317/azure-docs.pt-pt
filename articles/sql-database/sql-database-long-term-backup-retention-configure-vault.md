@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603553"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455644"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurar retenção de cópia de segurança de longa duração com o Cofre dos serviços de recuperação do Azure
 
@@ -71,7 +71,7 @@ Configurar um cofre de serviços de recuperação do Azure para [reter cópias d
    ![Criar Cofre](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > O cofre tem de estar localizado na mesma região do servidor lógico SQL do Azure e tem de utilizar o mesmo grupo de recursos do servidor lógico.
+   > O Cofre tem de estar localizado na mesma região que o servidor de base de dados SQL e tem de utilizar o mesmo grupo de recursos que o servidor de base de dados SQL.
 
 10. Depois de criar o novo cofre, execute os passos necessários para voltar para o **cofre dos Recovery services** página.
 
@@ -154,7 +154,7 @@ As secções seguintes mostram como utilizar o PowerShell para configurar o Cofr
 Utilize o [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) para criar um cofre dos serviços de recuperação.
 
 > [!IMPORTANT]
-> O cofre tem de estar localizado na mesma região do servidor lógico SQL do Azure e tem de utilizar o mesmo grupo de recursos do servidor lógico.
+> O Cofre tem de estar localizado na mesma região que o servidor de base de dados SQL e tem de utilizar o mesmo grupo de recursos que o servidor de base de dados SQL.
 
 ```PowerShell
 # Create a recovery services vault

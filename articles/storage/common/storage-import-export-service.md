@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528561"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453387"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
@@ -27,18 +27,18 @@ Se quiser transferir dados através de unidades de disco fornecidas pela Microso
 
 Considere utilizar o serviço importar/exportar do Azure quando carregar ou transferir dados através da rede é muito lento ou a obtenção de largura de banda de rede adicional é custo altíssimo. Utilize este serviço nos seguintes cenários:
 
-* **Migração de dados para a cloud**: mover grandes quantidades de dados para o Azure rapidamente e económica.
-* **Distribuição de conteúdo**: envie dados rapidamente para sites dos seus clientes.
-* **Cópia de segurança**: efetuar cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
-* **Recuperação de dados**: recuperar grande quantidade de dados armazenados no armazenamento e tê-lo entregue para a sua localização no local.
+* **Migração de dados para a cloud**: Mover grandes quantidades de dados para o Azure rapidamente e económica.
+* **Distribuição de conteúdo**: Envie dados rapidamente para sites dos seus clientes.
+* **Cópia de segurança**: Fazer cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
+* **Recuperação de dados**: Recuperar a grande quantidade de dados armazenados no armazenamento e tê-lo entregue para a sua localização no local.
 
 ## <a name="importexport-components"></a>Componentes de importação/exportação
 
 O serviço importar/exportar utiliza os seguintes componentes:
 
-- **Serviço de importação/exportação**: este serviço disponível no portal do Azure ajuda o utilizador crie e dados de controle (carregamento) de importar e exportar tarefas (download).  
+- **Serviço de importação/exportação**: Este serviço disponível no portal do Azure ajuda o usuário criar e controlar a importação de dados (carregar) e exportar tarefas (download).  
 
-- **Ferramenta de WAImportExport**: Esta é uma ferramenta de linha de comandos que faz o seguinte: 
+- **Ferramenta de WAImportExport**: Esta é uma ferramenta de linha de comandos que faça o seguinte: 
     - Prepara a unidades de disco que é fornecida para importação.
     - Facilita a copiar os dados para a unidade.
     - Encripta os dados na unidade com o BitLocker.
@@ -52,7 +52,7 @@ O serviço importar/exportar utiliza os seguintes componentes:
 >
 > A ferramenta de WAImportExport só é compatível com o sistema de operativo do Windows de 64 bits. Para versões de SO específicas suportadas, aceda a [requisitos de importar/exportar do Azure](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Unidades de disco**: podem ser fornecidas unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs) para o datacenter do Azure. Ao criar uma tarefa de importação, entregar as unidades de disco que contém os dados. Ao criar uma tarefa de exportação, envie discos vazios para o datacenter do Azure. Para tipos de disco específico, aceda a [tipos de disco suportados](storage-import-export-requirements.md#supported-hardware).
+- **Unidades de disco**: Pode enviar unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs) para o datacenter do Azure. Ao criar uma tarefa de importação, entregar as unidades de disco que contém os dados. Ao criar uma tarefa de exportação, envie discos vazios para o datacenter do Azure. Para tipos de disco específico, aceda a [tipos de disco suportados](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Como funciona a importação/exportação?
 

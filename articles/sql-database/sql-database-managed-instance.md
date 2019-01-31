@@ -1,6 +1,6 @@
 ---
 title: Descrição geral de instância de gerida de base de dados SQL do Azure | Documentos da Microsoft
-description: Este tópico descreve uma instância de gerida de base de dados do Azure SQL e explica como funciona e como isso é diferente de uma base de dados na base de dados do Azure SQL.
+description: Este tópico descreve uma instância de gerida de base de dados do Azure SQL e explica como funciona e como isso é diferente de uma base de dados individual ou agrupada na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994764"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465712"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -34,7 +34,7 @@ Instância de gerida de base de dados de SQL do Azure foi concebida para os clie
 
 Ao disponibilidade geral, a instância gerida tem como objetivo fornecer próximo de compatibilidade de área de superfície de 100% com a última versão de SQL Server no local através de um plano de versão em etapas.
 
-Para decidir entre o Azure SQL da base de dados única base de dados, instância gerida da base de dados SQL do Azure e alojada no consulte de Máquina Virtual de IaaS do SQL Server [como escolher a versão correta do SQL Server na cloud do Azure](sql-database-paas-vs-sql-server-iaas.md).
+Para decidir entre a base de dados do Azure SQL única base de dados, bases de dados agrupadas, instância gerida e SQL Server alojado numa máquina Virtual, consulte [como escolher a versão correta do SQL Server na cloud do Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Principais funcionalidades e capacidades
 
@@ -46,7 +46,7 @@ Instância de gerida de base de dados de SQL do Azure combina os melhores recurs
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
 |Sem comprar hardware e gestão <br>Nenhuma sobrecarga de gerenciamento para gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento do serviço <br>Atualização de aplicação de patches e versão automatizada <br>Integração com outros serviços de dados de PaaS |tempo de atividade de 99,99% SLA  <br>Incorporado [elevada disponibilidade](sql-database-high-availability.md) <br>Os dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de cópia de segurança configuráveis do cliente <br>Iniciado pelo utilizador [cópias de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Ponto de restauro de base de dados de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) capacidade |
-|**Segurança e conformidade** | **Gestão**|
+|**Segurança e conformidade** | **Management**|
 |Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Inícios de sessão do Azure AD</a> (**pré-visualização pública**) <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados
 
 Os principais recursos de instância gerida são mostrados na tabela a seguir:
@@ -185,7 +185,7 @@ A abordagem de migração tira partido de cópias de segurança SQL para o armaz
 - Para obter informações sobre o restauro a partir do URL, consulte [nativo restaurar a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Cópias de segurança de uma instância gerida só podem ser restauradas para a outra instância gerida. Não é possível restaurar para um servidor de SQL no local ou para uma base de dados do Azure SQL server lógico individual ou agrupada base de dados.
+> Cópias de segurança de uma instância gerida só podem ser restauradas para a outra instância gerida. Não é possível restaurar para um servidor de SQL no local ou a um conjunto elástico/base de dados única.
 
 ### <a name="data-migration-service"></a>Serviço de migração de dados
 
@@ -210,7 +210,7 @@ Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que s
 - Instância gerida não permite a especificação de caminhos físicos completa para que todos os cenários correspondentes tenham de ser suportadas de forma diferente: RESTAURAR DB não suporta a com a mover, criar DB não permite caminhos físicos, a inserção em massa funciona com Blobs do Azure, apenas, etc.
 - Suporta a instância de geridos [autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de cloud para a autenticação do Windows.
 - Instância gerida gere automaticamente o grupo de ficheiros XTP e ficheiros de bases de dados que contém objetos de OLTP dentro da memória
-- Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena os pacotes do SSIS, mas eles são executados num gerido do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF), consulte [Create Runtime de integração Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS na base de dados SQL e a instância gerida, veja [servidor lógico de comparar a base de dados do SQL e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena os pacotes do SSIS, mas eles são executados num gerido do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF), consulte [Create Runtime de integração Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS na base de dados SQL e a instância gerida, veja [conjuntos de bases de dados única/elástico de comparar a base de dados de SQL do Azure e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas
 
@@ -223,7 +223,7 @@ Geridos pelo administrador de sistema de ativação de instância para se focar 
 
 A tabela seguinte mostra várias propriedades, acessíveis através de Transact SQL, que pode utilizar para detetar se a aplicação está a funcionar com a instância gerida e obter propriedades importantes.
 
-|Propriedade|Valor|Comentário|
+|Propriedade|Value|Comentário|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é a mesmo como na base de dados SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é a mesmo como na base de dados SQL.|

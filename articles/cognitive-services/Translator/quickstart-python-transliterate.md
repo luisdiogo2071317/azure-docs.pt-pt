@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: transliterar texto, Python - API de Texto do Microsoft Translator'
+title: 'Início rápido: Transcrição de texto, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Python e a API REST de Texto do Microsoft Translator. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999276"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461241"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para transliterar texto com o Python
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com o Python
 
 Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Python e a API REST de Texto do Microsoft Translator. No exemplo apresentado, o japonês é transliterado para utilizar o alfabeto latino.
 
@@ -69,7 +69,7 @@ Atualmente, está disponível um ponto final para Tradução de Texto e está de
 Os `params` são utilizados para definir o idioma de entrada e os scripts de entrada e saída. Neste exemplo, estamos a transliterar de japonês para o alfabeto latino.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: transliterar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Translitere](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

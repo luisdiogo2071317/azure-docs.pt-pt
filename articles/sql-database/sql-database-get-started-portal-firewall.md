@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Criar uma regra de firewall da Base de Dados SQL | Microsoft Docs'
+title: 'Portal do Azure: Criar uma regra de firwall de base de dados SQL | Documentos da Microsoft'
 description: Criar uma regra de firewall ao nível do servidor da Base de Dados SQL
 services: sql-database
 ms.service: sql-database
@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
-ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/25/2019
+ms.openlocfilehash: 589d3fa8c0ee8c8f374cd4f34f17401caa46d265
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721906"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462261"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall ao nível do servidor para a base de dados SQL com o portal do Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall ao nível do servidor para a base de dados SQL com o portal do Azure
 
 Este guia de início rápido explica como criar uma regra de firewall ao nível do servidor para uma base de dados SQL do Azure que lhe permite ligar à mesma a partir de um recurso no local.
 
@@ -57,7 +57,7 @@ Siga estes passos para criar uma regra de firewall ao nível do servidor para o 
    > Por predefinição, o acesso através da firewall da Base de Dados SQL está ativado para todos os serviços do Azure. Escolher **OFF** nesta página para desativar todos os serviços Azure.
    >
 
-5. Selecione **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
+5. Selecione **Guardar**. É criada uma regra de firewall ao nível do servidor para o seu endereço IP atual abrindo a porta 1433 no servidor de base de dados SQL.
 
 6. Fechar o **definições da Firewall** página.
 
@@ -66,7 +66,6 @@ Utilizar o SQL Server Management Studio ou outra ferramenta à sua escolha, pode
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Guarde estes recursos se pretender aceder aos [Próximos passos](#next-steps) e saiba como ligar e consultar a base de dados utilizando um número de métodos diferentes. Se, no entanto, que pretende eliminar os recursos que criou neste início rápido, utilize os seguintes passos.
-
 
 1. No menu esquerdo no portal do Azure, selecione **grupos de recursos** e, em seguida, selecione **myResourceGroup**.
 2. Na página do grupo de recursos, selecione **elimine**, tipo **myResourceGroup** na caixa de texto e, em seguida, selecione **eliminar**.

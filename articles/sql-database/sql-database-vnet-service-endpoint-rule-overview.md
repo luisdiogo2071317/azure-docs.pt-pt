@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390371"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453932"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
 
@@ -162,7 +162,7 @@ Neste momento, existem duas formas de ativar a auditoria na base de dados SQL. A
 
 ### <a name="impact-on-data-sync"></a>Impacto na sincronização de dados
 
-Base de dados SQL do Azure tem a funcionalidade de sincronização de dados que se liga a suas bases de dados utilizam IPs do Azure. Quando utilizar pontos finais de serviço, é provável que irá desativar **dos serviços do Azure permitem ao servidor de acesso** acesso ao seu servidor lógico. Tal irá interromper a funcionalidade de sincronização de dados.
+Base de dados SQL do Azure tem a funcionalidade de sincronização de dados que se liga a suas bases de dados utilizam IPs do Azure. Quando utilizar pontos finais de serviço, é provável que irá desativar **dos serviços do Azure permitem ao servidor de acesso** acesso ao seu servidor de base de dados SQL. Tal irá interromper a funcionalidade de sincronização de dados.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais de serviço de VNet com o armazenamento do Azure
 
@@ -173,17 +173,18 @@ O armazenamento do Azure implementou a mesma funcionalidade que permite limitar 
 Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse a partir de contas de armazenamento do Azure. Se a conta de armazenamento do Azure que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Para ativar as duas PolyBase importar e exportar cenários com o Azure SQL Data Warehouse ao ligar ao armazenamento do Azure que está protegida a VNet, siga os passos indicados abaixo:
 
 #### <a name="prerequisites"></a>Pré-requisitos
+
 1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem de atualizar primeiro para fins gerais v2 através desta [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Tem de ter **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** ativada na conta de armazenamento do Azure **Firewalls e redes virtuais** menu definições. Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
  
 #### <a name="steps"></a>Passos
-1.  No PowerShell, **registar o servidor SQL lógico** com o Azure Active Directory (AAD):
+1.  No PowerShell, **registar o servidor de base de dados SQL** com o Azure Active Directory (AAD):
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Criar uma **para fins gerais v2 conta de armazenamento** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -192,7 +193,7 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
     > - Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem **atualizar primeiro para v2** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - Para problemas conhecidos com geração 2 de armazenamento do Azure Data Lake, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o servidor SQL lógico.
+1.  Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o seu servidor de base de dados SQL.
 
     > [!NOTE] 
     > Apenas os membros com privilégios de proprietário podem efetuar este passo. Para várias funções incorporadas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

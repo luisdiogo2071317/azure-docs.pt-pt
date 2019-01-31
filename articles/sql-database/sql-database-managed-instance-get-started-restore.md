@@ -12,32 +12,32 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653243"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452316"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar uma base de dados para uma instância gerida 
 
-Neste início rápido, irá utilizar o SQL Server Management Studio (SSMS) para restaurar uma base de dados (a Wide World Importers - ficheiro de cópia de segurança Standard) de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure [instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance). 
+Neste início rápido, irá utilizar o SQL Server Management Studio (SSMS) para restaurar uma base de dados (a Wide World Importers - ficheiro de cópia de segurança Standard) de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure [instância gerida](sql-database-managed-instance.md). 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> * Para obter mais informações sobre a migração com o Azure Database Migration Service (DMS), consulte [migração de instância gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> * Para obter mais informações sobre os vários métodos de migração, consulte [migração de instância do SQL Server para instância gerida da base de dados SQL do Azure](sql-database-managed-instance-migrate.md).
+> - Para obter mais informações sobre a migração com o Azure Database Migration Service (DMS), consulte [migração de instância gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+> - Para obter mais informações sobre os vários métodos de migração, consulte [migração de instância do SQL Server para instância gerida da base de dados SQL do Azure](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este guia de início rápido:
+
 - Utiliza os recursos a partir da [criar uma instância gerida](sql-database-managed-instance-get-started.md) início rápido.
 - Requer o computador tenha a versão mais recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) instalado.
 - Requer a utilização do SSMS para ligar à sua instância gerida. Consulte estes guias de introdução sobre como ligar:
-  * [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
-  * [Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local](sql-database-managed-instance-configure-p2s.md).
-
+  - [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
+  - [Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
 > Para obter mais informações sobre a cópia de segurança e restaurar um servidor de SQL da base de dados a utilizar o armazenamento de Blobs do Azure e um [chave de assinatura de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consulte [cópia de segurança do SQL Server para URL](sql-database-managed-instance-get-started-restore.md).
@@ -47,9 +47,7 @@ Este guia de início rápido:
 No SSMS, siga estes passos para restaurar a base de dados do Wide World Importers para a sua instância gerida. O ficheiro de cópia de segurança da base de dados é armazenado numa conta de armazenamento de Blobs do Azure pré-configurada.
 
 1. Abra o SMSS e ligue à sua instância gerida.
-
 2. A partir do menu do lado esquerdo, sua instância gerida com o botão direito e selecione **nova consulta** para abrir uma nova janela de consulta.
-
 3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurado e a chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) na sua instância gerida.
 
    ```sql
@@ -60,8 +58,7 @@ No SSMS, siga estes passos para restaurar a base de dados do Wide World Importer
 
     ![Criar credencial](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-  
-3. Para verificar a sua credencial, execute o seguinte script, que usa um [contentor](https://azure.microsoft.com/services/container-instances/) URL para obter uma lista de ficheiros de cópia de segurança.
+4. Para verificar a sua credencial, execute o seguinte script, que usa um [contentor](https://azure.microsoft.com/services/container-instances/) URL para obter uma lista de ficheiros de cópia de segurança.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -70,7 +67,7 @@ No SSMS, siga estes passos para restaurar a base de dados do Wide World Importer
 
     ![lista de ficheiros](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Execute o seguinte script para restaurar a base de dados do Wide World Importers.
+5. Execute o seguinte script para restaurar a base de dados do Wide World Importers.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -79,7 +76,7 @@ No SSMS, siga estes passos para restaurar a base de dados do Wide World Importer
 
     ![restore](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Execute o seguinte script para controlar de estado a restauração.
+6. Execute o seguinte script para controlar de estado a restauração.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -89,7 +86,7 @@ No SSMS, siga estes passos para restaurar a base de dados do Wide World Importer
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-6. Quando o restauro estiver concluído, irá vê-lo no Object Explorer. 
+7. Quando o restauro estiver concluído, irá vê-lo no Object Explorer. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

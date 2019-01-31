@@ -3,7 +3,7 @@ title: Utilizar tarefas de várias instâncias para executar aplicações MPI - 
 description: Saiba como executar aplicações Message Passing Interface (MPI) com o tipo de tarefa de várias instâncias no Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174424"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460544"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilizar tarefas de várias instâncias para executar aplicações Message Passing Interface (MPI) no Batch
 
@@ -286,7 +286,7 @@ O [MultiInstanceTasks] [ github_mpi] código de exemplo no GitHub demonstra como
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Introduza as suas credenciais de conta do Batch e armazenamento no `AccountSettings.settings` no **Samples** projeto.
 4. **Criar e executar** a solução de MultiInstanceTasks para executar a MPI exemplo de aplicação em nós de computação no conjunto do Batch.
-5. *Opcional*: Utilize o [portal do Azure] [ portal] ou [Explorador do Batch] [ batch_labs] para examinar o conjunto de exemplo, trabalhos e tarefas (" MultiInstanceSamplePool","MultiInstanceSampleJob","MultiInstanceSampleTask") antes de eliminar os recursos.
+5. *Opcional*: Utilize o [portal do Azure] [ portal] ou [Explorador do Batch] [ batch_labs] para examinar o conjunto de exemplo, trabalhos e tarefas ("MultiInstanceSamplePool"," MultiInstanceSampleJob","MultiInstanceSampleTask") antes de eliminar os recursos.
 
 > [!TIP]
 > Pode baixar [Visual Studio Community] [ visual_studio] gratuitamente se não tiver o Visual Studio.

@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056340"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471152"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação após desastre para uma aplicação de SaaS de multi-inquilino com georreplicação de base de dados
 
-Neste tutorial, explorar um cenário de recuperação após desastre para uma aplicação SaaS de multi-inquilino implementado usando o modelo de base de dados por inquilino. Para proteger a aplicação a partir de uma falha, utilize [ _georreplicação_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para criar as réplicas das bases de dados do catálogo e de inquilino numa região de recuperação alternativo. Se ocorrer uma falha, rapidamente a ativação pós-falha a estas réplicas para retomar as operações comerciais normais. Na ativação pós-falha, as bases de dados na região original tornam-se as réplicas secundárias das bases de dados na região de recuperação. Depois destas réplicas fique novamente online forem automaticamente recuperados para o estado das bases de dados na região de recuperação. Após a falha for resolvida, reativação pós-falha para as bases de dados na região de produção original.
+Neste tutorial, explorar um cenário de recuperação após desastre para uma aplicação SaaS de multi-inquilino implementado usando o modelo de base de dados por inquilino. Para proteger a aplicação a partir de uma falha, utilize [ _georreplicação_ ](sql-database-geo-replication-overview.md) para criar as réplicas das bases de dados do catálogo e de inquilino numa região de recuperação alternativo. Se ocorrer uma falha, rapidamente a ativação pós-falha a estas réplicas para retomar as operações comerciais normais. Na ativação pós-falha, as bases de dados na região original tornam-se as réplicas secundárias das bases de dados na região de recuperação. Depois destas réplicas fique novamente online forem automaticamente recuperados para o estado das bases de dados na região de recuperação. Após a falha for resolvida, reativação pós-falha para as bases de dados na região de produção original.
 
 Este tutorial explora os fluxos de trabalho de ativação pós-falha e reativação pós-falha. Vai aprender a:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
 >* Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
@@ -53,9 +53,9 @@ Plano de DR da com base na replicação geográfica é composto por três partes
 Todas as partes deve ser considerado com cuidado, principalmente se operar à escala. Em geral, o plano deve realizar várias metas:
 
 * Configurar
-    * Estabelecer e manter um ambiente de imagem espelhada na região de recuperação. Criar os conjuntos elásticos e replicar quaisquer bases de dados individuais nesse ambiente de recuperação se a reserva de capacidade na região de recuperação. Manter este ambiente inclui novas bases de dados do inquilino a replicar como terem sido aprovisionados.  
+    * Estabelecer e manter um ambiente de imagem espelhada na região de recuperação. Criar os conjuntos elásticos e replicar quaisquer bases de dados neste ambiente de recuperação se a reserva de capacidade na região de recuperação. Manter este ambiente inclui novas bases de dados do inquilino a replicar como terem sido aprovisionados.  
 * Recuperação
-    * Sempre que um ambiente de recuperação de diminuída é usado para minimizar os custos de diários, conjuntos e bases de dados individuais devem ser aumentados para adquirir capacidade operacional completa na região de recuperação
+    * Sempre que um ambiente de recuperação de diminuída é usado para minimizar os custos de diários, conjuntos e bases de dados devem ser aumentados para adquirir capacidade operacional completa na região de recuperação
     * Ativar aprovisionamento logo que possível na região de recuperação do novo inquilino  
     * Otimizado para restaurar os inquilinos na ordem de prioridade
     * Otimizado para obter os inquilinos online mais rápido possível efetuando os passos em paralelo onde prático
@@ -67,10 +67,10 @@ Todas as partes deve ser considerado com cuidado, principalmente se operar à es
 Neste tutorial, esses desafios são resolvidos usando recursos do Azure SQL Database e a plataforma do Azure:
 
 * [Modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar capacidade necessária todas as mais depressa possível. Modelos Azure Resource Manager são utilizados para Aprovisionar uma imagem espelhada dos servidores de produção e conjuntos elásticos na região de recuperação.
-* [Replicação geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), para criar replicadas de forma assíncrona secundárias só de leitura para todas as bases de dados. Durante uma falha, efetuar a ativação pós-falha para as réplicas na região de recuperação.  Após a falha for resolvida, reativação pós-falha para as bases de dados na região sem perda de dados original.
+* [Replicação geográfica](sql-database-geo-replication-overview.md), para criar replicadas de forma assíncrona secundárias só de leitura para todas as bases de dados. Durante uma falha, efetuar a ativação pós-falha para as réplicas na região de recuperação.  Após a falha for resolvida, reativação pós-falha para as bases de dados na região sem perda de dados original.
 * [Assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) enviadas por ordem de prioridade de inquilino, para minimizar o tempo de ativação pós-falha para um grande número de bases de dados de operações de ativação pós-falha.
-* [Recursos de recuperação de gestão de partições horizontais](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), para alterar as entradas da base de dados no catálogo durante a recuperação e repatriation. Esses recursos permitem que a aplicação para ligar a bases de dados de inquilino, independentemente da localização, sem necessidade de reconfigurar a aplicação.
-* [Aliases DNS do SQL server](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), para ativar o aprovisionamento totalmente integrada de novos inquilinos, independentemente de qual a região a aplicação está a funcionar no. Aliases de DNS também são utilizadas para permitir que o processo de sincronização do catálogo para ligar ao catálogo do Active Directory, independentemente da respetiva localização.
+* [Recursos de recuperação de gestão de partições horizontais](sql-database-elastic-database-recovery-manager.md), para alterar as entradas da base de dados no catálogo durante a recuperação e repatriation. Esses recursos permitem que a aplicação para ligar a bases de dados de inquilino, independentemente da localização, sem necessidade de reconfigurar a aplicação.
+* [Aliases DNS do SQL server](dns-alias-overview.md), para ativar o aprovisionamento totalmente integrada de novos inquilinos, independentemente de qual a região a aplicação está a funcionar no. Aliases de DNS também são utilizadas para permitir que o processo de sincronização do catálogo para ligar ao catálogo do Active Directory, independentemente da respetiva localização.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obter scripts de recuperação de desastre 
 
@@ -92,8 +92,8 @@ Mais tarde, um passo separado repatriation, efetuar a ativação pós-falha as b
 Antes de começar o processo de recuperação, reveja o estado de bom estado de funcionamento normal do aplicativo.
 1. No seu navegador da web, abra o Hub de eventos do Wingtip Tickets (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net - substitua &lt;utilizador&gt; com valor de utilizador da sua implementação).
     * Desloque-se para a parte inferior da página e tenha em atenção o nome do servidor de catálogo e o local no rodapé. A localização é a região em que implementou a aplicação.
-    *Sugestão: Paire o rato sobre a localização para aumentar a exibição.*
-    ![Estado bom estado de funcionamento do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *SUGESTÃO: Paire o rato sobre a localização para aumentar a exibição. * 
+     ![Estado bom estado de funcionamento do hub de eventos na região original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Clique no inquilino Contoso Concert Hall e abrir a página de eventos.
     * No rodapé, tenha em atenção o nome do servidor de inquilino. A localização será a mesma localização do servidor de catálogo.
@@ -126,7 +126,7 @@ Deixe a janela do PowerShell em execução em segundo plano e continuar com o re
 Nesta tarefa, iniciar um processo que implementa uma instância de aplicação duplicado e replica o catálogo e todas as bases de dados de inquilinos para uma região de recuperação.
 
 > [!Note]
-> Este tutorial adiciona proteção de georreplicação para a aplicação Wingtip Tickets de exemplo. Num cenário de produção para uma aplicação que utiliza os replicação geográfica, cada inquilino teria de ser aprovisionado com uma base de dados de georreplicação desde o início. Consulte [criando serviços de elevada disponibilidade com a base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Este tutorial adiciona proteção de georreplicação para a aplicação Wingtip Tickets de exemplo. Num cenário de produção para uma aplicação que utiliza os replicação geográfica, cada inquilino teria de ser aprovisionado com uma base de dados de georreplicação desde o início. Consulte [criando serviços de elevada disponibilidade com a base de dados do Azure SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. Na *ISE do PowerShell*, abra o ...\Learning script Modules\Business continuidade e desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e defina os seguintes valores:
     * **$DemoScenario = 2**, crie o ambiente de recuperação da imagem espelhada e replicar bases de dados do catálogo e de inquilino
@@ -135,12 +135,14 @@ Nesta tarefa, iniciar um processo que implementa uma instância de aplicação d
 ![Processo de sincronização](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Reveja o estado de aplicativo normal
+
 Neste momento, a aplicação está a funcionar normalmente na região original e agora está protegida pela georreplicação.  As réplicas secundárias só de leitura, existe na região de recuperação para todas as bases de dados. 
+
 1. No portal do Azure, observe os grupos de recursos e tenha em atenção que um grupo de recursos foi criado com - sufixo de recuperação na região de recuperação. 
 
-1. Explore os recursos no grupo de recursos de recuperação.  
+2. Explore os recursos no grupo de recursos de recuperação.  
 
-1. Clique na base de dados Contoso Concert Hall no _tenants1-dpt -&lt;usuário&gt;-recuperação_ server.  Clique no Georreplicação no lado esquerdo. 
+3. Clique na base de dados Contoso Concert Hall no _tenants1-dpt -&lt;usuário&gt;-recuperação_ server.  Clique no Georreplicação no lado esquerdo. 
 
     ![Ligação de georreplicação de contoso Concert](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Agora imagine que houver uma falha na região em que a aplicação é implementa
 > Para explorar o código para as tarefas de recuperação, reveja os scripts do PowerShell na pasta ...\Learning Modules\Business continuidade e desastre Recovery\DR-FailoverToReplica\RecoveryJobs.
 
 ### <a name="review-the-application-state-during-recovery"></a>Reveja o estado da aplicação durante a recuperação
+
 Embora o ponto final da aplicação está desabilitado no Gestor de tráfego, o aplicativo não está disponível. Depois do catálogo é a ativação pós-falha para a região de recuperação e todos os inquilinos marcada como offline, o aplicativo seja novamente colocado online. Embora o aplicativo estiver disponível, cada inquilino aparece offline no hub de eventos até que a respetiva base de dados é a ativação pós-falha. É importante projetar seu aplicativo para lidar com bases de dados do inquilino offline.
 
 1. Imediatamente depois da base de dados do catálogo foi recuperado, atualize o Hub de eventos de bilhetes Wingtip no seu browser.
@@ -301,7 +304,7 @@ Bases de dados do inquilino podem estar espalhadas entre regiões originais e de
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino
 >* Configurar um ambiente de recuperação numa região alternativo, que consiste em aplicativos, servidores e de agrupamentos
@@ -313,4 +316,4 @@ Pode saber mais sobre as tecnologias de base de dados SQL do Azure fornece para 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

@@ -4,17 +4,17 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: deaad5e7a04362ab021bfb90ab08377cb99694e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250389"
+ms.locfileid: "55296669"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -137,9 +137,9 @@ Se a localização da definição é r:
 
 ## <a name="display-name-and-description"></a>Nome a apresentar e descrição
 
-Utilizar **displayName** e **Descrição** para identificar a definição de política e fornecer contexto para quando é utilizado.
+Utilizar **displayName** e **Descrição** para identificar a definição de política e fornecer contexto para quando é utilizado. **displayName** tem um comprimento máximo de _128_ carateres e **Descrição** um comprimento máximo de _512_ carateres.
 
-## <a name="policy-rule"></a>regra de política
+## <a name="policy-rule"></a>Regra de política
 
 A regra de política é composta por **se** e **, em seguida,** blocos. Na **se** bloco, define uma ou mais condições que especificar quando a política é imposta. Pode aplicar operadores lógicos para estas condições para definir exatamente o cenário para uma política.
 

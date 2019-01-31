@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 1aa3960e3a974703cfecec2bd28fc41f74f7df96
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238412"
+ms.locfileid: "55295751"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciamento de atualizações sem interrupção das aplicações na cloud com a base de dados SQL georreplicação ativa
 
@@ -54,7 +54,7 @@ Depois de concluir os passos de preparação, a aplicação está pronta para a 
 Se a atualização foi concluída com êxito, está agora pronto para mudar do utilizador final para a cópia atualizada do aplicativo. Ele agora se tornará um bloco de produção.  A mudança envolve mais algumas etapas conforme ilustrado no diagrama seguinte.
 
 1. Ative uma operação de troca entre a produção e blocos de teste do aplicativo web (6). Ele muda os URLs das duas ranhuras. Agora `contoso.azurewebsites.net` apontará para a versão V2 do web site e a base de dados (ambiente de produção).  
-2. Se já não precisar da versão de V1, que se tornou uma cópia de teste após a troca, pode desativar o teste envoronment (7).
+2. Se já não precisar da versão de V1, que se tornou uma cópia de teste após a troca, pode desativar o ambiente de teste (7).
 
 ![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
@@ -111,7 +111,7 @@ Depois de concluir os passos de preparação, ambiente de teste está pronto par
 Se a atualização foi concluída com êxito, está agora pronto para mudar do utilizador final para a versão V2 do aplicativo. O diagrama seguinte ilustra as etapas envolvidas.
 
 1. Ative uma operação de troca entre a produção e blocos de teste do aplicativo web na região primária (13) e na região de cópia de segurança (14). V2 do aplicativo agora se torna um bloco de produção com uma cópia redundante na região de cópia de segurança.
-2. Pode desativar o ambiente de teste, se já não precisar da aplicação V1 (15 e 16).  
+2. Pode desativar o ambiente de teste se já não precisar da aplicação V1 (15 e 16).  
 
 ![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 

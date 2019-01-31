@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e49054fdb3ae3d32ce0702e77f27b1a3114ea0e6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101044"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299831"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é a gestão de dispositivos no Azure Active Directory?
 
@@ -45,7 +45,7 @@ Para que um dispositivo esteja sob controlo do Azure AD, tem duas opções:
 
 **Registar** um dispositivo no Azure AD permite-lhe gerir a identidade do mesmo. Quando é registado um dispositivo, o registo do Azure (AD) fornece ao dispositivo uma identidade que é utilizada para o autenticar quando um utilizador inicia sessão no Azure AD. Pode utilizar a identidade para ativar ou desativar o dispositivo.
 
-Ao serem combinados com uma solução de gestão de dispositivos móveis (MDM), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o mesmo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade. Para obter mais informações sobre a inscrição de dispositivos no Microsoft Intune, veja [Inscrever dispositivos para gestão no Intune](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms).
+Ao serem combinados com uma solução de gestão de dispositivos móveis (MDM), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o mesmo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade. Para obter mais informações sobre como inscrever dispositivos no Microsoft Intune, consulte [o que é a inscrição de dispositivos?](https://docs.microsoft.com/intune/device-enrollment)
 
 **Associar** um dispositivo é uma extensão ao registo. Isto significa que a associação lhe dá todas as vantagens de registar o dispositivo e, para além disso, também altera o estado local do mesmo. A alteração do estado local permite aos seus utilizadores iniciarem sessão num dispositivo com uma conta escolar ou profissional da organização em vez de uma conta pessoal.
 

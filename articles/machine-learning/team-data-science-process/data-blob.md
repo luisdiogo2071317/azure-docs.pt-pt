@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c7d8414fdc1070204ef02cf6d88b238575d0817a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140547"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472427"
 ---
 # <a name="heading"></a>Processar dados de Blobs do Azure com a análise avançada
 Este documento aborda a explorar dados e as funcionalidades da geração de dados armazenados no armazenamento de Blobs do Azure. 
@@ -130,7 +130,7 @@ Para gerar recursos compartimentados, podemos proceda da seguinte forma:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Escrever dados blob do Azure e consumir no Azure Machine Learning
-Depois de ter explorado os dados e criar os recursos necessários, pode carregar os dados (objeto de amostragem ou caracterizadas) a Azure blob e consumi-las no Azure Machine Learning através dos seguintes passos: tenha em atenção que as funcionalidades adicionais podem ser criadas na máquina do Azure Também no Learning Studio. 
+Depois de ter explorado os dados e criar os recursos necessários, pode carregar os dados (objeto de amostragem ou caracterizadas) a Azure blob e consumi-las no Azure Machine Learning através dos seguintes passos: Tenha em atenção que as funcionalidades adicionais podem ser criadas no Azure Machine Learning Studio também. 
 
 1. Escrever o quadro de dados para o ficheiro local
    

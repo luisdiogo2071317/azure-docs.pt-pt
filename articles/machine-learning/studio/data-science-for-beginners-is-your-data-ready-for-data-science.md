@@ -1,6 +1,6 @@
 ---
-title: TitleSuffix de avaliação de dados: Descrição do Azure Machine Learning Studio: Critérios de quatro que seus dados têm de cumprir para estar pronto para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação de dados básicos.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: TitleSuffix de avaliação de dados: Descrição do Azure Machine Learning Studio: Critérios de quatro que seus dados têm de cumprir para estar pronto para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação de dados básicos.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

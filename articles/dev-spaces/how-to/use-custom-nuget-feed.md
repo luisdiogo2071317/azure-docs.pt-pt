@@ -3,7 +3,7 @@ title: Como utilizar um NuGet personalizado feed nos espaços de desenvolvimento
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
@@ -11,12 +11,12 @@ ms.topic: article
 description: Utilize um NuGet personalizado feed para acessar e usar pacotes NuGet num espaço de desenvolvimento do Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
 manager: ghogen
-ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 21a70100fe186e176dfe8eb7c247d83a5d4705bd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579222"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466409"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Utilizar um NuGet personalizado feed num espaço de desenvolvimento do Azure
 
@@ -36,7 +36,7 @@ Para configurar um feed de NuGet:
    ```
 
 2. Criar uma [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) ficheiro na pasta do projeto.
-     * Utilize o `packageSources` secção para fazer referência a sua localização do feed de NuGet. Importante: O feed do NuGet tem de estar acessível publicamente.
+     * Utilize o `packageSources` secção para fazer referência a sua localização do feed de NuGet. Importante: O feed do NuGet tem de ser acessível publicamente.
      * Utilize o `packageSourceCredentials` secção para configurar as credenciais de nome de utilizador e palavra-passe. 
 
    ```xml

@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 00921fd82463a75e81e1279d436a576461e02f78
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079074"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301650"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 
@@ -109,9 +109,9 @@ A implementação está agora concluída e pode experimentar alguns cenários. U
 
 | Tarefa | Referência |
 | --- | --- |
-| Junte-se alguns dispositivos à sua área de trabalho com o serviço de registo de dispositivos do Azure Active Directory. Pode participar em dispositivos Android, iOS e Windows. |[Junte-se a dispositivos à sua área de trabalho com o serviço de registo de dispositivos do Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Junte-se alguns dispositivos à sua área de trabalho com o serviço de registo de dispositivos do Azure Active Directory. Pode participar em dispositivos Android, iOS e Windows. |[Junte-se a dispositivos à sua área de trabalho com o serviço de registo de dispositivos do Azure Active Directory](#join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service) |
 | Ver e ativar ou desativar dispositivos registados com o portal de administrador. Nesta tarefa, vai ver alguns dispositivos registados com o portal de administrador. |[Descrição de geral do Azure Active Directory dispositivo registo serviço](active-directory-device-registration-get-started.md) |
-| Certifique-se de que os objetos de dispositivo são repetição de escrita do Azure Active Directory para Windows Server Active Directory. |[Certifique-se a dispositivos registados é escrita de volta para o Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Certifique-se de que os objetos de dispositivo são repetição de escrita do Azure Active Directory para Windows Server Active Directory. |[Certifique-se a dispositivos registados é escrita de volta para o Active Directory](#verify-that-registered-devices-are-written-back-to-active-directory) |
 | Agora que os utilizadores podem registar os respetivos dispositivos, pode criar a aplicação de políticas de acesso no AD FS que permitem apenas a dispositivos registados. Nesta tarefa, vai criar uma regra de acesso de aplicativo e uma mensagem de acesso negado personalizada. |[Criar uma política de acesso da aplicação e a mensagem de acesso negado personalizada](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Integrar o Azure Active Directory com o Active Directory no local

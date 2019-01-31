@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300855"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460391"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gerir a computação no Azure SQL Data Warehouse
 Saiba mais sobre a gestão de recursos de computação no Azure SQL Data Warehouse. Reduza os custos ao armazém de dados de colocar em pausa ou dimensionar o armazém de dados para satisfazer as necessidades de desempenho. 

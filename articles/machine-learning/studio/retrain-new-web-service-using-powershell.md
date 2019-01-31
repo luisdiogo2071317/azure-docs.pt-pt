@@ -1,6 +1,6 @@
 ---
-title: Voltar a preparar um novo serviço de web do Machine Learning Studio com o PowerShell titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning, utilizando os cmdlets do PowerShell de gestão do Machine Learning programaticamente.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Voltar a preparar um novo serviço de web do Machine Learning Studio com o PowerShell titleSuffix: Descrição do Azure Machine Learning Studio: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning, utilizando os cmdlets do PowerShell de gestão do Machine Learning programaticamente.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---

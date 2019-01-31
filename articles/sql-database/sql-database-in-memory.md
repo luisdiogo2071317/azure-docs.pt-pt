@@ -11,17 +11,18 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: 890ed64779c6e5704915609552cdd7490ede123a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/25/2019
+ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210306"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478370"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias dentro da memória na base de dados SQL
 
 Tecnologias dentro da memória na SQL Database do Azure permitem-lhe melhorar o desempenho da sua aplicação e potencialmente reduzem os custos da base de dados. Usando tecnologias dentro da memória da base de dados do Azure SQL, pode obter aperfeiçoamentos de desempenho com várias cargas de trabalho:
+
 - **Transacional** (processamento transacional online (OLTP)) em que a maioria das solicitações ler ou atualizar o menor conjunto de dados (por exemplo, operações de CRUD).
 - **Análise** (processamento analítico online (OLAP)) em que a maioria das consultas possui cálculos complexos para os relatórios fins, com um determinado número de consultas que carregar e acrescentar dados para as tabelas existentes (então, a chamada de carregamento em massa) ou para eliminar o dados das tabelas. 
 - **Misto** (processamento analítico/transação do híbrida (HTAP)) em que as consultas OLTP e OLAP são executadas no mesmo conjunto de dados.
@@ -43,13 +44,13 @@ Devido à consulta mais eficiente e processamento de transações, tecnologias d
 Aqui estão dois exemplos de como o OLTP dentro da memória ajudou a melhorar significativamente o desempenho:
 
 - Com o OLTP dentro da memória, [soluções de negócios de quórum foi capaz de duplicar a sua carga de trabalho enquanto melhora DTUs 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *unidade de transação de base de dados*, e inclui uma medida de consumo de recursos.
+
+  - DTU significa *unidade de transação de base de dados*, e inclui uma medida de consumo de recursos.
 - O vídeo seguinte demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP dentro da memória no vídeo de base de dados SQL do Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-    - Para obter mais informações, consulte a mensagem de blogue: [OLTP dentro da memória na mensagem de blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+  - Para obter mais informações, consulte a mensagem de blogue: [OLTP dentro da memória na mensagem de blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
->  
->  Tecnologias dentro da memória estão disponíveis no Premium e crítico para a empresa camada SQL do Azure bases de dados e conjuntos elásticos Premium.
+> Tecnologias dentro da memória estão disponíveis no Premium e crítico para a empresa camada SQL do Azure bases de dados e conjuntos elásticos Premium.
 
 O vídeo seguinte explica os ganhos de desempenho possíveis com tecnologias dentro da memória na base de dados do Azure SQL. Lembre-se de que o ganho de desempenho que verá sempre depende de vários fatores, incluindo a natureza da carga de trabalho e os dados, o padrão de acesso da base de dados e assim por diante.
 
@@ -58,11 +59,13 @@ O vídeo seguinte explica os ganhos de desempenho possíveis com tecnologias den
 >
 
 Este artigo descreve aspectos do OLTP dentro da memória e columnstore índices que são específicos para a base de dados do Azure SQL e também inclui exemplos:
+
 - Verá o impacto dessas tecnologias em limites de tamanho de armazenamento e dados.
 - Verá como gerir o movimento de bases de dados usar essas tecnologias entre os escalões de preços diferentes.
 - Verá dois exemplos que ilustram o uso de OLTP na memória, bem como os índices columnstore na base de dados do Azure SQL.
 
 Para obter mais informações, consulte:
+
 - [Descrição geral de OLTP na memória e cenários de uso](https://msdn.microsoft.com/library/mt774593.aspx) (inclui referências a casos práticos de clientes e informações para começar a trabalhar)
 - [Documentação para OLTP dentro da memória](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -71,6 +74,7 @@ Para obter mais informações, consulte:
 ## <a name="in-memory-oltp"></a>OLTP dentro da memória
 
 Tecnologia OLTP na memória fornece operações de acesso de dados de resposta extremamente rápidos, manter todos os dados na memória. Ele também usa índices especializados, compilação nativo de consultas e acesso a dados sem bloqueios temporários para melhorar o desempenho da carga de trabalho OLTP. Existem duas formas de organizar os dados de OLTP dentro da memória:
+
 - **Com otimização de memória rowstore** formato em que cada linha é um objeto de memória em separado. Este é um formato de OLTP dentro da memória clássico otimizado para cargas de trabalho OLTP de alto desempenho. Existem dois tipos de tabelas com otimização de memória que podem ser utilizados no formato rowstore com otimização de memória:
   - *Tabelas duráveis* (SCHEMA_AND_DATA) em que as linhas colocadas na memória são mantidas depois de reiniciar o servidor. Este tipo de tabelas se comporte como uma tabela de rowstore tradicional com as vantagens adicionais das otimizações na memória.
   - *Duradoura não tabelas* (SCEMA_ONLY) onde as linhas são preservados para não após o reinício. Este tipo de tabela foi concebido para dados temporários (por exemplo, a substituição de tabelas temporárias) ou tabelas em que precisa rapidamente carregar os dados antes de movê-lo para alguma tabela persistente (então, a chamada de tabelas de testes).
@@ -137,6 +141,7 @@ Antes de mudar a versão da base de dados para o Standard/Basic, remova todas as
 
 Tecnologia columnstore dentro da memória é de que lhe permite armazenar e consultar uma grande quantidade de dados nas tabelas. Formato de armazenamento de dados baseado em colunas de utiliza a tecnologia Columnstore e processamento de consultas de batch para conseguir obter até 10 vezes o desempenho de consulta em cargas de trabalho OLAP sobre o armazenamento orientado por linhas tradicional. Também pode obter ganhos de até 10 vezes a compressão de dados sobre o tamanho de dados não comprimidos.
 Existem dois tipos de modelos de columnstore, que pode utilizar para organizar os dados:
+
 - **Columnstore em cluster** onde todos os dados na tabela é organizado no formato em colunas. Nesse modelo, todas as linhas na tabela são colocadas no formato colunar que altamente comprime os dados e permite-lhe executar consultas rápidas analíticas e relatórios na tabela. Dependendo da natureza dos seus dados, o tamanho dos dados pode ser reduzido 10 x-100 x. Modelo de columnstore em cluster também permite a rápida ingestão de grande quantidade de dados (carregamento em massa) desde lotes grandes de dados maiores do que 100 mil linhas são compactadas antes de serem armazenadas no disco. Este modelo é uma boa escolha para os cenários de armazém de dados clássicos. 
 - **Columnstore em cluster não** onde os dados são armazenados na tabela de rowstore tradicional e existe um índice no formato columnstore que é utilizado para as consultas de análise. Este modelo permite o processamento transacional análise híbrida (HTAP): a capacidade de executar análises em tempo real de alto desempenho em cargas de trabalho transacionais. Consultas OLTP são executadas na tabela de rowstore otimizada para aceder a um pequeno conjunto de linhas, enquanto as consultas OLAP são executadas num índice columnstore, que é a melhor escolha para análises e da análise. Otimizador de consulta de base de dados SQL do Azure escolhe dinamicamente rowstore ou columnstore formato com base na consulta. Os índices columnstore não em cluster não diminuir o tamanho dos dados, uma vez que o conjunto de dados original é mantido na tabela original rowstore sem qualquer alteração. No entanto, o tamanho do índice columnstore adicionais deve estar na ordem de magnitude menor do que o índice de árvore B equivalente.
 
@@ -144,6 +149,7 @@ Existem dois tipos de modelos de columnstore, que pode utilizar para organizar o
 > Tecnologia columnstore dentro da memória mantém apenas os dados que é necessário para processamento na memória, enquanto os dados que não podem caber na memória são armazenados no disco. Por conseguinte, a quantidade de dados em estruturas de columnstore dentro da memória pode exceder a quantidade de memória disponível. 
 
 Vídeo aprofundado sobre a tecnologia:
+
 - [Índice Columnstore: Vídeos de análise dentro da memória do Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para os índices columnstore
@@ -170,39 +176,28 @@ Se tiver um **em cluster** índice columnstore, a tabela inteira fica indisponí
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Início rápido 1: Tecnologias de OLTP dentro da memória para acelerar o desempenho de T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
-
 - [Utilize o OLTP na memória num aplicativo existente do SQL do Azure](sql-database-in-memory-oltp-migration.md)
-
 - [Armazenamento OLTP dentro da memória de monitor](sql-database-in-memory-oltp-monitoring.md) para OLTP dentro da memória
-
 - [Experimentar as funcionalidades de dentro da memória na base de dados do Azure SQL](sql-database-in-memory-sample.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-#### <a name="deeper-information"></a>Informações mais detalhadas
+### <a name="deeper-information"></a>Informações mais detalhadas
 
 - [Saiba como o quórum duplica a carga de trabalho de chave da base de dados, reduzindo assim a DTU por 70% com o OLTP dentro da memória na base de dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
-
 - [OLTP dentro da memória na mensagem de blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-
 - [Saiba mais sobre o OLTP dentro da memória](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Saiba mais sobre os índices columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
-
 - [Saiba mais sobre análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
-
 - Ver [padrões de carga de trabalho comuns e considerações sobre a migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho onde o OLTP dentro da memória fornece mais ganhos significativos de desempenho)
 
-#### <a name="application-design"></a>Design do aplicativo
+### <a name="application-design"></a>Design do aplicativo
 
 - [(Otimização de memória) de OLTP na memória](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Utilize o OLTP na memória num aplicativo existente do SQL do Azure](sql-database-in-memory-oltp-migration.md)
 
-#### <a name="tools"></a>Ferramentas
+### <a name="tools"></a>Ferramentas
 
 - [Portal do Azure](https://portal.azure.com/)
-
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

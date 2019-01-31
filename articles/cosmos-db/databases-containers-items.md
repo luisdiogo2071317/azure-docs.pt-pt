@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107740"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468143"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
+# <a name="work-with-databases-containers-and-items"></a>Trabalhar com bancos de dados, contentores e itens
 
 Depois de criar uma [conta do Azure Cosmos DB](account-overview.md) na sua subscrição do Azure, pode gerir dados na sua conta através da criação de bases de dados, contentores e itens. Este artigo descreve cada uma delas: bases de dados, contentores e itens. A imagem seguinte mostra a hierarquia de entidades diferentes numa conta do Cosmos do Azure:
 
@@ -113,7 +113,7 @@ Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema defin
 
 |**Propriedade de sistema definido** | **Sistema gerado ou utilizador definível**| **Objetivo** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|ID | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
+|_id | Gerada pelo sistema | Identificador exclusivo do item | Sim | Não | Não | Não | Não |
 |_etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
 |_ts | Gerada pelo sistema | Última timestamp atualizado do item | Sim | Não | Não | Não | Não |
 |_self | Gerada pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |

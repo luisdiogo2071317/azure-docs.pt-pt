@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7fbf86a24ca6b2ba55ca33b20e67dea6a6e0c994
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731714"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297009"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -64,7 +64,7 @@ Serviço de aplicações fornece um arquivo de tokens incorporado, que é um rep
 - publicar na cronologia do Facebook do usuário autenticado
 - ler os dados empresariais do utilizador a partir da API do Azure Active Directory Graph ou até mesmo o Microsoft Graph
 
-Normalmente, deve escrever código para recolher, armazenar e atualizar esses tokens em seu aplicativo. Com o arquivo de tokens, acabou [recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar delas e [dizer ao serviço de aplicações para atualizá-los](app-service-authentication-how-to.md#refresh-access-tokens) quando eles se torne inválidos. 
+Normalmente, deve escrever código para recolher, armazenar e atualizar esses tokens em seu aplicativo. Com o arquivo de tokens, acabou [recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar delas e [dizer ao serviço de aplicações para atualizá-los](app-service-authentication-how-to.md#refresh-identity-provider-tokens) quando eles se torne inválidos. 
 
 Os tokens de id, tokens de acesso e tokens de atualização em cache para a sessão autenticada e estão acessíveis apenas pelo utilizador associado.  
 
@@ -151,7 +151,7 @@ Guias de procedimentos específica do fornecedor:
 * [Como configurar a aplicação para utilizar o início de sessão do Google][Google]
 * [Como configurar a aplicação para utilizar o Microsoft Account login][MSA]
 * [Como configurar a aplicação para utilizar o início de sessão do Twitter][Twitter]
-* [Como: Utilizar a autenticação personalizada para a sua aplicação][custom-auth]
+* [How to: Utilizar a autenticação personalizada para a sua aplicação][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

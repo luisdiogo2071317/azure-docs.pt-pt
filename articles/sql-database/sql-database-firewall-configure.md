@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 0579746bc4dc554fd7e082f6258f2c13ce22f69b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035275"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477680"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regras de firewall de base de dados SQL e SQL Data Warehouse do Azure
 
@@ -47,11 +47,11 @@ As tentativas de ligação a partir da Internet e do Azure têm, primeiro, de pa
 
 - **Regras de firewall ao nível do servidor:**
 
-  Estas regras permitem que os clientes acessar o servidor SQL do Azure completo, ou seja, todas as bases de dados no mesmo servidor lógico. Estas regras são armazenadas na base de dados **mestra**. A configuração das regras de firewall ao nível do servidor pode ser feita no portal ou através de instruções de Transact-SQL. Para criar regras de firewall ao nível do servidor com o portal do Azure ou com o PowerShell, tem de ser o proprietário da subscrição ou um contribuinte da subscrição. Para criar uma regra de firewall ao nível do servidor através de Transact-SQL, deve ligar à instância da Base de dados SQL como o início de sessão principal ao nível do servidor ou como administrador do Azure Active Directory (o que significa que uma regra de firewall ao nível do servidor tem primeiro de ser criada por um utilizador com permissões ao nível do Azure).
+  Estas regras permitem que os clientes acessar o servidor SQL do Azure completo, ou seja, todas as bases de dados no mesmo servidor de base de dados SQL. Estas regras são armazenadas na base de dados **mestra**. A configuração das regras de firewall ao nível do servidor pode ser feita no portal ou através de instruções de Transact-SQL. Para criar regras de firewall ao nível do servidor com o portal do Azure ou com o PowerShell, tem de ser o proprietário da subscrição ou um contribuinte da subscrição. Para criar uma regra de firewall ao nível do servidor através de Transact-SQL, deve ligar à instância da Base de dados SQL como o início de sessão principal ao nível do servidor ou como administrador do Azure Active Directory (o que significa que uma regra de firewall ao nível do servidor tem primeiro de ser criada por um utilizador com permissões ao nível do Azure).
 
 - **Regras de firewall ao nível da base de dados:**
 
-  Estas regras permitem que os clientes acedam a determinadas bases de dados (seguras) no mesmo servidor lógico. Pode criar estas regras para cada base de dados (incluindo o **mestre** base de dados) e são armazenados nas bases de dados individuais. Regras de firewall ao nível da base de dados para bases de dados mestra e o utilizador só podem ser criadas e geridas através de instruções de Transact-SQL e apenas depois de ter configurado a primeira firewall ao nível do servidor. Se especificar um intervalo de endereços IP na regra de firewall ao nível da base de dados que esteja fora do intervalo especificado na regra de firewall ao nível do servidor, só os clientes que tiverem endereços IP no intervalo ao nível da base de dados podem aceder à base de dados. Pode ter um máximo de 128 regras de firewall ao nível da base de dados para uma base de dados. Para obter mais informações sobre como configurar regras de firewall ao nível da base de dados, consulte o exemplo mais à frente neste artigo e ver [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+  Estas regras permitem que os clientes acedam a determinadas bases de dados (seguras) no mesmo servidor de base de dados SQL. Pode criar estas regras para cada base de dados (incluindo o **mestre** base de dados) e são armazenados nas bases de dados individuais. Regras de firewall ao nível da base de dados para bases de dados mestra e o utilizador só podem ser criadas e geridas através de instruções de Transact-SQL e apenas depois de ter configurado a primeira firewall ao nível do servidor. Se especificar um intervalo de endereços IP na regra de firewall ao nível da base de dados que esteja fora do intervalo especificado na regra de firewall ao nível do servidor, só os clientes que tiverem endereços IP no intervalo ao nível da base de dados podem aceder à base de dados. Pode ter um máximo de 128 regras de firewall ao nível da base de dados para uma base de dados. Para obter mais informações sobre como configurar regras de firewall ao nível da base de dados, consulte o exemplo mais à frente neste artigo e ver [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### <a name="recommendation"></a>Recomendação
 
@@ -94,7 +94,7 @@ Para melhorar o desempenho, as regras de firewall ao nível do servidor são col
 
 ## <a name="manage-firewall-rules-using-the-azure-portal"></a>Gerir regras de firewall com o portal do Azure
 
-Para definir uma regra de firewall ao nível do servidor no portal do Azure, pode optar por aceder à página de descrição geral para a base de dados SQL do Azure ou a página de descrição geral do seu servidor lógico de base de dados do Azure.
+Para definir uma regra de firewall ao nível do servidor no portal do Azure, pode optar por aceder à página de descrição geral para a base de dados SQL do Azure ou a página de descrição geral do seu servidor de base de dados SQL.
 
 > [!TIP]
 > Para obter um tutorial, veja [criar uma BD com o portal do Azure](sql-database-get-started-portal.md).
@@ -165,17 +165,17 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> Para exemplos do PowerShell no contexto de um início rápido, consulte [criar BD - PowerShell](sql-database-powershell-samples.md) e [criar uma base de dados e configurar uma regra de firewall com o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> Para exemplos do PowerShell no contexto de um início rápido, consulte [criar BD - PowerShell](sql-database-powershell-samples.md) e [criar uma base de dados e configurar uma regra de firewall da base de dados SQL com o PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gerir regras de firewall com a CLI do Azure
 
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-|[Criar AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall do servidor|
-|[lista do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall num servidor|
-|[show do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor|Mostra os detalhes de uma regra de firewall|
-|[atualização do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall|
-|[eliminação do AZ sql server firewall-rule](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Elimina uma regra de firewall|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall do servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall num servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor|Mostra os detalhes de uma regra de firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Elimina uma regra de firewall|
 
 O exemplo seguinte define uma regra de firewall ao nível do servidor com a CLI do Azure:
 
@@ -185,7 +185,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Para obter um exemplo da CLI do Azure no contexto de um início rápido, consulte [criar BD - CLI do Azure](sql-database-cli-samples.md) e [criar uma base de dados e configurar uma regra de firewall com a CLI do Azure](scripts/sql-database-create-and-configure-database-cli.md)
+> Para obter um exemplo da CLI do Azure no contexto de um início rápido, consulte [criar BD - CLI do Azure](sql-database-cli-samples.md) e [criar uma base de dados e configurar uma regra de firewall de base de dados SQL com a CLI do Azure](scripts/sql-database-create-and-configure-database-cli.md)
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Gerir regras de firewall com a REST API
 

@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.subservice: files
+ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452248"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: criar e gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com o Explorador de armazenamento do Azure
 Este guia orienta-o pelas noções básicas de utilizar [partilhas de ficheiros do Azure](storage-files-introduction.md) com o Explorador de Armazenamento do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
 O Explorador de Armazenamento do Azure é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.
@@ -33,9 +33,9 @@ Não pode utilizar o Explorador de Armazenamento para criar novos recursos. Para
 ## <a name="connect-storage-explorer-to-azure-resources"></a>Ligar o Explorador de Armazenamento aos recursos do Azure
 Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazenamento do Microsoft Azure - Ligar**. O Explorador de Armazenamento proporciona várias formas de ligar a contas de armazenamento: 
 
-- **Inicie sessão com a sua conta do Azure**: pode iniciar sessão com as credenciais de utilizador para a sua organização ou a sua conta Microsoft. 
-- **Ligar a uma conta de armazenamento específica com uma cadeia de ligação ou um token SAS**: uma cadeia de ligação é uma cadeia especial que contém um nome de conta de armazenamento e o token de SAS/chave da conta de armazenamento. Com o token, o Explorador de Armazenamento acede diretamente à conta de armazenamento (em vez de simplesmente ver todas as contas de armazenamento numa conta do Azure). Para saber mais sobre as cadeias de ligação, veja [Configure Azure storage connection strings](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Configurar cadeias de ligação do Armazenamento do Azure).
-- **Ligar a uma conta de armazenamento específica com o nome e a chave da mesma**: utilize o nome e a chave da conta de armazenamento da sua conta de armazenamento para ligar ao armazenamento do Azure.
+- **Inicie sessão com a sua conta do Azure**: Pode iniciar sessão com as credenciais de utilizador da sua organização ou a sua conta Microsoft. 
+- **Ligar a uma conta de armazenamento específica com uma cadeia de ligação ou SAS token**: Uma cadeia de ligação é uma cadeia especial que contém um nome de conta de armazenamento e o token SAS/chave da conta de armazenamento. Com o token, o Explorador de Armazenamento acede diretamente à conta de armazenamento (em vez de simplesmente ver todas as contas de armazenamento numa conta do Azure). Para saber mais sobre as cadeias de ligação, veja [Configure Azure storage connection strings](../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Configurar cadeias de ligação do Armazenamento do Azure).
+- **Ligar a uma conta de armazenamento específica com um nome de conta de armazenamento e a chave**: Utilize o nome da conta de armazenamento e a chave para a sua conta de armazenamento para ligar ao armazenamento do Azure.
 
 Para efeitos deste início rápido, inicie sessão com a sua conta do Azure. Selecione **Adicionar uma Conta do Azure** e selecione **Iniciar sessão**. Siga os avisos para iniciar sessão na conta do Azure.
 
@@ -86,7 +86,7 @@ Não pode utilizar o Explorador de Armazenamento para remover recursos. Para lim
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [O que são os Ficheiros do Azure?](storage-files-introduction.md)

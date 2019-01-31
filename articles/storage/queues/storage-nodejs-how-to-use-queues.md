@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138519"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472716"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como utilizar o Armazenamento de filas do Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -105,7 +105,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem numa fila
+## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Introduzir uma mensagem numa fila
 Para introduzir uma mensagem numa fila, utilize o **createMessage** método para criar uma nova mensagem e adicioná-lo para a fila.
 
 ```javascript
@@ -134,7 +134,7 @@ O `result` contém a mensagem.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Como: A próxima mensagem da fila
+## <a name="how-to-dequeue-the-next-message"></a>Como: Remover da fila a mensagem seguinte
 Processar uma mensagem é um processo de duas etapas:
 
 1. Remover da fila a mensagem.
@@ -217,7 +217,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Como: Filas de lista
+## <a name="how-to-list-queues"></a>Como: Lista de filas
 Para obter uma lista de filas, utilize **listQueuesSegmented**. Para obter uma lista filtrada por um prefixo específico, utilize **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Para limpar todas as mensagens de uma fila sem eliminá-lo, utilize **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Como: trabalhar com assinaturas de acesso partilhado
+## <a name="how-to-work-with-shared-access-signatures"></a>Como: Utilizar Assinaturas de Acesso Partilhado
 Assinaturas de acesso partilhado (SAS) são uma forma segura para fornecer acesso granular para filas sem fornecer seu nome de conta de armazenamento ou chaves. SAS, muitas vezes, é utilizada para disponibilizar acesso limitado as filas, como permitir que uma aplicação móvel para enviar mensagens.
 
 Um aplicativo confiável, como um serviço baseado na nuvem gera uma SAS através de **generateSharedAccessSignature** da **QueueService**e fornece-o a uma aplicação não fidedigna ou semiconfiável. Por exemplo, uma aplicação móvel. A SAS é gerada utilizando uma política, que descreve as datas de início e de fim durante as quais a SAS é válida, bem como o nível de acesso concedido ao titular da SAS.

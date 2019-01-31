@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 52f08511d16e216ced7e3d1de11eae960cdbaeb8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f56b1b06e8be46c1a111e920cfb98bc58d4f6636
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466868"
 ---
-# <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Desvantagens de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB
+# <a name="consistency-availability-and-performance-tradeoffs"></a>Vantagens e desvantagens de consistência, disponibilidade e desempenho 
 
 Bases de dados distribuídas que dependem de replicação para elevada disponibilidade, latência baixa ou ambos têm de fazer cedências. Os compromissos são entre a consistência de leitura versus disponibilidade, latência e débito. 
 
@@ -50,4 +50,4 @@ Saiba mais sobre distribuição global e os compromissos de consistência geral 
 
 * [Vantagens e desvantagens de consistência no design de sistemas de banco de dados distribuída Moderno](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Elevada disponibilidade](high-availability.md)
-* [SLA do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

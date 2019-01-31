@@ -1,6 +1,6 @@
 ---
-title: Prever as respostas com titleSuffix de modelos de regressão: Descrição do Azure Machine Learning Studio: Como criar um modelo de regressão simples para prever um preço em ciência de dados para principiantes, vídeo 4. Inclui uma regressão linear com dados de destino.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+title: Prever as respostas com titleSuffix de modelos de regressão: Descrição do Azure Machine Learning Studio: Como criar um modelo de regressão simples para prever um preço em ciência de dados para principiantes, vídeo 4. Inclui uma regressão linear com dados de destino.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

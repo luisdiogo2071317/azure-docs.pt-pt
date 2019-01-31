@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f623411c3e8b13aeacc08a6c47053931742a2e82
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034187"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470149"
 ---
-# <a name="azure-cosmos-db-compliance"></a>Conformidade do Azure Cosmos DB
+# <a name="compliance-in-azure-cosmos-db"></a>Conformidade no Azure Cosmos DB 
 
 O Azure Cosmos DB está disponível em todas as regiões do Azure. Microsoft disponibiliza cinco ambientes de cloud do Azure distintos para os clientes:
 
@@ -36,7 +36,7 @@ O Azure Cosmos DB está continuamente a expandir sua cobertura de certificação
 
 | **Globalmente aplicável** | **Governo dos Estados Unidos da América** | **Setor específico** | **Região ou país específico** |
 | --- | --- | --- | --- | --- |
-| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG nível 2<br/><br/>FedRAMP Moderado<br/><br/>GxP (FDA 21 CFR parte 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Espanha ENS alta|
+| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG nível 2<br/><br/>FedRAMP Moderado<br/><br/>GxP (FDA 21 CFR parte 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Spain ENS High|
 
 Para saber mais sobre cada uma dessas ofertas de conformidade e como eles beneficiá-lo, veja [conformidade de descrição geral do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) página.
 
@@ -44,7 +44,7 @@ A tabela seguinte lista as certificações suportadas pelo Azure Cosmos DB no Az
 
 | **Globalmente aplicável** | **Governo dos Estados Unidos da América** | **Setor específico** | **Região ou país específico** |
 | --- | --- | --- | --- |
-| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG nível 2<br/><br/>DoD SRG nível 5<br/><br/>CJIS<br/><br/>FedRAMP Elevado<br/><br/>IRS 1075<br/><br/>CSF DO NIST<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Espanha ENS alta|
+| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG nível 2<br/><br/>DoD SRG nível 5<br/><br/>CJIS<br/><br/>FedRAMP Elevado<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Spain ENS High|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

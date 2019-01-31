@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214747"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301259"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -49,9 +49,9 @@ R: Experiência de registos de campos personalizados extração são atualmente 
 
 R: Vista de lista não está disponível nos Logs de novo. Há uma seta à esquerda de cada registo na tabela de resultados. Clique nesta seta para abrir os detalhes de um registo específico. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>P. Depois de executar uma consulta, uma lista dos filtros sugeridas é exibido, mas ele não inclui todos os filtros. Como posso ver o rest? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>P. Depois de executar uma consulta, uma lista dos filtros sugeridos estão disponíveis. Como posso ver filtros? 
 
-R: O que vê atualmente é uma pré-visualização da nova implementação de filtros. Agora isso se baseia seu resultado completo, em vez de estar limitado pelo limite de registo 10.000 da interface do Usuário. Isto é, atualmente, uma lista de filtros mais populares e os 10 valores mais comuns para cada filtro. 
+R: Clique em "Filtros" na frigideira à esquerda para ver uma pré-visualização da nova implementação de filtros. Agora isso se baseia seu resultado completo, em vez de estar limitado pelo limite de registo 10.000 da interface do Usuário. Isto é, atualmente, uma lista de filtros mais populares e os 10 valores mais comuns para cada filtro. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou a receber o erro: "Registar o fornecedor de recursos"Microsoft. insights' para esta subscrição para ativar esta consulta"nos registos, após a análise de sessão de VM? 
 

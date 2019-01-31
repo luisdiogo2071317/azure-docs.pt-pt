@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b474c0fdabbe5c2a2bb9731fbeb24c1715f7c859
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080738"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299916"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory 
 
@@ -45,6 +45,9 @@ Para concluir o cenário neste início rápido, precisa de:
 - **Uma conta de teste chamado Isabella Simonsen** – se não saiba como criar uma conta de teste, consulte [adicionar utilizadores com base na cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
+O cenário neste início rápido requer que por utilizador MFA não está ativada para a sua conta de teste. Para obter mais informações, consulte [como requerer verificação de dois passos para um utilizador](../authentication/howto-mfa-userstates.md).
+
+
 ## <a name="test-your-sign-in"></a>Testar o início de sessão
 
 O objetivo deste passo é obter uma impressão da experiência de início de sessão sem uma política de acesso condicional.
@@ -65,7 +68,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. O
 
 Na sua política, defina:
 
-|Definição |Valor|
+|Definição |Value|
 |---     | --- |
 |Utilizadores e grupos | Isabella Simonsen |
 |Aplicações na cloud | Microsoft Azure Management |
@@ -95,7 +98,7 @@ Na sua política, defina:
 
 5. No **New** na página a **nome** caixa de texto, tipo **exigir a MFA para acesso ao portal do Azure**.
 
-    ![Nome](./media/app-based-mfa/05.png)
+    ![Name](./media/app-based-mfa/05.png)
 
 6. Na **atribuição** secção, clique em **utilizadores e grupos**.
 

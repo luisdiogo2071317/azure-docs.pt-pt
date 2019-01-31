@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462839"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -67,8 +67,8 @@ Execute os seguintes passos para preparar as unidades.
     |Opção  |Descrição  |
     |---------|---------|
     |/j:     |O nome do ficheiro de diário, com a extensão de jrn. Um ficheiro de diário é gerado por unidade. Recomendamos que utilize o número de série do disco como o nome de ficheiro de diário.         |
-    |/ ID:     |O ID de sessão. Utilize um número de sessão exclusiva para cada instância do comando.      |
-    |/SK:     |A chave de conta de armazenamento do Azure.         |
+    |/id:     |O ID de sessão. Utilize um número de sessão exclusiva para cada instância do comando.      |
+    |/sk:     |A chave de conta de armazenamento do Azure.         |
     |/t:     |A letra de unidade de disco para ser enviado. Por exemplo, unidade `D`.         |
     |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de ` manage-bde -protectors -get D: `      |
     |/srcdir:     |A letra de unidade de disco para ser enviado seguido `:\`. Por exemplo, `D:\`.         |

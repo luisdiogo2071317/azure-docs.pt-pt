@@ -6,22 +6,22 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129646"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470931"
 ---
-# <a name="translator-text-api-30-languages"></a>API 3.0 de texto de tradutor: idiomas
+# <a name="translator-text-api-30-languages"></a>Texto do Translator API 3.0: Languages
 
 Obtém o conjunto de idiomas atualmente suportados pelo outras operações de API de texto do Translator. 
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `GET` pedido para:
 ```HTTP
@@ -51,12 +51,12 @@ Cabeçalhos de pedido são:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>Aceite-Language</td>
-    <td>*Cabeçalho do pedido opcional*.<br/>O idioma a utilizar para cadeias de caracteres de interface de usuário. Alguns dos campos na resposta são nomes de idiomas ou nomes de regiões. Utilize este parâmetro para definir o idioma em que esses nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.<br/>Os nomes são fornecidos em inglês quando não for especificado um idioma de destino ou quando a localização não está disponível.
+    <td>Accept-Language</td>
+    <td>*Cabeçalho do pedido opcional*.<br/>O idioma a utilizar nas cadeias da interface de utilizador. Alguns dos campos na resposta são nomes de idiomas ou nomes de regiões. Utilize este parâmetro para definir o idioma em que esses nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.<br/>Os nomes são fornecidos em inglês quando não for especificado um idioma de destino ou quando a localização não está disponível.
     </td>
   </tr>
   <tr>
-    <td>X ClientTraceId</td>
+    <td>X-ClientTraceId</td>
     <td>*Cabeçalho do pedido opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido.</td>
   </tr>
 </table> 
@@ -97,9 +97,9 @@ Segue-se o valor para cada propriedade.
 
   O valor da `translation` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual texto pode ser convertido para ou convertido do. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
 
-  * `name`: Nome a apresentar o idioma na localidade solicitada via `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar da linguagem na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
+  * `nativeName`: Nome a apresentar da linguagem no idioma nativo para este idioma.
 
   * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
@@ -123,17 +123,17 @@ Segue-se o valor para cada propriedade.
 
   O valor da `transliteration` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual pode ser convertido texto a partir de um script para outro script. O valor associado à chave é um objeto JSON com propriedades que descrevem a linguagem e seus scripts com suporte:
 
-  * `name`: Nome a apresentar o idioma na localidade solicitada via `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar da linguagem na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
+  * `nativeName`: Nome a apresentar da linguagem no idioma nativo para este idioma.
 
   * `scripts`: Lista de scripts para converter. Cada elemento do `scripts` lista tem propriedades:
 
-    * `code`: Código de identificar o script.
+    * `code`: Identificar o script de código.
 
     * `name`: Nome a apresentar do script na localidade solicitada via `Accept-Language` cabeçalho.
 
-    * `nativeName`: Nome a apresentar o idioma no idioma nativo do idioma.
+    * `nativeName`: Nome do idioma a apresentar no idioma nativo do idioma.
 
     * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
@@ -188,21 +188,21 @@ Segue-se o valor para cada propriedade.
 
   O valor da `dictionary` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. A chave identifica um idioma para o qual traduções alternativas e back-traduções estão disponíveis. O valor é um objeto JSON que descreve a linguagem de código e os idiomas de destino com traduções disponíveis:
 
-  * `name`: Nome a apresentar o idioma de origem na localidade solicitada via `Accept-Language` cabeçalho.
+  * `name`: Nome a apresentar do idioma de origem na localidade solicitada via `Accept-Language` cabeçalho.
 
-  * `nativeName`: Nome a apresentar o idioma no idioma nativo para este idioma.
+  * `nativeName`: Nome a apresentar da linguagem no idioma nativo para este idioma.
 
   * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
 
   * `translations`: Lista de idiomas com traduções alterative e exemplos para a consulta expressado no idioma de origem. Cada elemento do `translations` lista tem propriedades:
 
-    * `name`: Nome a apresentar o idioma de destino na localidade solicitada via `Accept-Language` cabeçalho.
+    * `name`: Nome a apresentar do idioma de destino na localidade solicitada via `Accept-Language` cabeçalho.
 
-    * `nativeName`: Nome a apresentar o idioma de destino no idioma nativo para o idioma de destino.
+    * `nativeName`: Nome a apresentar do idioma de destino no idioma nativo para o idioma de destino.
 
     * `dir`: Direcionalidade, que é `rtl` para idiomas da direita para esquerda ou `ltr` para idiomas do esquerda para a direita.
     
-    * `code`: O código de idioma identificar o idioma de destino.
+    * `code`: Código de idioma, identificando o idioma de destino.
 
   Um exemplo é:
 
@@ -279,7 +279,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
 
 O exemplo seguinte mostra como obter os idiomas suportados para a tradução de texto.
 
-# <a name="curltabcurl"></a>[Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

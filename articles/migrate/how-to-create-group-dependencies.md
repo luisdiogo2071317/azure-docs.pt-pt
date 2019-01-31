@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075708"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472580"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -73,6 +73,10 @@ Para instalar o agente num computador Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>Instalar o agente num computador monitorizado pelo System Center Operations Manager
+
+Para computadores monitorizados pelo Operations Manager 2012 R2 ou posterior, não é necessário para instalar o agente MMA. Mapa de serviço tem uma integração com o Operations Manager, que aproveita o MMA do Gestor de operações para recolher os dados de dependência necessária. Pode ativar a integração com a orientação de utilização [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). No entanto, observe que o agente de dependência tem instalado nessas máquinas.
+
 ### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 1. Para instalar o agente de dependência num computador Windows, clique duas vezes o ficheiro de configuração e siga o assistente.
 2. Para instalar o agente de dependência numa máquina Linux, instale como raiz com o seguinte comando:
@@ -115,7 +119,7 @@ Se pretender verificar as dependências de uma máquina específica que aparece 
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Dados de dependência de consulta do Log Analytics
 
-Dados de dependência capturados pelo mapa de serviço estão disponíveis para a consulta do Log Analytics. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
+Dados de dependência capturados pelo mapa de serviço estão disponíveis para consultar no workspare do Log Analytics associado ao projeto do Azure Migrate. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
 
 Para executar as consultas do Log Analytics:
 

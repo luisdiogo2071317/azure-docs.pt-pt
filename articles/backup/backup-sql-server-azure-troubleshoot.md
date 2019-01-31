@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339523"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296126"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -37,6 +37,15 @@ Para configurar a proteção para uma base de dados do SQL Server numa máquina 
 ## <a name="troubleshooting-errors"></a>Resolução de problemas de erros
 
 Utilize as informações nas tabelas seguintes para resolver problemas e erros encontrados ao proteger o SQL Server para o Azure.
+
+## <a name="alerts"></a>Alertas
+
+### <a name="backup-type-unsupported"></a>Tipo de cópia de segurança não suportado
+
+| Gravidade | Descrição | Causas possíveis | Ação recomendada |
+|---|---|---|---|
+| Aviso | As definições atuais desta base de dados não suportam a determinado tipo de tipos de cópia de segurança presentes na política de associados. | <li>**DB de dominar**: Apenas uma operação de cópia de segurança completa da base de dados pode ser executada na base de dados mestra; nem **diferencial** cópia de segurança nem transação **registos** cópia de segurança são possíveis. </li> <li>Qualquer base de dados **modelo de recuperação simples** não permite a transação **registos** cópia de segurança a tomar.</li> | Modifica as definições de base de dados, de modo a que todos os tipos de cópia de segurança na política são suportados. Em alternativa, altere a política atual para incluir apenas os tipos de cópia de segurança suportados. Caso contrário, os tipos de cópia de segurança não suportados serão ignorados durante a cópia de segurança agendada ou a tarefa de cópia de segurança irá falhar para cópia de segurança ad-hoc.
+
 
 ## <a name="backup-failures"></a>Falhas de cópia de segurança
 

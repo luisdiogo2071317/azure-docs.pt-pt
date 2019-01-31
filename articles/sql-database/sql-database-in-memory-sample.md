@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 51cf04509608435117e0368b25952a58f7fc3557
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609708"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478292"
 ---
 # <a name="in-memory-sample"></a>Exemplo de dentro da memória
 
@@ -41,7 +41,7 @@ Para obter mais informações, consulte:
 
 Para uma mais simples, mas visualmente mais atraente desempenho demonstração para OLTP dentro da memória, consulte:
 
-- Versão: [no-memória-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
+- Release: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - O código-fonte: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
 
 #### <a name="installation-steps"></a>Passos de instalação
@@ -55,7 +55,7 @@ Para uma mais simples, mas visualmente mais atraente desempenho demonstração p
 4. Cole o script T-SQL no SSMS e, em seguida, execute o script. O `MEMORY_OPTIMIZED = ON` instruções CREATE TABLE de cláusula são cruciais. Por exemplo:
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -69,7 +69,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 Se obtiver o erro 40536 ao executar o script T-SQL, execute o seguinte script de T-SQL para verificar se a base de dados suporta dentro da memória:
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -94,7 +94,7 @@ Pode inspecionar a tabelas com otimização de memória através do **Object Exp
 Ou pode consultar as exibições de catálogo, tais como:
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -104,7 +104,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **Procedimento armazenado compilado nativamente**: Pode inspecionar SalesLT.usp_InsertSalesOrder_inmem através de uma consulta de vista de catálogo:
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -145,7 +145,7 @@ O script a seguir insere uma ordem de venda de exemplo com cinco itens de linha 
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -244,7 +244,7 @@ Depois de ter o resultado a partir do *_inmem* executar, execute os seguintes pa
 
 
 1. Repor a base de dados ao executar o seguinte comando no SSMS para eliminar todos os dados que é inserido através da execução anterior:
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +315,7 @@ Um índice columnstore em cluster está no FactResellerSalesXL\_tabela CCI.
 O seguinte trecho de script de T-SQL imprime as estatísticas de e/s e tempo para a consulta de cada tabela.
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences

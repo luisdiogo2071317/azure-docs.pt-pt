@@ -4,16 +4,16 @@ description: Explica o planeamento para o fazer antes de implementar Avere vFXT 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f0e5523565dc561ed457dbc340835ad1889cb876
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634483"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298930"
 ---
-# <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema de vFXT Avere
+# <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
 Este artigo explica como planejar um vFXT Avere novo para o cluster do Azure para se certificar-se de que o cluster que cria é posicionado e o tamanho adequado para as suas necessidades. 
 
@@ -29,11 +29,14 @@ Considere onde será os elementos de seu vFXT Avere para implementação do Azur
 
 Siga estas diretrizes quando planear a infraestrutura de rede Avere vFXT do seu sistema:
 
-* Todos os elementos devem ser geridos com uma nova subscrição criada para a implementação de vFXT Avere. Esta estratégia simplifica o rastreamento de custos e a limpeza e também ajuda a quotas de recursos de partição. Como o vFXT Avere é utilizado com um grande número de clientes, isolar os clientes e o cluster numa única subscrição protege outras cargas de trabalho críticas de recurso possível limitação durante o aprovisionamento do cliente.
+* Todos os elementos devem ser geridos com uma nova subscrição criada para a implementação de vFXT Avere. As vantagens incluem: 
+  * Controlo custo mais simples - modo de exibição e ciclos de todos os custos de recursos, a infraestrutura e a computação numa subscrição de auditoria.
+  * Limpeza mais fácil - pode remover a subscrição completa quando terminar com o projeto.
+  * Criação de partições conveniente de recurso quotas - proteger outras cargas de trabalho críticas de limitação de recursos possível quando o grande número de clientes utilizado para seu fluxo de trabalho de computação de alto desempenho, isolando os clientes de vFXT Avere a visualização e de cluster numa subscrição individual.
 
 * Localize os sistemas de computação de clientes próximo vFXT cluster. Armazenamento de back-end pode ser mais remoto.  
 
-* Para simplificar, localize o cluster de vFXT e o controlador de cluster VM na mesma rede virtual (vnet) e no mesmo grupo de recursos. Também devem utilizar a mesma conta de armazenamento. 
+* Para simplificar, localize o cluster de vFXT e o controlador de cluster VM na mesma rede virtual (vnet) e no mesmo grupo de recursos. Também devem utilizar a mesma conta de armazenamento. (O controlador de cluster cria o cluster e também pode ser utilizado para gestão de linha de comandos cluster.)  
 
 * O cluster tem de estar localizado na sua própria sub-rede para evitar conflitos de endereços IP com clientes ou os recursos de computação. 
 
@@ -80,17 +83,47 @@ Certifique-se de que a sua subscrição tem a capacidade para executar o cluster
 
 ## <a name="back-end-data-storage"></a>Armazenamento de dados back-end
 
-Quando não estiver na cache, será o conjunto de trabalho ser armazenado num novo contentor de BLOBs ou num sistema de armazenamento de hardware ou numa cloud existente?
+Onde deve o cluster de vFXT Avere armazenar os dados quando não está no cache? Decida se o conjunto de trabalho será armazenado os longo prazo num novo contentor de BLOBs ou num sistema de armazenamento de hardware ou numa cloud existente. 
 
-Se pretender utilizar o armazenamento de Blobs do Azure para o back-end, deve criar um novo contentor como parte da criação do cluster vFXT. Utilize o ``create-cloud-backed-container`` script de implementação e forneça o armazenamento de conta para o novo contentor de Blobs. Esta opção cria e configura o novo contentor, para que fique pronta a utilizar assim que o cluster estiver pronto. Leia [nós de criar e configurar o cluster](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster) para obter detalhes.
+Se pretender utilizar o armazenamento de Blobs do Azure para o back-end, deve criar um novo contentor como parte da criação do cluster vFXT. Esta opção cria e configura o novo contentor, para que fique pronta a utilizar assim que o cluster estiver pronto. 
+
+Leia [criar o vFXT Avere para o Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) para obter detalhes.
 
 > [!NOTE]
 > Apenas contentores de armazenamento de BLOBs vazias podem ser utilizados como se filtram de núcleo para o sistema de vFXT Avere. O vFXT tem de ser capaz de gerir o seu arquivo de objetos sem a necessidade de preservar dados existentes. 
 >
 > Leia [mover dados para o cluster vFXT](avere-vfxt-data-ingest.md) para saber como copiar dados para o contentor do cluster de novo com eficiência com computadores cliente e a cache de vFXT Avere.
 
-Se pretender utilizar um sistema de armazenamento no local existente, deve adicioná-lo para o cluster vFXT depois de criado. O ``create-minimal-cluster`` script de implementação cria um cluster de vFXT sem armazenamento de back-end. Leia [configurar o armazenamento](avere-vfxt-add-storage.md) para obter instruções detalhadas sobre como adicionar um sistema de armazenamento existente para o cluster de vFXT Avere. 
+Se pretender utilizar um sistema de armazenamento no local existente, deve adicioná-lo para o cluster vFXT depois de criado. Leia [configurar o armazenamento](avere-vfxt-add-storage.md) para obter instruções detalhadas sobre como adicionar um sistema de armazenamento existente para o cluster de vFXT Avere.
 
-## <a name="next-step-understand-the-deployment-process"></a>Passo seguinte: compreender o processo de implantação
+## <a name="cluster-access"></a>Acesso de cluster 
+
+O vFXT Avere para cluster do Azure está localizado numa sub-rede privada e o cluster não tem um endereço IP público. Tem de ter algum método de acessar a sub-rede privada para a administração de cluster e ligações de cliente. 
+
+As opções de acesso incluem:
+
+* Saltar anfitrião - atribuir um endereço IP público a uma VM separada dentro da rede privada e utilizá-lo para criar um túnel SSL para os nós do cluster. 
+
+  > [!TIP]
+  > Se definir um endereço IP público no controlador de cluster, pode utilizá-lo como o host de atalhos. Leia [controlador de Cluster como ir anfitrião](#cluster-controller-as-jump-host) para obter mais informações.
+
+* Rede privada virtual (VPN) – configurar uma VPN ponto a site ou site a site para a sua rede privada.
+
+* O Azure ExpressRoute - configurar uma ligação privada através de e o parceiro do ExpressRoute. 
+
+Para obter detalhes sobre estas opções, leia os [documentação de rede Virtual do Azure sobre a comunicação de internet](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
+
+### <a name="cluster-controller-as-jump-host"></a>Controlador de cluster como rápida ao anfitrião
+
+Se definir um endereço IP público no controlador de cluster, pode utilizá-lo como um anfitrião de atalhos para contactar o cluster de vFXT Avere de fora da sub-rede privada. No entanto, uma vez que o controlador tem privilégios de acesso para modificar nós de cluster, esta ação cria um risco de segurança pequeno.  
+
+Para obter mais segurança com um endereço IP público, utilize um grupo de segurança de rede para permitir o acesso de entrada apenas através da porta 22.
+
+Ao criar o cluster, pode escolher se deve ou não criar um endereço IP público no controlador de cluster. 
+
+* Se criar uma nova vnet ou de uma nova sub-rede, o controlador de cluster será atribuído um endereço IP público.
+* Se selecionar uma vnet existente e uma sub-rede, o controlador de cluster terão apenas endereços IP privados. 
+
+## <a name="next-step-understand-the-deployment-process"></a>Passo seguinte: Compreender o processo de implantação
 
 [Descrição geral da implementação](avere-vfxt-deploy-overview.md) dá uma visão geral de todos os passos necessários para criar um vFXT Avere para o sistema do Azure e prepará-lo servir dados.  

@@ -1,5 +1,5 @@
 ---
-title: Gerir um titleSuffix de área de trabalho do Machine Learning Studio: Descrição do Azure Machine Learning Studio: Gerir o acesso a áreas de trabalho do Azure Machine Learning e implementar e gerir os serviços de serviços de web ML API: MS. Service de machine learning: ms.component de machine learning: studio topic: artigo
+title: Gerir um titleSuffix de área de trabalho do Machine Learning Studio: Descrição do Azure Machine Learning Studio: Gerir o acesso a áreas de trabalho do Azure Machine Learning e implementar e gerir os serviços de serviços de web ML API: MS. Service de machine learning: ms.subservice de machine learning: studio topic: artigo
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
 ---

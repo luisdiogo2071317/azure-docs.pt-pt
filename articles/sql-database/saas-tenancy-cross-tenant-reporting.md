@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e23b679d6c81d1a4103f010a9d13c35e80d4d2af
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 01/25/2019
+ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240993"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476252"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Consultas de distribuídas de relatórios usando entre inquilinos
 
@@ -128,7 +128,7 @@ Neste exercício adiciona esquema (a origem de dados externa e definições de t
 
     ![Criar origem de dados externa](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   As tabelas externas que fazem referência as vistas globais descrito na secção anterior e definido com **distribuição = SHARDED(VenueId)**. Uma vez que cada *VenueId* é mapeado para uma base de dados, isso melhora o desempenho para muitos cenários, como mostrado na próxima seção.
+   As tabelas externas que fazem referência as vistas globais descrito na secção anterior e definido com **distribuição = SHARDED(VenueId)**. Uma vez que cada *VenueId* é mapeado para uma base de dados individual, isso melhora o desempenho para muitos cenários, como mostrado na próxima seção.
 
     ![criar tabelas externas](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,7 +148,7 @@ Agora que o *adhocreporting* base de dados está a configurar, vá em frente e e
 
 Quando inspecionar o plano de execução, Paire o rato sobre os ícones de plano para obter detalhes. 
 
-Importante observar, é essa definição **distribuição = SHARDED(VenueId)** quando a origem de dados externa é definida melhora o desempenho para muitos cenários. À medida que cada *VenueId* é mapeado para uma base de dados, filtragem pode é feita facilmente remotamente, retornar apenas os dados necessários.
+Importante observar, é essa definição **distribuição = SHARDED(VenueId)** quando a origem de dados externa é definida melhora o desempenho para muitos cenários. À medida que cada *VenueId* é mapeado para uma base de dados individual, filtragem pode é feita facilmente remotamente, retornar apenas os dados necessários.
 
 1. Abra... \\Módulos de aprendizagem\\análise operacional\\relatórios ad hoc\\*demonstração AdhocReportingQueries.sql* no SSMS.
 2. Certifique-se de que está ligado para o **adhocreporting** base de dados.
@@ -159,7 +159,7 @@ Importante observar, é essa definição **distribuição = SHARDED(VenueId)** q
 
    Inspecione o plano e ver que o custo total é na consulta remota. Cada base de dados de inquilinos executa a consulta remotamente e devolve as informações do local para a base de dados principal.
 
-   ![SELECIONAR * de dbo. Locais](media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
+   ![SELECT * FROM dbo.Venues](media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
 5. Selecione a próxima consulta e prima **F5**.
 
