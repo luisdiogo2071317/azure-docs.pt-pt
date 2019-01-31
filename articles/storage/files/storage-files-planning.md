@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.subservice: files
+ms.openlocfilehash: a9c37258d7c9631c6e5fe13007b78c4205a1c249
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831386"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473889"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Porque os ficheiros do Azure totalmente gerido, implantá-lo em cenários de produção é muito mais fácil do que implementar e gerir um servidor de ficheiros ou um dispositivo. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção na sua organização.
@@ -23,15 +23,15 @@ ms.locfileid: "48831386"
 
 ![Estrutura de Ficheiros](./media/storage-files-introduction/files-concepts.png)
 
-* **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
+* **Conta de armazenamento**: Todos os acessos ao armazenamento do Azure é feito através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
 
-* **Partilha:** uma partilha do Armazenamento de Ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de partilhas e uma partilha pode armazenar um número ilimitado de ficheiros, até a capacidade de total de 5 TiB de partilha de ficheiros.
+* **Partilha**: Uma partilha de armazenamento de ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de partilhas e uma partilha pode armazenar um número ilimitado de ficheiros, até a capacidade de total de 5 TiB de partilha de ficheiros.
 
-* **Diretório**: uma hierarquia opcional de diretórios.
+* **Diretório**: Uma hierarquia opcional de diretórios.
 
-* **Ficheiro**: um ficheiro na partilha. Um ficheiro pode ter até 1 TiB de tamanho.
+* **Ficheiro**: Um ficheiro na partilha. Um ficheiro pode ter até 1 TiB de tamanho.
 
-* **Formato de URL**: para pedidos para uma partilha de ficheiros do Azure feitas com o protocolo de REST de ficheiros, ficheiros são endereçáveis através do formato de URL seguinte:
+* **Formato de URL**: Para os pedidos para uma partilha de ficheiros do Azure feitas com o protocolo de REST de ficheiros, os ficheiros são endereçáveis através do formato de URL seguinte:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
@@ -40,25 +40,25 @@ ms.locfileid: "48831386"
 ## <a name="data-access-method"></a>Método de acesso de dados
 Ficheiros do Azure oferecem duas, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado, ou em combinação entre si, para aceder aos seus dados:
 
-1. **Cloud acesso direto**: partilha de ficheiros do Azure de qualquer pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o setor de bloco de mensagem de servidor padrão (SMB) protocolo ou através da API de REST de ficheiros. Com o SMB, leituras e escritas de ficheiros na partilha são feitas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, SMB 2.1. Montar no local, como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com criptografia). Além de SMB, novos aplicativos ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiros, que fornece uma interface de programação de aplicativo de fácil e escalonável para o desenvolvimento de software.
-2. **O Azure File Sync**: com o Azure File Sync, partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
+1. **Cloud acesso direto**: Qualquer partilha de ficheiros do Azure pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o protocolo de bloco de mensagem de servidor (SMB) padrão do setor ou através da API de REST de ficheiros. Com o SMB, leituras e escritas de ficheiros na partilha são feitas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, SMB 2.1. Montar no local, como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com criptografia). Além de SMB, novos aplicativos ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiros, que fornece uma interface de programação de aplicativo de fácil e escalonável para o desenvolvimento de software.
+2. **Azure File Sync**: Com o Azure File Sync, as partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
 
 A tabela a seguir ilustra como os utilizadores e as aplicações podem aceder a partilha de ficheiros do Azure:
 
 | | Acesso direto à cloud | Azure File Sync |
 |------------------------|------------|-----------------|
 | Quais protocolos precisar de utilizar? | Os ficheiros do Azure suporta o SMB 2.1 e API REST de ficheiros SMB 3.0. | Aceder à sua partilha de ficheiros do Azure através de qualquer protocolo suportado no Windows Server (SMB, NFS, FTPS, etc.) |  
-| Onde está a executar a sua carga de trabalho? | **No Azure**: ficheiros do Azure oferece acesso direto aos seus dados. | **No local com rede lenta**: clientes Windows, Linux e macOS podem montar uma partilha de ficheiros do Windows no local como um cache rápido da sua partilha de ficheiros do Azure. |
+| Onde está a executar a sua carga de trabalho? | **No Azure**: Os ficheiros do Azure oferece acesso direto aos seus dados. | **No local com rede lenta**: Clientes Windows, Linux e macOS podem montar uma partilha de ficheiros do Windows no local como um cache rápido da sua partilha de ficheiros do Azure. |
 | O nível de ACLs precisa? | Nível de partilha e o ficheiro. | Nível de partilha de ficheiros e utilizador. |
 
 ## <a name="data-security"></a>Segurança de dados
 Os ficheiros do Azure tem várias opções incorporadas para garantir a segurança de dados:
 
-* Suporte para a encriptação em ambos os protocolos de over-the-wire: encriptação SMB 3.0 e REST de ficheiros através de HTTPS. Por predefinição: 
+* Suporte para a encriptação em ambos os protocolos de over-the-wire: Encriptação SMB 3.0 e REST de ficheiros através de HTTPS. Por predefinição: 
     * Os clientes que suportam encriptação SMB 3.0 enviarem e recebem dados através de um canal criptografado.
     * Os clientes que não suportam SMB 3.0 com a encriptação podem comunicar intra-datacenter através de SMB 2.1 ou SMB 3.0 sem encriptação. Os clientes do SMB não são permitidos para comunicar o Centro de dados inter através de SMB 2.1 ou SMB 3.0 sem encriptação.
     * Os clientes podem comunicar através do REST de ficheiros com HTTP ou HTTPS.
-* Encriptação em repouso ([do Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): encriptação de serviço de armazenamento (SSE) está ativado para todas as contas de armazenamento. Dados Inativos são encriptados com chaves geridas pelo totalmente. Encriptação em repouso não aumentar os custos de armazenamento ou reduzir o desempenho. 
+* Encriptação em repouso ([encriptação do serviço de armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Encriptação de serviço de armazenamento (SSE) está ativado para todas as contas de armazenamento. Dados Inativos são encriptados com chaves geridas pelo totalmente. Encriptação em repouso não aumentar os custos de armazenamento ou reduzir o desempenho. 
 * Requisito opcional de dados encriptados em trânsito: quando selecionada, ficheiros do Azure rejeita o acesso os dados através de canais não encriptadas. Especificamente, são permitidas apenas HTTPS e SMB 3.0 com ligações de encriptação. 
 
     > [!Important]  
@@ -79,7 +79,7 @@ Partilhas de ficheiros Premium são aprovisionadas com base numa proporção de 
 
 Na base de melhor esforço, todas as partilhas podem ultrapassar os limites até três IOPS por GiB de armazenamento aprovisionado durante 60 minutos ou mais consoante o tamanho da partilha. Novas partilhas de começam com o crédito de rajada completo com base na capacidade aprovisionada.
 
-| Capacidade aprovisionada | 100 GiB | 500 GiB | 1 TiB | De 5 TiB | 
+| Capacidade aprovisionada | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
 |----------------------|---------|---------|-------|-------|
 | Linha de base de IOPS | 100 | 500 | 1,024 | 5,120 | 
 | Limite de rajada | 300 | 1,500 | 3,072 | 15,360 | 
@@ -105,10 +105,10 @@ Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 T
 ## <a name="data-transfer-method"></a>Método de transferência de dados
 Existem muitas opções fácil em massa de transferência de dados a partir de um ficheiro existente partilharem, tais como uma partilha de ficheiros no local, para ficheiros do Azure. Algumas aplicações populares incluem (lista parcial):
 
-* **O Azure File Sync**: como parte da primeira sincronização entre uma partilha de ficheiros do Azure (uma "ponto final da Cloud") e um espaço de nomes de diretório Windows (um "servidor de ponto final"), do Azure File Sync irá replicar todos os dados da partilha de ficheiros existentes para ficheiros do Azure.
-* **[Importar/exportar do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: serviço do importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure envie unidades de disco rígido num Datacenter do Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy é uma ferramenta de cópia bem conhecido que acompanha o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização de montado como o destino no comando Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: o AzCopy é um utilitário de linha de comandos concebido para copiar dados de e para ficheiros do Azure, bem como armazenamento de Blobs do Azure, utilizando os comandos simples com um desempenho ideal. O AzCopy é disponível para Windows e Linux.
+* **Azure File Sync**: Como parte da primeira sincronização entre uma partilha de ficheiros do Azure (uma "ponto final da Cloud") e um espaço de nomes de diretório Windows (um "servidor de ponto final"), o Azure File Sync irá replicar todos os dados da partilha de ficheiros existentes para ficheiros do Azure.
+* **[Importar/exportar do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: O serviço importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure envie unidades de disco rígido num Datacenter do Azure. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: O Robocopy é uma ferramenta de cópia bem conhecido que acompanha o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização de montado como o destino no comando Robocopy.
+* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: O AzCopy é um utilitário de linha de comandos concebido para copiar dados de e para ficheiros do Azure, bem como armazenamento de Blobs do Azure, utilizando os comandos simples com um desempenho ideal. O AzCopy é disponível para Windows e Linux.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md)

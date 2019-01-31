@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: common
+ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019310"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461782"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com o AzCopy no Windows
 O AzCopy é um utilitário de linha de comandos concebido para copiar dados de/para armazenamento de Blobs do Microsoft Azure, arquivo e tabela, usando comandos concebidos para otimizar o desempenho. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento ou entre contas de armazenamento.  
@@ -638,19 +638,19 @@ Parâmetros para o AzCopy são descritos abaixo. Também pode digitar um dos seg
 * Para obter ajuda detalhada com qualquer parâmetro do AzCopy: `AzCopy /?:SourceKey`
 * Para obter exemplos da linha de comandos: `AzCopy /?:Sample`
 
-### <a name="sourcesource"></a>/ De origem: "origem"
+### <a name="sourcesource"></a>/Source:"source"
 
 Especifica a origem de dados dos quais quer copiar. A origem pode ser um diretório de sistema de ficheiros, um contentor de BLOBs, um diretório virtual de BLOBs, uma partilha de ficheiros de armazenamento, um diretório do ficheiro de armazenamento ou uma tabela do Azure.
 
 **Aplicável para:** BLOBs, ficheiros, tabelas
 
-### <a name="destdestination"></a>/ Dest: "destino"
+### <a name="destdestination"></a>/Dest:"destination"
 
 Especifica o destino para copiar para. O destino pode ser um diretório de sistema de ficheiros, um contentor de BLOBs, um diretório virtual de BLOBs, uma partilha de ficheiros de armazenamento, um diretório do ficheiro de armazenamento ou uma tabela do Azure.
 
 **Aplicável para:** BLOBs, ficheiros, tabelas
 
-### <a name="patternfile-pattern"></a>/ Padrão: "padrão de ficheiros"
+### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
 
 Especifica um padrão de arquivo que indica quais arquivos para copiar. O comportamento do parâmetro /Pattern é determinado pela localização dos dados de origem e a presença da opção de modo recursivo. Modo de recursiva é especificado por meio da opção /S.
 
@@ -666,7 +666,7 @@ O padrão de ficheiro predefinido utilizado quando não é especificado nenhum p
 
 **Aplicável para:** Ficheiros e BLOBs
 
-### <a name="destkeystorage-key"></a>/ DestKey: "chave de armazenamento"
+### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
 
 Especifica a chave de conta de armazenamento para o recurso de destino.
 
@@ -704,7 +704,7 @@ Especifica o modo de recursiva para operações de cópia. No modo de recursiva,
 
 **Aplicável para:** Ficheiros e BLOBs
 
-### <a name="blobtypeblock--page--append"></a>/ BlobType: "Bloco" | "page" | "anexar"
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Especifica se o blob de destino é um blob de blocos, BLOBs de páginas ou blob de acréscimo. Esta opção só é aplicável apenas quando estiver a carregar um blob. Caso contrário, é gerado um erro. Se o destino é um blob e esta opção não for especificada, por predefinição, o AzCopy cria um blob de blocos.
 
@@ -720,7 +720,7 @@ AzCopy v8 sempre define a propriedade de MD5 de conteúdo para um ficheiro de Bl
 
 **Aplicável para:** Ficheiros e BLOBs
 
-### <a name="snapshot"></a>/ Instantâneo
+### <a name="snapshot"></a>/Snapshot
 
 Indica se a transferência de instantâneos. Esta opção só é válida quando a origem é um blob.
 
@@ -730,7 +730,7 @@ Por predefinição, os instantâneos não são copiados.
 
 **Aplicável para:** Blobs
 
-### <a name="vverbose-log-file"></a>/ V: [verboso--ficheiro de registo]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Mensagens de estado detalhado de saídas num arquivo de log.
 
@@ -756,7 +756,7 @@ Tenha em atenção que a retomar uma operação de um ficheiro de diário criada
 
 **Aplicável para:** BLOBs, ficheiros, tabelas
 
-### <a name="parameter-file"></a>/@:"Parameter-File"
+### <a name="parameter-file"></a>/@:"parameter-file"
 
 Especifica um ficheiro que contém parâmetros. AzCopy processa os parâmetros no ficheiro, como se tivesse sido especificados na linha de comandos.
 
@@ -847,7 +847,7 @@ Atributos disponíveis incluem:
 
 **Aplicável para:** Ficheiros e BLOBs
 
-### <a name="delimiterdelimiter"></a>/ Delimitador: "delimiter"
+### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
 
 Indica o caractere de delimitador usado para delimitar os diretórios virtuais num nome de blob.
 
@@ -867,7 +867,7 @@ O limite superior para operações simultâneas é 512.
 
 **Aplicável para:** BLOBs, ficheiros, tabelas
 
-### <a name="sourcetypeblob--table"></a>/ SourceType: "Blob" | "Tabela"
+### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 
 Especifica que o `source` recursos é um disponível no ambiente de desenvolvimento local, em execução no emulador do armazenamento de Blobs.
 
@@ -895,7 +895,7 @@ Cada operação exporta um dos três intervalos de chaves de partição, conform
 
 **Aplicável para:** Tabelas
 
-### <a name="splitsizefile-size"></a>/ SplitSize: "tamanho do ficheiro"
+### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
 Especifica o ficheiro exportado dividir o tamanho em MB, o valor mínimo permitido é de 32.
 
@@ -915,7 +915,7 @@ Especifica o comportamento de importação de dados de tabela.
 
 **Aplicável para:** Tabelas
 
-### <a name="manifestmanifest-file"></a>/ Manifesto: "arquivo de manifesto"
+### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
 Especifica o ficheiro de manifesto para a tabela Exportar e importar a operação.
 

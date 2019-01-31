@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586262"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300001"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para teste e a criação de protótipos
 
@@ -44,7 +44,7 @@ Procure esta lista de conjuntos de dados públicos para os dados que pode utiliz
 | [Conjuntos de dados do Microsoft Research - "Dados de ciência de pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Conjuntos de dados de vários que cobre a interação homem — máquina, áudio e vídeo, obtenção de informações/mineração de dados, geoespacial/localização, processamento de linguagem natural e robotics/de imagem digitalizada. | Conjuntos de dados estão em vários formatos, comprimidos para download. |
 | [Dados de genoma pública](http://www.completegenomics.com/public-data/) | "Um conjunto de dados diversificado de genomas totalmente humanas são livremente disponíveis para utilização pública melhorar a qualquer estudo de genoma..." O fornecedor, Genomics concluída, é uma empresa com fins lucrativos privada. | Conjuntos de dados, após a extração, estão no formato de texto do UNIX. Ferramentas de análise também estão disponíveis. |
 | [Abrir dados de Cloud de dados de ciência](https://www.opensciencedatacloud.org/) | "A nuvem de dados de ciência aberto fornece a Comunidade científica com recursos de armazenamento, partilha e analisar conjuntos de dados científicos terabytes e à escala de petabytes."| São conjuntos de dados em vários formatos. |
-| [Dados de clima global - WorldcLIM](http://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados climáticos gridded) com uma resolução geográfica de cerca de 1 km2. Estes dados podem ser utilizados para mapeamento e modelação espacial." | Esses arquivos contêm dados geoespaciais. Para mais informações, veja [formato de dados](http://worldclim.org/formats1). |
+| [Dados de clima global - WorldClim](http://worldclim.org/) | "WorldClim é um conjunto de camadas de clima global (dados climáticos gridded) com uma resolução geográfica de cerca de 1 km2. Estes dados podem ser utilizados para mapeamento e modelação espacial." | Esses arquivos contêm dados geoespaciais. Para mais informações, veja [formato de dados](http://worldclim.org/formats1). |
 | [Dados sobre sociedade humana - o de GDELT de projeto](http://www.gdeltproject.org/data.html) | "O projeto de GDELT é a maior, mais abrangente e mais alta resolução abrir a base de dados de sociedade humana já criada." | Os ficheiros de dados não processados estão no formato CSV. |
 | [Dados de predição de machine learning desde Criteo de clique de publicidade](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "O maior nunca liberados publicamente ML conjunto de dados." Para mais informações, veja [1 do Criteo conjunto de dados de predição de clique TB](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [Conjunto de dados do ClueWeb09 texto extração do projeto de Lemur](http://www.lemurproject.org/clueweb09.php/) | "O conjunto de dados ClueWeb09 foi criado para oferecer suporte a pesquisa sobre a obtenção de informações e tecnologias de idioma humana relacionados. Esta é composta por cerca de 1 bilhão de páginas da web em 10 idiomas que foram recolhidos em Janeiro e de Fevereiro de 2009." | Ver [informações do conjunto de dados](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
@@ -53,6 +53,6 @@ Procure esta lista de conjuntos de dados públicos para os dados que pode utiliz
 
 | Origem de dados | Sobre os dados | Sobre os ficheiros |
 |---|---|---|
-| [Arquivo do GitHub](https://www.githubarchive.org/) | "O arquivo do GitHub é um projeto para gravar o cronograma de GitHub público [de eventos], arquivá-la e torná-las acessíveis para análise adicional". | Transferir arquivos mortos de eventos do JSON encloded no formato de .gz (Gzip) de um cliente web. |
-| [Dados de atividade do GitHub do projeto de GHTorrent o](http://ghtorrent.org/) | "O projeto de GHTorrent [é] um esforço para criar um espelho, escalável e de consultável offline de dados oferecidos através da API de REST do GitHub. GHTorrent monitoriza a linha de tempo de um evento público do GitHub. Para cada evento, ele recupera seu conteúdo e as respetivas dependências, exaustivamente." | São capturas de base de dados MySQL no formato CSV. |
+| [Arquivo do GitHub](https://www.githubarchive.org/) | "O arquivo do GitHub é um projeto para gravar o cronograma de GitHub público [de eventos], arquivá-la e torná-las acessíveis para análise adicional". | Transferir arquivos mortos de eventos codificados por JSON no formato de .gz (Gzip) de um cliente web. |
+| [Dados de atividade do GitHub do projeto de GHTorrent o](http://ghtorrent.org/) | "O projeto de GHTorrent [é] um esforço para criar um espelho offline, escalável e passível de consulta de dados oferecidos através da API de REST do GitHub. GHTorrent monitoriza a linha de tempo de um evento público do GitHub. Para cada evento, ele recupera seu conteúdo e as respetivas dependências, exaustivamente." | São capturas de base de dados MySQL no formato CSV. |
 | [Captura de dados de estouro de pilha](https://archive.org/details/stackexchange) | "Este é um despejo anónimo de todo o conteúdo usuários na rede Stack Exchange [incluindo Stack Overflow]". | "Cada site [como Stack Overflow] esteja formatada como consistindo em arquivos XML num arquivo separado comprimido por meio de 7-zip usando bzip2 compressão. Cada arquivo de site inclui mensagens, os utilizadores, os votos, comentários, PostHistory e PostLinks." |

@@ -2,20 +2,20 @@
 title: Analisar dados com o Azure Machine Learning | Microsoft Docs
 description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247531"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477663"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Os dados encontram-se na vista dbo.vTargetMail na base de dados AdventureWorksDW
 
 1. Inicie sessão no [Azure Machine Learning studio][Azure Machine Learning studio] e clique em as minhas experimentações.
 2. Clique em **+NOVO** e selecione **Experimentação em Branco**.
-3. Introduza um nome para a experimentação: Marketing Direcionado.
+3. Introduza um nome para a experimentação: Marketing de destino.
 4. Arraste o módulo **Leitor** do painel de módulos para a tela.
 5. Especifique os detalhes da sua base de dados SQL Data Warehouse no painel Propriedades.
 6. Especifique a **consulta** de base de dados para ler os dados de interesse.
@@ -84,15 +84,15 @@ Para limpar os dados, remova algumas colunas que não sejam relevantes para o mo
    ![Remover colunas desnecessárias][5]
 
 ## <a name="3-build-the-model"></a>3. Criar o modelo
-Iremos dividir os dados 80-20: 80% para preparar um modelo de machine learning e 20% para testar o modelo. Iremos utilizar os algoritmos das “Duas Classes” para este problema de classificação binária.
+Iremos dividir os dados 80-20:: 80% para preparar um modelo de machine learning e 20% para testar o modelo. Iremos utilizar os algoritmos das “Duas Classes” para este problema de classificação binária.
 
 1. Arraste o módulo **Dividir** para a tela.
 2. Introduza 0.8 para a Fração de linhas no primeiro conjunto de dados de saída no painel Propriedades.
    ![Dividir os dados em conjunto de preparação e teste][6]
 3. Arraste o módulo **Árvore de Decisões Elevada de Duas Classes** para a tela.
 4. Arraste o módulo **Preparar Modelo** para a tela e especifique as entradas. Em seguida, clique em **Iniciar seletor de colunas** no painel Propriedades.
-   * Primeira entrada: algoritmo ML.
-   * Segunda entrada: dados nos quais preparar o algoritmo.
+   * Primeira entrada: Algoritmo de ML.
+   * Segunda entrada: Dados para preparar o algoritmo no.
      ![Ligar o módulo Preparar Modelo][7]
 5. Selecione a coluna **BikeBuyer** como a coluna a prever.
    ![Selecionar Coluna a prever][8]
@@ -101,7 +101,7 @@ Iremos dividir os dados 80-20: 80% para preparar um modelo de machine learning e
 Agora, iremos testar o desempenho do modelo em dados de teste. Iremos comparar o algoritmo escolhido com um algoritmo diferente, para ver qual tem o melhor desempenho.
 
 1. Arraste o módulo **Pontuar Modelo** para a tela.
-    Primeira entrada: modelo de preparação Segunda entrada: testar dados ![Pontuar o modelo][9]
+    Primeira entrada: Modelo de preparação segunda entrada: Testar dados ![Pontuar o modelo][9]
 2. Arraste a **Máquina do Ponto Bayes de Duas Classes** para a tela de experimentação. Iremos comparar o desempenho deste algoritmo em comparação com a Árvore de Decisões Elevada de Duas Classes.
 3. Copie e cole os módulos Preparar Modelo e Pontuar Modelo na tela.
 4. Arraste o módulo **Avaliar Modelo** para a tela, para comparar os dois algoritmos.

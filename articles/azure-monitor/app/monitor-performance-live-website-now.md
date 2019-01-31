@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54819140"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301616"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicações web no tempo de execução com o Monitor de estado do Application Insights
 
@@ -114,9 +114,10 @@ handle.exe /p w3wp.exe
 
 ### <a name="unable-to-login"></a>Não é possível iniciar sessão
 
-* Se o Monitor de estado não é possível iniciar sessão, fazer uma instalação de linha de comandos, em vez disso. Monitor de estado tenta iniciar sessão para recolher a ikey, mas pode fornecer isso manualmente usando o comando: 
+* Se o Monitor de estado não é possível iniciar sessão, fazer uma instalação de linha de comandos, em vez disso. Monitor de estado tenta iniciar sessão para recolher a ikey, mas pode fornecer isso manualmente usando o comando:
+
 ```powershell
-Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 

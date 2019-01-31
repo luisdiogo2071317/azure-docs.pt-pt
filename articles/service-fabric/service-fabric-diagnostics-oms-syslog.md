@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197250"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297672"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster do Service Fabric do Linux do Syslog
 
@@ -84,7 +84,7 @@ Para ativar o SyslogConsumer, terá de efetuar uma atualização do cluster. O `
 Seguem-se as alterações para chamar
 1. Na secção comum, é um novo parâmetro chamado `LinuxStructuredTracesEnabled`. **Isto é necessário ter eventos de Linux estruturado e serializado quando enviados para o Syslog.**
 2. Na secção de diagnóstico, um novo ConsumerInstance: SyslogConsumer foi adicionado. Isso informa a plataforma que existe outra consumidor dos eventos. 
-3. A nova secção, tem de ter SyslogConsumer `IsEnabled` como `true`. É configurada para usar o recurso de Local0 automaticamente. É possível substituir isso adicionando outro parâmetro.
+3. A nova secção, tem de ter SyslogConsumer `IsEnabled` como `true`. Ele é configurado para usar o recurso de Local0 automaticamente. É possível substituir isso adicionando outro parâmetro.
 
 ```json
     {

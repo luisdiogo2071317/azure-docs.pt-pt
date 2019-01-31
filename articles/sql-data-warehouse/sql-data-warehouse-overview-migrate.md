@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b3e01968c74060bd0dc366609275d63753ad62dd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 464f3768ec6bd679513e7817d1b5185787094044
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461311"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migre a sua solução para o Azure SQL Data Warehouse
 Ver o que envolve a migração de uma solução de base de dados existente para o Azure SQL Data Warehouse. 
@@ -48,7 +48,7 @@ Depois de decidir migrar uma solução existente para o SQL Data Warehouse, é i
 Para efetuar uma migração com êxito, terá de migrar seus esquemas de tabela, seu código e os dados. Para obter orientações sobre esses tópicos de migração, consulte:
 
 -  [Migrar seus esquemas](sql-data-warehouse-migrate-schema.md)
--  [Migrar o código](sql-data-warehouse-migrate-code.md)
+-  [Migrar o seu código](sql-data-warehouse-migrate-code.md)
 -  [Migre os seus dados](sql-data-warehouse-migrate-data.md). 
 
 <!--

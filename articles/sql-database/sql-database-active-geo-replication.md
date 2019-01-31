@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884627"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468279"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar legíveis bases de dados secundárias com georreplicação ativa
 
-Georreplicação ativa é a funcionalidade de base de dados do Azure SQL permite-lhe criar bases de dados secundárias legíveis de bases de dados individuais num servidor lógico no Centro de dados de idêntica ou diferente (região).
+Georreplicação ativa é a funcionalidade de base de dados do Azure SQL permite-lhe criar bases de dados secundárias legíveis de bases de dados individuais num servidor de base de dados SQL no Centro de dados de idêntica ou diferente (região).
 
 > [!NOTE]
 > Replicação geográfica activa não é suportada por instância gerida. Para a ativação pós-falha geográfica de instâncias geridas, utilize [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
@@ -122,7 +122,7 @@ Devido a alta latência das redes de longa distância, a cópia contínua utiliz
 
 Como discutido anteriormente, georreplicação ativa também pode ser gerida através de programação com o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. Replicação geográfica activa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API REST da base de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Gerir a ativação pós-falha de bases de dados individuais e em pool
+### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
 
 > [!IMPORTANT]
 > Estes comandos Transact-SQL só se aplicam a georreplicação ativa e não se aplicam a grupos de ativação pós-falha. Como tal, eles também não se aplicam às instâncias de geridas, porque só suportam grupos de ativação pós-falha.
@@ -132,13 +132,13 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize o argumento de servidor para adicionar SECUNDÁRIO ON para criar uma base de dados secundária para uma base de dados existente e começa a replicação de dados |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize a ativação pós-falha ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar de uma base de dados secundária para primária para iniciar a ativação pós-falha |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize remover no servidor SECUNDÁRIO para terminar uma replicação de dados entre uma base de dados SQL e a base de dados secundária especificada. |
-| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados no servidor lógico de base de dados do Azure SQL. |
+| [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Devolve informações sobre todas as ligações de replicação existente para cada base de dados no servidor de base de dados do Azure SQL. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém a última vez que a replicação, última desfasamento e outras informações sobre a ligação de replicação para uma determinada base de dados do SQL. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado de todas as operações de banco de dados, incluindo o estado das ligações de replicação. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que o aplicativo esperar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundário Active Directory. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Gerir a ativação pós-falha de bases de dados individuais e em pool
+### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -152,7 +152,7 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 > [!IMPORTANT]
 > Para scripts de exemplo, consulte [configurar e ativação pós-falha de uma base de dados com georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) e [configurar e ativação pós-falha de uma base de dados agrupada com a georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Gerir a ativação pós-falha de bases de dados individuais e em pool
+### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
 
 | API | Descrição |
 | --- | --- |

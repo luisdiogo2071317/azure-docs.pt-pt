@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214471"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471407"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -852,6 +852,9 @@ Antivírus, cópia de segurança e outros aplicativos que lêem o grande número
 Consulte o fornecedor do seu software para aprender a configurar a solução do mesmo para ignorar os ficheiros offline.
 
 Recolhas indesejadas também podem ocorrer em outros cenários, como quando está a aceder a ficheiros no Explorador de ficheiros. Abrir uma pasta que tenha ficheiros em camadas na cloud no Explorador de Ficheiros no servidor pode originar obtenções não pretendidas. Isto é ainda mais provável se uma solução de antivírus estiver ativada no servidor.
+
+> [!NOTE]
+>Utilize 9059 de ID de evento no registo de eventos de telemetria para determinar a que aplicações está a causar recolhas. Este evento fornece distribuição de solicitação de recolhimento de aplicativo para um ponto final do servidor e é registado uma vez por hora.
 
 ## <a name="general-troubleshooting"></a>Resolução de problemas
 Se tiver problemas com o Azure File Sync num servidor, comece por concluir os passos seguintes:

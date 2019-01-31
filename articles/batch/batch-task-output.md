@@ -2,7 +2,7 @@
 title: Manter resultados ou de registos de tarefas concluídas e tarefas para um arquivo de dados - Azure Batch | Documentos da Microsoft
 description: Saiba mais sobre as diferentes opções para manter os dados de saída de trabalhos e tarefas do Batch. Pode manter os dados para o armazenamento do Azure ou para outro armazenamento de dados.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474349"
 ---
 # <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
 
@@ -77,13 +77,13 @@ Também pode implementar a sua própria solução de movimento do ficheiro compl
 
 Ao criar a sua solução do Batch, considere os seguintes fatores relacionados com resultados de trabalhos e tarefas.
 
-- **Duração do nó de computação**: computação de nós costumam ser transitórios, especialmente em conjuntos de dimensionamento automático ativado. Saída de uma tarefa que é executada num nó está disponível somente enquanto o nó existe e apenas dentro do período de retenção de ficheiros que definiu para a tarefa. Se uma tarefa de produzir a saída que pode ser necessárias quando a tarefa estiver concluída, em seguida, a tarefa tem de carregar os ficheiros de saída para um armazenamento durável como o armazenamento do Azure.
+- **Duração do nó de computação**: Nós de computação, muitas vezes, são transitórios, especialmente em conjuntos de dimensionamento automático ativado. Saída de uma tarefa que é executada num nó está disponível somente enquanto o nó existe e apenas dentro do período de retenção de ficheiros que definiu para a tarefa. Se uma tarefa de produzir a saída que pode ser necessárias quando a tarefa estiver concluída, em seguida, a tarefa tem de carregar os ficheiros de saída para um armazenamento durável como o armazenamento do Azure.
 
-- **Armazenamento de saída**: armazenamento do Azure é recomendado como um arquivo de dados para o resultado da tarefa, mas pode utilizar qualquer armazenamento durável. Escrever o resultado da tarefa no armazenamento do Azure é integrado a API de serviço do Batch. Se utilizar outra forma de armazenamento durável, terá de escrever a lógica do aplicativo para manter as tarefas de saída por conta própria.
+- **Armazenamento de saída**: O armazenamento do Azure é recomendado como um arquivo de dados para o resultado da tarefa, mas pode utilizar qualquer armazenamento durável. Escrever o resultado da tarefa no armazenamento do Azure é integrado a API de serviço do Batch. Se utilizar outra forma de armazenamento durável, terá de escrever a lógica do aplicativo para manter as tarefas de saída por conta própria.
 
-- **Obtenção de saída**: pode obter o resultado da tarefa diretamente a partir de nós de computação do conjunto ou no armazenamento do Azure ou outro armazenamento de dados se o ter mantido o resultado da tarefa. Para obter o resultado de uma tarefa diretamente a partir de um nó de computação, tem o nome de ficheiro e a respetiva localização de saída no nó. Se manter a saída de tarefa ao armazenamento do Azure, em seguida, terá do caminho completo para o ficheiro no armazenamento do Azure para transferir os ficheiros de saída com o SDK de armazenamento do Azure.
+- **Obtenção de saída**: Pode obter o resultado da tarefa diretamente a partir de nós de computação do conjunto ou no armazenamento do Azure ou outro armazenamento de dados se o ter mantido o resultado da tarefa. Para obter o resultado de uma tarefa diretamente a partir de um nó de computação, tem o nome de ficheiro e a respetiva localização de saída no nó. Se manter a saída de tarefa ao armazenamento do Azure, em seguida, terá do caminho completo para o ficheiro no armazenamento do Azure para transferir os ficheiros de saída com o SDK de armazenamento do Azure.
 
-- **Ver a saída**: quando navegar para uma tarefa do Batch no portal do Azure e selecione **ficheiros no nó**, verá todos os ficheiros associados a tarefa, não apenas os ficheiros de saída que está interessado. Novamente, os ficheiros em nós de computação estão disponíveis apenas enquanto o nó existe e apenas dentro do tempo de retenção de ficheiros que definiu para a tarefa. Para ver o resultado da tarefa que tenha persistidos no armazenamento do Azure, pode utilizar o portal do Azure ou uma aplicação de cliente de armazenamento do Azure, tais como o [Explorador de armazenamento do Azure][storage_explorer]. Para ver dados de saída no armazenamento do Azure com o portal ou outra ferramenta, tem de saber a localização do ficheiro e navegar até ele diretamente.
+- **Exibindo saída**: Quando navegar para uma tarefa do Batch no portal do Azure e selecione **ficheiros no nó**, verá todos os ficheiros associados a tarefa, não apenas os ficheiros de saída que está interessado. Novamente, os ficheiros em nós de computação estão disponíveis apenas enquanto o nó existe e apenas dentro do tempo de retenção de ficheiros que definiu para a tarefa. Para ver o resultado da tarefa que tenha persistidos no armazenamento do Azure, pode utilizar o portal do Azure ou uma aplicação de cliente de armazenamento do Azure, tais como o [Explorador de armazenamento do Azure][storage_explorer]. Para ver dados de saída no armazenamento do Azure com o portal ou outra ferramenta, tem de saber a localização do ficheiro e navegar até ele diretamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

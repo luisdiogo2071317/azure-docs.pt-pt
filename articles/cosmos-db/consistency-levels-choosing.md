@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: c4523b5028aae5de565e517fea61c62e29a4e7a3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044081"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468874"
 ---
-# <a name="choose-the-right-consistency-level-for-your-application"></a>Escolha o nível de consistência certo para a sua aplicação
+# <a name="choose-the-right-consistency-level"></a>Escolha o nível de consistência certo 
 
 Bases de dados distribuídas depender de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: consistência forte e consistência eventual. O Azure Cosmos DB permite aos desenvolvedores escolher entre os cinco modelos de consistência bem definidos: forte, estagnação limitada, sessão, prefixo consistente e eventual. Cada um desses modelos de consistência é bem definidos, intuitiva e pode ser utilizada para cenários específicos do mundo real. Cada um dos modelos de cinco consistência fornecer [vantagens e desvantagens de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e são apoiados por SLAs abrangentes. As seguintes considerações simples lhe ajudarão a tornar a opção certa em muitos cenários comuns.
 

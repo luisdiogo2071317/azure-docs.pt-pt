@@ -4,29 +4,23 @@ description: Como adicionar um sistema de armazenamento de back-end para seu vFX
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190856"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299457"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
-Este passo configura o sistema de armazenamento de back-end para o seu cluster vFXT.
+Este passo configura um sistema de armazenamento de back-end para o seu cluster vFXT.
 
 > [!TIP]
-> Se tiver utilizado o `create-cloudbacked-cluster` script de protótipo para criar um novo contentor de BLOBs, juntamente com o cluster de vFXT Avere, que o contentor já está configurado para utilização e não é necessário adicionar armazenamento.
->
-> No entanto, se o novo contentor de Blob foi encriptado com uma chave de encriptação predefinido, terá transferir o ficheiro de recuperação de chaves do cluster ou substituir a chave de padrão com uma nova chave antes de armazenar dados. A chave predefinida é guardada apenas no cluster e não é possível obter se o cluster for perdido ou fica indisponível.
->
-> Depois de ligar para o painel de controle de Avere, clique no **definições** separador, em seguida, escolha **filtro de Core** > **definições de encriptação de Cloud**. Na **Store de chave Local** secção, escolha uma destas opções: 
-> * Utilize o **transfira novamente recuperação ficheiro** botão para obter o ficheiro de recuperação para a chave existente. O ficheiro de recuperação é encriptado com a palavra-passe administrativa do cluster. Certifique-se guardar o ficheiro num local confiável. 
-> * Siga as instruções no **gerar uma nova chave mestra** secção da página para criar uma nova chave de encriptação que controla. Esta opção permite-lhe especificar uma frase de acesso exclusivo e ele requer que carregar e transferir novamente o ficheiro de recuperação para validar o par de ficheiros de frase de acesso.
+> Se tiver criado um novo contentor de Blobs do Azure, juntamente com o cluster de vFXT Avere, que o contentor já está configurado para utilização e não é necessário adicionar armazenamento.
 
-Siga estas instruções se tiver utilizado o `create-minimal-cluster` script de protótipo para o seu cluster, ou se pretender adicionar um hardware adicional ou um sistema de armazenamento com base na cloud.
+Siga estas instruções se não tiver criado um novo contentor de Blobs com o seu cluster, ou se pretender adicionar um hardware adicional ou um sistema de armazenamento com base na cloud.
 
 Existem duas tarefas principais:
 
@@ -43,12 +37,11 @@ Estes passos utilizam o painel de controle de Avere. Leia [aceder ao cluster vFX
 Para adicionar um filtro de núcleos, escolha um dos dois tipos principais de se filtram de núcleo:
 
   * [Filtro de núcleo de NAS](#nas-core-filer) -descreve como adicionar um filtro de núcleos NAS 
-  * [Azure filtro de núcleos de cloud a conta de armazenamento](#azure-storage-account-cloud-core-filer) -descreve como adicionar uma conta de armazenamento do Azure como um filtro de núcleos na cloud
+  * [Filtro de núcleo de cloud de armazenamento do Azure](#azure-storage-cloud-core-filer) -descreve como adicionar uma conta de armazenamento do Azure como um filtro de núcleos na cloud
 
 ### <a name="nas-core-filer"></a>Filtro de núcleo NAS
 
-Um filtro de núcleos NAS pode ser um NetApp no local ou Isilon ou um ponto de extremidade na cloud.  
-O sistema de armazenamento tem de ter uma ligação fiável de alta velocidade ao Avere vFXT cluster - por exemplo, um 1 Gbps ligação do ExpressRoute (não uma VPN) – e tem de dar o acesso de raiz do cluster para as exportações na ser utilizadas.
+Um filtro de núcleos NAS pode ser um NetApp no local ou Isilon ou um ponto de extremidade na cloud. O sistema de armazenamento tem de ter uma ligação fiável de alta velocidade ao Avere vFXT cluster - por exemplo, um 1 Gbps ligação do ExpressRoute (não uma VPN) – e tem de dar o acesso de raiz do cluster para as exportações na ser utilizadas.
 
 Os seguintes passos, adicione um filtro de núcleos NAS:
 
@@ -79,7 +72,7 @@ Em seguida, avance para [criar uma junção](#create-a-junction).
 Para utilizar o armazenamento de Blobs do Azure como armazenamento de back-end do seu cluster vFXT, terá de um contêiner vazio para adicionar como um filtro de núcleo.
 
 > [!TIP] 
-> O ``create-cloudbacked-cluster`` script de exemplo cria um contentor de armazenamento, define-lo como um filtro de núcleos e cria a junção de espaço de nomes como parte da criação do cluster vFXT. O ``create-minimal-cluster`` script de exemplo não cria um contentor de armazenamento do Azure. Para evitar a necessidade de criar e configurar um filtro de núcleo de armazenamento do Azure depois de criar o cluster, utilize o ``create-cloudbacked-cluster`` script para implementar o seu cluster vFXT.
+> Se optar por criar um contentor de BLOBs ao mesmo tempo, que criar o cluster de vFXT Avere, o modelo de implementação ou o script cria um contentor de armazenamento, define-lo como um filtro de núcleos e cria a junção de espaço de nomes como parte da criação do cluster vFXT. 
 
 Adicionar armazenamento de BLOBs para o cluster requer estas tarefas:
 
@@ -125,7 +118,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
 
 1. Preencha as seguintes informações para criar uma credencial para o filtro de núcleos na cloud: 
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |

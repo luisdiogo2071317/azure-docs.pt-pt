@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092137"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468398"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -87,7 +87,7 @@ Quando a conectividade é restringida por uma firewall, o requisito de proxy ou 
 Quaisquer definições de grupo de segurança de rede que são aplicadas ainda permite que o ponto final de acordo com a configuração de rede documentado [pré-requisitos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) para a encriptação de disco.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>O Azure Key Vault protegido por uma firewall
-A VM tem de ser capaz de aceder um cofre de chaves. Consulte a documentação de orientação sobre o acesso ao Cofre de chaves através de uma firewall que o [do Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) equipe mantém. 
+Quando a encriptação está a ser ativada com [credenciais do Azure AD](azure-security-disk-encryption-prerequisites-aad.md), a VM de destino deve ter acesso aos pontos de extremidade de autenticação do Azure AD, bem como os pontos de extremidade do Key Vault.  Para obter mais informações sobre este processo, consulte a documentação de orientação sobre como aceder ao Cofre de chaves através de uma firewall que o [do Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) equipe mantém. 
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 A VM tem de ser capaz de aceder a [serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) ponto final que utiliza um endereço IP bem conhecido não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir de dentro da VM.

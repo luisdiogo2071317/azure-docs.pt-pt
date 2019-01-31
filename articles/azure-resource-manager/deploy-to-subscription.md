@@ -9,52 +9,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3fcfd0f3e4f9ca6e94a7213bc60e54560938799b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077570"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471781"
 ---
-# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Criar grupos de recursos e recursos para uma subscrição do Azure
+# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível da subscrição
 
-Normalmente, implementa recursos para um grupo de recursos na sua subscrição do Azure. No entanto, pode utilizar as implementações ao nível da subscrição para criar grupos de recursos e recursos que se aplicam na sua subscrição.
+Normalmente, implementa recursos do Azure para um grupo de recursos na sua subscrição do Azure. No entanto, também pode criar grupos de recursos do Azure e criar recursos do Azure ao nível da subscrição. Para implementar modelos ao nível da subscrição, pode utilizar o CLI do Azure e o Azure PowerShell. O portal do Azure não suporta a implementação no nível da subscrição.
 
-Para criar um grupo de recursos num modelo Azure Resource Manager, defina uma **Microsoft.Resources/resourceGroups** recurso com um nome e local para o grupo de recursos. Pode criar um grupo de recursos e implementar recursos no grupo de recursos no mesmo modelo.
+Para criar um grupo de recursos num modelo Azure Resource Manager, defina uma [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) recurso com um nome e local para o grupo de recursos. Pode criar um grupo de recursos e implementar recursos no grupo de recursos no mesmo modelo. Os recursos que pode implementar ao nível da subscrição incluem: [As políticas](../azure-policy/azure-policy-introduction.md), e [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
 
-[As políticas](../azure-policy/azure-policy-introduction.md), [controlo de acesso baseado em funções](../role-based-access-control/overview.md), e [Centro de segurança do Azure](../security-center/security-center-intro.md) são os serviços que talvez deseje aplicam-se ao nível da subscrição, em vez de nível do grupo de recursos.
+## <a name="deployment-considerations"></a>Considerações sobre implementação
 
-Este artigo mostra como criar grupos de recursos e como criar recursos aplicam-se numa subscrição. Utiliza a CLI do Azure e o PowerShell para implementar os modelos. Não é possível utilizar o portal para implementar os modelos porque a interface do portal implementa o grupo de recursos, não a subscrição do Azure.
+Implementação de nível de subscrição é diferente da implementação do grupo de recursos nos seguintes aspetos:
 
-## <a name="schema-and-commands"></a>Esquema e os comandos
+### <a name="schema-and-commands"></a>Esquema e os comandos
 
 O esquema e os comandos que utilizar para implementações de nível de assinatura são diferentes de implementações do grupo de recursos. 
 
 Para o esquema, utilize `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
 
-Para o comando de implementação da CLI do Azure, utilize [criar a implementação de az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
+Para o comando de implementação da CLI do Azure, utilize [criar a implementação de az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Por exemplo, o seguinte comando da CLI implementa um modelo para criar um grupo de recursos:
 
-Para o comando de implementação do PowerShell, utilize [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
+```azurecli
+az deployment create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoResourceGroup rgLocation=centralus
+```
 
-## <a name="name-and-location"></a>Nome e localização
+Para o comando de implementação do PowerShell, utilize [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). Por exemplo, o seguinte comando PowerShell implementa um modelo para criar um grupo de recursos:
+
+```azurepowershell
+New-AzDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demoResourceGroup `
+  -rgLocation centralus
+```
+
+### <a name="deployment-name-and-location"></a>Nome da implementação e a localização
 
 Ao implementar a sua subscrição, tem de fornecer uma localização para a implementação. Também pode fornecer um nome para a implementação. Se não especificar um nome para a implementação, o nome do modelo é utilizado como o nome da implementação. Por exemplo, implementar um modelo com o nome **azuredeploy. JSON** cria um nome de implementação do padrão de **azuredeploy**.
 
 A localização das implementações de nível de subscrição é imutável. Não é possível criar uma implementação num único local quando existe uma implementação existente com o mesmo nome mas localização diferente. Se receber o código de erro `InvalidDeploymentLocation`, utilize um nome diferente ou a mesma localização como a implementação anterior para esse nome.
 
-## <a name="using-template-functions"></a>Com as funções de modelo
+### <a name="use-template-functions"></a>Utilize as funções de modelo
 
-Para implementações de nível de subscrição, existem algumas considerações importantes ao utilizar as funções de modelo:
+Para implementações de nível de assinatura, existem algumas considerações importantes ao utilizar as funções de modelo:
 
 * O [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) função é **não** suportado.
 * O [resourceId()](resource-group-template-functions-resource.md#resourceid) função é suportada. Utilize-o para obter o ID de recurso para recursos que são utilizados em implementações de nível de subscrição. Por exemplo, obter o ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * O [reference()](resource-group-template-functions-resource.md#reference) e [List ()](resource-group-template-functions-resource.md#list) as funções são suportadas.
 
-## <a name="create-resource-group"></a>Criar grupo de recursos
+## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-O exemplo seguinte cria um grupo de recursos vazio.
+O modelo seguinte cria um grupo de recursos vazio.
 
 ```json
 {
@@ -82,28 +99,9 @@ O exemplo seguinte cria um grupo de recursos vazio.
 }
 ```
 
-Para implementar este modelo com a CLI do Azure, utilize:
+O esquema de modelo pode ser encontrado em [aqui](/azure/templates/microsoft.resources/allversions.md). Modelos semelhantes podem ser encontrados em [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
-```azurecli-interactive
-az deployment create \
-  -n demoEmptyRG \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
-  --parameters rgName=demoRG rgLocation=northcentralus
-```
-
-Para implementar este modelo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzDeployment `
-  -Name demoEmptyRG `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
-  -rgName demogroup `
-  -rgLocation northcentralus
-```
-
-## <a name="create-several-resource-groups"></a>Criar vários grupos de recursos
+## <a name="create-multiple-resource-groups"></a>Criar vários grupos de recursos
 
 Utilize o [elemento de cópia](resource-group-create-multiple.md) com grupos de recursos para criar mais do que um grupo de recursos. 
 
@@ -140,29 +138,9 @@ Utilize o [elemento de cópia](resource-group-create-multiple.md) com grupos de 
 }
 ```
 
-Para implementar este modelo com a CLI do Azure e criar três grupos de recursos, utilize:
+Para obter informações sobre a iteração de recursos, consulte [implementar mais de uma instância de um recurso ou uma propriedade nos modelos do Azure Resource Manager](./resource-group-create-multiple.md), e [Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
-```azurecli-interactive
-az deployment create \
-  -n demoCopyRG \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
-  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
-```
-
-Para implementar este modelo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzDeployment `
-  -Name demoCopyRG `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
-  -rgNamePrefix demogroup `
-  -rgLocation northcentralus `
-  -instanceCount 3
-```
-
-## <a name="create-resource-group-and-deploy-resource"></a>Criar grupo de recursos e implementar recursos
+## <a name="create-resource-group-and-deploy-resources"></a>Criar grupo de recursos e implementar recursos
 
 Para criar o grupo de recursos e implementar recursos na mesma, utilize um modelo aninhado. O modelo aninhado define os recursos necessários para implementar o grupo de recursos. Defina o modelo aninhado como o grupo de recursos para se certificar de que o grupo de recursos existe antes de implementar os recursos dependentes.
 
@@ -231,29 +209,9 @@ O exemplo seguinte cria um grupo de recursos e implementa uma conta de armazenam
 }
 ```
 
-Para implementar este modelo com a CLI do Azure, utilize:
+## <a name="create-policies"></a>Criar políticas
 
-```azurecli-interactive
-az deployment create \
-  -n demoRGStorage \
-  -l southcentralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
-  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
-```
-
-Para implementar este modelo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzDeployment `
-  -Name demoRGStorage `
-  -Location southcentralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
-  -rgName rgStorage `
-  -rgLocation northcentralus `
-  -storagePrefix storage
-```
-
-## <a name="assign-policy"></a>Atribuir política
+### <a name="assign-policy"></a>Atribuir política
 
 O exemplo seguinte atribui uma definição de política existente para a subscrição. Se a política tem parâmetros, forneça-los como um objeto. Se a política não aceitam parâmetros, utilize o objeto vazio padrão.
 
@@ -291,25 +249,25 @@ O exemplo seguinte atribui uma definição de política existente para a subscri
 
 Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure:
 
-```azurecli-interactive
+```azurecli
 # Built-in policy that does not accept parameters
 definition=$(az policy definition list --query "[?displayName=='Audit resource location matches resource group location'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
 Para implementar este modelo com o PowerShell, utilize:
 
-```azurepowershell-interactive
+```azurepowershell
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
 
 New-AzDeployment `
   -Name policyassign `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName auditRGLocation
@@ -317,20 +275,20 @@ New-AzDeployment `
 
 Para aplicar uma política incorporada a sua subscrição do Azure, utilize os seguintes comandos do CLI do Azure:
 
-```azurecli-interactive
+```azurecli
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment create \
-  -n policyassign \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
 Para implementar este modelo com o PowerShell, utilize:
 
-```azurepowershell-interactive
+```azurepowershell
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("westus", "westus2")
@@ -338,14 +296,14 @@ $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
 New-AzDeployment `
   -Name policyassign `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName setLocation `
   -policyParameters $policyParams
 ```
 
-## <a name="define-and-assign-policy"></a>Definir e atribuir política
+### <a name="define-and-assign-policy"></a>Definir e atribuir política
 
 Pode [definir](../azure-policy/policy-definition.md) e atribuir uma política no modelo do mesmo.
 
@@ -392,23 +350,25 @@ Pode [definir](../azure-policy/policy-definition.md) e atribuir uma política no
 
 Para criar a definição de política na sua subscrição e aplicá-la para a subscrição, utilize o seguinte comando da CLI:
 
-```azurecli-interactive
+```azurecli
 az deployment create \
-  -n definePolicy \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
 Para implementar este modelo com o PowerShell, utilize:
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzDeployment `
   -Name definePolicy `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role-at-subscription"></a>Atribuir função na subscrição
+## <a name="create-roles"></a>Criar funções
+
+### <a name="assign-role-at-subscription"></a>Atribuir função na subscrição
 
 O exemplo seguinte atribui uma função a um utilizador ou grupo para a subscrição. Neste exemplo, não especifique um âmbito para a atribuição de uma vez que o âmbito é automaticamente definido para a subscrição.
 
@@ -441,7 +401,7 @@ O exemplo seguinte atribui uma função a um utilizador ou grupo para a subscri�
 
 Para atribuir um grupo do Active Directory a uma função para a sua subscrição, utilize os seguintes comandos do CLI do Azure:
 
-```azurecli-interactive
+```azurecli
 # Get ID of the role you want to assign
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
@@ -449,28 +409,28 @@ role=$(az role definition list --name Contributor --query [].name --output tsv)
 principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
-  -n demoRole \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json \
   --parameters principalId=$principalid roleDefinitionId=$role
 ```
 
 Para implementar este modelo com o PowerShell, utilize:
 
-```azurepowershell-interactive
+```azurepowershell
 $role = Get-AzRoleDefinition -Name Contributor
 
 $adgroup = Get-AzADGroup -DisplayName demogroup
 
 New-AzDeployment `
   -Name demoRole `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
 ```
 
-## <a name="assign-role-at-scope"></a>Atribuir função no âmbito
+### <a name="assign-role-at-scope"></a>Atribuir função no âmbito
 
 O modelo de nível de subscrição seguinte atribui uma função a um utilizador ou grupo que está confinado para um grupo de recursos dentro da subscrição. O âmbito tem de ser igual ou abaixo do nível de implementação. Pode implementar para uma subscrição e especificar uma atribuição de função no âmbito de um grupo de recursos nessa subscrição. No entanto, não é possível implementar um grupo de recursos e especificar um âmbito de atribuição de função à subscrição.
 
@@ -528,7 +488,7 @@ Para atribuir a função a um âmbito, utilize uma implementação aninhada. Ten
 
 Para atribuir um grupo do Active Directory a uma função para a sua subscrição, utilize os seguintes comandos do CLI do Azure:
 
-```azurecli-interactive
+```azurecli
 # Get ID of the role you want to assign
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
@@ -536,22 +496,22 @@ role=$(az role definition list --name Contributor --query [].name --output tsv)
 principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
-  -n demoRole \
-  -l southcentralus \
+  --name demoDeployment \
+  --location centralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
   --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
 ```
 
 Para implementar este modelo com o PowerShell, utilize:
 
-```azurepowershell-interactive
+```azurepowershell
 $role = Get-AzRoleDefinition -Name Contributor
 
 $adgroup = Get-AzADGroup -DisplayName demogroup
 
 New-AzDeployment `
   -Name demoRole `
-  -Location southcentralus `
+  -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id `
@@ -559,6 +519,7 @@ New-AzDeployment `
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Para obter um exemplo de implementação de definições de área de trabalho para o Centro de segurança do Azure, veja [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Para saber mais sobre a criação de modelos Azure Resource Manager, veja [criação de modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](resource-group-template-functions.md).
