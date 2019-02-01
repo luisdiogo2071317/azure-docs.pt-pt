@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471407"
+ms.locfileid: "55495671"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -370,7 +370,7 @@ Este erro ocorre quando o limite de armazenamento da partilha de ficheiros do Az
 
 5. Selecione **ficheiros** para ver a lista de partilhas de ficheiros.
 6. Clique nos três pontos no final da linha para a partilha de ficheiros do Azure referenciada pelo ponto final da cloud.
-7. Certifique-se de que o **utilização** é inferior a **Quota**. Tenha em atenção, a menos que foi especificada uma quota alternativa, a quota corresponderá a [máximo de tamanho da partilha de ficheiros do Azure de](storage-files-scale-targets.md).
+7. Certifique-se de que o **utilização** é inferior a **Quota**. Tenha em atenção, a menos que foi especificada uma quota alternativa, a quota corresponderá a [tamanho máximo da partilha de ficheiros do Azure de](storage-files-scale-targets.md).
 
     ![Uma captura de ecrã das propriedades de partilha de ficheiros do Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 

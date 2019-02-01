@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301599"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497303"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -186,7 +186,7 @@ Disco de dados - conta de armazenamento standard | Suportadas |
 Disco de dados - conta de armazenamento premium | Suportadas | Se uma VM tem discos espalhadas em contas de armazenamento standard e premium, pode selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que tem a mesma configuração de armazenamento na região de destino.
 Disco gerido - standard | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
 Disco gerido - premium | Suportada nas regiões do Azure em que o Azure Site Recovery é suportado. |
-SSD Standard | Não suportado |
+SSD Standard | Suportadas |
 Redundância | LRS e GRS são suportadas.<br/><br/> O ZRS não é suportado.
 Armazenamento de acesso esporádico e frequente | Não suportado | Discos de VM não são suportados no armazenamento de acesso esporádico e frequente
 Espaços de armazenamento | Suportadas |
@@ -195,8 +195,8 @@ Azure Disk Encryption (ADE) para o sistema operacional do Windows | As VMs ativa
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
 Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
-Storage Spaces Direct  | Não suportado|
-Servidor de ficheiros de escalamento horizontal  | Não suportado|
+Storage Spaces Direct  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
+Servidor de ficheiros de escalamento horizontal  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
 LRS | Suportadas |
 GRS | Suportadas |
 RA-GRS | Suportadas |

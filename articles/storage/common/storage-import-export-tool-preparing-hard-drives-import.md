@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454407"
+ms.locfileid: "55510141"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígidas para uma tarefa de importação
 
@@ -319,7 +319,7 @@ No entanto, a mesma sessão de cópia não pode ser utilizado para importar dado
 
 Quando o nome de sessão de cópia está mesmo nas várias execuções da ferramenta, o ficheiro de registo (/ logdir) e a chave de conta de armazenamento (/ sk) também deve ser o mesmo.
 
-SessionId pode consistir de letras, 0 ~ understore 9, (\_), travessão (-) ou hash (#), e seu comprimento tem de ter 3 ~ 30.
+SessionId pode consistir de letras, 0 ~ 9, um caráter de sublinhado (\_), travessão (-) ou hash (#), e seu comprimento tem de ter 3 ~ 30.
 
 Por exemplo, a sessão-1 ou sessão n. º 1 ou sessão\_1
 
@@ -388,7 +388,7 @@ Embora os dados são distribuídos pelos discos, os dados quando carregado para 
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>O número da entrada discos terão e/s Active Directory em paralelo, quando a cópia está em curso?
 
-A ferramenta distribui os dados em todos os discos de entrada com base no tamanho dos ficheiros de entrada. Dito isso, o número de discos ativos em paralelo completamente delends sobre a natureza dos dados de entrada. Dependendo do tamanho dos ficheiros individuais no conjunto de dados de entrada, um ou mais discos poderão mostrar e/s Active Directory em paralelo. Consulte a próxima pergunta para obter mais detalhes.
+A ferramenta distribui os dados em todos os discos de entrada com base no tamanho dos ficheiros de entrada. Dito isso, o número de discos ativos em paralelo depende completamente a natureza dos dados de entrada. Dependendo do tamanho dos ficheiros individuais no conjunto de dados de entrada, um ou mais discos poderão mostrar e/s Active Directory em paralelo. Consulte a próxima pergunta para obter mais detalhes.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Como a ferramenta de distribuir os arquivos em todos os discos?
 

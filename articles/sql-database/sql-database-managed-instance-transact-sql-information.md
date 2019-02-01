@@ -11,27 +11,27 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/31/2019
+ms.openlocfilehash: 80da1058f17b69d82d851bb38482afa0b31daac1
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472788"
+ms.locfileid: "55508873"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
-Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida. Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças.
-
-- [Diferenças do T-SQL e funcionalidades não suportadas](#Differences)
+Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida. Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
+- [Disponibilidade](#availability) incluindo as diferenças nos [Always-On](#always-on-availability) e [cópias de segurança](#backup),
+- [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credentials), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
+- [Configuração](#configuration) incluindo as diferenças nos [a extensão do conjunto da memória intermédia](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels),[base de dados espelhamento](#database-mirroring), [opções de base de dados](#database-options), [SQL Server Agent](#sql-server-agent), [opções da tabela](#tables),
+- [Funcionalidades](#functionalities) incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [ Eventos expandidos](#extended-events), [bibliotecas externas](#external-libraries), [Filestream e Filetable](#filestream-and-filetable), [pesquisa semântica de texto completo](#full-text-semantic-search), [ligado servidores](#linked-servers), [Polybase](#polybase), [replicação](#replication), [restaurar](#restore-statement), [Service Broker](#service-broker), [ Os procedimentos armazenados, funções e disparadores](#stored-procedures-functions-triggers),
 - [Recursos que têm um comportamento diferente na instância gerida](#Changes)
 - [Limitações temporárias e problemas conhecidos](#Issues)
 
-## <a name="Differences"></a> Diferenças do T-SQL do SQL Server
+## <a name="availability"></a>Disponibilidade
 
-Esta seção resume as principais diferenças na sintaxe de T-SQL e o comportamento entre a instância gerida e no local motor de base de dados do SQL Server, bem como as funcionalidades não suportadas.
-
-### <a name="always-on-availability"></a>Disponibilidade Always On
+### <a name="always-on-availability"></a>Always On
 
 [Elevada disponibilidade](sql-database-high-availability.md) baseia-se para instância gerida e não pode ser controlado pelos utilizadores. Não são suportadas as seguintes instruções:
 
@@ -40,27 +40,6 @@ Esta seção resume as principais diferenças na sintaxe de T-SQL e o comportame
 - [ALTERAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
 - [GRUPO DE DISPONIBILIDADE DE SOLTAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) cláusula do [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instrução
-
-### <a name="auditing"></a>Auditoria
-
-As principais diferenças entre auditoria de SQL na instância gerida, base de dados do Azure SQL e SQL Server no local são:
-
-- Na instância gerida, a auditoria de SQL funciona no nível do servidor e arquivos `.xel` conta de armazenamento de BLOBs de ficheiros no Azure.  
-- Na base de dados SQL do Azure, a auditoria de SQL funciona ao nível da base de dados.
-- No SQL Server no local / máquina virtual, auditoria de SQL funciona ao nível do servidor, mas que armazena os eventos nos registos de eventos do windows/sistema de ficheiros.  
-  
-Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Registos de ficheiros e do windows não são suportados.
-
-A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazenamento de Blobs do Azure são:
-
-- Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde `.xel` serão colocados ficheiros
-- A sintaxe `TO FILE` não é suportada porque a instância gerida não é possível aceder a partilhas de ficheiros do Windows.
-
-Para obter mais informações, consulte:  
-
-- [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="backup"></a>Cópia de segurança
 
@@ -85,17 +64,28 @@ Limitações:
 
 Para obter informações sobre cópias de segurança com o T-SQL, consulte [cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-### <a name="buffer-pool-extension"></a>Extensão do conjunto de memória intermédia
+## <a name="security"></a>Segurança
 
-- [A extensão do conjunto da memória intermédia](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) não é suportada.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` Não é suportada. Ver [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+### <a name="auditing"></a>Auditoria
 
-### <a name="bulk-insert--openrowset"></a>Inserção em massa / openrowset
+As principais diferenças entre auditoria de SQL na instância gerida, base de dados do Azure SQL e SQL Server no local são:
 
-Instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de BLOBs:
+- Na instância gerida, a auditoria de SQL funciona no nível do servidor e arquivos `.xel` conta de armazenamento de BLOBs de ficheiros no Azure.  
+- Na base de dados SQL do Azure, a auditoria de SQL funciona ao nível da base de dados.
+- No SQL Server no local / máquina virtual, auditoria de SQL funciona ao nível do servidor, mas que armazena os eventos nos registos de eventos do windows/sistema de ficheiros.  
+  
+Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Registos de ficheiros e do windows não são suportados.
 
-- `DATASOURCE` é necessário em `BULK INSERT` comando ao importar ficheiros do armazenamento de Blobs do Azure. Ver [inserção em massa](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` é necessário em `OPENROWSET` funcionar quando ler um conteúdo de um ficheiro de armazenamento de Blobs do Azure. Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazenamento de Blobs do Azure são:
+
+- Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde `.xel` serão colocados ficheiros
+- A sintaxe `TO FILE` não é suportada porque a instância gerida não é possível aceder a partilhas de ficheiros do Windows.
+
+Para obter mais informações, consulte:  
+
+- [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Auditoria](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### <a name="certificates"></a>Certificados
 
@@ -114,22 +104,6 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### <a name="clr"></a>CLR
-
-A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições:
-
-- Apenas `CREATE ASSEMBLY FROM BINARY` é suportada. Ver [CREATE ASSEMBLY de binário](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` Não é suportada. Ver [CREATE ASSEMBLY de ficheiro](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` não pode referenciar arquivos. Ver [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
-### <a name="compatibility-levels"></a>Níveis de compatibilidade
-
-- Níveis de compatibilidade suportados são: 100, 110, 120, 130, 140  
-- Níveis de compatibilidade inferior a 100 não são suportadas.
-- O nível de compatibilidade predefinido para novos bancos de dados é 140. Bases de dados restaurada, nível de compatibilidade permanecerá inalterado caso tenha sido 100 e superior.
-
-Ver [nível de compatibilidade de base de dados ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-
 ### <a name="credential"></a>Credencial
 
 Apenas o Azure Key Vault e `SHARED ACCESS SIGNATURE` identidades são suportadas. Os utilizadores do Windows não são suportados.
@@ -143,9 +117,48 @@ Instância gerida não é possível aceder aos ficheiros, pelo que não não pos
 - `CREATE CRYPTOGRAPHIC PROVIDER` Não é suportada. Ver [fornecedor de CRIPTOGRAFIA de criar](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` Não é suportada. Ver [fornecedor de CRIPTOGRAFIA de ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
+### <a name="logins--users"></a>Inícios de sessão / utilizadores
+
+- Inícios de sessão SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` são suportados. Ver [criar início de sessão](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Inícios de sessão do Active Directory (AAD) do Azure criados com [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sintaxe ou o [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sintaxe são suportados (**pré-visualização pública**).
+- Inícios de sessão do Windows criados com `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportadas. Utilize inícios de sessão do Azure Active Directory e os utilizadores.
+- Tem de utilizador do Active Directory (Azure AD) do Azure que criou a instância [irrestrito privilégios de administrador](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Utilizadores de nível de base de dados do Azure Active Directory (Azure AD) não administradores podem ser criados usando `CREATE USER ... FROM EXTERNAL PROVIDER` sintaxe. Consulte [utilizador de criar... DO FORNECEDOR EXTERNO](sql-database-manage-logins.md#non-administrator-users)
+
+### <a name="service-key-and-service-master-key"></a>Chave de mestre de chave e de serviço do serviço
+
+- [Cópia de segurança da chave mestra](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
+- [Restauro da chave mestra](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
+- [Cópia de segurança de chave mestra de serviço](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
+- [Restauro da chave mestra de serviço](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
+
+## <a name="configuration"></a>Configuração
+
+### <a name="buffer-pool-extension"></a>Extensão do conjunto de memória intermédia
+
+- [A extensão do conjunto da memória intermédia](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) não é suportada.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` Não é suportada. Ver [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+
 ### <a name="collation"></a>Agrupamento
 
 O agrupamento de instância padrão é `SQL_Latin1_General_CP1_CI_AS` e pode ser especificado como um parâmetro de criação. Ver [agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations).
+
+### <a name="compatibility-levels"></a>Níveis de compatibilidade
+
+- Níveis de compatibilidade suportados são: 100, 110, 120, 130, 140  
+- Níveis de compatibilidade inferior a 100 não são suportadas.
+- O nível de compatibilidade predefinido para novos bancos de dados é 140. Bases de dados restaurada, nível de compatibilidade permanecerá inalterado caso tenha sido 100 e superior.
+
+Ver [nível de compatibilidade de base de dados ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+
+### <a name="database-mirroring"></a>Espelhamento da base de dados
+
+Não é suportado para o espelhamento de banco de dados.
+
+- `ALTER DATABASE SET PARTNER` e `SET WITNESS` opções não são suportadas.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` Não é suportada.
+
+Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) e [CREATE ENDPOINT... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
 ### <a name="database-options"></a>Opções de base de dados
 
@@ -209,14 +222,68 @@ Modificar o nome não é suportado.
 
 Para obter mais informações, consulte [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="database-mirroring"></a>Espelhamento da base de dados
+### <a name="sql-server-agent"></a>SQL Server Agent
 
-Não é suportado para o espelhamento de banco de dados.
+- Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
+- Tarefas
+  - Passos da tarefa de T-SQL são suportados.
+  - São suportadas as seguintes tarefas de replicação:
+    - Leitor de log de transações.  
+    - Instantâneo.
+    - Distribuidor
+  - Passos da tarefa SSIS são suportados
+  - Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
+    - Passo de tarefa de replicação de intercalação não é suportado.  
+    - Leitor de fila não é suportada.  
+    - Shell de comandos ainda não é suportada
+  - Instância gerida não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
+  - PowerShell ainda não é suportado.
+  - Não é suportado do Analysis Services
+- Notificações são parcialmente suportadas
+- Notificação por correio eletrónico é suportado, necessita de configurar um perfil de correio de base de dados. É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile` em pré-visualização pública (limitação temporária).  
+  - Não é suportada paginação.  
+  - NetSend não é suportada.
+  - Alertas não ainda não são suportados.
+  - Proxies não são suportados.  
+- Registo de eventos não é suportado.
 
-- `ALTER DATABASE SET PARTNER` e `SET WITNESS` opções não são suportadas.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` Não é suportada.
+As seguintes funcionalidades não são atualmente suportadas, mas serão ativadas no futuro:
 
-Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) e [CREATE ENDPOINT... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
+- Proxies
+- Agendamento de trabalhos em ocioso da CPU
+- Agente de ativação/desativação
+- Alertas
+
+Para obter informações sobre o agente do SQL Server, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+
+### <a name="tables"></a>Tabelas
+
+As seguintes ações não são suportadas:
+
+- `FILESTREAM`
+- `FILETABLE`
+- `EXTERNAL TABLE`
+- `MEMORY_OPTIMIZED`  
+
+Para obter informações sobre a criação e tabelas de alteração, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+## <a name="functionalities"></a>Funcionalidades
+
+### <a name="bulk-insert--openrowset"></a>Inserção em massa / openrowset
+
+Instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de BLOBs:
+
+- `DATASOURCE` é necessário em `BULK INSERT` comando ao importar ficheiros do armazenamento de Blobs do Azure. Ver [inserção em massa](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` é necessário em `OPENROWSET` funcionar quando ler um conteúdo de um ficheiro de armazenamento de Blobs do Azure. Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+
+### <a name="clr"></a>CLR
+
+A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições:
+
+- Apenas `CREATE ASSEMBLY FROM BINARY` é suportada. Ver [CREATE ASSEMBLY de binário](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- `CREATE ASSEMBLY FROM FILE` Não é suportada. Ver [CREATE ASSEMBLY de ficheiro](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` não pode referenciar arquivos. Ver [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+
 
 ### <a name="dbcc"></a>DBCC
 
@@ -274,14 +341,6 @@ Operações
 - `OPENROWSET` a função pode ser utilizada para executar consultas apenas em instâncias do SQL Server (qualquer um gerido, no local, ou em máquinas virtuais). Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` a função pode ser utilizada para executar consultas apenas em instâncias do SQL Server (qualquer um gerido, no local, ou em máquinas virtuais). Apenas `SQLNCLI`, `SQLNCLI11`, e `SQLOLEDB` valores são suportados como o fornecedor. Por exemplo: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Ver [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
-### <a name="logins--users"></a>Inícios de sessão / utilizadores
-
-- Inícios de sessão SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` são suportados. Ver [criar início de sessão](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Inícios de sessão do Active Directory (AAD) do Azure criados com [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sintaxe ou o [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sintaxe são suportados (**pré-visualização pública**).
-- Inícios de sessão do Windows criados com `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportadas. Utilize inícios de sessão do Azure Active Directory e os utilizadores.
-- Tem de utilizador do Active Directory (Azure AD) do Azure que criou a instância [irrestrito privilégios de administrador](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Utilizadores de nível de base de dados do Azure Active Directory (Azure AD) não administradores podem ser criados usando `CREATE USER ... FROM EXTERNAL PROVIDER` sintaxe. Consulte [utilizador de criar... DO FORNECEDOR EXTERNO](sql-database-manage-logins.md#non-administrator-users)
-
 ### <a name="polybase"></a>Polybase
 
 Tabelas externas, fazer referência aos arquivos no armazenamento de Blobs do HDFS ou o Azure não são suportadas. Para obter informações sobre o Polybase, veja [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
@@ -337,13 +396,6 @@ Não é suportado o Mediador de serviço da instância de entre:
 - `CREATE ROUTE` -Não é possível usar `CREATE ROUTE` com `ADDRESS` diferente de `LOCAL`. Ver [criar rota](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` Não é possível `ALTER ROUTE` com `ADDRESS` diferente de `LOCAL`. Ver [ALTER rota](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
-### <a name="service-key-and-service-master-key"></a>Chave de mestre de chave e de serviço do serviço
-
-- [Cópia de segurança da chave mestra](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
-- [Restauro da chave mestra](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
-- [Cópia de segurança de chave mestra de serviço](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
-- [Restauro da chave mestra de serviço](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) não é suportada (gerido pelo serviço de base de dados SQL)
-
 ### <a name="stored-procedures-functions-triggers"></a>Procedimentos armazenados, funções, acionadores
 
 - `NATIVE_COMPILATION` Não é atualmente suportada.
@@ -359,51 +411,6 @@ Não é suportado o Mediador de serviço da instância de entre:
 - `Extended stored procedures` não são suportadas, incluindo `sp_addextendedproc`  e `sp_dropextendedproc`. Consulte [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportadas. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` Não é suportada. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
-
-### <a name="sql-server-agent"></a>SQL Server Agent
-
-- Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
-- Tarefas
-  - Passos da tarefa de T-SQL são suportados.
-  - São suportadas as seguintes tarefas de replicação:
-    - Leitor de log de transações.  
-    - Instantâneo.
-    - Distribuidor
-  - Passos da tarefa SSIS são suportados
-  - Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
-    - Passo de tarefa de replicação de intercalação não é suportado.  
-    - Leitor de fila não é suportada.  
-    - Shell de comandos ainda não é suportada
-  - Instância gerida não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
-  - PowerShell ainda não é suportado.
-  - Não é suportado do Analysis Services
-- Notificações são parcialmente suportadas
-- Notificação por correio eletrónico é suportado, necessita de configurar um perfil de correio de base de dados. É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile` em pré-visualização pública (limitação temporária).  
-  - Não é suportada paginação.  
-  - NetSend não é suportada.
-  - Alertas não ainda não são suportados.
-  - Proxies não são suportados.  
-- Registo de eventos não é suportado.
-
-As seguintes funcionalidades não são atualmente suportadas, mas serão ativadas no futuro:
-
-- Proxies
-- Agendamento de trabalhos em ocioso da CPU
-- Agente de ativação/desativação
-- Alertas
-
-Para obter informações sobre o agente do SQL Server, consulte [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
-
-### <a name="tables"></a>Tabelas
-
-As seguintes ações não são suportadas:
-
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED`  
-
-Para obter informações sobre a criação e tabelas de alteração, consulte [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="Changes"></a> Alterações de comportamento
 

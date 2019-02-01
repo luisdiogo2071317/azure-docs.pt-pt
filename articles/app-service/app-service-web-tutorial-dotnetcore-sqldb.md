@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721857"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510702"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação .NET Core e base de dados SQL no serviço de aplicações do Azure
 
@@ -366,6 +366,37 @@ Uma vez o `git push` estiver concluído, navegue para a aplicação de serviço 
 ![Aplicação do Azure após a primeira migração de código](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a publicar a aplicação .NET Core, os dados existentes na Base de Dados SQL não são perdidos. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e mantêm os dados existentes intactos.
+
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+
+Enquanto executa a aplicação ASP.NET Core no serviço de aplicações do Azure, pode obter os registos de consola direcionados para o Cloud Shell. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
+
+O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+
+- Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` no *DotNetCoreSqlDb.csproj*.
+- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` no *Startup.cs*.
+
+Para definir o ASP.NET Core [nível de registo](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) no serviço de aplicações para `Information` do nível predefinido `Warning`, utilize o [ `az webapp log config` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) comando no Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> Nível de registo do projeto já está definido como `Information` no *appSettings*.
+> 
+
+Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Assim que tiver iniciado a transmissão de registos, atualize a aplicação do Azure no browser para obter algum tráfego da web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
+
+Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl`+`C`.
+
+Para obter mais informações sobre como personalizar os registos do ASP.NET Core, consulte [iniciar sessão no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gerir a sua aplicação do Azure
 

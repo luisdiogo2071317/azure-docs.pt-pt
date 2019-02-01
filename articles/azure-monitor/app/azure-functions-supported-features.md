@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185820"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510328"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos do Application Insights para as funções do Azure suportados
 
@@ -32,6 +32,7 @@ Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.
 | **Recolha automática de**        |                 |                   |               
 | &bull; Pedidos                     | Sim             | Sim               | 
 | &bull; Exceções                   | Sim             | Sim               | 
+| &bull; Contadores de desempenho         | Sim             |                   |
 | &bull; Dependências                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sim               | 
@@ -50,6 +51,11 @@ Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.
 | | | | 
 | **Configurável**                      |                   |                   |           
 | &bull;Totalmente configurável.<br/>Ver [as funções do Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+
+
+## <a name="performance-counters"></a>Contadores de Desempenho
+
+A recolha de contadores de desempenho automática só funcionam máquinas do Windows.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>Métricas em direto e o canal de controlo de segurança

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099905"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507829"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
@@ -152,9 +152,11 @@ No exemplo anterior, ID1 e do ID4 mostra como parte da hierarquia H1 no Explorad
 
 As instâncias são a série de tempo propriamente ditas. Na maioria dos casos, o *deviceId* ou *assetId* é o identificador exclusivo do recurso no ambiente. As instâncias têm informações descritivas associadas a eles chamado propriedades de instância. No mínimo, as propriedades de instância incluem informações de hierarquia. Eles também podem incluir dados úteis e descritivos, como o fabricante, o operador ou a última data de serviço.
 
-Instâncias são definidas pelas *timeSeriesId*, *typeId*, *hierarchyId*, e *instanceFields*. Cada instância é mapeado para um único *tipo*e um ou mais hierarquias. Instâncias de herdam de todas as propriedades de hierarquias e outras *instanceFields* podem ser adicionados para definição de propriedade de instância ainda mais.
+Instâncias são definidas pelas *typeId*, *timeSeriesId*, *nome*, *Descrição*, *hierarchyIds* , e *instanceFields*. Cada instância é mapeado para um único *tipo*e um ou mais hierarquias. Instâncias de herdam de todas as propriedades de hierarquias e outras *instanceFields* podem ser adicionados para definição de propriedade de instância ainda mais.
 
 *instanceFields* são propriedades de uma instância e quaisquer dados estáticos que define uma instância. Elas definem valores de propriedades de hierarquia ou não da hierarquia, também dar suporte a indexação para realizar operações de pesquisa.
+
+O *nome* propriedade é opcional e maiúsculas de minúsculas. Se *nome* é não está disponível, a predefinição será a série de tempo de ID. Se um *nome* for fornecido, o ID de série de tempo continuarão a estar disponível no poço (a grade abaixo os gráficos no explorer). 
 
 ## <a name="time-series-model-instance-json-example"></a>Exemplo de JSON de instância de modelo de série de tempo
 
@@ -164,6 +166,7 @@ Exemplo:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

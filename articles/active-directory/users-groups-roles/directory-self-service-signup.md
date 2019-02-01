@@ -1,5 +1,5 @@
 ---
-title: Inscrição self-service ou de avaliação no Azure Active Directory | Documentos da Microsoft
+title: Adicionar utilizadores através de inscrição self-service ou de avaliação - Azure Active Directory | Documentos da Microsoft
 description: Utilizar a inscrição self-service num inquilino do Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195822"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506775"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
+
 Este artigo explica a inscrição self-service e como para suportá-la no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir de um Azure AD não gerido de inquilinos, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Porquê utilizar a inscrição self-service?

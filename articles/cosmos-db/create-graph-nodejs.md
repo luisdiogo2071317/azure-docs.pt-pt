@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 11eec492501f7ead639aa928fe0ddaafb2f1d1bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 400784fbc34a877b91ad0bdc2203b1992a537555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033677"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509971"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>o Azure Cosmos DB: Criar uma aplicação node. js com a API do Gremlin
 
@@ -78,7 +78,7 @@ Os seguintes fragmentos são retirados do ficheiro app.js.
 
 * O cliente Gremlin é criado.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -94,7 +94,7 @@ Os seguintes fragmentos são retirados do ficheiro app.js.
 
 * São definidas diversas funções para executar diferentes operações do Gremlin. Esta é uma delas:
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -108,7 +108,7 @@ Os seguintes fragmentos são retirados do ficheiro app.js.
 
 * Cada função executa um método `client.execute` com um parâmetro de cadeia de consulta do Gremlin. Eis um exemplo de como `g.V().count()` é executada:
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -119,7 +119,7 @@ Os seguintes fragmentos são retirados do ficheiro app.js.
 
 * No final do ficheiro, todos os métodos são então invocados com o método `async.waterfall()`. Esta ação irá executar uma após a outra:
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -158,7 +158,7 @@ Os seguintes fragmentos são retirados do ficheiro app.js.
 
 Eis um exemplo de como deve ser o aspeto do seu ficheiro config.js concluído:
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

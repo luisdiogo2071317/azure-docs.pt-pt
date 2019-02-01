@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: magoedte
-ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476847"
+ms.locfileid: "55487868"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs (pré-visualização)
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -30,11 +30,11 @@ Este artigo ajuda-o a compreender como avaliar rapidamente, investigar e resolve
 Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](vminsights-onboard.md).
 
 >[!NOTE]
->A partir de 15 de Fevereiro de 2019 Vamos começar a migrar, do modelo de estado de funcionamento atual no Azure Monitor para funcionalidade de estado de funcionamento de VMs, que é visível quando estiver na experiência de diagnóstico de estado de funcionamento hoje em dia, para uma nova versão do modelo de estado de funcionamento. Esta atualização melhora o desempenho de processamento de rollup do Estado de funcionamento e inclui um modelo de estado de funcionamento refinados apresentado na vista de diagnóstico de estado de funcionamento. 
+>A partir de 11 de Fevereiro de 2019 Vamos começar a migrar, do modelo de estado de funcionamento atual no Azure Monitor para funcionalidade de estado de funcionamento de VMs, que é visível quando estiver na experiência de diagnóstico de estado de funcionamento hoje em dia, para uma nova versão do modelo de estado de funcionamento. Esta atualização melhora o desempenho de processamento de rollup do Estado de funcionamento e inclui um modelo de estado de funcionamento refinados apresentado na vista de diagnóstico de estado de funcionamento. 
 >
 >Com o novo modelo de estado de funcionamento, agregação de critérios de estado de funcionamento de subordinado aos critérios de nível de estado de funcionamento da entidade/principal será mais rápida e, consequentemente, o estado de funcionamento das atualizações de principal para o estado pretendido ou alvo com menor latência. Ainda pode filtrar os critérios de estado de funcionamento no **desempenho** e **disponibilidade** categorias, ao contrário do método com base no separador anterior para selecionar qualquer categoria na vista.
 >
->Para obter mais detalhes sobre a nova experiência de diagnóstico de estado de funcionamento, consulte o diagnóstico de estado de funcionamento [secção](#health-diagnostics) neste artigo. 
+>Para obter mais detalhes sobre a experiência de diagnóstico de estado de funcionamento, consulte o diagnóstico de estado de funcionamento [secção](#health-diagnostics) neste artigo. 
 >
 >Esta atualização irá melhorar o seguinte: 
 >
@@ -106,14 +106,16 @@ Para ver o estado de funcionamento de uma VM do Azure, selecione **Insights (pr�
 
 ![O Azure Monitor para descrição geral do Estado de funcionamento de VMs de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health.png)
 
-Sobre o **estado de funcionamento** separador, na secção **estado de funcionamento da VM do convidado**, a tabela mostra o estado de funcionamento atual da sua máquina virtual e o número total de alertas de estado de funcionamento da VM gerados por um componente em mau estado de funcionamento. Consulte a [alertas e uma gestão de alertas](#alerting-and-alert-management) para obter mais detalhes.  
+Sobre o **estado de funcionamento** separador, na secção **estado de funcionamento da VM do convidado**, a tabela mostra o estado de funcionamento atual da sua máquina virtual e o número total de alertas de estado de funcionamento da VM gerados por um componente em mau estado de funcionamento. Consulte a [alertas](#alerting-and-alert-management) secção para obter mais detalhes sobre a experiência de alertas.  
 
-Os Estados de funcionamento definidos para uma VM são: 
+Os Estados de funcionamento definidos para uma VM são descritos na tabela a seguir: 
 
-* **Bom estado de funcionamento** – nenhum problema detetado para a VM e está a funcionar conforme necessário.  
-* **Crítico** – são detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar a funcionalidade normal, conforme o esperado. 
-* **Aviso** -forem detetados problemas de um ou mais, que precisam ser abordadas ou a condição de estado de funcionamento pode tornar-se crítico.  
-* **Desconhecido** – se o serviço não conseguiu estabelecer uma ligação com a VM, o estado muda para um Estado desconhecido.  
+|Ícone |Estado de funcionamento |Significado |
+|-----|-------------|------------|
+| |Bom estado de funcionamento |Estado de funcionamento está em bom estado, se for dentro as condições de estado de funcionamento definidos, indicando que nenhum problema detetado para a VM e está a funcionar conforme necessário. No caso de um monitor de rollup principal, rolls-up do Estado de funcionamento e reflete o estado mais favorável ou pior do filho.|
+| |Crítica |Estado de funcionamento é crítico, se não se encontra na condição de estado de funcionamento definidos, que indica que foram detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar o funcionamento normal. No caso de um monitor de rollup principal, rolls-up do Estado de funcionamento e reflete o estado mais favorável ou pior do filho.|
+| |Aviso |Estado de funcionamento é aviso se estiver entre dois limiares para a condição de estado de funcionamento definidos, onde um indica uma *aviso* estado e a outra indica um *crítico* Estado (três limiares de estado de funcionamento podem ser configurado), ou quando é detetado um problema de não-críticas que pode causar problemas críticos, se não resolvido. No caso de um rollup principal monitor, se um ou mais dos filhos estão no estado de aviso, em seguida, irá refletir o pai *aviso* estado. Se houver um filho que está numa *crítico* e outro filho num *aviso* Estado, o rollup principal mostrará um Estado de funcionamento *crítico*.|
+| |Desconhecidos |Estado de funcionamento está numa *desconhecido* estado quando o estado de funcionamento não é possível calcular por várias razões, tais como não é possível recolher dados, o serviço não inicializados, etc. Este estado de funcionamento não é configurável.| 
 
 Selecionando **ver o diagnóstico de estado de funcionamento** abre uma página que mostra todos os componentes da VM, critérios de estado de funcionamento associado, alterações de estado e outros problemas importantes encontrados por monitorizar componentes relacionados com a VM. Para obter mais informações, consulte [diagnóstico de estado de funcionamento](#health-diagnostics). 
 
@@ -191,16 +193,7 @@ Diagnóstico de estado de funcionamento organiza as informações de estado de f
  
 Todos os critérios de estado de funcionamento definidos para um componente específico, como o disco lógico, CPU, etc. Além disso, a categoria do monitor pode ser vista ao lado no **critérios de estado de funcionamento** coluna.  
 
-Estado de um critério de estado de funcionamento é definido por um dos quatro Estados – *crítico*, *aviso*, *bom estado de funcionamento*, e *desconhecido*. Os três primeiros são configuráveis, o que significa que pode modificar os valores de limiar de monitores com o [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Desconhecido* não é configurável e reservado para cenários específicos, tal como descrito na tabela abaixo.  
-
-A tabela seguinte fornece detalhes sobre os Estados de funcionamento representados no diagnóstico de estado de funcionamento.
-
-|Ícone |Estado de funcionamento |Significado |
-|-----|-------------|------------|
-| |Bom estado de funcionamento |Estado de funcionamento é bom estado de funcionamento se ele estiver dentro as condições de estado de funcionamento definidos, indicando que nenhum problema detetado para a VM, de modo a que está a funcionar conforme necessário. No caso de um monitor de rollup principal, rolls-up do Estado de funcionamento e reflete o estado mais favorável ou pior do filho.|
-| |Crítica |Estado de funcionamento é crítico, se não se encontra na condição de estado de funcionamento definidos, que indica que foram detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar o funcionamento normal. No caso de um monitor de rollup principal, rolls-up do Estado de funcionamento e reflete o estado mais favorável ou pior do filho.|
-| |Aviso |Estado de funcionamento é aviso se estiver entre dois limiares para a condição de estado de funcionamento definidos, onde um indica uma *aviso* estado e a outra indica um *crítico* Estado (três Estados de controlada pelo utilizador são possível), ou quando é detetado um problema de não-críticas que pode causar problemas críticos, se não resolvido. No caso de um rollup principal monitor, se um ou mais dos filhos estão no estado de aviso, em seguida, irá refletir o pai *aviso* estado. Se houver um filho que está numa *crítico* e outro filho num *aviso* Estado, o rollup principal mostrará um Estado de funcionamento *crítico*.|
-| |Desconhecidos |Estado de funcionamento está numa *desconhecido* estado quando o estado de funcionamento não é possível calcular por várias razões, tais como não é possível recolher dados, serviço etc não inicializado. Não se trata de um Estado de controlada pelo utilizador.| 
+Estado de um critério de estado de funcionamento é definido por um dos quatro Estados – *crítico*, *aviso*, *bom estado de funcionamento*, e *desconhecido*. Os três primeiros são configuráveis, o que significa que pode modificar os valores de limiar de monitores com o [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Desconhecido* não é configurável e reservado para cenários específicos.  
 
 Página de diagnóstico de estado de funcionamento tem três seções principais:
 
@@ -233,7 +226,7 @@ O estado de funcionamento geral de um destino é determinado pelo Estado de func
 No painel de configuração para os critérios de estado de funcionamento selecionado, usando o exemplo **média disco segundos por escrever**, seu limiar pode ser configurado com um valor numérico diferente. É um monitor de dois Estados, significando que alterações apenas de bom estado de funcionamento para aviso. Outro critério de estado de funcionamento pode ser três Estados, onde pode configurar o valor para o limiar de estado de funcionamento de aviso e crítico.  
 
 >[!NOTE]
->Aplicar alterações de configuração de critérios de estado de funcionamento para uma instância é aplicada a todas as instâncias monitorizadas.  Por exemplo, se selecionar **disco físico -1 D:** e modificar a **média disco segundos por escrever** limiar, não se aplica a apenas essa instância, mas todas as outras instâncias do disco detetado e monitorizado no a VM.
+>Aplicar alterações de configuração de critérios de estado de funcionamento para uma instância é aplicada a todas as instâncias monitorizadas.  Por exemplo, se selecionar **d: de-1 do disco** e modificar a **média disco segundos por escrever** limiar, não se aplica a apenas essa instância, mas todas as outras instâncias do disco detetado e monitorizado na VM.
 >
 
 ![Configurar um critério de estado de funcionamento de um exemplo de monitor de unidade](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -252,7 +245,7 @@ As três colunas são interligadas entre si. Quando seleciona uma instância det
 
 ![Exemplo de seleção de instância monitorizada e os resultados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-No exemplo acima, quando seleciona **disco físico - d 1:**, a árvore de critérios de estado de funcionamento é filtrada para **disco físico - 1 D:**. O **de alteração de estado** coluna mostra a alteração de estado com base na disponibilidade dos **disco físico - d 1:**. 
+No exemplo acima, quando seleciona **disco - d 1:**, a árvore de critérios de estado de funcionamento é filtrada para **disco - 1 D:**. O **de alteração de estado** coluna mostra a alteração de estado com base na disponibilidade dos **disco - d 1:**. 
 
 Para ver um Estado de funcionamento atualizado, pode atualizar a página de diagnóstico de estado de funcionamento ao clicar o **atualizar** ligação.  Se existir uma atualização do Estado de funcionamento do critério de estado de funcionamento com base no intervalo de consulta predefinido, essa tarefa permite-lhe evitar espera e reflete o estado de funcionamento mais recente.  O **estado de funcionamento de critérios** é um filtro que lhe permite definir o âmbito os resultados com base no estado do Estado de funcionamento selecionado - *bom estado de funcionamento*, *aviso*, *crítico*, *Desconhecido*, e *todos os*.  O **última atualização** tempo no canto superior direito representa a última vez em quando a página de diagnóstico de estado de funcionamento foi atualizada.  
 

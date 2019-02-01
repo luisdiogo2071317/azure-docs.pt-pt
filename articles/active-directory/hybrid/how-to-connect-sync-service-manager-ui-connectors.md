@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c1c6d5754af7455a4e4cf864062a1c29dd32c88b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191256"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492857"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Azure AD Connect sincronização o Service Manager
 
@@ -41,7 +41,7 @@ O separador conectores é utilizado para gerir todos os sistemas, que o motor de
 | Conector de exportação |Não utilize. |
 | Conector de importação |Não utilize. |
 | Atualizar conector |Não utilize. |
-| Atualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
+| Actualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
 | [Procurar espaço conector](#search-connector-space) |Utilizado para localizar objetos e, a [siga um objeto e os respetivos dados através do sistema](#follow-an-object-and-its-data-through-the-system). |
 
 ### <a name="delete"></a>Eliminar

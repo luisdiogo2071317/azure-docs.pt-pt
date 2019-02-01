@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369059"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490928"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso a criar subscrições do Azure Enterprise (pré-visualização)
 
@@ -42,6 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 Quando a função de proprietário é atribuída com êxito no âmbito da conta de inscrição, o Azure responde com as informações de atribuição de função:
 
 ```json
@@ -63,10 +64,10 @@ Quando a função de proprietário é atribuída com êxito no âmbito da conta 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize o [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) para conceder acesso de proprietário de outro utilizador à sua conta de inscrição.
+Utilize o [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) para conceder acesso de proprietário de outro utilizador à sua conta de inscrição.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -85,7 +86,7 @@ Assim que um utilizador for um proprietário do RBAC para a sua conta de inscri�
 
 Para controlar as subscrições criadas através desta API, utilize o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs). Atualmente não é possível utilizar o PowerShell, CLI ou o portal do Azure para controlar a criação da subscrição.
 
-1. Como administrador de inquilinos do inquilino do Azure AD, [elevar o acesso](../active-directory/role-based-access-control-tenant-admin-access.md) , em seguida, atribuir uma função de leitor ao utilizador auditoria sobre o âmbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como administrador do inquilino do Azure AD, [eleve o acesso](../active-directory/role-based-access-control-tenant-admin-access.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`.
 1. Como o utilizador de auditoria, chamar o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades de criação de subscrição. Exemplo:
 
 ```
@@ -93,7 +94,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ```
 
 > [!NOTE]
-> Convenientemente chamar esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
+> Para chamar convenientemente esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

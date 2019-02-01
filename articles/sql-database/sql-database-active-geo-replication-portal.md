@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 8db944de93313915926a6fe48a554d00327b1c94
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468908"
+ms.locfileid: "55486207"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
 
@@ -32,7 +32,7 @@ Para configurar a georreplicação ativa com o portal do Azure, terá o seguinte
 * Uma base de dados SQL do Azure: A base de dados principal que pretende replicar para uma região geográfica diferente.
 
 > [!Note]
-Georreplicação ativa tem de ser entre bases de dados na mesma subscrição.
+Ao utilizar o portal do Azure, só pode criar uma base de dados secundária dentro da mesma subscrição como principal. Se a base de dados secundária deve ser numa subscrição diferente, utilize [criar API REST do banco de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [API de Transact-SQL da base de dados ALTER](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Adicionar uma base de dados secundária
 

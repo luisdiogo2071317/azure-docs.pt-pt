@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498034"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -72,10 +72,10 @@ Pode verificar a versão do SO com `lsb_release`. O código a seguir demonstra c
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -299,10 +299,10 @@ Para verificar a versão do SO, utilize `lsb_release`. Por exemplo, o script a s
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
@@ -342,7 +342,7 @@ Seguem-se erros que poderá encontrar ao utilizar scripts desenvolvidos:
 
 **Erro**: `$'\r': command not found`. Por vezes, seguido pelo `syntax error: unexpected end of file`.
 
-*Causa*: Este erro é causado quando as linhas num script terminam com CRLF. Sistemas UNIX esperam LF apenas como o fim da linha.
+*Motivo*: Este erro é causado quando as linhas num script terminam com CRLF. Sistemas UNIX esperam LF apenas como o fim da linha.
 
 Este problema ocorre normalmente quando o script foi criado num ambiente Windows, como CRLF é uma linha comum final para os vários editores de texto no Windows.
 
@@ -360,7 +360,7 @@ Este problema ocorre normalmente quando o script foi criado num ambiente Windows
 
 **Erro**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Causa*: Este erro ocorre quando o script foi guardado como UTF-8 com uma marca de ordem do Byte (BOM).
+*Motivo*: Este erro ocorre quando o script foi guardado como UTF-8 com uma marca de ordem do Byte (BOM).
 
 *Resolução*: Guarde o ficheiro como ASCII ou UTF-8, sem uma BOM. Também pode usar o seguinte comando num sistema Linux ou Unix para criar um ficheiro sem a BOM:
 

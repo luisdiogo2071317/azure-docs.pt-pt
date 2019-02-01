@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884950"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509920"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md).
@@ -666,6 +666,7 @@ Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-us
 | logDefinitions | Não | 
 | logprofiles | Não | 
 | registos | Não | 
+| metricAlerts | Sim |
 | migrateToNewPricingModel | Não | 
 | myWorkbooks | Não | 
 | consultas de | Não | 
@@ -1108,7 +1109,7 @@ Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-us
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | managedInstances | Sim |
-| managedInstances/databases | Sim |
+| managedInstances/databases | Sim (ver nota abaixo) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Não |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Não |
 | managedInstances/databases/vulnerabilityAssessments | Não |
@@ -1120,12 +1121,16 @@ Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-us
 | servidores | Sim | 
 | servidores/administradores | Não | 
 | servers/communicationLinks | Não | 
-| servers/databases | Sim | 
+| servers/databases | Sim (ver nota abaixo) | 
 | servers/encryptionProtector | Não | 
 | servers/keys | Não | 
 | servers/restorableDroppedDatabases | Não | 
 | servidores/serviceobjectives | Não | 
 | servers/tdeCertificates | Não | 
+
+> [!NOTE]
+> O mestre de base de dados não suporta etiquetas, mas outras bases de dados suportam etiquetas.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo de recurso | Suporta etiquetas |
@@ -1163,8 +1168,11 @@ Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-us
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| streamingjobs | Sim | 
+| streamingjobs | Sim (ver nota abaixo) | 
 | streamingjobs/diagnosticSettings | Não | 
+
+> [!NOTE]
+> Não é possível adicionar uma etiqueta quando streamingjobs está em execução. Pare o recurso para adicionar uma etiqueta.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Tipo de recurso | Suporta etiquetas |

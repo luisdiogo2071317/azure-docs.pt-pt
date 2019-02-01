@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225730"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486831"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utilizar o serviço StorSimple Device Manager para gerir as credenciais da conta de armazenamento
 
@@ -54,7 +54,7 @@ As tarefas mais comuns relacionadas com as contas de armazenamento que podem ser
 
 Existem três tipos de contas de armazenamento que podem ser utilizados com o dispositivo StorSimple.
 
-* **Contas de armazenamento gerados automaticamente** – como o nome sugere, este tipo de conta de armazenamento é gerado automaticamente quando o serviço é criado. Para saber mais sobre como criar esta conta de armazenamento, veja [passo 1: criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) na [implementar no seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Contas de armazenamento gerados automaticamente** – como o nome sugere, este tipo de conta de armazenamento é gerado automaticamente quando o serviço é criado. Para saber mais sobre como criar esta conta de armazenamento, consulte [passo 1: Criar um novo serviço](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) no [implementar no seu dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Contas de armazenamento na subscrição do serviço** – estas são as contas de armazenamento do Azure que estão associadas a mesma subscrição do serviço. Para saber mais sobre o armazenamento de como essas contas são criadas, veja [sobre contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md). 
 * **Contas de armazenamento fora da subscrição do serviço** – estas são as contas de armazenamento do Azure que não estão associadas ao seu serviço e provavelmente existia antes do serviço foi criado.
 
@@ -165,7 +165,7 @@ Para informar o serviço StorSimple Device Manager da alteração, precisa para 
       
       ![sincronizar as chaves](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
-Será notificado depois da chave com êxito sycnhronized.
+Será notificado depois da chave está sincronizada com êxito.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Ao sincronizar as chaves das contas de armazenamento fora da subscrição do serviço
 1. Sobre o **serviços** página, clique no **configurar** separador.

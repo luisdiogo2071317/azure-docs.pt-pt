@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: df3344efadbc915bba0c863979cae8b8fdff99b0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512130"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para o acionador multi-factor Authentication e alterações de palavra-passe
 
@@ -51,7 +51,7 @@ A ativação das políticas baseadas em risco é um processo simples. Os passos 
 
 ### <a name="enable-users-to-register-for-multi-factor-authentication"></a>Permitir aos utilizadores registarem-se no Multi-Factor Authentication
 
-O Azure AD Identity Protection inclui uma política predefinida que pode ajudá-lo incentivar os utilizadores a registarem-se no Multi-Factor Authentication e a identificar facilmente o estado de registo atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
+O Azure AD Identity Protection inclui uma política predefinida que pode ajudá-lo para obter os seus utilizadores se registou para o multi-factor Authentication e identificar facilmente o estado do registo atual. A ativação desta política não começa a pedir aos utilizadores para executarem o Multi-Factor Authentication, mas irá pedir-lhes que façam o pré-registo.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.

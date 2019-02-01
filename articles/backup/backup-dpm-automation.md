@@ -2,18 +2,18 @@
 title: Cópia de segurança do Azure - utilize o PowerShell para efetuar cópias de segurança de cargas de trabalho do DPM
 description: Saiba como implementar e gerir a cópia de segurança do Azure para o Data Protection Manager (DPM) com o PowerShell
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242930"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497915"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
 Este artigo mostra-lhe como utilizar o PowerShell para configuração de cópia de segurança do Azure num servidor DPM e para gerir a cópia de segurança e recuperação.
@@ -133,10 +133,10 @@ As opções disponíveis incluem:
 | /m |Inscreva-se no Microsoft Update |- |
 | /nu |Não procurar atualizações depois de concluída a instalação |- |
 | /d |Desinstala o agente de serviços de recuperação do Microsoft Azure |- |
-| / pH |Endereço de anfitrião do proxy |- |
+| /ph |Endereço de anfitrião do proxy |- |
 | /po |Número de porta de anfitrião do proxy |- |
-| /Pu |O nome de utilizador do proxy anfitrião |- |
-| /PW |Palavra-passe do proxy |- |
+| /pu |O nome de utilizador do proxy anfitrião |- |
+| /pw |Palavra-passe do proxy |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>O registo DPM para uma recuperação Cofre de serviços
 Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais recente e as credenciais do cofre e armazene-o numa localização conveniente como C:\Downloads.
@@ -318,7 +318,7 @@ Quando cópia de segurança de uma origem de dados pela primeira vez, o DPM tem 
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Alterar o tamanho da réplica do DPM e o volume de pontos de recuperação
-Também pode alterar o tamanho do volume de réplica do DPM e a utilização de volume de cópia de sombra [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet como no seguinte exemplo: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Origem de dados $DS - ProtectionGroup $MPG-manual - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
+Também pode alterar o tamanho do volume de réplica do DPM e a utilização de volume de cópia de sombra [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet como no exemplo seguinte: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Datasource $DS - ProtectionGroup $MPG-manual - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>A consolidar as alterações ao grupo de proteção
 Por fim, as alterações precisam ser atribuídos antes do DPM pode efetuar a cópia de segurança pela nova configuração do grupo de proteção. Isso pode ser obtido com o [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet.

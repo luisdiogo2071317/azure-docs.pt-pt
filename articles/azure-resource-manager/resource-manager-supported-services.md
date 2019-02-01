@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 109c740ee92e82b6d18879da6839ce6341353cba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344948"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495518"
 ---
 # <a name="resource-providers-and-types"></a>Fornecedores e tipos de recursos
 
@@ -34,12 +34,14 @@ Durante a implantação de recursos, com freqüência precisar de obter informa�
 
 Pode executar estes passos através do portal, o PowerShell ou a CLI do Azure.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="powershell"></a>PowerShell
 
 Para ver todos os fornecedores de recursos no Azure e o estado do registo para a sua subscrição, utilize:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Que devolve resultados semelhantes:
@@ -57,7 +59,7 @@ Microsoft.CognitiveServices      Registered
 Registar um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registrados. No entanto, terá de registar manualmente alguns fornecedores de recursos. Para registar um fornecedor de recursos, tem de ter permissão para efetuar o `/register/action` operação para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Que devolve resultados semelhantes:
@@ -74,7 +76,7 @@ Não é possível anular o registo de um fornecedor de recursos quando ainda ter
 Para ver informações de um fornecedor de recursos específico, utilize:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Que devolve resultados semelhantes:
@@ -91,7 +93,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 Para ver os tipos de recurso para um fornecedor de recursos, utilize:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Que retorna:
@@ -108,7 +110,7 @@ A versão de API corresponde a uma versão de operações de REST API que são l
 Para obter as versões de API disponíveis para um tipo de recurso, utilize:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Que retorna:
@@ -126,7 +128,7 @@ Gestor de recursos é suportado em todas as regiões, mas os recursos que implem
 Para obter as localizações suportadas para um tipo de recurso, utilize.
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Que retorna:

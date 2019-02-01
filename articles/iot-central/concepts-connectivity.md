@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247678"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487358"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -56,14 +56,14 @@ Ligar um único dispositivo ao IoT Central através da SAS é fácil e demora ap
 
     *   **Linguagem C:** Se estiver a utilizar o C, siga [este cliente de dispositivo de exemplo do C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) para ligar um dispositivo de exemplo. Utilize as seguintes definições no exemplo.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
          prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
-    *   **NODE. js:**  Se pretender utilizar o node. js [utilize as instruções passo a passo aqui](tutorial-add-device.md#prepare-the-client-code), começar na secção **preparar o código de cliente**.
+    *   **Node.js:**  Se pretender utilizar o node. js [utilize as instruções passo a passo aqui](tutorial-add-device.md#prepare-the-client-code), começar na secção **preparar o código de cliente**.
 
 
 
@@ -118,13 +118,13 @@ Se estiver a utilizar o **MxChip** dispositivo ligar-se siga [aqui as instruçõ
 Seguem-se as referências para outros idiomas, que pode querer utilizar.
 
    *   **Linguagem C:** Se estiver a utilizar o C siga [este cliente de dispositivo de exemplo do C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) para ligar um dispositivo de exemplo. Utilize as seguintes definições no exemplo.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
          prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
-    * **NODE. js:**  Se pretender utilizar o node. js [utilize as instruções passo a passo aqui](tutorial-add-device.md#prepare-the-client-code), começar na secção **preparar o código de cliente**.
+    * **Node.js:**  Se pretender utilizar o node. js [utilize as instruções passo a passo aqui](tutorial-add-device.md#prepare-the-client-code), começar na secção **preparar o código de cliente**.
 
 
 ## <a name="connect-devices-using-x509-certificates"></a>Ligar dispositivos através do X509 certificados
@@ -163,7 +163,7 @@ Para ligar dispositivos ao IoT Central usando X509 certificados, aqui estão as 
 
     O dispositivo com informações de serviço ativá-la obter detalhes de ligação e o IoT Central quando ligado na atribuição de aplicações de aprovisionamento do programa.    
 
-    **Referene adicional** 
+    **Referência adicional** 
     *   Implementação de exemplo para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Cliente de dispositivo de exemplo em C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
@@ -211,12 +211,12 @@ Siga os passos com base na sua escolha de esquema de autenticação do dispositi
 
 1. **Ligar dispositivo ao IoT Central:** Uma vez ativado os dispositivos se ligam a pontos de distribuição/IoT Central para o registo.
 
-1. **Associe o dispositivo a um modelo:** O dispositivo ligado serão apresentados no **dispositivos não associados** na **Device Explorer**. O estado de aprovisionamento de dispositivos é **registado**. **Associar** o dispositivo para o modelo de dispositivo apropriado e aprovar o dispositivo para ligar à aplicação IoT Central. O dispositivo obtém os detalhes de ligações para a aplicação do Centro de IoT, estabelece ligação e começa a enviar dados. Dispositivo provioning está agora concluída e o *estado de aprovisionamento* passa a **aprovisionado**.
+1. **Associe o dispositivo a um modelo:** O dispositivo ligado serão apresentados no **dispositivos não associados** na **Device Explorer**. O estado de aprovisionamento de dispositivos é **registado**. **Associar** o dispositivo para o modelo de dispositivo apropriado e aprovar o dispositivo para ligar à aplicação IoT Central. O dispositivo obtém os detalhes de ligação para a aplicação do Centro de IoT e, em seguida, liga e começa a enviar dados. Aprovisionamento de dispositivos está agora concluído e o *estado de aprovisionamento* passa a **aprovisionado**.
 
 ## <a name="device-provisioning-status"></a>Estado de aprovisionamento do dispositivo
 Há uma série de etapas envolvidas quando um dispositivo real está ligado ao Azure IoT Central 
 1. **Registado**: O dispositivo é a primeiro **registado**, que significa que o dispositivo é criado no Centro de IoT e tem o ID de dispositivo para o dispositivo.
-O dispositivo está Registeretd quando  
+O dispositivo é registado quando  
     *   Um dispositivo real novo for adicionado no **Explorer**
     *   Um conjunto de dispositivo é adicionado usando **importação** no **Explorer**
     *   Um dispositivo que não foi registado mas liga-se com credenciais válidas e está visível sob **não associados** dispositivos. 
@@ -233,7 +233,7 @@ Pode obter cadeia de ligação do Iot hub dispositivo hub IoT do Azure utilizand
 
     ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 
-1. Obter a cadeia de ligação do dispositivo com a ferramenta de linha de commnd abaixo.
+1. Obter a cadeia de ligação do dispositivo com a ferramenta de linha de comandos abaixo.
     Utilize as instruções para obter a cadeia de ligação do dispositivo abaixo  
 
     ```cmd/sh

@@ -1,5 +1,5 @@
 ---
-title: Implementar o modelo do Azure com o SAS token e o PowerShell | Microsoft Docs
+title: Implementar um modelo do Azure com o SAS token e o PowerShell | Documentos da Microsoft
 description: Utilize o Azure Resource Manager e o Azure PowerShell para implementar recursos no Azure a partir de um modelo que está protegido com o SAS token.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,58 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: f138cceb88cb9a43efdd3f11b24203378a288286
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0935952011bf4cbcae9bf2e9ac218a9fc3be47ad
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497660"
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Implementar o modelo do Resource Manager privada com o SAS token e o Azure PowerShell
+# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>Implementar um modelo privado do Resource Manager com o SAS token e o Azure PowerShell
 
-Quando o modelo reside numa conta do storage, pode restringir o acesso ao modelo e fornecer um token de assinatura (SAS) de acesso partilhado durante a implementação. Este tópico explica como utilizar o Azure PowerShell com modelos do Resource Manager para fornecer um token SAS durante a implementação. 
+Quando o seu modelo reside numa conta de armazenamento, pode restringir o acesso ao modelo e fornecer um token de assinatura (SAS) de acesso partilhado durante a implementação. Este tópico explica como utilizar o Azure PowerShell com modelos do Resource Manager para fornecer um token SAS durante a implementação. 
 
-## <a name="add-private-template-to-storage-account"></a>Adicionar modelo privado para a conta de armazenamento
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode adicionar os modelos para uma conta de armazenamento e a ligação aos mesmos durante a implementação com um token SAS.
+## <a name="add-private-template-to-storage-account"></a>Adicionar modelo privado à conta de armazenamento
+
+Pode adicionar os seus modelos para uma conta de armazenamento e a ligação aos mesmos durante a implementação com um token SAS.
 
 > [!IMPORTANT]
-> Ao seguir os passos abaixo, o blob que contém o modelo está acessível para apenas o proprietário da conta. No entanto, quando cria um token SAS para o blob, o blob está acessível a qualquer pessoa com esse URI. Se outro utilizador intercetar o URI, esse utilizador é capaz de aceder ao modelo. A utilização de um token SAS é uma boa forma de limitar o acesso aos seus modelos, mas não deve incluir dados confidenciais, como palavras-passe diretamente no modelo.
+> Ao seguir os passos abaixo, o blob que contém o modelo está acessível para apenas o proprietário da conta. No entanto, quando cria um token SAS para o blob, o blob é acessível a qualquer pessoa com esse URI. Se outro utilizador intercepta o URI, esse utilizador é capaz de aceder ao modelo. Através de um token SAS são uma boa forma de limitar o acesso aos seus modelos, mas não pode incluir dados confidenciais como palavras-passe diretamente no modelo.
 > 
 > 
 
-O exemplo a seguir configura um contentor de conta de armazenamento privada e carrega um modelo:
+O exemplo seguinte define um contentor de conta de armazenamento privado e carrega um modelo:
    
 ```powershell
 # create a storage account for templates
-New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
-New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
 New-AzureStorageContainer -Name templates -Permission Off
 Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
 ```
 
-## <a name="provide-sas-token-during-deployment"></a>Forneça o SAS token durante a implementação
-Para implementar um modelo privado numa conta do storage, gerar um token SAS e incluí-la no URI para o modelo. Defina a hora de expiração para permitir tempo suficiente para concluir a implementação.
+## <a name="provide-sas-token-during-deployment"></a>Fornecer o SAS token durante a implementação
+Para implementar um modelo privado numa conta de armazenamento, gerar um token SAS e incluí-lo no URI para o modelo. Defina a hora de expiração para permitir tempo suficiente concluir a implementação.
    
 ```powershell
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
-Para obter um exemplo de utilização de um token SAS com modelos ligados, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+Para obter um exemplo de como utilizar um token SAS com modelos ligados, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução à implementação de modelos, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md).
-* Para um script de exemplo completo que implementa um modelo, consulte [script de modelo de implementação Resource Manager](resource-manager-samples-powershell-deploy.md)
-* Para definir os parâmetros de modelo, consulte o artigo [criação de modelos](resource-group-authoring-templates.md#parameters).
+* Para obter uma introdução à implantação de modelos, consulte [implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md).
+* Para obter um script de exemplo completo que implementa um modelo, consulte [script de modelo de implementação Resource Manager](resource-manager-samples-powershell-deploy.md)
+* Para definir parâmetros no modelo, veja [criação de modelos](resource-group-authoring-templates.md#parameters).

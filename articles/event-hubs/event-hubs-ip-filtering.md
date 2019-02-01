@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268279"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507540"
 ---
 # <a name="use-firewall-rules"></a>Utilize regras de Firewall
 
@@ -24,7 +24,7 @@ Para cenários em que os Hubs de eventos do Azure deve ser apenas acessíveis a 
 
 ## <a name="when-to-use"></a>Quando utilizar
 
-Se quiser para configurar o seu espaço de nomes de Hubs de eventos, de modo que devem receber o tráfego de apenas um especificado intervalo de endereços IP e rejeitar tudo o resto, em seguida, pode tirar partido de uma *regra de Firewall* para bloquear os pontos finais do Hub de eventos do outros endereços IP. Por exemplo, estiver a utilizar os Hubs de eventos com [Azure Express Route] [ express-route] criar ligações privadas para a sua infraestrutura no local.
+Se quiser para configurar o seu espaço de nomes de Hubs de eventos, de modo que devem receber o tráfego de apenas um especificado intervalo de endereços IP e rejeitar tudo o resto, em seguida, pode tirar partido de uma *regra de Firewall* para bloquear os pontos finais do Hub de eventos do outros endereços IP. Por exemplo, se utilizar os Hubs de eventos com [Azure Express Route][express-route], pode criar um *regra de Firewall* para restringir o tráfego de seu IP de infraestrutura no local endereços.
 
 ## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412070"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508009"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração de cliente VPN para configurações P2S da autenticação de certificados nativa do Azure
 
@@ -93,7 +93,7 @@ Clique em **adicionar** para importar.
 
   O **Interface** valor é "VPN" e **tipo de VPN** valor é "IKEv2". Especifique um nome para o perfil no **nome do serviço** campo, em seguida, clique em **criar** para criar o perfil de ligação de cliente VPN.
 
-  ![Rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+  ![rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Na **genérico** pasta, da **Vpnsettings** ficheiro, copie o **VpnServer** valor de etiqueta. Cole este valor na **endereço do servidor** e **remoto ID** campos do perfil.
 
   ![informações do servidor](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)

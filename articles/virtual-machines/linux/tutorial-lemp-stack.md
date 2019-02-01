@@ -3,7 +3,7 @@ title: Tutorial – Implementar a LEMP numa máquina virtual do Linux no Azure |
 description: Neste tutorial, vai aprender a instalar a pilha LEMP numa máquina virtual do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: c4926760162baa5687242f4372377c64c7e24b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: 0a9d63f4064952adbfedfc3f9656370ef7c4a1cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999363"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511282"
 ---
-# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor Web da LEMP numa máquina virtual do Linux no Azure
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalar um servidor web LEMP numa máquina virtual Linux no Azure
 
 Este artigo explica como implementar um servidor Web NGINX, o MySQL e o PHP (pilha LEMP) numa VM do Ubuntu no Azure. A pilha LEMP é uma alternativa à popular [pilha LAMP](tutorial-lamp-stack.md), que também pode instalar no Azure. Para ver o servidor LEMP em ação, opcionalmente, pode instalar e configurar um site do WordPress. Neste tutorial, ficará a saber como:
 
@@ -46,17 +46,15 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 Execute os seguintes comandos para atualizar as origens do pacote Ubuntu e instalar o NGINX, o MySQL e o PHP. 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-É-lhe pedido para instalar os pacotes e outras dependências. Quando lhe for pedido, defina uma palavra-passe de raiz para o MySQL e, em seguida, clique em [Enter] para continuar. Siga as instruções restantes. Este processo instala as extensões PHP mínimas necessárias para utilizar o PHP com o MySQL. 
-
-![Página de palavra-passe de raiz do MySQL][1]
+É-lhe pedido para instalar os pacotes e outras dependências. Este processo instala as extensões PHP mínimas necessárias para utilizar o PHP com o MySQL.  
 
 ## <a name="verify-installation-and-configuration"></a>Verificar a instalação e a configuração
 
 
-### <a name="nginx"></a>NGINX
+### <a name="verify-nginx"></a>Verifique se o NGINX
 
 Verifique a versão do NGINX com o seguinte comando:
 ```bash
@@ -68,7 +66,7 @@ Com o NGINX instalado e a porta 80 aberta para a VM, torna-se possível aceder a
 ![Página predefinida do NGINX][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>Certifique-se e Proteja o MySQL
 
 Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâmetro `V` em maiúscula):
 
@@ -76,24 +74,24 @@ Verifique a versão do MySQL com o seguinte comando (tenha em atenção o parâm
 mysql -V
 ```
 
-Para ajudar a proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se estiver apenas a configurar um servidor temporário, pode ignorar este passo. 
+Para ajudar a proteger a instalação do MySQL, incluindo a definição de uma palavra-passe de raiz, execute o `mysql_secure_installation` script. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Introduza uma palavra-passe de raiz para o MySQL e configure as definições de segurança para o seu ambiente.
+Opcionalmente, pode configurar a validar a palavra-passe Plug-in (recomendado). Em seguida, definir uma palavra-passe para o utilizador de raiz do MySQL e configure as restantes definições de segurança para o seu ambiente. Recomendamos que responder "Y" (Sim) para todas as perguntas.
 
 Se pretender experimentar funcionalidades do MySQL (criar uma base de dados MySQL, adicionar utilizadores ou alterar as definições de configuração), inicie sessão no MySQL. Este passo não é necessário para concluir este tutorial. 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Quando terminar, sair da linha de comandos do mysql, escrevendo `\q`.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>Certifique-se de PHP
 
 Verifique a versão do PHP com o seguinte comando:
 
@@ -109,7 +107,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-No editor, substitua os conteúdos do `/etc/nginx/sites-available/default` pelo seguinte. Veja os comentários para obter uma explicação sobre as definições. Substitua o endereço IP público da sua VM de *yourPublicIPAddress*e deixe as restantes definições. Em seguida, guarde o ficheiro.
+No editor, substitua os conteúdos do `/etc/nginx/sites-available/default` pelo seguinte. Veja os comentários para obter uma explicação sobre as definições. Substitua o endereço IP público da sua VM para *yourPublicIPAddress*, confirme a versão do PHP no `fastcgi_pass`e deixe as restantes definições. Em seguida, guarde o ficheiro.
 
 ```
 server {
@@ -129,7 +127,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -161,7 +159,7 @@ Agora pode verificar a página de informações do PHP que criou. Abra um browse
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, implementou um servidor LEMP no Azure. Aprendeu a:
 
@@ -177,6 +175,5 @@ Avance para o tutorial seguinte para aprender a proteger os servidores Web com c
 > [!div class="nextstepaction"]
 > [Proteger o servidor Web com SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

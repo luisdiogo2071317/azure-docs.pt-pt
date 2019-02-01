@@ -2,19 +2,18 @@
 title: Utilizar o Azure Backup Server para fazer cópias de segurança de cargas de trabalho para o Azure
 description: Utilize o Azure Backup Server para proteger ou cópia de segurança de cargas de trabalho para o portal do Azure.
 services: backup
-author: PVRK
-manager: shivamg
-keywords: servidor de cópia de segurança do Azure. proteger cargas de trabalho; fazer cópias de segurança de cargas de trabalho
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.author: kasinh
+ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351616"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493444"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]

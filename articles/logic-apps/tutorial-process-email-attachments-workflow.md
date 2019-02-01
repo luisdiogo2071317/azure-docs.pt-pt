@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121729"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508611"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar a manipulação de e-mails e anexos com o Azure Logic Apps
 
@@ -64,7 +64,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
    | **Deployment model** (Modelo de implementação) | Resource Manager | O [modelo de implementação](../azure-resource-manager/resource-manager-deployment-model.md) para gerir a implementação de recursos | 
    | **Account kind** (Tipo de conta) | Fins gerais | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Localização** | EUA Oeste | A região onde pretende armazenar as informações da sua conta de armazenamento | 
-   | **Replicação** | Armazenamento localmente redundante (LRS) | Esta definição especifica de que forma os seus dados são copiados, armazenados, geridos e sincronizados. Veja [Replicação](../storage/common/storage-introduction.md#replication). | 
+   | **Replicação** | Armazenamento localmente redundante (LRS) | Esta definição especifica de que forma os seus dados são copiados, armazenados, geridos e sincronizados. Consulte [armazenamento localmente redundante (LRS): Redundância de dados de baixo custo do armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). | 
    | **Performance** (Desempenho) | Standard | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Secure transfer required** (Transferência segura necessária) | Desativado | Esta definição especifica a segurança necessária para pedidos provenientes de ligações. Veja [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Transferência segura necessária). | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
@@ -595,7 +595,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
 
    Se não encontrar um campo esperado na lista de conteúdo dinâmico, escolha **Ver mais**, junto a **Quando é recebido um novo e-mail**. 
 
-   | Definição | Valor | Notas | 
+   | Definição | Value | Notas | 
    | ------- | ----- | ----- | 
    | **Corpo** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** | 
    | **Assunto**  | ```ASAP - Review applicant for position: ``` **Subject** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. | 

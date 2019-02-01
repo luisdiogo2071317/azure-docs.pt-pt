@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474688"
+ms.locfileid: "55509138"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar os Blobs do Azure, ficheiros do Azure ou discos do Azure
-
 Microsoft Azure fornece vários recursos no armazenamento do Azure para armazenar e aceder aos seus dados na cloud. Este artigo aborda os ficheiros do Azure, Blobs e discos e foi concebido para ajudar a escolher entre esses recursos.
 
 ## <a name="scenarios"></a>Cenários
-
 A tabela seguinte compara os ficheiros, Blobs e discos e mostra os cenários de exemplo apropriado para cada um.
 
 | Funcionalidade | Descrição | Quando utilizar |
@@ -30,7 +28,6 @@ A tabela seguinte compara os ficheiros, Blobs e discos e mostra os cenários de 
 | **Discos do Azure** | Dispõe de bibliotecas de cliente e um [REST interface](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que os dados de forma permanente ser armazenados e acedidos a partir de um disco rígido virtual anexado. | Pretende lift- and -shift de aplicações que utilizam APIs de sistema de ficheiros de nativo para ler e gravar dados em discos persistentes.<br/><br/>Deseja armazenar dados que não é necessários seja acessado de fora da máquina virtual à qual o disco está ligado. |
 
 ## <a name="comparison-files-and-blobs"></a>Comparação: Ficheiros e Blobs
-
 A tabela seguinte compara os ficheiros do Azure com Blobs do Azure.  
   
 ||||  
@@ -49,7 +46,6 @@ A tabela seguinte compara os ficheiros do Azure com Blobs do Azure.
 |Bibliotecas de cliente|Vários idiomas|Vários idiomas|  
   
 ## <a name="comparison-files-and-disks"></a>Comparação: Ficheiros e discos
-
 Os ficheiros do Azure complementam os discos do Azure. Um disco só pode ser anexado a uma Máquina Virtual do Azure ao mesmo tempo. Os discos são armazenadas como blobs de páginas no armazenamento do Azure de VHDs de formato fixo e são utilizados pela máquina virtual para armazenar dados durável. Partilhas de ficheiros nos ficheiros do Azure podem ser acedidas da mesma forma como o disco local é acessado (ao utilizar o sistema de arquivos nativos APIs) e podem ser partilhadas entre várias máquinas virtuais.  
  
 A tabela seguinte compara os ficheiros do Azure com discos do Azure.  
@@ -61,14 +57,12 @@ A tabela seguinte compara os ficheiros do Azure com discos do Azure.
 |Os instantâneos e copiar|Sim|Sim|  
 |Configuração|Conectada durante a inicialização da máquina virtual|Ligado depois da máquina virtual foi iniciada|  
 |Autenticação|Incorporado|Configurar com utilização net|  
-|Limpeza|Automático|Manual|  
 |Acesso com REST|Não não possível aceder a ficheiros dentro do VHD|Armazenados numa partilha de ficheiros podem ser acedidos|  
 |Tamanho Máx|4 de TiB de disco|Partilha de ficheiros do 5 TiB e 1 TiB ficheiro na partilha|  
 |máx IOps|500 IOps|1000 IOps|  
 |Débito|Até 60 MiB/s por disco|Destino é 60 MiB/s por partilha de ficheiros (pode obter superior para tamanhos de e/s superior)|  
 
 ## <a name="next-steps"></a>Passos Seguintes
-
 Quando tomar decisões sobre a forma como os seus dados são armazenados e acedidos, também deve considerar os custos envolvidos. Para obter mais informações, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
   
 Algumas funcionalidades do SMB não são aplicáveis para a cloud. Para obter mais informações, consulte [funcionalidades não suportadas pelo serviço de ficheiros do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

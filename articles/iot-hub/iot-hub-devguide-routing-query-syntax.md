@@ -1,6 +1,6 @@
 ---
 title: Consulta no roteamento de mensagens do IoT Hub do Azure | Documentos da Microsoft
-description: Guia do programador - synxtax de consulta de encaminhamento de mensagens no IoT Hub do Azure.
+description: Guia do programador - sintaxe de consulta para o encaminhamento de mensagens no IoT Hub do Azure.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018541"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496572"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta de encaminhamento de mensagens de IoT Hub
 
@@ -25,7 +25,7 @@ Roteamento de mensagens permite-lhe consultar sobre as propriedades da mensagem 
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de encaminhamento de mensagens com base nas propriedades da mensagem 
 
-O IoT Hub define um [formato comum](iot-hub-devguide-messages-construct.md) para todos os dispositivos-para-cloud messaging para interoperatbility entre protocolos. Mensagem do IoT Hub pressupõe a seguinte representação JSON da mensagem. Propriedades do sistema são adicionadas para todos os utilizadores e identificar o conteúdo da mensagem. Os usuários podem seletivamente adicionar propriedades da aplicação para a mensagem. Recomendamos que utilize nomes de propriedade única, como mensagens de dispositivo-para-cloud do IoT Hub não diferencia maiúsculas de minúsculas. Por exemplo, se tiver várias propriedades com o mesmo nome, o IoT Hub irá enviar apenas uma das propriedades.  
+O IoT Hub define um [formato comum](iot-hub-devguide-messages-construct.md) para todo dispositivo-para-cloud messaging para interoperabilidade entre protocolos. Mensagem do IoT Hub pressupõe a seguinte representação JSON da mensagem. Propriedades do sistema são adicionadas para todos os utilizadores e identificar o conteúdo da mensagem. Os usuários podem seletivamente adicionar propriedades da aplicação para a mensagem. Recomendamos que utilize nomes de propriedade única, como mensagens de dispositivo-para-cloud do IoT Hub não diferencia maiúsculas de minúsculas. Por exemplo, se tiver várias propriedades com o mesmo nome, o IoT Hub irá enviar apenas uma das propriedades.  
 
 ```json
 { 
@@ -55,8 +55,8 @@ Propriedades do sistema ajudam a identificar conteúdo e a origem das mensagens.
 | -------- | ---- | ----------- |
 | contentType | cadeia | O utilizador Especifica o tipo de conteúdo da mensagem. Para permitir que a consulta no corpo da mensagem, este valor deve ser definido application/JSON. |
 | contentEncoding | cadeia | O utilizador Especifica o tipo de codificação da mensagem. Valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType é definido como application/JSON. |
-| ConnectionDeviceId | cadeia | Este valor é definido pelo IoT Hub e identifica a origem das mensagens. Isto pode ser mensagens de telemetria do dispositivo, notificações de alteração do dispositivo duplo ou eventos de ciclo de vida do dispositivo. Não é possível consultar. |
-| iothub enqueuedtime | cadeia | Este valor é definido pelo IoT Hub e representa o tempo em questão de enfileiramento de mensagens em UTC. Para consultar, utilize `enqueuedTime`. |
+| connectionDeviceId | cadeia | Este valor é definido pelo IoT Hub e identifica a origem das mensagens. Isto pode ser mensagens de telemetria do dispositivo, notificações de alteração do dispositivo duplo ou eventos de ciclo de vida do dispositivo. Não é possível consultar. |
+| iothub-enqueuedtime | cadeia | Este valor é definido pelo IoT Hub e representa o tempo em questão de enfileiramento de mensagens em UTC. Para consultar, utilize `enqueuedTime`. |
 
 Conforme descrito no [mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), existem propriedades do sistema adicionais numa mensagem. Para além **contentType**, **contentEncoding**, e **enqueuedTime**, o **connectionDeviceId** e  **connectionModuleId** também podem ser consultados.
 

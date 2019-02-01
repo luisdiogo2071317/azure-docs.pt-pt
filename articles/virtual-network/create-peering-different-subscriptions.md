@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b929c3f85bab4319fe2fef1b5c0575f0d1d972a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511681"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Gestor de recursos, subscrições diferentes
 
@@ -72,7 +72,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Localização**: *E.U.A. leste*
 
 13. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetB*. Selecione **myVnetB** quando for apresentada nos resultados da pesquisa.
-14. Sob **myVnetB**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Sob **myVnetB**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
 15. Selecione **controlo de acesso (IAM)** sob **myVnetB**e, em seguida, conclua os passos 5 a 10 para myVnetB, introduzir **UserA** no passo 8.
 16. Terminar sessão no portal como UserB e iniciar sessão como utilizador.
 17. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Selecione **myVnetA** quando for apresentada nos resultados da pesquisa.
@@ -282,8 +282,8 @@ Se as redes virtuais estão em subscrições diferentes, e subscrições estejam
 
 3. Inicie sessão no Azure como UserA e implementar o modelo através da [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), ou o [da CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome de ficheiro que guardou o texto json de exemplo no passo 2 para.
 4. Copie o json de exemplo do passo 2 para um ficheiro no seu computador e fazer alterações para as linhas que começam com:
-    - **Nome**: Alteração *myVnetA/myVnetAToMyVnetB* ao *myVnetB/myVnetBToMyVnetA*.
-    - **ID**: Substitua `<subscription ID>` com o ID de subscrição e a alteração do User-b *myVnetB* para *myVnetA*.
+    - **name**: Alteração *myVnetA/myVnetAToMyVnetB* ao *myVnetB/myVnetBToMyVnetA*.
+    - **id**: Substitua `<subscription ID>` com o ID de subscrição e a alteração do User-b *myVnetB* para *myVnetA*.
 5. Passo concluído 3 novamente, sessão iniciada no Azure como o utilizador b.
 6. **Opcional**: Embora a criação de máquinas virtuais não é abrangido neste tutorial, pode criar uma máquina virtual em cada rede virtual e ligar a partir de uma máquina virtual para outro, para validar a conectividade.
 7. **Opcional**: Para eliminar os recursos que criar neste tutorial, conclua os passos a [eliminar recursos](#delete) seção deste artigo, com o portal do Azure, PowerShell ou a CLI do Azure.

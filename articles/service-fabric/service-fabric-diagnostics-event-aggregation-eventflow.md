@@ -1,6 +1,6 @@
 ---
-title: Agregação de eventos de recursos de infraestrutura de serviço do Azure com EventFlow | Microsoft Docs
-description: Saiba mais sobre agregar e recolha de eventos utilizando EventFlow para monitorização e diagnóstico de clusters de Service Fabric do Azure.
+title: Agregação de eventos de recursos de infraestrutura de serviço do Azure com o EventFlow | Documentos da Microsoft
+description: Saiba mais sobre a agregação e a recolha de eventos com o EventFlow para monitorização e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9b851b2d75cf78a02dd223788085ac9a0963376e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211359"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497371"
 ---
-# <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleção utilizando EventFlow
+# <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleções com o EventFlow
 
-[Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) pode encaminhar eventos a partir de um nó para um ou mais destinos de monitorização. Porque é incluído como um pacote NuGet do seu projeto de serviço, EventFlow código e a configuração transmitida juntamente com o serviço, eliminando o problema de configuração por nó mencionado anteriormente sobre diagnósticos do Azure. EventFlow é executado dentro do processo de serviço e estabelece ligação direta às saídas configuradas. Devido à ligação direta, EventFlow funciona para o Azure, o contentor e implementações de serviços no local. Seja cuidadoso ao se executar o EventFlow high-density cenários, tal como num contentor, porque cada pipeline EventFlow estabelece uma ligação externa. Por isso, se alojar vários processos, receberá várias ligações de saída! Esta operação não é o mesmo uma preocupação para aplicações de Service Fabric, porque todas as réplicas de um `ServiceType` executadas no mesmo processo e isto limita o número de ligações de saída. EventFlow também oferece filtragem de eventos, para que são enviados apenas os eventos que correspondem ao filtro especificado.
+[O EventFlow de diagnóstico do Microsoft](https://github.com/Azure/diagnostics-eventflow) podem encaminhar eventos a partir de um nó para um ou mais destinos de monitorização. Uma vez que está incluído como um pacote de NuGet no seu projeto de serviço, o EventFlow código e a configuração de deslocação com o serviço, eliminando o problema de configuração por nó, mencionado anteriormente sobre o diagnóstico do Azure. O EventFlow é executado dentro de seu processo de serviço e liga-se diretamente para as saídas configuradas. Devido a conexão direta, o EventFlow funciona para o Azure, contentores e implementações de serviço no local. Tenha cuidado se executar o EventFlow em cenários de alta densidade, tal como num contentor, porque cada pipeline o EventFlow faz com que uma ligação externa. Então, se alojar vários processos, obtém várias ligações de saída! Isso não é tanto uma preocupação para aplicações do Service Fabric, porque todas as réplicas de um `ServiceType` executar no mesmo processo, e isso limita o número de ligações de saída. O EventFlow também oferece filtragem de eventos, para que apenas os eventos que correspondem ao filtro especificado são enviados.
 
-## <a name="set-up-eventflow"></a>Configurar EventFlow
+## <a name="set-up-eventflow"></a>Configurar o EventFlow
 
-Binários EventFlow estão disponíveis como um conjunto de pacotes NuGet. Para adicionar EventFlow a um projeto de serviço do Service Fabric, clique com o botão direito no projeto no Explorador de soluções e escolha "Gerir NuGet packages." Mudar para o separador "Procurar", procure por "`Diagnostics.EventFlow`":
+O EventFlow binários estão disponíveis como um conjunto de pacotes NuGet. Para adicionar o EventFlow para um projeto de serviço do Service Fabric, com o botão direito do rato no Explorador de soluções e escolha "Manage NuGet packages." Mude para o separador "Procurar", procure por "`Diagnostics.EventFlow`":
 
-![Pacotes de EventFlow NuGet no Gestor de pacote NuGet do Visual Studio da IU](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
+![Pacotes de NuGet o EventFlow no Gestor de pacotes NuGet do Visual Studio da interface do Usuário](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Verá uma lista dos pacotes de vários aparecer, identificados com "Entradas" e "Saídas". EventFlow suporta vários fornecedores de registo diferentes e analisadores. O serviço de alojamento EventFlow deve incluir pacotes adequadas, consoante a origem e destino para os registos da aplicação. Para além do pacote de ServiceFabric core, também precisa de, pelo menos, uma entrada e saída configurado. Por exemplo, pode adicionar os seguintes pacotes para enviar eventos de EventSource ao Application Insights:
+Verá uma lista de vários pacotes de mostrar, etiquetados com "Entradas" e "Saídas". O EventFlow oferece suporte a vários provedores de registro diferentes e os analisadores. O serviço que aloja o EventFlow deve incluir pacotes adequados, consoante a origem e destino para os registos da aplicação. Além do pacote do ServiceFabric de núcleos, também tem de, pelo menos, uma entrada e saída configurados. Por exemplo, pode adicionar os seguintes pacotes para enviar eventos de EventSource para o Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` para capturar os dados da classe de EventSource do serviço e a partir de EventSources padrão, tais como *dos serviços Microsoft-ServiceFabric* e *Microsoft-ServiceFabric-Atores*)
-* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (Iremos enviar os registos para um recurso do Application Insights do Azure)
-* `Microsoft.Diagnostics.EventFlow.ServiceFabric`(permite a inicialização do pipeline EventFlow da configuração de serviço do Service Fabric e relatórios de problemas com o envio de dados de diagnóstico como relatórios de estado de funcionamento do Service Fabric)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` para capturar os dados de classe de EventSource do serviço e de EventSources padrão, tal como *serviços Microsoft-ServiceFabric* e *Microsoft-ServiceFabric-Atores*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vamos enviar os registos para um recurso do Application Insights do Azure)
+* `Microsoft.Diagnostics.EventFlow.ServiceFabric`(permite que a inicialização do pipeline o EventFlow da configuração de serviço do Service Fabric e relata quaisquer problemas com o envio de dados de diagnóstico como relatórios de estado de funcionamento do Service Fabric)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` o pacote necessita que o projeto de serviço para o .NET Framework 4.6 ou mais recente de destino. Certifique-se de que define o framework de destino adequada nas propriedades do projeto antes de instalar este pacote.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` pacote necessita que o projeto de serviço para visar o .NET Framework 4.6 ou mais recente. Certifique-se de que definir a estrutura de destino apropriada nas propriedades do projeto antes de instalar este pacote.
 
-Depois de instalar todos os pacotes, o passo seguinte consiste em configurar e ativar EventFlow no serviço.
+Após a instalação de todos os pacotes, a próxima etapa é configurar e ativar o EventFlow no serviço.
 
 ## <a name="configure-and-enable-log-collection"></a>Configurar e ativar a recolha de registos
-O pipeline de EventFlow responsável pelo envio de registos é criado a partir de uma especificação armazenada num ficheiro de configuração. O `Microsoft.Diagnostics.EventFlow.ServiceFabric` pacote instala um ficheiro de configuração inicial do EventFlow em `PackageRoot\Config` pasta de solução, denominada `eventFlowConfig.json`. Este ficheiro de configuração tem de ser modificados para capturar os dados do serviço predefinido `EventSource` classe e quaisquer outras entradas que pretende configurar e enviar dados para o local adequado.
+O pipeline do EventFlow responsável por enviar os registos é criado a partir de uma especificação armazenada num ficheiro de configuração. O `Microsoft.Diagnostics.EventFlow.ServiceFabric` pacote instala um arquivo de configuração inicial do EventFlow sob `PackageRoot\Config` pasta de soluções, com o nome `eventFlowConfig.json`. Este ficheiro de configuração precisa ser modificado para capturar os dados do serviço predefinido `EventSource` classe e quaisquer outras entradas que pretende configurar e enviar dados para o local apropriado.
 
 >[!NOTE]
->Se o ficheiro de projeto tem um formato de 2017 VisualStudio o `eventFlowConfig.json` ficheiro não será automaticamente adicionado. Para corrigir isto criar o ficheiro no `Config` pasta e definir a ação de compilação para `Copy if newer`. 
+>Se seu arquivo de projeto tem um formato de 2017 VisualStudio o `eventFlowConfig.json` ficheiro não serão automaticamente adicionado. Para corrigir isto criar o ficheiro no `Config` pasta e defina a ação de compilação para `Copy if newer`. 
 
 Eis um exemplo *eventFlowConfig.json* com base nos pacotes de NuGet mencionados acima:
 ```json
@@ -79,7 +79,7 @@ Eis um exemplo *eventFlowConfig.json* com base nos pacotes de NuGet mencionados 
 }
 ```
 
-O nome do ServiceEventSource serviço é o valor da propriedade nome o `EventSourceAttribute` aplicado à classe ServiceEventSource. Todos os estiver especificado no `ServiceEventSource.cs` ficheiro, que faz parte o código do serviço. Por exemplo, o seguinte fragmento de código o nome do ServiceEventSource é *aminhaempresa-Application1-Stateless1*:
+O nome ServiceEventSource do serviço é o valor da propriedade do nome do `EventSourceAttribute` aplicado à classe ServiceEventSource. Tudo é especificado no `ServiceEventSource.cs` arquivo, que é parte do código de serviço. Por exemplo, no seguinte fragmento de código o nome do ServiceEventSource é *MyCompany-Application1-Stateless1*:
 
 ```csharp
 [EventSource(Name = "MyCompany-Application1-Stateless1")]
@@ -89,11 +89,11 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-Tenha em atenção que `eventFlowConfig.json` ficheiro faz parte do pacote de configuração do serviço. Alterações a este ficheiro podem ser incluídas numa completo ou configuração-apenas atualizações do serviço, sujeita verificações de estado de funcionamento de atualização do Service Fabric e Reversão automática se houver falha da atualização. Para obter mais informações, consulte [atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md).
+Tenha em atenção que `eventFlowConfig.json` ficheiro faz parte do pacote de configuração do serviço. Alterações a este ficheiro podem ser incluídas em atualizações de full - ou só de configuração do serviço, sujeitos a verificações de estado de funcionamento de atualização do Service Fabric e Reversão automática se ocorrer falha de atualização. Para obter mais informações, consulte [atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md).
 
-O *filtros* secção de configuração permite-lhe mais personalizar as informações que vai aceder através do pipeline de EventFlow para as saídas, permitindo-lhe remover ou incluir determinadas informações ou alterar a estrutura do dados do evento. Para obter mais informações sobre filtragem, consulte [EventFlow filtros](https://github.com/Azure/diagnostics-eventflow#filters).
+O *filtros* secção da configuração permite-lhe ainda mais a personalizar as informações que vão passar pelo pipeline o EventFlow para as saídas, permitindo que remova ou incluir determinadas informações, ou alterar a estrutura das dados de eventos. Para obter mais informações sobre a filtragem, consulte [filtros o EventFlow](https://github.com/Azure/diagnostics-eventflow#filters).
 
-O passo final é instanciar EventFlow pipeline no código de arranque do serviço, localizado na `Program.cs` ficheiro:
+A última etapa é instanciar o EventFlow pipeline no código de inicialização do seu serviço, localizado na `Program.cs` ficheiro:
 
 ```csharp
 using System;
@@ -138,24 +138,24 @@ namespace Stateless1
 }
 ```
 
-O nome transmitido como parâmetro do `CreatePipeline` método do `ServiceFabricDiagnosticsPipelineFactory` é o nome do *entidade de estado de funcionamento* que representa o pipeline de coleção de registo EventFlow. Este nome é utilizado se detetar EventFlow e o erro e relatórios-lo através do subsistema de estado de funcionamento do Service Fabric.
+O nome passado como o parâmetro do `CreatePipeline` método da `ServiceFabricDiagnosticsPipelineFactory` é o nome da *entidade de estado de funcionamento* que representa o pipeline de coleção de log o EventFlow. Este nome é utilizado se encontra o EventFlow e o erro e relata por meio do subsistema de estado de funcionamento do Service Fabric.
 
-### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Utilize as definições de Service Fabric e os parâmetros de aplicação eventFlowConfig
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Utilize as definições do Service Fabric e os parâmetros de aplicação eventFlowConfig
 
-EventFlow suporta utilizando as definições de Service Fabric e aplicação paremeters para configurar as definições de EventFlow. Pode consultar os parâmetros de definições de Service Fabric utilizando esta sintaxe especial para valores:
+O EventFlow suporta as definições do Service Fabric e os parâmetros de aplicação a utilizar para configurar as definições do EventFlow. Pode consultar parâmetros de definições do Service Fabric utilizando esta sintaxe especial para os valores de:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>` é o nome da secção de configuração do Service Fabric, e `<setting-name>` é a definição de configuração fornecer o valor que será utilizado para configurar uma definição de EventFlow. Para ler mais sobre como fazê-lo, aceda a [suporte para definições de Service Fabric e os parâmetros da aplicação](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` é o nome da seção de configuração do Service Fabric, e `<setting-name>` é fornecer o valor que será utilizado para configurar uma definição do EventFlow a definição de configuração. Para ler mais sobre como fazê-lo, aceda a [suporte para as definições do Service Fabric e os parâmetros de aplicação](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Verificação
 
-Iniciar o serviço e observe a depuração janela de saída no Visual Studio. Depois do serviço é iniciado, deve começar a ver provas de que o serviço está a enviar registos de saída que tiver configurado. Navegue para a sua plataforma de análise e visualização de eventos e confirme que os registos de iniciar a Mostrar cópia de segurança (operação pode demorar alguns minutos).
+Inicie o serviço e a depuração de observar a janela de saída no Visual Studio. Depois do serviço é iniciado, deve começar a ver evidências que seu serviço está a enviar registos para a saída que tiver configurado. Navegue até à sua plataforma de análise e visualização de eventos e confirmar que os registos de tem iniciado Mostrar verticalmente (pode demorar alguns minutos).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Análise de eventos e visualização com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise de eventos e visualização de análise de registos](service-fabric-diagnostics-event-analysis-oms.md)
-* [Documentação de EventFlow](https://github.com/Azure/diagnostics-eventflow)
+* [Análise de eventos e visualização com o Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Documentação do EventFlow](https://github.com/Azure/diagnostics-eventflow)

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7156042243b1ba28cea712dc3722600b9fc46c42
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360223"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490675"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -47,8 +47,8 @@ Os serviços da cópia de segurança do Azure e o Azure Site Recovery contribuem
 
 Ambos os serviços fornecem funcionalidades diferentes mas complementares.
 
-- **Azure Site Recovery**: Recuperação de sites fornece uma solução de recuperação após desastre para máquinas no local e para as VMs do Azure. Replicar máquinas a partir de uma localização primária para uma secundária. Momentos de desastre, UO pós-falha de máquinas para a localização secundária e aceder aos mesmos a partir daí. Quando tudo estiver em execução normalmente novamente, máquinas de ativação de volta para recuperação-los no site primário.
-- **O Azure Backup**: O serviço de cópia de segurança do Azure faz uma cópia dos dados a partir de máquinas no local e VMs do Azure. Dados podem ser uma cópia de segurança e recuperar num nível granular, incluindo back cópia de segurança de ficheiros, pastas, estado do sistema de máquina e cópia de segurança de dados com suporte para a aplicação. Cópia de segurança do Azure processa dados num nível mais granular do que o Site Recovery. Por exemplo, se uma apresentação no computador portátil se danificasse, pode utilizar o Azure Backup para restaurar a apresentação. Se quiser manter uma configuração de VM e os dados seguros e acessível, poderia usar o Site Recovery.  
+- **Azure Site Recovery**: Recuperação de sites fornece uma solução de recuperação após desastre para máquinas no local e para as VMs do Azure. Replicar máquinas a partir de uma localização primária para uma secundária. Momentos de desastre, pós-falha de máquinas para a localização secundária e aceder aos mesmos a partir daí. Quando tudo estiver em execução normalmente novamente, falhar máquinas back para recuperá-los no site primário.
+- **O Azure Backup**: O serviço de cópia de segurança do Azure faz uma cópia dos dados a partir de máquinas no local e VMs do Azure. Dados podem ser uma cópia de segurança e recuperar num nível granular, incluindo a cópia de segurança de ficheiros, pastas, estado do sistema de máquina e cópia de segurança de dados com suporte para a aplicação. Cópia de segurança do Azure processa dados num nível mais granular do que o Site Recovery. Por exemplo, se uma apresentação no computador portátil se danificasse, pode utilizar o Azure Backup para restaurar a apresentação. Se quiser manter uma configuração de VM e os dados seguros e acessível, poderia usar o Site Recovery.  
 
 Utilize os pontos de tabela para ajudar a descobrir as suas necessidades BCDR. 
 

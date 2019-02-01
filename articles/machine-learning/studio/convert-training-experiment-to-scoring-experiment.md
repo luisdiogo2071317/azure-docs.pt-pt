@@ -1,8 +1,20 @@
 ---
-title: Prepare o modelo para a implementação titleSuffix: Descrição do Azure Machine Learning Studio: Como preparar o seu modelo preparado para a implementação como um serviço web ao converter a sua experimentação de preparação do Machine Learning Studio para uma experimentação preditiva.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
+title: Preparar o modelo para a implementação
+titleSuffix: Azure Machine Learning Studio
+description: Como preparar o seu modelo preparado para a implementação como um serviço web ao converter a sua experimentação de preparação do Machine Learning Studio para uma experimentação preditiva.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
+ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496079"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar o seu modelo para a implementação no Azure Machine Learning Studio
 

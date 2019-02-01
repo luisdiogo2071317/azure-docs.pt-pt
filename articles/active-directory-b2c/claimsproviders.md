@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5a0774c69c074698383e9c6f7f7cf9331e8939f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5068692d5f12b5b6c8b0476a789123ef9fd1dc75
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164440"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508815"
 ---
-# <a name="claimsproviders"></a>ClaimsProviders 
+# <a name="claimsproviders"></a>ClaimsProviders
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -35,7 +35,6 @@ Um fornecedor de afirmações contém um conjunto de [perfis técnicos](technica
         ...
     </TechnicalProfiles>
   </ClaimsProvider>
-</ClaimsProvider>
   ...
 </ClaimsProviders>
 ```
@@ -56,7 +55,7 @@ O **ClaimsProvider** elemento contém elementos subordinados:
 | Nome a Apresentar | 0:1 | Uma cadeia que contém o nome do fornecedor de afirmações que pode ser apresentado aos utilizadores. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportado pelo fornecedor de afirmação |
 
-**ClaimsProvider** organiza seu técnico perfis relacionados com o fornecedor de afirmações. O exemplo seguinte mostra o fornecedor de afirmações do Azure Active Directory com os perfis de técnicos do Azure Active Directory: 
+**ClaimsProvider** organiza seu técnico perfis relacionados com o fornecedor de afirmações. O exemplo seguinte mostra o fornecedor de afirmações do Azure Active Directory com os perfis de técnicos do Azure Active Directory:
 
 ```XML
 <ClaimsProvider>
@@ -82,7 +81,7 @@ O **ClaimsProvider** elemento contém elementos subordinados:
       ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
-      ...    
+      ...
     </TechnicalProfile>
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
       ...
@@ -109,4 +108,3 @@ O exemplo seguinte mostra o fornecedor de afirmações do Facebook com o **Faceb
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
- 

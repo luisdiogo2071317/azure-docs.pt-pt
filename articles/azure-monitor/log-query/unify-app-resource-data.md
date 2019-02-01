@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486526"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Uniformizar a vários recursos do Azure Monitor Application Insights 
 Este artigo descreve como consultar e ver todos os Application Insights log dados da sua aplicação num único lugar, mesmo quando eles estão em diferentes subscrições do Azure, como um substituto para a descontinuação do conector do Application Insights.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >O operador de análise é opcional neste exemplo, extrai o nome da aplicação da propriedade SourceApp. 
 
-Agora está pronto para usar a função de applicationsScoping na consulta entre recursos. O alias de função devolve a União dos pedidos de todos os aplicativos definidos. A consulta, em seguida, filtra para pedidos falhados e visualiza as tendências pelo aplicativo. ![Exemplo de resultados da consulta entre](media/unify-app-resource-data/app-insights-query-results.png)
+Agora está pronto para usar a função de applicationsScoping na consulta entre recursos:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+O alias de função devolve a União dos pedidos de todos os aplicativos definidos. A consulta, em seguida, filtra para pedidos falhados e visualiza as tendências pelo aplicativo.
+
+![Exemplo de resultados da consulta entre](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Consultar em recursos do Application Insights e área de trabalho de dados 
 Quando parar o conector e a necessidade de executar consultas através de um intervalo de tempo foi reduzido pela retenção de dados do Application Insights (90 dias), terá de efetuar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) na área de trabalho e no Application Insights recursos para um período intermédio. Isso é até que os seus dados de aplicativos acumulem pela retenção de dados do Application Insights novo mencionada acima. A consulta requer alguns manipulações, uma vez que os esquemas no Application Insights e a área de trabalho são diferentes. Consulte a tabela mais tarde nesta secção, realçando as diferenças de esquema. 

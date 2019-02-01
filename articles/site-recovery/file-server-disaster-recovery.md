@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508373"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -76,7 +76,7 @@ Uma vez que a replicação do Site Recovery não depende da aplicação, espera-
 
 **Conetividade site a site**: É necessário estabelecer uma ligação direta entre o site no local e a rede do Azure para permitir a comunicação entre servidores. Utilize uma ligação VPN site a site protegida a uma rede virtual do Azure que seja utilizada como o site de recuperação após desastre. Para obter mais informações, veja [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) (Estabelecer uma ligação VPN site a site entre um site no local e uma rede virtual do Azure).
 
-**Do Active Directory**: DFSR depende do Active Directory. Isto significa que a floresta do Active Directory com controladores de domínio local é expandida para o site de recuperação após desastre no Azure. Mesmo que não esteja a utilizar o DFSR, caso seja necessário conceder acesso ou verificar o acesso dos utilizadores, tem de seguir os passos abaixo. Para obter mais informações, veja [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) (Expandir o Active Directory no local para o Azure).
+**Active Directory**: DFSR depende do Active Directory. Isto significa que a floresta do Active Directory com controladores de domínio local é expandida para o site de recuperação após desastre no Azure. Mesmo que não esteja a utilizar o DFSR, caso seja necessário conceder acesso ou verificar o acesso dos utilizadores, tem de seguir os passos abaixo. Para obter mais informações, veja [Extend on-premises Active Directory to Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory) (Expandir o Active Directory no local para o Azure).
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Recomendação da recuperação após desastre para máquinas virtuais de IaaS do Azure
 
@@ -94,7 +94,7 @@ Os Ficheiros do Azure podem ser utilizados para substituir completamente ou comp
 
 Os passos abaixo descrevem resumidamente a utilização do File Sync:
 
-1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, veja [Azure file share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Estratégias de recuperação após desastre de partilhas de ficheiros do Azure).
+1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação após desastre e ativação pós-falha forçada (pré-visualização) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie uma partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Inicie o File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de ficheiros do Azure.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho num servidor do Windows.
@@ -143,7 +143,7 @@ Para integrar o File Sync com o Site Recovery:
 
 Siga os passos abaixo para utilizar o File Sync:
 
-1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura (recomendado) para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, veja [Azure file share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (Estratégias de recuperação após desastre de partilhas de ficheiros do Azure).
+1. [Crie uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento georredundante de acesso de leitura (recomendado) para as suas contas de armazenamento, obtém acesso de leitura aos seus dados a partir da região secundária, em caso de desastre. Para obter mais informações, consulte [recuperação após desastre e ativação pós-falha forçada (pré-visualização) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)....
 2. [Crie uma partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implemente o File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de ficheiros no local.
 4. Crie um grupo de sincronização. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Os grupos de sincronização têm de conter, pelo menos, um ponto final da cloud, que representa uma partilha de ficheiros do Azure. Também têm de conter um ponto final de servidor, que representa um caminho no servidor do Windows no local.

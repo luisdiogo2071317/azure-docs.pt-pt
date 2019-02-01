@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 5c6e699edd05d8ac21a36d3da52f37564c54baf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d246d964fff443e270fbd337fc2f8800bf552730
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513962"
 ---
 | Região | Ponto Final |
 |--------|----------|
@@ -24,4 +24,4 @@ ms.locfileid: "53553545"
 
 
 > [!NOTE]
-> O parâmetro de idioma deve ser anexado ao URL para evitar a receção de um erro de HTTP 401. Por exemplo, é o idioma definido para inglês Americano com o ponto de extremidade do Oeste dos E.U.A.: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US.
+> O parâmetro de idioma deve ser anexado ao URL para evitar a receção de um erro HTTP 4xx. Por exemplo, é o idioma definido para inglês Americano com o ponto de extremidade do Oeste dos E.U.A.: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US.

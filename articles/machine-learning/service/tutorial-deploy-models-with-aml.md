@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 167cc390fb9cc28f4249d168e452825b37902723
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240867"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510430"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem no Azure Container Instances
 
@@ -33,23 +33,18 @@ Nesta parte do tutorial, vai utilizar o serviço Azure Machine Learning para as 
 > * Implemente o modelo para o Container Instances.
 > * Teste o modelo implementado.
 
-Instâncias de contentor não é ideal para implementações de produção, mas é ótimo para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte [como implementar e, em que](how-to-deploy-and-where.md).
-
-## <a name="get-the-notebook"></a>Obter o bloco de notas
-
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Executar o *tutoriais/img-classificação-parte 2-deploy.ipynb* bloco de notas na [blocos de notas do Azure](https://notebooks.azure.com/) ou no seu próprio servidor de bloco de notas do Jupyter.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Instâncias de contentor é uma ótima solução para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte [como implementar e, em que](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.2.
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.8.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+Avance para o [defina o ambiente de desenvolvimento](#start) para ler os passos de bloco de notas.  
 
-Faça o treinamento de modelo no bloco de notas seguinte: [Tutorial (parte 1): Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Para executar o bloco de notas, concluir a preparação de modelos em [Tutorial (parte 1): Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).   Em seguida, execute o **tutoriais/img-classificação-parte 2-deploy.ipynb** bloco de notas com o mesmo servidor de bloco de notas.
 
 
-## <a name="set-up-the-environment"></a>Configurar o ambiente
+## <a name="start"></a>Configurar o ambiente
 
 Comece por configurar um ambiente de teste.
 
@@ -78,13 +73,16 @@ No tutorial anterior, registou um modelo na sua área de trabalho. Agora, esta �
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## <a name="test-the-model-locally"></a>Testar o modelo localmente
@@ -102,10 +100,8 @@ Carregar os dados de teste a partir da **. /data/** diretório criado durante o 
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
 X_test = load_data('./data/test-images.gz', False) / 255.0
 y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
 ```
 
 ### <a name="predict-test-data"></a>Prever os dados de teste
@@ -214,7 +210,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -314,10 +311,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -347,7 +344,6 @@ Também pode enviar um pedido HTTP não processado para testar o serviço web:
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -380,6 +376,8 @@ service.delete()
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ Saiba mais sobre todos os [opções de implementação para o serviço Azure Machine Learning](how-to-deploy-and-where.md). As opções incluem o Azure Container Instances, o serviço Kubernetes do Azure, o FPGAs e o Azure IoT Edge.
-
-+ Veja como o serviço Azure Machine Learning pode autoselect e otimizar o melhor algoritmo para o seu modelo. Ele também cria esse modelo para si. Experimente o [seleção de algoritmo automática](tutorial-auto-train-models.md) tutorial. 
++ Saiba mais sobre todos os [opções de implementação para o serviço Azure Machine Learning](how-to-deploy-and-where.md).
++ Saiba como [criar clientes para o serviço web](how-to-consume-web-service.md).
++  [Fazer previsões sobre grandes quantidades de dados](how-to-run-batch-predictions.md) forma assíncrona.
++ Monitorizar os seus modelos do Azure Machine Learning com [Application Insights](how-to-enable-app-insights.md).
++ Experimente o [seleção de algoritmo automática](tutorial-auto-train-models.md) tutorial. 

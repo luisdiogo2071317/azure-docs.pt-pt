@@ -1,5 +1,5 @@
 ---
-title: 'Ligar os gateways de VPN do Azure para dispositivos VPN baseado em políticas vários locais: O Azure Resource Manager: PowerShell | Documentos da Microsoft'
+title: 'Ligar os gateways de VPN do Azure para dispositivos VPN baseado em políticas vários locais: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Configure um Azure baseado na rota gateway de VPN para múltiplos baseado em políticas dispositivos VPN com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
 ms.openlocfilehash: 4996fa23e28b4ba840cc8c97e167484be08a0573
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199465"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509291"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ligar os gateways de VPN do Azure para vários dispositivos no local e baseada em diretivas VPN com o PowerShell
 
@@ -39,7 +39,7 @@ Atualmente, o Azure oferece suporte a ambos os modos de gateways de VPN: baseado
 
 |                          | **Gateway de PolicyBased VPN** | **Gateway de RouteBased VPN**               |
 | ---                      | ---                         | ---                                      |
-| **SKU de Gateway do Azure**    | Básica                       | Básico, Standard, alto desempenho, VpnGw1, VpnGw2, VpnGw3 |
+| **SKU de Gateway do Azure**    | Básica                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Versão do IKE**          | IKEv1                       | IKEv2                                    |
 | **Máx. Ligações S2S** | **1**                       | Básico/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -147,7 +147,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Tem de criar uma política de IPsec/IKE para ativar a opção "UsePolicyBasedTrafficSelectors" na ligação.
 
 O exemplo seguinte cria uma política de IPsec/IKE com esses algoritmos e parâmetros:
-* IKEv2: DHGroup24 AES256, SHA384,
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, SA duração 3600 segundos & 2048KB
 
 ```azurepowershell-interactive

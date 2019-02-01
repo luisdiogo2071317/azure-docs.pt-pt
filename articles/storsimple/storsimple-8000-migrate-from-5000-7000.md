@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234413"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495858"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados de séries StorSimple 5000 a 7000 para o dispositivo da 8000 série
 
@@ -26,7 +26,7 @@ ms.locfileid: "51234413"
 > - 31 de Julho de 2019 a série StorSimple 5000/7000 chegará ao fim de estado do suporte (término do suporte ao). Recomendamos que os clientes de série StorSimple 5000/7000 migrem para uma das alternativas descritas no documento.
 > - A migração é atualmente uma operação assistida. Se pretende migrar dados do seu dispositivo da série StorSimple 5000 a 7000 para um dispositivo da série 8000, terá de agendar migração Support da Microsoft. Support da Microsoft, em seguida, irá ativar a sua subscrição para a migração. Para obter mais informações, consulte como [abra um pedido de suporte](storsimple-8000-contact-microsoft-support.md).
 > - Depois que o pedido de serviço de ficheiros, poderá demorar algumas semanas para executar o plano de migração e realmente começar a migração.
-> - Antes de contactar o Microsoft Support, ser completa e se esqueça de rever os os [pré-requisitos de migração](#migration-prerequisites) indicado no artigo.
+> - Antes de contactar o Microsoft Support, certifique-se de que reveja e conclua o [pré-requisitos de migração](#migration-prerequisites) indicado no artigo.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -125,7 +125,7 @@ Execute os seguintes passos para instalar a ferramenta de migração do StorSimp
 
     Abra o ficheiro de configuração da ferramenta _StorSimple8000SeriesMigrationTool.exe.config_ na pasta. Eis o trecho do arquivo.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

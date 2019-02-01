@@ -9,20 +9,18 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2c1a03d164462da0bc9143399dbcb1e76302433b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301055"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507897"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
 Existem várias formas de autenticar com um Azure container registry, cada um dos quais é aplicável a um ou mais cenários de utilização do registo.
 
 Pode iniciar sessão para um registo diretamente via [início de sessão individual](#individual-login-with-azure-ad), ou de seus aplicativos e orquestradores de contentor podem efetuar a autenticação automática, ou "sem interface", com um Azure Active Directory (Azure AD) [ principal de serviço](#service-principal).
-
-O registo de contentor do Azure não suporta operações de Docker não autenticadas ou acesso anónimo. Para imagens públicas, pode usar [Docker Hub](https://docs.docker.com/docker-hub/).
 
 ## <a name="individual-login-with-azure-ad"></a>Início de sessão individual com o Azure AD
 

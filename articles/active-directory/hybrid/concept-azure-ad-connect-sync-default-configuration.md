@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 493dc834319d8f5842a7f9f5c4ca568742264df9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed32cbabe5f80e131f467a87378eda8912b9a65e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180471"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496266"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. Ele documenta as regras e como estas regras afetam a configuração. Ele também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende como o modelo de configuração, com o nome aprovisionamento declarativo, está a funcionar num exemplo real. Este artigo pressupõe que já instalou e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.
@@ -219,7 +219,7 @@ A precedência para regras de sincronização é definida em grupos pelo Assiste
 ### <a name="putting-it-all-together"></a>Juntar tudo
 Agora sabemos suficiente sobre regras de sincronização para ser capaz de entender como a configuração funciona com as regras de sincronização diferentes. Se examinar um utilizador e os atributos que são contribuíram para o metaverso, as regras são aplicadas pela seguinte ordem:
 
-| Nome | Comentário |
+| Name | Comentário |
 |:--- |:--- |
 | Do AD – associação do utilizador |Regra para ingressar em objetos de espaço conector com metaverso. |
 | Do AD – UserAccount ativada |Atributos necessários para início de sessão para o Azure AD e o Office 365. Queremos que esses atributos da conta ativada. |

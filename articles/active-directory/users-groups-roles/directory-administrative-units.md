@@ -1,5 +1,5 @@
 ---
-title: Pré-visualização de gestão de unidades administrativas no Azure Active Directory
+title: Gestão de unidades administrativas (pré-visualização) - Azure Active Directory | Documentos da Microsoft
 description: A utilização de unidades administrativas para delegação mais granular de permissões no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/17/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 52b71e557ade54cdefd349b8981100210833185a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181202"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508458"
 ---
-# <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gestão de unidades administrativas no Azure AD - pré-visualização pública
-Este artigo descreve as unidades administrativas – um novo contentor do Azure Active Directory de recursos que pode ser utilizado para delegar permissões administrativas ao longo de subconjuntos de utilizadores e aplicar políticas para um subconjunto de utilizadores. No Azure Active Directory, unidades administrativas permitem que os administradores de centrais para delegar permissões a administradores regionais ou definir a política a um nível granular.
+# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gestão de unidades administrativas no Azure Active Directory (pré-visualização pública)
+
+Este artigo descreve as unidades administrativas – um novo contentor do Azure Active Directory (Azure AD) de recursos que pode ser utilizado para delegar permissões administrativas ao longo de subconjuntos de utilizadores e aplicar políticas para um subconjunto de utilizadores. No Azure Active Directory, unidades administrativas permitem que os administradores de centrais para delegar permissões a administradores regionais ou definir a política a um nível granular.
 
 Isto é útil em organizações com divisões independentes, por exemplo, uma universidade grande que é constituído por muitos autónomas instituições de ensino (Business school, escola de engenharia e assim por diante) que são independentes entre si. Essas divisões tem seus próprios administradores de TI que controlam o acesso, gerir utilizadores e definir políticas especificamente para a respetiva divisão. Os administradores central quer ser capaz de conceder estes divisão permissões dos administradores sobre os utilizadores no respetivos divisões específicos. Mais especificamente, com este exemplo, um administrador central pode, por exemplo, criar uma unidade administrativa para uma escola específica (Business school) e preenchê-lo com apenas os utilizadores da instituição de ensino de negócios. Em seguida, um administrador central pode adicionar a escola de negócios a equipe de TI a uma função de âmbito, em outras palavras, conceda a equipe de TI de permissões administrativas de instituição de ensino comercial apenas sobre a unidade administrativa de instituição de ensino de negócios.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467650"
+ms.locfileid: "55509708"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -401,6 +401,10 @@ Para as dimensões de suporte de métricas, terá de especificar o valor de dime
 Métricas de legado estão disponíveis em paralelo com métricas do Azure Monitor geridos. O suporte mantém o mesmo até que o armazenamento do Azure termina o serviço em métricas de legado.
 
 ## <a name="faq"></a>FAQ
+
+**Novas métricas suporta contas de armazenamento clássicas?**
+
+Não, novas métricas nas contas de armazenamento para o Azure Monitor apenas suporte do Azure Resource Manager. Se pretender utilizar as métricas em contas de armazenamento, terá de migrar para a conta de armazenamento do Azure Resource Manager. Ver [migrar para o Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **O armazenamento do Azure suporta métricas para Managed Disks ou discos não geridos?**
 

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/07/2018
+ms.date: 01/22/2019
 ms.author: dobett
-ms.openlocfilehash: 98dea8d28834f722af13ee21cc075c612eb73f2a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 104be28d1b438dc862b2b8a2effd51be4b9b2bc9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243411"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510923"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Python)
 
@@ -113,7 +113,7 @@ A extensão da CLI do Hub IoT pode ligar ao ponto final de **Eventos** do lado d
 Execute os seguintes comandos no Azure Cloud Shell, ao substituir `YourIoTHubName` pelo nome do hub IoT:
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
+az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
 ```
 
 A seguinte captura de ecrã mostra a saída à medida que a extensão recebe telemetria enviada pelo dispositivo simulado para o hub:
@@ -131,4 +131,4 @@ Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, e
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-python.md)
+> [Quickstart: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-python.md)

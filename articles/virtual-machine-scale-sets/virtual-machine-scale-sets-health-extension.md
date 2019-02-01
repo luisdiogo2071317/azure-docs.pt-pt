@@ -4,7 +4,7 @@ description: Saiba como utilizar a extensão de estado de funcionamento do aplic
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: rajraj
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 404d983474d6d8705838d288aaa280478043be11
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746158"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491387"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Conjuntos de extensão com o dimensionamento de máquinas virtuais com o estado de funcionamento da aplicação
 Monitorizar o estado de funcionamento do aplicativo é um sinal importante para gerenciar e atualizar a sua implementação. Conjuntos de dimensionamento de máquina virtual do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas da imagem do SO](virtual-machine-scale-sets-automatic-upgrade.md), que dependem de monitorização de estado de funcionamento das instâncias individuais para atualizar a sua implementação .
@@ -35,7 +35,7 @@ Este artigo pressupõe que está familiarizado com:
 ## <a name="when-to-use-the-application-health-extension"></a>Quando utilizar a extensão de estado de funcionamento da aplicação
 A extensão de estado de funcionamento da aplicação é implementada no interior de uma instância de conjunto de dimensionamento de máquina virtual e relatórios sobre o estado de funcionamento VM de dentro da instância de conjunto de dimensionamento. Pode configurar a extensão para pesquisa num ponto de extremidade do aplicativo e atualizar o estado do aplicativo nessa instância. Este estado de instância é verificado pelo Azure para determinar se uma instância é elegível para operações de atualização.
 
-Uma vez que a extensão de relatórios de estado de funcionamento de dentro de uma VM, a extensão pode ser usada em situações onde externo as sondas como sondas de estado de funcionamento do aplicativo (que utilizam o Balanceador de carga do Azure personalizadas [sondas](../load-balancer/load-balancer-custom-probe-overview.md)) não pode ser aproveitado.
+Como o extensão relatórios Estado de funcionamento de dentro de uma VM, a extensão pode ser utilizada em situações onde externo as sondas como sondas de estado de funcionamento do aplicativo (que utilizam o Balanceador de carga do Azure personalizadas [sondas](../load-balancer/load-balancer-custom-probe-overview.md)) não pode ser utilizado.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -72,7 +72,7 @@ O JSON seguinte mostra o esquema para a extensão de estado de funcionamento do 
 
 ### <a name="settings"></a>Definições
 
-| Nome | Valor / exemplo | Tipo de Dados
+| Name | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
 | protocolo | `http` ou `tcp` | cadeia |
 | porta | Opcional quando o protocolo é `http`obrigatório quando o protocolo é `tcp` | int |
@@ -83,7 +83,7 @@ Existem várias formas de implementar o estado de funcionamento do aplicativo ex
 
 ### <a name="rest-api"></a>API REST
 
-O exemplo seguinte adiciona a extensão de estado de funcionamento da aplicação (com nome myHealthExtension) para o extensionProfile num modelo de conjunto de dimensionamento de um conjunto de dimensionamento baseados no Windows.
+O exemplo seguinte adiciona a extensão de estado de funcionamento da aplicação (com nome myHealthExtension) para o extensionProfile no modelo de conjunto de dimensionamento de um conjunto de dimensionamento baseados no Windows.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -109,9 +109,9 @@ Utilize `PATCH` para editar uma extensão já implementada.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Utilize o [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) definição de modelo do conjunto de cmdlet para adicionar a extensão de estado de funcionamento da aplicação à escala.
+Utilize o [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) definição de modelo do conjunto de cmdlet para adicionar a extensão de estado de funcionamento da aplicação à escala.
 
-O exemplo seguinte adiciona a extensão do Estado de funcionamento do aplicativo para o `extensionProfile` num conjunto de dimensionamento modelo de um conjunto de dimensionamento baseados no Windows.
+O exemplo seguinte adiciona a extensão do Estado de funcionamento do aplicativo para o `extensionProfile` na escala de definir o modelo de um conjunto de dimensionamento baseados no Windows. O exemplo utiliza o novo módulo do PowerShell de Az.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -125,12 +125,12 @@ $extensionType = "ApplicationHealthWindows"
 $publisher = "Microsoft.ManagedServices"
 
 # Get the scale set object
-$vmScaleSet = Get-AzureRmVmss `
+$vmScaleSet = Get-AzVmss `
   -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName
 
 # Add the Application Health extension to the scale set model
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -Name $extensionName `
   -Publisher $publisher `
   -Setting $publicConfig `
@@ -139,10 +139,12 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -AutoUpgradeMinorVersion $True
 
 # Update the scale set
-Update-AzureRmVmss -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
 ```
+
+
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
 Uso [conjunto de extensão az vmss](/cli/azure/vmss/extension#az-vmss-extension-set) para adicionar a extensão de estado de funcionamento do aplicativo para o conjunto de dimensionamento da definição do modelo.

@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7be6570d61bc3697bec143478404d32123b4f8d2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d2ca54b279509011a1f93269d236c556c827b4f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184228"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485535"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do cópias de sombra de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma maneira no Azure AD, como estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente daquelas que o Azure AD Connect sincroniza.
@@ -37,7 +37,7 @@ Têm vários sufixos UPN no seu Active Directory no local, mas apenas tem verifi
 ### <a name="userprincipalname"></a>userPrincipalName
 Um utilizador tem os seguintes valores de atributo num domínio não verificado:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | userPrincipalName no local | lee.sperry@fabrikam.com |
 | O Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -52,7 +52,7 @@ O mesmo processo para apenas, incluindo domínios verificados também ocorre par
 
 Para um utilizador de caixa de correio, no local ou no Exchange Online, são apresentados apenas os valores para domínios verificados. Ele pode ter um aspeto semelhante a esta:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | proxyAddresses no local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | ProxyAddresses Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1098622ad96ccdcd1941466c6e32255b4415820
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251661"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508016"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -103,6 +103,9 @@ output_data1 = PipelineData(
 ## <a name="set-up-compute-target"></a>Configurar o destino de computação
 
 No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam os passos de computacionais no seu pipeline de machine learning.   Ver [destinos de computação para a preparação de modelos](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e de como criar e anexe-os a sua área de trabalho.  O processo para criar e ou anexar um destino de computação é o mesmo, independentemente se estiver a preparar um modelo ou a executar um passo de pipeline. Depois de criar e anexar o destino de computação, utilize o `ComputeTarget` objeto em seu [passo pipeline](#steps).
+
+> [!IMPORTANT]
+> Realizar operações de gestão nos destinos de computação não é suportado de conteúdo remoto de tarefas. Uma vez que os pipelines de aprendizagem são submetidas como uma tarefa remota, não utilize operações de gestão de destinos de computação de dentro do pipeline.
 
 Seguem-se exemplos de criação e anexar destinos de computação para:
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: jdial
-ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054763"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488099"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -61,22 +61,23 @@ Os endereços IP públicos são criados com um dos SKUs seguintes:
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. Com a introdução de SKUs, tem a opção de especificar que SKU pretende que o endereço IP público seja. Os endereços de SKU Básico:
 
 - São atribuídos com o método de alocação estático ou dinâmico.
+- Ter um fluxo de originado pela entrada ajustável tempo limite de 4 a 30 minutos, com uma predefinição de 4 minutos e o tempo limite de inatividade fluxo originado pela saída fixo de 4 minutos de inatividade.
 - Estão abertos por predefinição.  Os grupos de segurança de rede são recomendados, mas opcionais para restringir o tráfego de entrada ou de saída.
 - São atribuídos a qualquer recurso do Azure ao qual possa ser atribuído um endereço IP público, como interfaces de rede, Gateways de VPN, Gateways de Aplicação e Balanceadores de carga com acesso à Internet.
-- Podem ser atribuídos a uma zona específica.
-- Não têm redundância de zona. Para saber mais sobre as zonas de disponibilidade, veja [Descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Não suportam cenários de zona de disponibilidade.  Tem de utilizar o IP público de SKU padrão para cenários de zona de disponibilidade. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### <a name="standard"></a>Standard
 
 Os endereços IP de SKU Standard:
 
-- São atribuídos apenas com o método de alocação estático.
+- Utilize sempre o método de alocação estático.
+- Ter um ajustável entrada originados e de saída orginated fluxo tempo limite de inatividade de 66 de 4 minutos, com uma predefinição de 4 minutos.
 - São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- Atribuídos a interfaces de rede, balanceadores de carga standard público, Gateways de aplicação ou Gateways de VPN. Para obter mais informações sobre os balanceadores de carga standard do Azure, veja [Balanceador de carga standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Têm redundância de zona por predefinição. Podem ser criados zonais e garantidos numa zona de disponibilidade específica. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Atribuídos a interfaces de rede, balanceadores de carga Standard público, Gateways de aplicação ou Gateways de VPN. Para obter mais informações sobre o Balanceador de carga Standard, veja [Balanceador de carga Standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Zona redundante por predefinição e, opcionalmente, zonal (podem ser criados zonais e garantidos numa zona de disponibilidade específico). Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> A comunicação com o recurso de SKU standard falha até criar e associar um [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada pretendido.
+> Falha de comunicação de entrada com um recurso de SKU padrão até que crie e associe uma [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada desejado.
 
 ### <a name="allocation-method"></a>Método de alocação
 

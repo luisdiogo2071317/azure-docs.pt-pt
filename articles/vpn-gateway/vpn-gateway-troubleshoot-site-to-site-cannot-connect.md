@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967849"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507305"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma conexão de VPN de site a site do Azure não é possível ligar e deixa de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação de VPN de site a site do Azure não é possível ligar e deixa de funcionar
 
 Depois de configurar uma ligação de VPN de site a site entre uma rede no local e uma rede virtual do Azure, a ligação VPN, de repente, deixa de funcionar e não pode ser novamente. Este artigo fornece passos de resolução de problemas para o ajudar a resolver este problema. 
 
@@ -100,7 +100,7 @@ Verificar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de
 2. Clique no aviso de certificado.
 3. Se receber uma resposta, o gateway de VPN é considerado em bom estado. Se não receber uma resposta, o gateway não pode ser bom estado de funcionamento ou um NSG da sub-rede de gateway está a causar o problema. O texto seguinte é uma resposta de exemplo:
 
-    &lt;? versão xml = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">instância primária: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / a cadeia de caracteres&gt;
+    &lt;? versão xml = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">instância principal: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / a cadeia de caracteres&gt;
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passo 8. Verifique se o dispositivo VPN no local tem a funcionalidade de secrecy encaminhamento perfeito ativada
 

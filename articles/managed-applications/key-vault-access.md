@@ -3,23 +3,24 @@ title: Utilizar o Cofre de chaves do Azure com aplicações geridas | Documentos
 description: Mostra como utilizar o acesso aos segredos no Azure Key Vault ao implementar aplicações geridas
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725017"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492682"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segredo do Key Vault acesso ao implementar aplicações geridas do Azure
 
-Quando precisar passar um valor seguro (como uma palavra-passe) como um parâmetro durante a implementação, pode recuperar o valor de uma [do Azure Key Vault](../key-vault/key-vault-whatis.md). Para aceder ao Cofre de chave ao implementar aplicações geridas, tem de conceder acesso para o **fornecedor de recursos da aplicação** principal de serviço. Este artigo descreve como configurar o Cofre de chaves para trabalhar com aplicações geridas.
+Quando precisar passar um valor seguro (como uma palavra-passe) como um parâmetro durante a implementação, pode recuperar o valor de uma [do Azure Key Vault](../key-vault/key-vault-whatis.md). Para aceder ao Cofre de chave ao implementar aplicações geridas, tem de conceder acesso para o **fornecedor de recursos da aplicação** principal de serviço. O serviço de aplicações geridas utiliza esta identidade para executar operações. Para recuperar com êxito um valor de um cofre de chaves durante a implementação, o principal de serviço tem de ser capaz de aceder ao Cofre de chave.
+
+Este artigo descreve como configurar o Cofre de chaves para trabalhar com aplicações geridas.
 
 ## <a name="enable-template-deployment"></a>Ativar a implementação do modelo
 

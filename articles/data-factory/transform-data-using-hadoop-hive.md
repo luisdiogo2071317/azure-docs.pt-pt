@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321340"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491013"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade de Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
@@ -67,7 +67,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
 | argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
 | Define             | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       |
-| queryTimeout        | Consultar o valor de tempo limite (em minutos).  Aplicável quando o cluster do HDInsight é com o Enterprise Security Package ativada. | Não       |
+| queryTimeout        | Consultar o valor de tempo limite (em minutos). Aplicável quando o cluster do HDInsight é com o Enterprise Security Package ativada. | Não       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras formas: 
@@ -80,4 +80,3 @@ Consulte os seguintes artigos que explicam como transformar dados de outras form
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de execução de lotes de Aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)
-

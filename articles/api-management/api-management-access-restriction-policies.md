@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 39f23cd0b0b6081d8e54524a0eedc9cce1fd4571
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095724"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493462"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -56,14 +56,14 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |check-header|Elemento raiz.|Sim|  
 |valor|Valor de cabeçalho HTTP permitido. Quando forem especificados vários elementos de valor, a verificação é considerada um sucesso se qualquer um dos valores uma correspondência.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Mensagem de erro a devolver no corpo da resposta HTTP, se o cabeçalho não existe ou tem um valor inválido. Esta mensagem tem de ter carateres especiais escritos corretamente.|Sim|N/A|  
 |failed-check-httpcode|Código de estado HTTP a devolver se o cabeçalho não existe ou tem um valor inválido.|Sim|N/A|  
@@ -111,7 +111,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento raiz.|Sim|  
 |api|Adicione um ou mais destes elementos para impor um limite de taxa de chamada com as APIs do produto. Produto e a API de limites são aplicados de forma independente de taxa de chamadas. API pode ser referenciada através de `name` ou `id`. Se os dois atributos são fornecidos, `id` será utilizado e `name` serão ignoradas.|Não|  
@@ -119,7 +119,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |nome|O nome da API para o qual pretende aplicar o limite de taxa.|Sim|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/A|  
@@ -171,13 +171,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/A|  
 |counter-key|A chave a utilizar para a política de limite de taxa.|Sim|N/A|  
@@ -214,7 +214,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |ip-filter|Elemento raiz.|Sim|  
 |Endereço|Especifica um endereço IP único no qual pretende filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
@@ -222,7 +222,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |intervalo de endereços de = "endereço" para "endereço" de =|Um intervalo de endereços IP para permitir ou negar o acesso de.|É necessário quando o `address-range` elemento é usado.|N/A|  
 |ip-filter action="allow &#124; forbid"|Especifica se devem ser permitidas chamadas ou não para os intervalos e endereços IP especificados.|Sim|N/A|  
@@ -267,7 +267,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|Sim|  
 |api|Adicione um ou mais destes elementos para impor a quota de chamadas com as APIs do produto. Produtos e quotas de chamada de API são aplicadas de forma independente. API pode ser referenciada através de `name` ou `id`. Se os dois atributos são fornecidos, `id` será utilizado e `name` serão ignoradas.|Não|  
@@ -275,7 +275,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |nome|O nome da API ou operação para os quais se aplica a quota.|Sim|N/A|  
 |Largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
@@ -329,13 +329,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Name|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |Largura de banda|O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/A|  
@@ -504,7 +504,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |defasagem|Período de tempo. Utilize para especificar a diferença de tempo esperado máximo entre os relógios de sistema do emissor de tokens e a instância de gestão de API.|Não|0 segundos|  
 |failed-validation-error-message|Mensagem de erro a devolver no corpo da resposta HTTP, se o JWT não passar na validação. Esta mensagem tem de ter carateres especiais escritos corretamente.|Não|Mensagem de erro padrão depende do problema de validação, por exemplo "JWT não está presente."|  
@@ -512,7 +512,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |header-name|O nome do cabeçalho HTTP que contém o token.|Seja `header-name` ou `query-parameter-name` tem de ser especificado; mas não ambos.|N/A|  
 |ID|O `id` atributo a `key` elemento permite-lhe especificar a cadeia de caracteres que serão matched relativamente a `kid` afirmações no token (caso exista) obter informações sobre a chave adequada a utilizar para a validação de assinatura.|Não|N/A|  
 |Correspondência|O `match` atributo o `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para a validação com êxito. Os valores possíveis são:<br /><br /> -                          `all` -todos os valores de afirmação na política tem de estar presente no token para a validação com êxito.<br /><br /> -                          `any` -pelo menos uma declaração valor tem de estar presente no token para a validação com êxito.|Não|all|  
-|query-paremeter-name|O nome do parâmetro de consulta que contém o token.|Seja `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/A|  
+|query-parameter-name|O nome do parâmetro de consulta que contém o token.|Seja `header-name` ou `query-parameter-name` tem de ser especificado; mas não ambos.|N/A|  
 |require-expiration-time|Valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
 |require-scheme|O nome do token de esquema, por exemplo "Bearer". Quando este atributo estiver definido, a política irá garantir que o esquema especificado está presente no valor de cabeçalho de autorização.|Não|N/A|
 |require-signed-tokens|Valor booleano. Especifica se um token é necessário ter sessão iniciada.|Não|true|  

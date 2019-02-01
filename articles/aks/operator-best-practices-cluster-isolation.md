@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495008"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Melhores práticas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -43,6 +43,8 @@ Com o isolamento lógico, um único cluster AKS pode ser utilizado para várias 
 ![Isolamento lógico de um cluster de Kubernetes no AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 A separação lógica dos clusters, normalmente, fornece uma maior densidade de pod de clusters fisicamente isolados. Há menos excesso de capacidade de computação encontra-se inativo no cluster. Quando combinado com o dimensionamento automático de cluster de Kubernetes, pode aumentar o número de nós de cópia de segurança ou para baixo para atender demandas. Esta abordagem recomendada para dimensionamento automático permite-lhe executar apenas o número de nós necessários e minimiza os custos.
+
+Ambientes do Kubernetes no AKS ou noutro local, não são totalmente seguros para utilização multi-inquilinos hostil. Funcionalidades de segurança adicional, como *política de segurança de Pod* e mais controlos de acesso detalhado baseada em funções (RBAC) para nós tornam as explorações mais difíceis. No entanto, para segurança verdadeira quando executar cargas de trabalho de multi-inquilinos hostis, um hipervisor é o único nível de segurança que deve confiar. O domínio de segurança para Kubernetes torna-se a todo o cluster, não é um nó individual. Para estes tipos de cargas de trabalho de multi-inquilinos hostis, deve usar clusters fisicamente isolados.
 
 ## <a name="physically-isolate-clusters"></a>Isolar fisicamente clusters
 

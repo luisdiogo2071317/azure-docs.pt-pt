@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cd14f2bdc394cb0887d318457dcf9295e216eb7b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244280"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489500"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -43,18 +43,64 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-> * [Executar o tutorial de preparação de dados](tutorial-data-prep.md).
-> * Uma aprendizagem automatizada configurado o ambiente. Os exemplos são [blocos de notas do Azure](https://notebooks.azure.com/), um ambiente de Python local ou uma máquina de Virtual de ciência de dados. [Configurar a aprendizagem automática](samples-notebooks.md).
+Avance para o [configurar o ambiente de desenvolvimento](#start) para ler os passos de bloco de notas ou utilize as instruções abaixo para obter o bloco de notas e executá-lo em blocos de notas do Azure ou no seu próprio servidor de bloco de notas. Para executar o bloco de notas, terá de:
 
-## <a name="get-the-notebook"></a>Obter o bloco de notas
+* [Executar o tutorial de preparação de dados](tutorial-data-prep.md).
+* Um servidor de bloco de notas do Python 3.6 com o seguinte instalado:
+    * O Azure Machine Learning SDK para Python com `automl` e `notebooks` extras
+    * `matplotlib`
+* O bloco de notas do tutorial
+* Uma área de trabalho do machine learning
+* O ficheiro de configuração para a área de trabalho no mesmo diretório como o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Executar o `regression-part2-automated-ml.ipynb` bloco de notas na [blocos de notas do Azure](https://notebooks.azure.com/) ou no seu próprio servidor de bloco de notas do Jupyter.
+Obter todos os estes pré-requisitos a partir de qualquer uma das seções abaixo.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* Utilize [blocos de notas do Azure](#azure)
+* Utilize [seu próprio servidor de bloco de notas](#server)
 
-## <a name="import-packages"></a>Importar pacotes
+### <a name="azure"></a>Utilize blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
+
+É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
+
+Depois de concluir os passos abaixo, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas no seu **introdução** projeto.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>Utilizar o seu próprio servidor de bloco de notas do Jupyter
+
+Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador.  Depois de concluir os passos, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas.
+
+1. Concluir o [guia de início rápido do Azure Machine Learning Python](quickstart-create-workspace-with-python.md) para criar um ambiente de Miniconda e criar uma área de trabalho.
+1. Instalar o `automl` e `notebooks` extras no seu ambiente utilizando `pip install azureml-sdk[automl,notebooks]`.
+1. Instale `maplotlib` usando `pip install maplotlib`.
+1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. Inicie o servidor de blocos de notas a partir do diretório clonado.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 Importe os pacotes de Python que tem neste tutorial:
-
 
 ```python
 import azureml.core
@@ -66,13 +112,7 @@ import logging
 import os
 ```
 
-Se estiver a seguir o tutorial em seu próprio ambiente de Python, utilize o seguinte para instalar pacotes necessários.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>Configurar a área de trabalho
+### <a name="configure-workspace"></a>Configurar a área de trabalho
 
 Crie um objeto de área de trabalho a partir da área de trabalho existente. A `Workspace` é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo.
 

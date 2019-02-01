@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: e19d8b1b6eb06f78908238969a4f6e90e42bb564
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6015d226bce578661816bd0f934f7818746b4c3b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507761"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -184,8 +184,12 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
     | **Tipos de evento** | Criado pelo Blob | Desmarque todos os tipos diferentes de **Criado pelo Blob**. Apenas os tipos de evento de `Microsoft.Storage.BlobCreated` são transmitidos à função.| 
     | **Tipo de subscritor** |  gerado automaticamente |  Previamente definido como Webhook. |
     | **Ponto final do subscritor** | gerado automaticamente | Utilize o URL de ponto final gerado. | 
-4. *Opcional:* Caso seja necessário criar contentores adicionais no mesmo armazenamento de BLOBs para outros fins no futuro, pode usar **filtragem do requerente** recursos no **filtros** separador mais granular de blob eventos para garantir que a aplicação de função denomina-se apenas quando os blobs são adicionados à **imagens** contentor especificamente. 
-5. Clique em **Criar** para adicionar a subscrição de evento. Esta ação cria uma subscrição de evento que aciona `Thumbnail` funcionar quando é adicionado um blob para o *imagens* contentor. A função redimensiona as imagens e adiciona-as ao contentor de *miniaturas*.
+4. Mude para o **filtro** separador e fazer as seguintes ações:     
+    1. Selecione **assunto Ativar filtragem** opção.
+    2. Para **assunto começa com**, introduza o seguinte valor: **/blobServices/predefinido/contentores/imagens/blobs/**.
+
+        ![Especifique o filtro para a subscrição de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
+2. Selecione **criar** para adicionar a subscrição de evento. Esta ação cria uma subscrição de evento que aciona `Thumbnail` funcionar quando é adicionado um blob para o `images` contentor. A função redimensiona as imagens e adiciona-os para o `thumbnails` contentor.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento de imagens na aplicação Web de exemplo. 
 

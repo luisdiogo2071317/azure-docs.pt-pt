@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076534"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498102"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -46,6 +46,8 @@ O resto deste guia descreve as áreas a considerar quando planear desenvolver no
 * Certifique-se de que as propriedades de recursos específicos estão disponíveis as nuvens de destino.
 
 Para obter uma introdução aos modelos do Azure Resource Manager, consulte [implementação do modelo](resource-group-overview.md#template-deployment).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="ensure-template-functions-work"></a>Certifique-se de que as funções de modelo de trabalho
 

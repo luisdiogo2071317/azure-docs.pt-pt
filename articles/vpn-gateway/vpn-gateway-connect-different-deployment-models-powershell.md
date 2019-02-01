@@ -1,5 +1,5 @@
 ---
-title: 'Ligar redes virtuais clássicas a VNets do Resource Manager do Azure: PowerShell | Documentos da Microsoft'
+title: 'Ligar redes virtuais clássicas a VNets do Resource Manager do Azure: PowerShell | Microsoft Docs'
 description: Crie uma ligação VPN entre VNets clássicas e do VNets do Resource Manager com o Gateway de VPN e o PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509326"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell
 
@@ -47,7 +47,7 @@ Pode utilizar estes valores para criar um ambiente de teste ou consultá-los par
 Nome da VNet = ClassicVNet <br>
 Localização = E.U.A. oeste <br>
 Espaços de endereços de rede virtual = 10.0.0.0/24 <br>
-Sub-rede-1 = 10.0.0.0/27 <br>
+Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Nome de rede local = RMVNetLocal <br>
 GatewayType = DynamicRouting

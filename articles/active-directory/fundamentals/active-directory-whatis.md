@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450222"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491744"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory? 
 Azure Active Directory (Azure AD) é baseado na nuvem acesso e identidade do serviço de gestão da Microsoft. O Azure AD ajuda os funcionários de iniciar sessão e aceder a recursos no:
@@ -72,7 +72,7 @@ Para compreender melhor do Azure AD e a documentação, deve rever os termos seg
 |Administrador global do Azure AD|Esta função de administrador é automaticamente atribuído a quem criou o inquilino do Azure AD. Os administradores globais podem efetuar todas as funções administrativas para o Azure AD e todos os serviços que federar com o Azure AD, como o Exchange Online, SharePoint Online e Skype para empresas Online. Pode ter vários administradores globais, mas apenas os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos utilizadores.<br><br>**Nota**<br>Esta função de administrador é chamada de Administrador Global no portal do Azure, mas ele é chamado **administrador da empresa** no Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell.<br><br>Para obter mais informações sobre as várias funções de administrador, consulte [permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Conta Microsoft (também denominada, MSA)|Contas pessoais que fornecem acesso a seus produtos da Microsoft orientados ao consumidor e serviços em nuvem, como o Outlook, OneDrive, Xbox LIVE ou do Office 365. Sua conta Microsoft é criada e armazenada no sistema de contas de identidades de consumidor de Microsoft que é executado pela Microsoft.|
 
-## <a name="what-features-work-in-azure-ad"></a>Quais recursos de trabalho no Azure AD?
+## <a name="which-features-work-in-azure-ad"></a>Quais recursos de trabalho no Azure AD?
 Depois de escolher sua licença do Azure AD, obterá acesso a alguns ou todos os recursos seguintes para a sua organização:
 
 |Categoria|Descrição|

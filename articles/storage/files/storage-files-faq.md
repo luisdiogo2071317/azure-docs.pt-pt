@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 273039ec271d5d81329ab475ffd2eda82dca7b58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457025"
+ms.locfileid: "55511009"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -104,7 +104,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="afs-storage-redundancy"></a>
 **Armazenamento georredundante é suportado para o Azure File Sync?**  
-    Sim, os ficheiros do Azure suporta o armazenamento localmente redundante (LRS) e o armazenamento georredundante (GRS). Se ocorrer um failover GRS entre regiões emparelhadas, recomendamos que tratar a nova região como uma cópia de segurança de dados apenas. O Azure File Sync não começa automaticamente a sincronizar com a nova região primária. 
+    Sim, os ficheiros do Azure suporta o armazenamento localmente redundante (LRS) e o armazenamento georredundante (GRS). Se iniciar um failover de conta de armazenamento entre regiões emparelhadas de uma conta configurada para o GRS, a Microsoft recomenda que tratar a nova região como uma cópia de segurança de dados apenas. O Azure File Sync não começa automaticamente a sincronizar com a nova região primária. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Por que não a *tamanho no disco* propriedade uma correspondência de ficheiro para o *tamanho* propriedade depois de utilizar o Azure File Sync?**  
@@ -116,7 +116,6 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="afs-recall-file"></a>**Um ficheiro que pretende utilizar tem sido em camadas. Como posso recuperar o arquivo em disco para utilizá-lo localmente?**  
  Ver [compreensão em camada de Cloud](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Como posso forçar um ficheiro ou diretório para ser colocado em camadas?**  
@@ -149,7 +148,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Por que os ficheiros em camadas existem fora do espaço de nomes de ponto final de servidor?**  
-    Antes da versão do agente do Azure File Sync 3, o Azure File Sync bloqueado a movimentação de ficheiros em camadas fora o ponto final do servidor, mas no mesmo volume que o ponto final do servidor. Operações de cópia, move de ficheiros em camadas não e se move de camadas para outros volumes foram afetados. O motivo para esse comportamento foi a pressuposição implícita Explorador de ficheiros e outras APIs do Windows com o que mover as operações no mesmo volume (quase) são instanenous mudar o nome de operações. Isso significa que move tornará o Explorador de ficheiros ou outros métodos de mudança (como linha de comandos ou PowerShell) pareça estar sem resposta enquanto o Azure File Sync solicitar os dados da cloud. A partir [versão do agente do Azure File Sync 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync permite-lhe mover um ficheiro em camadas fora o ponto final do servidor. Podemos evitar os efeitos negativos mencionados anteriormente, permitindo que o ficheiro em camadas para existir como um ficheiro em camadas fora o ponto final do servidor e, em seguida, recupera um arquivo em segundo plano. Isso significa que move no mesmo volume são instaneous, e podemos fazer todo o trabalho de recuperar o ficheiro no disco após a migração foi concluída. 
+    Antes da versão do agente do Azure File Sync 3, o Azure File Sync bloqueado a movimentação de ficheiros em camadas fora o ponto final do servidor, mas no mesmo volume que o ponto final do servidor. Operações de cópia, move de ficheiros em camadas não e se move de camadas para outros volumes foram afetados. O motivo para esse comportamento foi a pressuposição implícita que Explorador de ficheiros e outras APIs do Windows têm que operações de movimentação no mesmo volume são (quase) instantâneas mudar o nome de operações. Isso significa que move tornará o Explorador de ficheiros ou outros métodos de mudança (como linha de comandos ou PowerShell) pareça estar sem resposta enquanto o Azure File Sync solicitar os dados da cloud. A partir [versão do agente do Azure File Sync 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync permite-lhe mover um ficheiro em camadas fora o ponto final do servidor. Podemos evitar os efeitos negativos mencionados anteriormente, permitindo que o ficheiro em camadas para existir como um ficheiro em camadas fora o ponto final do servidor e, em seguida, recupera um arquivo em segundo plano. Isso significa que move no mesmo volume são instantânea, e podemos fazer todo o trabalho de recuperar o ficheiro no disco após a migração foi concluída. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Estou a ter um problema com o Azure File Sync em meu servidor (sincronização, na cloud a disposição em camadas, etc). Posso remover e recriar o ponto final do meu servidor?**  
@@ -202,7 +201,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="ad-vm-subscription"></a>
 **Posso aceder a ficheiros do Azure com credenciais do Azure AD a partir de uma VM numa subscrição diferente?**
 
-    Se a subscrição sob a qual a partilha de ficheiros é implementada está associada com o mesmo inquilino do Azure AD como o recurso do Azure AD Domain Services para que a VM está associado a um domínio, em seguida, em seguida, pode aceder a ficheiros do Azure com as mesmas credenciais do Azure AD. A limitação é imposta não na subscrição, mas no Azure AD associado de inquilino.    
+    Se a subscrição sob a qual a partilha de ficheiros é implementada está associada com o mesmo inquilino do Azure AD como a implementação do Azure AD Domain Services para que a VM está associado a um domínio, em seguida, em seguida, pode aceder a ficheiros do Azure com as mesmas credenciais do Azure AD. A limitação é imposta não na subscrição, mas no Azure AD associado de inquilino.    
     
 * <a id="ad-support-subscription"></a>
 **Posso ativar a autenticação do Azure AD através de SMB para ficheiros do Azure com um inquilino do Azure AD que é diferente do inquilino principal, à qual a partilha de ficheiros está associada?**

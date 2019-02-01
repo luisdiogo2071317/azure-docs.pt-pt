@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444620"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493467"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
 
@@ -59,13 +59,13 @@ No primeiro exemplo de configuração todas as suas APIs são geridas apenas a p
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>O que é necessário para criar uma integração entre a gestão de API e o Gateway de aplicação?
 
-* **Agrupamento de servidores de back-end:** este é o endereço IP virtual interno do serviço de gestão de API.
-* **Definições do conjunto de servidores de back-end:** cada conjunto tem definições como a porta, o protocolo e a afinidade com base em cookies. Estas definições são aplicadas a todos os servidores dentro do conjunto.
-* **Porta de front-end:** é a porta pública aberta no gateway de aplicação. Tráfego-lo é redirecionado para um dos servidores de back-end.
-* **Serviço de escuta:** o serviço de escuta tem uma porta de front-end, um protocolo (Http ou Https; estes valores são sensíveis às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
-* **Regra:** a regra vincula um serviço de escuta a um agrupamento de servidores de back-end.
-* **Sonda de estado de funcionamento personalizada:** Gateway de aplicação, por predefinição, utiliza sondas de baseada em endereço IP para saber quais os servidores no BackendAddressPool são Active Directory. A gestão de API do serviço responde apenas às solicitações com o cabeçalho de anfitrião correto, pelo que as sondas de predefinição falharem. Uma sonda de estado de funcionamento personalizado deve ser definido para o ajudar a determinar que o serviço está ativo e deve encaminhar os pedidos de gateway de aplicação.
-* **Certificados de domínio personalizado:** para aceder a gestão de API a partir da internet, tem de criar um mapeamento CNAME do respetivo nome de anfitrião para o nome DNS de front-end do Gateway de aplicação. Isto garante que o cabeçalho de nome de anfitrião e o certificado enviado para o Gateway de aplicação é encaminhada para a gestão de API é uma APIM pode reconhecer como válido. Neste exemplo, utilizamos dois certificados - para o back-end e para o portal do programador.  
+* **Agrupamento de servidores de back-end:** Este é o endereço IP virtual interno do serviço de gestão de API.
+* **Definições de agrupamento de servidores de back-end:** Cada conjunto tem definições como a porta, protocolo e a afinidade com base no cookie. Estas definições são aplicadas a todos os servidores dentro do conjunto.
+* **Porta de front-end:** Esta é a porta pública aberta no gateway de aplicação. Tráfego-lo é redirecionado para um dos servidores de back-end.
+* **Serviço de escuta:** O serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https; estes valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se configurar o SSL de descarga).
+* **Regra:** A regra vincula um serviço de escuta a um agrupamento de servidores de back-end.
+* **Sonda de estado de funcionamento personalizados:** Gateway de aplicação, por predefinição, utiliza sondas de baseada em endereço IP para descobrir quais os servidores no BackendAddressPool estão ativos. A gestão de API do serviço responde apenas às solicitações com o cabeçalho de anfitrião correto, pelo que as sondas de predefinição falharem. Uma sonda de estado de funcionamento personalizado deve ser definido para o ajudar a determinar que o serviço está ativo e deve encaminhar os pedidos de gateway de aplicação.
+* **Certificados de domínio personalizado:** Para aceder a gestão de API a partir da internet, terá de criar um mapeamento CNAME do respetivo nome de anfitrião para o nome DNS de front-end do Gateway de aplicação. Isto garante que o cabeçalho de nome de anfitrião e o certificado enviado para o Gateway de aplicação é encaminhada para a gestão de API é uma APIM pode reconhecer como válido. Neste exemplo, utilizamos dois certificados - para o back-end e para o portal do programador.  
 
 ## <a name="overview-steps"> </a> Passos necessários para integrar a gestão de API e o Gateway de aplicação
 
@@ -82,7 +82,7 @@ No primeiro exemplo de configuração todas as suas APIs são geridas apenas a p
 Neste guia, também expõe os **portal do programador** a públicos externos através do Gateway de aplicação. Requer passos adicionais para criar o serviço de escuta do portal do programador, pesquisa, definições e regras. Todos os detalhes são fornecidos nos respetivos passos.
 
 > [!WARNING]
-> Na configuração do portal do programador que está sendo acessado por meio do Gateway de aplicação descrita, poderá ter problemas com a autenticação do AAD e de terceiros.
+> Se utilizar o Azure AD ou autenticação de terceiros, ative [afinidade de sessão baseada em cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) recurso do Gateway de aplicação.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
 

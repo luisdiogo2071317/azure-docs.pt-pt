@@ -1,29 +1,29 @@
 ---
-title: Replicação de dados no armazenamento do Azure | Documentos da Microsoft
-description: Dados da sua conta de armazenamento do Microsoft Azure são replicados para durabilidade e elevada disponibilidade. Opções de replicação incluem armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento georredundante (GRS) e o armazenamento georredundante com acesso de leitura (RA-GRS).
+title: Redundância de dados no armazenamento do Azure | Documentos da Microsoft
+description: Dados da sua conta de armazenamento do Microsoft Azure são replicados para durabilidade e elevada disponibilidade. Opções de redundância incluem armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento georredundante (GRS) e o armazenamento georredundante com acesso de leitura (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455512"
+ms.locfileid: "55506792"
 ---
-# <a name="azure-storage-replication"></a>Replicação do Storage do Azure
+# <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
-Os dados na sua conta de armazenamento do Microsoft Azure são sempre replicados para garantir a durabilidade e a elevada disponibilidade. Replicação de armazenamento do Azure copia os dados para que ele está protegido contra eventos planeados e imprevistos, desde a falhas transitórias de hardware, rede ou falhas de energia, enormes desastres naturais e assim por diante. Pode optar por replicar os seus dados no mesmo centro de dados, em centros de dados zonal dentro da mesma região e até mesmo entre regiões.
+Os dados na sua conta de armazenamento do Microsoft Azure são sempre replicados para garantir a durabilidade e a elevada disponibilidade. O armazenamento do Azure copia os dados para que ele está protegido contra eventos planeados e imprevistos, incluindo falhas de hardware transitórias, rede ou falhas de energia e enormes desastres naturais. Pode optar por replicar os seus dados no mesmo centro de dados, em centros de dados zonal dentro da mesma região ou em várias regiões geograficamente dispersas.
 
 A replicação garante que a sua conta de armazenamento cumpre o [Contrato de Nível de Serviço (SLA) para o Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo em caso de falhas. Leia o SLA para obter mais informações sobre as garantias do Armazenamento do Azure quanto à durabilidade e à disponibilidade.
 
-## <a name="choosing-a-replication-option"></a>Escolher uma opção de replicação
+## <a name="choosing-a-redundancy-option"></a>Escolher uma opção de redundância
 
-Quando cria uma conta de armazenamento, tem de selecionar uma das seguintes opções de replicação:
+Quando cria uma conta de armazenamento, pode selecionar uma das seguintes opções de redundância:
 
 * [Armazenamento localmente redundante (LRS)](storage-redundancy-lrs.md)
 * [Armazenamento com redundância entre zonas (ZRS)](storage-redundancy-zrs.md)

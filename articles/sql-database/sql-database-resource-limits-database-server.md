@@ -3,7 +3,7 @@ title: Limites de recursos de servidor de base de dados SQL do Azure | Documento
 description: Este artigo fornece uma descrição geral do servidor de base de dados do Azure SQL limites de recursos para conjuntos elásticos e bases de dados individuais. Ele também fornece informações sobre o que acontece quando esses limites de recursos são atingidos ou excedidos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
 ms.date: 11/13/2018
-ms.openlocfilehash: 57ff6025cd60d786931177f8bc0cc22e9baa60e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f2e71736d25003e6b4e9640a5f82dd1d92b0d95
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479265"
+ms.locfileid: "55508305"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 

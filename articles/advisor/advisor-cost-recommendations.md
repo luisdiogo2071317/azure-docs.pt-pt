@@ -1,29 +1,26 @@
 ---
-title: Recomendações de custos do Assistente do Azure | Documentos da Microsoft
+title: Reduzir os custos de serviço utilizando o Assistente do Azure | Documentos da Microsoft
 description: Utilize o Assistente do Azure para otimizar o custo das suas implementações do Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c76c7bdb398184cc297831c9395063e7bf0f6bdc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832892"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492543"
 ---
-# <a name="advisor-cost-recommendations"></a>Recomendações de custos do Assistente
+# <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Assistente do Azure
 
 O assistente o ajuda a otimizar e reduzir sua gerais com o Azure gasta ao identificar recursos subutilizados e inativos. Pode obter custar recomendações do **custo** separador no dashboard do Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar a máquina virtual passar por redimensionamento ou encerrar subutilizadas instâncias 
+
 Embora determinados cenários de aplicação podem resultar numa utilização reduzida por design, pode poupar dinheiro várias vezes ao gerir o tamanho e número de máquinas virtuais. O assistente monitoriza a utilização da máquina virtual durante 14 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Máquinas virtuais cuja utilização da CPU é 5 por cento ou menos e utilização de rede é de 7 MB ou menos para quatro ou mais dias são considerados máquinas de virtuais de baixa utilização.
 
 O assistente mostra o custo estimado de continuar a executar a máquina virtual, para que pode optar por encerrá-lo ou redimensioná-la.
@@ -31,12 +28,15 @@ O assistente mostra o custo estimado de continuar a executar a máquina virtual,
 Se pretender que seja mais agressiva na identificação de máquinas virtuais subutilizadas, pode ajustar a regra de utilização de CPU média numa base por subscrição.
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos, eliminando o circuito do ExpressRoute não aprovisionado
+
 Advisor identifica os circuitos do ExpressRoute que já estão no estado de fornecedor *não aprovisionado* para mais de um mês e recomenda eliminando o circuito se não estiver a planear aprovisioná-lo com a conectividade fornecedor.
 
 ## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Reduzir os custos, eliminar ou reconfigurar gateways de rede virtual Inativos
+
 Advisor identifica as portas de rede virtual que tem estado Inativas durante mais de 90 dias. Uma vez que esses gateways são cobradas à hora, deve considerar a reconfiguração ou excluí-los, se não pretender utilizá-los mais. 
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Comprar instâncias de máquinas virtuais reservadas para poupar dinheiro sobre os custos de pay as you go
+
 O assistente irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se pode poupar dinheiro ao comprar uma reserva do Azure. O assistente mostrará a os regiões e os tamanhos em que potencialmente tem as maioria das poupanças e irá mostrar-lhe a poupança estimada na compra de reservas. 
 
 Com reservas do Azure, pode comprar previamente os custos base para as suas máquinas virtuais. Descontos serão aplicado automaticamente para as VMs de novas ou existentes com o mesmo tamanho e a região, como as reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)

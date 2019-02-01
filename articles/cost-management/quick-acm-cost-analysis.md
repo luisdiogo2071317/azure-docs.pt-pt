@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 01/31/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5f15a7d7a49724fda56cecd36e92cb40ced59b81
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077662"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510498"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -47,7 +47,7 @@ A análise de custos está disponível para todos os clientes do [Contrato Enter
 
 ## <a name="review-costs-in-cost-analysis"></a>Rever os custos na análise de custos
 
-Para rever os custos com a análise de custos, no portal do Azure, navegue para **Gestão de Custos + Faturação** &gt; **Gestão de Custos** &gt; **Alterar âmbito**, escolha um âmbito e, em seguida, clique em **Selecionar**.
+Para rever os custos com a análise de custo, no portal do Azure, navegue até **gestão de custos + faturação** &gt; **análise de custo**. Selecione **âmbito: _ScopeName_**, selecione um âmbito e, em seguida, clique em **selecione**.
 
 O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
 
@@ -94,7 +94,8 @@ Eis uma vista dos custos de serviço do Azure numa vista do último mês.
 
 ![Vista acumulada agrupada diária mostrando os custos de serviço do Azure de exemplo do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Gráficos dinâmicos em agrupamentos de diferentes da Mostrar gráfico principal para lhe dar uma visão mais abrangente dos seus custos globais para o período de tempo selecionado e filtros. Selecione uma propriedade ou etiquetas para ver os custos agregados por qualquer dimensão. O conjunto completo de dados para exibição totais é, na parte inferior do ecrã, ao expandir a **dados** gaveta ou ao selecionar **Exportar > Transferir CSV** na parte superior do ecrã. Eis um exemplo de gaveta de dados para grupos de recursos.
+Gráficos dinâmicos em agrupamentos de diferentes da Mostrar gráfico principal para lhe dar uma visão mais abrangente dos seus custos globais para o período de tempo selecionado e filtros. Selecione uma propriedade ou etiquetas para ver os custos agregados por qualquer dimensão.
+
 
 ![Dados completos para mostrar nomes de grupos de recursos de exibição atual](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +104,10 @@ A imagem anterior mostra os nomes dos grupos de recursos. Enquanto pode agrupar 
 Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os contribuintes de custo de nove principais são apresentados. Também mostrado é como um **outros** grupo, que abrange todos os restantes grupos em conjunto. Ao agrupar por etiquetas, também poderá ver uma **Untagged** grupo para os custos que não têm a chave de etiqueta aplicada. **Não marcada** é sempre pela última vez, mesmo se existirem mais custos não marcados que custos marcados. Se existirem dez ou mais valores de etiqueta, custos não marcados vão fazer parte da **outros**.
 
 *Clássico* (gestão de serviço do Azure ou ASM) máquinas virtuais, redes e recursos de armazenamento não partilhar dados detalhados de faturas. Eles são intercalados como **serviços clássicos** ao agrupar os custos.
+
+Pode ver o conjunto completo de dados para qualquer vista. Independentemente das seleções ou filtros que aplicar afetam os dados apresentados. Para ver o conjunto completo de dados, clique a **tipo de gráfico** lista e, em seguida, clique em **tabela** vista.
+
+![Vista de dados para exibição atual numa tabela](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>Transferir dados da análise de custos

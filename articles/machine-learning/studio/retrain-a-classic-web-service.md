@@ -1,8 +1,21 @@
 ---
-title: Voltar a preparar um titleSuffix de serviço web clássico: Descrição do Azure Machine Learning Studio: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning programaticamente.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: seodec18, anterior ms.author=yahajiza, autor anterior = YasinMSFT MS: 04/19/2017
+title: Voltar a preparar um Serviço Web Clássico
+titleSuffix: Azure Machine Learning Studio
+description: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning programaticamente.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 04/19/2017
+ms.openlocfilehash: 04dac55feaa6826e1b8b591df61e8ad413f24dad
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509410"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Reenviar um serviço da web clássico do Azure Machine Learning Studio
 O serviço Web preditivo implementou predefinição é o ponto final de classificação. Pontos de extremidade padrão são mantidos em sincronização com a formação original e experiências de classificação e, portanto, o modelo preparado para o ponto final predefinido não pode ser substituído. Para voltar a preparar o serviço web, tem de adicionar um novo ponto final para o serviço web.

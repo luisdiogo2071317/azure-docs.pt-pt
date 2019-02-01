@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5a88e1fc5395a1b935371ae9d1eb24528a87b853
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512364"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Resolver problemas relacionados com os Runbook Workers híbridos
 
@@ -87,8 +87,17 @@ O Runbook Worker do Linux híbrida depende do agente do OMS para Linux comunicar
 
 ### <a name="oms-agent-not-running"></a>Cenário: O agente do OMS para Linux não está em execução
 
+#### <a name="issue"></a>Problema
 
-Se o agente do OMS para Linux não está em execução, impede que o Runbook Worker do Linux híbrida de comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o seguinte comando: `ps -ef | grep python`. Deverá ver um resultado semelhante ao seguinte, os processos de python com **nxautomation** conta de utilizador. Se as soluções de gestão de atualizações ou a automatização do Azure não estiverem ativadas, nenhum dos seguintes processos está a executar.
+O agente do OMS para Linux não está em execução
+
+#### <a name="cause"></a>Causa
+
+Se o agente do OMS para Linux não está em execução, impede que o Runbook Worker do Linux híbrida de comunicar com a automatização do Azure. O agente poderá não estar em execução por vários motivos.
+
+#### <a name="resolution"></a>Resolução
+
+ Certifique-se de que o agente está em execução, introduzindo o seguinte comando: `ps -ef | grep python`. Deverá ver um resultado semelhante ao seguinte, os processos de python com **nxautomation** conta de utilizador. Se as soluções de gestão de atualizações ou a automatização do Azure não estiverem ativadas, nenhum dos seguintes processos está a executar.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

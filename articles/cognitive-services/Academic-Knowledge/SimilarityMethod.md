@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490129"
 ---
 # <a name="similarity-method"></a>Método de semelhança
 
@@ -30,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 Parâmetro        |Tipo de Dados      |Necessário | Descrição
 ----------|----------|----------|------------
-**s1**        |Cadeia   |Sim  |Cadeia de caracteres * ser comparadas
-**s2**        |Cadeia   |Sim  |Cadeia de caracteres * ser comparadas
+**s1**        |String   |Sim  |Cadeia de caracteres * ser comparadas
+**s2**        |String   |Sim  |Cadeia de caracteres * ser comparadas
 <sub> * As cadeias de caracteres para comparar tem um comprimento máximo de 1MB. </sub>
 <br>
 ## <a name="response"></a>Resposta
-Nome | Descrição
+Name | Descrição
 --------|---------
 **SimilarityScore**        |Um ponto flutuante valor que representa a semelhança do cosseno de s1 e s2, com valores mais próximo para 1.0 significado mais semelhante e os valores mais perto de -1,0, que significa menos
 <br>

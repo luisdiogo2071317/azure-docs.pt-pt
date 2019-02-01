@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382803"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486814"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Gestor de recursos do Azure vs. de implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos
 
@@ -30,6 +30,8 @@ Neste artigo, vai ficar a saber mais sobre os modelos de implementação Azure R
 Para simplificar a implementação e gestão de recursos, a Microsoft recomenda que utilize o Resource Manager para todos os recursos novos. Se for possível, a Microsoft recomenda que reimplemente os recursos existentes através do Resource Manager.
 
 Se não estiver familiarizado com o Resource Manager, poderá ser útil rever primeiro a terminologia definida na [Descrição geral do Azure Resource Manager](resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>Histórico dos modelos de implementação
 Originalmente, o Azure oferecia apenas o modelo de implementação clássica. Neste modelo, cada recurso existia independentemente; não havia forma de agrupar os recursos relacionados. Em vez disso, tinha de acompanhar manualmente quais os recursos que compunham a sua solução ou aplicação e não se esquecer de geri-los através de uma abordagem coordenada. Para implementar uma solução, tinha de criar cada recurso individualmente no portal ou de criar um script que implementasse todos os recursos na ordem certa. Para eliminar uma solução, era necessário eliminar cada recurso individualmente. Não era possível aplicar e atualizar facilmente políticas de controlo de acesso para os recursos relacionados. Por fim, não podia aplicar etiquetas aos recursos para identificá-los com os termos que o ajudavam a monitorizar os recursos e a gerir a faturação.
@@ -57,7 +59,7 @@ Nas máquinas virtuais, contas de armazenamento e redes virtuais, se o recurso t
 Em alguns casos, um comando do Resource Manager pode obter informações sobre um recurso criado através da implementação clássica ou pode realizar uma tarefa administrativa, tal como mover um recurso clássico para outro grupo de recursos. No entanto, estes casos não devem dar a impressão de que este tipo suporta operações do Resource Manager. Por exemplo, suponha que tem um grupo de recursos que contém uma máquina virtual que foi criada com a implementação clássica. Se executar o seguinte comando do PowerShell do Resource Manager:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 Devolve a máquina virtual:
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-Contudo, o cmdlet do Resource Manager **Get-AzureRmVM** só devolve máquinas virtuais implementadas através do Resource Manager. O seguinte comando não devolve a máquina virtual criada com a implementação clássica.
+No entanto, o cmdlet do Resource Manager **Get-AzVM** retorna apenas as máquinas virtuais implementadas através do Resource Manager. O seguinte comando não devolve a máquina virtual criada com a implementação clássica.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Só os recursos criados com o Resource Manager suportam etiquetas. Não pode aplicar etiquetas a recursos clássicos.

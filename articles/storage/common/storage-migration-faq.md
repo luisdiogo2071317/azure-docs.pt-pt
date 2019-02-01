@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 095c592e53f44cb674994c440258bcca1bfa760c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467175"
+ms.locfileid: "55506810"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -272,7 +272,7 @@ Para dar acesso a outras pessoas para os recursos de armazenamento:
 
 **Para uma conta de armazenamento replicado (como o armazenamento com redundância de zona, armazenamento georredundante ou armazenamento georredundante com acesso de leitura), como posso acessar dados armazenados na região secundária?**
 
--   Se estiver a utilizar o armazenamento com redundância de zona ou armazenamento georredundante, não é possível aceder a dados da região secundária, exceto se ocorrer uma ativação pós-falha. Para obter mais informações sobre o processo de ativação pós-falha, consulte [o que esperar se ocorre uma ativação pós-falha de armazenamento](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
+-   Se estiver a utilizar o armazenamento com redundância de zona ou armazenamento georredundante, não é possível aceder a dados da região secundária, a menos que inicie uma ativação pós-falha para essa região. Para obter mais informações sobre o processo de ativação pós-falha, consulte [desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
 -   Se estiver a utilizar o armazenamento georredundante com acesso de leitura, pode aceder aos dados da região secundária em qualquer altura. Utilize um dos seguintes métodos:  
       

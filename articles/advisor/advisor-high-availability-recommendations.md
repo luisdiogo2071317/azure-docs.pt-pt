@@ -1,26 +1,21 @@
 ---
-title: Recomendações de elevada disponibilidade do Assistente do Azure | Documentos da Microsoft
+title: Melhorar a disponibilidade da sua aplicação com o Assistente do Azure | Documentos da Microsoft
 description: Utilize o Assistente do Azure para melhorar a elevada disponibilidade das suas implementações do Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
+ms.author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kasparks
-ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/29/2019
+ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305076"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490316"
 ---
-# <a name="advisor-high-availability-recommendations"></a>Recomendações de elevada disponibilidade do Assistente
+# <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade da sua aplicação com o Assistente do Azure
 
 O Assistente do Azure ajuda-Certifique-se e melhorar a continuidade das suas aplicações críticas para a empresa. É possível obter recomendações de alta disponibilidade por Advisor a partir da **elevada disponibilidade** separador do dashboard do Advisor.
 
@@ -31,16 +26,17 @@ Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais
 > [!NOTE]
 > Se optar por criar um conjunto de disponibilidade, tem de adicionar mais, pelo menos, uma máquina virtual na mesma. Recomendamos que agrupa dois ou mais máquinas virtuais num disponibilidade definida para se certificar de que a máquina, pelo menos, um está disponível durante um período de indisponibilidade.
 
-## <a name="ensure-availability-set-fault-tolerance"></a>Certifique-se de que a tolerância a falhas de conjunto de disponibilidade 
+## <a name="ensure-availability-set-fault-tolerance"></a>Certifique-se de que a tolerância a falhas de conjunto de disponibilidade
 
 Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O assistente identifica os conjuntos de disponibilidade que contenham uma única máquina virtual e recomenda adicionar uma ou mais máquinas virtuais ao mesmo. Esta configuração garante que, durante a um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível e cumpre o SLA de máquinas virtuais do Azure. Pode escolher para criar uma máquina virtual ou para adicionar uma máquina virtual existente para o conjunto de disponibilidade.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Utilize o Managed Disks para melhorar a fiabilidade dos dados
+
 Máquinas virtuais que estão num conjunto de disponibilidade com discos que partilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas de unidade de escala de armazenamento única durante as falhas. O assistente irá identificar esses conjuntos de disponibilidade e recomendamos migrar para Managed Disks do Azure. Isto irá garantir que os discos das máquinas virtuais diferentes no conjunto de disponibilidade estão suficientemente isolados para evitar um ponto único de falha. 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Certifique-se a tolerância a falhas de gateway de aplicação
 
-Para garantir a continuidade de negócio de aplicativos de missão crítica que têm a tecnologia gateways de aplicação, o Advisor identifica instâncias de gateway de aplicação que não estão configuradas para tolerância a falhas e sugere ações de remediação que pode efetuar. Advisor identifica os gateways de aplicação de instância única de médias ou grandes, e ele recomenda adicionar pelo menos uma instância mais. Ele também identifica instance único ou vários gateways de aplicação pequenos e recomenda a migração para médias ou grandes SKUs. Advisor recomenda estas ações para garantir que as instâncias de gateway de aplicação estão configuradas para satisfazer os requisitos de SLA atuais para estes recursos.
+Esta recomendação garante a continuidade de negócio de aplicativos de missão crítica que têm a tecnologia gateways de aplicação. Advisor identifica instâncias de gateway de aplicação que não estão configuradas para tolerância a falhas e sugere ações de remediação que pode efetuar. Advisor identifica os gateways de aplicação de instância única de médias ou grandes, e ele recomenda adicionar pelo menos uma instância mais. Ele também identifica instance único ou vários gateways de aplicação pequenos e recomenda a migração para médias ou grandes SKUs. Advisor recomenda estas ações para garantir que as instâncias de gateway de aplicação estão configuradas para satisfazer os requisitos de SLA atuais para estes recursos.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Proteger os dados de máquina virtual de eliminação acidental
 
@@ -58,13 +54,13 @@ Recomendamos a configuração de alertas do Azure Service Health para ser notifi
 
 Perfis do Gestor de tráfego com mais de um ponto final experiência maior disponibilidade, se falhar de qualquer ponto de extremidade. Colocar os pontos finais em diferentes regiões ainda mais melhora a fiabilidade do serviço. Advisor identifica os perfis de tráfego Manager onde há apenas um ponto final e recomenda adicionar pelo menos um ponto de extremidade mais noutra região.
 
-Se todos os pontos finais num perfil do Gestor de tráfego que está configurado para o encaminhamento de proximidade estiverem na mesma região, os utilizadores a partir de outras regiões podem ocorrem atrasos de ligação. Adicionar ou mover um ponto de extremidade para outra região irá melhorar o desempenho geral e proporcionar melhor disponibilidade se falharem de todos os pontos finais numa única região. Advisor identifica os perfis do Gestor de tráfego configurados para o encaminhamento de proximidade onde todos os pontos finais estão na mesma região e recomenda adicionar ou mover um ponto de extremidade para outra região do Azure.
+Se todos os pontos finais num perfil do Gestor de tráfego que está configurado para o encaminhamento de proximidade estiverem na mesma região, os utilizadores a partir de outras regiões podem ocorrem atrasos de ligação. Adicionar ou mover um ponto de extremidade para outra região irá melhorar o desempenho geral e proporcionar melhor disponibilidade se falharem de todos os pontos finais numa única região. Advisor identifica perfis do Gestor de tráfego configurados para o encaminhamento de proximidade onde todos os pontos finais estão na mesma região. Ele recomenda-se ao adicionar ou mover um ponto de extremidade para outra região do Azure.
 
-Se um perfil do Gestor de tráfego estiver configurado para encaminhamento geográfico, em seguida, o tráfego é encaminhado para pontos finais com base em regiões definidas. Se uma região falhar, não há nenhum predefinida de ativação pós-falha. Ter um ponto de extremidade em que o agrupamento Regional está configurado para "Todos (World)", evitar o tráfego a ser removido e melhorar a disponibilidade do serviço. Advisor identifica configurados para encaminhamento geográfico onde não existe nenhum ponto final configurado para ter o agrupamento Regional como "Todos (World)" e recomenda fazer essa alteração de configuração de perfis do Gestor de tráfego.
+Se um perfil do Gestor de tráfego estiver configurado para encaminhamento geográfico, em seguida, o tráfego é encaminhado para pontos finais com base em regiões definidas. Se uma região falhar, não há nenhum predefinida de ativação pós-falha. Ter um ponto de extremidade em que o agrupamento Regional está configurado para "Todos (World)", evitar o tráfego a ser removido e melhorar a disponibilidade do serviço. Advisor identifica perfis do Gestor de tráfego configurados para encaminhamento geográfico onde não existe nenhum ponto final configurado para ter o agrupamento Regional como "Todos (World)". Ele recomenda a alteração da configuração para tornar um ponto final "todos (mundo).
 
-## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Eliminar o uso de forma recuperável na sua conta de armazenamento do Azure para guardar e recuperar dados em caso de uma substituição acidental ou eliminação
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utilizar a eliminação de forma recuperável na sua conta de armazenamento do Azure para guardar e recuperar dados após uma substituição acidental ou eliminação
 
-Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando dados são substituídos, é gerado um instantâneo eliminado de forma recuperável para guardar o estado dos dados substituídos. Isto permite-lhe recuperar em caso da eliminação acidental, ou substitui. O assistente identifica as contas de armazenamento que não têm a eliminação de forma recuperável ativada e sugere que o ative.
+Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando dados são substituídos, é gerado um instantâneo eliminado de forma recuperável para guardar o estado dos dados substituídos. Utilizar a eliminação de forma recuperável permite-lhe recuperar se existem eliminações acidentais ou substitui. O assistente identifica as contas de armazenamento do Azure que não tem a eliminação de forma recuperável ativada e sugere que o ative.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurar o gateway de VPN ativos-ativos para resiliência de ligação
 

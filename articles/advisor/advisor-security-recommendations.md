@@ -1,5 +1,5 @@
 ---
-title: Recomendações de segurança do Assistente do Azure | Documentos da Microsoft
+title: Tornar os recursos mais segura com o Assistente do Azure | Documentos da Microsoft
 description: Utilize o Assistente do Azure para ajudar a melhorar a segurança das suas implementações do Azure.
 services: advisor
 documentationcenter: NA
@@ -10,16 +10,16 @@ ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: d366ee02e3a5ef3c6f983c9cea23943343ab4a51
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849790"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494328"
 ---
-# <a name="advisor-security-recommendations"></a>Recomendações de segurança do Advisor
+# <a name="make-resources-more-secure-with-azure-advisor"></a>Tornar os recursos mais segura com o Assistente do Azure
 
 O Assistente do Azure fornece uma vista consolidada consistente de recomendações para todos os seus recursos do Azure. Ele se integra com o Centro de segurança do Azure para lhe oferecer recomendações de segurança. É possível obter recomendações de segurança a partir do **segurança** separador no dashboard do Advisor.
 

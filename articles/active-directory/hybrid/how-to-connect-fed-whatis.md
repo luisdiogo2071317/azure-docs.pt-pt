@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a2e835f074ac2f5d1eede9f68e77774938da6af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181746"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494362"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 O Azure Active Directory (Azure AD) Connect permite que configura a Federação com locais serviços de Federação do Active Directory (AD FS) e o Azure AD. Com o Federação início de sessão, pode permitir aos utilizadores iniciar sessão para serviços do Azure baseada no AD com as palavras-passe no local – e, embora na rede da empresa, sem ter de introduzir as palavras-passe novamente. Ao utilizar a opção de federação com o AD FS, pode implementar uma nova instalação do AD FS ou pode especificar uma instalação existente num farm do Windows Server 2012 R2.
@@ -30,7 +30,7 @@ Este tópico é a página para obter informações sobre funcionalidades relacio
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: tópicos de Federação
 | Tópico | O que abrange e quando lê-lo |
 |:--- |:--- |
-| **Opções do Azure AD Connect utilizador início de sessão** | |
+| **Opções de início de sessão de utilizador do Azure AD Connect** | |
 | [Compreender as opções de início de sessão do utilizador](plan-connect-user-signin.md) |Saiba mais sobre as várias opções de início de sessão do utilizador e como elas afetam a experiência de utilizador de início de sessão do Azure. |
 | **Instalar o AD FS com o Azure AD Connect** | |
 | [Pré-requisitos](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consulte os pré-requisitos para uma instalação do AD FS com êxito através do Azure AD Connect. |

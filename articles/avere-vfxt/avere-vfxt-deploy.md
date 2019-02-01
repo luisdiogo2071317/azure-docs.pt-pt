@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f6d847e9042341f47a06fde0f9aa4a70f2549a07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296380"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512164"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -39,11 +39,11 @@ Para obter mais informações sobre passos de implementação de cluster e o pla
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Criar o vFXT Avere para o Azure
 
-Aceda ao modelo de criação no portal do Azure ao pesquisar Avere e selecionar "Avere vFXT para implementação do Azure". <!-- xxx update if that name changes xxx --> 
+Aceder ao modelo de criação no portal do Azure ao pesquisar Avere e selecionar "Avere vFXT ARM implantação". 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Trilhas de janela do browser que mostra o portal do Azure com o pão "Novo > Marketplace > tudo". Em tudo, a página, o campo de pesquisa tem o termo "avere" e o segundo resultado, "Avere vFXT ARM implementação" é descrito em vermelho para destacá-la.](media/avere-vfxt-template-choose.png)
 
-Clique em **criar** para começar. 
+Depois de ler os detalhes na página Avere vFXT implementação ARM, clique em **criar** para começar. 
 
 ![O Azure marketplace com a primeira página da mostrar de modelo de implementação](media/avere-vfxt-deploy-first.png)
 
@@ -123,9 +123,11 @@ A segunda página do modelo de implementação permite-lhe definir o tamanho do 
 
 * **Sub-rede** – Selecione uma sub-rede da sua rede virtual existente ou crie um novo. 
 
-* **Utilizar o blob storage** -escolha se deve ou não criar um novo contentor de Blobs do Azure e configurá-lo como armazenamento de back-end para o novo cluster de vFXT Avere. Se optar por criar um novo contentor, tem de fornecer a conta de armazenamento para esse contentor. Se optar por não criar um novo contentor de BLOBs, terá de anexar armazenamento depois de criar o cluster (leia [configurar o armazenamento](avere-vfxt-add-storage.md) para obter instruções). Defina este campo para **false** se não pretender criar um novo contentor.
+* **Utilizar o blob storage** -escolha **true** para criar um novo contentor de Blobs do Azure e configurá-lo como armazenamento de back-end para o novo cluster de vFXT Avere. Esta opção também cria uma nova conta de armazenamento dentro do mesmo grupo de recursos do cluster. 
 
-* **Conta de armazenamento** - se criar um novo contentor de Blobs do Azure, introduza o nome da conta de armazenamento. A conta de armazenamento tem de ser uma conta V2 para fins gerais padrão configurada com armazenamento localmente redundante e a camada de acesso frequente. O [configurar o armazenamento](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) artigo tem mais detalhes sobre os requisitos de conta de armazenamento.
+  Defina este campo para **false** se não pretender criar um novo contentor. Neste caso, tem de ligar e configurar o armazenamento depois de criar o cluster. Leia [configurar o armazenamento](avere-vfxt-add-storage.md) para obter instruções. 
+
+* **Conta de armazenamento** - se criar um novo contentor de Blobs do Azure, introduza um nome para a nova conta de armazenamento. 
 
 ## <a name="validation-and-purchase"></a>Validação e compra
 
@@ -161,7 +163,7 @@ Para encontrar estas informações, siga este procedimento:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Criar um ponto de final de armazenamento (se utilizar BLOBs do Azure)
 
-Se estiver a utilizar o armazenamento de Blobs do Azure para o armazenamento de dados back-end, deve criar um ponto de extremidade do serviço de armazenamento na sua rede virtual. Isso [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de Blobs do Azure local em vez de encaminhá-lo através da internet.
+Se estiver a utilizar o armazenamento de Blobs do Azure para o armazenamento de dados back-end, deve criar um ponto de extremidade do serviço de armazenamento na sua rede virtual. Isso [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de Blobs do Azure local em vez de encaminhá-lo fora da rede virtual.
 
 1. No portal, clique em **redes virtuais** à esquerda.
 1. Selecione a vnet para seu controlador. 

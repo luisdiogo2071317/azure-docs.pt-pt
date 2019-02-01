@@ -2,18 +2,18 @@
 title: Utilizar o PowerShell para criar cópias de segurança do Windows Server para o Azure
 description: Saiba como implementar e gerir cópias de segurança do Azure com o PowerShell
 services: backup
-author: saurabhsensharma
+author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: saurse
-ms.openlocfilehash: 154d4fbb265a6abb57bc25b4e364983ffe7e399b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: pvrk
+ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497949"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 Este artigo mostra-lhe como utilizar o PowerShell para configurar o Azure Backup no Windows Server ou um cliente do Windows e gestão de cópia de segurança e recuperação.
@@ -121,10 +121,10 @@ As opções disponíveis incluem:
 | /m |Inscreva-se no Microsoft Update |- |
 | /nu |Não procurar atualizações depois de concluída a instalação |- |
 | /d |Desinstala o agente de serviços de recuperação do Microsoft Azure |- |
-| / pH |Endereço de anfitrião do proxy |- |
+| /ph |Endereço de anfitrião do proxy |- |
 | /po |Número de porta de anfitrião do proxy |- |
-| /Pu |O nome de utilizador do proxy anfitrião |- |
-| /PW |Palavra-passe do proxy |- |
+| /pu |O nome de utilizador do proxy anfitrião |- |
+| /pw |Palavra-passe do proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registar o Windows Server ou o computador de cliente do Windows para um cofre dos serviços de recuperação
 Depois de criado o Cofre dos serviços de recuperação, transfira o agente mais recente e as credenciais do cofre e armazene-o numa localização conveniente como C:\Downloads.

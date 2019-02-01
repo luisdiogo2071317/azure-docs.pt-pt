@@ -2,18 +2,18 @@
 title: Fazer cópias de segurança de um farm do SharePoint no Azure Stack
 description: Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança e restaurar os dados de SharePoint no Azure Stack. Este artigo fornece as informações para configurar o seu farm do SharePoint para que os dados desejados podem ser armazenados no Azure. Pode restaurar dados de SharePoint protegidos do disco ou do Azure.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: acb675d750eb54bdbdde8873f6994255a07eb229
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.author: adigan
+ms.openlocfilehash: 84b3808e56ad318165eeec973a622c2e8747c633
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605917"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488348"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer cópias de segurança de um farm do SharePoint no Azure Stack
 Fazer uma cópia de segurança de um farm do SharePoint no Azure Stack para o Microsoft Azure usando o servidor de cópia de segurança do Azure (MABS) da Microsoft em quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Ele também fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -23,7 +23,7 @@ Cópia de segurança do Azure para o MABS suporta os seguintes cenários:
 
 | Carga de trabalho | Versão | Implantação do SharePoint | Proteção e recuperação |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, o SharePoint 2013, SharePoint 2010 |SharePoint implementado como uma máquina virtual do Azure Stack <br> -------------- <br> AlwaysOn SQL | Opções de recuperação do Farm do SharePoint de proteger: farm de recuperação, a base de dados e o ficheiro ou item de lista de pontos de recuperação do disco.  Recuperação de farm e base de dados de pontos de recuperação do Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint implementado como uma máquina virtual do Azure Stack <br> -------------- <br> SQL AlwaysOn | Proteger as opções de recuperação do Farm do SharePoint: Farm de recuperação, a base de dados e o ficheiro ou item de lista de pontos de recuperação do disco.  Recuperação de farm e base de dados de pontos de recuperação do Azure. |
 
 ## <a name="before-you-start"></a>Antes de começar
 Existem algumas coisas que precisa para confirmar antes de cópia de segurança um farm do SharePoint para o Azure.
@@ -53,7 +53,7 @@ Pode encontrar **ConfigureSharePoint.exe** na pasta \bin [caminho de instalaçã
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Para configurar o serviço de escritor VSS do SharePoint
 1. No servidor WFE, numa linha de comando, aceda a \bin\. [localização da instalação de MABS]
-2. Introduza o comando ConfigureSharePoint - EnableSharePointProtection.
+2. Enter ConfigureSharePoint -EnableSharePointProtection.
 3. Introduza as credenciais de administrador do farm. Esta conta deve ser um membro do grupo de administrador local no servidor WFE. Se o administrador do farm não for local administrador conceda as seguintes permissões no servidor WFE:
    * Conceda o controle total do grupo WSS_Admin_WPG da pasta (% Program Files%\Microsoft Azure Backup\DPM).
    * Conceda o acesso de leitura de grupo WSS_Admin_WPG para a chave de registo do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
@@ -222,11 +222,11 @@ No exemplo a seguir, o *item do SharePoint recuperar* foi eliminado acidentalmen
 5. Neste momento, siga os [passos de recuperação anteriormente no artigo](#restore-a-sharepoint-item-from-disk-using-dpm) para recuperar um banco de dados do SharePoint a partir do disco.
 
 ## <a name="faqs"></a>FAQs
-P: posso recuperar um item do SharePoint para a localização original se o SharePoint estiver configurado com o SQL AlwaysOn (com a proteção no disco)?<br>
+P: Posso recuperar um item do SharePoint para a localização original se o SharePoint estiver configurado com o SQL AlwaysOn (com a proteção no disco)?<br>
 R: Sim, o item pode ser recuperado para o site do SharePoint original.
 
-P: posso recuperar uma base de dados do SharePoint para a localização original se o SharePoint estiver configurado com o AlwaysOn de SQL?<br>
-R: como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, não é possível modificar a menos que o grupo de disponibilidade é removido. Como resultado, o MABS não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
+P: Posso recuperar uma base de dados do SharePoint para a localização original se o SharePoint estiver configurado com o AlwaysOn de SQL?<br>
+R: Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, não é possível modificar a menos que o grupo de disponibilidade é removido. Como resultado, o MABS não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
 ## <a name="next-steps"></a>Próximos Passos
 

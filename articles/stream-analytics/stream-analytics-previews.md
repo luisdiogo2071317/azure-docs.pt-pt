@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 70cc6210a0c047867980de67ac24701df29ce8bf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232129"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485182"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -45,7 +45,7 @@ Com o .NET padrão definido pelo utilizador funções, pode executar código pad
 
 ## <a name="private-previews"></a>Pré-visualizações privadas
 
-As seguintes funcionalidades estão em pré-visualização privada. Para aceder a estas pré-visualizações, visite a pré-visualização privada do Azure Stream Analytics [Inscreva-se](https://aka.ms/ASApreview1) página.
+As seguintes funcionalidades estão em pré-visualização privada.
 
 ### <a name="anomaly-detection"></a>Deteção de Anomalias
 
@@ -59,7 +59,7 @@ Os desenvolvedores agora podem implementar desserializadores personalizadas em c
 
 Agora, é possível particionar a saída do Azure Stream Analytics para o armazenamento de Blobs com base em qualquer coluna na sua consulta.
 
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Identidades geridas para a autenticação de recursos do Azure para armazenamento do Azure Data Lake
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Identidades geridas para a autenticação de recursos do Azure para armazenamento do Azure Data Lake
 
 Agora, pode operacionalizar os pipelines em tempo real com identidades geridas para autenticação de recursos do Azure com base ao escrever no Gen1 de armazenamento do Azure Data Lake, permitindo-lhe criar tarefas programaticamente. Para obter mais informações, visite [identidades geridas por um uso dos recursos do Azure para autenticar o Azure Stream Analytics Jobs a saída de geração 1 do armazenamento do Azure Data Lake](stream-analytics-managed-identities-adls.md).
 
@@ -67,4 +67,4 @@ Agora, pode operacionalizar os pipelines em tempo real com identidades geridas p
 
 * [Oito novos recursos do Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [4 novas funcionalidades agora disponíveis no Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Quatro novos recursos agora disponíveis no Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

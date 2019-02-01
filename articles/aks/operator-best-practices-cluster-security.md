@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488392"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança do cluster e atualizações no Azure Kubernetes Service (AKS)
 
@@ -51,6 +51,9 @@ Para obter mais informações sobre a integração do Azure AD e o RBAC, veja [m
 Da mesma forma que só deverá conceder aos utilizadores ou grupos o menor número de privilégios necessários, contentores também devem ser limitados a apenas as ações e os processos que precisam. Para minimizar o risco de ataque, não configure aplicações e os contentores que exigem privilégios elevados ou acesso de raiz. Por exemplo, definir `allowPrivilegeEscalation: false` no manifesto do pod. Estes *pod contextos de segurança* incorporados no Kubernetes e permitem que define permissões adicionais, como o utilizador ou grupo para executar como, ou que capacidades de Linux para expor. Para obter mais melhores práticas, consulte [pod segura de acesso a recursos][pod-security-contexts].
 
 Para um controle mais granular de ações de contentor, também pode utilizar as funcionalidades de segurança incorporadas do Linux, como *AppArmor* e *seccomp*. Esses recursos são definidos ao nível do nó e, em seguida, implementados através de um manifesto de pod.
+
+> [!NOTE]
+> Ambientes do Kubernetes no AKS ou noutro local, não são totalmente seguros para utilização multi-inquilinos hostil. Funcionalidades de segurança adicional, como *AppArmor*, *seccomp*, *políticas de segurança de Pod*, ou mais controlos de acesso detalhado baseada em funções (RBAC) para nós fazem explorações mais difícil. No entanto, para segurança verdadeira quando executar cargas de trabalho de multi-inquilinos hostis, um hipervisor é o único nível de segurança que deve confiar. O domínio de segurança para Kubernetes torna-se a todo o cluster, não é um nó individual. Para estes tipos de cargas de trabalho de multi-inquilinos hostis, deve usar clusters fisicamente isolados.
 
 ### <a name="app-armor"></a>Armadura de aplicação
 

@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507339"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver problemas de controlo de alterações e inventário
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Cenário: Registos do controlo de alteração não apresentarem no portal do Azure
+### <a name="records-not-showing-windows"></a>Cenário: Registos do controlo de alteração não apresentarem para máquinas Windows
 
 #### <a name="issue"></a>Problema
 
-Não vê quaisquer resultados de inventário ou de controlo de alterações para as máquinas que são carregadas para controlo de alterações.
+Não vê quaisquer resultados de inventário ou de controlo de alterações para as máquinas do Windows que são carregadas para controlo de alterações.
 
 #### <a name="cause"></a>Causa
 
@@ -38,12 +38,13 @@ Este erro pode dever-se pelos seguintes motivos:
 #### <a name="resolution"></a>Resolução
 
 1. Verifique se o **Microsoft Monitoring Agent** (HealthService.exe) está em execução na máquina.
-2. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para controlo de alterações trabalhar.
-3. Certifique-se de que os seguintes pacotes de gestão do controlo de alterações e inventário existem localmente:
+1. Verifique **Visualizador de eventos** na máquina e procure quaisquer eventos que têm a palavra `changetracking` nos mesmos.
+1. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para controlo de alterações trabalhar.
+1. Certifique-se de que os seguintes pacotes de gestão do controlo de alterações e inventário existem localmente:
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. Se utilizar uma imagem clonada de sysprep a imagem em primeiro lugar e instalar o agente do Microsoft Monitoring Agent após o fato.
+1. Se utilizar uma imagem clonada de sysprep a imagem em primeiro lugar e instalar o agente do Microsoft Monitoring Agent após o fato.
 
 Se essas soluções não resolverem o problema e contacte o suporte, pode executar os comandos seguintes para recolher o diagnóstico no agente
 

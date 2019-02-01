@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
-ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d88eb0ee5e8ec4c14efeb47a144ec7080ac6eee3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163043"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508798"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.
@@ -70,7 +70,7 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |---|
 |<ul><li>Os utilizadores tiveram problemas carregar dados para o Data Lake Store?</li><li>Os utilizadores tiveram problemas de transferência de dados do Data Lake Store?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Verificações executadas|
 |---|
@@ -115,6 +115,11 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |Verificações executadas|
 |---|
 |<ul><li>Operações de diagnóstico podem ser executadas no cluster?</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|Verificações executadas|
+|---|
+|<ul><li>Os clientes ocorrerem erros de barramento de serviço gerados pelo utilizador?</li><li>Utilizadores que está a ter um aumento do número de erros devido a uma atualização do espaço de nomes do Service Bus?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |Verificações executadas|

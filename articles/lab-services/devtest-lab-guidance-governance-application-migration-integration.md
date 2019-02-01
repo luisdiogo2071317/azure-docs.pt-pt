@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978620"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498204"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura do Azure DevTest Labs - integração e migração de aplicativos
 Assim que o seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecida, precisa pensar sobre as seguintes perguntas:
@@ -58,13 +58,13 @@ No entanto, um fator adicional a observar é a frequência das alterações ao s
 Como posso configurar um processo repetível facilmente para trazer as minhas imagens organizacionais personalizadas num ambiente de laboratórios DevTest?
 
 ### <a name="answer"></a>Resposta
-Ver [este vídeo no padrão de fábrica Immage](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Este cenário é um cenário avançado e os scripts fornecidos são apenas os scripts de exemplo. Se forem necessárias quaisquer alterações, precisa gerenciar e manter os scripts utilizados no seu ambiente.
+Ver [este vídeo no padrão de fábrica de imagem](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Este cenário é um cenário avançado e os scripts fornecidos são apenas os scripts de exemplo. Se forem necessárias quaisquer alterações, precisa gerenciar e manter os scripts utilizados no seu ambiente.
 
 Com o DevTest Labs para criar um pipeline de imagem personalizada em Pipelines do Azure:
 
 - [Introdução: Prepare-se as VMs em minutos por configurar uma fábrica de imagem no Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Imagem Factory – parte 2! Configurar o laboratório de fábrica e Pipelines do Azure para criar VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
-- [Factory imagem – parte 3: Imagens personalizadas guardar e distribuir a vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
+- [Imagem Factory – parte 3: Guardar imagens personalizadas e distribuir a vários laboratórios](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Vídeo: Fábrica de imagem personalizada do Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Padrões para definir a configuração de rede
@@ -103,7 +103,7 @@ Quando devo utilizar um IP partilhado versus o IP público versus privado IP?
 Se utilizar um site-site VPN ou Expressroute, considere a utilização de IPs privados para que as suas máquinas são acessíveis por meio de sua rede interna e acessível pela internet pública.
 
 > [!NOTE]
-> Os proprietários de laboratório podem alterar esta política de sub-rede para se certificar de que ninguém acidentalmente cria endereços IP públicos para as suas VMs. O proprietário da subscrição deve criar uma política de subscrição para impedir que os IPs públicos que está sendo criado.
+> Os proprietários de laboratório podem alterar esta política de sub-rede para se certificar de que ninguém acidental cria endereços IP públicos para as suas VMs. O proprietário da subscrição deve criar uma política de subscrição para impedir que os IPs públicos que está sendo criado.
 
 Quando utilizar IPs públicos partilhado, as máquinas virtuais num laboratório de partilhar um endereço IP público. Essa abordagem pode ser útil quando precisa evitar que viola os limites em endereços IP públicos de uma determinada subscrição.
 

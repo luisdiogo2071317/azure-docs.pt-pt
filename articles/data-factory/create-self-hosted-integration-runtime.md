@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331814"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493597"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 - Certificados de nome alternativo do requerente (SAN) não é recomendada porque será utilizado apenas o último item de SAN e todos os outros serão ignorados devido a limitações atuais. Por exemplo, se tiver um certificado SAN cujos SANs são **node1.domain.contoso.com** e **node2.domain.contoso.com**, pode utilizar este certificado apenas numa máquina cujo FQDN for  **node2.domain.contoso.com**.
 - O certificado suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
 - Certificados que utilizam chaves CNG não são suportados.  
+
+> [!NOTE]
+> Este certificado é utilizado para encriptar as portas no nó do Runtime de integração autoalojado, utilizado para **comunicação nó a nó** (para a sincronização de estado) e enquanto **com o PowerShell cmdlet para o serviço ligado de credenciais definição**de dentro da rede local. Sugerimos que utilize este certificado se o seu ambiente de rede privada não é seguro ou se quiser proteger a comunicação entre nós dentro da sua rede privada também. Movimento de dados em trânsito do Runtime de integração autoalojado para outros arquivos de dados sempre acontece através do canal encriptado, independentemente deste certificado ou não. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partilhar o runtime de integração autoalojado com várias fábricas de dados
 

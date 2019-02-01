@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154262d7b412a0a4049c2d9456d7ae53ef01ca8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61ca57f2fd5bb6d5e56902dddecfade406267b91
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183327"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486270"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
 Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode afetar sua decisão sobre qual solução de identidade híbrida para utilizar. Com a proliferação de vários dispositivos e a capacidade dos usuários para trazer os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa precisa proteger os seus próprios dados, mas ele também deve manter privacidade do utilizador intactos. Normalmente, quando um utilizador tem seu próprio dispositivo, poderá também têm várias credenciais que serão alternadas, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado com as credenciais pessoais em comparação com aqueles criados com as credenciais da empresa. Sua solução de identidade deve ser capaz de interagir com a nuvem serviços para fornecer uma experiência totalmente integrada para o utilizador final ao mesmo tempo, certifique-se a sua privacidade e aumentar a proteção contra fugas de dados. 

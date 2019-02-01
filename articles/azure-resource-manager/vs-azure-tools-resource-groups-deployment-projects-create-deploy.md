@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493486"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
+
 Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL.  
 
 Este artigo mostra como utilizar o [Visual Studio 2017 com o desenvolvimento do Azure e as cargas de trabalho ASP.NET instaladas](/dotnet/azure/dotnet-tools). Se utilizar o Visual Studio 2015 Update 2 e o Microsoft Azure SDK para .NET 2.9 ou o Visual Studio 2013 com o Azure SDK 2.9, a experiência é basicamente a mesma.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
+
 Nesta secção, cria um projeto de Grupo de Recursos do Azure com um modelo **Aplicação Web + SQL**.
 
 1. No Visual Studio, selecione **Ficheiro**, **Novo Projeto**, **C#** ou **Visual Basic** (a linguagem que selecionar não afeta as fases posteriores, uma vez que estes projetos têm apenas conteúdo JSON e do PowerShell). Em seguida, selecione **Nuvem** e, em seguida, o projeto **Grupo de Recursos do Azure**.

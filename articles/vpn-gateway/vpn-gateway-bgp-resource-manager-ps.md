@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o BGP em Gateways de VPN do Azure: Gestor de recursos: PowerShell | Documentos da Microsoft'
+title: 'Configure o BGP em Gateways de VPN do Azure: Gestor de recursos: PowerShell | Microsoft Docs'
 description: Este artigo orienta-o por meio de configurar o BGP com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632590"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508407"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways de VPN do Azure com o PowerShell
 Este artigo orienta-o pelos passos para ativar o BGP numa conexão de VPN Site a Site (S2S) em vários locais e uma ligação de VNet a VNet com o modelo de implementação do Resource Manager e o PowerShell.
@@ -174,7 +174,7 @@ Antes de continuar, verifique se ainda está ligado à Subscrição 1.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Criar o gateway de rede local para Site5
 
-Certifique-se de que criar o grupo de recursos se não é criado, antes de criar o gateway de rede local. Observe os dois parâmetros adicionais para o gateway de rede local: Asn e BgpPeerAddress.
+Certifique-se de que criar o grupo de recursos se não é criado, antes de criar o gateway de rede local. Observe os dois parâmetros adicionais para o gateway de rede local: ASN e BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

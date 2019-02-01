@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 53fcaab5d98dd63579390105f3b62c053208e894
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020307"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512378"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -105,13 +105,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| storageAccountId |Cadeia | O ID de recurso da conta do storage para o qual gostaria de enviar registos de diagnóstico |
-| serviceBusRuleId |Cadeia | O service bus ID da regra do espaço de nomes de barramento de serviço no qual deseja que os Hubs de eventos criado para transmissão em fluxo registos de diagnóstico. A regra ID é o formato: "{ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}".|
+| storageAccountId |String | O ID de recurso da conta do storage para o qual gostaria de enviar registos de diagnóstico |
+| serviceBusRuleId |String | O service bus ID da regra do espaço de nomes de barramento de serviço no qual deseja que os Hubs de eventos criado para transmissão em fluxo registos de diagnóstico. A regra ID é o formato: "{ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}".|
 | workspaceId | Tipo complexo | Matriz de Detalhamento de métrica de tempo e suas diretivas de retenção. Atualmente, esta propriedade está vazia. |
 |métricas| Valores de parâmetros de execução para ser transmitido para pipeline invocado do pipeline| Um objeto JSON mapear nomes de parâmetros para valores de argumento |
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, primeiro execute uma operação de obtenção de definições de diagnóstico. |
-| categoria| Cadeia| Matriz de categorias de registo e suas diretivas de retenção |
-| intervalo de agregação | Cadeia | A granularidade de métricas que são capturadas no formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
+| categoria| String| Matriz de categorias de registo e suas diretivas de retenção |
+| timeGrain | String | A granularidade de métricas que são capturadas no formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
 | enabled| Booleano | Especifica se a coleção dessa categoria de métrica ou registo está ativada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou registo. Utilizado para a opção de conta de armazenamento apenas.|
 | dias| Int| Número de dias a manter a métricas ou registos. Um valor de 0 mantém os registos indefinidamente. Utilizado para a opção de conta de armazenamento apenas. |
@@ -251,7 +251,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:"
+   "properties":
        {
           "Input": "{
               "source": {
@@ -275,19 +275,19 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| Nível |Cadeia | Nível dos registos de diagnóstico. Nível 4 é sempre o caso dos registos de execução da atividade. | `4`  |
-| correlationId |Cadeia | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | Cadeia | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|activityRunId| Cadeia| ID de execução de atividade | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| Cadeia| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadeia | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| Cadeia | Categoria de registos de diagnóstico. Definir esta propriedade para "ActivityRuns" | `ActivityRuns` |
-|nível| Cadeia | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
-|operationName| Cadeia |Nome da atividade com o estado. Se o estado é a pulsação de início, é `MyActivity -`. Se o estado é o heartbeat do fim, é `MyActivity - Succeeded` com o estado final | `MyActivity - Succeeded` |
-|pipelineName| Cadeia | Nome do pipeline | `MyPipeline` |
-|activityName| Cadeia | Nome da atividade | `MyActivity` |
-|start| Cadeia | Início da atividade execute no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| Cadeia | Extremidades da atividade executam no período de tempo, formato UTC. Se a atividade não terminou, mas (registo de diagnóstico para uma atividade iniciar), um valor padrão de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
+| Nível |String | Nível dos registos de diagnóstico. Nível 4 é sempre o caso dos registos de execução da atividade. | `4`  |
+| correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| hora | String | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| String| ID de execução de atividade | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|pipelineRunId| String| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "ActivityRuns" | `ActivityRuns` |
+|nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
+|operationName| String |Nome da atividade com o estado. Se o estado é a pulsação de início, é `MyActivity -`. Se o estado é o heartbeat do fim, é `MyActivity - Succeeded` com o estado final | `MyActivity - Succeeded` |
+|pipelineName| String | Nome do pipeline | `MyPipeline` |
+|activityName| String | Nome da atividade | `MyActivity` |
+|start| String | Início da atividade execute no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
+|end| String | Extremidades da atividade executam no período de tempo, formato UTC. Se a atividade não terminou, mas (registo de diagnóstico para uma atividade iniciar), um valor padrão de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
 
 
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de registos de execução de pipeline
@@ -322,18 +322,18 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| Nível |Cadeia | Nível dos registos de diagnóstico. Nível 4 é o caso dos registos de execução da atividade. | `4`  |
-| correlationId |Cadeia | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | Cadeia | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|runId| Cadeia| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| Cadeia | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| Cadeia | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
-|nível| Cadeia | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
-|operationName| Cadeia |Nome do pipeline com o estado. "Pipeline - foi concluída com êxito" com o estado final aquando da conclusão da execução de pipeline| `MyPipeline - Succeeded` |
-|pipelineName| Cadeia | Nome do pipeline | `MyPipeline` |
-|start| Cadeia | Início da atividade execute no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|end| Cadeia | Fim da atividade é executada no período de tempo, formato UTC. Se a atividade não terminou, mas (registo de diagnóstico para uma atividade iniciar), um valor padrão de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
-|status| Cadeia | Estado final de execução (com êxito ou falha) do pipeline | `Succeeded`|
+| Nível |String | Nível dos registos de diagnóstico. Nível 4 é o caso dos registos de execução da atividade. | `4`  |
+| correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| hora | String | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| String| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
+|nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
+|operationName| String |Nome do pipeline com o estado. "Pipeline - foi concluída com êxito" com o estado final aquando da conclusão da execução de pipeline| `MyPipeline - Succeeded` |
+|pipelineName| String | Nome do pipeline | `MyPipeline` |
+|start| String | Início da atividade execute no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
+|end| String | Fim da atividade é executada no período de tempo, formato UTC. Se a atividade não terminou, mas (registo de diagnóstico para uma atividade iniciar), um valor padrão de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
+|status| String | Estado final de execução (com êxito ou falha) do pipeline | `Succeeded`|
 
 
 ### <a name="trigger-run-logs-attributes"></a>Atributos de registos de execução do acionador
@@ -367,19 +367,19 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição | Exemplo |
 | --- | --- | --- | --- |
-| Nível |Cadeia | Nível dos registos de diagnóstico. Definida como nível 4 para registos de execução da atividade. | `4`  |
-| correlationId |Cadeia | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | Cadeia | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|triggerId| Cadeia| ID da execução do acionador | `08587023010602533858661257311` |
-|resourceId| Cadeia | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| Cadeia | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
-|nível| Cadeia | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
-|operationName| Cadeia |Nome do acionador com o estado final se com êxito disparado. "MyTrigger - foi concluída com êxito" se o heartbeat foi concluída com êxito| `MyTrigger - Succeeded` |
-|triggerName| Cadeia | Nome do acionador | `MyTrigger` |
-|triggerType| Cadeia | Tipo de Acionador (acionador Manual ou acionador de agenda) | `ScheduleTrigger` |
-|triggerEvent| Cadeia | Eventos do acionador | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| Cadeia | Início do acionador dispare no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|status| Cadeia | Estado final de se disparador acionado com êxito (com êxito ou falha) | `Succeeded`|
+| Nível |String | Nível dos registos de diagnóstico. Definida como nível 4 para registos de execução da atividade. | `4`  |
+| correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| hora | String | Hora do evento no período de tempo, formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|triggerId| String| ID da execução do acionador | `08587023010602533858661257311` |
+|resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
+|nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
+|operationName| String |Nome do acionador com o estado final se com êxito disparado. "MyTrigger - foi concluída com êxito" se o heartbeat foi concluída com êxito| `MyTrigger - Succeeded` |
+|triggerName| String | Nome do acionador | `MyTrigger` |
+|triggerType| String | Tipo de Acionador (acionador Manual ou acionador de agenda) | `ScheduleTrigger` |
+|triggerEvent| String | Eventos do acionador | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|start| String | Início do acionador dispare no período de tempo, formato UTC | `2017-06-26T20:55:29.5007959Z`|
+|status| String | Estado final de se disparador acionado com êxito (com êxito ou falha) | `Succeeded`|
 
 ## <a name="metrics"></a>Métricas
 
@@ -387,7 +387,7 @@ O Azure Monitor permite-lhe consumir telemetria ganhar visibilidade sobre o dese
 
 ADFV2 emite as métricas seguintes
 
-| **Métricas**           | **Nome a apresentar de métrica**         | **Unidade** | **Tipo de agregação** | **Descrição**                                       |
+| **Métricas**           | **Nome a apresentar de métrica**         | **Unit** | **Tipo de agregação** | **Descrição**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Foi efetuada com êxito as métricas de execuções de pipeline | Contagem    | Total                | Total pipelines é executado com êxito dentro de uma janela de minutos |
 | PipelineFailedRuns   | Falha de métricas de execuções de pipeline    | Contagem    | Total                | Total de pipelines execuções falhadas dentro de uma janela de minutos    |
@@ -416,21 +416,21 @@ Ative as definições de diagnóstico para a fábrica de dados.
 
 1.  Selecione **do Azure Monitor** -> **as definições de diagnóstico** -> selecionar a fábrica de dados -> ativar diagnósticos.
 
-    ![Monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
 2.  Fornece definições de diagnóstico, incluindo a configuração da área de trabalho.
 
-    ![Monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instalar o Analytics de fábrica de dados do Azure a partir do Azure Marketplace
 
-![Monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
-![Monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
 Clique em **criar** e selecione a área de trabalho e definições.
 
-![Monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
 
 ### <a name="monitor-data-factory-metrics"></a>Monitorizar as métricas de fábrica de dados
 
@@ -454,13 +454,13 @@ A instalar **do Azure Data Factory Analytics** cria um conjunto de padrão de mo
 
 - Duração de execuções do Pipeline de máx. de estatísticas do ADF a 3)
 
-![Monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
-![Monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
 Pode visualizar as métricas acima, examinar as consultas por trás estas métricas, editar as consultas, criar alertas e assim por diante.
 
-![Monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertas
 

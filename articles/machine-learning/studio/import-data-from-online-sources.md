@@ -1,8 +1,21 @@
 ---
-title: Importar dados para Machine Learning Studio de titleSuffix de origens de dados online: Descrição do Azure Machine Learning Studio: Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
+title: Importar dados para Machine Learning Studio provenientes de origens de dados online
+titleSuffix: Azure Machine Learning Studio
+description: Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 11/29/2017
+ms.openlocfilehash: 21b0cceabaf9cd7d284865e87086d695280df2bb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486576"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importar dados para o Azure Machine Learning Studio a partir de origens de dados online
 Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.

@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301446"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487239"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -111,7 +111,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 Recursão permite-lhe especificar carateres universais para simplificar o controle em diretórios e variáveis de ambiente para que possa controlar os ficheiros em ambientes com múltiplos ou dinâmico nomes da unidade. A lista seguinte mostra as informações comuns que deve saber quando configurar a recursão:
 
 * Carateres universais são necessários para vários ficheiros de controlo
-* Se utilizar carateres universais, só pode ser utilizados no último segmento de um caminho. (por exemplo, C:\Folder\\**ficheiro** ou /etc/*.conf)
+* Se utilizar carateres universais, só pode ser utilizados no último segmento de um caminho. (por exemplo, `c:\folder\*file*` ou `/etc/*.conf`)
 * Se uma variável de ambiente má neplatnou cestu, validação será concluída com êxito, mas esse caminho irão falhar quando o inventário é executado.
 * Evitar caminhos gerais, tais como `c:\*.*` ao definir o caminho, como isso poderia resultar em demasiados pastas a ser percorridas.
 
@@ -132,9 +132,9 @@ Utilize os seguintes passos para configurar o controlo de chave de registo em co
 |Propriedade  |Descrição  |
 |---------|---------|
 |Ativado     | Determina se a configuração é aplicada.        |
-|Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
-|Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
-|Chave do Registo do Windows   | O caminho para verificar o ficheiro. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Nome do Item     | Nome amigável da chave do registo a ser monitorizado.        |
+|Grupo     | Um nome de grupo para o agrupamento lógico de chaves do Registro.        |
+|Chave do Registo do Windows   | O caminho para verificar a chave de registo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitações
 
@@ -278,13 +278,13 @@ No exemplo seguinte, a captura de ecrã mostra que o arquivo `C:\windows\system3
 
 ![Um gráfico que mostra os anfitriões de alteração de ficheiros](./media/automation-change-tracking/changes.png)
 
-Para analisar ainda mais esta alteração, aceda a pesquisa de registos desde o clique **do Log Analytics**. Uma vez na pesquisa de registos, procure alterações de conteúdo para o ficheiro de anfitriões com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura alterações que incluía uma alteração de conteúdo do ficheiro para os ficheiros cujo caminho totalmente qualificado contém a palavra "anfitriões". Também pode fazer para um ficheiro específico, alterando a parte de caminho para sua forma completamente qualificada (como `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Para analisar ainda mais esta alteração, aceda a pesquisa de registos desde o clique **do Log Analytics**. Uma vez na pesquisa de registos, procure alterações de conteúdo para o ficheiro de anfitriões com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Esta consulta procura alterações que incluía uma alteração de conteúdo do ficheiro para os ficheiros cujo caminho totalmente qualificado contém a palavra "anfitriões". Também pode fazer para um ficheiro específico, alterando a parte de caminho para sua forma completamente qualificada (como `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Depois da consulta devolve os resultados pretendidos, clique nas **nova regra de alerta** botão na experiência de pesquisa de registo para abrir a página de criação do alerta. Também pode navegar para esta experiência através de **do Azure Monitor** no portal do Azure. A experiência de criação do alerta, verificar a nossa consulta novamente e modificar a lógica de alerta. Neste caso, pretende que o alerta para ser acionado se há até mesmo uma alteração, detetada em todas as máquinas no ambiente.
 
 ![Uma imagem que mostra a consulta de alteração para o controlo de alterações ao ficheiro de anfitriões](./media/automation-change-tracking/change-query.png)
 
-Depois da lógica de condição for definida, atribua grupos de ação para executar ações em resposta ao alerta a ser acionado. Neste caso, configurei um pedido de ITSM a ser criado e os e-mails sejam enviados.  Também podem ser realizadas várias outras ações úteis, como acionar uma função do Azure, o runbook de automatização, Webhook, ou uma aplicação lógica.
+Depois da lógica de condição for definida, atribua grupos de ação para executar ações em resposta ao alerta a ser acionado. Neste caso, configurei um pedido de ITSM a ser criado e os e-mails sejam enviados.  Também podem ser realizadas várias outras ações úteis, como acionar uma função do Azure, runbook de automatização, webhook ou aplicação lógica.
 
 ![Uma imagem de configurar um grupo de ação do alerta na alteração](./media/automation-change-tracking/action-groups.png)
 

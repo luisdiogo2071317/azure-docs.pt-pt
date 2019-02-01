@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 2e6ceacd0a6c2b3752391156b404bdfd654b9a8c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af86b570dfb24f990f1d8b4ff501d1a222bd21d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451110"
+ms.locfileid: "55494294"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Ativar o TLS seguro para o cliente do Armazenamento do Azure
 
@@ -56,7 +56,7 @@ O exemplo a seguir mostra como ativar o TLS 1.2 no cliente PowerShell.
 # Enable TLS 1.2 before connecting to Azure Storage
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
-$resourceGroup = "{YourResourceGropuName}"
+$resourceGroup = "{YourResourceGroupName}"
 $storageAccountName = "{YourStorageAccountNme}"
 $prefix = "foo"
 

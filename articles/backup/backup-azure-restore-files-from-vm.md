@@ -8,13 +8,13 @@ keywords: recuperação ao nível do item; recuperação de ficheiros de cópia 
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
-ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pvrk
+ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488497"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure
 
@@ -214,10 +214,10 @@ Se tiver problemas ao recuperar ficheiros a partir de máquinas virtuais, veja a
 
 | Mensagem de erro / cenário | Causa provável | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Saída do exe: *ligar para o destino de exceção* |Script não é capaz de aceder ao ponto de recuperação    | Verifique se o computador cumpre os requisitos de acesso anterior. |  
-| Saída do exe: *o destino já foi registado através de uma sessão de iSCSI.* | O script já foi executado no mesmo computador e as unidades que tenham sido vinculadas | Os volumes de ponto de recuperação já tenham sido vinculados. NÃO pode ser montadas com as mesmas letras de unidade da original VM. Procurar por meio de todos os volumes disponíveis no Explorador de ficheiros para o ficheiro |
-| Saída do exe: *este script é inválido porque os discos têm sido desmontados através do portal/12-RH de excedeu o limite. Transfira um novo script a partir do portal.* |    Os discos têm sido desmontados partir do portal ou excedida o limite de 12 horas | Nesse exe particular agora é inválido e não pode ser executado. Se pretender aceder aos ficheiros dessa recuperação ponto anterior no tempo, visite o portal para um novo. exe|
-| No computador onde é executado no exe: novos volumes não são desmontados depois de clica no botão de desmontagem | O Iniciador do iSCSI na máquina é não estabelecer ligação com o destino de responder/atualizar e manter a cache. |  Depois de clicar em **desmontar**, aguarde alguns minutos. Se a novos volumes não são desmontados, procure os todos os volumes. Todos os volumes de navegação na força o iniciador para atualizar a ligação e o volume é desmontado com uma mensagem de erro que o disco não está disponível.|
+| Saída do exe: *Ligar para o destino de exceção* |Script não é capaz de aceder ao ponto de recuperação    | Verifique se o computador cumpre os requisitos de acesso anterior. |  
+| Saída do exe: *O destino já foi registrado através de uma sessão de iSCSI.* | O script já foi executado no mesmo computador e as unidades que tenham sido vinculadas | Os volumes de ponto de recuperação já tenham sido vinculados. NÃO pode ser montadas com as mesmas letras de unidade da original VM. Procurar por meio de todos os volumes disponíveis no Explorador de ficheiros para o ficheiro |
+| Saída do exe: *Este script é inválido porque os discos têm sido desmontados através do portal/12-RH de excedeu o limite. Transfira um novo script a partir do portal.* |    Os discos têm sido desmontados partir do portal ou excedida o limite de 12 horas | Nesse exe particular agora é inválido e não pode ser executado. Se pretender aceder aos ficheiros dessa recuperação ponto anterior no tempo, visite o portal para um novo. exe|
+| No computador onde é executado no exe: Os novos volumes não são desmontados depois de clica no botão de desmontagem | O Iniciador do iSCSI na máquina é não estabelecer ligação com o destino de responder/atualizar e manter a cache. |  Depois de clicar em **desmontar**, aguarde alguns minutos. Se a novos volumes não são desmontados, procure os todos os volumes. Todos os volumes de navegação na força o iniciador para atualizar a ligação e o volume é desmontado com uma mensagem de erro que o disco não está disponível.|
 | Saída do exe: Script é executado com êxito, mas "Novos volumes anexados" não são apresentados na saída do script |    Este é um erro transitório    | Os volumes seriam tenha sido vinculados já. Abra o Explorador para procurar. Se estiver a utilizar o mesmo computador para executar scripts sempre, considere reiniciar o computador e deve ser apresentada a lista nas execuções subsequentes exe. |
-| Específicas do Linux: não é possível ver os volumes pretendidos | O sistema operacional da máquina em que o script é executado talvez não reconheça o sistema de ficheiros subjacente da VM protegido | Verifique se o ponto de recuperação está consistente com ficheiros ou consistentes de falhas. Se o ficheiro consistente, execute o script em outro computador cujo sistema operacional reconhece o sistema de ficheiros da VM protegido |
-| Específico do Windows: não é possível ver os volumes pretendidos | Os discos tenha sido vinculados, mas os volumes não foram configurados | A partir do ecrã de gestão do disco, identifique os discos adicionais relacionadas com o ponto de recuperação. Se qualquer um destes discos estiverem offline no Estado tente torná-los online clicando no disco e clique em "Online"|
+| Linux específico: Não é possível ver os volumes pretendidos | O sistema operacional da máquina em que o script é executado talvez não reconheça o sistema de ficheiros subjacente da VM protegido | Verifique se o ponto de recuperação está consistente com ficheiros ou consistentes de falhas. Se o ficheiro consistente, execute o script em outro computador cujo sistema operacional reconhece o sistema de ficheiros da VM protegido |
+| Específico do Windows: Não é possível ver os volumes pretendidos | Os discos tenha sido vinculados, mas os volumes não foram configurados | A partir do ecrã de gestão do disco, identifique os discos adicionais relacionadas com o ponto de recuperação. Se qualquer um destes discos estiverem offline no Estado tente torná-los online clicando no disco e clique em "Online"|

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fb47654a3eb6ea45d2aebab956b555e720faef4c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189872"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487120"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com Jenkins, GitHub e Docker
 
@@ -160,7 +160,7 @@ Para testar a integração do GitHub no Jenkins, consolide uma alteração no se
 
 Na IU Web do GitHub, selecione o repositório bifurcado e selecione o ficheiro **index.js**. Selecione o ícone de lápis para editar este ficheiro, de forma que a linha 6 seja:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

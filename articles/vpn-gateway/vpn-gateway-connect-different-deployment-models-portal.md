@@ -1,5 +1,5 @@
 ---
-title: 'Ligar redes virtuais clássicas a VNets do Resource Manager do Azure: Portal | Documentos da Microsoft'
+title: 'Ligar redes virtuais clássicas a VNets do Resource Manager do Azure: Portal | Microsoft Docs'
 description: Passos para ligar VNets clássicas a VNets do Resource Manager com o Gateway de VPN e o portal
 services: vpn-gateway
 author: cherylmc
@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405009"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508339"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o portal
 
@@ -113,7 +113,7 @@ Se já tiver uma VNet com um gateway VPN, certifique-se de que o gateway é din�
 2. Clique em **Configuração do gateway opcional** para abrir a página **Configuração do gateway**.
 
   ![Página de configuração do Open gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "página de configuração do gateway aberto")
-3. Clique em **sub-rede - configurar definições necessárias** para abrir o **adicionar sub-rede** página. O **Name** já está configurada com o valor necessário: **GatewaySubnet**.
+3. Clique em **sub-rede - configurar definições necessárias** para abrir o **adicionar sub-rede** página. O **nome** já está configurada com o valor necessário: **GatewaySubnet**.
 4. O **intervalo de endereços** refere-se para o intervalo para a sub-rede do gateway. Embora seja possível criar uma sub-rede de gateway com/29 (3 endereços), de intervalo de endereços, recomendamos a criação de uma sub-rede de gateway que contém mais endereços IP. Isto irá acomodar configurações futuras que possam precisar de endereços IP mais disponíveis. Se possível, utilize/27 ou /28. Se estiver a utilizar estes passos como um exercício, pode consultar o [valores de exemplo](#values). Neste exemplo, vamos utilizar '10.0.0.32/28'. Clique em **OK** para criar a sub-rede do gateway.
 5. Sobre o **configuração do Gateway** página, **tamanho** refere-se para o SKU de gateway. Selecione o SKU de gateway para o seu gateway VPN.
 6. Certifique-se do **tipo de encaminhamento** é **dinâmico**, em seguida, clique em **OK** para regressar ao **nova ligação VPN** página.
@@ -171,7 +171,7 @@ Antes de criar um gateway de rede virtual, tem primeiro de criar a sub-rede do g
 
 ### <a name="createlng"></a>4. Criar um gateway de rede local
 
-**Valores de exemplo:** gateway de rede Local = ClassicVNetLocal
+**Valores de exemplo:** Gateway de rede local = ClassicVNetLocal
 
 | Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |Endereço IP público do gateway|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Ver os valores de ficheiro de configuração de rede
 
-Quando cria uma VNet no portal do Azure, o nome completo, que utiliza o Azure não é visível no portal do Azure. Por exemplo, uma VNet que aparece para ter o nome "ClassicVNet" no portal do Azure pode ter um nome muito mais tempo no ficheiro de configuração de rede. O nome pode ter um aspeto semelhante: 'Grupo ClassicRG ClassicVNet'. Nestes passos, transfira o ficheiro de configuração de rede e visualizar os valores.
+Quando cria uma VNet no portal do Azure, o nome completo, que utiliza o Azure não é visível no portal do Azure. Por exemplo, uma VNet que aparece para ter o nome "ClassicVNet" no portal do Azure pode ter um nome muito mais tempo no ficheiro de configuração de rede. O nome pode ser algo como: 'Grupo ClassicRG ClassicVNet'. Nestes passos, transfira o ficheiro de configuração de rede e visualizar os valores.
 
 Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNet.
 

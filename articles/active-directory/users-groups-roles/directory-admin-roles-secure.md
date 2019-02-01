@@ -1,24 +1,24 @@
 ---
-title: Melhores práticas para proteger o acesso administrativo no Azure AD | Documentos da Microsoft
+title: Melhores práticas para proteger o acesso de administrador - Azure Active Directory | Documentos da Microsoft
 description: Certifique-se de que as contas de acesso e administrador administrativas da sua organização são seguras. Para arquitetos de sistemas e profissionais de TI que configurar o Azure AD, Azure e Serviços Online da Microsoft.
 services: active-directory
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
-ms.date: 06/25/2018
+ms.date: 01/31/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.custom: it-pro
-ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ba7baf41a1753625ee3e97acde1d954e914545bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: martincoetzer; MarkMorow
+ms.openlocfilehash: 327ea929b5825abb448cb13b1bd0cbfa5681521c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190773"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512504"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 

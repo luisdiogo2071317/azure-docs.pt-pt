@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298930"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508166"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -83,7 +83,7 @@ Certifique-se de que a sua subscrição tem a capacidade para executar o cluster
 
 ## <a name="back-end-data-storage"></a>Armazenamento de dados back-end
 
-Onde deve o cluster de vFXT Avere armazenar os dados quando não está no cache? Decida se o conjunto de trabalho será armazenado os longo prazo num novo contentor de BLOBs ou num sistema de armazenamento de hardware ou numa cloud existente. 
+Onde deve o cluster de vFXT Avere armazenar os dados quando não está no cache? Decida se o seu conjunto de trabalho será armazenado de longo prazo num novo contentor de BLOBs ou num sistema de armazenamento de hardware ou numa cloud existente. 
 
 Se pretender utilizar o armazenamento de Blobs do Azure para o back-end, deve criar um novo contentor como parte da criação do cluster vFXT. Esta opção cria e configura o novo contentor, para que fique pronta a utilizar assim que o cluster estiver pronto. 
 
@@ -109,7 +109,7 @@ As opções de acesso incluem:
 
 * Rede privada virtual (VPN) – configurar uma VPN ponto a site ou site a site para a sua rede privada.
 
-* O Azure ExpressRoute - configurar uma ligação privada através de e o parceiro do ExpressRoute. 
+* O Azure ExpressRoute - configurar uma ligação privada através de um parceiro do ExpressRoute. 
 
 Para obter detalhes sobre estas opções, leia os [documentação de rede Virtual do Azure sobre a comunicação de internet](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
@@ -117,7 +117,7 @@ Para obter detalhes sobre estas opções, leia os [documentação de rede Virtua
 
 Se definir um endereço IP público no controlador de cluster, pode utilizá-lo como um anfitrião de atalhos para contactar o cluster de vFXT Avere de fora da sub-rede privada. No entanto, uma vez que o controlador tem privilégios de acesso para modificar nós de cluster, esta ação cria um risco de segurança pequeno.  
 
-Para obter mais segurança com um endereço IP público, utilize um grupo de segurança de rede para permitir o acesso de entrada apenas através da porta 22.
+Para obter mais segurança com um endereço IP público, utilize um grupo de segurança de rede para permitir o acesso de entrada apenas através da porta 22. Opcionalmente, pode proteger ainda mais o sistema, bloqueando para baixo de acesso aos seus endereços de origem do intervalo de IP - ou seja, permitir apenas ligações a partir de máquinas que pretende utilizar para o acesso de cluster.
 
 Ao criar o cluster, pode escolher se deve ou não criar um endereço IP público no controlador de cluster. 
 

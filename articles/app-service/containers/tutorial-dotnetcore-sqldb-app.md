@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465416"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511144"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Criar uma aplicação de base de dados SQL e .NET Core no serviço de aplicações do Azure no Linux
 
@@ -359,6 +359,35 @@ Uma vez o `git push` estiver concluído, navegue para a aplicação do Azure e e
 ![Aplicação do Azure após a primeira migração de código](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a publicar a aplicação .NET Core, os dados existentes na Base de Dados SQL não são perdidos. Além disso, as Migrações do Entity Framework Core apenas alteram o esquema de dados e mantêm os dados existentes intactos.
+
+## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
+
+O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+
+- Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` no *DotNetCoreSqlDb.csproj*.
+- Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` no *Startup.cs*.
+
+> [!NOTE]
+> Nível de registo do projeto está definido como `Information` no *appSettings*.
+> 
+
+No serviço de aplicações no Linux, aplicações são executadas dentro de um contentor a partir de uma imagem do Docker padrão. Pode acessar os registos de consola gerados a partir de dentro do contentor. Para obter os registos de, primeiro ative o registo de contentor ao executar o [ `az webapp log config` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) comando no Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Assim que o registo de contentor está ativado, ver o fluxo de registo ao executar o [ `az webapp log tail` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) comando no Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Assim que tiver iniciado a transmissão de registos, atualize a aplicação do Azure no browser para obter algum tráfego da web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
+
+Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl`+`C`.
+
+Para obter mais informações sobre como personalizar os registos do ASP.NET Core, consulte [iniciar sessão no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## <a name="manage-your-azure-app"></a>Gerir a sua aplicação do Azure
 

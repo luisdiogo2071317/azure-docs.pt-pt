@@ -2,18 +2,18 @@
 title: Recuperar dados de um servidor de cópia de segurança do Azure
 description: Recupere os dados que já protegidos para um cofre dos serviços de recuperação de qualquer servidor de cópia de segurança do Azure registado esse cofre.
 services: backup
-author: nkolli1
-manager: shreeshd
+author: kasinh
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan
-ms.openlocfilehash: 66d78be296d0786626325df36aa133d277131b3b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: kasinh
+ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488463"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 Pode utilizar o Azure Backup Server para recuperar os dados que fez backup para um cofre dos serviços de recuperação. Por isso, o processo para fazer é integrado ao console de gerenciamento do servidor de cópia de segurança do Azure e é semelhante para o fluxo de trabalho de recuperação para outros componentes de cópia de segurança do Azure.

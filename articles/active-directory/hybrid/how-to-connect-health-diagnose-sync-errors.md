@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f367049cda76eea2dfb3040f714a7050a26520e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996051"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495909"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e resolver erros de sincronização de atributo duplicado
 
@@ -51,8 +51,8 @@ A funcionalidade de diagnóstico suporta objetos de utilizador com os seguintes 
 | Nome de atributo | Tipos de erros de sincronização|
 | ------------------ | -----------------|
 | UserPrincipalName | QuarantinedAttributeValueMustBeUnique ou AttributeValueMustBeUnique | 
-| proxyAddresses | QuarantinedAttributeValueMustBeUnique ou AttributeValueMustBeUnique | 
-| sipProxyAddress | AttributeValueMustBeUnique | 
+| ProxyAddresses | QuarantinedAttributeValueMustBeUnique ou AttributeValueMustBeUnique | 
+| SipProxyAddress | AttributeValueMustBeUnique | 
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
@@ -67,7 +67,7 @@ No portal do Azure, tome algumas providências para identificar cenários de fix
 1.  Verifique os **diagnosticar estado** coluna. O estado é apresentado se existe uma forma possível para corrigir um erro de sincronização diretamente a partir do Azure Active Directory. Em outras palavras, um fluxo de resolução de problemas existe que pode restringir o caso de erro e potencialmente corrigi-lo.
 | Estado | O que significa? |
 | ------------------ | -----------------|
-| Não iniciado | Ainda não visitou este processo de diagnóstico. Consoante o resultado de diagnóstico, há uma possível maneira de corrigir o erro de sincronização diretamente no portal. |
+| Não Iniciado | Ainda não visitou este processo de diagnóstico. Consoante o resultado de diagnóstico, há uma possível maneira de corrigir o erro de sincronização diretamente no portal. |
 | Correção Manual Obrigatória | O erro não se ajusta os critérios de correções disponíveis no portal. Qualquer um dos tipos de objeto em conflito não são usuários, ou que já utilizou os passos de diagnóstico, e nenhuma resolução de correção estava disponível no portal. No último caso, uma correção do lado no local ainda é uma das soluções. [Leia mais sobre locais correções](https://support.microsoft.com/help/2647098). | 
 | Sincronização Pendente | Foi aplicada uma correção. O portal está a aguardar o próximo ciclo de sincronização limpar o erro. |
   >[!IMPORTANT]

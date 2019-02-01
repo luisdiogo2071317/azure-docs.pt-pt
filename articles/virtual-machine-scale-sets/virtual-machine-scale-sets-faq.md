@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812595"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493665"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -61,7 +61,7 @@ Obtenha respostas às perguntas mais frequentes sobre os conjuntos de dimensiona
 
 **P.** Se utilizar várias extensões num conjunto de dimensionamento, posso forçar uma sequência de execução?
 
-**R.** Não diretamente, mas, relativamente à extensão customScript, o script pode aguardar pela conclusão de outra extensão. Pode obter orientações adicionais sobre a sequenciação de extensões nesta mensagem do blogue: [ (Sequenciação de Extensões em conjuntos de dimensionamento de máquinas virtuais do Azure)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**R.** Sim, pode utilizar o conjunto de dimensionamento [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md).
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 
@@ -230,6 +230,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM do Li
             }
         ]
     }
+}
 ```
 
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
@@ -392,13 +393,13 @@ Existem duas formas de alterar a palavra-passe para as VMs em conjuntos de dimen
 - Repor a palavra-passe usando as extensões de acesso VM.
 
     Utilize o exemplo do PowerShell seguinte:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Tem alguma flexibilidade em como lidar com alertas para limites especificados. P
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 Neste exemplo, um alerta vai para Pagerduty.com quando for atingido um limiar.

@@ -1,5 +1,5 @@
 ---
-title: 'Configurar ligações de S2S VPN ativo-ativo para Gateways de VPN: Gestor de recursos do Azure: PowerShell | Documentos da Microsoft'
+title: 'Configure ligações de S2S VPN ativo-ativo para Gateways de VPN: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Este artigo orienta-o através da configuração de ligações de ativo-ativo com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: 01f25df117eddaaf640a8bd2ef184fe685c5bc75
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 05c4a01f4317f311e1ba78a5bf45baa969dc8351
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258998"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507864"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar ligações de S2S VPN ativo-ativo com Gateways de VPN do Azure
 
@@ -277,7 +277,7 @@ Da mesma forma, seguinte apresenta os parâmetros irá introduzir para o segundo
 
 Assim que a ligação (túneis) são estabelecidas, terá de dispositivos VPN com redundância duplos e encapsulamentos conectando-se a rede no local e o Azure:
 
-![Dual-redundância-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Parte 3: estabelecer uma ligação de VNet a VNet ativo-ativo
 Esta secção cria uma ligação de VNet a VNet ativo-ativo com o BGP. 

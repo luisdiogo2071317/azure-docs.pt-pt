@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493053"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "54903762"
 
 A funcionalidade de réplica de leitura permite-lhe replicar dados de uma base de dados do Azure para o servidor MySQL (principal) para até cinco só de leitura servidores (réplicas) na mesma região do Azure. Réplicas só de leitura assíncrona são atualizadas utilizando a tecnologia de replicação baseada em posição de ficheiro de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação de binlog, consulte a [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Réplicas criadas na base de dados do Azure para o serviço MySQL são novos servidores que podem ser geridos da mesma forma como servidores de MySQL normal/autónomos. Para cada réplica de leitura, é cobrada a computação aprovisionada em vCores e armazenamento aprovisionado em GB/mês. 
+Réplicas criadas na base de dados do Azure para o serviço MySQL são novos servidores que podem ser geridos da mesma forma como servidores de MySQL normal/autónomos. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês. 
 
 
 Para saber mais sobre os recursos de replicação do MySQL e problemas, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
@@ -86,6 +86,7 @@ Os utilizadores no servidor principal são replicados para as réplicas de leitu
 - Não é suportada a criação de uma réplica de uma réplica.
 - Tabelas em memória podem tornar as réplicas fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais no [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações.
 - Ajuste a [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parâmetro num servidor principal após a criação de um servidor de réplica pode fazer com que a réplica se torna fora de sincronia. O servidor de réplica não está ciente do tablespaces diferentes.
+- Certifique-se de que o servidor mestre tabelas tiverem chaves primárias. Falta de chaves primárias pode resultar numa latência de replicação entre o mestre e as réplicas.
 - Reveja a lista completa de limitações de replicação do MySQL no [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

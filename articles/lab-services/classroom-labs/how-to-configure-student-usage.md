@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388306"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490452"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -71,6 +71,9 @@ Pode definir quotas de por utilizador, utilizando os seguintes passos:
 5. Ver o número de horas na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;**. 
 
     ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> O [agendada com tempo de VMs](how-to-create-schedules.md) não contam para a quota atribuída a um utilizador. A quota é para o tempo fora do horário de agenda que passa a um aluno em VMs. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar utilizadores ao carregar um ficheiro CSV
 Também pode adicionar utilizadores ao carregar um ficheiro CSV com endereços de e-mail dos utilizadores.

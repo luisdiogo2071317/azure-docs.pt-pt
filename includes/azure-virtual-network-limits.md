@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597643"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513984"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Servidores de DNS por rede virtual |20 |
 | Endereços de IP privados por rede virtual |65536 |
 | Endereços IP privados por interface de rede |256 |
+| Endereços IP privados por máquina virtual |256 |
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |
 | Interfaces de Rede (NIC) |65536 |
 | Grupos de Segurança de Rede (NSG) |5000 |
@@ -68,7 +69,8 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | --- | --- | --- |
 | Endereços IP públicos - dinâmico |1000 (básico) |contactar o suporte |
 | Endereços IP públicos - estáticos |200 (básico) |contactar o suporte |
-| Endereços IP públicos - estáticos |200 (standard) |contactar o suporte |
+| Endereços IP públicos - estáticos |(Standard) 200 |contactar o suporte |
+| Tamanho de prefixo de IP público (pré-visualização) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Limites do Balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md)

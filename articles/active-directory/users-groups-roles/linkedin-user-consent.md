@@ -1,5 +1,5 @@
 ---
-title: LinkedIn partilha de dados de integração e consentimento no Azure Active Directory | Documentos da Microsoft
+title: LinkedIn partilha de dados de integração e consentimento - Azure Active Directory | Documentos da Microsoft
 description: Explica como a integração do LinkedIn partilha dados através de aplicações da Microsoft no Azure Active Directory
 services: active-directory
 author: curtand
@@ -12,12 +12,12 @@ ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: a91cd830620cd56ae54006c3e09dfa02d8706d3c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ab0663ef40c61a4d8aced9050c8147b1ec4d81b0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506504"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>Partilha de dados de integração do LinkedIn e consentimento
 

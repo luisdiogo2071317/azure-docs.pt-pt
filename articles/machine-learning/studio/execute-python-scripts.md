@@ -1,8 +1,21 @@
 ---
-title: Execute o machine learning scripts titleSuffix Python: Descrição do Azure Machine Learning Studio: Contornos princípios subjacentes suporte a scripts de Python no Azure Machine Learning Studio e cenários de utilização básica, capacidades e limitações de design.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
+title: Executar scripts de Python machine learning
+titleSuffix: Azure Machine Learning Studio
+description: Contornos princípios subjacentes suporte a scripts de Python no Azure Machine Learning Studio e cenários de utilização básica, capacidades e limitações de design.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
+ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487851"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
 

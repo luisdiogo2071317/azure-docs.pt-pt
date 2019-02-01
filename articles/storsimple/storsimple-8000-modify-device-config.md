@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025995"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491659"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilizar o serviço StorSimple Device Manager para modificar a configuração de dispositivos do StorSimple
 
@@ -65,7 +65,7 @@ O dispositivo tem de sincronizar tempo para se autenticar com o seu fornecedor d
 
  Selecione o seu fuso horário na lista pendente. Pode especificar até dois servidores de protocolo NTP (Network Time):
 
- - **Servidor NTP primário** -a configuração é necessária e é especificada quando utilizam o Windows PowerShell para StorSimple para configurar o seu dispositivo. Pode especificar o padrão do Windows Server **time.windows.com** como o servidor NTP. Pode ver a configuração do servidor NTP primária através do portal do Azure, mas tem de utilizar a interface do Windows PowerShell para alterá-la. Utilize o `Set-HcsNTPClientServerAddress` cmdlet para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, aceda a synxtax para [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+ - **Servidor NTP primário** -a configuração é necessária e é especificada quando utilizam o Windows PowerShell para StorSimple para configurar o seu dispositivo. Pode especificar o padrão do Windows Server **time.windows.com** como o servidor NTP. Pode ver a configuração do servidor NTP primária através do portal do Azure, mas tem de utilizar a interface do Windows PowerShell para alterá-la. Utilize o `Set-HcsNTPClientServerAddress` cmdlet para modificar o servidor NTP primário do seu dispositivo. Para obter mais informações, aceda a sintaxe para [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 - **O servidor NTP secundário** -a configuração é opcional. Pode utilizar o portal para configurar um servidor NTP secundário.
 
@@ -85,7 +85,7 @@ Um servidor DNS é utilizado quando o dispositivo tenta comunicar com o seu forn
 
 Para elevada disponibilidade, tem de configurar a primária e os servidores DNS secundários durante a implementação inicial do dispositivo.
 
-**Servidor DNS primário** -é usar o Windows PowerShell para StorSimple para primeiro especificar o servidor DNS primário durante a configuração inicial. Pode reconfigurar o servidor DNS principal apenas através da interface do Windows PowerShell. Utilize o `Set-HcsDNSClientServerAddress` cmdlet para modificar o servidor DNS primário do seu dispositivo. Para obter mais informações, aceda a synxtax para [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+**Servidor DNS primário** -é usar o Windows PowerShell para StorSimple para primeiro especificar o servidor DNS primário durante a configuração inicial. Pode reconfigurar o servidor DNS principal apenas através da interface do Windows PowerShell. Utilize o `Set-HcsDNSClientServerAddress` cmdlet para modificar o servidor DNS primário do seu dispositivo. Para obter mais informações, aceda a sintaxe para [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 **Servidor DNS secundário** - para modificar o servidor DNS secundário, utilize o `Set-HcsDNSClientServerAddress` cmdlet na interface do Windows PowerShell do dispositivo ou **as definições de rede** painel do dispositivo StorSimple no portal do Azure.
 
@@ -95,7 +95,7 @@ Para modificar o servidor DNS secundário no portal do Azure, execute os seguint
 
 2. Na **definições** painel, aceda à **definições do dispositivo > rede**. Esta ação abre o **as definições de rede** painel. Clique em **as definições de DNS** mosaico. Modificar o endereço IP de servidor DNS secundário.
 
-    ![Modificar adderss IP de servidor DNS secundário](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Modificar o endereço IP do servidor DNS secundário](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. Na barra de comandos, clique em **salvar** e quando lhe for pedida confirmação, clique em **OK**.
 

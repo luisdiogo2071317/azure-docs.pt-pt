@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538179"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485454"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ligar o serviço Kubernetes do Azure e base de dados do Azure para MySQL
 
@@ -32,6 +32,14 @@ Pode confirmar se o cluster do AKS tenha o accelerated networking:
 6. Vá para a VM **redes** separador.
 7. Confirme se **Accelerated networking** está "ativado."
 
+Ou através da CLI do Azure utilizando os dois comandos seguintes:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+O resultado será o grupo de recursos gerada que AKS cria que contém a interface de rede. Assumem o nome "nodeResourceGroup" e utilizá-la no comando seguinte. **EnableAcceleratedNetworking** qualquer um será VERDADEIRO ou FALSO:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Abrir o Open Service Broker para o Azure 
 [Abra o Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) permite-lhe aprovisionar serviços do Azure diretamente a partir de Kubernetes ou Cloud Foundry. É uma [API do Mediador de serviço aberta](https://www.openservicebrokerapi.org/) implementação para o Azure.

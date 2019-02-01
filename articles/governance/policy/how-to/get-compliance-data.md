@@ -4,17 +4,17 @@ description: Determinam a conformidade e efeitos de avaliações de política do
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7925bc8a9f7cb65d0e92c943aa0a54d48611e286
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853634"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509001"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -45,6 +45,8 @@ Avaliações de políticas atribuídas e iniciativas de acontecem como resultado
 - Um recurso é implementado para um âmbito com uma atribuição através do Resource Manager, do REST, da CLI do Azure ou do Azure PowerShell. Neste cenário, o evento de efeito (acrescentar, auditoria, negar, implementar) e informações de estado de conformidade para o recurso individual ficarem disponíveis no portal e SDKs de cerca de 15 minutos mais tarde. Este evento não causa uma edição de avaliação de outros recursos.
 
 - Ciclo de avaliação de conformidade. Uma vez a cada 24 horas, atribuições automaticamente são reavaliadas. Uma grande política ou iniciativa de muitos recursos pode demorar tempo, portanto, não há nenhuma expectativa predefinida de quando a avaliação ciclo será concluída. Depois de terminar, resultados de compatibilidade atualizados estão disponíveis no portal e SDKs.
+
+- O [configuração do convidado](../concepts/guest-configuration.md) fornecedor de recursos é atualizado com detalhes de conformidade por um recurso gerenciado.
 
 - Análise a pedido
 

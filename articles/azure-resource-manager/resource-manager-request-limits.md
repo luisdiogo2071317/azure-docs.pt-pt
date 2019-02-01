@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493571"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
+
 Para cada subscrição do Azure e o inquilino, o Resource Manager permite até 12 000 pedidos por hora de leitura e pedidos por hora de escrita de 1200. Estes limites estão no âmbito do ID de principal fazer os pedidos e o ID de subscrição ou ID de inquilino Se os pedidos provenientes de mais do que um ID de principal, o seu limite através da subscrição ou de inquilino for superior a 12 000 e 1200 por hora.
 
 Pedidos são aplicados a sua subscrição ou o seu inquilino. Pedidos de subscrição são aqueles ID involve passando a sua subscrição, como a obtenção de grupos de recursos na sua subscrição. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
@@ -30,6 +31,8 @@ Estes limites se aplicam a cada instância do Azure Resource Manager. Existem v�
 Se a sua aplicação ou script atingir estes limites, terá de limitar os seus pedidos. Este artigo mostra-lhe como determinar as solicitações restantes que tiver antes de atingir o limite e como responder quando atingiu o limite.
 
 Quando atingir o limite, receberá o código de estado HTTP **429 demasiados pedidos**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Pedidos restantes
 Pode determinar o número de pedidos restantes, examinando os cabeçalhos de resposta. Cada solicitação inclui valores para o número de leitura restante e pedidos de escrita. A tabela seguinte descreve os cabeçalhos de resposta, que pode examinar para esses valores:
@@ -66,7 +69,7 @@ Para obter um exemplo completo do PowerShell, consulte [verificar limites de Ges
 Se quiser ver os pedidos de restantes para depuração, pode fornecer a **-Debug** parâmetro no seu **PowerShell** cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Que retorna valores de muitos, incluindo o seguinte valor de resposta:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Para obter os limites de escrita, utilize uma operação de escrita: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Que retorna valores de muitos, incluindo os seguintes valores:

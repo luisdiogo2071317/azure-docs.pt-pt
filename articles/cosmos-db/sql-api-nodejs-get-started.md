@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 9ee01885d9c292a7f9513ebc1f5121ca8c010f68
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 9c0255382e2cfe09683931408d25ffb3f60419d1
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095826"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508901"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API
 
@@ -85,7 +85,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
    ![Captura de ecrã para obter chaves do portal do Azure][keys]
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    var config = {}
 
@@ -95,7 +95,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
 1. Copie e cole os dados de ```database```, ```container``` e ```items``` no objeto ```config```, por baixo do local onde define as propriedades ```config.endpoint``` e ```config.primaryKey```. Se já tiver dados que pretende armazenar na sua base de dados, pode utilizar a ferramenta de migração de dados no Azure Cosmos DB em vez de definir os dados aqui.
 
-   ```nodejs
+   ```javascript
    var config = {}
 
    config.endpoint = "~your Azure Cosmos DB account endpoint uri here~";
@@ -171,7 +171,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
 1. Por fim, exporte o seu objeto ```config``` para poder referenciá-lo no ficheiro ```app.js```.
 
-   ```nodejs
+   ```javascript
         },
         "isRegistered": false
        }
@@ -185,7 +185,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
 1. Abra o seu ficheiro ```app.js``` vazio no editor de texto. Copie e cole o código abaixo para importar o módulo ```@azure/cosmos``` e o módulo ```config``` que criou recentemente.
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
@@ -195,7 +195,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
 1. Copie e cole o código para utilizar ```config.endpoint``` e ```config.primaryKey``` guardados anteriormente e criar um CosmosClient novo.
 
-   ```nodejs
+   ```javascript
    const url = require('url');
 
    // ADD THIS PART TO YOUR CODE
@@ -220,7 +220,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
 1. Copie e cole o código abaixo para definir o ID de base de dados e o ID de contentor. Essas IDs são como o cliente do Azure Cosmos DB irá encontrar a base de dados correta e o contentor.
 
-   ```nodejs
+   ```javascript
    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
 
    // ADD THIS PART TO YOUR CODE
@@ -234,7 +234,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
 2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A função **createDatabase** cria uma base de dados nova com o ID ```FamilyDatabase```, especificado a partir do objeto ```config```, se ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
 
-   ```nodejs
+   ```javascript
    /**
     * Create the database if it does not exist
     */
@@ -254,7 +254,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
 3. Copie e cole o código por baixo do local onde definiu as funções **createDatabase** e **readDatabase** para adicionar a função de programa auxiliar **exit**, que vai imprimir a mensagem de saída. 
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    function exit(message) {
       console.log(message);
@@ -267,7 +267,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
 4. Copie e cole o código abaixo de onde definiu a função **exit** para chamar as funções **createDatabase** e **readDatabase**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => { exit(`Completed successfully`); })
@@ -276,7 +276,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
    Neste momento, o código em ```app.js``` deve ser semelhante ao código a seguir:
 
-   ```nodejs
+   ```javascript
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
@@ -343,7 +343,7 @@ Um contentor pode ser criado utilizando o `createIfNotExists` ou criar a funçã
 
 1. Copie e cole as funções **createContainer** e **readContainer** abaixo da função **readDatabase**, no ficheiro app.js. A função **createContainer** cria um contentor novo com ```containerId```, especificado a partir do objeto ```config```, se ainda não existir. A função **readContainer** lê a definição do contentor para verificar se o mesmo existe.
 
-   ```nodejs
+   ```javascript
    /**
    * Create the container if it does not exist
    */
@@ -363,7 +363,7 @@ Um contentor pode ser criado utilizando o `createIfNotExists` ou criar a funçã
 
 1. Copie e cole o código abaixo da chamada para **readDatabase** par executar as funções **createContainer** e **readContainer**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
 
@@ -378,7 +378,7 @@ Um contentor pode ser criado utilizando o `createIfNotExists` ou criar a funçã
 
    Neste momento, o código em ```app.js``` deve ser semelhante a:
 
-   ```nodejs
+   ```javascript
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
@@ -458,7 +458,7 @@ Um item pode ser criado através da função de criação do **itens** classe. Q
 
 1. Copie e cole a função **createFamilyItem** abaixo da função **readContainer**. A função **createFamilyItem** cria os itens que contêm os dados JSON guardados no objeto ```config```. Vamos confirmar que não existe nenhum item com o mesmo ID antes de o criarmos.
 
-   ```nodejs
+   ```javascript
    /**
    * Create family item if it does not exist
    */
@@ -482,7 +482,7 @@ Um item pode ser criado através da função de criação do **itens** classe. Q
 
 1. Copie e cole o código por baixo da chamada para **readContainer** para executar a função **createFamilyItem**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -509,7 +509,7 @@ O Azure Cosmos DB suporta consultas extensas de documentos JSON armazenados em c
 
 1. Copie e cole a função **queryContainer** abaixo da função **createFamilyItem**, no ficheiro app.js. O Azure Cosmos DB suporta consultas de tipo SQL, conforme mostrado abaixo.
 
-   ```nodejs
+   ```javascript
    /**
    * Query the container using SQL
     */
@@ -537,7 +537,7 @@ O Azure Cosmos DB suporta consultas extensas de documentos JSON armazenados em c
 
 1. Copie e cole o código por baixo das chamadas para **createFamilyItem** para executar a função **queryContainer**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -565,7 +565,7 @@ O Azure Cosmos DB suporta a substituição do conteúdo dos itens.
 
 1. Copie e cole a função **replaceFamilyItem** abaixo da função **queryContainer**, no ficheiro app.js. Repare que alterámos a propriedade “grade” de uma criança do valor original de 5 para 6.
 
-   ```nodejs
+   ```javascript
    // ADD THIS PART TO YOUR CODE
    /**
    * Replace the item by ID.
@@ -580,7 +580,7 @@ O Azure Cosmos DB suporta a substituição do conteúdo dos itens.
 
 1. Copie e cole o código por baixo da chamada para **queryContainer** para executar a função **replaceFamilyItem**. Além disso, adicione o código para chamar novamente **queryContainer**, para confirmar que o item foi alterado com êxito.
 
-   ```nodejs
+   ```javascript
    createDatabase()
      .then(() => readDatabase())
      .then(() => createContainer())
@@ -611,7 +611,7 @@ O Azure Cosmos DB suporta a eliminação de itens JSON.
 
 1. Copie e cole a função **deleteFamilyItem** por baixo da função **replaceFamilyItem**.
 
-   ```nodejs
+   ```javascript
   /**
   * Delete the item by ID.
   */
@@ -623,7 +623,7 @@ O Azure Cosmos DB suporta a eliminação de itens JSON.
 
 1. Copie e cole o código por baixo da chamada da segunda **queryContainer** para executar a função **deleteFamilyItem**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
       .then(() => readDatabase())
       .then(() => createContainer())
@@ -656,7 +656,7 @@ Eliminar a base de dados criada remove a base de dados e todos os recursos subor
 
 1. Copie e cole a função **cleanup** por baixo da função **deleteFamilyItem** para remover a base de dados e todos os recursos subordinados.
 
-   ```nodejs
+   ```javascript
    /**
    * Cleanup the database and container on completion
    */
@@ -667,7 +667,7 @@ Eliminar a base de dados criada remove a base de dados e todos os recursos subor
 
 1. Copie e cole o código por baixo da chamada para **deleteFamilyItem** para executar a função **cleanup**.
 
-   ```nodejs
+   ```javascript
    createDatabase()
       .then(() => readDatabase())
       .then(() => createContainer())
@@ -691,7 +691,7 @@ Eliminar a base de dados criada remove a base de dados e todos os recursos subor
 
 Em conjunto, o código deverá ser semelhante a:
 
-```nodejs
+```javascript
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 const config = require('./config');

@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164792"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493767"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
 Resource Manager fornece várias funções para fazer comparações nos seus modelos.
 
-* [e](#and)
-* [Bool](#bool)
+* [and](#and)
+* [bool](#bool)
 * [if](#if)
 * [not](#not)
 * [ou](#or)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>e
 `and(arg1, arg2)`
@@ -75,7 +77,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | Verdadeiro |
@@ -90,7 +92,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>Bool
@@ -139,7 +141,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | Verdadeiro |
 | falseString | Bool | Falso |
@@ -155,7 +157,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
 ## <a name="if"></a>IF
@@ -250,11 +252,11 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
-| yesOutput | Cadeia | sim |
-| noOutput | Cadeia | não |
-| objectOutput | Object | {"teste": "value1"} |
+| yesOutput | String | sim |
+| noOutput | String | não |
+| objectOutput | Object | { "test": "value1" } |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -265,7 +267,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>não
@@ -311,7 +313,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | Verdadeiro |
@@ -326,7 +328,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) utiliza **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
@@ -347,7 +349,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | Verdadeiro |
 
@@ -360,7 +362,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>ou
@@ -407,7 +409,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Nome | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | Falso |
 | orExampleOutput | Bool | Verdadeiro |
@@ -422,7 +424,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Para implementar este modelo de exemplo com o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

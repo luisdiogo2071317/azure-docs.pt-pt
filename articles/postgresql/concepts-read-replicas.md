@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904017"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487953"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de leitura na base de dados do Azure para PostgreSQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "54904017"
 
 A funcionalidade de réplica de leitura permite-lhe replicar dados a partir de uma base de dados do Azure para o servidor PostgreSQL (principal) até cinco só de leitura servidores (réplicas de leitura) na mesma região do Azure. Réplicas de leitura assíncrona são atualizadas utilizando a tecnologia de replicação nativo do mecanismo de PostgreSQL.
 
-Réplicas são novos servidores que podem ser geridos de formas similares como autónoma normal da base de dados do Azure para servidores PostgreSQL. Para cada réplica de leitura, é cobrada a computação aprovisionada em vCores e armazenamento aprovisionado em GB/mês.
+Réplicas são novos servidores que podem ser geridos de formas similares como autónoma normal da base de dados do Azure para servidores PostgreSQL. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês.
 
 ## <a name="when-to-use-read-replicas"></a>Quando a utilização de réplicas de leitura
 A funcionalidade de réplica de leitura é indicada para ajudar a melhorar o desempenho e dimensionamento de cargas de trabalho de leitura intensiva. Por exemplo, as cargas de trabalho de leitura podem ser isoladas para as réplicas, embora escrita cargas de trabalho podem ser direcionadas para o mestre.
@@ -101,7 +101,7 @@ Pode [Saiba como parar uma réplica na documentação de procedimento](howto-rea
 **Azure.replication_support** tem de ser definido para a RÉPLICA no servidor principal antes de poder criar uma réplica. Alterar este parâmetro requer um reinício do servidor para entrar em vigor. Este parâmetro aplica-se apenas aos escalões fins gerais e com otimização de memória.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
-Quando optar por parar a replicação entre um mestre e de réplica, a réplica será reiniciado para aplicar estas alterações. Em seguida, ele não pode se transformar numa réplica novamente.
+Se optar por parar a replicação entre um mestre e de réplica, a réplica será reiniciado para aplicar esta alteração. A réplica, em seguida, passarão a ser um servidor de leitura / escrita. Em seguida, ele não pode se transformar numa réplica novamente.
 
 ### <a name="replicas-are-new-servers"></a>As réplicas são novos servidores
 As réplicas são criadas como nova base de dados do Azure para servidores PostgreSQL. Servidores existentes não podem ser feitos em réplicas.

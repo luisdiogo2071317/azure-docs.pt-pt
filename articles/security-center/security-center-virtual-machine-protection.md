@@ -3,7 +3,7 @@ title: Proteger as máquinas e aplicações no Centro de segurança do Azure | D
 description: Este documento aborda recomendações no Centro de segurança que o ajudam a proteger as suas máquinas virtuais e computadores e suas aplicações web e ambientes de serviço de aplicações.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181474"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487748"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -42,7 +42,7 @@ Sob **computação e aplicações**, existem os seguintes separadores:
 - **Descrição geral**: monitorização e recomendações identificadas pelo Centro de Segurança.
 - **VMs e computadores**: lista das suas VMS, computadores, máquinas virtuais e os atuais estados de segurança de cada um.
 - **Serviços Cloud**: lista das suas funções de trabalho e na Web monitorizadas pelo Centro de Segurança.
-- **Serviços de aplicações (pré-visualização)**: lista de seus ambientes do serviço de aplicações e o estado de segurança atual de cada.
+- **Serviços aplicacionais**: lista de seus ambientes do serviço de aplicações e o estado de segurança atual de cada.
 - **Contentores (pré-visualização)**: lista de contentores do alojadas em máquinas do IaaS Linux e a avaliação de segurança de suas configurações de Docker.
 - **(Pré-visualização) de recursos de computação**: lista de recomendações para os seus recursos de computação, tais como clusters do Service Fabric e dos hubs de eventos.
 
@@ -124,12 +124,11 @@ Para ver uma explicação mais prescritiva sobre esta recomendação, clique em 
 
 ![Atualizar a versão do SO](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>Serviços de aplicação (Pré-visualização)
+### <a name="app-services"></a>Serviços aplicacionais
+Tem de ativar o serviço de aplicações na sua subscrição para ver as informações do serviço de aplicações. Para obter instruções sobre como ativar esta funcionalidade, consulte [proteger o serviço de aplicações com o Centro de segurança do Azure](security-center-app-services.md).
+[!NOTE]
+> Monitorização do serviço de aplicações está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança.
 
-> [!NOTE]
-> Monitorização do serviço de aplicações está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
->
->
 
 Sob **dos serviços de aplicações**, encontrar uma lista dos seus ambientes de serviço de aplicações e o estado de funcionamento resumo com base na avaliação do Centro de segurança efetuada.
 
@@ -171,19 +170,9 @@ Existem três tipos de ícones representados nesta lista:
 |Serviço de aplicações|10|Depuração remota deve ser desativada para a aplicação Web|Desative a depuração para aplicativos Web, se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções.|
 |Serviço de aplicações|10|Depuração remota deve ser desativada para a aplicação de função|Desative a depuração para a aplicação de função se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções.|
 |Serviço de aplicações|10|Configurar restrições de IP para a aplicação Web|Defina uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP de protege as aplicações web contra ataques comuns.|
-|Serviço de aplicações|10|Configurar restrições de IP para a aplicação de função| Defina uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP protege uma aplicação de funções de ataques comuns.|
 |Serviço de aplicações|10|Não permitir que todos os ('* ') recursos para aceder à sua aplicação| Não permitir o conjunto de parâmetro WEBSITE_LOAD_CERTIFICATES "". Definição do parâmetro ' significa que todos os certificados são carregados para o arquivo de certificados pessoais de aplicações web. Isto pode levar ao abuso do princípio de privilégio mínimo porque é improvável que o site necessita de acesso a todos os certificados no tempo de execução.|
-|Serviço de aplicações|5|Web Sockets devem ser desativados para a aplicação Web|Reveja a utilização de Web Sockets nas aplicações web. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança.|
-|Serviço de aplicações|5|Web Sockets devem ser desativados para a aplicação de função|Reveja a utilização de Sockets Web nas aplicações de função. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança.|
-|Serviço de aplicações|5|Utilizar domínios personalizados para a sua aplicação Web|Utilize domínios personalizados para proteger uma aplicação web de ataques comuns, como o phishing e outros ataques relacionados com DNS.|
-|Serviço de aplicações|5|Utilizar domínios personalizados para a aplicação de funções|Utilize domínios personalizados para proteger uma aplicação de funções de ataques comuns, como o phishing e outros ataques relacionados com DNS.|
 |Serviço de aplicações|20|CORS não deve permitir que todos os recursos aceder às suas aplicações Web|Permitir que apenas necessários domínios interagir com a sua aplicação web. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação web.|
 |Serviço de aplicações|20|CORS não deve permitir que todos os recursos de aceder à sua aplicação de função| Permitir que apenas necessários domínios interagir com a sua aplicação de função. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação de função.|
-|Serviço de aplicações|10|Utilize a versão mais recente do .NET Framework suportada para a aplicação Web|Utilize a versão mais recente do .NET Framework para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
-|Serviço de aplicações|10|Utilizar a versão de Java mais recente suportada para a aplicação Web|Utilize a versão mais recente do Java para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
-|Serviço de aplicações|10|Utilizar a versão PHP mais recente suportada para a aplicação Web|Utilize a versão mais recente do PHP para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
-|Serviço de aplicações|10|Utilizar a versão de node. js mais recente suportada para a aplicação Web|Utilize a versão mais recente do node. js para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
-|Serviço de aplicações|10|Utilizar a versão de Python mais recente suportada para a aplicação Web|Utilize a versão mais recente do Python para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
 |(Batch) de recursos de computação|1|Configurar regras de alerta de métrica na conta de Batch|Configurar regras de alerta de métrica na conta do Batch e ativar as métricas de conjunto eliminar eventos completa e eventos de eliminar conjunto|
 |(Recursos de infraestrutura do serviço) de recursos de computação|10|Utilizar o Azure Active Directory para autenticação de cliente no Service Fabric|Efetue a autenticação de cliente apenas através do Azure Active Directory no Service Fabric.|
 |(Conta de automatização) de recursos de computação|5| Ativar a encriptação da conta de automatização|Ative a encriptação de recursos de variável de conta de automatização ao armazenar dados confidenciais.|

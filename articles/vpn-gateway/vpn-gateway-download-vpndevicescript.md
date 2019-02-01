@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: 0b0a7ce63fa2d0154300dd2e8f9cf88d985a8a0a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200533"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507695"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Transfere os scripts de configuração do dispositivo VPN para ligações S2S VPN
 
 Este artigo explica como transferir os scripts de configuração do dispositivo VPN para ligações S2S VPN com Gateways de VPN do Azure com o Azure Resource Manager. O diagrama seguinte mostra o fluxo de trabalho de alto nível.
 
-![script de transferência](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
 Os seguintes dispositivos tem scripts disponíveis:
 
@@ -60,7 +60,7 @@ Quando o recurso de ligação é criado, siga as instruções abaixo para transf
 
 3. Clique na ligação que pretende configurar.
 
-    ![Descrição geral da ligação](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
+    ![connection-overview](./media/vpn-gateway-download-vpndevicescript/connectionoverview.png)
 
 4. Clique no link "Transferir a configuração de" como realçada em vermelho na página de descrição geral da ligação; Esta ação abre a página "Configuração de transferência".
 

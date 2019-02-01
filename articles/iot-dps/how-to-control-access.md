@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818515"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496975"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -34,7 +34,7 @@ Pode conceder [permissões](#device-provisioning-service-permissions) das seguin
 
 * **Partilhado políticas de autorização de acesso**. Políticas de acesso partilhado podem conceder a qualquer combinação dos [permissões](#device-provisioning-service-permissions). Pode definir políticas no [portal do Azure][lnk-management-portal], ou por meio de programação, utilizando o [APIs de REST do serviço de aprovisionamento de dispositivo][lnk-resource-provider-apis]. Um serviço de aprovisionamento recém-criado tem a seguinte política predefinida:
 
-* **provisioningserviceowner**: política com todas as permissões.
+* **provisioningserviceowner**: Política com todas as permissões.
 
 > [!NOTE]
 > Ver [permissões](#device-provisioning-service-permissions) para obter informações detalhadas.
@@ -75,18 +75,18 @@ O token de segurança tem o seguinte formato:
 
 Seguem-se os valores esperados:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificar a partir de base64 e usada como chave para realizar a computação do HMAC-SHA256.|
 | {expiry} |UTF8 cadeias de caracteres para o número de segundos desde a UTC de 00:00:00 "Epoch" em 1 de Janeiro de 1970. |
 | {URL-encoded-resourceURI} | Caso mais baixo-codificação do URL de URI do recurso de minúsculas. Prefixos de URI (por segmento) dos pontos de extremidade que podem ser acessados com este token, começando com o nome de anfitrião do serviço de aprovisionamento de dispositivos IoT (nenhum protocolo). Por exemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |O nome da política de acesso partilhado ao qual se refere este token. |
 
-**Tenha em atenção no prefixo**: prefixo o URI é calculado por segmento e não por caractere. Por exemplo `/a/b` é um prefixo para `/a/b/c` mas não para `/a/bc`.
+**Tenha em atenção no prefixo**: O prefixo URI é calculado por segmento e não por caractere. Por exemplo `/a/b` é um prefixo para `/a/b/c` mas não para `/a/bc`.
 
 O seguinte trecho de node. js mostra uma função chamada **generateSasToken** que computa o token de entradas `resourceUri, signingKey, policyName, expiresInMins`. As secções seguintes detalham como inicializar as diferentes entradas para os casos de utilização de token diferente.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Por exemplo, um serviço gerado usando uma pré-criada partilhado chamada de pol
 
 ![Criar uma política de acesso partilhado para sua instância do serviço aprovisionamento de dispositivos no portal][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

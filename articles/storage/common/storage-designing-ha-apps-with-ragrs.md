@@ -1,22 +1,22 @@
 ---
-title: Conceber aplicações altamente disponíveis, que utilizam o armazenamento de Georredundante de acesso de leitura (RA-GRS) do Azure | Documentos da Microsoft
+title: Estruturar Aaplications elevada disponibilidade com armazenamento georredundante com acesso de leitura (RA-GRS) | Documentos da Microsoft
 description: Como utilizar o armazenamento do Azure. o RA-GRS para arquitetar uma aplicação de elevada disponibilidade flexível o bastante para lidar com falhas.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454948"
+ms.locfileid: "55512249"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações altamente disponíveis com RA-GRS
+# <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 
 Uma funcionalidade comum de infraestruturas na cloud, como o armazenamento do Azure é que eles fornecem uma plataforma de elevada disponibilidade para alojar aplicações. Os desenvolvedores de aplicativos baseados na nuvem tem de considerar cuidadosamente como tirar partido desta plataforma para fornecer aplicações de elevada disponibilidade aos respetivos utilizadores. Este artigo se concentra em como os programadores podem utilizar armazenamento Georredundante com acesso de leitura (RA-GRS) para garantir que seus aplicativos de armazenamento do Azure são de elevada disponibilidade.
 
@@ -43,9 +43,7 @@ Tenha em mente esses pontos-chave ao conceber a sua aplicação para o RA-GRS:
 
 * Pode utilizar a biblioteca de cliente de armazenamento para interagir com os dados na região primária ou secundária. Também pode redirecionar pedidos automaticamente para a região secundária de leitura, se uma solicitação de leitura para a região primária exceder o tempo limite.
 
-* Se existir um grande problema que afeta a acessibilidade dos dados na região primária, a equipa do Azure poderão acionar uma ativação pós-falha geográfica, altura em que as entradas de DNS que aponte para a região primária serão alteradas para apontar para a região secundária.
-
-* Se ocorrer uma ativação pós-falha geográfica, Azure irá selecionar uma nova localização secundária e replicar os dados para essa localização, em seguida, apontar as entradas de DNS secundárias para ela. O ponto final secundário estará indisponível até que a conta de armazenamento tenha terminado a replicar. Para obter mais informações, consulte [o que fazer se ocorrer uma falha de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Se a região primária ficar indisponível, pode iniciar uma ativação pós-falha de conta. Quando efetuar a ativação pós-falha para a região secundária, as entradas de DNS que aponte para a região primária são alteradas para apontar para a região secundária. Depois de concluída a ativação pós-falha, o acesso de escrita é restaurado para contas GRS e RA-GRS. Para obter mais informações, consulte [desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Considerações de design de aplicativo ao utilizar o RA-GRS
 

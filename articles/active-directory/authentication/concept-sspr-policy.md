@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 45cd9188b420f9c6db3f1adaa4244b30cce0ccc6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 735bc2569436b99d3366d1ce5ff01f40ab7f587a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510464"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -86,7 +86,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 | Expiração de palavra-passe |<ul><li>Valor predefinido: **false** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais ao utilizar o `Set-MsolUser` cmdlet.</li></ul> |
 | Histórico de alterações de palavra-passe |A última palavra-passe *não é possível* ser usado novamente quando o utilizador altera uma palavra-passe. |
 | Histórico de reposição de palavra-passe | A última palavra-passe *pode* ser usado novamente quando o usuário repõe uma palavra-passe esquecida. |
-| Bloqueio de conta |Após 10 tentativas malsucedidas de início de sessão com a palavra-passe errada, o utilizador está bloqueado durante um minuto. Ainda mais o início de sessão incorreto tenta bloquear o utilizador para aumentar a duração de tempo. |
+| Bloqueio de conta |Após 10 tentativas malsucedidas de início de sessão com a palavra-passe errada, o utilizador está bloqueado durante um minuto. Ainda mais o início de sessão incorreto tenta bloquear o utilizador para aumentar a duração de tempo. [Bloqueio inteligente](howto-password-smart-lockout.md) controla os três últimos hashes de palavra-passe incorreta para evitar incrementa o contador de bloqueio para a mesma palavra-passe. Se alguém insere a mesma palavra-passe errada várias vezes, esse comportamento não fará com que a conta de bloqueio. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Definir políticas de expiração de palavra-passe no Azure AD
 

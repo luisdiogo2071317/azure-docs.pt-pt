@@ -1,8 +1,21 @@
 ---
-title: Resolver problemas de reparametrização um titleSuffix de serviço web clássico Machine Learning Studio: Descrição do Azure Machine Learning Studio: Identificar e corrigir problemas comuns encontrados quando são reparametrização do modelo para um web service do Azure Machine Learning Studio.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-autor: ericlicoding MS. Author: amlstudiodocs MS. Custom: anterior ms.author=yahajiza, autor anterior = YasinMSFT MS: 11/01/2017
+title: Resolver problemas de reparametrização um serviço web clássico de Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Identificar e corrigir problemas comuns encontrados quando são reparametrização do modelo para um web service do Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/01/2017
+ms.openlocfilehash: 6cde9d929c52984c95669554aa1153c2bdf21131
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512157"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Descrição geral de reparametrização

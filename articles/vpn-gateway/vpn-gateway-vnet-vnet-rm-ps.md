@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686964"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510560"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
 
@@ -68,11 +68,11 @@ A principal diferente entre ambos os conjuntos é que tem de utilizar sessões d
 
 Neste exercício, pode combinar configurações ou escolher apenas aquela com que quer trabalhar. Todas as configurações utilizam o tipo de ligação VNet a VNet. O tráfego de rede flui entre as VNets que estão ligadas diretamente entre si. Neste exercício, o tráfego de TestVNet4 não é encaminhado para TestVNet5.
 
-* [VNets que residem na mesma subscrição](#samesub): os passos para esta configuração utilizam TestVNet1 e TestVNet4.
+* [VNets que residem na mesma subscrição](#samesub): Os passos para esta configuração utilizam TestVNet1 e TestVNet4.
 
   ![Diagrama v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [VNets que residem em diferentes subscrições](#difsub): os passos para esta configuração utilizam TestVNet1 e TestVNet5.
+* [VNets que residem em subscrições diferentes](#difsub): Os passos para esta configuração utilizam TestVNet1 e TestVNet5.
 
   ![Diagrama v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -93,28 +93,28 @@ Utilizamos os seguintes valores nos exemplos:
 * Nome da VNet: TestVNet1
 * Grupo de Recursos: TestRG1
 * Localização: EUA Leste
-* TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
-* Front-End: 10.11.0.0/24
-* Back-End: 10.12.0.0/24
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+* FrontEnd: 10.11.0.0/24
+* BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* IP Público: VNet1GWIP
+* IP público: VNet1GWIP
 * VPNType: RouteBased
-* Ligação (1 a 4): VNet1toVNet4
-* Ligação(1 a 5): VNet1aVNet5 (Para VNets em subscrições diferentes)
+* Connection(1to4): VNet1toVNet4
+* Connection(1to5): Vnet1avnet5 (para VNets em subscrições diferentes)
 * ConnectionType: VNet2VNet
 
 **Valores da TestVNet4:**
 
 * Nome da VNet: TestVNet4
-* TestVNet2: 10.41.0.0/16 e 10.42.0.0/16
-* Front-End: 10.41.0.0/24
-* Back-End: 10.42.0.0/24
+* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+* FrontEnd: 10.41.0.0/24
+* BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Grupo de Recursos: TestRG4
 * Localização: EUA Oeste
 * GatewayName: VNet4GW
-* IP Público: VNet4GWIP
+* IP público: VNet4GWIP
 * VPNType: RouteBased
 * Ligação: VNet4toVNet1
 * ConnectionType: VNet2VNet
@@ -306,12 +306,12 @@ Tem de concluir o [Passo 1](#Step1) e o [Passo 2](#Step2) da secção anterior p
 * Nome da VNet: TestVNet5
 * Grupo de Recursos: TestRG5
 * Localização: Leste do Japão
-* TestVNet5: 10.51.0.0/16 e 10.52.0.0/16
-* Front-End: 10.51.0.0/24
-* Back-End: 10.52.0.0/24
+* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+* FrontEnd: 10.51.0.0/24
+* BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* IP Público: VNet5GWIP
+* IP público: VNet5GWIP
 * VPNType: RouteBased
 * Ligação: VNet5toVNet1
 * ConnectionType: VNet2VNet

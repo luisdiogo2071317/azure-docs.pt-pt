@@ -1,8 +1,21 @@
 ---
-title: "Passo 4: Treine titleSuffix de modelos de Análise Preditiva: Descrição do Azure Machine Learning Studio: "Passo 4 da desenvolver uma solução preditiva passo a passo: Formar, Pontuar e avaliar os vários modelos no Azure Machine Learning Studio. "
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
+title: 'Passo 4: Treine modelos de Análise Preditiva'
+titleSuffix: Azure Machine Learning Studio
+description: 'Passo 4 da desenvolver uma solução preditiva passo a passo: Formar, Pontuar e avaliar o vários modelos no Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: 50b0a6276d34567651da2cb3e76f0686e8b10fea
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511569"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Passo 4 das instruções: Dar formação e avaliar os modelos de Análise Preditiva no Machine Learning Studio
 Este tópico contém o quarto passo de passo a passo, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md)

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3446548a89c33e6eb8026e41fbea01ee651b2c88
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474875"
+ms.locfileid: "55488072"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -33,6 +33,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
    * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
 * Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
+* Reveja as limitações abaixo antes de tentar isso no seu ambiente.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 
@@ -116,7 +117,9 @@ Ao testar esta funcionalidade com o ambiente de trabalho remoto ou uma sessão d
 
 * A reposição de palavras-passe não é suportada em Ambientes de Trabalho Remotos atualmente.
 
-Se Ctrl+Alt+Del for exigido pela política, ou as notificações do ecrã de Bloqueio estiverem desativadas, a opção **Repor a palavra-passe** não irá funcionar.
+Se Ctrl + Alt + Del for exigido pela política nas versões do Windows 10 antes de 1809, **Repor palavra-passe** não funcionará.
+
+Se as notificações do ecrã de bloqueio são desativadas, **Repor palavra-passe** não funcionará.
 
 As seguintes definições de política são conhecidas por interferir com a capacidade de repor as palavras-passe
 
@@ -128,7 +131,7 @@ As seguintes definições de política são conhecidas por interferir com a capa
 
 Esta funcionalidade não funciona para redes com rede autenticação 802.1x implementada e a opção "Executar imediatamente antes do início de sessão do utilizador". Para redes com rede autenticação 802.1x implementado é recomendado para utilizar a autenticação de computador para ativar esta funcionalidade.
 
-Para cenários híbridos associados a um domínio, um cenário existe em que o fluxo de trabalho SSPR será concluída sem a necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessário para utilizar a nova palavra-passe pela primeira vez.
+Para cenários híbridos associados a um domínio, o fluxo de trabalho SSPR irá concluir com êxito sem a necessidade de um controlador de domínio do Active Directory. Se um utilizador conclui o processo de reposição de palavra-passe quando a comunicação para um controlador de domínio do Active Directory não estiver disponível, semelhante a quando está a trabalhar remotamente, o utilizador não conseguir iniciar sessão no dispositivo até que o dispositivo pode comunicar com um controlador de domínio e Atualize a credencial em cache. **Conectividade com um controlador de domínio é necessário para utilizar a nova palavra-passe pela primeira vez**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7f031bf6fed57857f38d989fb72f99dd93f04de5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381073"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489228"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Este artigo apresenta os conceitos principais que proteger seus aplicativos no A
 
 ## <a name="master-security"></a>Segurança principal
 
-No AKS, os componentes de mestres de Kubernetes são parte integrante do serviço gerido proporcionou à minha Microsoft. Cada cluster do AKS tem seus próprios mestre de Kubernetes inquilinos único e dedicada para fornecer o servidor de API, Scheduler, etc. Este mestre é gerido e mantido pela Microsoft
+No AKS, os componentes de mestres de Kubernetes são parte integrante do serviço gerido fornecido pela Microsoft. Cada cluster do AKS tem seus próprios mestre de Kubernetes inquilinos único e dedicada para fornecer o servidor de API, Scheduler, etc. Este mestre é gerido e mantido pela Microsoft
 
 Por predefinição, o servidor de API do Kubernetes utiliza um endereço IP público e com o domínio completamente qualificado (FQDN) de nome. Pode controlar o acesso ao servidor de API com controlos de acesso baseado em funções de Kubernetes e o Azure Active Directory. Para obter mais informações, consulte [integração do Azure AD com o AKS][aks-aad].
 
@@ -41,6 +41,8 @@ A plataforma do Azure aplica automaticamente patches de segurança do sistema op
 Nós são implementados numa sub-rede de rede virtual privada, com não existem endereços IP públicos atribuídos. Para fins de resolução de problemas e de gestão, o SSH está ativado por predefinição. Este acesso SSH só está disponível com o endereço IP interno. Regras do grupo de segurança de rede do Azure podem ser utilizadas para restringir mais o acesso de intervalo IP para os nós do AKS. A eliminar a regra SSH de grupo de segurança de rede predefinido e desativar o serviço SSH em nós impede a plataforma do Azure de executar tarefas de manutenção.
 
 Para fornecer armazenamento, os nós utilizam Managed Disks do Azure. Para a maioria dos tamanhos de nó VM, estes são os discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos geridos são automaticamente encriptados em inatividade na plataforma do Azure. Para melhorar a redundância, estes discos com a segurança também são replicados no Centro de dados do Azure.
+
+Ambientes do Kubernetes no AKS ou noutro local, atualmente não estão totalmente seguros para utilização multi-inquilinos hostil. Funcionalidades de segurança adicional, como *políticas de segurança de Pod* ou mais controlos de acesso detalhado baseada em funções (RBAC) para nós tornam as explorações mais difíceis. No entanto, para segurança verdadeira quando executar cargas de trabalho de multi-inquilinos hostis, um hipervisor é o único nível de segurança que deve confiar. O domínio de segurança para Kubernetes torna-se a todo o cluster, não é um nó individual. Para estes tipos de cargas de trabalho de multi-inquilinos hostis, deve usar clusters fisicamente isolados. Para obter mais informações sobre as formas de isolar cargas de trabalho, consulte [melhores práticas para isolamento de cluster no AKS][cluster-isolation],
 
 ## <a name="cluster-upgrades"></a>Atualizações de cluster
 
@@ -96,3 +98,4 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

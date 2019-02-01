@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488412"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -109,7 +109,7 @@ A Microsoft [ciclo de vida de desenvolvimento de segurança](https://www.microso
 
 A tabela seguinte lista as ameaças STRIDE e fornece algumas mitigações de exemplo que utilizam as funcionalidades do Azure. Essas atenuações não funcionarão em todas as situações.
 
-| Ameaças | Propriedade de segurança | Potenciais migração da plataforma do Azure |
+| Ameaças | Propriedade de segurança | Possíveis mitigações de plataforma do Azure |
 | --- | --- | --- |
 | Spoofing | Autenticação | Exigir ligações HTTPS. |
 | Adulteração | Integridade | Valide certificados SSL. |

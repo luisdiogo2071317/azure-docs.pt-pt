@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/6/2018
+ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873109"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492288"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
-Este artigo explica como remover todos os itens de um cofre dos serviços de recuperação e, em seguida, eliminá-lo. Não é possível eliminar um cofre dos serviços de recuperação se ele está registado para um servidor e contém dados de cópia de segurança. Se tentar eliminar um cofre, mas não é possível, o Cofre ainda está configurado para receber dados de cópia de segurança.
+Este artigo descreve como remover todos os itens de um cofre dos serviços de recuperação e, em seguida, eliminá-lo. Não é possível eliminar um cofre dos serviços de recuperação se ele está registado para um servidor e contém dados de cópia de segurança. Se tentar eliminar um cofre, mas não é possível, o Cofre ainda está configurado para receber dados de cópia de segurança.
 
 Para saber como eliminar um cofre, consulte a secção [eliminar um cofre a partir do portal do Azure](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal). Se não pretender reter dados no cofre dos serviços de recuperação e pretende eliminar o cofre, consulte a secção [a eliminação do cofre por força](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se não souber ao certo o que é no cofre e terá de certificar-se de que pode eliminar o cofre, consulte a secção [remover dependências de cofre e eliminar cofre](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
@@ -45,7 +45,7 @@ Se já tiver o Cofre de serviços de recuperação aberto, avance para o segundo
 
     Se o **erro ao eliminar o Cofre dos** aparece, pode optar por remover as dependências do cofre, ou pode utilizar o PowerShell para eliminar o Cofre por força. As secções seguintes explicam como realizar estas tarefas.
 
-    ![Erro ao eliminar o Cofre](./media/backup-azure-delete-vault/vault-delete-error.png)
+    ![Erro de eliminação do cofre](./media/backup-azure-delete-vault/vault-delete-error.png)
 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminar o Cofre de serviços de recuperação por força

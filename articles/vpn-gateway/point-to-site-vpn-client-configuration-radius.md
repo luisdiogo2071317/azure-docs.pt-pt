@@ -1,5 +1,5 @@
 ---
-title: 'Criar e instalar os ficheiros de configuração de cliente VPN para ligações de P2S RADIUS: PowerShell: Azure | Documentos da Microsoft'
+title: 'Criar e instalar os ficheiros de configuração de cliente VPN para ligações de P2S RADIUS: PowerShell: Azure | Microsoft Docs'
 description: Crie clientes Windows, Mac OS X e Linux VPN arquivos de configuração para ligações que utilizam a autenticação RADIUS.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51252013"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510158"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar os ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
@@ -79,7 +79,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 Pode configurar os seguintes clientes VPN:
 
 * [Windows](#adwincli)
-* [MAC (SO X)](#admaccli)
+* [Mac (OS X)](#admaccli)
 * [Linux utilizar strongSwan](#adlinuxcli)
  
 #### <a name="adwincli"></a>Configuração de cliente de VPN do Windows
@@ -209,7 +209,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | 
 Pode configurar os seguintes clientes VPN:
 
 * [Windows](#certwincli)
-* [MAC (SO X)](#certmaccli)
+* [Mac (OS X)](#certmaccli)
 * Linux (suportado, nenhum artigo passos ainda)
 
 #### <a name="certwincli"></a>Configuração de cliente de VPN do Windows

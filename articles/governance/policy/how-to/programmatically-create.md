@@ -4,17 +4,17 @@ description: Este artigo descreve a criação e gestão de políticas do Azure P
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101792"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510838"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
@@ -96,8 +96,9 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
    Substitua _ContosoRG_ com o nome do seu grupo de recursos pretendido.
 
    O **âmbito** parâmetro no `New-AzPolicyAssignment` também funciona com as subscrições e grupos de gestão. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma.
-   Substitua `{rgName}`, `{subId}`, e `{mgName}` com seu recurso agrupar nome, o ID de subscrição e o nome do grupo de gestão, respectivamente.
+   Substitua `{rName}`, `{rgName}`, `{subId}`, e `{mgName}` com o nome do recurso, grupo de recursos nome, o ID de subscrição e o nome do grupo de gestão, respectivamente. `{rType}` teriam de ser substituídas com o **tipo de recurso** do recurso, tal como `Microsoft.Compute/virtualMachines` para uma VM.
 
+   - Recursos- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos- `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscrição- `/subscriptions/{subId}/`
    - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
