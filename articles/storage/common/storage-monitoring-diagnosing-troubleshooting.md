@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474008"
+ms.locfileid: "55490270"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ O código no aplicativo cliente elimina e, em seguida, recria imediatamente um c
 O aplicativo de cliente deve usar nomes de contentor exclusivo sempre que cria novos contentores se o padrão de eliminação/recrie é comum.
 
 ### <a name="metrics-show-low-percent-success"></a>As métricas apresentam PercentSuccess baixa ou entradas do log analytics tem operações com o estado de transação de ClientOtherErrors
-O **PercentSuccess** métrica captura a percentagem de operações que foram bem-sucedidas, com base no respetivo código de estado de HTTP. Contagem de operações com códigos de estado de 2XX conclusão com êxito, ao passo que as operações com códigos de Estado nos intervalos de 3XX, 4XX e 5XX são contabilizadas como sem êxito e inferior a **PercentSucess** valor de métrica. Nos ficheiros de registo de armazenamento do lado do servidor, estas operações são registadas com o estado da transação **ClientOtherErrors**.
+O **PercentSuccess** métrica captura a percentagem de operações que foram bem-sucedidas, com base no respetivo código de estado de HTTP. Contagem de operações com códigos de estado de 2XX conclusão com êxito, ao passo que as operações com códigos de Estado nos intervalos de 3XX, 4XX e 5XX são contabilizadas como sem êxito e inferior a **PercentSuccess** valor de métrica. Nos ficheiros de registo de armazenamento do lado do servidor, estas operações são registadas com o estado da transação **ClientOtherErrors**.
 
 É importante observar que essas operações foram concluídas com êxito e, portanto, não afetam o outras métricas, como a disponibilidade. Alguns exemplos de operações que ser executado com êxito, mas que pode resultar em códigos de estado HTTP sem êxito incluem:
 

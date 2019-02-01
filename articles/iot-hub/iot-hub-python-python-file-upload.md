@@ -7,25 +7,25 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/05/2018
+ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 193bc3a4eafcdff5d5f28d916afa4600b20c0d86
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 295f96258b2f5d6612ae7c5f86c9f360232111f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514742"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507846"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial segue como utilizar o [carregamento de recursos do IoT Hub do ficheiro](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [armazenamento de Blobs do Azure](../storage/index.yml). Este tutorial mostra-lhe como:
+Este artigo mostra como utilizar o [carregamento de recursos do IoT Hub do ficheiro](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [armazenamento de Blobs do Azure](../storage/index.yml). Este tutorial mostra-lhe como:
 
 - Fornece com segurança a um contentor de armazenamento para carregar um ficheiro.
 - Utilize o cliente Python para carregar um ficheiro através do IoT hub.
 
-O [introdução ao IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
+O [enviar telemetria ao IoT Hub](quickstart-send-telemetry-python.md) início rápido demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
 
 > [!NOTE]
 > SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.
@@ -41,19 +41,8 @@ Para concluir este tutorial, precisa do seguinte:
 
 * [Python 2.x ou 3.x][lnk-python-download]. Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python][lnk-install-pip].
 * Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++][lnk-visual-c-redist], para permitir a utilização de DLLs nativas de Python.
-* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
-
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Obter cadeia de ligação do IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+* Um hub IoT na sua conta do Azure, com uma identidade de dispositivo para testar a funcionalidade de carregamento de ficheiros. 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -68,9 +57,14 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
     pip install azure-iothub-device-client
     ```
 
+1. Com um editor de texto, crie um ficheiro de teste que irá carregar para o armazenamento de Blobs. 
+
+    > [!NOTE]
+    > SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.
+
 1. Com um editor de texto, crie uma **FileUpload.py** ficheiro na sua pasta de trabalho.
 
-1. Adicione as seguintes `import` afirmações e variáveis no início do **FileUpload.py** ficheiro. Substitua `deviceConnectionString` com a cadeia de ligação do seu dispositivo do hub IoT:
+1. Adicione as seguintes `import` afirmações e variáveis no início do **FileUpload.py** ficheiro. 
 
     ```python
     import time
@@ -83,8 +77,10 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
     PROTOCOL = IoTHubTransportProvider.HTTP
 
     PATHTOFILE = "[Full path to file]"
-    FILENAME = "[File name on storage after upload]"
+    FILENAME = "[File name for storage]"
     ```
+
+1. No seu ficheiro, substitua `[Device Connection String]` com a cadeia de ligação do seu dispositivo do hub IoT. Substitua `[Full path to file]` com o caminho para o ficheiro de teste que criou ou qualquer ficheiro no seu dispositivo que pretende carregar. Substitua `[File name for storage]` com o nome que pretende dar ao seu ficheiro após foi carregada para o armazenamento de Blobs. 
 
 1. Criar um retorno de chamada para o **upload_blob** função:
 
@@ -133,11 +129,6 @@ Nesta secção, vai criar a aplicação de dispositivo para carregar um ficheiro
     ```
 
 1. Guarde e feche o **UploadFile.py** ficheiro.
-
-1. Copiar um ficheiro de texto de exemplo para a pasta de trabalho e mude o nome `sample.txt`.
-
-    > [!NOTE]
-    > SDK de Python do Hub IoT atualmente suporta apenas como a carregar arquivos baseados em caracteres **. txt** ficheiros.
 
 
 ## <a name="run-the-application"></a>Executar a aplicação

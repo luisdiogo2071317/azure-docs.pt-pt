@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042160"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470693"
 ---
-# <a name="understanding-your-azure-cosmos-db-bill"></a>Entender a sua fatura do Azure Cosmos DB
+# <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a sua fatura do Azure Cosmos DB
 
 Como um serviço de base de dados nativas da cloud totalmente gerido, o Azure Cosmos DB simplifica a faturação por cobrar apenas para o débito aprovisionado e consumidos de armazenamento. Não são as taxas de licença adicionais, hardware, os custos de utilitário, ou os custos do recurso em comparação comparados a no local ou alojado no IaaS alternativas. Ao considerar as várias capacidades de região do Azure Cosmos DB, o serviço de base de dados fornece uma redução substancial nos custos em comparação comparada o existente no local ou soluções de IaaS.
 
@@ -96,11 +96,11 @@ Vamos supor que tem um contentor do Cosmos do Azure em E.U.A. oeste. O contentor
 
 |**Item** |**Utilização (mensal)** |**Taxa de** |**Custo mensal** |
 |---------|---------|---------|-------|
-|Conta de débito para o contentor em E.U.A. Oeste      | 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora   |US $576|
-|Conta de débito para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental       | 3 * 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora  |US $1,728|
-|Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $ 0,25/GB  |US $62.50|
-|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $ 0,25/GB  |US $187.50|
-|**Total**     |     |  |**US $2,554**|
+|Conta de débito para o contentor em E.U.A. Oeste      | 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora   |$576|
+|Conta de débito para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental       | 3 * 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora  |$1,728|
+|Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $ 0,25/GB  |$62.50|
+|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $ 0,25/GB  |$187.50|
+|**Total**     |     |  |**$2,554**|
 
 *Vamos também assumir que retira 100 GB de dados todos os meses de contentor em E.U.A. oeste para replicar dados para E.U. a leste, Europa do Norte e Ásia Oriental. É-lhe cobrada de acordo com as taxas de transferência de dados de saída.*
 
@@ -110,11 +110,11 @@ Vamos supor que criar um contentor do Cosmos do Azure em E.U.A. oeste. O content
 
 |**Item** |**Utilização (mensal)**|**Taxa de** |**Custo mensal** |
 |---------|---------|---------|-------|
-|Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)       | 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora    |US $1,152 |
-|Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora   |US $4,608 |
-|Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $ 0,25/GB  |US $62.50|
-|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $ 0,25/GB  |US $187.50|
-|**Total**     |     |  |**US $6,010**|
+|Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)       | 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora    |$1,152 |
+|Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora   |$4,608 |
+|Conta de armazenamento para o contentor em E.U.A. Oeste      | 250 GB    |US $ 0,25/GB  |$62.50|
+|Conta de armazenamento para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental      | 3 * 250 GB    |US $ 0,25/GB  |$187.50|
+|**Total**     |     |  |**$6,010**|
 
 *Vamos também assumir que retira 100 GB de dados todos os meses de contentor em E.U.A. oeste para replicar dados para E.U. a leste, Europa do Norte e Ásia Oriental. É-lhe cobrada de acordo com as taxas de transferência de dados de saída.*
 
@@ -180,21 +180,21 @@ A fatura mensal total será (supondo 30 dias/720 horas num mês) vai ser calcula
 
 |**Horas**  |**RU/s** |**Item** |**Utilização (por hora)** |**Custo** |
 |---------|---------|---------|-------|-------|
-|[0 e 100] |D1:10K <br/>D2:30K <br/>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |US $960  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |US $2,880  |
-|[101-200] |D1:50K <br/>D2:70K <br/>C1:- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |US $1920  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |US $5,760  |
-|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>"C1: 20 mil RU/seg/100 * US $0.016 * 100 horas = us $320 |US $2,240 '  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |US $6,720 |
-|[301-400] |D1:10K <br/>D2:80K <br/>C1:- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |US $1.440   |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |US $2,880  |
-|[401-500] |D1:10K <br>D2:10K <br>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |US $640  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |US $1,280  |
-|[501-700] |D1:20K <br>D2:100K <br>C1:- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |US $3,840  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |US $7,680  |
-|[701-720] |D1:20K <br/>D2:50K <br/>C1:- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |US $224  |
-| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |US $224  |
-|| |**Custo mensal total**  | |**US $38,688**   |
+|[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
+|[101-200] |D1:50K <br/>D2:70K <br/>C1: -- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5,760  |
+|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 mil RU/seg/100 * US $0.016 * 100 horas = us $320 |$2,240`  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6,720 |
+|[301-400] |D1:10K <br/>D2:80K <br/>C1: -- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1,440   |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
+|[401-500] |D1:10K <br>D2:10K <br>C1:20K |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1,280  |
+|[501-700] |D1:20K <br>D2:100K <br>C1: -- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
+|[701-720] |D1:20K <br/>D2:50K <br/>C1: -- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
+| | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
+|| |**Custo mensal total**  | |**$38,688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimar proativamente a fatura mensal  
 
@@ -205,8 +205,8 @@ Vejamos outro exemplo, o qual pretende calcular proativamente a sua fatura antes
 |Registo de média de tamanho (KB) |1 |
 |Número de registos  |100,000,000  |
 |Armazenamento total (GB)  |100 |
-|Custo mensal por GB  |US $0,25  |
-|Custo mensal esperado para o armazenamento   |US $25,00  |
+|Custo mensal por GB  |$0.25  |
+|Custo mensal esperado para o armazenamento   |$25.00  |
 
 <br>
 
@@ -236,9 +236,9 @@ Total (sem capacidade de reserva) será (assumindo 30 dias ou horas de 720):
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Montante faturado (por hora)**| **Montante faturado (mensal)**|
 |----|----|----|----|----|
-|EUA Leste|US $0.008 |50 MIL|US $4|US $2,880 |
-|Leste do Japão|US $0.009 |50 MIL| US $4,50 |US $3,240 |
-|Total|||US $8.50|US $6,120 |
+|EUA Leste|$0.008 |50 K|$4|$2,880 |
+|Leste do Japão|$0.009 |50 K| $4.50 |$3,240 |
+|Total|||$8.50|$6,120 |
 
 Vamos considerar que comprou capacidade de reserva em vez disso. Pode adquirir capacidade de reserva para 100 mil RU/seg ao preço de US $56,064 durante um ano (com 20% de desconto) ou 6.40 us $ por hora. Ver preços de capacidade de reserva no [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
 
@@ -250,11 +250,11 @@ O que efetivamente comprou é um crédito de 8 $ por hora, por 100 mil RU/seg, c
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Montante faturado (por hora)**| **Montante faturado (mensal)**|
 |----|----|----|----|----|
-|EUA Leste|US $0.008 |50 MIL|US $4|US $2,880 |
-|Leste do Japão|US $0.009 |50 MIL| US $4,50 |US $3,240 |
-|||"Pay-as-you-go"|US $8.50|US $6120|
-|Capacidade de Reserva Comprada|US $0.0064 (20% de desconto) |100 RU/seg ou capacidade de 8 $ previamente adquiridas |-8 $|-US $5,760 |
-|Fatura Líquida|||US $0,50 |US $360 |
+|EUA Leste|$0.008 |50 K|$4|$2,880 |
+|Leste do Japão|$0.009 |50 K| $4.50 |$3,240 |
+|||"Pay-as-you-go"|$8.50|$6120|
+|Capacidade de Reserva Comprada|US $0.0064 (20% de desconto) |100 RU/seg ou capacidade de 8 $ previamente adquiridas |-$8|-$5,760 |
+|Fatura Líquida|||$0.50 |$360 |
 
 ## <a name="next-steps"></a>Próximos Passos
 

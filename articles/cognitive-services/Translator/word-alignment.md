@@ -6,17 +6,17 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: v-jansko
 ms.custom: seodec18
-ms.openlocfilehash: 74e26d4bb9b9c901524a85248dbf7f9d6ead5e95
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0a373a61a26411c204cedccec8fbf0beac73e02e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091480"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461836"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento do word
 
@@ -28,7 +28,7 @@ Alinhamento é retornado como um valor de cadeia de caracteres no seguinte forma
 
 [[SourceTextStartIndex]: [SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
 
-Cadeia de caracteres de alinhamento de exemplo: "0:0-7:10:2 de 1 a 11:20 3:4-0:3 a 4 de 3:4:5: 5-6 21:21".
+Cadeia de alinhamento de exemplo: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
 Em outras palavras, a vírgula separa o início e índice final, o traço separa as linguagens e espaço separa as palavras. Uma palavra pode alinhar com zero, uma ou várias palavras no outro idioma e as palavras alinhadas podem estar não contíguos. Quando não existem informações de alinhamento estiverem disponíveis, o elemento de alinhamento estará vazio. O método não retorna nenhum erro nesse caso.
 
