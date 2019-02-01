@@ -254,14 +254,6 @@ items:
       items:
       - name: Otimizar o desempenho de consultas
         href: sql-api-query-metrics.md
-      - name: Programação do lado do servidor
-        items:
-        - name: Escrever procedimentos, acionadores e UDFs armazenados
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Escrever procedimentos e acionadores com a API de consulta em JavaScript
-          href: how-to-write-javascript-query-api.md
-        - name: Utilizar procedimentos, acionadores e UDFs armazenados
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Tipos de dados
         items:
         - name: DateTime
@@ -337,7 +329,7 @@ items:
         - name: Aplicação em Node.js e React
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Migrar dados
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Consultar dados
         href: tutorial-query-mongodb.md
       - name: 4 - Distribuir dados globalmente
@@ -497,6 +489,14 @@ items:
       items:
       - name: Gerir a indexação
         href: how-to-manage-indexing-policy.md
+  - name: Programação do lado do servidor
+    items:
+    - name: Escrever procedimentos, acionadores e UDFs armazenados
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Escrever procedimentos e acionadores com a API de consulta em JavaScript
+      href: how-to-write-javascript-query-api.md
+    - name: Utilizar procedimentos, acionadores e UDFs armazenados
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Segurança
     items:
     - name: Configurar firewall do IP
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 93d8abe428305ce62fb95afabc6ab71dfc8f67b4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464879"
+ms.locfileid: "55511926"
