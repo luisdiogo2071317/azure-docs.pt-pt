@@ -76,13 +76,13 @@ items:
     items:
     - name: Descrição geral
       href: distribute-data-globally.md
-    - name: Níveis de Consistência
+    - name: Níveis de consistência
       href: consistency-levels.md
     - name: Escolher o nível de consistência certo
       href: consistency-levels-choosing.md
-    - name: Níveis de consistência e APIs do Cosmos DB
+    - name: Níveis de consistência e APIs do Azure Cosmos DB
       href: consistency-levels-across-apis.md
-    - name: Vantagens de consistência, disponibilidade e desempenho
+    - name: Compromissos de consistência, disponibilidade e desempenho
       href: consistency-levels-tradeoffs.md
     - name: Elevada disponibilidade
       href: high-availability.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: Descrição geral
       href: partitioning-overview.md
-    - name: Partições lógicas
+    - name: Partições e dimensionamento horizontal
       href: partition-data.md
     - name: Criar uma chave de partição sintética
       href: synthetic-partition-keys.md
@@ -108,7 +108,7 @@ items:
       href: request-units.md
     - name: Aprovisionar débito em contentores e bases de dados
       href: set-throughput.md
-  - name: Trabalhar com a conta do Azure Cosmos
+  - name: Trabalhar com uma conta do Azure Cosmos
     href: account-overview.md
   - name: Contentores e itens
     items:
@@ -122,7 +122,7 @@ items:
       items:
       - name: Descrição geral
         href: index-overview.md
-      - name: Política de indexação
+      - name: Política de índice
         href: index-policy.md
       - name: Tipos de índice
         href: index-types.md
@@ -136,13 +136,13 @@ items:
         href: read-change-feed.md
       - name: Processador do feed de alterações
         href: change-feed-processor.md
-      - name: Feed de alterações com as Funções do Azure
+      - name: Acionar Funções do Azure
         href: change-feed-functions.md
     - name: Time to live
       href: time-to-live.md
     - name: Restrições de chave exclusiva
       href: unique-keys.md
-    - name: Transações e simultaneidade otimista
+    - name: Transações e controlo de simultaneidade otimista
       href: database-transactions-optimistic-concurrency.md
   - name: Programação do lado do servidor
     items:
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Otimizar o custo de várias regiões
       href: optimize-cost-regions.md
-    - name: Otimizar as suas cargas de trabalho de programador/teste
+    - name: Otimizar o custo de desenvolvimento/teste
       href: optimize-dev-test.md
-    - name: Otimizar com a capacidade de reserva
+    - name: Otimizar o custo com a capacidade de reserva
       href: cosmos-db-reserved-capacity.md
   - name: Segurança
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Preparação para empresas
     items:
-    - name: Cópia de segurança e restauro online
+    - name: Cópia de segurança online e restauro a pedido
       href: online-backup-and-restore.md
     - name: Conformidade
       href: compliance.md
@@ -467,19 +467,19 @@ items:
   expanded: true
 - name: Guias de procedimentos
   items:
-  - name: Gerir conta de base de dados
+  - name: Gerir uma conta do Azure Cosmos
     href: how-to-manage-database-account.md
   - name: Distribuição global
     items:
-    - name: Gerir a consistência
+    - name: Gerir os níveis de consistência
       href: how-to-manage-consistency.md
-    - name: Gerir conflitos
+    - name: Configurar políticas de resolução de conflitos
       href: how-to-manage-conflicts.md
   - name: Débito aprovisionado
     items:
-    - name: Aprovisionar débito de contentor
+    - name: Aprovisionar o débito num contentor
       href: how-to-provision-container-throughput.md
-    - name: Aprovisionar débito de base de dados
+    - name: Aprovisionar o débito numa base de dados
       href: how-to-provision-database-throughput.md
   - name: Trabalhar com contentores e itens
     items:
@@ -489,9 +489,13 @@ items:
       href: how-to-query-container.md
     - name: Configurar TTL
       href: how-to-time-to-live.md
+    - name: Trabalhar com dados com o Explorador de Armazenamento do Azure
+      href: storage-explorer.md
+    - name: Trabalhar com dados com o explorador do Azure Cosmos
+      href: data-explorer.md
     - name: Indexação
       items:
-      - name: Configurar indexação
+      - name: Gerir a indexação
         href: how-to-manage-indexing-policy.md
   - name: Segurança
     items:
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Configurar a Partilha de Recursos Transversais à Origem (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Proteger com o Key Vault
+    - name: Proteger as chaves do Azure Cosmos com o Key Vault
       href: access-secrets-from-keyvault.md
   - name: Preparação para empresas
     items:
     - name: Restaurar dados a partir de uma cópia de segurança
       href: how-to-backup-and-restore.md
-  - name: Gerir
+  - name: Gerir os recursos do Azure Cosmos DB
     items:
     - name: Gerir com o PowerShell
       href: manage-account-with-powershell.md
     - name: Gerir com a CLI do Azure
       href: manage-with-cli.md
-    - name: Gerir o Explorador do Armazenamento
-      href: storage-explorer.md
-    - name: Gerir com o explorador de dados
-      href: data-explorer.md
   - name: Registo
     items:
     - name: Registo de diagnósticos
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 93d8abe428305ce62fb95afabc6ab71dfc8f67b4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094483"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464879"

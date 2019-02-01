@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 39ff5ba2ae6a9d4cf48499d4e73974e531a492a3
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564872"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464029"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 06/21/2018
+  ms.date: 01/30/2019
   ms.author: kgremban
 abstract:
   description: O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "no limite", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a extremidade, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a alterações do estado.
@@ -47,15 +47,17 @@ sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: Saiba como instalar e configurar o IoT Edge, implementar módulos e utilizar os serviços do Azure como o Stream Analytics no limite.
+    text: Saiba como instalar e configurar o IoT Edge, implementar módulos e utilizar os serviços do Azure como o Stream Analytics e a Visão Personalizada no edge.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrar mensagens com as Funções do Azure</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Encontrar médias com o Azure Stream Analytics como um módulo</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Classificar dados com o Azure Machine Learning como um módulo</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classificar imagens com o Serviço de Visão Personalizada como módulo</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filtrar dados com um módulo de C#</a>
     - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrar dados com um módulo de Python</a>
     - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrar dados com um módulo de Node.js</a>
+    - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrar dados com um módulo de Java</a>
     - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrar dados com um módulo de C</a>
     - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Armazenar dados no Edge com o SQL Server</a>
