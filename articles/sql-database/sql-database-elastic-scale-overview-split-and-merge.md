@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868468"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564940"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -190,7 +190,7 @@ O serviço de divisão / intercalação fornece a **RequestStatus** tabela na ba
 
   A hora e a data quando o pedido foi iniciado.
 
-- **operationId**
+- **OperationId**
 
   Um GUID que identifica exclusivamente o pedido. Este pedido também pode ser usado para cancelar a operação enquanto está ainda em curso.
 
@@ -212,7 +212,7 @@ O serviço de divisão / intercalação fornece a **RequestStatus** tabela na ba
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-O serviço de divisão / intercalação utiliza o diagnóstico do Azure com base no Azure SDK 2.5 para monitorização e diagnóstico. Controlar a configuração de diagnósticos, conforme explicado aqui: [ativar diagnósticos nos serviços Cloud do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico - um para a função da web e outro para a função de trabalho. Ele inclui as definições para registar contadores de desempenho, registos IIS, Logs de eventos do Windows e registos de eventos do aplicativo de dividir / unir.
+O serviço de divisão / intercalação utiliza o diagnóstico do Azure com base no Azure SDK 2.5 para monitorização e diagnóstico. Controlar a configuração de diagnósticos conforme explicado aqui: [Ativar diagnósticos nos serviços Cloud do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico - um para a função da web e outro para a função de trabalho. Ele inclui as definições para registar contadores de desempenho, registos IIS, Logs de eventos do Windows e registos de eventos do aplicativo de dividir / unir.
 
 ## <a name="deploy-diagnostics"></a>Implementar o diagnóstico
 
@@ -230,7 +230,7 @@ Para ativar a monitorização e diagnóstico utilizando a configuração de diag
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-Pode encontrar mais informações sobre como configurar e implementar as definições de diagnóstico aqui: [ativar diagnósticos nos serviços Cloud do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Pode encontrar mais informações sobre como configurar e implementar as definições de diagnóstico aqui: [Ativar diagnósticos nos serviços Cloud do Azure e máquinas virtuais](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Obter diagnóstico
 

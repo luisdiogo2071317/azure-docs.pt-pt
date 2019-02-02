@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 61bc9da45ac420e5683be1ea3ad253eae9c0ba5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158946"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657744"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -39,6 +39,8 @@ Partir deste modelo de dispositivo, pode criar e ligar os dispositivos de ventoi
 
 > [!NOTE]
 > Apenas os construtores e os administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos sobre o **Device Explorer** página a partir de modelos de dispositivos existentes.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
@@ -71,7 +73,7 @@ Para adicionar uma nova medida de telemetria, selecione **Editar modelo**e, em s
 Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 | Nome a Apresentar        | Nome do Campo    |  Unidades    | Mín.   |Máx.|
 | --------------------| ------------- |-----------|-------|---|
-| Temperatura         | Temp          |  degC     |  0    |100|
+| Temperatura         | temp          |  degC     |  0    |100|
 
 ![Formulário de "Criar telemetria" com detalhes para medidas de temperatura](./media/howto-set-up-template/measurementsform.png)
 
@@ -84,11 +86,11 @@ Depois de selecionar **feito**, o **temperatura** medição aparece na lista de 
 ### <a name="create-an-event-measurement"></a>Criar uma medida de eventos
 Para adicionar uma nova medida de evento, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **evento** como a medição escreva e introduza os detalhes o **Create Event** formulário.
 
-Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do evento. Pode escolher entre três níveis de gravidade disponíveis: **erro**, **aviso**, e **informações**.  
+Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do evento. Pode escolher entre três níveis de gravidade disponíveis: **Erro**, **aviso**, e **informações**.  
 
 Por exemplo, pode adicionar um novo **erro de Motor de ventoinha** eventos.
 
-| Nome a Apresentar        | Nome do Campo    |  Gravidade de predefinição | 
+| Nome a Apresentar        | Nome do Campo    |  Gravidade Predefinida | 
 | --------------------| ------------- |-----------|
 | Erro de Motor da Ventoinha     | fanmotorerror |  Erro    | 
 
@@ -165,9 +167,9 @@ Existem duas categorias de propriedades:
 
 Por exemplo, pode adicionar localização do dispositivo como uma nova **texto** propriedade (uma propriedade de aplicativo) ao selecionar **Editar modelo** e inserindo a nova propriedade:
 
-| Nome a Apresentar  | Nome do Campo | Cortar espaços à esquerda  | Cortar espaços  | Maiúsculas e minúsculas| Comprimento Mínimo | Comprimento Máximo |
+| Nome a Apresentar  | Nome do Campo | Reduzir Espaços Iniciais  | Reduzir Espaços Seguintes  | Maiúsculas e minúsculas| Comprimento Mínimo | Comprimento Máximo |
 | --------------| -----------|---------| ---------|---- |----|----|
-| Localização      | Loc        | Desativado     |  Desativado     | Misto  | 0 | 100|
+| Localização      | loc        | Desativado     |  Desativado     | Misto  | 0 | 100|
 
 ![Formulário de "Configurar o texto" na guia "Propriedades"](./media/howto-set-up-template/propertiesform.png)
 
@@ -234,9 +236,9 @@ Comandos são utilizados para gerir remotamente um dispositivo. Permitem que os 
 
 Como é que um comando diferente a partir de uma definição? 
 
-* **Definição**: uma definição é uma configuração que pretende aplicar a um dispositivo e quiser que o dispositivo para manter essa configuração até que alterá-lo. Por exemplo, se pretender definir a temperatura de sua freezer e pretende que a configuração, mesmo quando o freezer reinicia. 
+* **Definição**: Uma definição é uma configuração que pretende aplicar a um dispositivo e quiser que o dispositivo para manter essa configuração até que alterá-lo. Por exemplo, se pretender definir a temperatura de sua freezer e pretende que a configuração, mesmo quando o freezer reinicia. 
 
-* **Comando**: utilizar comandos instantaneamente executar um comando no dispositivo remotamente a partir de IoT Central. Se um dispositivo não está ligado, o comando exceder o tempo limite e falha. Por exemplo, que pretende reiniciar um dispositivo.  
+* **Comando**: Utilizar comandos instantaneamente executar um comando no dispositivo remotamente a partir de IoT Central. Se um dispositivo não está ligado, o comando exceder o tempo limite e falha. Por exemplo, que pretende reiniciar um dispositivo.  
 
 
 Por exemplo, pode adicionar um novo **eco** comando selecionando **Editar modelo**, em seguida, clicar em **+ novo comando**e inserindo o comando novo:

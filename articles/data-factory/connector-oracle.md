@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 35c0d9190a11ad76ef44b43ef5160d2b39bee1fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016917"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658034"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para Oracle com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Versão atual](connector-oracle.md)
 
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo deve ser definida como **Oracle**. | Sim |
-| connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de ligação suportado**: Pode usar **SID do Oracle** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>– Se utilizar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
+| connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `password` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. <br><br>**Tipo de ligação suportado**: Pode usar **SID do Oracle** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>– Se utilizar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!TIP]
@@ -126,6 +126,34 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 }
 ```
 
+**Exemplo: armazenar a palavra-passe no Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados Oracle.
@@ -253,25 +281,25 @@ Quando copia dados de e para a Oracle, os seguintes mapeamentos são utilizados 
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(suportado apenas no Oracle 10g e superior) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATA |DateTime |
 | NÚMERO DE VÍRGULA FLUTUANTE |Número decimal, cadeia de caracteres (se precisão > 28) |
 | NÚMERO INTEIRO |Número decimal, cadeia de caracteres (se precisão > 28) |
-| LONGA |Cadeia |
+| LONGA |String |
 | HÁ MUITO TEMPO NÃO PROCESSADOS |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
-| NVARCHAR2 |Cadeia |
-| NÃO PROCESSADOS |Byte[] |
-| ROWID |Cadeia |
+| NVARCHAR2 |String |
+| RAW |Byte[] |
+| ROWID |String |
 | TIMESTAMP |DateTime |
-| TIMESTAMP COM O FUSO HORÁRIO LOCAL |Cadeia |
-| TIMESTAMP COM O FUSO HORÁRIO |Cadeia |
+| TIMESTAMP COM O FUSO HORÁRIO LOCAL |String |
+| TIMESTAMP COM O FUSO HORÁRIO |String |
 | NÚMERO INTEIRO NÃO ASSINADO |Number |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de dados de intervalo ano para mês e o intervalo dia em segundo lugar não são suportados.

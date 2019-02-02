@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4f870c052d83352c8cfd692ea5f30a42071c95a0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3a6133cd512f07ca15b57f3c11402e6ed167d83c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582049"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662266"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiar discos geridos para uma subscrição idêntica ou diferente com a CLI
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos para criar um novo disco gerido na sub
 | Comando | Notas |
 |---|---|
 | [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtém todas as propriedades de um disco gerido através do nome e das propriedades do grupo de recursos do disco gerido. A propriedade do ID é utilizada para copiar o disco gerido para uma subscrição diferente.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Copia um disco gerido ao criar um novo disco gerido numa subscrição diferente com o ID e o nome do disco gerido principal.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Copia um disco gerido ao criar um novo disco gerido numa subscrição diferente com o ID e o nome do disco gerido principal.  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

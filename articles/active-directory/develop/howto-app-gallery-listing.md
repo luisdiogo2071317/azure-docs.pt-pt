@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f4caf0cde7225e2c93723f412c53259a5f5646a4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102039"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663286"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -45,7 +45,7 @@ ms.locfileid: "55102039"
 
 - Palavra-passe de SSO, certifique-se que a aplicação suporta a autenticação de formulário para que os cofres de palavras de palavra-passe podem ser feito para fazer o trabalho de logon único conforme esperado.
 
-- Para pedidos de aprovisionamento de utilizadores automática, o aplicativo deve listado na galeria com recurso de início de logon único habilitado a utilizar o protocolo de Federação descrito acima. Pode pedir para SSO e aprovisionamento em conjunto no portal, se ainda não estiver na lista de utilizadores.
+- Para pedidos de aprovisionamento de utilizadores automática, o aplicativo deve listado na galeria com recurso de início de logon único habilitado com o SAML 2.0/WS-Fed. Pode pedir para SSO e aprovisionamento em conjunto no portal, se ainda não estiver na lista de utilizadores.
 
 ## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016653"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661246"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de Store no Azure Key Vault
 
@@ -27,9 +27,6 @@ Atualmente, todos os tipos de atividade, exceto a atividade personalizada suport
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Esta funcionalidade baseia-se na identidade de serviço do data factory. Saiba como ele funciona da [identidade de serviço do Data factory](data-factory-service-identity.md) e certifique-se a fábrica de dados tem um associados.
-
->[!TIP]
->No Azure Key Vault, ao criar um segredo **put solicita o valor inteiro de uma propriedade secreta que serviço ligado do ADF (por exemplo, ligação cadeia/palavra-passe/serviço principal chave/etc.)**. Por exemplo, para o armazenamento do Azure de serviço ligado, coloque `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` como segredo AKV, em seguida, a referência no campo de "connectionString" do ADF; para o serviço ligado do Dynamics, colocar `myPassword` como segredo AKV, em seguida, referenciar no campo de "palavra-passe" do ADF. Consulte a cada artigo conector/computação nos detalhes de propriedade suportados.
 
 ## <a name="steps"></a>Passos
 

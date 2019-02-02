@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301259"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564957"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -55,7 +55,7 @@ R: Clique em "Filtros" na frigideira à esquerda para ver uma pré-visualizaçã
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou a receber o erro: "Registar o fornecedor de recursos"Microsoft. insights' para esta subscrição para ativar esta consulta"nos registos, após a análise de sessão de VM? 
 
-R: Por padrão, muitos fornecedores de recursos são automaticamente registrados, no entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Esta ação configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#portal) para obter mais informações.
+R: Por padrão, muitos fornecedores de recursos são automaticamente registrados, no entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Esta ação configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) para obter mais informações.
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>P. Por que estou eu não estou a receber nenhuma mensagem de erro de acesso ao aceder a registos de uma página VM? 
 

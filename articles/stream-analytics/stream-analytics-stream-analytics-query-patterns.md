@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794537"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663507"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Consultar os exemplos de padrões de utilização comuns do Stream Analytics
 
@@ -387,7 +387,7 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
 | Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Saída**:
@@ -558,7 +558,7 @@ Por exemplo, num cenário de IoT para ovens iniciais, deve ser gerado um alerta 
 
 **Saída**:
 
-| eventTime | deviceId | Temp | alertMessage | maxPowerDuringLast3mins |
+| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
 | "2018-01-01T16:05:00" | "Oven1" |30 | "Curto-circuito aquecer elementos" |15 |
 | "2018-01-01T16:06:00" | "Oven1" |20 | "Curto-circuito aquecer elementos" |15 |
@@ -648,7 +648,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Entrada**:  
 
-| DeviceId | Hora | Atributo | Valor |
+| DeviceId | Hora | Atributo | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**EXPLICAÇÃO**: [CONTAGEM (distinta hora)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) devolve o número de valores distintos da coluna de tempo durante um período de tempo. Em seguida, pode utilizar a saída deste passo para calcular a média por dispositivo ao rejeitar duplicatas.
+**EXPLICAÇÃO**: [CONTAGEM (distinta hora)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) devolve o número de valores distintos da coluna de tempo durante um período de tempo. Em seguida, pode utilizar a saída deste passo para calcular a média por dispositivo ao rejeitar duplicatas.
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

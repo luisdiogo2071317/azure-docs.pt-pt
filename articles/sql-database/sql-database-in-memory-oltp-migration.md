@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228050"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565926"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilize o OLTP na memória para melhorar o desempenho da aplicação na base de dados SQL
+
 [OLTP dentro da memória](sql-database-in-memory.md) podem ser utilizadas para melhorar o desempenho de processamento de transações e ingestão de dados e cenários de dados transitório, no [escalão Premium e crítico para a empresa](sql-database-service-tiers-vcore.md) bases de dados sem aumentar o escalão de preço. 
 
 > [!NOTE] 
@@ -29,6 +30,7 @@ ms.locfileid: "51228050"
 Siga estes passos para adotar o OLTP dentro da memória da base de dados existente.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Passo 1: Certifique-se de que está a utilizar uma base de dados de escalão Premium e crítico para a empresa
+
 OLTP dentro da memória só é suportado em bases de dados do escalão Premium e crítico para a empresa. Dentro da memória é suportada se o resultado retornado é 1 (não 0):
 
 ```
@@ -39,7 +41,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Passo 2: Identificar os objetos a migrar para o OLTP dentro da memória
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Passo 2: Identificam os objetos a migrar para o OLTP dentro da memória
 SSMS inclui um **descrição geral da análise de desempenho de transação** relatório que pode ser executado numa base de dados com uma carga de trabalho do Active Directory. O relatório identifica as tabelas e procedimentos armazenados que são candidatos à migração para o OLTP dentro da memória.
 
 No SSMS, para gerar o relatório:
@@ -65,7 +67,7 @@ Para facilitar a testar, Otimize a base de dados de teste da seguinte forma:
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Passo 4: Migrar tabelas
+## <a name="step-4-migrate-tables"></a>Passo 4: Migrar as tabelas
 Tem de criar e preencher uma cópia com otimização de memória da tabela que pretende testar. Pode criá-la através de um:
 
 * O Assistente de otimização de memória útil no SSMS.
@@ -105,7 +107,7 @@ INSERT INTO <new_memory_optimized_table>
 ```
 
 
-## <a name="step-5-optional-migrate-stored-procedures"></a>Passo 5 (opcional): Migrar procedimentos armazenados
+## <a name="step-5-optional-migrate-stored-procedures"></a>Passo 5 (opcional): Migrar de procedimentos armazenados
 A funcionalidade de dentro da memória também pode modificar um procedimento armazenado para um melhor desempenho.
 
 ### <a name="considerations-with-natively-compiled-stored-procedures"></a>Considerações sobre com procedimentos armazenados compilados nativamente
@@ -149,7 +151,7 @@ Os passos de migração são:
 4. Mudar o nome do procedimento armazenado antigo utilizando SP_RENAME. Ou basta SOLTÁ-lo.
 5. Execute o script de T-SQL de procedimento de criar editado.
 
-## <a name="step-6-run-your-workload-in-test"></a>Passo 6: Executar a carga de trabalho no teste
+## <a name="step-6-run-your-workload-in-test"></a>Passo 6: Executar sua carga de trabalho no teste
 Execute uma carga de trabalho na sua base de dados de teste é semelhante à carga de trabalho que é executado na base de dados de produção. Isso deve ficar a saber o ganho de desempenho obtido pela sua utilização da funcionalidade dentro da memória para tabelas e procedimentos armazenados.
 
 Atributos principais da carga de trabalho são:

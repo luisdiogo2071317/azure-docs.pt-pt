@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422733"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658881"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 
@@ -63,7 +63,7 @@ Explorador de armazenamento do Azure podem funcionar em outras distribuições, 
 
 Também tem de ter as seguintes dependências/bibliotecas instaladas para executar o Explorador de armazenamento do Azure no Linux:
 
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Nota: libsecret 1.so.0 tem de estar disponível no seu computador. Se tiver uma versão diferente do libsecret instalado, pode tentar por software ligar o seu ficheiro. SO a libsecret 1.so.0)
 * libgconf-2-4
 * GCC atualizado
@@ -84,12 +84,12 @@ O Explorador de Armazenamento proporciona várias formas de ligar a contas de ar
 
 Além disso, pode trabalhar com contas de armazenamento no Azure global e nacional:
 
-* [Ligar a uma subscrição do Azure](#connect-to-an-azure-subscription): faça a gestão dos recursos de armazenamento que pertencem à sua subscrição do Azure.
-* [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage): faça a gestão do armazenamento local com o Emulador do Armazenamento do Azure.
-* [Anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account): faça a gestão dos recursos de armazenamento que pertencem a outra subscrição do Azure ou a clouds nacionais do Azure com o nome, a chave e os pontos finais da conta de armazenamento.
-* [Anexar uma conta de armazenamento com SAS](#attach-storage-account-using-sas): faça a gestão dos recursos de armazenamento que pertencem a outra subscrição do Azure com uma assinatura de acesso partilhado (SAS).
-* [Anexar um serviço com SAS](#attach-service-using-sas): faça a gestão de um serviço de armazenamento específico (contentor de blobs, filas ou tabelas) que pertence a outra subscrição do Azure com SAS.
-* [Ligar a uma conta do Azure Cosmos DB com uma cadeia de ligação](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): conta de gerir o Cosmos DB ao utilizar uma cadeia de ligação.
+* [Ligar a uma subscrição do Azure](#connect-to-an-azure-subscription): Gerir recursos de armazenamento que pertencem à sua subscrição do Azure.
+* [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage): Gerir o armazenamento local utilizando o emulador de armazenamento do Azure.
+* [Anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account): Gerir recursos de armazenamento que pertencem a outra subscrição do Azure ou que são Clouds nacionais do Azure com o nome, a chave e os pontos finais da conta de armazenamento.
+* [Anexar uma conta de armazenamento com SAS](): Gerir recursos de armazenamento que pertencem a outra subscrição do Azure através de uma assinatura de acesso partilhado (SAS).
+* [Anexar um serviço com SAS](#attach-service-using-sas): Gerir um serviço de armazenamento específico (contentor de blob, fila ou tabela) que pertence a outra subscrição do Azure com SAS.
+* [Ligar a uma conta do Azure Cosmos DB com uma cadeia de ligação](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Gerir conta do Cosmos DB com uma cadeia de ligação.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 

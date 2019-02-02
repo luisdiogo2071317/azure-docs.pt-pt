@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dac7e458339e24e0bb6663f4ff0d5e98bc814aad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168622"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658645"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
 
-Quando adiciona uma aplicação a partir da [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery), tem à sua escolha como pretende que os utilizadores para iniciar sessão para essa aplicação. Pode configurar essa opção em qualquer altura, selecionando o **início de sessão único** item de navegação num aplicativo empresarial a [portal do Azure](https://portal.azure.com/).
+Quando adiciona uma aplicação a partir da [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), tem à sua escolha como pretende que os utilizadores para iniciar sessão para essa aplicação. Pode configurar essa opção em qualquer altura, selecionando o **início de sessão único** item de navegação num aplicativo empresarial a [portal do Azure](https://portal.azure.com/).
 
 Um dos únicos início de sessão em métodos disponíveis para é o [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) opção. Isso é uma ótima maneira de começar a integrar aplicações com o Azure AD rapidamente e permite-lhe:
 
@@ -41,7 +41,7 @@ Um dos únicos início de sessão em métodos disponíveis para é o [baseado em
 
 -   Permitir que um **administrador** para especificar o nome de utilizador partilhada ou a palavra-passe utilizada por um grupo de pessoas com as credenciais de atualização de funcionalidades quando [atribuir um grupo a uma aplicação](#assign-an-application-to-a-group-directly)
 
-A seguinte secção descreve como pode permitir [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) a uma aplicação que já se encontra no [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
+A seguinte secção descreve como pode permitir [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) a uma aplicação que já se encontra no [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="overview-of-steps-required"></a>Descrição geral dos passos necessários
 Para configurar uma aplicação da galeria do Azure AD, que tem de:

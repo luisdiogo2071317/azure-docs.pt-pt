@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052143"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661008"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
@@ -43,6 +43,10 @@ Para ver dados de custo, um utilizador tem de ter, pelo menos, acesso de leitura
 O diagrama seguinte ilustra a relação entre os âmbitos de gestão de custos com as funções e as definições do portal EA.
 
 ![Diagrama que mostra a relação entre os âmbitos de gestão de custos com as funções e as definições do portal EA](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+Quando **cobranças de vista DA** estão desativadas no portal do EA, verá uma mensagem a indicar *os custos de desativado para a sua organização* quando tentar exibir os custos de departamentos e contas.
+
+Da mesma forma, quando **cobranças de exibição de pedidos** estão desativadas no portal do EA, verá uma mensagem a indicar *os custos de desativado para a sua organização* quando tentar exibir os custos para as contas de inscrição, grupos de gestão, subscrições e grupos de recursos.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no portal de EA
 

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154986"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657659"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista de operador do Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central
 
 Este tutorial mostra-lhe como personalizar a vista do operador da sua aplicação como construtor. Quando fizer uma alteração à aplicação como construtor, pode pré-visualizar a vista do operador na aplicação do Microsoft Azure IoT Central.
 
@@ -30,6 +30,8 @@ Neste tutorial, ficará a saber como:
 > * Pré-visualizar o dispositivo como operador
 > * Configurar a sua home page predefinida
 > * Pré-visualizar a home page predefinida como operador
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +66,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     | Definição     | Valor |
     | ----------- | ----- |
-    | Nome        | Temperatura máxima |
+    | Name        | Temperatura máxima |
     | Medida | temperatura |
     | Agregação | Máximo |
     | Intervalo de tempo  | Passado 1 semana |
@@ -162,7 +164,7 @@ Para pré-visualizar a home page como um operador e deixar de editar, selecione 
 
 Pode clicar nos mosaicos de ligação e imagem para navegar para os URLs definidos como um construtor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a personalizar a vista do operador da aplicação.
 

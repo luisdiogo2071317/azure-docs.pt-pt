@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412053"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661485"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -32,36 +32,36 @@ A seguir mostra uma função personalizada aparência tal como apresentado no fo
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
+  "NotActions": [
 
-                 ],
-  "DataActions":  [
+  ],
+  "DataActions": [
 
-                  ],
-  "NotDataActions":  [
+  ],
+  "NotDataActions": [
 
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  ],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -92,10 +92,10 @@ Uma função personalizada tem as seguintes propriedades.
 
 | Propriedade | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name` | Sim | Cadeia | O nome a apresentar da função personalizada. Enquanto uma definição de função é um recurso de nível de assinatura, uma definição de função pode ser utilizada em várias subscrições que partilham o mesmo diretório do Azure AD. Este nome a apresentar tem de ser exclusivo no âmbito do diretório do Azure AD. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é 128. |
-| `Id` | Sim | Cadeia | O ID exclusivo da função personalizada. Para o Azure PowerShell e CLI do Azure, este ID é gerado automaticamente quando cria uma nova função. |
-| `IsCustom` | Sim | Cadeia | Indica se se trata de uma função personalizada. Definido como `true` para funções personalizadas. |
-| `Description` | Sim | Cadeia | A descrição da função personalizada. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é de 1024. |
+| `Name` | Sim | String | O nome a apresentar da função personalizada. Enquanto uma definição de função é um recurso de nível de assinatura, uma definição de função pode ser utilizada em várias subscrições que partilham o mesmo diretório do Azure AD. Este nome a apresentar tem de ser exclusivo no âmbito do diretório do Azure AD. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é 128. |
+| `Id` | Sim | String | O ID exclusivo da função personalizada. Para o Azure PowerShell e CLI do Azure, este ID é gerado automaticamente quando cria uma nova função. |
+| `IsCustom` | Sim | String | Indica se se trata de uma função personalizada. Definido como `true` para funções personalizadas. |
+| `Description` | Sim | String | A descrição da função personalizada. Pode incluir letras, números, espaços e carateres especiais. Número máximo de carateres é de 1024. |
 | `Actions` | Sim | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que permite que a função a ser executada. Para obter mais informações, consulte [ações](role-definitions.md#actions). |
 | `NotActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gestão que são excluídas da permitidos `Actions`. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Não | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados que permite que a função a ser executada aos seus dados dentro desse objeto. Para obter mais informações, consulte [DataActions (pré-visualização)](role-definitions.md#dataactions-preview). |

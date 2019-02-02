@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a54ab9e45838a81a2ea4e2e425114e19a65ba76
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320942"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563852"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -105,7 +105,7 @@ Política de controlo de acesso baseado em funções (RBAC) do Azure determina q
 > [!NOTE]
 > Para permitir que um utilizador inicie sessão VM através de SSH, deve atribuir a *início de sessão de administrador do Virtual Machine* ou *início de sessão de utilizador de Máquina Virtual* função. Um utilizador do Azure com o *proprietário* ou *contribuinte* funções atribuídas para uma VM automaticamente não tem privilégios para iniciar sessão VM através de SSH.
 
-O exemplo seguinte utiliza [criação da atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a *início de sessão de administrador de máquinas virtuais* função para a VM para o seu utilizador do Azure atual. O nome de utilizador da sua conta do Azure Active Directory é obtido com [show de conta de az](/cli/azure/account#az-account-show)e o *âmbito* está definida para a VM criada no passo anterior com [show de vm de az](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um nível de subscrição ou grupo de recursos e aplicam as permissões de herança de RBAC normais. Para obter mais informações, consulte [controlos de acesso baseado em funções](../../azure-resource-manager/resource-group-overview.md#access-control)
+O exemplo seguinte utiliza [criação da atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a *início de sessão de administrador de máquinas virtuais* função para a VM para o seu utilizador do Azure atual. O nome de utilizador da sua conta do Azure Active Directory é obtido com [show de conta de az](/cli/azure/account#az-account-show)e o *âmbito* está definida para a VM criada no passo anterior com [show de vm de az](/cli/azure/vm#az-vm-show). O âmbito também poderia ser atribuído a um nível de subscrição ou grupo de recursos e aplicam as permissões de herança de RBAC normais. Para obter mais informações, consulte [controlos de acesso baseado em funções](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)

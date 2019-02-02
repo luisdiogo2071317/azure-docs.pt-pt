@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 06/13/2018
-ms.openlocfilehash: 1761c7040becf0bfe63caf12d8f5ea7b15e9b88b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/25/2018
+ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162938"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564821"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para o SQL Server Management Studio e o Azure AD
 
@@ -54,17 +54,17 @@ Os passos seguintes mostram como ligar à base de dados SQL ou SQL Data Warehous
 6. Duas caixas de diálogo de configuração MFA podem aparecer. Uma vez operação depende do administrador MFA definição e, portanto, podendo ser opcional. Para um domínio MFA ativada neste passo, às vezes, é predefinido (por exemplo, o domínio requer que os utilizadores utilizem um pin e de smart card).  
    ![3mfa-setup][3]  
 7. A segunda possível uma vez que a caixa de diálogo permite-lhe selecionar os detalhes do seu método de autenticação. As opções possíveis são configuradas pelo seu administrador.  
-   ![4mfa-Certifique-se de-1][4]  
+   ![4mfa-verify-1][4]  
 8. O Azure Active Directory envia as informações de confirmação para. Quando receber o código de verificação, introduza-o para o **introduza o código de verificação** caixa e clique em **iniciar sessão**.  
-   ![5mfa-Certifique-se-2][5]  
+   ![5mfa-verify-2][5]  
 
 Quando a verificação estiver concluída, o SSMS liga-se normalmente a pressupor credenciais válidas e acesso de firewall.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral da autenticação multifator de base de dados do Azure SQL, consulte autenticação Universal com [base de dados SQL e SQL Data Warehouse (suporte do SSMS para a MFA)](sql-database-ssms-mfa-authentication.md).  
-- Outras pessoas conceder acesso à base de dados: [autorização e autenticação de base de dados SQL: conceder acesso](sql-database-manage-logins.md)  
-- Certifique-se outras pessoas podem ligar através da firewall: [configurar uma regra de firewall ao nível do servidor de base de dados do Azure SQL com o portal do Azure](sql-database-configure-firewall-settings.md)  
+- Outras pessoas conceda acesso à base de dados: [Autorização e autenticação de base de dados SQL: Conceder acesso](sql-database-manage-logins.md)  
+- Certifique-se de que outras pessoas podem ligar-se através da firewall: [Configurar uma regra de firewall ao nível do servidor de base de dados do Azure SQL com o portal do Azure](sql-database-configure-firewall-settings.md)  
 - Ao usar **Active Directory - Universal com a MFA** autenticação, o rastreamento da ADAL é disponíveis a partir [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desativado por predefinição, pode ativar o rastreio da ADAL ao utilizar o **ferramentas**, **opções** menu, em **dos serviços do Azure**, **na Cloud do Azure**,  **O nível de rastreio de janela de saída da ADAL**, seguido pela ativação **saída** no **vista** menu. Os rastreios estão disponíveis na janela de saída ao selecionar **opção do Azure Active Directory**.   
 
 

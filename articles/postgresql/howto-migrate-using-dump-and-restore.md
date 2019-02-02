@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494005"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564209"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -83,7 +83,7 @@ Uma forma de migrar a base de dados existente do PostgreSQL para base de dados d
 - No destino da base de dados do Azure para o servidor PostgreSQL, considere efetuar o seguinte antes do restauro:
     - Desative a consulta desempenho de controlo, uma vez que estas estatísticas não são necessários durante a migração. Pode fazê-lo ao definir pg_stat_statements.track pg_qs.query_capture_mode e pgms_wait_sampling.query_capture_mode como NONE.
 
-    - Utilize um sku de computação e memória elevado, como 32 vCore com otimização de memória, para acelerar a migração. Pode dimensionar facilmente volta para o sku preferencial após o restauro está concluído. Maior o sku, o mais paralellism pode conseguir aumentando o correspondente `-j` parâmetro no comando pg_restore. 
+    - Utilize um sku de memória elevada, como 32 vCore com otimização de memória e de computação elevada para acelerar a migração. Pode dimensionar facilmente volta para o sku preferencial após o restauro está concluído. Maior o sku, mais paralelismo pode conseguir aumentando o correspondente `-j` parâmetro no comando pg_restore. 
 
     - Melhora o desempenho de restauro mais IOPS no servidor de destino. Pode aprovisionar mais IOPS por aumentar o tamanho do armazenamento do servidor. Esta definição não é reversível, mas considere se um IOPS superior irá se beneficiar com a carga de trabalho real no futuro.
 

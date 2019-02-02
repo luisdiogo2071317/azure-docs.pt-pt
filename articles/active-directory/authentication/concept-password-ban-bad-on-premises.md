@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: b99c1b99fe87c755d6092876ccd598d926289192
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 816c459ca6edd7204ccdcdf9d402f2d4499d9116
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077835"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662528"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Pré-visualização: Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 
@@ -29,7 +29,7 @@ Proteção de palavra-passe do Azure AD é um novo recurso em pré-visualizaçã
 Existem três componentes de software que fazem com a proteção de palavra-passe do Azure AD:
 
 * O serviço de proxy de proteção de palavra-passe do Azure AD é executado em qualquer computador associado a um domínio na floresta do Active Directory atual. Ele reencaminha os pedidos de controladores de domínio para o Azure AD e retorna a resposta do Azure AD para o controlador de domínio.
-* O serviço de agente de proteção DC de palavra-passe do Azure AD recebe pedidos de validação da palavra-passe a partir da dll de filtro de palavra-passe do agente DC, processa-las com a política de palavra-passe disponível localmente atual e devolve o resultado (pass\fail). Este serviço é responsável por periodicamente (uma vez por hora) chamando o serviço de proxy de proteção de palavra-passe do Azure AD para obter novas versões da política de palavra-passe. Comunicação para chamadas de e para o serviço de proxy de proteção de palavra-passe do Azure AD é processada através de RPC (chamada de procedimento remoto) sobre TCP. Após a recuperação, as novas políticas são armazenadas numa pasta sysvol, onde pode replicar para outros controladores de domínio. O serviço de agente do controlador de domínio também monitora a pasta sysvol para alterações no caso de outros controladores de domínio escreveram novas políticas de palavra-passe lá, se uma política convenientemente recente já está disponível a verificação do serviço de proxy de proteção de palavra-passe do Azure AD será ignorada.
+* O serviço de agente de proteção DC de palavra-passe do Azure AD recebe pedidos de validação da palavra-passe a partir da dll de filtro de palavra-passe do agente DC, processa-las com a política de palavra-passe disponível localmente atual e devolve o resultado (pass\fail). Este serviço é responsável por periodicamente (uma vez por hora) chamando o serviço de proxy de proteção de palavra-passe do Azure AD para obter novas versões da política de palavra-passe. Comunicação entre o serviço de agente de proteção DC de palavra-passe do Azure AD e o serviço de proxy de proteção de palavra-passe do Azure AD é processada através de RPC (chamada de procedimento remoto) sobre TCP. Após a recuperação, as novas políticas são armazenadas numa pasta sysvol, onde pode replicar para outros controladores de domínio. O serviço de agente do controlador de domínio também monitora a pasta sysvol para alterações no caso de outros controladores de domínio escreveram novas políticas de palavra-passe aqui; Se uma política convenientemente recente já está disponível, em seguida, novos pedidos de transferência da política serão ignorados.
 * A dll de filtro de palavras-passe do agente de controlador de domínio recebe pedidos de validação da palavra-passe a partir do sistema operativo e reencaminha-os para o serviço de proteção DC palavra-passe do Azure AD agente em execução localmente no controlador de domínio.
 
 ![Como os componentes de proteção de palavra-passe do Azure AD funcionam em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -57,7 +57,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 * Não há nenhum domínio do Active Directory ou funcional de floresta nível (DFL\FFL) requisito mínimo.
 * O software não criam nem necessitam de quaisquer contas em domínios do Active Directory que protege.
 * Implementação incremental é suportada com o compromisso que política de palavra-passe só é aplicada onde está instalado o agente de controlador de domínio.
-* Recomenda-se para instalar o agente de controlador de domínio em todos os controladores de domínio para garantir a imposição de proteção de palavra-passe. 
+* Recomenda-se para instalar o agente de controlador de domínio em todos os controladores de domínio para garantir a imposição de proteção de palavra-passe.
 * Proteção de palavra-passe do Azure AD não é um motor de aplicação de política em tempo real. Pode haver um atraso no período entre a uma alteração de configuração de política de palavra-passe e o tempo de atingir e é aplicada a todos os controladores de domínio.
 
 ## <a name="next-steps"></a>Passos Seguintes

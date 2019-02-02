@@ -1,102 +1,43 @@
 ---
-title: Desenvolvimento em equipa do Azure Dev Spaces com .NET Core e Visual Studio | Microsoft Docs
+title: A equipe de desenvolvimento com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio | Documentos da Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.subservice: azds-kubernetes
-author: zr-msft
-ms.author: zarhoads
-ms.date: 07/09/2018
+author: DrEsteban
+ms.author: stevenry
+ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: ecacb7d3d4576b18eee3faf88c2a598d6acf94a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465372"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663796"
 ---
-# <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipa com o Azure Dev Spaces
+# <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 
-Neste tutorial, irá aprender a utilizar vários espaços de desenvolvimento para trabalhar simultaneamente em ambientes de desenvolvimento diferentes, mantendo o trabalho separado em espaços de desenvolvimento separados no mesmo cluster.
-
-## <a name="call-another-container"></a>Chamar outro contentor
-Nesta secção, vai criar um segundo serviço, `mywebapi` a ser chamado por `webfrontend`. Cada serviço vai ser executado em contentores separados. Em seguida, vai realizar a depuração em ambos os contentores.
-
-![](media/common/multi-container.png)
-
-### <a name="download-sample-code-for-mywebapi"></a>Transfira o código de exemplo para *mywebapi*
-Para ser mais rápido, vamos transferir código de exemplo de um repositório do GitHub. Aceda a https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub. O código para esta secção está em `samples/dotnetcore/getting-started/mywebapi`.
-
-### <a name="run-mywebapi"></a>Execute *mywebapi*
-1. Abra o projeto `mywebapi` numa *janela separada do Visual Studio*.
-1. Selecione **Azure Dev Spaces** no menu pendente de definições de início, tal como fez anteriormente para o projeto `webfrontend`. Agora, em vez de criar um novo cluster do AKS, selecione o mesmo que já criou. Tal como antes, mantenha a predefinição `default` em Space (Espaço) e clique em **OK**. Na janela Output (Saída), vai reparar que o Visual Studio começa a "preparar o arranque" deste novo serviço no seu espaço de programador, de modo a acelerar o processo quando iniciar a depuração.
-1. Prima F5 e aguarde que o serviço seja criado e implementado. Saberá que está pronto quando a barra de estado do Visual Studio ficar cor de laranja
-1. Tome nota do URL do ponto final apresentado no painel **Azure Dev Spaces for AKS** (Azure Dev Spaces para AKS) na janela **Output** (Saída). Terá um aspeto semelhante a http://localhost:\<portnumber\>. Poderá parecer que o contentor está a ser executado localmente. Contudo, na verdade, está a ser executado no espaço de programador no Azure.
-2. Quando o projeto `mywebapi` estiver pronto, abra o browser no endereço localhost e acrescente `/api/values` ao URL para invocar a API GET predefinida para `ValuesController`. 
-3. Se todos os passos tiverem sido concluídos com êxito, deverá conseguir ver uma resposta do serviço `mywebapi` com um aspeto semelhante ao seguinte.
-
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
-
-### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Efetue um pedido de *webfrontend* para *mywebapi*
-Vamos agora escrever código em `webfrontend` que efetua um pedido a `mywebapi`. Mude para a janela do Visual Studio que tem o projeto `webfrontend`. No ficheiro `HomeController.cs` *substitua* o código do método About pelo seguinte código:
-
-   ```csharp
-   public async Task<IActionResult> About()
-   {
-      ViewData["Message"] = "Hello from webfrontend";
-
-      using (var client = new System.Net.Http.HttpClient())
-            {
-                // Call *mywebapi*, and display its response in the page
-                var request = new System.Net.Http.HttpRequestMessage();
-                request.RequestUri = new Uri("http://mywebapi/api/values/1");
-                if (this.Request.Headers.ContainsKey("azds-route-as"))
-                {
-                    // Propagate the dev space routing header
-                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
-                }
-                var response = await client.SendAsync(request);
-                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-            }
-
-      return View();
-   }
-   ```
-
-O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido a receber para o pedido a enviar. Irá perceber, mais tarde, como isto facilita uma experiência de desenvolvimento mais produtiva em cenários de equipa.
-
-### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
-1. Neste momento, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não for esse o caso, prima F5 no projeto `mywebapi`.
-1. Defina um ponto de interrupção no método `Get(int id)` no ficheiro `Controllers/ValuesController.cs` que processa os pedidos GET `api/values/{id}`.
-1. No projeto `webfrontend` onde colou o código acima indicado, defina um ponto de interrupção antes de ser enviado um pedido GET para `mywebapi/api/values`.
-1. Prima F5 no projeto `webfrontend`. O Visual Studio irá abrir novamente um browser para a porta localhost adequada e a aplicação Web será apresentada.
-1. Clique na ligação "**About**" (Acerca de) na parte superior da página para acionar o ponto de interrupção no projeto `webfrontend`. 
-1. Prima F10 para continuar. O ponto de interrupção no projeto `mywebapi` é acionado.
-1. Prima F5 para continuar. Isso fará com que regresse ao código no projeto `webfrontend`.
-1. Se premir F5 uma vez mais, o pedido será concluído e será devolvida uma página no browser. Na aplicação web, a página sobre apresenta uma mensagem de concatenado por dois serviços: "Olá de webfrontend e Hello do mywebapi."
-
-Já está! Tem agora uma aplicação com vários contentores, na qual cada contentor pode ser desenvolvido e implementado separadamente.
+Neste tutorial, irá aprender como uma equipe de desenvolvedores em simultâneo pode colaborar no mesmo cluster de Kubernetes através dos espaços de desenvolvimento.
 
 ## <a name="learn-about-team-development"></a>Saiba mais sobre desenvolvimento em equipa
 
 Até aqui, executou o código da aplicação como se fosse o único programador a trabalhar na aplicação. Nesta secção, irá aprender até que ponto o Azure Dev Spaces simplifica o desenvolvimento em equipa ao:
-* Permita que uma equipa de programadores trabalhe no mesmo ambiente, ao trabalhar num espaço de desenvolvimento partilhado ou em espaços de desenvolvimento distintos, conforme necessário...
+* Ative uma equipa de programadores para trabalhar no mesmo ambiente, ao trabalhar num espaço de desenvolvimento compartilhado ou em espaços de desenvolvimento distintos, conforme necessário.
 * Suportar que cada programador faça iterações no respetivo código de forma isolada e sem receio de danificar o código de terceiros.
 * Testar o código ponto a ponto, antes de proceder à consolidação do código, sem ter de criar cenários fictícios ou simular dependências.
 
 ### <a name="challenges-with-developing-microservices"></a>Desafios relativamente ao desenvolvimento de microsserviços
-Este exemplo de aplicação não apresenta índices de complexidade elevados até ao momento. Todavia, num cenário de desenvolvimento real, os desafios começam a surgir à medida que são adicionados mais serviços e a equipa de desenvolvimento começa a aumentar.
+O exemplo de aplicação não é complexo no momento. Todavia, num cenário de desenvolvimento real, os desafios começam a surgir à medida que são adicionados mais serviços e a equipa de desenvolvimento começa a aumentar.
 
-Imagine que está a trabalhar num serviço que interage com dezenas de outros serviços.
-
-- A execução de todos os elementos para fins de desenvolvimento a nível local pode tornar-se uma perspetiva irrealista. A máquina de desenvolvimento pode não ter recursos suficientes para executar a aplicação completa. Quem sabe, a aplicação tem pontos finais que têm de estar acessíveis publicamente (por exemplo, a aplicação responde a um webhook a partir de uma aplicação SaaS).
-- Pode tentar executar apenas os serviços de que depende, mas isto significa que teria de conhecer o âmbito completo das dependências (por exemplo, as dependências das dependências). Por outro lado, pode ser uma questão de não saber exatamente como criar e executar as dependências visto não ter estado envolvido no desenvolvimento das mesmas.
-- Alguns programadores recorrem à simulação ou criação de cenários fictícios de muitas das suas dependências de serviço. Esta pode ser uma abordagem útil. No entanto, mais cedo ou mais tarde, a gestão desses cenários fictícios acaba por exigir o seu próprio esforço de desenvolvimento. Além disso, o aspeto do seu ambiente de desenvolvimento acaba por divergir do da produção, dando azo ao aparecimento de erros subtis.
-- Daqui decorre que se torna difícil levar a cabo qualquer tipo de teste ponto a ponto. Realisticamente, o teste de integração só pode ocorrer após uma consolidação, o que significa que irá ver os problemas numa fase posterior no ciclo de desenvolvimento.
+* O computador de desenvolvimento pode não ter recursos suficientes para executar todos os serviços que precisa de uma só vez.
+* Alguns serviços poderão ter de ser acessível publicamente. Por exemplo, um serviço pode tem de ter um ponto final que responde a um webhook.
+* Se quiser executar um subconjunto de serviços, precisa saber a hierarquia de dependência completa entre todos os seus serviços. Determinar esta hierarquia pode ser difícil, especialmente à medida que aumentam o número de serviços.
+* Alguns programadores recorrem à simulação ou criação de cenários fictícios de muitas das suas dependências de serviço. Esta abordagem pode ajudar, mas gerenciar esses objetos fictícios em breve pode afetar o custo de desenvolvimento. Além disso, essa abordagem nos leva ao seu ambiente de desenvolvimento está à procura diferente de produção, o que pode levar a bugs sutis que ocorrem.
+* Ela segue o que fazer qualquer tipo de teste de integração torna-se difícil. Realisticamente, o teste de integração só pode ocorrer após uma consolidação, o que significa que irá ver os problemas numa fase posterior no ciclo de desenvolvimento.
 
     ![](media/common/microservices-challenges.png)
 
@@ -106,29 +47,55 @@ O Azure Dev Spaces permite-lhe configurar um espaço de desenvolvimento *partilh
 ### <a name="work-in-your-own-space"></a>Trabalhar no seu próprio espaço
 À medida que desenvolve o código para o seu serviço e até estar preparado para o implementar, é frequente o código não estar em bom estado. A formulação, os testes e as experiências com soluções ao nível do código são um processo iterativo contínuo. O Azure Dev Spaces fornece o conceito de **espaço**, onde pode trabalhar de forma isolada e sem receio de prejudicar os membros da sua equipa.
 
-Proceda do seguinte modo para se certificar de que os serviços `webfrontend` e `mywebapi` estão em execução **no `default` espaço de programador** .
+## <a name="use-dev-spaces-for-team-development"></a>Utilizar espaços de desenvolvimento de desenvolvimento em equipe
+Vamos demonstrar essas idéias com um exemplo concreto usando nosso *webfrontend* -> *mywebapi* aplicação de exemplo. Podemos irá imagine um cenário em que um desenvolvedor, Scott, tem de fazer uma alteração para o *mywebapi* serviço, e *apenas* desse serviço. O *webfrontend* não terá de alterar como parte da atualização do Scott.
+
+_Sem_ através de espaços de desenvolvimento, Scott teria algumas formas de desenvolver e testar a atualização, nenhuma delas são ideais:
+* Executar localmente a todos os componentes, que requer um computador de desenvolvimento mais poderoso com o Docker instalado e, potencialmente, MiniKube.
+* Execute todos os componentes num espaço de nomes isolado no cluster do Kubernetes. Uma vez que *webfrontend* não está mudando, usando um isolado espaço de nomes é um desperdício de recursos de cluster.
+* Executar apenas *mywebapi*e fazer chamadas REST manuais para testar. Esse tipo de teste não testar o fluxo de completa-a-ponto.
+* Adicione o código com foco no desenvolvimento para *webfrontend* que permite ao desenvolvedor enviar pedidos para uma instância diferente do *mywebapi*. Adicionar este código complica a *webfrontend* serviço.
+
+### <a name="set-up-your-baseline"></a>Configurar a sua linha de base
+Em primeiro lugar, tem de implementar uma linha de base dos nossos serviços. Esta implementação irá representar o "último conhecido é bom", para que possa comparar facilmente o comportamento do seu código local vs. a versão de check-in. Em seguida, vamos criar um espaço de subordinados com base nesta linha de base para que possamos testar as nossas alterações para *mywebapi* dentro do contexto do aplicativo maior.
+
+1. Clone o [aplicação de exemplo de espaços de desenvolvimento](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Dar saída ao ramo remoto *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Feche as sessões de depuração/F5 de ambos os serviços, mas mantenha os projetos abertos nas respetivas janelas do Visual Studio.
-2. Mude para a janela do Visual Studio que tem o projeto `mywebapi` e prima Ctrl+F5 para executar o serviço sem o depurador anexado.
-3. Mude para a janela do Visual Studio que tem o projeto `webfrontend` e prima Ctrl+F5 para o executar também.
+1. Mude para a janela do Visual Studio com o _mywebapi_ projeto.
+1. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
+1. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
+1. Selecione **alteração** para criar o espaço que será utilizado quando F5 ou CTRL+F5 o serviço.
+1. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>**.
+1. Certifique-se de que o espaço de principal está definido como  **\<none\>** e introduza o nome do espaço **dev**. Clique em OK.
+1. Prima Ctrl + F5 para executar _mywebapi_ sem o depurador anexado.
+1. Mude para a janela do Visual Studio com o _webfrontend_ do projeto e prima Ctrl + F5 para executá-lo também.
 
 > [!Note]
 > Por vezes, é necessário atualizar o browser depois de a página Web ser apresentada inicialmente após ter premido Ctrl+F5.
 
-Qualquer pessoa que abra o URL público e navegue para a aplicação Web irá invocar o caminho do código que escreveu e que é comum a ambos os serviços que utilizam espaço `default` predefinido. Agora, suponha que quer continuar a desenvolver o serviço `mywebapi`. De que forma o poderá fazê-lo sem interromper os outros programadores que estão a utilizar o espaço de programador? Para tal, terá de configurar o seu próprio espaço.
+> [!TIP]
+> Os passos acima configurar manualmente uma linha de base, mas recomendamos a utilização de equipes CI/CD para manter sua linha de base automaticamente atualizados com o código de compromisso.
+>
+> Confira nosso [guia para configurar o CI/CD com o Azure DevOps](how-to/setup-cicd.md) para criar um fluxo de trabalho semelhantes para o diagrama seguinte.
+>
+> ![Diagrama de CI/CD de exemplo](media/common/ci-cd-complex.png)
+
+Qualquer pessoa que abre o URL público e navega para a aplicação web invocará o caminho de código que escreveu qual é executado através de ambos os serviços usando o padrão _dev_ espaço. Agora suponha que pretende continuar a desenvolver *mywebapi* -como pode fazê-lo e não interrompe o outros desenvolvedores que estão a utilizar o espaço de desenvolvimento? Para tal, terá de configurar o seu próprio espaço.
 
 ### <a name="create-a-new-dev-space"></a>Criar um novo espaço de programador
-A partir do Visual Studio, pode criar espaços adicionais que serão utilizados quando prime F5 ou Ctrl+F5 no seu serviço. Pode dar o nome que quiser a um espaço e pode ser flexível quanto ao seu significado (por exemplo, `sprint4` ou `demo`).
+A partir do Visual Studio, pode criar espaços adicionais que serão utilizados quando prime F5 ou Ctrl+F5 no seu serviço. Pode dar o nome que quiser a um espaço e pode ser flexível quanto ao seu significado (por exemplo, _sprint4_ ou _demonstração_).
 
 Faça o seguinte para criar um novo espaço:
-1. Mude para a janela do Visual Studio que tem o projeto `mywebapi`.
+1. Mude para a janela do Visual Studio com o *mywebapi* projeto.
 2. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
 3. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
 4. Aqui, pode alterar ou criar o cluster e/ou o espaço que será utilizado quando premir F5 ou Ctrl+F5. *Certifique-se de que o Azure Dev Space que criou anteriormente está selecionado*.
-5. Na lista pendente Space (Espaço), selecione **<Create New Space…>** (Criar Novo Espaço).
+5. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>**.
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. Na caixa de diálogo **Adicionar Espaço**, defina o espaço principal como **Predefinição** e introduza um nome para o novo espaço. Pode utilizar um nome próprio (por exemplo, "scott") para o novo espaço para que os seus colegas o possam identificar como o espaço em que está a trabalhar. Clique em **OK**.
+6. Na **adicionar espaço** caixa de diálogo, defina o espaço de principal para **dev**e introduza um nome para o seu espaço de novo. Pode utilizar um nome próprio (por exemplo, "scott") para o novo espaço para que os seus colegas o possam identificar como o espaço em que está a trabalhar. Clique em **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
@@ -138,7 +105,7 @@ Faça o seguinte para criar um novo espaço:
 
 ### <a name="update-code-for-mywebapi"></a>Atualizar o código de *mywebapi*
 
-1. No projeto `mywebapi`, introduza uma alteração no código do método `string Get(int id)` no ficheiro `Controllers/ValuesController.cs` da seguinte forma:
+1. Na *mywebapi* projeto tornar um código de alterar para o `string Get(int id)` método no arquivo `Controllers/ValuesController.cs` da seguinte forma:
  
     ```csharp
     [HttpGet("{id}")]
@@ -149,18 +116,20 @@ Faça o seguinte para criar um novo espaço:
     ```
 
 2. Defina um ponto de interrupção neste bloco de código atualizado (pode já ter um definido anteriormente).
-3. Prima F5 para iniciar o serviço `mywebapi`. Isto irá iniciar o serviço no seu cluster através do espaço selecionado, que neste caso é `scott`.
+3. Pressione F5 para iniciar o _mywebapi_ serviço, que irá iniciar o serviço no seu cluster com o espaço selecionado. Neste caso é o espaço selecionado _scott_.
 
-Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes espaços. O caminho roxo mostra um pedido feito através do espaço `default`, ou seja, o caminho predefinido utilizado caso o URL não seja precedido de qualquer espaço. O caminho rosa mostra um pedido feito através do espaço `default/scott`.
+Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes espaços. O caminho roxa mostra um pedido através da _dev_ espaço, que é o caminho predefinido utilizado se não existe espaço é precedido à URL. O caminho rosa mostra um pedido através da _dev/scott_ espaço.
 
 ![](media/common/Space-Routing.png)
 
 Esta capacidade incorporada do Azure Dev Spaces permite-lhe testar o código ponto a ponto num ambiente partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que os cabeçalhos de propagação sejam reencaminhados no código da aplicação, conforme ilustrado no passo anterior deste guia.
 
-### <a name="test-code-running-in-the-defaultscott-space"></a>Testar o código em execução no espaço `default/scott`
-Para testar a nova versão de `mywebapi` em conjunto com `webfrontend`, abra o browser no URL do ponto de acesso público de `webfrontend` (por exemplo, http://webfrontend.123456abcdef.eastus.aksapp.io)) e aceda à página About (Acerca de). Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
+### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no _dev/scott_ espaço
+Para testar a nova versão do *mywebapi* em conjunto com *webfrontend*, abra o browser para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eastus.aksapp.io)e aceda à página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
 
-Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io e atualize o browser. O ponto de interrupção definido no projeto `mywebapi` deverá ser acedido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para o seu código atualizado em `mywebapi` está em execução no espaço `default/scott`.
+Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io e atualize o browser. O ponto de interrupção definido no seu *mywebapi* projeto deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para os seus códigos atualizados no *mywebapi* está em execução no _dev/scott_ espaço.
+
+Depois de ter uma _dev_ espaço que contém sempre suas alterações mais recentes e supondo que a aplicação foi concebido para tirar partido do DevSpace baseados no espaço Encaminhamento conforme descrito nesta secção do tutorial, Espero que ele se torna mais fácil ver como os espaços de desenvolvimento muito pode ajudar no teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos os_ serviços no seu espaço privado, pode criar um espaço privado que deriva de _dev_e "apenas up" os serviços que está realmente a trabalhar. A infraestrutura de encaminhamento de espaços de desenvolvimento irá processar o resto utilizando os serviços fora do seu espaço de privada pois pode encontrar, ao utilizar a predefinição para a versão mais recente em execução no _dev_ espaço. E ainda assim, melhor _vários_ os programadores podem ativamente desenvolver serviços diferentes ao mesmo tempo no seu próprio espaço sem interromper entre si.
 
 ### <a name="well-done"></a>Já está!
 Concluiu o guia de introdução! Aprendeu a:
@@ -170,6 +139,7 @@ Concluiu o guia de introdução! Aprendeu a:
 > * Desenvolver iterativamente código em contentores.
 > * Desenvolver de modo independente dois serviços separados e utilizar a deteção do serviço DNS de Kubernetes para fazer uma chamada para outro serviço.
 > * Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
+> * Estabelecer uma linha de base da funcionalidade através de espaços de programador para testar facilmente isoladas de alterações dentro do contexto de uma aplicação de microsserviços maior
 
 Agora que explorou os Espaços de Programação do Azure, [partilhe o seu espaço de programação com um membro da equipa](how-to/share-dev-spaces.md) e ajude-o a ver como é fácil colaborar em conjunto.
 

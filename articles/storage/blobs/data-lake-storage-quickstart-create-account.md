@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 70feaffdc5289b592f372ee02d1df699c190c7a3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248440"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657232"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake
 
@@ -125,11 +125,8 @@ Comece por abrir uma sessão do PowerShell com permissões elevadas.
 Instalar o módulo de Az.Storage
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Módulos de Az do Powershell do Azure são os módulos preferenciais para trabalhar com os serviços do Azure no Powershell. Para obter mais informações, consulte [apresentando o novo módulo Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
 

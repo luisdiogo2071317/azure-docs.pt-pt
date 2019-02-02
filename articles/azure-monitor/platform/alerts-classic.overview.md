@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994356"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661722"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas Clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métricas clássicas mais antigas. Agora suporta o Monitor do Azure [mais recente alertas de métricas de quase em tempo real e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Alertas clássicos são [agendados para serem extinguidos](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Este artigo descreve como criar alertas de métricas clássicas mais antigas. Agora suporta o Monitor do Azure [mais recente alertas de métricas de quase em tempo real e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). Alertas clássicos são [agendados para serem extinguidos](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Alertas permitem-lhe configurar as condições sobre os dados e ser notificado quando as condições corresponderem aos dados monitorização mais recentes.

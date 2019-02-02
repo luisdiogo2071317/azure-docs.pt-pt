@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 46fc0202fe8e04cd7caefeeca948ebef251822fc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104513"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562288"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -228,7 +228,7 @@ O json de exemplo acima podem ser salvas como (Digamos) sampleScheduledQueryRule
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gerir alertas de registo com o PowerShell, CLI ou API
 
-O Azure Monitor - regras de consulta API agendada] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
+[O Azure Monitor - regras de consulta agendada API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
 
 > [!NOTE]
 > Alertas de registo para o Log Analytics também podem ser geridas com o legado [API de alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) e os modelos de legado do [guardada do Log Analytics, pesquisas e alertas](../../azure-monitor/insights/solutions-resources-searches-alerts.md) também. Para obter mais informações sobre como utilizar a nova API de ScheduledQueryRules descritas aqui, por padrão, consulte [mudar para a nova API para alertas do Log Analytics](alerts-log-api-switch.md).

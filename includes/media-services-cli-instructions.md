@@ -5,19 +5,19 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 01/25/2019
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: b335cf996de41f4eea15af1899a0c6654c2f679f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 06651b06ae84934c16e9f1ac9f604abda8b65615
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104988"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648570"
 ---
 ## <a name="open-cli-shell"></a>Shell CLI aberto
 
-É recomendado que utilize [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) para executar comandos da CLI. **Cloud Shell** é uma shell gratuita e interativa que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Basta selecione o botão de cópia para copiar o código, colá-lo no Cloud Shell e, em seguida, prima Enter para executá-lo. Existem algumas formas de abrir o Cloud Shell:
+É recomendado que utilize [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) para executar comandos da CLI. **Cloud Shell** é uma shell gratuita e interativa que pode utilizar para executar os passos neste artigo. As ferramentas comuns do Azure estão pré-instaladas e configuradas no Cloud Shell para que possa utilizá-las com a sua conta. Ele fornece a flexibilidade de escolher a experiência de shell mais adequada às estilo de que trabalho. Os utilizadores de Linux podem optar por uma experiência de Bash, ao passo que os utilizadores de Windows podem escolher o PowerShell.
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
@@ -29,13 +29,21 @@ Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carreg
 
 ### <a name="specify-location-of-files"></a>Especifique a localização dos ficheiros
 
-Muitos comandos da CLI de serviços de multimédia permitem-lhe transmitir um parâmetro com um nome de ficheiro. 
-
-Se estiver a utilizar **Azure Cloud Shell**, carregar o ficheiro para **Azure Cloud Shell**. Pode encontrar o botão de ficheiros de carregamento/transferência na parte superior da janela do shell. Em seguida, referenciar o ficheiro como este: `@{FileName}.` 
+Muitos comandos da CLI de serviços de multimédia permitem-lhe transmitir um parâmetro com um nome de ficheiro. Se estiver a utilizar **Cloud Shell**, pode carregar o ficheiro para o seu clouddrive (com o Bash ou o PowerShell). 
 
 ![Carregar ficheiros]
 
-Se estiver a utilizar a CLI do Azure localmente, especifique o caminho de ficheiro completo. Por exemplo, `@c:\tracks.json`.
+Se estiver a utilizar uma CLI local ou **Cloud Shell**, tem de especificar o caminho do ficheiro, de acordo com o sistema operacional ou o Cloud Shell (Bash ou o PowerShell) que está a utilizar. Abaixo, encontram-se alguns exemplos:
+
+Caminho relativo para o ficheiro (todos os SO)
+
+* `@"mytestfile.json"`
+* `@"../mytestfile.json"`
+
+Caminho absoluto do ficheiro no SO Windows e no Linux/Mac
+
+* `@ "/usr/home/mytestfile.json"`
+*   `@"c:\tmp\user\mytestfile.json"`
 
 
 [Carregar ficheiros]: ./media/media-services-cli/upload-download-files.png

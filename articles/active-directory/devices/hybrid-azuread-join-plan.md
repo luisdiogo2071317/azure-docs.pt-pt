@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ab268a27d8ce2f91c52dd5b5df0c22a564831e56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100179"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663694"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -111,7 +111,7 @@ Se sua organização precisar de acesso à Internet através de um proxy de saí
 
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
 
-Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser ambos, associação do Azure AD híbrido e o Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
+Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser ambos, associação do Azure AD híbrido e o Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
  - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido. 
  - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001
 

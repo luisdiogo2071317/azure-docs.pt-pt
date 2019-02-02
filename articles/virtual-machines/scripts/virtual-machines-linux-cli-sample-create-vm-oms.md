@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eab5545b4d2b911051d9803560d5efd1a09dafb0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a7ec987a9b2a1917f547c79eb13857dfc3d852e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158167"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662474"
 ---
 # <a name="monitor-a-vm-with-azure-monitoring"></a>Monitorizar uma VM com a Monitorização do Azure
 
@@ -51,8 +51,8 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem da máquina virtual a ser utilizada e as credenciais administrativas.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Executa uma extensão da VM em relação a uma máquina virtual. Neste caso, é utilizada a extensão de agente do Log Analytics para instalar o agente do Log Analytics e inscrever a VM numa área de trabalho do Log Analytics. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Executa uma extensão da VM em relação a uma máquina virtual. Neste caso, é utilizada a extensão de agente do Log Analytics para instalar o agente do Log Analytics e inscrever a VM numa área de trabalho do Log Analytics. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

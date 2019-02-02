@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 05/14/2018
-ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608907"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567558"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotada para a aplicação de SaaS de multi-inquilino com a base de dados do Azure SQL
 
@@ -70,7 +70,7 @@ Os títulos seguintes são links para suas correspondentes anotadas secções ma
 - [24. Aprovisionar inquilinos e ligação de aplicação, 0:58:58](#anchor-image-wtip-min05858)
 - [25. Demonstração da gestão de scripts de aprovisionamento de um único inquilino, 0:59:43](#anchor-image-wtip-min05943)
 - [26. PowerShell para aprovisionar e catalogar, 1:00:02](#anchor-image-wtip-min10002)
-- [27. T-SQL SELECT * de TenantsExtended, 1: UTC+03:30](#anchor-image-wtip-min10330)
+- [27. T-SQL SELECT * FROM TenantsExtended, 1:03:30](#anchor-image-wtip-min10330)
 - [28. Gerir cargas de trabalho imprevisível do inquilino, 1:04:36](#anchor-image-wtip-min10436)
 - [29. Conjunto elástico de monitorização, 1:06:39](#anchor-image-wtip-min10639)
 - [30. Geração de carga e monitorização de desempenho, 1:09:42](#anchor-image-wtip-min10942)
@@ -234,8 +234,8 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 
 &nbsp; <a name="anchor-image-wtip-min10330"/>
-#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * de TenantsExtended, 1:03:25
-[![T-SQL SELECT * de TenantsExtended][image-wtip-min10330-sql-select-tenantsextended]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3805)
+#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * FROM TenantsExtended, 1:03:25
+[![T-SQL SELECT * FROM TenantsExtended][image-wtip-min10330-sql-select-tenantsextended]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3805)
 
 
 &nbsp; <a name="anchor-image-wtip-min10436"/>
@@ -368,7 +368,7 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 [image-wtip-min10002-powershell-provision-catalog]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10002-powershell-code.png "PowerShell para aprovisionar e catalogar"
 
-[image-wtip-min10330-sql-select-tenantsextended]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10330-ssms-tenantcatalog.png "T-SQL SELECT * de TenantsExtended"
+[image-wtip-min10330-sql-select-tenantsextended]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10330-ssms-tenantcatalog.png "T-SQL SELECT * FROM TenantsExtended"
 
 [image-wtip-min10436-managing-unpredictable-workloads]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10436-managing-unpredictable-tenant-workloads.png "Gerir cargas de trabalho imprevisível do inquilino"
 

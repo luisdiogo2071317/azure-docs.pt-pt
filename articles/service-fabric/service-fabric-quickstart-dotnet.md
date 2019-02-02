@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: f2b0cd404c0c5ee94b669f366abc79353096a5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241417"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561200"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implementar uma aplicação de serviços fiáveis no Service Fabric em .NET
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação de reliable services .NET para o Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis.
 
@@ -36,7 +36,6 @@ Com esta aplicação, vai aprender a:
 * Utilizar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Implementar a aplicação num cluster no Azure
 * Aumentar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 
@@ -50,6 +49,27 @@ Para concluir este guia de início rápido:
 4. Execute o comando seguinte para permitir que o Visual Studio implemente no cluster do Service Fabric local:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+    ```
+    
+## <a name="build-a-cluster"></a>Compilar um cluster
+
+Depois de instalar o tempo de execução, SDKs, ferramentas do Visual Studio, Docker e ter em execução do Docker, crie um cluster de desenvolvimento local de cinco nós.
+
+> [!IMPORTANT]
+> O Docker **tem** estar em execução antes de poder compilar um cluster.
+> Teste se o Docker está em execução ao abrir uma janela de terminal e ao executar `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está a ser executado e está pronto para compilar um cluster.
+
+
+1. Abra uma nova janela do PowerShell elevada como administrador.
+2. Execute o seguinte comando do PowerShell para criar um cluster de desenvolvimento:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+    ```
+3. Execute o seguinte comando para iniciar a ferramenta de Gestor de local cluster:
+
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
 
 >[!NOTE]
@@ -70,14 +90,14 @@ Clique com o botão direito do rato no ícone do Visual Studio, no Menu Iniciar,
 
 Abra a solução **Voting.sln** do Visual Studio no repositório que clonou.
 
-Por predefinição, a aplicação Voting está definida para escutar na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se alterar a porta, substitua o valor da porta nova da aplicação por “8080” ao longo deste artigo.
+Por predefinição, a aplicação de votação escuta na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se alterar a porta, substitua o valor da porta nova da aplicação por “8080” ao longo deste artigo.
 
 Para implementar a aplicação, prima **F5**.
 
 > [!NOTE]
-> Da primeira vez que executar e implementar a aplicação, o Visual Studio cria um cluster local para depuração. Esta operação pode demorar algum tempo. O estado da criação do cluster aparece na janela de saída do Visual Studio.  Na saída, verá a mensagem "O URL da aplicação não está definido ou não é um URL de HTTP/HTTPS, pelo que o browser não será aberto na aplicação".  Esta mensagem não indica um erro, mas sim que o browser não se vai abrir automaticamente.
+> Na janela de saída do Visual Studio, verá a mensagem "O URL da aplicação não está definido ou não é um URL de HTTP/HTTPS para que o navegador não será aberto para a aplicação".  Esta mensagem não indica um erro, mas sim que o browser não se vai abrir automaticamente.
 
-Quando a implementação estiver concluída, inicie um browser e abra a página `http://localhost:8080` - o front-end da Web da aplicação.
+Quando a implementação estiver concluída, inicie um browser e abra `http://localhost:8080` para ver a web front-end da aplicação.
 
 ![Front-end da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
@@ -132,88 +152,6 @@ Para ver o que acontece no código, conclua os passos seguintes:
 
 Para parar a sessão de depuração, prima **Shift + F5**.
 
-## <a name="deploy-the-application-to-azure"></a>Implementar a aplicação no Azure
-
-Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric que executa a aplicação.
-
-### <a name="join-a-party-cluster"></a>Aderir a um party cluster
-
-Os party clusters são clusters do Service Fabric gratuitos, limitados temporalmente, alojados no Azure e executados pela equipa do Service Fabric, nos quais qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. O cluster utiliza um certificado autoassinado para o "nó para nó", bem como a segurança de "cliente para nó".
-
-Inicie sessão e [adira a um cluster do Windows](https://aka.ms/tryservicefabric). Transfira o certificado PFX para o seu computador ao clicar na ligação **PFX**. Clique na ligação **Como ligar a um cluster de terceiro seguro?** e copie a palavra-passe do certificado. O certificado, a palavra-passe do certificado e o valor **Ponto final da ligação** são utilizados nos passos seguintes.
-
-![PFX e ponto final de ligação](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
-
-> [!Note]
-> Há um número limitado de clusters de terceiros por hora. Se aparecer um erro ao tentar inscrever-se num cluster de terceiros, pode ter aguardar algum tempo e tentar novamente ou pode seguir estes passos no tutorial [Implementar uma aplicação .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster Service Fabric na subscrição do Azure e implementar a aplicação ao mesmo. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de ter implementado e verificado a aplicação no seu cluster, pode avançar diretamente para [Dimensionar aplicações e serviços num cluster](#scale-applications-and-services-in-a-cluster) neste manual de início rápido.
->
-
-No computador Windows, instale o PFX no arquivo de certificados *CurrentUser\My*.
-
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
-
-
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
-
-Não se esqueça do thumbprint no passo seguinte.
-
-> [!Note]
-> Por predefinição, o serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 8080. A porta 8080 está aberta no Cluster de Party.  Se tiver de alterar a porta da aplicação, altere-a para uma das que estão abertas no Cluster de Party.
->
-
-### <a name="deploy-the-application-using-visual-studio"></a>Implementar a aplicação com o Visual Studio
-
-Agora que a aplicação está pronta, pode implementá-la num cluster diretamente a partir do Visual Studio.
-
-1. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar). É apresentada a caixa de diálogo Publicar.
-
-2. Copie o **Ponto Final da Ligação** na página Cluster de terceiros para o campo **Ponto Final da Ligação**. Por exemplo, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Clique em **Parâmetros de Ligação Avançados** e certifique-se de que os valores *FindValue* e *ServerCertThumbprint* correspondem ao thumbprint do certificado instalado num passo anterior.
-
-    ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
-
-    Cada aplicação no cluster tem de ter um nome exclusivo.  Contudo, os clusters de party são ambientes públicos e partilhados, pelo que poderá haver um conflito com aplicações já existentes.  Se houver um conflito de nomes, mude o nome do projeto do Visual Studio e reimplemente-o.
-
-3. Clique em **Publicar**.
-
-4. Abra um browser e escreva o endereço do cluster seguido de “:8080” para ir para a aplicação no mesmo; por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Deverá ver agora aplicação em execução no cluster no Azure.
-
-    ![Front-end da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
-
-## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicações e serviços num cluster
-
-Os serviços do Service Fabric podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços. Pode utilizar scripts ou comandos no PowerShell ou na CLI do Service Fabric (sfctl). Neste exemplo, utilizamos o Service Fabric Explorer.
-
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-Poderá receber um aviso de navegador a indicar que a localização não é fidedigna. Isto acontece porque o certificado é autoassinado. Pode optar por ignorar o aviso e continuar.
-1. Quando for pedido pelo navegador, selecione o certificado instalado para ligar. O certificado de cluster comemorativo que selecionar da lista tem de corresponder ao cluster comemorativo ao qual está a tentar aceder. Por exemplo, win243uja6w62r.westus.cloudapp.azure.com.
-2. Se lhe for pedido pelo browser, conceda acesso à sua Chave Privada CryptoAPI para esta sessão.
-
-Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
-
-1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-
-2. Na vista de árvore, expanda **Aplicações**->**VotingType**->**fabric:/Voting**. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/VotingWeb**, na vista de árvore, e escolha**Dimensionar Serviço**.
-
-    ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
-
-    Agora, pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
-
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
-4. Clique no nó **fabric:/Voting/VotingWeb**, na vista de árvore, e expanda o nó de partição (representado por uma GUID).
-
-    ![Dimensionar Serviço no Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
-
-    Após um atraso, pode ver que o serviço tem duas instâncias.  Na vista de árvore, pode ver em que nós as instâncias são executadas.
-
-Através desta simples tarefa de gestão, os recursos disponíveis para o nosso serviço de front-end processar a carga de utilizador duplicaram. É importante compreender que não precisa de várias instâncias de um serviço para o executar de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância de serviço é executado no cluster.
-
 ## <a name="perform-a-rolling-application-upgrade"></a>Realizar atualizações sem interrupção de aplicações
 
 O Service Fabric implementa as atualizações novas na sua aplicação de forma segura. As atualizações sem interrupção evitam períodos de indisponibilidade, bem como reversão automática, caso ocorram erros.
@@ -228,14 +166,18 @@ Para atualizar a aplicação, faça o seguinte:
 6. Altere a versão do elemento **Code** em **VotingWebPkg** para "2.0.0", por exemplo, e clique em **Save** (Guardar).
 
     ![Caixa de Diálogo Alterar Versão](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. Na caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric), assinale a caixa de verificação Upgrade the Application (Atualizar a Aplicação) e clique em **Publish**.
+7. Na **publicar a aplicação do Service Fabric** caixa de diálogo, verifique o **atualizar a caixa de verificação de aplicação**.
+8.  Alteração **perfil de destino** ao **PublishProfiles\Local.5Node.xml** e certifique-se de que **ponto final de ligação** está definido como **Local Cluster**. 
+9. Selecione **atualizar a aplicação**.
 
     ![Caixa de Diálogo Publicar Definição Atualizar](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
+10. Clique em **Publicar**.
+
     Pode continuar a utilizar a aplicação enquanto a atualização estiver em execução. Uma vez que tem duas instâncias do serviço em execução no cluster, alguns dos seus pedidos poderão receber uma versão atualizada da aplicação e outros continuar a versão antiga.
 
-8. Abra o browser e navegue para o endereço do cluster na porta 19080 - por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`.
-9. Clique no nó **Applications** (Aplicações) na vista de árvore e em **Upgrades in Progress** (Atualizações em Curso), no painel do lado direito. Pode ver de que forma é que a atualização é aplicada nos domínios de atualização do seu cluster e confirmar que cada domínio está em bom estado de funcionamento antes de avançar para o seguinte. Após o estado de funcionamento de um domínio ter sido verificado, o domínio de atualização aparece a verde na barra de progresso.
+11. Abra o browser e navegue para o endereço de cluster na porta 19080. Por exemplo, `http://localhost:19080/`.
+12. Clique no nó **Applications** (Aplicações) na vista de árvore e em **Upgrades in Progress** (Atualizações em Curso), no painel do lado direito. Pode ver de que forma é que a atualização é aplicada nos domínios de atualização do seu cluster e confirmar que cada domínio está em bom estado de funcionamento antes de avançar para o seguinte. Após o estado de funcionamento de um domínio ter sido verificado, o domínio de atualização aparece a verde na barra de progresso.
     ![Vista Atualizar no Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     O Service Fabric torna as atualizações seguras, ao aguardar dois minutos após atualizar o serviço em cada nó do cluster. A atualização completa deverá demorar aproximadamente oito minutos.
@@ -248,7 +190,6 @@ Neste início rápido, aprendeu a:
 * Utilizar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Implementar a aplicação num cluster no Azure
 * Aumentar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 

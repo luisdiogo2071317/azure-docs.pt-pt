@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237856"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663419"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
-> Kubernetes no Azure Stack está em pré-visualização.
+> Kubernetes no Azure Stack está em pré-visualização. Cenário de desligado de pilha do Azure não é atualmente suportado pela pré-visualização.
 
 O seguinte artigo analisa de resolução de problemas do seu cluster do Kubernetes. Pode rever o alerta de implementação e consultar o estado da implementação, os elementos necessários para a implementação. Poderá ter de recolher os registos de implementação do Azure Stack ou as VMs do Linux que alojam Kubernetes. Poderá também ter de contactar o administrador do Azure Stack para obter os registos de um ponto de extremidade administrativo.
 

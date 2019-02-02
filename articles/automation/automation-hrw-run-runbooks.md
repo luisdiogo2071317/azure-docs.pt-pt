@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425787"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657421"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -55,7 +55,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Também pode utilizar [InlineScript](automation-powershell-workflow.md#inlinescript), que permite a execução de blocos de código noutro computador com as credenciais que são especificados pela [parâmetro comum de PSCredential](/powershell/module/psworkflow/about/about_workflowcommonparameters).
+Também pode utilizar [InlineScript](automation-powershell-workflow.md#inlinescript), que permite a execução de blocos de código noutro computador com as credenciais, que são especificadas pela [parâmetro comum de PSCredential](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="runas-account"></a>Conta RunAs
 
@@ -106,7 +106,7 @@ Get-AzureRmVm | Select Name
 
 Como parte do seu processo de criação automatizado para implementar recursos no Azure, poderá precisar de acesso a sistemas no local para oferecer suporte a uma tarefa ou um conjunto de passos numa sequência de implementação. Para suportar a autenticação no Azure com a conta Run As, terá de instalar o certificado da conta Run As.
 
-O runbook do PowerShell seguinte, **Export-RunAsCertificateToHybridWorker**, exporta o certificado de Run As da sua conta de automatização do Azure e transfere e importa-lo para o arquivo de certificados do computador local num híbrido função de trabalho que está ligada à mesma conta. Quando esse passo é concluído, ele verifica que a função de trabalho pode autenticar com êxito para o Azure com a conta Run As.
+O runbook do PowerShell seguinte, **Export-RunAsCertificateToHybridWorker**, exporta o certificado de Run As da sua conta de automatização do Azure e transfere e importa-lo para o arquivo de certificados do computador local num híbrido função de trabalho, que está ligada à mesma conta. Quando esse passo é concluído, ele verifica que a função de trabalho pode autenticar com êxito para o Azure com a conta Run As.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -181,20 +181,22 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** agora é um alias para **Connect-AzureRMAccount**. Quando pesquisar a sua biblioteca de itens, se não vir **Connect-AzureRMAccount**, pode utilizar **Add-AzureRmAccount**, ou pode atualizar os módulos na conta de automatização.
 
-Guardar a *Export-RunAsCertificateToHybridWorker* runbook para o seu computador com um `.ps1` extensão. Importá-lo para a sua conta de automatização e editar o runbook, alterando o valor da variável `$Password` com sua própria palavra-passe. Publicar e, em seguida, executar o runbook. Destino o grupo de função de trabalho híbrida que irá executar e autenticar runbooks com a conta Run As. O fluxo de trabalho relatórios a tentativa de importar o certificado para o arquivo do computador local e segue com várias linhas. Este comportamento depende de quantas contas de automatização que define na sua subscrição e se a autenticação é efetuada com êxito.
+Guardar a *Export-RunAsCertificateToHybridWorker* runbook para o seu computador com um `.ps1` extensão. Importá-lo para a sua conta de automatização e editar o runbook, alterando o valor da variável `$Password` com sua própria palavra-passe. Publicar e, em seguida, executar o runbook. Destino o grupo de função de trabalho híbrida que será executado e autenticar runbooks com a conta Run As. O fluxo de trabalho relatórios a tentativa de importar o certificado para o arquivo do computador local e segue com várias linhas. Este comportamento depende de quantas contas de automatização que define na sua subscrição e se a autenticação é efetuada com êxito.
 
 ## <a name="job-behavior"></a>Comportamento de tarefa
 
-Tarefas são processadas um pouco diferente sobre os Runbook Workers híbridos são quando executados em áreas de segurança do Azure. Uma das principais diferenças é que não existe nenhum limite na duração de tarefa nos Runbook Workers híbridos. Runbooks foi executado no Azure áreas de segurança estão limitadas a 3 horas devido [justa](automation-runbook-execution.md#fair-share). Para um runbook de longa execução que pretende certificar-se de que é resiliente para reiniciar o possível. Por exemplo, se a máquina que aloja a híbrida reinícios de função de trabalho. Se reiniciar a máquina de anfitrião de trabalho híbrida, em seguida, qualquer tarefa de runbook em execução reinicia desde o início ou a partir do último ponto de verificação para runbooks de fluxo de trabalho do PowerShell. Depois de um runbook tarefa for reiniciada mais de 3 vezes e, em seguida, está suspenso.
+Tarefas são processadas um pouco diferente sobre os Runbook Workers híbridos são quando executados em áreas de segurança do Azure. Uma das principais diferenças é que não existe nenhum limite na duração de tarefa nos Runbook Workers híbridos. Runbooks foi executado no Azure áreas de segurança estão limitadas a 3 horas devido [justa](automation-runbook-execution.md#fair-share). Para um runbook de execução longa, pretende certificar-se de que é resiliente para reiniciar o possível. Por exemplo, se a máquina que aloja a híbrida reinícios de função de trabalho. Se reiniciar a máquina de anfitrião de trabalho híbrida, em seguida, qualquer tarefa de runbook em execução reinicia desde o início ou a partir do último ponto de verificação para runbooks de fluxo de trabalho do PowerShell. Depois de um runbook tarefa for reiniciada mais de 3 vezes e, em seguida, está suspenso.
 
 ## <a name="run-only-signed-runbooks"></a>Execute apenas assinado Runbooks
 
-Os Runbook Workers híbridos pode ser configurados para ser executado apenas assinado runbooks com a configuração. A secção seguinte descreve como configurar as funções de trabalho de Runbook híbridas para executar runbooks assinado e como assinar seus runbooks.
+Os Runbook Workers híbridos pode ser configurados para ser executado apenas assinado runbooks com a configuração. A seguinte secção descreve como configurar as funções de trabalho de Runbook híbridas para executar assinado [Runbook Worker híbrido Windows](#windows-hybrid-runbook-worker) e [Runbook Worker híbrido Linux](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > Assim que tiver configurado uma função de trabalho de Runbook híbrida para executar apenas os runbooks assinados, os runbooks que têm **não** foi assinado irão falhar executar na função de trabalho.
 
-### <a name="create-signing-certificate"></a>Criar certificado de assinatura
+### <a name="windows-hybrid-runbook-worker"></a>Runbook Worker híbrido Windows
+
+#### <a name="create-signing-certificate"></a>Criar certificado de assinatura
 
 O exemplo seguinte cria um certificado autoassinado que pode ser utilizado na assinatura de runbooks. O exemplo cria o certificado e exporta-lo. O certificado é importado para as funções de trabalho de Runbook híbridas mais tarde. O thumbprint é retornado, que este valor é utilizado mais tarde para referenciar o certificado.
 
@@ -220,7 +222,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### <a name="configure-the-hybrid-runbook-workers"></a>Configurar funções de trabalho de Runbook híbridas
+#### <a name="configure-the-hybrid-runbook-workers"></a>Configurar funções de trabalho de Runbook híbridas
 
 Copie o certificado que criou para cada função de trabalho de Runbook híbrida de um grupo. Execute o seguinte script para importar o certificado e configurar a função de trabalho híbrida para utilizar a validação da assinatura em runbooks.
 
@@ -236,7 +238,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### <a name="sign-your-runbooks-using-the-certificate"></a>Inscrever-se os Runbooks com o certificado
+#### <a name="sign-your-runbooks-using-the-certificate"></a>Inscrever-se os Runbooks com o certificado
 
 O Runbook híbrido funções de trabalho configuradas para utilizar apenas para iniciar sessão runbooks, tem de iniciar runbooks que estão a ser utilizada na função de trabalho de Runbook híbrida. Utilize o seguinte exemplo do PowerShell para assinar seus runbooks.
 
@@ -246,6 +248,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 Quando o runbook foi assinado, tem de ser importado para a sua conta de automatização e publicada com o bloco de assinaturas. Para saber como importar runbooks, consulte [importar um runbook a partir de um ficheiro para automatização do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### <a name="linux-hybrid-runbook-worker"></a>Runbook Worker híbrido Linux
+
+Para iniciar runbooks numa função de trabalho do Runbook de híbrida do Linux, tem de ter a função de trabalho de Runbook híbrida do [GPG](https://gnupg.org/index.html) executável presente na máquina.
+
+#### <a name="create-a-gpg-keyring-and-keypair"></a>Criar um porta-chaves GPG e um par de chaves
+
+Para criar a porta-chaves e um par de chaves terá de utilizar a conta do Runbook Worker híbrido `nxautomation`.
+
+Uso `sudo` para iniciar sessão como o `nxautomation` conta.
+
+```bash
+sudo su – nxautomation
+```
+
+Uma vez utilizando o `nxautomation` de contas, gerar o par de chaves de gpg.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG irá guiá-lo pelos passos para criar o par de chaves. Terá de fornecer um nome, um endereço de e-mail, hora de expiração, frase de acesso e aguarde pela suficiente entropia no computador para a chave a ser gerado.
+
+Uma vez que o diretório GPG foi gerado com sudo, terá de alterar o respetivo proprietário para nxautomation. 
+
+Execute o seguinte comando para alterar o proprietário.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Disponibilizar a porta-chaves a função de trabalho de Runbook híbrida
+
+Assim que a porta-chaves for criado, precisará para disponibilizá-lo para a função de trabalho de Runbook híbrida. Modificar o arquivo de configurações `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` para incluir o exemplo a seguir na seção `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### <a name="verify-signature-validation-is-on"></a>Verifique se a validação de assinatura está ativada
+
+Se a validação da assinatura foi desabilitada no computador, terá de ativá-la. Execute o seguinte comando para ativar a validação de assinatura. Substituir `<LogAnalyticsworkspaceId>` sua área de trabalho do ID.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### <a name="sign-a-runbook"></a>Iniciar um runbook
+
+Assim que a validação da assinatura estiver configurada, pode utilizar o seguinte comando para iniciar um runbook:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+O runbook assinado terá o nome `<runbook name>.asc`.
+
+O runbook assinado agora pode ser carregado para a automatização do Azure e pode ser executado como um runbook regular.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

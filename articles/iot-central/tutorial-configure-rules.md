@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bdfa1659a0c34b3456ed3e52c72cafafc8be034
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993636"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662994"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
@@ -27,6 +27,8 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma regra baseada em telemetria
 > * Adicionar uma ação
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +58,7 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
     | Definição                                      | Valor                             |
     | -------------------------------------------- | ------------------------------    |
-    | Nome                                         | Alerta de temperatura do ar condicionado |
+    | Name                                         | Alerta de temperatura do ar condicionado |
     | Ativar regra para todos os dispositivos deste modelo | Ativado                                |
     | Ativar regra neste dispositivo                   | Ativado                                |
     | Condição                                    | A temperatura é superior a 90    |
@@ -74,7 +76,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
 2. Para definir a sua ação, utilize as informações na tabela seguinte:
 
-    | Definição   | Valor                          |
+    | Definição   | Value                          |
     | --------- | ------------------------------ |
     | Para        | O seu endereço de e-mail             |
     | Notas     | A temperatura do ar condicionado excedeu o limite. |

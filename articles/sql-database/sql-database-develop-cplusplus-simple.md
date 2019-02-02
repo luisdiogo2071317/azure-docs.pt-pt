@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310135"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566929"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligar à base de dados SQL com C e C++
+
 Esta mensagem é destinada a desenvolvedores de C e C++ tentando se conectar a BD SQL do Azure. Ele é dividido em secções para que possa para a secção que captura melhor o seu interesse.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>Pré-requisitos para o tutorial de C/C++
+
 Certifique-se de que tem os itens seguintes:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).

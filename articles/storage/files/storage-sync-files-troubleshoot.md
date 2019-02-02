@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495671"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563699"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -251,8 +251,8 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | Nenhuma ação necessária. |
-| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer se o ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS) ou o ficheiro tem uma exclusão estado pendente. | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer se o ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS) ou o ficheiro tem uma exclusão estado pendente. | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | Nenhuma ação necessária. |
 

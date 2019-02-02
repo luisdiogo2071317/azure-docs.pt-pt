@@ -12,16 +12,20 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 01/31/2019
-ms.openlocfilehash: 80da1058f17b69d82d851bb38482afa0b31daac1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508873"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567728"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
-Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida. Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
+Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida.
+
+![Migração](./media/sql-database-managed-instance/migration.png)
+
+Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
 - [Disponibilidade](#availability) incluindo as diferenças nos [Always-On](#always-on-availability) e [cópias de segurança](#backup),
 - [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credentials), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
 - [Configuração](#configuration) incluindo as diferenças nos [a extensão do conjunto da memória intermédia](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels),[base de dados espelhamento](#database-mirroring), [opções de base de dados](#database-options), [SQL Server Agent](#sql-server-agent), [opções da tabela](#tables),

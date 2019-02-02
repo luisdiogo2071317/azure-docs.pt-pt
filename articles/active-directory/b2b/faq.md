@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ed781b7d3388015de93a81fb745764a8ad95baa
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169336"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663194"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 
@@ -69,11 +69,11 @@ Para bloquear o acesso de um utilizador convidado para o [portal do Azure](https
 Sim. Contas de e-mail de multi-factor authentication e de consumo são suportadas para a colaboração B2B do Azure AD.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Suporta para os utilizadores de colaboração B2B do Azure AD de reposição de palavra-passe?
-Se o seu inquilino do Azure AD é o diretório raiz de um utilizador, pode [reposição de palavra-passe do utilizador](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user) do portal do Azure. Mas diretamente não é possível repor uma palavra-passe para um utilizador convidado que inicia sessão com uma conta que seja gerenciada por outro fornecedor de identidade externa ou diretório do Azure AD. Apenas o utilizador convidado ou um administrador no diretório raiz do utilizador, pode repor a palavra-passe. Aqui estão alguns exemplos de como funciona para os utilizadores convidados a reposição de palavra-passe:
+Se o seu inquilino do Azure AD é o diretório raiz de um utilizador, pode [reposição de palavra-passe do utilizador](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) do portal do Azure. Mas diretamente não é possível repor uma palavra-passe para um utilizador convidado que inicia sessão com uma conta que seja gerenciada por outro fornecedor de identidade externa ou diretório do Azure AD. Apenas o utilizador convidado ou um administrador no diretório raiz do utilizador, pode repor a palavra-passe. Aqui estão alguns exemplos de como funciona para os utilizadores convidados a reposição de palavra-passe:
  
 * Utilizadores convidados que iniciam sessão com uma conta Microsoft (por exemplo guestuser@live.com) pode repor a palavra-passe utilizando a conta Microsoft, reposição de palavra-passe self-service (SSPR). Ver [como repor a palavra-passe de conta do Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Utilizadores convidados que inicie sessão com uma conta do Google ou outro fornecedor de identidade externo podem repor a palavra-passe através do método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado com a conta Google guestuser@gmail.com pode repor a palavra-passe seguindo as instruções [alterar ou repor a palavra-passe](https://support.google.com/accounts/answer/41078).
-* Se o inquilino de identidade for um just-in-time (JIT) ou "viral" do inquilino (ou seja, é um inquilino do Azure separado e não gerenciado), apenas o utilizador convidado pode repor a palavra-passe. Por vezes, uma organização será [assuma a gestão de inquilinos virais](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criadas quando os funcionários utilizam os respetivos endereços de e-mail de trabalho para se inscrever para os serviços. Depois da organização assume-se um inquilino viral, apenas um administrador nessa organização pode repor a palavra-passe do utilizador ou ativar a SSPR. Se necessário, como a organização que o convidou, pode remover a conta de utilizador convidado a partir do seu diretório e volte a enviar um convite.
+* Se o inquilino de identidade for um just-in-time (JIT) ou "viral" do inquilino (ou seja, é um inquilino do Azure separado e não gerenciado), apenas o utilizador convidado pode repor a palavra-passe. Por vezes, uma organização será [assuma a gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criadas quando os funcionários utilizam os respetivos endereços de e-mail de trabalho para se inscrever para os serviços. Depois da organização assume-se um inquilino viral, apenas um administrador nessa organização pode repor a palavra-passe do utilizador ou ativar a SSPR. Se necessário, como a organização que o convidou, pode remover a conta de utilizador convidado a partir do seu diretório e volte a enviar um convite.
 * Se o diretório raiz do utilizador convidado é o seu inquilino do Azure AD, pode redefinir a senha do usuário. Por exemplo, pode ter criado um utilizador ou sincronizados um utilizador do Active Directory no local e defina suas UserType como convidado. Uma vez que esse usuário está hospedado no seu diretório, pode repor a palavra-passe do portal do Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração B2B do Azure AD?

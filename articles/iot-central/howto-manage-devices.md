@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004889"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658119"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -23,6 +23,8 @@ Este artigo descreve como, como um operador, para gerir dispositivos na sua apli
 - Manter um inventário atualizado dos seus dispositivos.
 - Mantenha-se os metadados do dispositivo atualizado, alterando os valores armazenados nas propriedades do dispositivo.
 - Controlar o comportamento dos seus dispositivos ao atualizar uma definição num dispositivo específico a partir da **definições** página.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Ver os seus dispositivos
 
@@ -116,7 +118,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
     [![Sucesso de exportação](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. O ficheiro CSV exportado terá as seguintes informações de colunas: **thumbrpints de certificado do Id de dispositivo, nome do dispositivo, as chaves de Priamry/secundária de dispositivo e primária/secundária**
+1. O ficheiro CSV exportado terá as seguintes informações de colunas: **Id do dispositivo, nome do dispositivo, as chaves de Priamry/secundária de dispositivo e primária/secundária thumbrpints de certificado**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

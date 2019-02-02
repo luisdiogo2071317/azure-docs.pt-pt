@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102130"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657387"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -117,7 +117,7 @@ Se estiver a utilizar qualquer proxy de firewall baseado em URL para controlar a
 
 **O recoletor não é possível ligar à internet devido a uma falha de validação de certificado**
 
-Isto pode acontecer se estiver a utilizar um proxy de interceção para ligar à Internet e se não tiver importado o certificado de proxy para a VM do recoletor. Pode importar o certificado de proxy a utilizar os passos detalhados [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+Isto pode acontecer se estiver a utilizar um proxy de interceção para ligar à Internet e se não tiver importado o certificado de proxy para a VM do recoletor. Pode importar o certificado de proxy a utilizar os passos detalhados [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **O recoletor não é possível ligar ao projeto com o ID de projeto e chave copiei do portal.**
 

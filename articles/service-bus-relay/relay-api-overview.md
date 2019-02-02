@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700377"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663099"
 ---
 # <a name="available-relay-apis"></a>APIs de reencaminhamento disponíveis
 
@@ -39,7 +39,7 @@ O [informações adicionais](#additional-information) seção contém mais infor
 
 #### <a name="net"></a>.NET
 
-Ecossistema do .NET tem vários tempos de execução, pelo que existem várias bibliotecas de .NET para o reencaminhamento. A biblioteca .NET Standard pode ser executada usando o .NET Core ou .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada num ambiente do .NET Framework. Para obter mais informações sobre estruturas de .NET, consulte [versões de estrutura](/dotnet/articles/standard/frameworks#framework-versions).
+Ecossistema do .NET tem vários tempos de execução, pelo que existem várias bibliotecas de .NET para o reencaminhamento. A biblioteca .NET Standard pode ser executada usando o .NET Core ou .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada num ambiente do .NET Framework. Para obter mais informações sobre estruturas de .NET, consulte [versões de estrutura](/dotnet/articles/standard/frameworks).
 
 Biblioteca do .NET Framework só suporta o modelo de programação do WCF e depende de um protocolo binário proprietário com base no WCF `net.tcp` transporte. Este protocolo e a biblioteca é mantido para efeitos compatibilidade com aplicativos existentes.
 

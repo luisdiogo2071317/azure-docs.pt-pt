@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: b7d6b59ab03985c19ffa08a0a8266d449892046f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/20/2018
+ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717828"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561421"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorizar a sincronização de dados SQL com o Log Analytics 
 
@@ -186,7 +186,7 @@ Na maioria dos casos, essa solução é gratuita.
 
 **Automatização do Azure:** Pode haver um custo incorrido com a conta de automatização do Azure, dependendo da sua utilização. Os primeiros 500 minutos de tempo por mês de execução de tarefas são gratuitos. Na maioria dos casos, esta solução deverá utilizar menos de 500 minutos por mês. Para evitar encargos, agende o runbook seja executado num intervalo de duas horas ou mais. Para mais informações, veja [os preços de automatização](https://azure.microsoft.com/pricing/details/automation/).
 
-**Análise de registos:** Pode haver um custo associado com o Log Analytics, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize à apenas de falha de filtragem incluídos no runbook. Se estiver a utilizar mais de 500 MB por dia, atualize para o escalão pago para evitar o risco de análise a parar quando for atingida a limitação. Para mais informações, veja [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** Pode haver um custo associado com o Log Analytics, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize à apenas de falha de filtragem incluídos no runbook. Se estiver a utilizar mais de 500 MB por dia, atualize para o escalão pago para evitar o risco de análise a parar quando for atingida a limitação. Para mais informações, veja [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemplos de código
 

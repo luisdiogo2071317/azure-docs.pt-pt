@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: c1a279f85ef4e959869e0a3faa86b9ca7d3e05f7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753341"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657676"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -48,7 +48,7 @@ Para instalar e utilizar a CLI localmente, este tutorial requer que execute a CL
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.  
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.  
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup`.
 
@@ -75,7 +75,7 @@ az storage account create --name <blob_storage_account> \
 
 A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os contentores são semelhantes às pastas e armazenam blobs. O contentor de *imagens* é para onde a aplicação carrega imagens com máxima resolução. Numa secção mais adiante da série, uma aplicação de função do Azure carrega as miniaturas de imagem dimensionadas para o contentor de *miniaturas*.
 
-Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Em seguida, utilize esta chave para criar dois contentores com o [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create) comando.  
+Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys). Em seguida, utilize esta chave para criar dois contentores com o [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create) comando.  
 
 Neste caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou. O *imagens* acesso de público do contentor está definido como `off`. O *miniaturas* acesso de público do contentor está definido como `container`. O `container` definição de acesso público permite aos utilizadores que visitam a página da web para ver as miniaturas.
 

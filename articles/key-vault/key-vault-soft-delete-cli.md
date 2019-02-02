@@ -1,20 +1,18 @@
 ---
-ms.assetid: ''
 title: O Azure Key Vault - como utilizar a eliminação de forma recuperável com a CLI
 description: Utilize os exemplos de casos de eliminação de forma recuperável com o CLI recortes de código
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363644"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663949"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -72,7 +70,7 @@ Para verificar que um cofre de chaves tenha a eliminação de forma recuperável
 az keyvault show --name ContosoVault
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>A eliminar um cofre de chaves protegido por eliminação de forma recuperável
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>A eliminar uma eliminação de forma recuperável protegidos Cofre de chaves
 
 O comando para eliminar um cofre de chaves de alterações no comportamento, dependendo se a eliminação de forma recuperável está ativada.
 
@@ -89,7 +87,7 @@ Com a eliminação de forma recuperável ativada:
 
 - Um cofre de chaves eliminado é removido do seu grupo de recursos e colocado num espaço de nomes reservado associado ao local onde foi criado. 
 - Objetos eliminados como chaves, segredos e certificados, estão inacessíveis, desde que seu Cofre de chaves que contêm está no Estado eliminado. 
-- O nome DNS para um cofre de chaves eliminado está reservado, impedir que um novo cofre de chaves com o mesmo nome que está sendo criado.  
+- O nome DNS para um cofre de chaves eliminado está reservado, impedir que um novo cofre de chaves com o mesmo nome que está sendo criado.  
 
 Pode visualizar cofres de chaves de estado de eliminado, associados à subscrição, utilizando o seguinte comando:
 
@@ -110,9 +108,9 @@ az keyvault recover --location westus --resource-group ContosoRG --name ContosoV
 
 Quando um cofre de chaves é recuperado, um novo recurso é criado com original ID de recurso. o Cofre de chaves Se o grupo de recursos original for removido, deve ser criado com o mesmo nome antes de tentar a recuperação.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Objetos de Cofre de chaves e eliminação de forma recuperável
+## <a name="deleting-and-purging-key-vault-objects"></a>A eliminar e a limpeza de objetos de Cofre de chaves
 
-Para uma chave, "ContosoFirstKey", num cofre de chaves com o nome "ContosoVault' com a eliminação de forma recuperável ativada, aqui como iria eliminar essa chave.
+O seguinte comando irá eliminar a chave de "ContosoFirstKey", num cofre de chaves com o nome "ContosoVault', que tem a eliminação de forma recuperável ativada:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -192,17 +190,22 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## <a name="purging-and-key-vaults"></a>Cofres de chaves e limpeza
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Remover uma eliminação de forma recuperável protegidos Cofre de chaves
 
-### <a name="key-vault-objects"></a>Objetos de Cofre de chaves
+> [!IMPORTANT]
+> Remover um cofre de chaves ou um dos respetivos objetos contidos, eliminará permanentemente, que significa que não serão recuperável!
 
-Remover uma chave, o segredo ou o certificado, faz com que a eliminação permanente e não serão recuperável. O Cofre de chaves que continha o objeto excluído entretanto permanecerão intacto assim como todos os outros objetos no Cofre de chaves. 
+A função de remoção é utilizada para eliminar permanentemente um objeto do Cofre de chaves ou de um cofre de chaves inteiro, que anteriormente era eliminados de forma recuperável. Como demonstrado na secção anterior, os objetos armazenados num cofre de chaves com a funcionalidade de eliminação de forma recuperável ativada, pode passar por vários Estados:
 
-### <a name="key-vaults-as-containers"></a>Cofres de chaves como contentores
-Quando um cofre de chaves é removido, todo o conteúdo é permanentemente eliminado, incluindo chaves, segredos e certificados. Para remover um cofre de chaves, utilize o `az keyvault purge` comando. Pode encontrar a localização cofres de chaves eliminados da sua subscrição utilizando o comando `az keyvault list-deleted`.
+- **Active Directory**: antes da eliminação.
+- **Eliminados de forma recuperável**: após a eliminação, capaz de ser listados e recuperados voltar ao Estado ativo.
+- **Eliminado permanentemente**: após a remoção, não é possível de ser recuperados.
 
->[!IMPORTANT]
->Remover um cofre de chaves e eliminará permanentemente, que significa que não serão recuperável!
+O mesmo é válido para o Cofre de chaves. Para eliminar permanentemente um cofre de chaves eliminado de forma recuperável e o respetivo conteúdo, tem de remover o próprio Cofre de chaves.
+
+### <a name="purging-a-key-vault"></a>Remover um cofre de chaves
+
+Quando um cofre de chaves é removido, todo o conteúdo é permanentemente eliminado, incluindo chaves, segredos e certificados. Para remover um cofre de chaves eliminado de forma recuperável, utilize o `az keyvault purge` comando. Pode encontrar a localização cofres de chaves eliminados da sua subscrição utilizando o comando `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault

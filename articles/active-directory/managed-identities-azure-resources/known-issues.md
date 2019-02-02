@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbe6d04dfcf9174b15cde71f7becbb371eaee4b2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189464"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662487"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -154,8 +154,8 @@ Como solução assim que a subscrição foi movida, pode desativar atribuído de
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conhecidos relacionados com identidades geridas atribuído ao utilizador
 
-- Criar uma identidade gerida atribuído ao utilizador com carateres especiais (por exemplo, um caráter de sublinhado) no nome, não é suportada.
-- Nomes de identidade atribuída por utilizador estão limitados a 24 carateres. Se o nome for superior a 24 carateres, a identidade não ser atribuídos a um recurso (ou seja, a Máquina Virtual.)
+- Nomes de identidade atribuída por utilizador estão limitados a um mínimo de 3 carateres e um máximo de 128 carateres. Se o nome tiver mais de 128 carateres, a identidade não ser atribuídos a um recurso (ou seja, a Máquina Virtual.)
+- Os nomes de identidade de utilizador atribuída podem conter os seguintes carateres: a-z, A - Z,-, \_, 0 a 9. Criar uma identidade gerida atribuído ao utilizador com caracteres fora deste conjunto de caracteres (ou seja, o asterisco) no nome, não é suportada.
 - Se utilizar a extensão de máquina virtual de identidade gerida (planeada para preterição em Janeiro de 2019), o limite suportado é 32 identidades geridas atribuído ao utilizador. Sem a extensão de máquina virtual de identidade gerida, o limite suportado é 512.  
 - Mover uma identidade gerida atribuído ao utilizador para um grupo de recursos diferente, fará com que a identidade de quebrar. Como resultado, não será capaz de pedir tokens para essa identidade. 
 - Transferindo uma assinatura para outro diretório irá interromper qualquer existente identidades geridas atribuído ao utilizador. 

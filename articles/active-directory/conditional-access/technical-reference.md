@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9677f6e7f78f241c863fdd9cc88fcfb7298d9164
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302109"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563747"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -177,24 +177,27 @@ Na sua política de acesso condicional, pode selecionar **aplicações móveis e
 Esta definição não tem um impacto em tentativas de acesso do seguintes de aplicações móveis e clientes de ambiente de trabalho: 
 
 
-|Aplicações do cliente|Serviço de destino|Plataforma|
-|---|---|---|
-|O Azure RemoteApp|Serviço do Azure RemoteApp|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
-|Aplicação do Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, iOS e Android|
-|Aplicação de correio/calendário/pessoas, 2016 do Outlook, Outlook 2013 |Office 365 Exchange Online|Windows 10|
-|Política de MFA e localização para aplicações. Políticas de dispositivo com base não são suportadas. |Qualquer serviço de aplicações as minhas aplicações|Android e iOS|
-|Serviços do Microsoft Teams - esse item controla todos os serviços que suportam o Microsoft Teams e todas as suas aplicações de cliente - área de trabalho do Windows, iOS, Android, WP e cliente web|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-|Cliente de sincronização de OneDrive de aplicações, Office 2013, Office 2016 (consulte [notas](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Aplicações do Office 2016, as aplicações do Universal Office, Office 2013, o cliente de sincronização do OneDrive (consulte [notas](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), o suporte de grupos do Office está previsto para o futuro, o suporte de aplicações do SharePoint está previsto para o futuro|Office 365 SharePoint Online|Windows 10|
-|Office 2016 para macOS (Word, Excel, PowerPoint, OneNote apenas). OneDrive para suporte de negócio planejado para o futuro|Office 365 SharePoint Online|Mac OS X|
-|Aplicações móveis do Office|Office 365 SharePoint Online|Android, iOS|
-|Aplicação do Office Yammer|Yammer do Office 365|Windows 10, iOS, Android|
-|Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, o Outlook 2013, Skype para empresas|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Aplicação móvel do Outlook|Office 365 Exchange Online|Android, iOS|
-|Aplicação do Power BI|Serviço Power BI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
-|Skype para Empresas|Office 365 Exchange Online|Android, IOS |
-|Aplicação de DevOps do Azure|DevOps do Azure|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| Aplicações do cliente| Serviço de destino| Plataforma |
+| --- | --- | --- |
+| O Azure RemoteApp| Serviço do Azure RemoteApp| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
+| Aplicação do Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, iOS e Android|
+| Aplicação de correio/calendário/pessoas, 2016 do Outlook, Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online| Windows 10|
+| Política de MFA e localização para aplicações. Políticas de dispositivo com base não são suportadas.| Qualquer serviço de aplicações as minhas aplicações| Android e iOS|
+| Serviços do Microsoft Teams - esse item controla todos os serviços que suportam o Microsoft Teams e todas as suas aplicações de cliente - área de trabalho do Windows, iOS, Android, WP e cliente web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS|
+| Cliente de sincronização de aplicações do Office 2016, Office 2013 (com autenticação moderna), o OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Aplicações do Office 2016, as aplicações do Universal Office, Office 2013 (com autenticação moderna), o cliente de sincronização do OneDrive (consulte [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), o suporte de grupos do Office está previsto para o futuro, o suporte de aplicações do SharePoint está previsto para o futuro| Office 365 SharePoint Online| Windows 10|
+| 2016 do Office (Word, apenas o Excel, PowerPoint e OneNote). OneDrive para suporte de negócio planejado para o futuro| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Aplicações móveis do Office| Office 365 SharePoint Online| Android, iOS|
+| Aplicação do Office Yammer| Yammer do Office 365| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016 (Office para macOS)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013 (com autenticação moderna), o Skype para empresas (com autenticação moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Aplicação móvel do Outlook| Office 365 Exchange Online| Android, iOS|
+| Aplicação do Power BI| Serviço Power BI| Windows 10, Windows 8.1, Windows 7, Android e iOS|
+| Skype para Empresas| Office 365 Exchange Online| Android, IOS|
+| Aplicação de serviços da Equipe do Visual Studio| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>Suporte para a autenticação de legado
@@ -214,27 +217,33 @@ Na sua política de acesso condicional, pode exigir que um acesso tentar as apli
 Esta definição aplica-se para as seguintes aplicações de cliente:
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype para Empresas
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft Teams
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 

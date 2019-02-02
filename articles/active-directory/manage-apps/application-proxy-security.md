@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f74dc441016a0064aca388ce4881eeae9e7bc6d0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151622"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657863"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD
 
@@ -48,7 +48,7 @@ Aplica controlos de política mais sofisticados para que são estabelecidas liga
 
 Com o [acesso condicional](../conditional-access/overview.md), pode definir restrições no qual o tráfego tem permissão para aceder às suas aplicações de back-end. Pode criar políticas que restringem o inícios de sessão com base na localização, força da autenticação e perfil de risco do utilizador.
 
-Também pode utilizar o acesso condicional para configurar políticas de multi-factor Authentication, adicionando outra camada de segurança ao seu autenticações de utilizador. Além disso, seus aplicativos também podem ser roteados para a Microsoft Cloud App Security através do acesso condicional do Azure AD para fornecer monitorização em tempo real e controles, via [acesso](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) políticas
+Também pode utilizar o acesso condicional para configurar políticas de multi-factor Authentication, adicionando outra camada de segurança ao seu autenticações de utilizador. Além disso, seus aplicativos também podem ser roteados para a Microsoft Cloud App Security através do acesso condicional do Azure AD para fornecer monitorização em tempo real e controles, via [acesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/cloud-app-security/session-policy-aad) políticas
 
 ### <a name="traffic-termination"></a>Terminação de tráfego
 

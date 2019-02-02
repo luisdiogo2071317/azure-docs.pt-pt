@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c1a03d164462da0bc9143399dbcb1e76302433b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507897"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661637"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
@@ -67,7 +67,7 @@ docker login myregistry.azurecr.io
 Depois de iniciar sessão, Docker coloca em cache as credenciais, pelo que não precisa se lembrar a ID da aplicação.
 
 > [!TIP]
-> Pode voltar a gerar a palavra-passe de um principal de serviço ao executar o [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) comando.
+> Pode voltar a gerar a palavra-passe de um principal de serviço ao executar o [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) comando.
 >
 
 ## <a name="admin-account"></a>Conta de admin

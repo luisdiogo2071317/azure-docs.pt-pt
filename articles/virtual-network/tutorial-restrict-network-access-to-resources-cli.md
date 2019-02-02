@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150553"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663813"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com a CLI do Azure
 
@@ -43,7 +43,7 @@ Se optar por instalar e utilizar a CLI localmente, este início rápido requer a
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Antes de criar uma rede virtual, terá de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de criar uma rede virtual, terá de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -322,7 +322,7 @@ Acesso negado e recebe um `mount error(13): Permission denied` erro, porque o *m
 
 Saia da sessão SSH para o *myVmPublic* VM.
 
-Do seu computador, tentar visualizar as partilhas na sua conta de armazenamento com [lista de partilha de armazenamento az](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Substitua `<account-name>` e `<account-key>` com o nome de conta de armazenamento e a chave de [criar uma conta de armazenamento](#create-a-storage-account):
+Do seu computador, tentar visualizar as partilhas na sua conta de armazenamento com [lista de partilha de armazenamento az](/cli/azure/storage/share?view=azure-cli-latest). Substitua `<account-name>` e `<account-key>` com o nome de conta de armazenamento e a chave de [criar uma conta de armazenamento](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

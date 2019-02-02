@@ -3,7 +3,7 @@ title: Aplicação de orquestração do patch de Service Fabric do Azure | Docum
 description: Aplicativo para automatizar a aplicação de patches de sistema operativo no cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
-ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 2/01/2019
+ms.author: brkhande
+ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155311"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563087"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -413,3 +413,6 @@ Um administrador deve intervir e determinar por que a aplicação ou o cluster s
 - Corrigir regressão onde POA 1.3.0 não funcionará no Windows Server 2012 R2 ou inferior devido uma falha na desativação de atualizações automáticas. 
 - Corrigir erro em que a configuração InstallWindowsOSOnlyUpdates sempre é escolhida como verdadeiro.
 - Alterar o valor predefinido de InstallWindowsOSOnlyUpdates como False.
+
+### <a name="version-132"></a>Versão 1.3.2
+- Corrigir um problema que afetado o ciclo de vida de aplicação de patches num nó, caso haja nós com o nome que é o subconjunto do nome do nó atual. Para esses nós, sua possível, aplicação de patches está em falta ou o reinício está pendente. 

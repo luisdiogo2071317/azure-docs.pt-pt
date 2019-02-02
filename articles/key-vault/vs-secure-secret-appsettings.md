@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 8f3cdf366830549c3ebb9c5680ecf36d1053d1d9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075299"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662308"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 
@@ -32,7 +32,7 @@ Para se certificar de que o processo de desenvolvimento é seguro, as ferramenta
 ## <a name="aspnet-and-net-core-applications"></a>Aplicativos de núcleo do ASP.NET e .NET
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Guardar definições secretas no arquivo de segredo de utilizador que está fora da pasta de controle de origem
-Se estiver fazendo um protótipo rápido ou não tem acesso à internet, comece com a mover as suas definições secretas fora da pasta de controle de origem para o arquivo de segredo de utilizador. Arquivo de segredos do utilizador é um arquivo salvo na pasta do criador de perfil de utilizador, para que segredos não são verificados controle de origem. O diagrama a seguir demonstra como [segredo de utilizador](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) funciona.
+Se estiver fazendo um protótipo rápido ou não tem acesso à internet, comece com a mover as suas definições secretas fora da pasta de controle de origem para o arquivo de segredo de utilizador. Arquivo de segredos do utilizador é um arquivo salvo na pasta do criador de perfil de utilizador, para que segredos não são verificados controle de origem. O diagrama a seguir demonstra como [segredo de utilizador](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) funciona.
 
 ![Segredo do utilizador mantém as definições de segredo fora do controlo de origem](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

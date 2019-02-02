@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 52c89804c87348843bb7a4006ab38e4d417740ba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adca66b46fad1220b49af327797cc4f91d216091
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025441"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564668"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Este artigo explica como utilizar a atividade de cópia no Azure Data Factory pa
 Pode copiar dados de um servidor FTP para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. Atualmente, o Data Factory suporta apenas mover dados de um servidor FTP para outros arquivos de dados, mas não mover dados de outros dados de arquivos para um servidor FTP. Ele oferece suporte tanto no local e servidores FTP na cloud.
 
 > [!NOTE]
-> A atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, criar uma atividade personalizada para eliminar o ficheiro e utilize a atividade no pipeline. 
+> A atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, criar uma atividade personalizada para eliminar o ficheiro e utilize a atividade no pipeline.
 
 ## <a name="enable-connectivity"></a>Ativar a conectividade
 Se estiver a mover dados a partir de um **locais** servidor FTP para uma nuvem de arquivo (por exemplo, para o armazenamento de Blobs do Azure) de dados, instalarem e utilizam o Data Management Gateway. O Data Management Gateway é um agente de cliente que está instalado no seu computador no local e permite que os serviços de cloud ligar a um recurso no local. Para obter detalhes, consulte [Data Management Gateway](data-factory-data-management-gateway.md). Para instruções passo a passo sobre como configurar o gateway e utilizá-lo, veja [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md). Utilizar o gateway para ligar a um servidor FTP, mesmo se o servidor estiver numa infraestrutura do Azure como uma máquina virtual (VM) do serviço (IaaS).
@@ -86,7 +86,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
     "name": "FTPLinkedService",
     "properties": {
         "type": "FtpServer",
-        "typeProperties": {        
+        "typeProperties": {
             "authenticationType": "Anonymous",
               "host": "myftpserver.com"
         }
@@ -99,7 +99,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
 ```JSON
 {
     "name": "FTPLinkedService",
-      "properties": {
+    "properties": {
     "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
@@ -107,7 +107,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
             "username": "Admin",
             "password": "123456"
         }
-      }
+    }
 }
 ```
 
@@ -120,7 +120,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
         "type": "FtpServer",
         "typeProperties": {
             "host": "myftpserver.com",
-            "authenticationType": "Basic",    
+            "authenticationType": "Basic",
             "username": "Admin",
             "password": "123456",
             "port": "21",
@@ -144,7 +144,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
             "encryptedCredential": "xxxxxxxxxxxxxxxxx",
             "gatewayName": "mygateway"
         }
-      }
+    }
 }
 ```
 
@@ -156,7 +156,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados. 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Subcaminho para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter caminhos de pastas com base no início do setor e tempos de data de fim. |Sim |
-| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Não |
+| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>Dados. <Guid>. txt (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especificar um filtro para ser usado para selecionar um subconjunto de ficheiros nos **folderPath**, em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com o Hadoop Distributed File System (HDFS). |Não |
 | partitionedBy |Utilizado para especificar um dynamic **folderPath** e **fileName** para dados de séries de tempo. Por exemplo, pode especificar uma **folderPath** que é parametrizado por cada hora de dados. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender copiar ficheiros como estão entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
@@ -188,7 +188,7 @@ Neste exemplo, {setor} é substituído pelo valor da variável do sistema SliceS
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -209,7 +209,7 @@ Na atividade de cópia, quando a origem é do tipo **FileSystemSource**, a segui
 | recursiva |Indica se os dados são lidos recursivamente das subpastas, ou apenas a partir da pasta especificada. |TRUE, False (predefinição) |Não |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo JSON: Copiar dados do servidor de FTP para BLOBs do Azure
-Este exemplo mostra como copiar dados de um servidor FTP para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos sinks indicados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats), utilizando a atividade de cópia na fábrica de dados.  
+Este exemplo mostra como copiar dados de um servidor FTP para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos sinks indicados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats), utilizando a atividade de cópia na fábrica de dados.
 
 Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
@@ -235,14 +235,14 @@ Consulte a [serviço ligado de FTP](#linked-service-properties) secção para di
 {
     "name": "FTPLinkedService",
     "properties": {
-    "type": "FtpServer",
-    "typeProperties": {
-        "host": "myftpserver.com",           
-        "authenticationType": "Basic",
-        "username": "Admin",
-        "password": "123456"
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "username": "Admin",
+            "password": "123456"
+        }
     }
-  }
 }
 ```
 ### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure

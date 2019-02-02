@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e3177b9df41a1612435dddadafd5c7e291e0e35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462017"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663592"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Resolver problemas de uma VM do Linux ao anexar o disco do SO a uma VM com a CLI do Azure de recuperação
 Se a sua máquina virtual (VM) do Linux encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma entrada inválida no `/etc/fstab` que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar a CLI do Azure para ligar o seu disco rígido virtual a outra VM do Linux para corrigir quaisquer erros, em seguida, voltar a criar a VM original. 
@@ -43,7 +43,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetros com seus próprios valo
 ## <a name="determine-boot-issues"></a>Determinar os problemas de arranque
 Examine o resultado serial para determinar por que a VM não é capaz de inicializar corretamente. Um exemplo comum é uma entrada inválida no `/etc/fstab`, ou subjacente disco rígido virtual que está a ser eliminado ou movido.
 
-Obter os registos de arranque com [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). O exemplo seguinte obtém o resultado de série de VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+Obter os registos de arranque com [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). O exemplo seguinte obtém o resultado de série de VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM

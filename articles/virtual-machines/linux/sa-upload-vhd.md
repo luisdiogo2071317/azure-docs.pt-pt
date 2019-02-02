@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a04c4d41d9682389347009446c590fc4e27400b1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468187"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659546"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carregar e criar uma VM do Linux a partir de discos personalizados com a CLI do Azure
 
@@ -54,7 +54,7 @@ Listar as chaves de acesso para a sua conta de armazenamento com [lista de chave
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Criar um contentor na sua conta de armazenamento com a chave de armazenamento que obteve com [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create). O exemplo seguinte cria um contentor com o nome `mydisks` utilizando o valor da chave armazenamento `key1`:
+Criar um contentor na sua conta de armazenamento com a chave de armazenamento que obteve com [criar contentor de armazenamento az](/cli/azure/storage/container). O exemplo seguinte cria um contentor com o nome `mydisks` utilizando o valor da chave armazenamento `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -164,7 +164,7 @@ info:    storage account keys list command OK
 Tome nota do `key1` como irá utilizá-lo para interagir com a sua conta de armazenamento nos passos seguintes.
 
 ## <a name="create-a-storage-container"></a>Criar um contentor de armazenamento
-Da mesma forma que criar diretórios diferentes para organizar logicamente o seu sistema de arquivos local, criar contentores numa conta de armazenamento para organizar os seus discos. Uma conta de armazenamento pode conter qualquer número de contentores. Criar um contentor com o [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create).
+Da mesma forma que criar diretórios diferentes para organizar logicamente o seu sistema de arquivos local, criar contentores numa conta de armazenamento para organizar os seus discos. Uma conta de armazenamento pode conter qualquer número de contentores. Criar um contentor com o [criar contentor de armazenamento az](/cli/azure/storage/container).
 
 O exemplo seguinte cria um contentor com o nome `mydisks`:
 

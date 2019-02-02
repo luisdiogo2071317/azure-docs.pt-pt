@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247124"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658339"
 ---
 # <a name="marketplace-faqs"></a>FAQs do Marketplace
 
@@ -358,7 +358,7 @@ Publicadores que estão a publicar Transact listagem tipos: VM, as aplicações 
 
 **Quais são oportunidades potenciais e por que eles são importantes para mim enquanto Editor no Marketplace?**
 
-Oportunidades potenciais são os clientes que estão a implementar seus produtos no Marketplace. Se o seu produto está listado no [do Azure Marketplace](https://azuremarketplace.microsoft.com) ou [AppSource](https://appsource.microsoft.com), conseguir recebe oportunidades potenciais de clientes que estejam interessados em seu produto.  Pode configurar o destino de oportunidades potenciais na sua oferta. Para obter mais informações, consulte [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Oportunidades potenciais são os clientes que estão a implementar seus produtos no Marketplace. Se o seu produto está listado no [do Azure Marketplace](https://azuremarketplace.microsoft.com) ou [AppSource](https://appsource.microsoft.com), conseguir recebe oportunidades potenciais de clientes que estejam interessados em seu produto.  Pode configurar o destino de oportunidades potenciais na sua oferta. Para obter mais informações, consulte [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Onde posso obter ajuda na configuração de meu destino líder?**
 

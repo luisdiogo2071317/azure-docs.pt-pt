@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e38f90acf1ffb0b63379727287f7451f99b6dd0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460170"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663983"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -172,7 +172,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|11|22|33|44|55|66|77|
+|Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -194,7 +194,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |Geração de H/W|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
-|Memória (GB)|88|99|110|132|176|220|440|
+|Memória (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|

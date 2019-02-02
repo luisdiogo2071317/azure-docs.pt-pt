@@ -14,12 +14,12 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 98ed7ce3eb58aa870a3cb06864631cd108410195
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508747"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658254"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -53,15 +53,16 @@ Para obter mais informações sobre as permissões para restaurar um grupo elimi
   
   ![Painel de expiração](./media/groups-lifecycle/expiration-settings.png)
 
-4. Sobre o **expiração** painel, pode:
+3. Sobre o **expiração** painel, pode:
 
   * Defina a duração do grupo em dias. Pode selecionar um dos valores predefinidos ou um valor personalizado (deve ser 31 dias ou mais). 
   * Especifique um endereço de e-mail em que as notificações de renovação e de expiração devem ser enviadas quando um grupo não tem proprietários. 
   * Selecione os grupos do Office 365 expirarem. Pode ativar a expiração para **todos os** grupos do Office 365, pode optar por ativar apenas **selecionados** grupos do Office 365, ou selecione **None**  para desativar a expiração de todos os grupos.
   * Guardar as definições, quando tiver terminado, selecionando **guardar**.
 
+## <a name="email-notifications"></a>Notificações por e-mail
 
-Notificações de e-mail como este são enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo.
+Notificações de e-mail como este são enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo. O idioma da mensagem de e-mail é determinado pelo idioma preferencial do proprietário de grupos ou a linguagem de inquilino. Se o proprietário do grupo tiver definido um idioma preferencial ou os proprietários de vários têm o mesmo idioma preferencial, é utilizado esse idioma. Para todos os outros casos, é utilizado o idioma de inquilino.
 
 ![Notificação de e-mail de expiração](./media/groups-lifecycle/expiration-notification.png)
 

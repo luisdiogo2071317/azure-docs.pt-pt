@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013779"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562226"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
 
@@ -88,7 +88,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
         "linkedServiceName": {
@@ -116,7 +116,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 | filtro | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
-| cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não | 
+| cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |
 | cursorMethods.skip | Especifica o número de documentos para ignorar e para onde o MongoDB começa a devolver resultados. Consulte a [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
 | batchSize | Especifica o número de documentos a devolver em cada lote da resposta de instância de MongoDB. Na maioria dos casos, modificar o tamanho do lote não afetarão o utilizador ou a aplicação. Limites do cosmos DB cada lote não pode exceder 40MB de tamanho, o que é a soma do número batchSize do tamanho dos documentos, por isso, reduza este valor se o tamanho do documento a ser grande. | Não<br/>(a predefinição é **100**) |
 

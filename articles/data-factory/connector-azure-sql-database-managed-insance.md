@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cd2eaefb845b6ce9ca2f1cfcaf1234f8f96615c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9b54c35a5dcd495e7ed460f1fdbbe96ba3dee4fe
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300341"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663567"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory
 
@@ -54,7 +54,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo deve ser definida como **SqlServer**. | Sim. |
-| connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Para obter mais informações, consulte os exemplos seguintes. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim. |
+| connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Para obter mais informações, consulte os exemplos seguintes. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim. |
 | userName |Esta propriedade especifica um nome de utilizador, se utilizar a autenticação do Windows. Um exemplo é **domainname\\nome de utilizador**. |Não. |
 | palavra-passe |Esta propriedade especifica uma palavra-passe da conta de utilizador que especificou para o nome de utilizador. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não. |
 | connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Aprovisione o runtime de integração autoalojado na mesma rede virtual que sua instância gerida. |Sim. |
@@ -66,7 +66,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 ```json
 {
-    "name": "SqlServerLinkedService",
+    "name": "AzureSqlMILinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
@@ -83,11 +83,40 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 }
 ```
 
-**Exemplo 2: Utilizar a autenticação do Windows**
+**Exemplo 2: Utilizar a autenticação de SQL com a palavra-passe no Azure Key Vault**
 
 ```json
 {
-    "name": "SqlServerLinkedService",
+    "name": "AzureSqlMILinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo 3: Utilizar a autenticação do Windows**
+
+```json
+{
+    "name": "AzureSqlMILinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
@@ -124,7 +153,7 @@ Para copiar dados de e para instância gerida da base de dados SQL do Azure, def
 
 ```json
 {
-    "name": "SQLServerDataset",
+    "name": "AzureSqlMIDataset",
     "properties":
     {
         "type": "SqlServerTable",
@@ -164,7 +193,7 @@ Tenha em atenção os seguintes pontos:
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -196,7 +225,7 @@ Tenha em atenção os seguintes pontos:
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -268,7 +297,7 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 ```json
 "activities":[
     {
-        "name": "CopyToSQLServer",
+        "name": "CopyToAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -302,7 +331,7 @@ Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um 
 ```json
 "activities":[
     {
-        "name": "CopyToSQLServer",
+        "name": "CopyToAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -415,7 +444,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
 
 ```json
 {
-    "name": "SQLServerDataset",
+    "name": "AzureSqlMIDataset",
     "properties":
     {
         "type": "SqlServerTable",

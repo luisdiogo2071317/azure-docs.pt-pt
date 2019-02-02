@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267135"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658577"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics ao Azure Cosmos DB  
 Stream Analytics pode visar [do Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo que consultas de arquivamento e baixa latência de dados em dados não estruturados de JSON. Este documento abrange algumas das melhores práticas para implementar esta configuração.
@@ -29,7 +29,7 @@ Para aqueles que não estão familiarizados com o Cosmos DB, dê uma olhada [per
 A saída do Azure Cosmos DB no Stream Analytics permite escrever a sua transmissão em fluxo processando os resultados como saída JSON em suas coleções de Cosmos DB. Stream Analytics não criar coleções na base de dados, em vez disso, que seja necessário criá-los de antemão. Isto é, para que os custos de faturas de coleções do Cosmos DB são controlados por si e para que pode ajustar o desempenho, a consistência e a capacidade de seus conjuntos de diretamente com o [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
-> Tem de adicionar 0.0.0.0 à lista de IPs permitidos da sua firewall do Azure Cosmos DB.
+> Tem de adicionar 0.0.0.0 à lista de IPs permitidos de firewall do Azure Cosmos DB.
 
 Algumas das opções de coleção do Cosmos DB são detalhadas abaixo.
 
@@ -49,7 +49,7 @@ Se o documento JSON de entrada tem um campo de ID existente, que o campo é auto
 Se quiser salvar <i>todos os</i> documentos, incluindo as que têm um ID duplicado, mudar o nome do campo de ID na sua consulta (com a palavra-chave AS) e permitir que o Cosmos DB, criar o campo de ID ou substitua o ID de valor de outra coluna (usando a palavra-chave AS ou pelo Utilize a definição de "ID do documento").
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Criação de partições de dados no Cosmos DB
-O Azure Cosmos DB [ilimitado](../cosmos-db/partition-data.md) são a abordagem recomendada para a partição dos dados, como o Azure Cosmos DB automaticamente dimensiona-se partições com base na carga de trabalho. Ao escrever os contentores ilimitados, o Stream Analytics utiliza os escritores paralelas como passo de consulta anterior ou de uma entrada de esquema de particionamento.
+O Azure Cosmos DB [ilimitado](../cosmos-db/partition-data.md) contentores são a abordagem recomendada para a partição dos dados, como o Azure Cosmos DB automaticamente dimensiona-se partições com base na carga de trabalho. Ao escrever os contentores ilimitados, o Stream Analytics utiliza os escritores paralelas como anterior consulta passo ou entrada de esquema de partições.
 > [!Note]
 > Neste momento, o Azure Stream Analytics suporta apenas coleções ilimitadas com chaves de partição no nível superior. Por exemplo, `/region` é suportada. Aninhados chaves de partição (por exemplo, `/region/name`) não são suportadas. 
 

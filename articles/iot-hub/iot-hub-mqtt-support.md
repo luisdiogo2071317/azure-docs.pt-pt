@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913578"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660243"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
 
@@ -60,17 +60,17 @@ Ao fazê-lo, certifique-se verificar os seguintes itens:
 * AMQP devolve erros para várias condições, enquanto MQTT encerra a conexão. Como resultado, a lógica de manipulação de exceções podem exigir algumas alterações.
 * MQTT não suporta o *rejeitar* operações quando receber [mensagens da cloud para dispositivo][lnk-messaging]. Se a sua aplicação de back-end precisa receber uma resposta a partir da aplicação de dispositivo, considere utilizar [métodos diretos][lnk-methods].
 
-## <a name="using-the-mqtt-protocol-directly"></a>Através do protocolo MQTT diretamente
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Através do protocolo MQTT diretamente (como um dispositivo)
 
 Se um dispositivo não é possível utilizar os SDKs do dispositivo, ainda pode ligar para os pontos de extremidade público do dispositivo através do protocolo MQTT na porta 8883. Na **CONNECT** pacotes o dispositivo devem utilizar os seguintes valores:
 
 * Para o **ClientId** campo, utilize o **deviceId**.
 
-* Para o **nome de utilizador** campo, utilize `{iothubhostname}/{device_id}/api-version=2018-06-30`, onde `{iothubhostname}` é o CName completo do IoT hub.
+* Para o **nome de utilizador** campo, utilize `{iothubhostname}/{device_id}/?api-version=2018-06-30`, onde `{iothubhostname}` é o CName completo do IoT hub.
 
     Por exemplo, se o nome do seu hub IoT é **contoso. Azure devices.net** e, se o nome do seu dispositivo é **MyDevice01**, o completo **nome de utilizador** campo deve conter:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * Para o **palavra-passe** campo, utilize um token SAS. O formato do SAS token é igual de protocolos de HTTPS e AMQP:
 
@@ -108,6 +108,16 @@ Para Device Explorer:
 Para MQTT se ligar e desligar pacotes, o IoT Hub emite um evento no **operações de monitorização** canal. Neste evento tem informações adicionais que podem ajudar a resolver problemas de conectividade.
 
 Pode especificar a aplicação de dispositivo uma **serão** mensagem no **CONNECT** pacotes. Deve utilizar a aplicação de dispositivo `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` como o **será** para definir o nome do tópico **será** mensagens para ser encaminhadas como uma mensagem de telemetria. Neste caso, se a ligação de rede estiver fechada, mas uma **desligar** pacote não foi anteriormente recebido do dispositivo, em seguida, envia o IoT Hub a **será** mensagem fornecido no **CONNECT** pacotes para o canal de telemetria. O canal de telemetria pode ser qualquer um da predefinição **eventos** ponto final ou um ponto final personalizado definido pelo IoT Hub do encaminhamento. A mensagem tem o **iothub MessageType** propriedade com um valor de **será** atribuídos ao mesmo.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Através do protocolo MQTT diretamente (como um módulo)
+
+Ligar ao IoT Hub sobre MQTT com uma identidade de módulo é semelhante ao dispositivo (descrito [acima](#using-the-mqtt-protocol-directly-as-a-device)), mas tem de utilizar o seguinte:
+* Defina o id de cliente `{device_id}/{module_id}`.
+* Se a autenticação com o nome de utilizador e palavra-passe, defina o nome de utilizador para `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` e utilizar o token SAS associado à identidade módulo como a palavra-passe.
+* Utilize `devices/{device_id}/modules/{module_id}/messages/events/` como tópico para a publicação de telemetria.
+* Utilize `devices/{device_id}/modules/{module_id}/messages/events/` como irá tópico.
+* Os tópicos de PATCH e duplo GET são idênticos para os módulos e dispositivos.
+* O tópico de estado de duplo é idêntico para os dispositivos e módulos.
 
 ### <a name="tlsssl-configuration"></a>Configuração de TLS/SSL
 

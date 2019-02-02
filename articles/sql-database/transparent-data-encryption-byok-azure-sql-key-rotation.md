@@ -11,15 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 08/07/2017
-ms.openlocfilehash: 02f97b318be975f4ff24b4e72276776ebc30535c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/06/2018
+ms.openlocfilehash: 14a39d283d9ec4f8d5267e6a6628609ac79879ee
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991975"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567507"
 ---
-# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rodar o protetor de encriptação de dados transparente (TDE) com o PowerShell 
+# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rodar o protetor de encriptação de dados transparente (TDE) com o PowerShell
 
 Este artigo descreve a rotação de chaves para um servidor SQL do Azure com um protetor de TDE no Azure Key Vault. Girando meios de protetor de TDE de um Azure SQL server mudar para uma nova chave assimétrica que protege as bases de dados no servidor. Rotação de chaves é uma operação online e deverá demorar apenas alguns segundos para concluir, uma vez que isso só descriptografa e encripta novamente a chave de encriptação de dados da base de dados, não a base de dados.
 
@@ -52,7 +52,7 @@ Para criar uma nova versão da TDE protetor a utilizar o [Add-AzureKeyVaultKey](
    -Destination <HardwareOrSoftware>
    ```
 
-## <a name="option-2-manual-rotation"></a>Opção 2: Rotação de Manual
+## <a name="option-2-manual-rotation"></a>Opção 2: Rotação manual
 
 A opção utiliza a [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey), e [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlets para adicionar uma chave completamente nova, que poderia ser num novo nome de chave ou até mesmo outro Cofre de chaves. 
 
@@ -105,6 +105,6 @@ A opção utiliza a [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Em caso de um risco de segurança, saiba como remover um protetor de TDE potencialmente comprometido: [remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
+- Em caso de um risco de segurança, saiba como remover um protetor de TDE potencialmente comprometido: [Remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- Introdução ao traga a sua própria chave de suporte para TDE: [ativar TDE com sua própria chave do Key Vault com o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Comece com traga a sua própria chave de suporte para TDE: [Ativar o TDE com sua própria chave do Key Vault com o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 75853d0fa35d1cb5fe593ad92a88d054d2ed77f6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180369"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662301"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
@@ -51,7 +51,7 @@ Por predefinição, a saída dos comandos da CLI do Azure é em JSON (JavaScript
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
-Seguinte que cria uma rede virtual no Azure e uma sub-rede para o qual pode criar as suas VMs. Uso [criar a vnet de rede de az](/cli/azure/network/vnet#az_network_vnet_create) para criar uma rede virtual denominada *myVnet* com o *192.168.0.0/16* prefixo de endereço. Também adicionar uma sub-rede denominada *mySubnet* com o prefixo de endereço *192.168.1.0/24*:
+Seguinte que cria uma rede virtual no Azure e uma sub-rede para o qual pode criar as suas VMs. Uso [criar a vnet de rede de az](/cli/azure/network/vnet) para criar uma rede virtual denominada *myVnet* com o *192.168.0.0/16* prefixo de endereço. Também adicionar uma sub-rede denominada *mySubnet* com o prefixo de endereço *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \

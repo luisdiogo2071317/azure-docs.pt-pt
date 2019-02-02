@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716043"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657585"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
@@ -37,6 +37,11 @@ Neste tutorial, ficará a saber como:
 > * Resolver erros
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>Limitações da funcionalidade de pré-visualização
+Com vários contentores estão atualmente em pré-visualização, não são suportadas as seguintes funcionalidades de plataforma do serviço de aplicações. Esperamos que ativar estas funcionalidades para a aplicação Web de vários contentores antes da disponibilidade geral (GA):
+* Autenticação/Autorização
+* Identidades Geridas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

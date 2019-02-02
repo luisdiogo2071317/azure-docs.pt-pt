@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/08/2018
+ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867675"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663745"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (suporte do SSMS para a MFA)
 Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) usando *Active Directory Universal Authentication*. 
-**Transferir o SSMS mais recente** – no computador cliente, transfira a versão mais recente do SSMS, da [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas as funcionalidades neste artigo, utilize, pelo menos, Julho de 2017, versão 17,2.  A caixa de diálogo de ligação mais recente, tem o seguinte aspeto: ![1mfa-universal-ligar](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "conclui a caixa de nome de utilizador.")  
+**Transferir o SSMS mais recente** – no computador cliente, transfira a versão mais recente do SSMS, da [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas as funcionalidades neste artigo, utilize, pelo menos, Julho de 2017, versão 17,2.  A caixa de diálogo de ligação mais recente, tem o seguinte aspeto: ![Ligue-se 1mfa-universal](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "conclui a caixa de nome de utilizador.")  
 
 ## <a name="the-five-authentication-options"></a>As opções de cinco autenticação  
 - Active Directory Universal Authentication suporta os dois métodos de autenticação não interativa (`Active Directory - Password` autenticação e `Active Directory - Integrated` autenticação). Não interativa `Active Directory - Password` e `Active Directory - Integrated` métodos de autenticação podem ser usados em muitos aplicativos diferentes (ADO.NET, JDBC, ODBC, etc.). Esses dois métodos nunca resultam em caixas de diálogo pop-up.
@@ -52,8 +52,8 @@ Os utilizadores do AD do Azure suportados para cenários B2B do Azure AD, como o
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter os passos de configuração, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
-- Outras pessoas conceder acesso à base de dados: [autorização e autenticação de base de dados SQL: conceder acesso](sql-database-manage-logins.md)  
-- Certifique-se outras pessoas podem ligar através da firewall: [configurar uma regra de firewall ao nível do servidor de base de dados do Azure SQL com o portal do Azure](sql-database-configure-firewall-settings.md)  
+- Outras pessoas conceda acesso à base de dados: [Autorização e autenticação de base de dados SQL: Conceder acesso](sql-database-manage-logins.md)  
+- Certifique-se de que outras pessoas podem ligar-se através da firewall: [Configurar uma regra de firewall ao nível do servidor de base de dados do Azure SQL com o portal do Azure](sql-database-configure-firewall-settings.md)  
 - [Configurar e gerir a autenticação do Azure Active Directory com a Base de Dados SQL ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 DG)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

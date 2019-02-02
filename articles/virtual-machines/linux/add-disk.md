@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463716"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657625"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar. 
@@ -29,7 +29,7 @@ Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode 
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
 
-Se pretender adicionar um disco de dados novo e vazio na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando com o `--new` parâmetro. Se a VM numa zona de disponibilidade, o disco é automaticamente criado na mesma zona da VM. Para obter mais informações, consulte [descrição geral das zonas de disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* ou seja, 50 Gb de tamanho:
+Se pretender adicionar um disco de dados novo e vazio na sua VM, utilize o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest) comando com o `--new` parâmetro. Se a VM numa zona de disponibilidade, o disco é automaticamente criado na mesma zona da VM. Para obter mais informações, consulte [descrição geral das zonas de disponibilidade](../../availability-zones/az-overview.md). O exemplo seguinte cria um disco chamado *myDataDisk* ou seja, 50 Gb de tamanho:
 
 ```azurecli
 az vm disk attach \
@@ -42,7 +42,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Anexar um disco existente 
 
-Para anexar um disco existente, localizar o ID do disco e passar a ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* na *myResourceGroup*, em seguida, liga-a VM com o nome *myVM*:
+Para anexar um disco existente, localizar o ID do disco e passar a ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* na *myResourceGroup*, em seguida, liga-a VM com o nome *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)

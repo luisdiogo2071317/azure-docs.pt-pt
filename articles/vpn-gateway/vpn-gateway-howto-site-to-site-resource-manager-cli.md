@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8fcf409db471a458fb3e2e743a19661c9f601328
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412126"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663524"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Criar uma rede virtual com uma ligação de Rede de VPNs através da CLI
 
@@ -155,7 +155,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 As ligações de Site a Site para uma rede no local requerem um dispositivo VPN. Neste passo, configure o seu dispositivo VPN. Quando configurar o dispositivo VPN, irá precisar do seguinte:
 
 - Uma chave partilhada. Esta é a mesma chave partilhada que especifica ao criar a ligação VPN de Site a Site. Nos nossos exemplos, iremos utilizar uma chave partilhada básica. Deve gerar uma chave mais complexa para utilizar.
-- O endereço IP Público do gateway de rede virtual. Pode ver o endereço IP público através do portal do Azure, do PowerShell ou da CLI. Para encontrar o endereço IP público do gateway da rede virtual, utilize o comando [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list). Para maior facilidade de leitura, a saída é formatada para apresentar a lista de IPs públicos no formato de tabela.
+- O endereço IP Público do gateway de rede virtual. Pode ver o endereço IP público através do portal do Azure, do PowerShell ou da CLI. Para encontrar o endereço IP público do gateway da rede virtual, utilize o comando [az network public-ip list](/cli/azure/network/public-ip). Para maior facilidade de leitura, a saída é formatada para apresentar a lista de IPs públicos no formato de tabela.
 
   ```azurecli-interactive
   az network public-ip list --resource-group TestRG1 --output table

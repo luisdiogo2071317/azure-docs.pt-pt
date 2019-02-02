@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
-ms.date: 04/02/2018
-ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/16/2018
+ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352216"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567388"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação em partição horizontal do multi-inquilino
 
@@ -137,7 +137,7 @@ Uma central **Hub de eventos** página da Web fornece uma lista de links para os
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação Wingtip [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no URL correspondente. Cada URL também inclui o valor de utilizador específico. Cada URL obedeça o formato mostrado ao utilizar os seguintes passos:
 
-- http://events.wingtip-mt.&lt; usuário&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome do inquilino da URL. É o nome do inquilino *fabrikamjazzclub* no URL do exemplo anterior.
 2. A aplicação hashes, em seguida, o nome do inquilino para criar uma chave para aceder um catálogo com [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md).

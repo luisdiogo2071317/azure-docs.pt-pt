@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 40ad849525ab0afb36754012f735a52f6b5d520d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 270b7bde0ece86b7d4c1673f26b2482dc63ac52b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297366"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661875"
 ---
 # <a name="face-api-release-notes"></a>Notas de versão de API de rostos
 
@@ -23,7 +23,7 @@ Este artigo diz respeito à versão do serviço de API de rostos de 1.0.
 
 ### <a name="release-changes-in-january-2019"></a>Lance as alterações de Janeiro de 2019
 
-* Funcionalidade de instantâneo foi adicionada para suportar a migração de dados entre subscrições: [Instantâneo](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/face/snapshot).
+* Funcionalidade de instantâneo foi adicionada para suportar a migração de dados entre subscrições: [Instantâneo](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
 
 ### <a name="release-changes-in-october-2018"></a>Alterações de lançamento em Outubro de 2018
 
