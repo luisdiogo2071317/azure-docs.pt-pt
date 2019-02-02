@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29737bbe244f9a6fb6799c4ce770a3d2615342aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4947977fbed2b4fe4bd47adcc4de6516090573ad
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820618"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661314"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Adicionar controles de mapa do Azure Maps
 
-Este artigo mostra-lhe como adicionar controles de mapa para um mapa. Também aprenderá como criar um mapa com todos os controles e um [Seletor de estilo](https://docs.microsoft.com/azure/azure-maps/choose-map-style#adding-the-style-picker).
+Este artigo mostra-lhe como adicionar controles de mapa para um mapa. Também aprenderá como criar um mapa com todos os controles e um [Seletor de estilo](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Adicionar o controle de zoom
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como adicionar controles de mapa para um mapa. Também ap
 
 O primeiro bloco de código define a chave de subscrição e cria um objeto de mapa sem previamente definir o estilo. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-Controle de zoom acrescenta a capacidade de aplicar zoom dentro e fora do mapa. O segundo bloco de código cria um objeto de controle de Zoom, usando o atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método. O controle de Zoom está dentro do mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
+Controle de zoom acrescenta a capacidade de aplicar zoom dentro e fora do mapa. O segundo bloco de código cria um objeto de controle de Zoom, usando o atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método. O controle de Zoom está dentro do mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
 
 ## <a name="add-pitch-control"></a>Adicionar controlo de argumento de venda
 
@@ -35,7 +35,7 @@ Controle de zoom acrescenta a capacidade de aplicar zoom dentro e fora do mapa. 
 
 O primeiro bloco de código define a chave de subscrição e cria um objeto de mapa sem previamente definir o estilo. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-Controlo de argumento de venda adiciona a capacidade de alterar o argumento de venda do mapa. O segundo bloco de código cria um objeto de argumento de venda controle usando o atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método. O controle de argumento de venda é no mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
+Controlo de argumento de venda adiciona a capacidade de alterar o argumento de venda do mapa. O segundo bloco de código cria um objeto de argumento de venda controle usando o atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método. O controle de argumento de venda é no mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
 
 ## <a name="add-compass-control"></a>Adicionar controlo de bússola
 
@@ -44,7 +44,7 @@ Controlo de argumento de venda adiciona a capacidade de alterar o argumento de v
 
 O primeiro bloco de código define a chave de subscrição e cria um objeto de mapa sem previamente definir o estilo. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O segundo bloco de código cria um objeto de controle de bússola usando o atlas [controle de bússola](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). Ele também adiciona o controle de bússola para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método. O controle de bússola está dentro do mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
+O segundo bloco de código cria um objeto de controle de bússola usando o atlas [controle de bússola](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Ele também adiciona o controle de bússola para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método. O controle de bússola está dentro do mapa **serviço de escuta de eventos** para garantir que ele carrega depois que o mapa for totalmente carregada.
 
 ## <a name="a-map-with-all-controls"></a>Um mapa com todos os controles
 
@@ -53,13 +53,13 @@ O segundo bloco de código cria um objeto de controle de bússola usando o atlas
 
 O primeiro bloco de código define a chave de subscrição e cria um objeto de mapa sem previamente definir o estilo. Ver [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O segundo bloco de código cria um objeto de controle de bússola usando o atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método.
+O segundo bloco de código cria um objeto de controle de bússola usando o atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método.
 
-O terceiro bloco de código cria um objeto de controle de Zoom, usando o atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método.
+O terceiro bloco de código cria um objeto de controle de Zoom, usando o atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método.
 
-O quarto bloco de código cria um objeto de argumento de venda controle usando o atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método.
+O quarto bloco de código cria um objeto de argumento de venda controle usando o atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método.
 
-O último bloco de código cria um objeto de estilo Seletor com o atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) método. Todos os objetos de controle são adicionados no mapa **serviço de escuta de eventos** para garantir a carregar depois que o mapa for totalmente carregada.
+O último bloco de código cria um objeto de estilo Seletor com o atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) e adiciona-o para o mapa através do mapa [Controls](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) método. Todos os objetos de controle são adicionados no mapa **serviço de escuta de eventos** para garantir a carregar depois que o mapa for totalmente carregada.
 
 A ordem dos objetos de controle no script determina a ordem em que aparecem no mapa. Para alterar a ordem dos controles no mapa, pode alterar a sua ordem no script.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576209"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566242"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitos recursos incríveis, é fundamental planejar seu percurso de migração para o fazer se as coisas a serem executados corretamente. Gastando tempo no planejamento irá garantir que não encontrar problemas durante a execução de atividades de migração.
@@ -88,7 +88,7 @@ Os clientes bem-sucedidos têm planos de onde as perguntas anteriores são discu
 
 A seguir foram problemas descobertos em muitas das migrações maiores. Não se trata de uma lista exaustiva e deve consultar o [funcionalidades não suportadas e configurações](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#unsupported-features-and-configurations) para obter mais detalhes.  Pode ou não pode encontrar estes problemas técnicos, mas se fizer a resolver estes antes de tentar a migração irá garantir uma experiência mais suave.
 
-- **Fazer uma execução completa de validar/preparar/anulação** -essa é talvez a etapa mais importante para se certificar de clássico para o sucesso da migração do Azure Resource Manager. A API de migração tem três etapas principais: validar, preparar e consolidar. Validar irão ler o estado do seu ambiente clássico e retornar um resultado de todos os problemas. No entanto, uma vez que alguns problemas podem ocorrer na pilha do Azure Resource Manager, para validar não capturará tudo. A próxima etapa no processo de migração, Prepare o ajudará a expor esses problemas. Preparar irá mover os metadados de clássico para o Azure Resource Manager, mas será não consolidar a migração e serão não remover ou alterar nada no lado do clássico. A execução envolve a preparar a migração, em seguida, a abortar (**consolidar não**) preparar a migração. O objetivo de validar/preparar/anulação de execução é ver todos os metadados na pilha do Azure Resource Manager, examiná-lo (*programaticamente ou no Portal*), certifique-se de que tudo o que migra corretamente e de trabalho por meio de técnicas problemas.  Ele também lhe dará uma noção da duração da migração, para que possam planear em conformidade para um período de indisponibilidade.  Uma para validar/preparar/anulação não irá causar qualquer período de inatividade do usuário; portanto, é não disruptivas para utilização da aplicação.
+- **Fazer uma execução completa de validar/preparar/anulação** -essa é talvez a etapa mais importante para se certificar de clássico para o sucesso da migração do Azure Resource Manager. A API de migração tem três etapas principais: Validar, preparar e consolidar. Validar irão ler o estado do seu ambiente clássico e retornar um resultado de todos os problemas. No entanto, uma vez que alguns problemas podem ocorrer na pilha do Azure Resource Manager, para validar não capturará tudo. A próxima etapa no processo de migração, Prepare o ajudará a expor esses problemas. Preparar irá mover os metadados de clássico para o Azure Resource Manager, mas será não consolidar a migração e serão não remover ou alterar nada no lado do clássico. A execução envolve a preparar a migração, em seguida, a abortar (**consolidar não**) preparar a migração. O objetivo de validar/preparar/anulação de execução é ver todos os metadados na pilha do Azure Resource Manager, examiná-lo (*programaticamente ou no Portal*), certifique-se de que tudo o que migra corretamente e de trabalho por meio de técnicas problemas.  Ele também lhe dará uma noção da duração da migração, para que possam planear em conformidade para um período de indisponibilidade.  Uma para validar/preparar/anulação não irá causar qualquer período de inatividade do usuário; portanto, é não disruptivas para utilização da aplicação.
   - Os itens abaixo tem de ser resolvidos antes da execução, mas um teste de execução com a segurança também irá afastar os estes passos de preparação, se eles estão em falta. Durante a migração de enterprise, Descobrimos que a execução seja uma forma segura e inestimável para assegurar a preparação da migração.
   - Quando preparar está em execução, o controle plano (operações de gestão do Azure) será bloqueado para a rede virtual inteira, para que nenhuma alteração pode ser feitas para metadados VM durante a validar/preparar/anulação.  Mas, caso contrário, qualquer função de aplicação (área de trabalho remota, VM utilização, etc.) não serão afetados.  Os utilizadores das VMs não saberá que está a ser executada a execução.
 
@@ -201,9 +201,9 @@ Aspetos a considerar:
 
 Ser intencional em que serviços pretende agora ativar no Azure Resource Manager.  Muitos clientes consideram o abaixo apelativas para seus ambientes do Azure:
 
-- [Controlo de acesso baseado em funções](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md).
 - [Modelos do Azure Resource Manager para a implantação mais fácil e mais controlada](../../azure-resource-manager/resource-group-overview.md#template-deployment).
-- [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md).
+- [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controlo de atividade](../../azure-resource-manager/resource-group-audit.md)
 - [Políticas do Azure](../../azure-policy/azure-policy-introduction.md)
 

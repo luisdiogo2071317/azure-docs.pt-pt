@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b203acefb962d5b3a782ba0ce1e667b6f18b7951
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508934"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657319"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Após desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure
 
@@ -104,7 +104,7 @@ Depois da conta de armazenamento é reconfigurada para redundância geográfica,
 
 Para evitar uma perda de dados principais, verifique o valor do **hora da última sincronização** propriedade antes da reativação pós-falha. Compare a hora da última sincronização para as últimas vezes que os dados foi escrito para a nova principal para avaliar a perda de dados esperado. 
 
-## <a name="initiate-an-account-failover"></a>Inicie uma ativação pós-falha de conta
+## <a name="initiate-an-account-failover"></a>Iniciar a ativação pós-falha de uma conta
 
 Pode iniciar uma ativação pós-falha de conta do portal do Azure, PowerShell, CLI do Azure ou a API do fornecedor de recursos de armazenamento do Azure. Para obter mais informações sobre como iniciar uma ativação pós-falha, consulte [inicie uma ativação pós-falha de conta (pré-visualização)](storage-initiate-account-failover.md).
 
@@ -152,6 +152,7 @@ Discos não geridos são armazenados como blobs de páginas no armazenamento do 
 4. Aguarde até que o **hora da última sincronização** foi atualizado e é posterior à hora em que eliminou a VM. Este passo é importante, porque se o ponto final secundário não foi totalmente atualizado com os ficheiros VHD quando ocorre a ativação pós-falha, em seguida, a VM poderá não funcionar corretamente na nova região primária.
 5. Inicie a ativação pós-falha de conta.
 6. Aguarde até que a ativação pós-falha de conta está concluída e a região secundária tornou-se a região primária nova.
+6. Criar uma conta de armazenamento na região primária nova e copie no disco não gerido.
 7. Criar uma VM na região primária nova e voltar a anexar o VHD.
 8. Inicie a VM nova.
 

@@ -11,15 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2ed9d38d2ed5ea554fc74ec1558a94e9d93bdcb8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/03/2019
+ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512062"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560826"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras do Azure CLI para a Base de Dados SQL do Azure
+
+Base de dados SQL do Azure pode ser configurado usando <a href="/cli/azure">CLI do Azure</a>.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+
+## <a name="single-database--elastic-pools"></a>Base de dados e conjuntos elásticos
 
 A tabela seguinte inclui ligações para exemplos de script do Azure CLI para a Base de Dados do Azure SQL.
 
@@ -31,5 +41,19 @@ A tabela seguinte inclui ligações para exemplos de script do Azure CLI para a 
 |**Dimensionar uma base de dados e um conjunto elástico**||
 | [Dimensionar uma base de dados](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script de CLI dimensiona uma base de dados SQL do Azure para um tamanho de computação diferente depois de consultar as informações de tamanho da base de dados. |
 | [Dimensionar um conjunto elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script CLI dimensiona um conjunto elástico de SQL para um tamanho de computação diferente.  |
-| [Criar e gerir uma Instância Gerida](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | Estes scripts CLI mostram que tem de criar e gerir uma instância gerida com a CLI do Azure |
 |||
+
+Saiba mais sobre o [única base de dados do Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
+
+## <a name="managed-instance"></a>Instância Gerida
+
+A tabela seguinte inclui ligações para exemplos de script da CLI do Azure para o Azure SQL Database - instância gerida.
+
+| |  |
+|---|---|
+| [Criar uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Este script da CLI mostra como criar uma instância gerida. |
+| [Atualizar uma instância gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Este script da CLI mostra como atualizar uma instância gerida. |
+| [Mover uma base de dados para outra instância gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Este script da CLI mostra como restaurar uma cópia de segurança das bases de dados de uma instância para outro. |
+|||
+
+Saiba mais sobre o [API de CLI do Azure de instância gerida](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) e localize [exemplos adicionais aqui](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

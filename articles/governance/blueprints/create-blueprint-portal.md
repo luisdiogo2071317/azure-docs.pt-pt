@@ -4,17 +4,17 @@ description: Utilize o Azure Blueprints para criar, definir e implementar artefa
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315303"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566317"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um esquema de Azure no portal
 
@@ -42,10 +42,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Criar esquema](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Em **Nome do Esquema**, escreva, por exemplo, “MyBlueprint” (letras e números, até 48 carateres, mas sem espaços nem carateres especiais), mas deixe a **Descrição do Esquema** em branco por agora.  Na caixa **Definição da Localização**, clique nas reticências à direita, selecione o [grupo de gestão](../management-groups/overview.md) onde quer guardar o esquema e clique em **Selecionar**.
-
-   > [!NOTE]
-   > As definições do esquema só podem ser guardadas em grupos de gestão. Para criar o seu primeiro grupo de gestão, siga [estes passos](../management-groups/create.md).
+1. Em **Nome do Esquema**, escreva, por exemplo, “MyBlueprint” (letras e números, até 48 carateres, mas sem espaços nem carateres especiais), mas deixe a **Descrição do Esquema** em branco por agora.  Na **localização da definição** caixa, clique nas reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e clique em **selecionar**.
 
 1. Certifique-se de que as informações estão corretas (a **nome do esquema** e **localização da definição** campos não não possível alterar mais tarde) e clique em **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
@@ -154,7 +151,7 @@ A publicação disponibiliza-o para ser atribuído a uma subscrição.
 
 ## <a name="assign-a-blueprint"></a>Atribuir um esquema
 
-Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão.
+Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico é guardado para uma subscrição, só podem ser atribuído a essa subscrição.
 
 1. Selecione **Definições do Esquema** na página à esquerda.
 

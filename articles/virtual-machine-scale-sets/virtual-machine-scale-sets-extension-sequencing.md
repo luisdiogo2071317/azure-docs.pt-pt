@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: aa6ba07168e86b2163324c62f8bb32ca330551f3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501383"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564005"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Define o aprovisionamento de extensão de sequência no dimensionamento de máquinas virtuais
 Extensões de máquina virtual do Azure fornecem capacidades, como a configuração de pós-implementação e gestão, monitorização, segurança e muito mais. Implementações de produção, normalmente, utilizem uma combinação de várias extensões configurado para as instâncias VM para alcançar resultados desejados.
@@ -29,7 +29,7 @@ Se utilizar várias extensões numa máquina virtual, é importante certificar-s
 
 Este artigo detalha como é possível sequenciar extensões para ser configurado para as instâncias VM em conjuntos de dimensionamento de máquina virtual.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que esteja familiarizado com:
 -   Máquina virtual do Azure [extensões](../virtual-machines/extensions/overview.md)
 -   [Modificar](virtual-machine-scale-sets-upgrade-scale-set.md) conjuntos de dimensionamento de máquina virtual

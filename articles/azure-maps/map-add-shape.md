@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214611"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658747"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma para um mapa
 
@@ -108,7 +108,7 @@ O primeiro bloco de código acima constrói um objeto de mapa. Pode ver [criar u
 
 É um ponto de um [funcionalidade](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) dos [ponto](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) a classe. O segundo bloco de código inicializa o valor de radius para o elemento do controlo de deslize HTML e, em seguida, constrói e encapsula um objeto de ponto numa [forma](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) objeto da classe.
 
-O terceiro bloco de código cria uma função que usa o valor do elemento de controlo de deslize de intervalo de HTML e altera o valor de radius usando a classe shape [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) método.
+O terceiro bloco de código cria uma função que usa o valor do elemento de controlo de deslize de intervalo de HTML e altera o valor de radius usando a classe shape [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) método.
 
 No quarto bloco de código, é criado um objeto de origem de dados usando o [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) classe. O ponto de, em seguida, é adicionado à origem de dados.
 

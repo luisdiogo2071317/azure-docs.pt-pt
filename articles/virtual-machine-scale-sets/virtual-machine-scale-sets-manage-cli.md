@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: dd75e21f94d342f521effb10f4557529fa3c2052
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e8a41c3bb1401552e7f1a56ec4cdbbce52354075
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888605"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658934"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de dimensionamento com a CLI do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos da CLI do Azure comuns que permitem-lhe realizar estas tarefas.
@@ -79,7 +79,7 @@ az vmss show \
     --output table
 ```
 
-Em seguida, pode aumentar ou reduzir manualmente o número de máquinas virtuais existentes no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss#az_vmss_scale). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento para *5*:
+Em seguida, pode aumentar ou reduzir manualmente o número de máquinas virtuais existentes no conjunto de dimensionamento com [az vmss scale](/cli/azure/vmss). O exemplo seguinte define o número de VMs no seu conjunto de dimensionamento para *5*:
 
 ```azurecli
 az vmss scale \

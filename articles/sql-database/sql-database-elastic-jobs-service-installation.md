@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867245"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565484"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalação de descrição geral das tarefas de bases de dados elásticas
 
@@ -51,7 +51,7 @@ Se já tiver instalado **tarefas de bases de dados elásticas** através do Port
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Instalar os componentes de tarefas de bases de dados elásticas com o PowerShell
-1. Inicie uma janela de comando do Microsoft Azure PowerShell e navegue para o subdiretório de \tools sob a pasta de Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Digite cd \tools
+1. Inicie uma janela de comando do Microsoft Azure PowerShell e navegue para o subdiretório de \tools sob a pasta de Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Tipo cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -156,7 +156,7 @@ Para atualizar o tamanho da VM de uma instalação, execute o seguinte script co
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Instalar os componentes de tarefas de bases de dados elásticas com o Portal
 Assim que tiver [criou um conjunto elástico](sql-database-elastic-pool-manage-portal.md), pode instalar **as tarefas de bases de dados elásticas** componentes para habilitar a execução das tarefas administrativas em relação a cada base de dados do conjunto elástico. Ao contrário de quando utilizar o **tarefas de bases de dados elásticas** as APIs do PowerShell, a interface do portal está atualmente restrito à execução apenas em relação a um conjunto existente.
 
-**Tempo estimado para concluir:** 10 minutos.
+**Tempo estimado para concluir:** dez minutos.
 
 1. Da vista do dashboard do conjunto elástico através da [portal do Azure](https://portal.azure.com/#) , clique em **criar tarefa**.
 2. Se estiver a criar uma tarefa pela primeira vez, tem de instalar **tarefas de bases de dados elásticas** ao clicar em **termos de pré-visualização**.

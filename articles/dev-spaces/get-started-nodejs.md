@@ -9,15 +9,15 @@ ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 91c4bc76a7753c7d51310fbe9b807f0969ca900c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
+ms.openlocfilehash: 942d9a7b4160189d14ecdd85b21b2537d1a2a8d3
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467293"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656367"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com o Node.js
+# <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com node. js
 
 Neste guia, vai aprender a:
 
@@ -101,7 +101,7 @@ Nesta secção, vai criar uma aplicação Web em Node.js e executá-la num conte
 ### <a name="create-a-nodejs-web-app"></a>Criar uma aplicação Web em Node.js
 Transfira o código do GitHub ao navegar para https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub para o seu ambiente local. O código para este guia está em `samples/nodejs/getting-started/webfrontend`.
 
-## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar o código para implementação do Docker e Kubernetes
+## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Preparar o código para o desenvolvimento do Docker e Kubernetes
 Neste momento, tem uma aplicação Web básica que pode ser executada localmente. Agora, irá colocá-la em contentor ao criar recursos que definem o contentor da aplicação e como esta será implementada no Kubernetes. É fácil executar esta tarefa com o Azure Dev Spaces: 
 
 1. Inicie o VS Code e abra a pasta `webfrontend`. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
@@ -278,5 +278,5 @@ Nesta configuração, o contentor é configurado para iniciar o *nodemon*. Quand
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre desenvolvimento em equipa](team-development-nodejs.md)
+> [Aprenda sobre o desenvolvimento de múltiplos serviço](multi-service-nodejs.md)
 

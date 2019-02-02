@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77b7e6aef4d0d38fa3ea9f9b9a740ffc25aff7f9
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462363"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660022"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros do Azure de montagem em VMs do Linux através de SMB
 
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 Quando cria uma conta de armazenamento, as chaves de conta são criadas em pares, de modo a que pode ser girados sem qualquer interrupção do serviço. Quando mudar para a segunda chave no par, criar um novo par de chaves. Novas chaves de conta de armazenamento são sempre criadas em pares, para que sempre tenha, pelo menos, uma chave de conta de armazenamento não utilizados pronta para mudar para o.
 
-Exibir as chaves de conta de armazenamento usando [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#list). Neste exemplo armazena o valor da chave 1 no **STORAGEKEY** variável.
+Exibir as chaves de conta de armazenamento usando [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys). Neste exemplo armazena o valor da chave 1 no **STORAGEKEY** variável.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \

@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091351"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562208"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -41,11 +41,11 @@ O recurso de recuperação de desastres implementa a recuperação após desastr
 
 Os termos seguintes são utilizados neste artigo:
 
--  *Alias*: O nome para uma configuração de recuperação após desastre que configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
+-  *Alias*: O nome de uma configuração de recuperação após desastre que configurou. O alias fornece uma única cadeia de ligação de domínio completamente qualificado nome (FQDN) estável. Aplicações utilizam esta cadeia de ligação de alias para ligar a um espaço de nomes. 
 
--  *Espaço de nomes de primária/secundária*: os espaços de nomes que correspondem para o alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
+-  *Espaço de nomes de primária/secundária*: Os espaços de nomes que correspondem para o alias. O espaço de nomes principal está "ativo" e recebe mensagens (pode ser um espaço de nomes novo ou existente). O espaço de nomes secundário é "passivo" e não a receber mensagens. Os metadados entre ambos estão em sincronização, para que ambos forma totalmente integrada podem aceitar mensagens sem quaisquer alterações de cadeia de ligação ou código da aplicação. Para garantir que apenas o espaço de nomes ativo recebe mensagens, tem de utilizar o alias. 
 
--  *Metadados*: entidades como os hubs de eventos e grupos de consumidores; e as respetivas propriedades do serviço que estão associadas com o espaço de nomes. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
+-  *Metadados*: Entidades como os hubs de eventos e os grupos de consumidores e as respetivas propriedades do serviço que estão associadas com o espaço de nomes. Tenha em atenção que apenas as entidades e suas configurações são replicadas automaticamente. Mensagens e os eventos não são replicados. 
 
 -  *Ativação pós-falha*: O processo de ativação do espaço de nomes secundário.
 
@@ -102,12 +102,12 @@ Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
 4. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto.
 
-## <a name="availability-zones-preview"></a>As zonas de disponibilidade (pré-visualização)
+## <a name="availability-zones"></a>Zonas de Disponibilidade 
 
-SKU Standard dos Hubs de eventos também suporta [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
+Suporta o SKU Standard dos Hubs de eventos [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> A pré-visualização de zonas de disponibilidade só é suportada no **EUA Central**, **E.U.A. Leste 2**, e **Centro de França** regiões.
+> O suporte de zonas de disponibilidade para o padrão de Hubs de eventos do Azure só está disponível no [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) onde as zonas de disponibilidade estão presentes.
 
 Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Os Hubs de eventos não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 

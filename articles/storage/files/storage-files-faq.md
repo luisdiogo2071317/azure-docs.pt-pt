@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 273039ec271d5d81329ab475ffd2eda82dca7b58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511009"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562390"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -241,7 +241,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade de dados suporta ficheiros do Azure?**  
 
-   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>

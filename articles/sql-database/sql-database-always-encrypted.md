@@ -1,5 +1,5 @@
 ---
-title: 'Sempre encriptado: SQL Database do Azure - arquivo de certificados do Windows | Documentos da Microsoft'
+title: 'Sempre encriptados: SQL Database do Azure - arquivo de certificados do Windows | Documentos da Microsoft'
 description: Este artigo mostra-lhe como proteger dados confidenciais numa base de dados SQL com a encriptação de base de dados utilizando o assistente encriptado sempre no SQL Server Management Studio (SSMS). Ele também mostra como armazenar as chaves de encriptação no arquivo de certificados do Windows.
 keywords: encriptar dados, a criptografia do sql, a encriptação de base de dados, dados confidenciais, Always Encrypted
 services: sql-database
@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231724"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564884"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptado: Proteger dados confidenciais e armazenar chaves de encriptação no arquivo de certificados do Windows
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptados: Proteger dados confidenciais e armazenar chaves de encriptação no arquivo de certificados do Windows
 
 Este artigo mostra-lhe como proteger dados confidenciais numa base de dados SQL com a encriptação de base de dados utilizando o [sempre o Assistente de encriptados](https://msdn.microsoft.com/library/mt459280.aspx) na [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ele também mostra como armazenar as chaves de encriptação no arquivo de certificados do Windows.
 
@@ -98,7 +98,7 @@ SSMS fornece um Assistente para configurar facilmente Always Encrypted ao defini
    
     ![Encriptar colunas](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-O assistente sempre encriptado inclui as secções seguintes: **seleção de coluna**, **configuração de chave mestra** (CMK), **validação**, e **resumo** .
+O assistente sempre encriptado inclui as secções seguintes: **Seleção da coluna**, **configuração da chave mestra** (CMK), **validação**, e **resumo**.
 
 ### <a name="column-selection"></a>Seleção de coluna
 Clique em **próxima** no **introdução** página para abrir o **seleção de coluna** página. Nesta página, que irá selecionar as colunas que pretende encriptar, [o tipo de encriptação e que chave de encriptação de coluna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) a utilizar.

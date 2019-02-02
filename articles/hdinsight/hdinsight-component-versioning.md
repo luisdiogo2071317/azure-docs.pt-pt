@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971125"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657914"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -31,19 +31,19 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 > [!NOTE]  
 > A versão predefinida para o serviço HDInsight podem ser alteradas sem aviso prévio. Se tiver uma dependência de versão, especifique a versão do HDInsight quando cria seus clusters com o SDK do .NET com o Azure PowerShell e CLI clássica do Azure.
 
-| Componente | HDInsight 4.0 (pré-visualização) | HDInsight 3.6 (predefinição) | HDInsight 3.5 | HDInsight 3.4 | 3.3 do HDInsight | 3.2 do HDInsight | 3.1 do HDInsight | HDInsight 3.0 |
+| Componente | HDInsight 4.0 (pré-visualização) | HDInsight 3.6 (predefinição) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop e YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| O Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
 | Apache Hive e HCatalog |-|1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive |3.1.0 | 2.1.0 |-|-|-|-|-|-|
-| O Apache Tez Hive2 |-| 0.8.4 |-|-|-|-|-|-|
+| Apache Tez Hive2 |-| 0.8.4 |-|-|-|-|-|-|
 | Apache Ranger |1.1.0 |0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |2.0.1 |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| O Apache Sqoop |1.4.7 |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| O Apache Oozie |4.3.1 |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Sqoop |1.4.7 |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.3.1 |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
 | O Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
 | Apache Storm |1.2.1 |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
@@ -78,7 +78,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Pré-visualização) |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
-| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |13 de Março de 2019 |13 de Março de 2019 |Sim |Sim |
+| HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |13 de Março de 2019 |13 de Março de 2019 |Sim |Sim |
 
 *&ast; Suporte de HDInsight 3.5 foi expandido apenas para tipos de cluster do Spark*
 
@@ -94,12 +94,12 @@ A tabela seguinte lista as versões do HDInsight que são **não** disponível n
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Não-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de junho de 2018 |Sim |Não |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
-| 3.3 do HDInsight |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de julho de 2018 |Sim |Não |
-| 3.3 do HDInsight |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
-| 3.2 do HDInsight |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
-| 3.1 do HDInsight |HDP 2.1 |Windows Server 2012 R2 |24 de Junho de 2014 |18 de Maio de 2015 |30 de Junho de 2016 |Sim |Não |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de julho de 2018 |Sim |Não |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de Junho de 2014 |18 de Maio de 2015 |30 de Junho de 2016 |Sim |Não |
 | HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de Fevereiro de 2014 |17 de Setembro de 2014 |30 de Junho de 2015 |Sim |Não |
-| 2.1 do HDInsight |HDP 1.3 |Windows Server 2012 R2 |28 de Outubro de 2013 |12 de Maio de 2014 |31 de Maio de 2015 |Sim |Não |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de Outubro de 2013 |12 de Maio de 2014 |31 de Maio de 2015 |Sim |Não |
 | HDInsight 1.6 |HDP 1.1 | |28 de Outubro de 2013 |26 de Abril de 2014 |31 de Maio de 2015 |Não |Não |
 
 > [!NOTE]  
@@ -162,7 +162,7 @@ Depois de HDInsight no Windows é extinguido, não é possível criar um novo cl
 ### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Quais versões do HDInsight no Windows são afetados?
 O Azure HDInsight versão 3.3 é a última versão do HDInsight para o Windows. Antes de HDInsight no Windows é extinto, todas as versões de clusters de HDInsight Windows 3.3 ou anterior têm de ser migradas para o HDInsight no Linux versão 3.5 ou posterior. Migrar os seus clusters para o HDInsight no Linux permite-lhe manter a capacidade de criar novos clusters ou redimensionar clusters existentes. 
 
-### <a name="what-do-i-need-to-do"></a>O que preciso fazer?
+### <a name="what-do-i-need-to-do"></a>O que tenho de fazer?
 Migre seus clusters do HDInsight Windows para um cluster do Linux de HDInsight suportado antes de 31 de Julho de 2018. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). Para obter detalhes sobre as versões do Azure HDInsight, consulte a lista de [versões suportadas](hdinsight-component-versioning.md#supported-hdinsight-versions). 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>Onde posso encontrar o tipo de SO de cluster?
@@ -228,26 +228,56 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Suporte todas as regiões, exceto no sul do Brasil e oeste do Japão:
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark  | Servidor de ML |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | Função de trabalho: tamanho VM predefinido |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
-  | Função de trabalho: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: tamanho da VM predefinida | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
-  | ZooKeeper: recomendado tamanhos de VM | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
-  | Edge: tamanho da VM predefinida | | | | | |D4 v2 |
-  | Edge: tamanho VM de recomendado | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
+<html><body><table width="100%">
+<tr align="left"><th>Tipo de cluster</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>Servidor de ML&nbsp;</th><th>Kafka&nbsp;</th></tr>
+
+<tr><td>Cabeça: tamanho VM predefinido</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="4" valign="top">HEAD: recomendado tamanhos de VM</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
+
+<tr><td>Função de trabalho: tamanho VM predefinido</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 com 2 S30 discos por Mediador</td></tr>
+
+<tr><td rowspan="8" valign="top">Função de trabalho: recomendado tamanhos de VM</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
+<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
+<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
+<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
+<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
+<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
+
+<tr><td>ZooKeeper: tamanho da VM predefinida</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
+
+<tr><td rowspan="3" valign="top">ZooKeeper: recomendado tamanhos de VM</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
+<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
+<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
+
+<tr align="left"><td>Edge: tamanho da VM predefinida</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+
+<tr><td rowspan="8" valign="top">Edge: tamanho VM de recomendado</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
+
+</table></body></html>
+
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 
   | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviços ML |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeça: tamanho VM predefinido |D12 |D12  | D13 |A3 |D12 |D12 |
-  | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
   | Função de trabalho: tamanho VM predefinido |D4 |D4  |  D14 |D3 |D13 |D4 |
   | Função de trabalho: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: tamanho da VM predefinida | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper: recomendado tamanhos de VM | |A2,<br/> A3<br/> A4 | |A2,<br/> A3<br/> A4 | | |
+  | ZooKeeper: recomendado tamanhos de VM | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
   | Edge: tamanhos de VM predefinido | | | | | |D4 |
   | Edge: recomendado tamanhos de VM | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 

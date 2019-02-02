@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306255"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664187"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -194,7 +194,7 @@ Análise de armazenamento regista os seguintes tipos de pedidos de autenticado e
 
 Rede de registo e monitorização no Azure é abrangente e abrange duas amplas categorias:
 
-* [Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Monitorização de rede baseada em cenário é fornecido com os recursos do observador de rede. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
+* [Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Monitorização de rede baseada em cenário é fornecido com os recursos do observador de rede. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
 
 * [Monitorização de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Monitorização de nível de recursos é composto por quatro recursos, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todos esses recursos são criados ao nível de recursos da rede.
 

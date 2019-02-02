@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865527"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565246"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerir bases de dados de cloud escaladas horizontalmente
 
@@ -81,8 +81,8 @@ Defina grupos personalizados de bases de dados SQL do Azure e defina agendamento
 2. Utilize as APIs do PowerShell para aceder a mais funcionalidade, por exemplo, criar coleções de base de dados personalizado, a adição de agendas de e/ou conjuntos de resultados de recolha. Utilizar o portal para instalação simple e criação/monitorização de tarefas limitado para execução em relação a um **conjunto elástico**.
 3. Criar credenciais encriptadas para a execução da tarefa e [adicione o utilizador (ou a função) para cada base de dados no grupo de](sql-database-security-overview.md).
 4. Crie um script T-SQL que pode ser executada para cada base de dados no grupo de idempotentes.
-5. Siga estes passos para criar tarefas no portal do Azure: [criar e gerir tarefas de bases de dados elásticas](sql-database-elastic-jobs-create-and-manage.md).
-6. Ou utilizar scripts do PowerShell: [criar e gerir um tarefas de base de dados elástica de base de dados SQL com o PowerShell (pré-visualização)](sql-database-elastic-jobs-powershell.md).
+5. Siga estes passos para criar tarefas no portal do Azure: [Criar e gerir tarefas de bases de dados elásticas](sql-database-elastic-jobs-create-and-manage.md).
+6. Ou utilizar scripts do PowerShell: [Criar e gerir um tarefas de base de dados elástica de base de dados SQL com o PowerShell (pré-visualização)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Scripts Idempotent
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6011defcea54a26aa25877aeace6a1a8a629fdf6
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474524"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567524"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -46,7 +46,7 @@ Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma in
 
     |Definição|Necessário?|Detalhes|
     |---|---|---|
-    |Nome|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar. Ao longo do tempo, provavelmente, terá várias interfaces de rede na sua subscrição do Azure. Para obter sugestões durante a criação de uma convenção de nomenclatura facilitar o gerenciamento de várias interfaces de rede mais fácil, consulte [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). O nome não pode ser alterado depois de criar a interface de rede.|
+    |Name|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar. Ao longo do tempo, provavelmente, terá várias interfaces de rede na sua subscrição do Azure. Para obter sugestões durante a criação de uma convenção de nomenclatura facilitar o gerenciamento de várias interfaces de rede mais fácil, consulte [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). O nome não pode ser alterado depois de criar a interface de rede.|
     |Rede virtual|Sim|Selecione a rede virtual para a interface de rede. Só pode atribuir uma interface de rede a uma rede virtual que exista na mesma subscrição e localização como a interface de rede. Depois de criar uma interface de rede, não é possível alterar a rede virtual que está atribuída a. A máquina virtual que é adicionar a interface de rede também tem de existir na mesma localização e subscrição como a interface de rede.|
     |Subrede|Sim|Selecione uma sub-rede dentro da rede virtual que selecionou. Pode alterar a sub-rede que a interface de rede é atribuída a depois de criado.|
     |Atribuição de endereços IP privados|Sim| Nessa configuração, estará a escolher o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **Dinâmico:** Ao selecionar esta opção, o Azure atribui automaticamente o endereço seguinte disponível do espaço de endereço da sub-rede que selecionou. **Estático:** Ao selecionar esta opção, tem de atribuir manualmente um endereço IP disponível a partir do espaço de endereços da sub-rede que selecionou. Endereços estáticos e dinâmicos não são alterados até que alterá-los ou a interface de rede for eliminada. Pode alterar o método de atribuição depois de criar a interface de rede. O servidor DHCP do Azure atribui este endereço para a interface de rede no sistema operativo da máquina virtual.|
@@ -85,7 +85,7 @@ Pode ver e alterar a maioria das definições para uma interface de rede depois 
     - **Propriedades:** Apresenta as definições de chave sobre a interface de rede, incluindo o seu endereço de MAC (em branco se a interface de rede não está anexada a uma máquina virtual) e a subscrição sai.
     - **Regras de segurança efetivas:**  Regras de segurança são listadas se a interface de rede está ligada a uma máquina virtual em execução e um NSG é associado à interface de rede, a sub-rede que está atribuída a ou ambos. Para saber mais sobre o que é apresentado, veja [ver as regras de segurança efetivas](#view-effective-security-rules). Para saber mais sobre NSGs, consulte [grupos de segurança de rede](security-overview.md).
     - **Rotas efetivas:** As rotas são apresentadas se a interface de rede está ligada a uma máquina virtual em execução. As rotas são uma combinação das rotas predefinidas do Azure e quaisquer rotas BGP que possam existir para a sub-rede que a interface de rede é atribuída a quaisquer rotas definidas pelo utilizador. Para saber mais sobre o que é apresentado, veja [ver as rotas efetivas](#view-effective-routes). Para saber mais sobre as rotas predefinidas do Azure e as rotas definidas pelo utilizador, veja [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
-    - **Definições comuns do Azure Resource Manager:**  Para saber mais sobre configurações comuns do Azure Resource Manager, veja [registo de atividades](../azure-monitor/platform/activity-logs-overview.md), [controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e o [ Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Definições comuns do Azure Resource Manager:**  Para saber mais sobre configurações comuns do Azure Resource Manager, veja [registo de atividades](../azure-monitor/platform/activity-logs-overview.md), [controlo de acesso (IAM)](../role-based-access-control/overview.md), [etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e o [ Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -244,7 +244,7 @@ A funcionalidade de próximo salto do observador de rede do Azure pode também a
 
 Para executar tarefas em interfaces de rede, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as permissões adequadas listadas na tabela seguinte:
 
-| Ação                                                                     | Nome                                                      |
+| Ação                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | Obter a interface de rede                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar a interface de rede                        |

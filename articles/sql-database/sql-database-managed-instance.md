@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 2582f7eff052968c4a08eefd0027f9785451a564
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465712"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562815"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -75,7 +75,7 @@ O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na in
 No modelo de vCore, pode escolher entre gerações de hardware.
 
 - **Geração 4** CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) físicas de processadores de 2,4 GHz, SSD anexado, núcleos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- **Fins gerais 5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida eNVM SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
+- **Fins gerais 5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
 
 Encontrar mais informações sobre a diferença entre gerações de hardware no [limites de recursos de instância gerida](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -158,7 +158,7 @@ Uma nova sintaxe é introduzida para criar inícios de sessão do AAD (**pré-vi
 
 Instância gerida permite-lhe gerir centralmente identidades de utilizador de base de dados e outros serviços da Microsoft com [integração do Azure Active Directory](sql-database-aad-authentication.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Active Directory suporta a [autenticação multifator](sql-database-ssms-mfa-authentication-configure.md) (MFA), para aumentar a segurança de dados e aplicações, suportando, ao mesmo tempo, um processo de início de sessão único.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 Autenticação diz respeito à forma como os utilizadores provam a sua identidade quando se liga à base de dados de instância de gerida. A Base de Dados SQL suporta dois tipos de autenticação:  
 

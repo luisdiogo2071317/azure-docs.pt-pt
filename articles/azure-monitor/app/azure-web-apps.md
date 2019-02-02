@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 17d8eff39eabb2f7b4968bf74d2482b980fe8060
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116624"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565960"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
-Na [Portal do Azure](https://portal.azure.com) pode configurar a monitorização de desempenho de aplicações para as suas aplicações web, móveis back-ends e aplicações API no [App Service do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
+Na [portal do Azure](https://portal.azure.com) pode configurar a monitorização de desempenho de aplicações para as suas aplicações web, móveis back-ends e aplicações API no [App Service do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
 
 ## <a name="run-time-or-build-time"></a>Hora de execução ou hora de compilação
 Para configurar a monitorização, pode instrumentar a aplicação de uma de duas formas:
@@ -42,14 +42,27 @@ Se já estiver a executar um serviço de aplicações no Azure, já tem alguma m
 
     ![Instrumente a sua aplicação Web](./media/azure-web-apps/create-resource.png)
 
-2. Depois de especificar o recurso a utilizar, pode escolher como pretende que o application insights para recolher dados por plataforma para a sua aplicação.
+2. Depois de especificar o recurso a utilizar, pode escolher como pretende que o application insights para recolher dados por plataforma para a sua aplicação. (Monitorização de aplicações do ASP.NET é por padrão com dois níveis diferentes de coleção.)
 
-    ![Escolher opções por plataforma](./media/azure-web-apps/choose-options.png)
+    ![Escolher opções por plataforma](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **conjunto básico** nível oferece funcionalidades essenciais de APM de instância única.
+    
+    * .NET **recomendado coleção** nível:
+        * Adiciona as tendências de utilização de CPU, memória e e/s.
+        * Correlaciona microsserviços em limites de pedido/dependência.
+        * Recolhe as tendências de utilização e permite a correlação de resultados de disponibilidade para transações.
+        * Recolhe as exceções não processadas pelo processo de host.
+        * Melhora a precisão de métricas APM sob carga, quando a amostragem é usada.
+    
+    .NET core oferece **recomendado coleção** ou desativado para .NET Core 2.0 e 2.1.
 
 3. **Instrumentar o seu serviço de aplicações** após instalação do Application Insights.
 
-   **Ative a monitorização do lado do cliente** para visualização de páginas e telemetria do utilizador.
+   **Ativar a monitorização do lado do cliente** para a telemetria de utilizador e vista de página.
 
+    (Isto é ativado por predefinição para aplicações de .NET Core com **recomendado coleção**, independentemente de se a 'APPINSIGHTS_JAVASCRIPT_ENABLED' de definição de aplicação está presente. Suporte baseado em granular da interface do Usuário para a desativação da monitorização do lado do cliente não está atualmente disponível para .NET Core.)
+    
    * Selecione Definições > Definições da Aplicação
    * Em Definições da Aplicação, adicione um par de chaves-valores novo:
 
@@ -57,6 +70,7 @@ Se já estiver a executar um serviço de aplicações no Azure, já tem alguma m
 
     Valor:`true`
    * **Guarde** as definições e **reinicie** a aplicação.
+
 4. Explorar dados de monitorização da sua aplicação, selecionando **configurações** > **Application Insights** > **ver mais no Application Insights**.
 
 Mais tarde, pode criar a aplicação com o Application Insights, se pretender.
@@ -78,23 +92,19 @@ O Application Insights pode proporcionar telemetria mais detalhada, mediante a i
 
     A operação tem dois efeitos:
 
-   1. Cria um recurso do Application Insights no Azure, onde a telemetria é armazenada, analisada e apresentada.
+   1. Cria um recurso do Application Insights no Azure, onde telemetria é armazenada, analisada e apresentada.
    2. Adiciona o pacote NuGet do Application Insights ao seu código (se ainda não estiver lá) e configura-o para enviar a telemetria para o recurso do Azure.
 2. Execute a aplicação no seu computador de programação (F5) para **testar a telemetria**.
 3. **Publique a aplicação** no Azure, da forma habitual. 
 
 *Como posso mudar para enviar para outro recurso do Application Insights?*
 
-* No Visual Studio, clique com o botão direito do rato no projeto, escolha **Configurar o Application Insights** e selecione o recurso que pretende. Terá a opção de criar um recurso novo. Recompile e reimplemente.
+* No Visual Studio, clique com botão direito no projeto, escolha **configurar o Application Insights**e escolha o recurso que pretende. Terá a opção de criar um recurso novo. Recompile e reimplemente.
 
 ## <a name="more-telemetry"></a>Mais telemetria
 
 * [Web page load data](../../azure-monitor/app/javascript.md) (Dados de carregamento de páginas Web)
 * [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) (Telemetria personalizada)
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -102,10 +112,19 @@ O Application Insights pode proporcionar telemetria mais detalhada, mediante a i
 
 Ativar Javascript por meio de serviços de aplicação pode fazer com que as respostas de html para serão cortadas.
 
-- Solução 1: definir a definição de aplicação APPINSIGHTS_JAVASCRIPT_ENABLED como false ou removê-la completamente e reiniciar
-- Solução 2: adicionar o sdk por meio do código e remover a extensão (o depurador Profiler e o instantâneo não com esta configuração)
+* Solução 1: definir a definição de aplicação APPINSIGHTS_JAVASCRIPT_ENABLED como false ou removê-la completamente e reiniciar
+* Solução 2: adicionar o sdk por meio do código e remover a extensão (o depurador Profiler e o instantâneo não com esta configuração)
 
 Estamos a acompanhar este problema [aqui](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+Para .NET Core seguem-se atualmente **nepodporuje**:
+
+* Implementação independente.
+* Aplicações visando o .NET Framework.
+* Aplicações de .NET core 2.2.
+
+> [!NOTE]
+> .NET core 2.0 e 2.1 do .NET Core são suportadas. Quando é adicionado suporte de .NET Core 2.2 neste artigo será atualizado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md) (Executar o gerador de perfis na sua aplicação publicada).

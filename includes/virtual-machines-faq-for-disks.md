@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841446"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648613"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -347,7 +347,7 @@ Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD 
 
 **Que regiões são os tamanhos de disco gerido maiores do que 4 TiB suportados no?**
 
-Neste momento na pré-visualização, os tamanhos de disco gerido são suportados no Oeste E.u. a centro-apenas.
+Neste momento na pré-visualização, os tamanhos de disco gerido são suportados no e.u.a. centro-oeste, Europa do Norte, Europa Ocidental, E.u.a. oeste 2, E.u.a. Leste 2, E.u.a. Leste.
 
 **Suportamos ativar a colocação em cache do anfitrião sobre os tamanhos de disco mais recente?**
 

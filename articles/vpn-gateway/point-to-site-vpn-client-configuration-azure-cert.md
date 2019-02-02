@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0a9c5b5f0fd47f2fcf0c9df02789abae5f07f023
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508009"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564991"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração de cliente VPN para configurações P2S da autenticação de certificados nativa do Azure
 
@@ -79,7 +79,7 @@ Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo p
 
 Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para autenticação de certificados. Tem de concluir estes passos em cada Mac que irá ligar ao Azure:
 
-1. Importar os **VpnServerRoot** certificado de raiz no seu Mac. Isso pode ser feito copiando o arquivo ao longo para Mac e duas vezes no mesmo.  
+1. Importar os **VpnServerRoot** certificado de raiz no seu Mac. Isso pode ser feito copiando o arquivo ao longo para Mac e duas vezes no mesmo.
 Clique em **adicionar** para importar.
 
   ![Adicionar certificado](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -113,10 +113,13 @@ Clique em **adicionar** para importar.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### <a name="extract-the-key-and-certificate"></a>Extrair a chave e o certificado
+### <a name="1-generate-the-key-and-certificate"></a>1: Gerar a chave e o certificado
 
 Para strongSwan, terá de extrair a chave e o certificado a partir do certificado de cliente (ficheiro. pfx) e salvá-los em ficheiros. pem individuais.
-Siga os passos abaixo:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
+
+### <a name="2-extract-the-key"></a>2: Extrair a chave
 
 1. Transferir e instalar o OpenSSL partir [OpenSSL](https://www.openssl.org/source/).
 2. Abra uma janela da linha de comandos e altere o diretório onde instalou OpenSSL, por exemplo, "c:\OpenSLL-Win64\bin\'.
@@ -125,13 +128,13 @@ Siga os passos abaixo:
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
   ```
-4.  Agora, execute o seguinte comando para extrair o certificado público e guarde-o para um novo arquivo:
-
+4.  Execute o seguinte comando para extrair o certificado público e guarde-o para um novo arquivo:
+ 
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>Instalar e configurar
+### <a name="install"></a>3: Instalar e configurar
 
 As instruções seguintes foram criadas por meio de strongSwan 5.5.1 no Ubuntu 17.0.4. Ubuntu 16.0.10 não suporta strongSwan GUI. Se pretender utilizar o Ubuntu 16.0.10, terá de utilizar o [linha de comandos](#linuxinstallcli). Os exemplos abaixo podem não corresponder ao telas que vir, dependendo da versão do Linux e strongSwan.
 
@@ -160,14 +163,13 @@ As instruções seguintes foram criadas por meio de strongSwan 5.5.1 no Ubuntu 1
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
-### <a name="install-strongswan"></a>Instalar strongSwan
+### <a name="1-generate-the-key-and-certificate"></a>1: Gerar a chave e o certificado
 
 Pode utilizar os seguintes comandos da CLI, ou utilize os passos de strongSwan no [GUI](#install) instalar strongSwan.
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>Instalar e configurar
+### <a name="2-install-and-configure"></a>2: Instalar e configurar
 
 1. Transferir o pacote do VPNClient a partir do portal do Azure.
 2. Extraia o ficheiro.

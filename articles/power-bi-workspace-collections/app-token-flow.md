@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236935"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661093"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticação e autorização com coleções de área de trabalho do Power BI
 
@@ -42,16 +42,16 @@ O token de aplicação pode conter as seguintes declarações:
 | --- | --- |
 | **ver** |A versão do token de aplicação. 0.2.0 é a versão atual. |
 | **aud** |O destinatário do token. Para utilizar as coleções de área de trabalho do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
-| **ISS** |Uma cadeia que indica que o aplicativo que emitiu o token. |
+| **iss** |Uma cadeia que indica que o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token de aplicação que está a ser criada. O tipo de suporte único atual é **incorporar**. |
-| **WCN** |O nome de coleção de área de trabalho o token está a ser emitido para. |
-| **WID** |O token de ID de área de trabalho é que está a ser emitido. |
-| **de RID** |O token de ID do relatório está a ser emitido para. |
+| **wcn** |O nome de coleção de área de trabalho o token está a ser emitido para. |
+| **wid** |O token de ID de área de trabalho é que está a ser emitido. |
+| **rid** |O token de ID do relatório está a ser emitido para. |
 | **nome de utilizador** (opcional) |Utilizado com RLS, o nome de utilizador é uma cadeia de caracteres que pode ajudar a identificar o utilizador ao aplicar regras RLS. |
 | **funções** (opcional) |Uma cadeia de caracteres que contém as funções para selecionar ao aplicar regras de segurança de nível de linha. Se passar mais de uma função, devem ser passadas como uma matriz de sting. |
 | **SCP** (opcional) |Uma cadeia de caracteres contendo os âmbitos de permissões. Se passar mais de uma função, devem ser passadas como uma matriz de sting. |
 | **EXP** (opcional) |Indica a hora em que o token expira. O valor deve ser passado como carimbos de data / Unix. |
-| **NBF** (opcional) |Indica a hora em que o token começa a ser válido. O valor deve ser passado como carimbos de data / Unix. |
+| **nbf** (optional) |Indica a hora em que o token começa a ser válido. O valor deve ser passado como carimbos de data / Unix. |
 
 Um token de aplicação de exemplo é semelhante a:
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-Métodos estão disponíveis dentro os SDKs que facilitam a criação de tokens de aplicação. Por exemplo, para o .NET pode observar os [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) classe e o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) métodos.
+Métodos estão disponíveis dentro os SDKs que facilitam a criação de tokens de aplicação. Por exemplo, para o .NET pode observar os [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) classe e o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) métodos.
 
 Para o SDK de .NET, pode consultar [âmbitos](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -176,7 +176,7 @@ Após **coleções de área de trabalho do Power BI** envia um relatório para o
 
 ## <a name="see-also"></a>Consultar Também
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introdução ao exemplo de coleções de área de trabalho do Microsoft Power BI](get-started-sample.md)  
 [Cenários comuns de coleções de área de trabalho do Microsoft Power BI](scenarios.md)  
 [Começar a utilizar coleções de área de trabalho do Microsoft Power BI](get-started.md)  

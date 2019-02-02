@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 64f74981b4c1909f4660273fbbfa0e5828eaa6a6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 90a14c670a720da6dc38921a892a5fa0323b61ec
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882910"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55655874"
 ---
 # <a name="create-a-vm-with-nginx"></a>Criar uma VM com o NGINX
 
@@ -64,7 +64,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | Comando | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual. Este comando também especifica a imagem da máquina virtual a ser utilizada e as credenciais administrativas.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual. Este comando também especifica a imagem da máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra do grupo de segurança de rede para permitir tráfego de entrada. Neste exemplo, a porta 80 está aberta para o tráfego HTTP. |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Adiciona e executa uma extensão da máquina virtual para uma VM. Neste exemplo, é utilizada a extensão de script personalizado para instalar o NGINX.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |

@@ -1,27 +1,31 @@
 ---
-title: Pesquisar na web para vídeos populares - pesquisa de vídeos do Bing
+title: Pesquisar na web para vídeos populares usando a API de pesquisa de vídeos do Bing
 titlesuffix: Azure Cognitive Services
-description: Mostra como utilizar a API de pesquisa de vídeos do Bing para pesquisar na web para vídeos populares.
+description: Saiba como utilizar a API de pesquisa de vídeos do Bing para pesquisar a web para vídeos populares.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 71dd888199e9e630835c4916d35f6308431bab62
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55f29a31a9574c7c32e6708565e961950520593f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203560"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566107"
 ---
-# <a name="get-trending-videos"></a>Obter vídeos populares  
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos populares com a API de pesquisa de vídeos do Bing 
 
-Para obter vídeos populares da atualidade, envie o pedido GET seguinte:  
+A API de pesquisa de vídeos do Bing permite-lhe encontrar vídeos populares da atualidade em toda a web e, em diferentes categorias. 
+
+## <a name="get-request"></a>O pedido
+
+Para aproveitar a API de pesquisa de vídeos do Bing vídeos populares da atualidade, envie o pedido GET seguinte:  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -30,6 +34,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## <a name="market-support"></a>Suporte do mercado
 
 Os seguintes mercados suportam vídeos populares.  
  
@@ -47,10 +53,11 @@ Os seguintes mercados suportam vídeos populares.
 -   ZA en (inglês, África do Sul)  
 -   zh-CN (Chinese, China)
 
-  
-O exemplo seguinte mostra uma resposta que contém vídeos populares.  
+## <a name="example-json-response"></a>Resposta JSON de exemplo  
 
-```  
+O exemplo seguinte mostra uma resposta de API que contém vídeos populares, que estão listados por categoria e subcategoria. A resposta também contém vídeos de faixa, que são os mais populares vídeos populares e podem vir de uma ou mais categorias.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -112,8 +119,9 @@ O exemplo seguinte mostra uma resposta que contém vídeos populares.
     ]  
 }  
   
-```  
-A resposta contém uma lista de vídeos por categoria e subcategoria. Por exemplo, se a lista de categorias continha uma categoria de vídeos de música e foi uma das respetivas subcategorias parte superior, pode criar uma categoria de vídeos de música da parte superior na sua experiência de utilizador. Em seguida, pode utilizar o `thumbnailUrl`, `displayText`, e `webSearchUrl` campos para criar um mosaico clicável em cada categoria (por exemplo, vídeos de música superior). Quando o usuário clica no mosaico, ele estão levado ao navegador de vídeos do Bing em que o vídeo é reproduzido.
+```
 
-A resposta também contém vídeos de faixa, que são os mais populares vídeos mais populares. Os vídeos de faixa podem ter um ou mais das categorias.  
-  
+## <a name="next-steps"></a>Passos Seguintes
+
+> [!div class="nextstepaction"]
+[Obtenha informações de vídeo](video-insights.md)

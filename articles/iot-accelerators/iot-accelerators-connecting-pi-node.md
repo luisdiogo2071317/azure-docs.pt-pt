@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 75869de67d006b2053e9c3f9eed2fd8166a0e8e1
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: af269085550f71323c8098b4cdf3c88ec8035dfe
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200994"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563308"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligar o seu dispositivo de Raspberry Pi para o acelerador de solução de monitorização remota (node. js)
 
@@ -96,7 +96,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Na **remote_monitoring.js** do ficheiro, adicione o seguinte `require` instruções:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -105,13 +105,13 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione as seguintes declarações de variáveis a seguir às instruções `require`. Substitua o valor do marcador de posição `{device connection string}` com o valor que anotou para o dispositivo que aprovisionou a solução de monitorização remota:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. Para definir alguns dados de telemetria de base, adicione as seguintes variáveis:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -122,7 +122,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Para definir alguns valores de propriedade, adicione as seguintes variáveis:
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -135,7 +135,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione a seguinte variável para definir as propriedades reportadas para enviar para a solução. Essas propriedades incluem metadados para apresentar a IU da Web:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -153,7 +153,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Para imprimir os resultados da operação, adicione a seguinte função de programa auxiliar:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -163,7 +163,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione a seguinte função de programa auxiliar para utilizar para tornar os valores de telemetria:
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -171,7 +171,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione a seguinte função genérica para processar chamadas de método direto da solução. A função Exibe informações sobre o método direto, que foi invocado, mas neste exemplo não modifica o dispositivo de forma alguma. A solução utiliza métodos diretos para tomar decisões sobre dispositivos:
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -186,7 +186,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione a seguinte função para processar a **FirmwareUpdate** direcionar chamadas de método da solução. A função verifica os parâmetros transmitidos no payload de método direto e, em seguida, executa forma assíncrona uma simulação de atualização de firmware:
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -215,7 +215,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione a seguinte função para simular um fluxo de atualização de firmware de longa execução que relata o curso para a solução:
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -293,7 +293,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione o seguinte código para enviar dados de telemetria para a solução. A aplicação de cliente Adiciona propriedades para a mensagem para identificar o esquema de mensagem:
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -312,7 +312,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
 
 1. Adicione o seguinte código para criar uma instância de cliente:
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -324,7 +324,7 @@ Conclua os passos seguintes a utilizar o `ssh` ligação para o seu Raspberry Pi
     * Registe manipuladores para os métodos diretos. Este exemplo utiliza um manipulador separado para o método direto de atualização de firmware.
     * Começar a enviar telemetria.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2847cf4abdfdea7eb38bd965cb54a223f014fb68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176918"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661960"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -181,7 +181,7 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
     | **Tempo limite da aplicação de back-end** | Definir este valor como **longo** apenas se a sua aplicação está lenta autenticar e ligar. |
     | **Utilizar Cookie somente de HTTP** | Definir este valor como **Sim** para que o Proxy de aplicações cookies incluem o sinalizador de HTTPOnly no cabeçalho de resposta HTTP. Se utilizar os serviços de ambiente de trabalho remoto, definir este valor como **não**.|
     | **Utilizar Cookie seguro**| Definir este valor como **Sim** transmitir cookies através de um canal seguro, como um pedido HTTPS encriptado.
-    | **Utilizar Cookie persistente**| Manter este valor definido como **não**. Esta definição só deve ser utilizada para aplicações que não é possível partilhar cookies entre processos. Para obter mais informações sobre as definições de cookie consulte [as definições de Cookie para aceder a aplicações no local no Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
+    | **Utilizar Cookie persistente**| Manter este valor definido como **não**. Esta definição só deve ser utilizada para aplicações que não é possível partilhar cookies entre processos. Para obter mais informações sobre as definições de cookie consulte [as definições de Cookie para aceder a aplicações no local no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **Traduzir URLs em cabeçalhos** | Manter este valor como **Sim** , a menos que seu aplicativo necessário o cabeçalho de anfitrião original no pedido de autenticação. |
     | **Traduzir URLs no corpo de aplicação** | Manter este valor como **não** a menos que tenha inserido no código HTML links para outras aplicações no local e não utilizar domínios personalizados. Para obter mais informações, consulte [vincular a tradução com Proxy de aplicações](application-proxy-configure-hard-coded-link-translation.md).<br><br>Definir este valor como **Sim** se pretender monitorizar esta aplicação com o Microsoft Cloud App Security (MCAS). Para obter mais informações, consulte [configurar a monitorização de acesso de aplicações em tempo real com o Microsoft Cloud App Security e Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    

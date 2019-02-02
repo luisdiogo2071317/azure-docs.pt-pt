@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180777"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568180"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 | OutputClaimsTransformations | 0:1 | Uma lista de referências definidas anteriormente a transformação de declarações que deve ser executada após as declarações são recebidas do fornecedor de afirmações. |
 | ValidationTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico utiliza para fins de validação. Para obter mais informações, consulte [perfil técnico de validação](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controla a produção de nome do requerente tokens em que o nome do requerente é especificado em separado de afirmações. Por exemplo, OAuth ou SAML.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico a partir do qual pretende que todas as declarações de entrada e saídas a ser adicionado a este perfil técnico. O perfil técnico referenciado tem de ser definido no mesmo ficheiro de política. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico a partir do qual pretende que todas as declarações de entrada e saídas a ser adicionado a este perfil técnico. O perfil técnico referenciado tem de ser definido no mesmo ficheiro de política. |
 | IncludeTechnicalProfile |0:1 | Um identificador de um perfil técnico a partir do qual pretende que todos os dados a serem adicionados a este perfil técnico. O perfil técnico referenciado tem de existir no mesmo ficheiro de política. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil de técnico diferente para ser utilizado para gestão de sessão. |
 |EnabledForUserJourneys| 0:1 |Controla se o perfil técnico é executado num percurso do utilizador.  |
@@ -168,7 +168,7 @@ O **InputClaims** elemento contém o seguinte elemento:
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Tipo de afirmação de entrada esperada. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 O **InputClaim** elemento contém os seguintes atributos:
 
@@ -186,7 +186,7 @@ O **PersistedClaims** elemento contém os seguintes elementos:
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | O tipo de afirmação para manter. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 O **PersistedClaim** elemento contém os seguintes atributos:
 
@@ -204,7 +204,7 @@ O **OutputClaims** elemento contém o seguinte elemento:
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Tipo de afirmação de um resultado esperado. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 O **OutputClaim** elemento contém os seguintes atributos:
 
@@ -275,9 +275,9 @@ O **UseTechnicalProfileForSessionManagement** elemento contém o atributo seguin
 O **ClaimsProviderSelections** sessão de um utilizador jornada define a lista de opções de seleção do fornecedor de afirmações e sua ordem. Com o **EnabledForUserJourneys** elemento filtrar, qual o fornecedor de afirmações está disponível para o utilizador. O **EnabledForUserJourneys** elemento contém um dos seguintes valores:
 
 - **Sempre**, execute o perfil técnico.
-- **Nunca**, ignore o perfil técnico. 
-- **OnClaimsExistence** ser executado apenas quando existe uma determinada afirmação, especificada no perfil técnico. 
-- **OnItemExistenceInStringCollectionClaim**, executar apenas quando existe um item numa afirmação de coleção de cadeia de caracteres. 
+- **Nunca**, ignore o perfil técnico.
+- **OnClaimsExistence** ser executado apenas quando existe uma determinada afirmação, especificada no perfil técnico.
+- **OnItemExistenceInStringCollectionClaim**, executar apenas quando existe um item numa afirmação de coleção de cadeia de caracteres.
 - **OnItemAbsenceInStringCollectionClaim** executar apenas quando um item não existe uma afirmação de coleção de cadeia de caracteres.
 
 Usando **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **OnItemAbsenceInStringCollectionClaim**, é necessário fornecer o seguinte metadados: **ClaimTypeOnWhichToEnable** Especifica o tipo da afirmação que está a ser avaliado **ClaimValueOnWhichToEnable** Especifica o valor que está a ser comparado.
@@ -289,22 +289,10 @@ O perfil técnico seguinte é executado apenas se o **identityProviders** coleç
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

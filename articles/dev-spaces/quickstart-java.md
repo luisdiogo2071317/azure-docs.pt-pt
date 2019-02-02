@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453438"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657064"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Início rápido: Criar um espaço de desenvolvimento de Kubernetes com espaços de desenvolvimento do Azure (Java e o VS Code)
 
@@ -27,7 +27,7 @@ Neste guia, vai aprender a:
 - Depurar o código no espaço de programador do VS Code.
 
 > [!Note]
-> **Se ficar bloqueado** em qualquer altura, veja a secção [Resolução de problemas](troubleshooting.md) ou publique um comentário nesta página. Também pode consultar o [tutorial](get-started-netcore.md) mais detalhado.
+> **Se ficar bloqueado** em qualquer altura, veja a secção [Resolução de problemas](troubleshooting.md) ou publique um comentário nesta página. Também pode consultar o [tutorial](get-started-java.md) mais detalhado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -137,4 +137,4 @@ Atualize a aplicação Web no browser. Deverá ver a mensagem personalizada apre
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-java.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
+> [Working with multiple containers and team development](multi-service-java.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)

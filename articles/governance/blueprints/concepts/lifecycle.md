@@ -4,17 +4,17 @@ description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309811"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563716"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
 
@@ -33,8 +33,7 @@ Para compreender totalmente um plano gráfico e as fases, iremos abranger um cic
 
 ## <a name="creating-and-editing-a-blueprint"></a>Criação e edição de um plano gráfico
 
-Ao criar um plano gráfico, adicione artefactos ao mesmo, salvar num grupo de gestão e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico está agora num **rascunho** modo e ainda não é possível atribuir.
-Enquanto estiver no **rascunho** modo, este pode continuar a ser atualizada e foi alterado.
+Quando criar um plano gráfico, adiciona artefactos, guarde a um grupo de gestão ou a subscrição e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico está agora num **rascunho** modo e ainda não é possível atribuir. Enquanto estiver no **rascunho** modo, este pode continuar a ser atualizada e foi alterado.
 
 A nunca publicadas esquema no **rascunho** modo apresenta um ícone diferente no **definições do esquema** página que as que tiverem sido **publicada**. O **versão mais recente** também é apresentado como **rascunho** para estes nunca publicado esquemas.
 

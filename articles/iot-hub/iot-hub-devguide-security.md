@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f347c9ca3d56bedcc838d72ca15793bd13ee19ad
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826178"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563937"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -57,7 +57,7 @@ Por exemplo, numa solução de IoT típica:
 > [!NOTE]
 > Ver [permissões](#iot-hub-permissions) para obter informações detalhadas.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 O IoT Hub do Azure concede acesso a pontos finais verificando um token com a políticas de acesso partilhado e as credenciais de segurança do registo de identidade.
 
@@ -134,7 +134,7 @@ O token de segurança tem o seguinte formato:
 
 Seguem-se os valores esperados:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificar a partir de base64 e usada como chave para realizar a computação do HMAC-SHA256. |
 | {resourceURI} |Prefixos de URI (por segmento) dos pontos de extremidade que podem ser acessados com este token, começando com o nome de anfitrião do hub IoT (nenhum protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
@@ -146,7 +146,7 @@ Seguem-se os valores esperados:
 
 O seguinte trecho de node. js mostra uma função chamada **generateSasToken** que computa o token de entradas `resourceUri, signingKey, policyName, expiresInMins`. As secções seguintes detalham como inicializar as diferentes entradas para os casos de utilização de token diferente.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -260,7 +260,7 @@ Por exemplo, um token que criou para aceder a todas as funcionalidades do dispos
 
 Um exemplo de uso a função de node. js anterior seria:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -294,7 +294,7 @@ Por exemplo, um serviço de token usando previamente criada partilhado chamada d
 
 Um exemplo de uso a função de node. js anterior seria:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -328,7 +328,7 @@ Por exemplo, um serviço de gerar usando previamente criada partilhado chamada d
 * nome da política: `registryRead`,
 * hora de expiração.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';

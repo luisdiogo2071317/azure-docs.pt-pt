@@ -4,229 +4,197 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e262bf7e-cc7d-4d0e-aea7-861f00d8837d
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/21/2017
+ms.topic: tutorial
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: bc4ae377d9c49c534652352d5c980f1fbc4c1e17
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a9d260f05923985456a1f702ad5afc52d045211a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190110"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Active Directory do Azure com CompetencyIQ
 
 Neste tutorial, saiba como integrar CompetencyIQ com o Azure Active Directory (Azure AD).
-
 Integrar CompetencyIQ no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao CompetencyIQ
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para CompetencyIQ (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao CompetencyIQ.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para CompetencyIQ (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com CompetencyIQ, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um CompetencyIQ logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* CompetencyIQ logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando CompetencyIQ da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta CompetencyIQ **SP** iniciada SSO
 
 ## <a name="adding-competencyiq-from-the-gallery"></a>Adicionando CompetencyIQ da Galeria
+
 Para configurar a integração do CompetencyIQ com o Azure AD, terá de adicionar CompetencyIQ a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar CompetencyIQ a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **CompetencyIQ**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/tutorial_competencyiq_search.png)
+4. Na caixa de pesquisa, escreva **CompetencyIQ**, selecione **CompetencyIQ** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **CompetencyIQ**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![CompetencyIQ na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/tutorial_competencyiq_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com CompetencyIQ com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no CompetencyIQ a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no CompetencyIQ deve ser estabelecido.
-
-CompetencyIQ, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com CompetencyIQ com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no CompetencyIQ deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com CompetencyIQ, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste CompetencyIQ](#creating-a-competencyiq-test-user)**  - para ter um equivalente da Eduarda Almeida na CompetencyIQ que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar CompetencyIQ Single Sign-On](#configure-competencyiq-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste CompetencyIQ](#create-competencyiq-test-user)**  - para ter um equivalente da Eduarda Almeida na CompetencyIQ que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo CompetencyIQ.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com CompetencyIQ, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com CompetencyIQ, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **CompetencyIQ** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **CompetencyIQ** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_competencyiq_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **CompetencyIQ domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_competencyiq_url1.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<customer>.competencyiq.com/`
-    
-    b. Na **identificador** caixa de texto, escreva o URL: `https://www.competencyiq.com/`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    > [!NOTE] 
-    > O valor de URL de início de sessão é não real então Atualize com o URL de início de sessão real. Contacte [equipa de suporte de cliente CompetencyIQ](https://www.competencyiq.com/) para que isso. 
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_competencyiq_certificate.png) 
+    ![CompetencyIQ domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-1. Clique em **guardar** botão.
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<customer>.competencyiq.com/`
 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_general_400.png)
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL: `https://www.competencyiq.com/`
 
-1. Sobre o **CompetencyIQ configuração** secção, clique em **configurar CompetencyIQ** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML**, e **SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    > [!NOTE]
+    > O valor do URL de início de sessão não é real. Atualize o valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente CompetencyIQ](https://www.competencyiq.com/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_competencyiq_configure.png) 
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Para configurar o início de sessão único num **CompetencyIQ** lado, terá de enviar o transferido **XML de metadados**, **ID de entidade de SAML** e **SAML único início de sessão no serviço URL** para [equipa de suporte de CompetencyIQ](https://www.competencyiq.com/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+    ![O link de download de certificado](common/metadataxml.png)
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Sobre o **configurar CompetencyIQ** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-competencyiq-single-sign-on"></a>Configurar CompetencyIQ Single Sign-On
+
+Para configurar o início de sessão único num **CompetencyIQ** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [CompetencyIQ a equipa de suporte ](https://www.competencyiq.com/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/competencyiq-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-competencyiq-test-user"></a>Criar um utilizador de teste CompetencyIQ
 
-Para ativar a utilizadores do Azure AD iniciar sessão no CompetencyIQ, tem de ser aprovisionados em CompetencyIQ. Contacte [equipa de suporte de CompetencyIQ](https://www.competencyiq.com/) para criar utilizadores no aplicativo.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para CompetencyIQ.
 
-![Atribuir utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **CompetencyIQ**.
 
-**Para atribuir a Eduarda Almeida a CompetencyIQ, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **CompetencyIQ**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de CompetencyIQ na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **CompetencyIQ**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![Configurar o início de sessão único](./media/competencyiq-tutorial/tutorial_competencyiq_app.png) 
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir utilizador][202] 
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![Atribuir utilizador][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-competencyiq-test-user"></a>Criar utilizador de teste CompetencyIQ
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no CompetencyIQ. Trabalhar com [equipa de suporte de CompetencyIQ](https://www.competencyiq.com/) para adicionar os utilizadores na plataforma CompetencyIQ. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico CompetencyIQ no painel de acesso, deve obter automaticamente registado no aplicativo.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico CompetencyIQ no painel de acesso, deve ser automaticamente sessão iniciada no CompetencyIQ para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/competencyiq-tutorial/tutorial_general_01.png
-[2]: ./media/competencyiq-tutorial/tutorial_general_02.png
-[3]: ./media/competencyiq-tutorial/tutorial_general_03.png
-[4]: ./media/competencyiq-tutorial/tutorial_general_04.png
-
-[100]: ./media/competencyiq-tutorial/tutorial_general_100.png
-
-[200]: ./media/competencyiq-tutorial/tutorial_general_200.png
-[201]: ./media/competencyiq-tutorial/tutorial_general_201.png
-[202]: ./media/competencyiq-tutorial/tutorial_general_202.png
-[203]: ./media/competencyiq-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

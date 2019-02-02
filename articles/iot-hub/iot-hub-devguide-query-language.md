@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157212"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568384"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
 
@@ -207,7 +207,7 @@ A funcionalidade de consulta está exposta pela [serviço do Azure IoT SDK para 
 
 Eis um exemplo de uma consulta simples:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -462,13 +462,13 @@ Em condições de rotas, são suportadas as seguintes funções de matemática:
 
 | Função | Descrição |
 | -------- | ----------- |
-| Abs(x) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
-| Exp(x) | Devolve o valor exponencial da expressão especificada numérico (e ^ x). |
+| ABS(x) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
+| EXP(x) | Devolve o valor exponencial da expressão especificada numérico (e ^ x). |
 | Power(x,y) | Devolve o valor da expressão especificada à potência especificada (x ^ y).|
 | SQUARE(x) | Devolve o quadrado do valor numérico especificado. |
 | CEILING(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
 | FLOOR(x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| Sign(x) | Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.|
+| SIGN(x) | Devolve o positivo (+ 1), zero (0) ou sinal negativo de (-1) da expressão especificada numérico.|
 | SQRT(x) | Devolve a raiz quadrada do valor numérico especificado. |
 
 Em condições de rotas, são suportadas as funções de conversão e verificação de tipo seguintes:
@@ -489,14 +489,14 @@ Em condições de rotas, são suportadas as seguintes funções de cadeia de car
 
 | Função | Descrição |
 | -------- | ----------- |
-| CONCAT (x, y,...) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| CONCAT(x, y, …) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
 | LENGTH(x) | Devolve o número de carateres da expressão de cadeia especificada.|
 | LOWER(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
 | UPPER(x) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
 | SUBCADEIA (cadeia de caracteres, início [, comprimento]) | Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres. |
 | INDEX_OF (string, fragmento) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada.|
-| STARTS_WITH (x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com a segunda. |
-| ENDS_WITH (x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com a segunda. |
+| STARTS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com a segunda. |
+| ENDS_WITH(x, y) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com a segunda. |
 | CONTAINS(x,y) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
 
 ## <a name="next-steps"></a>Passos Seguintes

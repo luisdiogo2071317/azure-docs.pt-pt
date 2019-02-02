@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229256"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567847"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de tráfego
 
@@ -47,7 +47,7 @@ Para obter esta configuração, eles concluírem os seguintes passos:
 ![Configuração de DNS do Gestor de tráfego][1]
 
 > [!NOTE]
-> Quando utilizar um domínio personalizado com o Gestor de tráfego do Azure, tem de utilizar um CNAME para apontar o seu nome de domínio personalizado para o seu nome de domínio do Gestor de tráfego. Normas DNS não permitem-lhe criar um CNAME no "apex" (ou raiz) de um domínio. Portanto, não é possível criar um CNAME para "contoso.com" (por vezes denominado um domínio de "sem" www ""). Só pode criar um CNAME para um domínio em "contoso.com", por exemplo, "www.contoso.com". Para contornar esta limitação, recomendamos que utilize um redirecionamento HTTP simple para pedidos diretos para "contoso.com" para um nome alternativo, como "www.contoso.com".
+> Quando utilizar um domínio personalizado com o Gestor de tráfego do Azure, tem de utilizar um CNAME para apontar o seu nome de domínio personalizado para o seu nome de domínio do Gestor de tráfego. Normas DNS não permitem-lhe criar um CNAME no "apex" (ou raiz) de um domínio. Portanto, não é possível criar um CNAME para "contoso.com" (por vezes denominado um domínio de "sem" www ""). Só pode criar um CNAME para um domínio em "contoso.com", por exemplo, "www.contoso.com". Para contornar esta limitação, recomendamos que aloja o seu domínio DNS no [DNS do Azure](../dns/dns-overview.md) e a utilizar [registos de Alias](../dns/tutorial-alias-tm.md) para apontar para o perfil do traffic manager. Em alternativa, pode utilizar um redirecionamento HTTP simple para pedidos diretos para "contoso.com" para um nome alternativo, como "www.contoso.com".
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes estabelecem ligação com o Gestor de tráfego
 

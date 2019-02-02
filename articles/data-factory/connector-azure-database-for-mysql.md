@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cbf8a70dae566dcc22b5c5caa84d0781dc2467f9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d56b7506230b3a1351c973d2ecbe73008dbcf9c6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022177"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658509"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados da base de dados do Azure para MySQL com o Azure Data Factory
 
@@ -42,7 +42,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida como: **AzureMySql** | Sim |
-| connectionString | Especifica as informações necessárias para ligar à base de dados do Azure para a instância do MySQL. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectionString | Especifica as informações necessárias para ligar à base de dados do Azure para a instância do MySQL. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `password` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 É uma cadeia de ligação típica `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Mais de propriedades que pode ser definido por seu caso:
@@ -50,7 +50,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | SSLMode | Esta opção especifica se o driver utiliza encriptação SSL e verificação ao ligar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / preferencial (1) **(predefinição)** / necessária (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
-| useSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema, ou a partir de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
+| UseSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema, ou a partir de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
 
 **Exemplo:**
 
@@ -61,8 +61,37 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
         "type": "AzureMySql",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a palavra-passe no Azure Key Vault**
+
+```json
+{
+    "name": "AzureDatabaseForMySQLLinkedService",
+    "properties": {
+        "type": "AzureMySql",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -193,7 +222,6 @@ Ao copiar dados da base de dados do Azure para MySQL, os seguintes mapeamentos s
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int32` |
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

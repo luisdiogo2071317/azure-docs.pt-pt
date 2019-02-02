@@ -4,17 +4,17 @@ description: O Azure Blueprints é um serviço no Azure que serve para criar, de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246250"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563376"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -56,17 +56,14 @@ Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seg
 
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
-|Grupos de Recursos     | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager.         |
-|Modelo Azure Resource Manager      | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
-|Atribuição de Política     | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa tem de estar no âmbito do esquema (no grupo de gestão do esquema ou abaixo). Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema.       |
-|Atribuição de Função   | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
+|Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
+|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
+|Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa tem de ser no âmbito da localização da definição de esquema. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
+|Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
 
-### <a name="blueprints-and-management-groups"></a>Esquemas e grupos de gestão
+### <a name="blueprint-definition-locations"></a>Localizações de definição de esquema
 
-Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Atualmente, os esquemas só podem ser guardados num [grupo de gestão](../management-groups/overview.md) ao qual tenha acesso de **Contribuidor**. O esquema está disponível para atribuir a qualquer elemento subordinado (subscrição) desse grupo de gestão.
-
-> [!IMPORTANT]
-> Se não tiver acesso a nenhum grupo de gestão ou a nenhum dos grupos de gestão configurados, carregar a lista de definições de esquema mostra que nenhuma está disponível e clicar em **Âmbito** abre uma janela com um aviso sobre a obtenção de grupos de gestão. Para resolver este problema, certifique-se de que uma subscrição à qual tenha acesso adequado faz parte de um [grupo de gestão](../management-groups/overview.md).
+Ao criar uma definição de esquema, irá definir onde o esquema é guardado. Planos gráficos podem ser salvas num [grupo de gestão](../management-groups/overview.md) ou uma subscrição que tem **contribuinte** acesso a. Se a localização é um grupo de gestão, o plano gráfico está disponível para atribuir a qualquer subscrição subordinado desse grupo de gestão.
 
 ### <a name="blueprint-parameters"></a>Parâmetros de esquema
 
@@ -101,7 +98,7 @@ Para eliminar esquemas, a sua conta necessita das seguintes permissões:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> À medida que as definições de esquema são criadas num grupo de gestão, as permissões de definição de esquema têm de ser concedidas no âmbito de um grupo de gestão ou herdadas para o âmbito de um grupo de gestão.
+> As permissões de definição de esquema tem de ser concedidas ou herdadas sobre o âmbito de subscrição ou grupo de gestão onde é guardada.
 
 Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das seguintes permissões:
 

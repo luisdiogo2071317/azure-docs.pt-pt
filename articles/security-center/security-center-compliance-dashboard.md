@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267977"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660431"
 ---
-# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar a sua conformidade a normas
+# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhore a sua conformidade regulamentar
 ---
 
 Centro de segurança do Azure ajuda a simplificar o processo para requisitos de conformidade a normas, utilizar o dashboard de conformidade a normas. No dashboard do Centro de segurança faculta informações aprofundadas a sua postura de conformidade com base nas avaliações contínuas de seu ambiente do Azure. As avaliações realizadas pelo centro de segurança analisam os fatores de risco no seu ambiente de cloud híbrida em conformidade com as melhores práticas de segurança. Essas avaliações são mapeadas para controlos de conformidade de um conjunto de suporte de padrões. No dashboard de conformidade a normas, terá uma visão clara do Estado de todas essas avaliações no seu ambiente no contexto de um determinado padrão ou regulamentação. Quando tomar decisões sobre as recomendações e reduzir os fatores de risco no seu ambiente, pode ver a sua postura de conformidade melhorar.
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para acompanhar as funcionalidades abrangidas neste tutorial, tem de ter o escalão de preço Standard do Centro de segurança. Pode experimentar o Centro de segurança Standard sem encargos.
-Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avaliar a conformidade a normas
 

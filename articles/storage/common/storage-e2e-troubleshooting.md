@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 73073d5240f29906ade5f9b92cf81fec2f99a3d4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473209"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661977"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Para configurar o registo e métricas para o seu armazenamento de contas utiliza
 
 Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-1. Utilize o [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet para adicionar a sua conta de utilizador do Azure para a janela do PowerShell:
+1. Utilize o [Add-AzAccount](/powershell/module/az.account/add-azaccount) cmdlet para adicionar a sua conta de utilizador do Azure para a janela do PowerShell:
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. Na **iniciar sessão no Microsoft Azure** janela, escreva o endereço de e-mail e a palavra-passe associada à sua conta. O Azure autentica e guarda as informações das credenciais e, em seguida, fecha a janela.
@@ -110,7 +110,7 @@ Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e co
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. Ative o registo de armazenamento para o serviço de BLOBs:

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87cf0f09cbeeee90492e070b25b713546c6631e5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438869"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565858"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances com o Azure PowerShell
 
@@ -39,7 +39,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com o Azure PowerShell, forneça um nome de um grupo de recursos, o nome da instância de contentor e a imagem do contentor de Docker para o cmdlet [New-AzureRmContainerGroup] [ New-AzureRmContainerGroup]. Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste início rápido, vai implementar um contentor com uma etiqueta de nome DNS que aloja os serviços de informação Internet (IIS) em execução no servidor Nano.
+Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com o Azure PowerShell, forneça um nome de um grupo de recursos, o nome da instância de contentor e a imagem do contentor de Docker para o cmdlet [New-AzureRmContainerGroup] [ New-AzureRmContainerGroup]. Neste início rápido, vai utilizar o `microsoft/iis:nanoserver` imagem do Windows a partir do registo do Docker Hub público. Esta imagem de pacotes de serviços de informação Internet (IIS) para ser executado no servidor Nano.
+
+Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste início rápido, vai implementar um contentor com uma etiqueta de nome DNS para que o IIS está publicamente acessível.
 
 Execute o seguinte comando para iniciar a instância de um contentor. O valor `-DnsNameLabel` tem de ser exclusivo na região do Azure em que cria a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056272"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565224"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como aprovisionar novos inquilinos e registá-los no catálogo
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 * A aplicação de base de dados por inquilino Wingtip Tickets SaaS é implementada. Para implementá-lo em menos de cinco minutos, veja [implementar e explorar a aplicação de base de dados por inquilino Wingtip Tickets SaaS](saas-dbpertenant-get-started-deploy.md).
-* O Azure PowerShell está instalado. Para obter mais informações, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introdução do padrão de catalogação SaaS
 
@@ -155,9 +155,9 @@ O script implementa um lote de inquilinos adicionais. Ele usa um [modelo Azure R
 
 Outros padrões de aprovisionamento não incluídos neste tutorial:
 
-**Pré-aprovisionamento de bases de dados**: O pré-aprovisionamento padrão explora o fato de que as bases de dados num conjunto elástico não adicionam custos adicionais. A faturação é para o conjunto elástico, não as bases de dados. Bases de dados Inativas não consumirem recursos. Pelos pré-aprovisionamento bases de dados num conjunto e alocá-las, quando necessário, pode reduzir o tempo para adicionar os inquilinos. O número de bases de dados previamente aprovisionadas pode ser ajustado conforme necessário para manter uma memória intermédia adequada para a taxa de aprovisionamento previsível.
+**Pré-aprovisionamento de bases de dados**: O padrão de pré-aprovisionamento explora o facto das bases de dados num conjunto elástico não adicionam custos adicionais. A faturação é para o conjunto elástico, não as bases de dados. Bases de dados Inativas não consumirem recursos. Pelos pré-aprovisionamento bases de dados num conjunto e alocá-las, quando necessário, pode reduzir o tempo para adicionar os inquilinos. O número de bases de dados previamente aprovisionadas pode ser ajustado conforme necessário para manter uma memória intermédia adequada para a taxa de aprovisionamento previsível.
 
-**Aprovisionamento automático**: padrão de aprovisionamento automático, um serviço de aprovisionamento Aprovisiona servidores, conjuntos e bases de dados automaticamente, conforme necessário. Se desejar, pode incluir o pré-aprovisionamento de bases de dados nos conjuntos elásticos. Se as bases de dados são descomissionados e eliminadas, os espaços nos conjuntos elásticos podem ser preenchidos pelo serviço de aprovisionamento. Esse serviço pode ser simples ou complexos, como a manipulação de aprovisionamento em vários locais geográficos e configurar a georreplicação para recuperação após desastre. 
+**Aprovisionamento automático**: O padrão de aprovisionamento automático, um serviço de aprovisionamento Aprovisiona servidores, conjuntos e bases de dados automaticamente, conforme necessário. Se desejar, pode incluir o pré-aprovisionamento de bases de dados nos conjuntos elásticos. Se as bases de dados são descomissionados e eliminadas, os espaços nos conjuntos elásticos podem ser preenchidos pelo serviço de aprovisionamento. Esse serviço pode ser simples ou complexos, como a manipulação de aprovisionamento em vários locais geográficos e configurar a georreplicação para recuperação após desastre. 
 
 Com o padrão de aprovisionamento automático, uma aplicação cliente ou script submete um pedido de aprovisionamento a uma fila para serem processados pelo serviço de aprovisionamento. Em seguida, consulta o serviço para determinar a conclusão. Se for utilizado a pré-aprovisionamento, os pedidos são processados rapidamente. O serviço aprovisiona um banco de dados de substituição em segundo plano.
 

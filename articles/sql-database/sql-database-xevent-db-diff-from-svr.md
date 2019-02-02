@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a4971d680994c9d81e86a4070ea79365ac8ec4dd
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/19/2018
+ms.openlocfilehash: 5de5a58f936547d04fbce9eb84422652e23b82bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606491"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564885"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -33,7 +33,7 @@ Este tópico explica como a implementação de eventos expandidos na base de dad
 Informações adicionais sobre eventos expandidos, para a base de dados do Azure SQL e o Microsoft SQL Server, estão disponíveis em:
 
 - [Início rápido: Eventos expandidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventos expandidos](https://msdn.microsoft.com/library/bb630282.aspx)
+- [Extended Events (Eventos Expandidos)](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -196,7 +196,7 @@ O **o ficheiro de evento** destino poderá deparar-se a latência de rede ou fal
 - [Com o Azure PowerShell com armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) -oferece informações abrangentes sobre o PowerShell e o serviço de armazenamento do Azure.
 - [Como utilizar o armazenamento de Blobs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CRIAR a sessão do evento (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Mensagens do blogue de Jonathan Kehayias ' Acerca de eventos expandidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 

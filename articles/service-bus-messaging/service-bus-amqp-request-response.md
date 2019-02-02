@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 13495107aff24b868a4188c25768868945e70db8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852481"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658220"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseados no pedido-resposta
 
@@ -505,7 +505,7 @@ O **filtro de correlação** mapa tem de incluir, pelo menos, uma das seguintes 
 |id de sessão|cadeia|Não||  
 |reply-to-session-id|cadeia|Não||  
 |content-type|cadeia|Não||  
-|propriedades|map|Não|É mapeado para o Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|propriedades|map|Não|É mapeado para o Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 O **ação de regra sql** mapa tem de incluir as seguintes entradas:  
   
@@ -591,7 +591,7 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 
 `filter` pode ser de qualquer um dos seguintes tipos:
 
-| Nome do descritor | Código de descritor | Valor |
+| Nome do descritor | Código de descritor | Value |
 | --- | --- | ---|
 | `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
 | `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlação |
@@ -620,7 +620,7 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 
 `ruleAction` pode ser qualquer um dos seguintes tipos:
 
-| Nome do descritor | Código de descritor | Valor |
+| Nome do descritor | Código de descritor | Value |
 | --- | --- | ---|
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Ação de regra vazia - nenhuma ação de regra presente |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Ação de regra SQL |

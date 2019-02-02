@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 021876306c435d3d15996c69ab3613c1d82e6993
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468891"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567660"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco na proteção de identidade do Azure Active Directory (atualizada)
 
@@ -129,7 +129,7 @@ A política de risco do utilizador está no **configurar** secção sobre o [pá
 
 ## <a name="user-risk-policy-settings"></a>Definições de política de risco do utilizador
 
-Ao configurar a política de risco de início de sessão, tem de definir:
+Ao configurar a política de risco do utilizador, tem de definir:
 
 - Os utilizadores e grupos que a política aplica-se a:
 

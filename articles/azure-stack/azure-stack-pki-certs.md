@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244254"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660124"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infra-estrutura de chave pública do Azure Stack
 
@@ -49,7 +49,7 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - Os ficheiros pfx do certificado tem de ter os valores "Autenticação de servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Utilização de chave avançada".
 - O certificado "emitido para:" campo não tem de ser igual a "emitido por:" campo.
 - As palavras-passe para todos os ficheiros de pfx do certificado devem ser o mesmo no momento da implementação
-- Palavra-passe para o pfx do certificado tem de ser uma palavra-passe complexa.
+- Palavra-passe para o pfx do certificado tem de ser uma palavra-passe complexa. Crie uma palavra-passe que cumpra os seguintes requisitos de complexidade de palavra-passe. Um comprimento mínimo de oito caracteres. A palavra-passe contém, pelo menos, três dos seguintes: letras em maiúscula letra, letras minúsculas, números de 0 a 9, caracteres especiais, um caráter alfabético que não é maiúscula nem em minúsculas. Tome nota desta palavra-passe. Irá utilizá-lo como um parâmetro de implementação.
 - Certifique-se de que os nomes de requerente e os nomes alternativos do requerente na correspondência de extensão (x509v3_config) de nome alternativo do requerente. O campo de nome alternativo do requerente permite-lhe especificar os nomes de anfitrião adicionais (os Web sites, endereços IP, nomes comuns) para ser protegido por um único certificado SSL.
 
 > [!NOTE]  

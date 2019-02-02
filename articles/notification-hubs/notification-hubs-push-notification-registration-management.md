@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817839"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566165"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -33,7 +33,7 @@ Registo de dispositivos no Hub de notificação é realizado através de um **Re
 
 ### <a name="registrations"></a>Registos
 
-Um registo associa o identificador de serviço de notificação de plataforma (PNS) para um dispositivo com etiquetas e, possivelmente, um modelo. O identificador PNS poderia ser um ChannelURI, o token do dispositivo ou o id de registo do GCM. As etiquetas são utilizadas para encaminhar as notificações para o conjunto correto de identificadores de dispositivo. Para obter mais informações, consulte [encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md). Os modelos são utilizados para implementar a transformação de por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
+Um registo associa o identificador de serviço de notificação de plataforma (PNS) para um dispositivo com etiquetas e, possivelmente, um modelo. O identificador PNS poderia ser um ChannelURI, o token do dispositivo ou o id de registo do FCM. As etiquetas são utilizadas para encaminhar as notificações para o conjunto correto de identificadores de dispositivo. Para obter mais informações, consulte [encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md). Os modelos são utilizados para implementar a transformação de por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
 > [!NOTE]
 > Os Hubs de notificação do Azure suporta um máximo de 60 etiquetas por registo.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

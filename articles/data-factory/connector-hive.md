@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019746"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566090"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de Hive com o Azure Data Factory 
 
@@ -45,8 +45,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Hive:
 | anfitrião | Nome anfitrião ou endereço IP do servidor do Hive, separado por ";" para vários anfitriões (apenas quando serviceDiscoveryMode é ativado).  | Sim |
 | porta | A porta TCP que o servidor do Hive utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo de servidor do Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
-| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **Binário**, **SASL**, **HTTP** | Não |
-| authenticationType | O método de autenticação utilizado para aceder ao servidor do Hive. <br/>Valores permitidos são: **Anónimo**, **nome de utilizador**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **HTTP** | Não |
+| authenticationType | O método de autenticação utilizado para aceder ao servidor do Hive. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | serviceDiscoveryMode | TRUE para indicar a utilizar o serviço de ZooKeeper, false não.  | Não |
 | zooKeeperNameSpace | O espaço de nomes no qual 2 de servidor do Hive são adicionados nós do ZooKeeper.  | Não |
 | useNativeQuery | Especifica se o driver usa consultas nativas de HiveQL ou converte-os num formulário do equivalente no HiveQL.  | Não |
@@ -73,8 +73,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Hive:
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             }
         }
     }

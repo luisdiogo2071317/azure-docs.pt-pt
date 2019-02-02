@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ebba9a66e55cf82f42773276e36a952264eeee2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545027"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656316"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
 Pode transferir os registos de erros de servidor PostgreSQL, utilizando a interface de linha de comandos (CLI do Azure). No entanto, o acesso aos logs de transação não é suportado. 
@@ -38,7 +38,7 @@ Pode listar os ficheiros de registo para o servidor **mydemoserver.postgres.data
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Transferir localmente os registos do servidor
-Com o [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) de comando, pode transferir ficheiros de registo individuais para o seu servidor. 
+Com o [az postgres server-logs download](/cli/azure/postgres/server-logs) de comando, pode transferir ficheiros de registo individuais para o seu servidor. 
 
 Utilize o exemplo seguinte para transferir o ficheiro de registo específico para o servidor **mydemoserver.postgres.database.azure.com** sob o grupo de recursos **myresourcegroup** ao seu ambiente local.
 ```azurecli-interactive

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451208"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659257"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utilizar a política do Azure para restringir a instalação de extensões em VMs do Linux
 
@@ -115,7 +115,7 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política para um grupo de recursos utilizando [criação da atribuição de política de az](/cli/azure/policy/assignment#az_policy_assignment_create). Qualquer VM criada no **myResourceGroup** grupo de recursos não será possível instalar o acesso de VM do Linux ou as extensões de Script personalizado para Linux. O grupo de recursos tem de existir antes de poder atribuir a política.
+Este exemplo atribui a política para um grupo de recursos utilizando [criação da atribuição de política de az](/cli/azure/policy/assignment). Qualquer VM criada no **myResourceGroup** grupo de recursos não será possível instalar o acesso de VM do Linux ou as extensões de Script personalizado para Linux. O grupo de recursos tem de existir antes de poder atribuir a política.
 
 Utilizar [lista de contas de az](/cli/azure/account?view=azure-cli-latest#az_account_list) para obter o seu ID de subscrição para utilizar no lugar no exemplo.
 

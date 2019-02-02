@@ -1,23 +1,23 @@
 ---
-title: Proteção de palavra-passe do Azure AD FAQ do local
-description: Proteção de palavra-passe do Azure AD FAQ do local
+title: Proteção de passe do Azure AD no local FAQ
+description: Proteção de passe do Azure AD no local FAQ
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 62bda3a1c9cb9d53578c2d471b9e63d1f0873234
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078700"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663303"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Pré-visualização: Azure AD palavra-passe proteção no local - perguntas mais frequentes
+# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Pré-visualização: Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
 |     |
 | --- |
@@ -28,13 +28,13 @@ ms.locfileid: "55078700"
 
 **P: Quando é que a proteção de palavra-passe do Azure AD será contactado disponibilidade geral (GA)?**
 
-Não, Anunciamos uma data de disponibilidade geral.
+Disponibilidade geral está prevista para Q1 CY2019 (antes do final de Março de 2019). Obrigado a todos os que forneceu comentários sobre a funcionalidade de data – Agradecemos-lo!
 
-**P: É no local a proteção de palavra-passe do Azure AD suportada nas clouds não pública?**
+**P: É no local suportada em nuvens não pública de proteção de palavra-passe do Azure AD?**
 
 Não, a proteção de palavra-passe do Azure AD no local só é suportada na cloud pública.
 
-**P: Como posso aplicar os benefícios de proteção de palavra-passe do Azure AD para um subconjunto dos meus utilizadores no local?**
+**P: Como posso aplicar os benefícios da proteção de palavra-passe do Azure AD para um subconjunto dos meus utilizadores no local?**
 
 Não suportado. Depois de implementada e ativada, a proteção de palavra-passe do Azure AD não distinguir - todos os utilizadores recebem benefícios de segurança igual.
 
@@ -62,6 +62,6 @@ Não.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se tiver uma questão de proteção de palavra-passe no local do Azure AD, não é respondida aqui, submeta um item de comentário abaixo - obrigado!
+Se tiver uma questão de proteção de palavra-passe do Azure AD no local que não está respondida aqui, submeta um item de comentário abaixo - obrigado!
 
 [Implementar proteção de palavras-passe do Azure AD](howto-password-ban-bad-on-premises-deploy.md)

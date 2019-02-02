@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/01/2019
+ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546917"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660736"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
@@ -81,15 +81,15 @@ Aqui estão alguns exemplos de como pode obter mais informações sobre sua carg
 Quando a consulta Store está ativada guarda os dados no windows de agregação de 15 minutos, até 500 consultas distintas por janela. 
 
 As seguintes opções estão disponíveis para configurar parâmetros de consulta Store.
-| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
+| **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Define quais declarações são controladas. | parte superior | Nenhum, principais, tudo |
-| pg_qs.max_query_text_length | Define o período de consulta máxima que pode ser salvo. Consultas mais tempo serão truncadas. | 6000 | 100 - 10 MIL |
+| pg_qs.query_capture_mode | Define quais declarações são controladas. | nenhum | Nenhum, principais, tudo |
+| pg_qs.max_query_text_length | Define o período de consulta máxima que pode ser salvo. Consultas mais tempo serão truncadas. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
-| pg_qs.track_utility | Define se são controlados comandos de utilitário | em | desativado |
+| pg_qs.track_utility | Define se são controlados comandos de utilitário | em | on, off |
 
 As opções seguintes aplicam-se especificamente a estatísticas de espera.
-| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo**|
+| **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Conjuntos de declarações são controladas por estatísticas de espera. | nenhum | NONE, tudo|
 | Pgms_wait_sampling.history_period | Defina a frequência, em milissegundos, no qual espera os eventos são recolhidos. | 100 | 1-600000 |
@@ -111,8 +111,8 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |**Nome**   |**Tipo** | **Referências**  | **Descrição**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID da tabela runtime_stats_entries|
-|USER_ID    |OID    |pg_authid.OID  |OID de utilizador que executou a instrução|
-|db_id  |OID    |pg_database.OID    |OID da base de dados em que a instrução foi executada|
+|user_id    |OID    |pg_authid.oid  |OID de utilizador que executou a instrução|
+|db_id  |OID    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
 |query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a esta consulta não está disponível ainda|
@@ -151,8 +151,8 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 
 |**Nome**|  **Tipo**|   **Referências**| **Descrição**|
 |---|---|---|---|
-|USER_ID    |OID    |pg_authid.OID  |OID de utilizador que executou a instrução|
-|db_id  |OID    |pg_database.OID    |OID da base de dados em que a instrução foi executada|
+|user_id    |OID    |pg_authid.oid  |OID de utilizador que executou a instrução|
+|db_id  |OID    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
 |query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
 |event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
 |event  |texto       ||O nome do evento espera se back-end está atualmente a aguardar|
@@ -160,7 +160,7 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 
 
 ### <a name="functions"></a>Funções
-Query_store.qs_reset() retorna void
+Query_store.qs_reset() returns void
 
 `qs_reset` Elimina todas as estatísticas recolhidas até ao momento pelas Store de consulta. Esta função só pode ser executada pela função de administrador de servidor.
 

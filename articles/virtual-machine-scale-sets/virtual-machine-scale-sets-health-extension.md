@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491387"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565977"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Conjuntos de extensão com o dimensionamento de máquinas virtuais com o estado de funcionamento da aplicação
 Monitorizar o estado de funcionamento do aplicativo é um sinal importante para gerenciar e atualizar a sua implementação. Conjuntos de dimensionamento de máquina virtual do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas da imagem do SO](virtual-machine-scale-sets-automatic-upgrade.md), que dependem de monitorização de estado de funcionamento das instâncias individuais para atualizar a sua implementação .
 
 Este artigo descreve como pode utilizar a extensão de estado de funcionamento do aplicativo para monitorizar o estado de funcionamento das suas aplicações implementadas em conjuntos de dimensionamento de máquina virtual.
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que está familiarizado com:
 -   Máquina virtual do Azure [extensões](../virtual-machines/extensions/overview.md)
 -   [Modificar](virtual-machine-scale-sets-upgrade-scale-set.md) conjuntos de dimensionamento de máquina virtual

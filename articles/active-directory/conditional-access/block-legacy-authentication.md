@@ -1,6 +1,6 @@
 ---
 title: Como bloquear antigos de autenticação para o Azure Active Directory (Azure AD) com acesso condicional | Documentos da Microsoft
-description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para tentativas de acesso a partir de redes não confiáveis.
+description: Saiba como melhorar a sua postura de segurança bloqueando antigos de autenticação através do acesso condicional do Azure AD.
 services: active-directory
 keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076848"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562985"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
 Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud, Azure Active Directory (Azure AD) oferece suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação. No entanto, os protocolos legados não suportam autenticação multifator (MFA). MFA é, em muitos ambientes, um requisito comum para roubo de identidade de endereço. 
+
 
 Se o ambiente está pronto para autenticação de legado do bloco para melhorar a proteção do seu inquilino, pode realizar esse objetivo com o acesso condicional. Este artigo explica como pode configurar políticas de acesso condicional desse bloco antigos de autenticação para o seu inquilino.
 
@@ -119,8 +120,7 @@ Pode demorar até 24 horas para a política para entrar em vigor.
 
 Pode selecionar todos os controlos de concessão disponíveis para a outra condição de clientes; No entanto, a experiência de utilizador final é sempre o mesmo - bloqueou o acesso.
 
-Pode configurar todas as outras condições junto a outra condição de clientes.
-Por exemplo, se apenas pretender bloquear antigos de autenticação para dispositivos móveis, defina o **plataformas de dispositivos** condição ao selecionar:
+Se bloquear antigos de autenticação com a outra condição de clientes, também pode definir a condição de plataforma e a localização do dispositivo. Por exemplo, se apenas pretender bloquear antigos de autenticação para dispositivos móveis, defina o **plataformas de dispositivos** condição ao selecionar:
 
 - Android
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507404"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564447"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -265,11 +265,11 @@ Por exemplo, pode defini-lo como 0x100000 e ver se o desempenho se tornar melhor
 
 ### <a name="cause"></a>Causa
 
-Erro AadDsTenantNotFound acontece quando tentar [ativar a autenticação do Azure Active Directory (AAD) para ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) numa conta de armazenamento onde [AAD domínio Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) não é criado sobre o AAD inquilino da subscrição associada.  
+Erro AadDsTenantNotFound acontece quando tentar [ativar a autenticação do Azure Active Directory (AAD) para ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) numa conta de armazenamento onde [AAD domínio Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) não é criado sobre o AAD inquilino da subscrição associada.  
 
 ### <a name="solution"></a>Solução
 
-Ative DS do AAD no inquilino do AAD da subscrição que a sua conta de armazenamento está implementada. São necessários privilégios de administrador de inquilino do AAD para criar um domínio gerido. Se não o administrador de inquilino do Azure AD, contacte o administrador e siga as orientações passo a passo para [ativar o Azure Active Directory Domain Services no portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Ative DS do AAD no inquilino do AAD da subscrição que a sua conta de armazenamento está implementada. São necessários privilégios de administrador de inquilino do AAD para criar um domínio gerido. Se não o administrador de inquilino do Azure AD, contacte o administrador e siga as orientações passo a passo para [ativar o Azure Active Directory Domain Services no portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para seu problema resolvido rapidamente.

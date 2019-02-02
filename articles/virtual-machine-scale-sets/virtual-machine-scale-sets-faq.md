@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 85b05e50dd989ef8db737df0a43f29b20aefb596
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493665"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657761"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Reveja a documentação de keyvaults para as operações de certificado mais recente do API suportada no Azure.
 
-Certificados autoassinados não podem ser utilizados para confiança distribuída fornecida por uma autoridade de certificação e não devem ser usados para qualquer Cluster do Service Fabric se destina a soluções de host de produção de enterprise; para orientações adicionais de segurança de recursos de infraestrutura do serviço, reveja [do Azure Service Fabric melhores práticas de segurança](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) e [cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Certificados autoassinados não podem ser utilizados para confiança distribuída fornecida por uma autoridade de certificação e não devem ser usados para qualquer Cluster do Service Fabric se destina a soluções de host de produção de enterprise; para orientações adicionais de segurança de recursos de infraestrutura do serviço, reveja [do Azure Service Fabric melhores práticas de segurança](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) e [cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Pode especificar um par de chaves SSH para utilizar para autenticação de SSH com um dimensionamento de máquinas virtuais do Linux definido a partir de um modelo do Resource Manager?
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382924"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656877"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -29,7 +29,7 @@ Os Webhooks são uma das diversas formas de receber eventos do Azure Event Grid.
 
 Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar a propriedade do ponto final do Webhook, antes de iniciar a entrega de eventos para esse ponto final. Esse requisito impede que um utilizador mal intencionado sobrecarregar o ponto final com eventos. Quando utiliza qualquer um dos três serviços do Azure listados abaixo, a infraestrutura do Azure processa automaticamente esta validação:
 
-* Aplicações lógicas do Azure com [conector de grelha de eventos](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Aplicações lógicas do Azure com [conector de grelha de eventos](https://docs.microsoft.com/connectors/azureeventgrid/)
 * A automatização do Azure através de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Das funções do Azure com [acionador do Event Grid](../azure-functions/functions-bindings-event-grid.md)
 

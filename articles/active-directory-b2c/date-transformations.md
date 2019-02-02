@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153409"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564799"
 ---
 # <a name="date-claims-transformations"></a>Transformações de afirmações de data
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153409"
 
 Este artigo fornece exemplos para usar as transformações de afirmações de data do esquema de arquitetura de experiências de identidade no Azure Active Directory (Azure AD) B2C. Para obter mais informações, consulte [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 Verifica que uma data e hora afirmações (tipo de dados de cadeia de caracteres) é posterior a uma segundo data e hora afirmação (tipo de dados de cadeia de caracteres) e lança uma exceção.
 
@@ -85,7 +85,6 @@ O perfil técnico de declaração própria chama a validação **NonInteractive 
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Resultado: Erro gerado
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 Converte um **data** ClaimType para um **DateTime** ClaimType. A transformação de declarações converte o formato de hora e adiciona 00: 12:00 AM à data.
@@ -98,7 +97,7 @@ Converte um **data** ClaimType para um **DateTime** ClaimType. A transformação
 O exemplo seguinte demonstra a conversão da declaração `dateOfBirth` (tipo de dados de data) para uma outra declaração `dateOfBirthWithTime` (tipo de dados dateTime).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ Para executar a transformação de afirmação, tem primeiro de obter a data/hor
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ Para executar a transformação de afirmação, tem primeiro de obter a data/hor
 - Parâmetros de entrada:
     - **operador**: posterior a
     - **timeSpanInSeconds**: 7776000 (90 dias)
-- Afirmações de saída: 
+- Afirmações de saída:
     - **resultado**: VERDADEIRO
-

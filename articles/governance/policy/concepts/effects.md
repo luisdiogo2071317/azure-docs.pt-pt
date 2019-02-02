@@ -4,17 +4,17 @@ description: Definição de política do Azure tem vários efeitos que determina
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912514"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562305"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos do Policy
 
@@ -50,7 +50,7 @@ Acrescentar é usado para adicionar campos adicionais para o recurso solicitado 
 
 ### <a name="append-evaluation"></a>Acrescentar a avaliação
 
-Acrescentar avalia antes do pedido é processado por um fornecedor de recursos durante a criação ou atualização de um recurso. Acrescentar adiciona campos ao recurso quando o **se** é cumprida a condição de regra de política. Se o efeito de acréscimo poderia substituir um valor no pedido original com um valor diferente, em seguida, ele atua como um efeito de recusa e rejeita o pedido.
+Acrescentar avalia antes do pedido é processado por um fornecedor de recursos durante a criação ou atualização de um recurso. Acrescentar adiciona campos ao recurso quando o **se** é cumprida a condição de regra de política. Se o efeito de acréscimo poderia substituir um valor no pedido original com um valor diferente, em seguida, ele atua como um efeito de recusa e rejeita o pedido. Para acrescentar um novo valor a uma matriz existente, utilize o **[\*]** versão de alias.
 
 Quando uma definição de política com o efeito de acréscimo é executada como parte de um ciclo de avaliação, não faz as alterações aos recursos já existentes. Em vez disso, ele marca a qualquer recurso que cumpra os **se** condição como não conforme.
 
@@ -89,7 +89,8 @@ Exemplo 2: Dois **campo/valor** pares para acrescentar um conjunto de marcas.
 }
 ```
 
-Exemplo 3: Único **valor do campo** emparelhe com um [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento.
+Exemplo 3: Único **valor do campo** emparelhe com um não -**[\*]**
+[alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP num conta de armazenamento. Quando o não -**[\*]** alias é uma matriz, o efeito acrescenta o **valor** como a matriz de inteira. Se a matriz de já existir, ocorre um evento de negação do conflito.
 
 ```json
 "then": {
@@ -100,6 +101,21 @@ Exemplo 3: Único **valor do campo** emparelhe com um [alias](definition-structu
             "action": "Allow",
             "value": "134.5.0.0/21"
         }]
+    }]
+}
+```
+
+Exemplo 4: Único **valor do campo** emparelhe com um **[\*]** [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento. Ao utilizar o **[\*]** acrescenta o efeito de alias, o **valor** a uma matriz de potencialmente já existente. Se a matriz não ainda existe, será criada.
+
+```json
+"then": {
+    "effect": "append",
+    "details": [{
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "value": {
+            "value": "40.40.40.40",
+            "action": "Allow"
+        }
     }]
 }
 ```
@@ -259,7 +275,7 @@ O **detalhes** propriedade dos efeitos DeployIfNotExists tem todos os subpropert
   - Esta propriedade tem de incluir uma matriz de cadeias de caracteres que corresponde ao ID de função de controlo de acesso baseado em funções acessível pela subscrição. Para obter mais informações, consulte [remediação - configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
 - **Escopo** (opcional)
   - Valores permitidos são _subscrição_ e _ResourceGroup_.
-  - Define o tipo de implementação que deve ser executada. _Subscrição_ indica um [implementação ao nível da subscrição](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica uma implementação para um grupo de recursos.
+  - Define o tipo de implementação para ser acionado. _Subscrição_ indica um [implementação ao nível da subscrição](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indica uma implementação para um grupo de recursos.
   - Uma _localização_ propriedade deve ser especificada no _implementação_ quando utilizar implementações ao nível da subscrição.
   - A predefinição é _ResourceGroup_.
 - **Implementação** [necessário]

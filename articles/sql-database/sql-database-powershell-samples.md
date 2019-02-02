@@ -11,25 +11,32 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5e1319857e16032b6a4922594a33dbed9554d2f8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/01/2019
+ms.openlocfilehash: 07e530a30898e57916b91632c4bf49d43d69471a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476728"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564855"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
+
+Base de dados SQL do Azure permite-lhe configurar seus bancos de dados, instâncias e conjuntos de com o Azure PowerShell.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+
+## <a name="single-database-and-elastic-pools"></a>Conjuntos de base de dados e elástico únicos
 
 A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell para a Base de Dados SQL do Azure.
 
 | |  |
 |---|---|
-|**Criar e configurar instâncias geridas, bases de dados individuais e conjuntos elásticos**||
+|**Criar e configurar bases de dados individuais e conjuntos elásticos**||
 | [Criar uma base de dados e configurar uma regra de firewall do servidor de base de dados](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria uma base de dados SQL do Azure e configura uma regra de firewall ao nível do servidor. |
 | [Criar conjuntos elásticos e mover bases de dados agrupadas](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria conjuntos elásticos da Base de Dados SQL do Azure, move bases de dados agrupadas e altera os tamanhos de computação.|
-| [Criar e gerir uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
-| [Criar e gerir uma instância gerida com o modelo Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra-lhe como criar e gerir uma instância gerida com o modelo do Azure PowerShell e do Azure Resource Manager.|
 |**Configurar georreplicação e ativação pós-falha**||
 | [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure e realiza a ativação pós-falha para uma réplica secundária. |
 | [Configurar e efetuar a ativação pós-falha de uma base de dados agrupada através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure num conjunto elástico SQL e realiza a ativação pós-falha para uma réplica secundária. |
@@ -47,6 +54,21 @@ A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell 
 | [Sincronizar dados entre bases de dados SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a Sincronização de Dados entre várias bases de dados SQL do Azure. |
 | [Sincronizar dados entre a Base de Dados SQL e o SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a Sincronização de Dados entre uma base de dados SQL do Azure e uma base de dados do SQL Server no local. |
 | [Atualizar o esquema de Sincronização de Dados SQL](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell adiciona ou remove itens do esquema de Sincronização de Dados. |
+|||
+
+Saiba mais sobre o [única base de dados do Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
+
+## <a name="managed-instance"></a>Instância Gerida
+
+A tabela seguinte inclui ligações para scripts do PowerShell do Azure de exemplo para o Azure SQL Database - instância gerida.
+
+| |  |
+|---|---|
+|**Criar e configurar instâncias geridas**||
+| [Criar e gerir uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
+| [Criar e gerir uma instância gerida com o modelo Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra-lhe como criar e gerir uma instância gerida com o modelo do Azure PowerShell e do Azure Resource Manager.|
 | **Configurar a encriptação de dados transparente (TDE)**||
 | [Gerir a encriptação de dados transparente numa instância gerida com a sua própria chave de Cofre de chaves do Azure](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura encriptação de dados transparente (TDE) o cenário traga a sua própria chave para SQL instância gerida do Azure, com uma chave do Azure Key Vault|
 |||
+
+Saiba mais sobre o [API de PowerShell do Azure de instância gerida](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).

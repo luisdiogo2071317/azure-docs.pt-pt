@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074537"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568503"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Criar um modelo de base do Terraform no Azure com o Yeoman
 
@@ -140,8 +140,8 @@ Define o resultado do módulo. Aqui, é o valor devolvido por **random_shuffle**
 
 Define os passos de compilação. Estes passos incluem:
 
-- **criar**: Valida a formatação do ficheiro main.tf.
-- **Unidade**: A estrutura do módulo gerado não inclui o código para um teste de unidade. Se pretender especificar um cenário de teste de unidades, terá de adicionar esse código aqui.
+- **build**: Valida a formatação do ficheiro main.tf.
+- **unit**: A estrutura do módulo gerado não inclui o código para um teste de unidade. Se pretender especificar um cenário de teste de unidades, terá de adicionar esse código aqui.
 - **e2e**: Executa um teste de ponto a ponto do módulo.
 
 ### <a name="test"></a>test
@@ -257,7 +257,7 @@ Todos esses itens são previamente instalados no Cloud Shell.
     >[!NOTE]
     >Neste exemplo, escolhemos `my-module-name` para o nome da pasta.
 
-1. Navegue até à pasta do módulo: Introduza `cd ~/go/src/<your-module-name>`
+1. Navegue até à pasta do módulo: Enter `cd ~/go/src/<your-module-name>`
 
 ### <a name="create-and-test-your-terraform-module"></a>Criar e testar seu módulo Terraform
 
@@ -283,4 +283,4 @@ Todos esses itens são previamente instalados no Cloud Shell.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Instalar e utilizar a extensão Visual Studio Code do Azure Terraform.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Instalar e utilizar a extensão Azure Terraform Visual Studio Code.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

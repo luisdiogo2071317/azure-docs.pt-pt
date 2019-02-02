@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753970"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656839"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure de Marketplace e AppSource
 
 O guia de publicação do Marketplace foi concebido para ajudar a nova e publicadores existentes Saiba como utilizar lojas no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) expandir seus negócios em parceria com a Microsoft, listando as aplicações e serviços.
 
 >[!Note]
->O Marketplace aqui refere-se para o Azure Marketplace e AppSource.  Ver [Marketplace uma, duas lojas se](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
+>O Marketplace aqui refere-se para o Azure Marketplace e AppSource.  Ver [Marketplace uma, duas lojas se](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) para obter mais informações.
 
 Este guia abrange os seguintes tópicos: 
 *   O que é o Marketplace e como funciona 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1a4a5bada779edfe2766338584c05d4fcf3e3ca4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001469"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660350"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
 
@@ -53,7 +53,7 @@ Por predefinição, a sua função acionada por HTTP está configurada para acei
 
 1. Clique em **Guardar**.
 
-Pode saber mais sobre a personalização de funções HTTP em [Enlaces HTTP de Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Pode saber mais sobre a personalização de funções HTTP em [Enlaces HTTP de Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Testar a API
 
@@ -103,8 +103,8 @@ Repita os passos para [Criar uma aplicação de funções](https://docs.microsof
 
     | Campo | Valor da amostra | Descrição |
     |---|---|---|
-    | Nome | HelloProxy | Um nome amigável utilizado apenas para gestão |
-    | Modelo de rota | / api/remotehello | Determina qual a rota utilizada para invocar este proxy |
+    | Name | HelloProxy | Um nome amigável utilizado apenas para gestão |
+    | Modelo de rota | /api/remotehello | Determina qual a rota utilizada para invocar este proxy |
     | URL de back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto final para o qual o pedido deve ser transmitido por proxy |
     
 1. Tenha em atenção que os Proxies não fornecem o prefixo do caminho de base `/api`; este tem de ser incluído no modelo de rota.

@@ -17,12 +17,12 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: b82458de95014d22625a9c8029e064ed21120488
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158303"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658628"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
 
@@ -251,7 +251,7 @@ Parabéns, acabou de criar a primeira chamada para o Microsoft Graph!
 Agora pode consultar os eventos de risco de identidade e utilizar os dados, no entanto, o que considere adequado.
 
 
-Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://docs.microsoft.com/en-us/graph/overview) e muito mais sobre o [site do Microsoft Graph](https://developer.microsoft.com/en-us/graph). 
+Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://docs.microsoft.com/graph/overview) e muito mais sobre o [site do Microsoft Graph](https://developer.microsoft.com/en-us/graph). 
 
 
 Para obter informações relacionadas, consulte:

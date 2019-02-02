@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247209"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656724"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparar os certificados PKI de pilha do Azure para utilização na implementação ou de rotação
+
 Os ficheiros de certificado [obtido a partir de sua autoridade de certificação à escolha](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes a requisitos de certificado do Azure Stack.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>Preparar os certificados para implementação
+
 Utilize estes passos para preparar e validar os certificados PKI de pilha do Azure que serão utilizados para implementar um novo ambiente do Azure Stack ou para efetuar a rotação de segredos num ambiente existente do Azure Stack: 
 
 ### <a name="import-the-certificate"></a>Importar o certificado
@@ -83,7 +84,9 @@ Abra a consola do Gestor de certificados do MMC e ligue-se para o arquivo de cer
     
     ![Assistente de exportação de certificado com opções de selecionado](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. Selecione **palavra-passe** e fornecer uma palavra-passe para os certificados. Lembre-se desta palavra-passe como ele é usado como um parâmetro de implementação. Selecione **Seguinte**.
+1. Selecione **palavra-passe** e fornecer uma palavra-passe para os certificados. Crie uma palavra-passe que cumpra os seguintes requisitos de complexidade de palavra-passe. Um comprimento mínimo de oito caracteres. A palavra-passe contém, pelo menos, três dos seguintes: letras em maiúscula letra, letras minúsculas, números de 0 a 9, caracteres especiais, um caráter alfabético que não é maiúscula nem em minúsculas. Tome nota desta palavra-passe. Irá utilizá-lo como um parâmetro de implementação.
+
+1. Selecione **Seguinte**.
 
 1. Escolha um nome de ficheiro e a localização do ficheiro pfx exportar. Selecione **Seguinte**.
 

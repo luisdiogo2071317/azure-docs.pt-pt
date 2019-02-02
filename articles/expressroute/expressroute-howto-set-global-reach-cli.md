@@ -8,69 +8,70 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384067"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659325"
 ---
-# <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Configurar o alcance Global do ExpressRoute com a CLI do Azure (pré-visualização)
-Este artigo ajuda-o a configurar o ExpressRoute alcance Global com a CLI do Azure. Para obter mais informações, consulte [alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Configurar o alcance Global do ExpressRoute com a CLI do Azure (pré-visualização)
+
+Este artigo ajuda-o a configurar o alcance Global do Azure ExpressRoute com a CLI do Azure. Para obter mais informações, veja [Alcance Global do ExpressRoute](expressroute-global-reach.md).
  
 ## <a name="before-you-begin"></a>Antes de começar
+
 > [!IMPORTANT]
 > Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
-> 
 
+Antes de iniciar a configuração, conclua os seguintes requisitos:
 
-Antes de iniciar a configuração, precisa verificar os seguintes requisitos.
-
-* Instale a versão mais recente da CLI do Azure. Ver [instalar a CLI do Azure](/cli/azure/install-azure-cli) e [introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
-* Compreender o aprovisionamento do circuito de ExpressRoute [fluxos de trabalho](expressroute-workflows.md).
-* Certifique-se de que circuitos de ExpressRoute estão num Estado aprovisionado.
+* Instale a versão mais recente da CLI do Azure. Veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
+* Compreender o ExpressRoute-aprovisionamento [fluxos de trabalho](expressroute-workflows.md).
+* Certifique-se de que circuitos de ExpressRoute estão no Estado aprovisionado.
 * Certifique-se de peering privado do Azure está configurado em seus circuitos do ExpressRoute.  
 
-### <a name="log-into-your-azure-account"></a>Iniciar sessão na sua conta do Azure
-Para iniciar a configuração, tem de iniciar sessão na conta do Azure. O comando irá abrir o browser predefinido e solicitar-lhe as credenciais de início de sessão para a sua conta do Azure.  
+### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
+
+Para iniciar a configuração, inicie sessão na sua conta do Azure. O seguinte comando abre o browser predefinido e pede-lhe as credenciais de início de sessão para a sua conta do Azure:  
 
 ```azurecli
 az login
 ```
 
-Se tiver múltiplas subscrições do Azure, verifique as subscrições da conta.
+Se tiver várias subscrições do Azure, verifique as subscrições da conta:
 
 ```azurecli
 az account list
 ```
 
-Especifique a subscrição que pretende utilizar.
+Especifique a subscrição que pretende utilizar:
 
 ```azurecli
 az account set --subscription <your subscription ID>
 ```
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificar os circuitos do ExpressRoute para configuração
-Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estão localizados em países/regiões suportados e ocorre em diferentes localizações de peering. Se ambos os circuitos é proprietário de sua assinatura, pode escolher qualquer circuito para executar a configuração nas secções abaixo. Se dois circuitos estiverem em diferentes subscrições do Azure, irá precisar de autorização de uma subscrição do Azure e passar a chave de autorização ao executar o comando de configuração na subscrição do Azure.
+
+Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estejam localizados no países com suporte e foram criados em diferentes localizações de peering. Se a sua subscrição é a proprietária de ambos os circuitos, pode escolher qualquer circuito para executar a configuração, conforme explicado neste artigo. Se dois circuitos estiverem em diferentes subscrições do Azure, deve ter a autorização de uma subscrição do Azure e têm de introduzir a chave de autorização ao executar o comando de configuração na subscrição do Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Ativar a conectividade entre as redes no local
 
-Ao executar o comando para ativar a conectividade, considere os seguintes valores:
+Ao executar o comando para ativar a conectividade, tenha em atenção os seguintes requisitos para valores de parâmetro:
 
-* *circuito do elemento de rede* deve ser o ID de recurso completo. Por exemplo: 
+* *circuito do elemento de rede* deve ser o ID de recurso completo. Por exemplo:
 
-  ```
-  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
-  ```
-* *-AddressPrefix* tem de ser/29 IPv4 sub-rede, por exemplo, "10.0.0.0/29". Utilizaremos os endereços IP nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não tem de utilizar endereços nesta sub-rede nas suas VNets do Azure ou nas suas redes no local.
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-Execute a CLI seguinte para ligar dois circuitos do ExpressRoute. Utilize o seguinte comando de exemplo:
+* *prefixo de endereço* tem de ser uma sub-rede de IPv4 "/ 29" (por exemplo, "10.0.0.0/29"). Endereços IP são utilizadas nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não tem de utilizar endereços nesta sub-rede nas redes virtuais do Azure ou nas suas redes no local.
+
+Execute o seguinte comando da CLI para ligar dois circuitos do ExpressRoute:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-O resultado CLI tem um aspeto semelhante ao seguinte exemplo:
+A saída da CLI tem esta aparência:
 
 ```azurecli
 {
@@ -94,67 +95,67 @@ O resultado CLI tem um aspeto semelhante ao seguinte exemplo:
 }
 ```
 
-Quando a operação acima estiver concluída, deve ter conectividade entre as redes no local em ambos os lados por meio de seus dois circuitos do ExpressRoute.
+Quando esta operação estiver concluída, terá conectividade entre as redes no local em ambos os lados por meio de seus dois circuitos do ExpressRoute.
 
-### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuitos do ExpressRoute em diferentes subscrições do Azure
+## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>Ativar a conectividade entre os circuitos do ExpressRoute em diferentes subscrições do Azure
 
-Se dois circuitos não estiverem na mesma subscrição do Azure, terá de autorização. A seguinte configuração autorização é gerada na subscrição de circuito do 2 e a chave de autorização é passada para o circuito 1.
+Se não forem os dois circuitos na mesma subscrição do Azure, terá de autorização. A seguinte configuração, gerar autorização na subscrição de circuito do 2 e passa a chave de autorização para o circuito do 1.
 
-Gere uma chave de autorização. 
-```azurecli
-az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
-```
+1. Gere uma chave de autorização:
 
-A saída da CLI é semelhante ao seguinte.
+   ```azurecli
+   az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
+   ```
 
-```azurecli
-{
-  "authorizationKey": "<authorizationKey>",
-  "authorizationUseStatus": "Available",
-  "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
-  "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
-  "name": "<AuthorizationName>",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "<Circuit2ResourceGroupName>",
-  "type": "Microsoft.Network/expressRouteCircuits/authorizations"
-}
-```
+   A saída da CLI tem esta aparência:
 
-Tome nota do circuito do 2 Id de recurso, bem como a chave de autorização.
+   ```azurecli
+   {
+     "authorizationKey": "<authorizationKey>",
+     "authorizationUseStatus": "Available",
+     "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
+     "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
+     "name": "<AuthorizationName>",
+     "provisioningState": "Succeeded",
+     "resourceGroup": "<Circuit2ResourceGroupName>",
+     "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+   }
+   ```
 
-Execute o seguinte comando na circuito 1. Passar no Id de recurso de circuito do 2 e a chave de autorização 
-```azurecli
-az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
-```
+1. Anote o ID de recurso e a chave de autorização para o circuito 2.
 
-Quando a operação acima estiver concluída, deve ter conectividade entre as redes no local em ambos os lados por meio de seus dois circuitos do ExpressRoute.
+1. Execute o seguinte comando na circuito 1, passando na chave de ID e a autorização do recurso de circuito do 2:
+
+   ```azurecli
+   az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
+   ```
+
+Quando esta operação estiver concluída, terá conectividade entre as redes no local em ambos os lados por meio de seus dois circuitos do ExpressRoute.
 
 ## <a name="get-and-verify-the-configuration"></a>Obter e verificar a configuração
 
-Utilize o seguinte comando para verificar a configuração no circuito onde a configuração foi feita, ou seja, o circuito 1 no exemplo acima.
+Utilize o seguinte comando para verificar a configuração no circuito onde a configuração foi efetuada (circuito 1 no exemplo anterior):
 
 ```azurecli
 az network express-route show -n <CircuitName> -g <ResourceGroupName>
 ```
 
-Na CLI de saída, verá *CircuitConnectionStatus*. Informá-lo se a conectividade entre os dois circuitos é estabelecida, "Ligado", ou não, "Desligado". 
+Na saída da CLI, verá *CircuitConnectionStatus*. Indica se a conectividade entre os dois circuitos é estabelecida ("ligado") ou não estabelecer ("desligado"). 
 
 ## <a name="disable-connectivity-between-your-on-premises-networks"></a>Desativar a conectividade entre as redes no local
 
-Para desativá-la, execute os comandos contra o circuito onde a configuração foi feita, ou seja, o circuito 1 no exemplo acima.
+Para desativar a conectividade, execute o seguinte comando contra o circuito onde a configuração foi efetuada (circuito 1 no exemplo anterior).
 
 ```azurecli
 az network express-route peering connection delete -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName>
 ```
 
-Pode executar a CLI Mostrar para verificar o estado. 
+Utilize o ```show``` comando para verificar o estado.
 
-Depois de concluída a operação acima, deixará de ter conectividade entre a rede no local através de circuitos de ExpressRoute. 
-
+Quando esta operação estiver concluída, já não terá conectividade entre as redes no local através de circuitos de ExpressRoute.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Saiba mais sobre o alcance Global do ExpressRoute](expressroute-global-reach.md)
 * [Verificar a conectividade do ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
-* [Ligar o circuito do ExpressRoute a rede virtual do Azure](expressroute-howto-linkvnet-arm.md)
-
-
+* [Ligar um circuito do ExpressRoute para uma rede virtual](expressroute-howto-linkvnet-arm.md)

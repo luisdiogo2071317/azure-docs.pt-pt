@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 44797227c0bff745575318fcb5c19cb187862ac0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 01/07/2019
+ms.openlocfilehash: 8f88579a5fcdb96622a32c5b55bf8fee744d916e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299406"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567184"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -27,6 +27,7 @@ Na base de dados SQL do Azure, pode configurar um único ou uma base de dados ag
 > [O Azure SQL Database Managed Instance](sql-database-managed-instance.md) não suporta atualmente a retenção de cópia de segurança de longo prazo.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o portal do Azure para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
+
 As secções seguintes mostram como utilizar o portal do Azure para configurar a retenção de longa duração, ver cópias de segurança em retenção de longo prazo e restaurar a cópia de segurança de retenção de longa duração.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurar políticas de retenção de longo prazo

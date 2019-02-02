@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d835a4150016ad2b658cd95d1f84c421f83937c0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1810c92eb98a78510db79cb72ca2e8209768fc89
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434823"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660910"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -55,7 +55,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 
 **Comandos**
 
-- CLI do Azure: [criar sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- CLI do Azure: [criar sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet)
 - PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>Alterar as definições de sub-rede
@@ -96,7 +96,7 @@ Pode eliminar uma sub-rede apenas se não há nenhum recurso na sub-rede. Se exi
 
 Para executar tarefas em sub-redes, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-|Ação                                                                   |   Nome                                       |
+|Ação                                                                   |   Name                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   Ler uma sub-rede de rede virtual              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar uma sub-rede de rede virtual  |

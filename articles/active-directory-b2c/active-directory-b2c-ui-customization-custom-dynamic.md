@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c17b873daf3cf77760f934b6c8a591f232b0c7b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187084"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658203"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurar a interface do Usuário com conteúdo dinâmico ao utilizar políticas personalizadas
 
@@ -155,7 +155,7 @@ Localize a `<img>` elemento que contém o `ID` valor *background_background_imag
     O **criar serviço de aplicações** é aberta a janela. No mesmo pode começar a criar todos os recursos do Azure necessários para executar a sua aplicação web ASP.NET no Azure.
 
     > [!NOTE]
-    > Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. Na **nome da aplicação Web** , escreva um nome de aplicação exclusivo (os carateres válidos são-z, A-Z, 0-9 e hífen (-). O URL da aplicação Web é `http://<app_name>.azurewebsites.NET`, onde `<app_name>` é o nome da aplicação Web. Também pode aceitar o nome gerado automaticamente, que já é exclusivo.
 

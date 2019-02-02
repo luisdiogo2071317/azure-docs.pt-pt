@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487868"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563342"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs (pré-visualização)
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -142,13 +142,6 @@ Aqui pode rapidamente identificar os principais problemas críticos detetados pe
 O **distribuição VM pelo sistema operativo** lista mostra as VMs listadas por edição do Windows ou a distribuição de Linux, juntamente com suas versões. Em cada categoria de sistema operativo, as VMs são divididas de forma ainda mais com base no estado de funcionamento da VM. 
 
 ![Ponto de vista de distribuição de máquina virtual de VM Insights](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-Os Estados de funcionamento definidos para uma VM são: 
-
-* **Bom estado de funcionamento** – nenhum problema detetado para a VM e está a funcionar conforme necessário.  
-* **Crítico** – são detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar a funcionalidade normal, conforme o esperado. 
-* **Aviso** -forem detetados problemas de um ou mais, que precisam ser abordadas ou a condição de estado de funcionamento pode tornar-se crítico.  
-* **Desconhecido** – se o serviço não conseguiu estabelecer uma ligação com a VM, o estado muda para um Estado desconhecido.  
 
 Pode clicar em qualquer item de coluna - **contagem VM**, **crítico**, **aviso**, **bom estado de funcionamento** ou **desconhecido** para desagregar os **máquinas virtuais** página Ver uma lista de resultados filtrados que correspondem a coluna selecionada. Por exemplo, se quisermos rever todas as VMs em execução **Red Hat Enterprise Linux versão 7.5**, clique nas **contagem VM** valor para o sistema operacional e abrirá a página seguinte, as máquinas virtuais que correspondam a listagem esse filtro e o respetivo estado de funcionamento atualmente conhecidos.  
 

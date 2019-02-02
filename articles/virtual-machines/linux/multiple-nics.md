@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157504"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660362"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com rede várias placas de interface
 
@@ -37,7 +37,7 @@ Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O e
 az group create --name myResourceGroup --location eastus
 ```
 
-Criar a rede virtual com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e a sub-rede com o nome *mySubnetFrontEnd*:
+Criar a rede virtual com [vnet de rede de az criar](/cli/azure/network/vnet). O exemplo seguinte cria uma rede virtual denominada *myVnet* e a sub-rede com o nome *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e ligar as NICs
 Ao criar a VM, especifique os NICs que criou com `--nics`. Terá também de ter cuidado ao selecionar o tamanho da VM. Existem limites para o número total de NICs que podem ser adicionados a uma VM. Leia mais sobre [tamanhos de VM do Linux](sizes.md).
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVM*:
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*:
 
 ```azurecli
 az vm create \

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1ed1790d9fe1cdaa8d00b45e0684531984906c7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412908"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661824"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central
 
@@ -42,6 +42,8 @@ Neste tutorial, ficará a saber como:
 > * Definições e propriedades de utilização
 > * Utilizar comandos
 > * Ver o seu dispositivo simulado no dashboard
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,7 +134,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
     Para configurar a sua telemetria de **Temperatura**, utilize as informações na tabela seguinte:
 
-    | Definição              | Valor         |
+    | Definição              | Value         |
     | -------------------- | -----------   |
     | Nome a Apresentar         | Temperatura   |
     | Nome do Campo           | temperatura   |
@@ -171,7 +173,7 @@ Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados
 
     Para configurar o seu evento **Erro do Motor da Ventoinha**, utilize as informações na tabela seguinte:
 
-    | Definição              | Valor             |
+    | Definição              | Value             |
     | -------------------- | -----------       |
     | Nome a Apresentar         | Erro de Motor da Ventoinha   |
     | Nome do Campo           | fanmotorerr       |
@@ -209,13 +211,13 @@ Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o re
 
     Para configurar o seu estado do **Modo da Ventoinha**, utilize as informações na tabela seguinte:
 
-    | Definição              | Valor             |
+    | Definição              | Value             |
     | -------------------- | -----------       |
     | Nome a Apresentar         | Modo da Ventoinha          |
     | Nome do Campo           | fanmode           |
-    | Valor                | 1                 |
+    | Value                | 1                 |
     | Etiqueta de apresentação        | Em funcionamento         |
-    | Valor                | 0                 |
+    | Value                | 0                 |
     | Etiqueta de apresentação        | Parada           |
 
     Para guardar a definição da medição do estado, escolha **Guardar**:
@@ -260,7 +262,7 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
 
 3. Para configurar a definição de **Definir Temperatura**, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor           |
+    | Campo                | Value           |
     | -------------------- | -----------     |
     | Nome a Apresentar         | Definir Temperatura |
     | Nome do Campo           | setTemperature  |
@@ -294,7 +296,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
 1. Para configurar a propriedade da localização, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor                |
+    | Campo                | Value                |
     | -------------------- | -------------------- |
     | Nome a Apresentar         | Localização             |
     | Nome do Campo           | localização             |
@@ -311,7 +313,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
 1. Para configurar a propriedade da data da última assistência, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor                   |
+    | Campo                | Value                   |
     | -------------------- | ----------------------- |
     | Nome a Apresentar         | Data da Última Assistência       |
     | Nome do Campo           | serviceDate             |
@@ -330,7 +332,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
 1.  Para configurar a versão de firmware, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor                   |
+    | Campo                | Value                   |
     | -------------------- | ----------------------- |
     | Nome a Apresentar         | Versão do firmware        |
     | Nome do Campo           | firmwareVersion         |
@@ -345,7 +347,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
 1. Para configurar o número de série, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor                   |
+    | Campo                | Value                   |
     | -------------------- | ----------------------- |
     | Nome a Apresentar         | Número de série           |
     | Nome do Campo           | serialNumber            |
@@ -371,7 +373,7 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
 
 1. Para configurar o novo comando, utilize as informações na tabela seguinte:
 
-    | Campo                | Valor           |
+    | Campo                | Value           |
     | -------------------- | -----------     |
     | Nome a Apresentar         | Comando Echo    |
     | Nome do Campo           | echo            |
@@ -403,9 +405,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Gráfico de Linhas** com as informações na tabela seguinte:
 
-    | Definição      | Valor       |
+    | Definição      | Value       |
     | ------------ | ----------- |
-    | Cargo        | Temperatura |
+    | Título        | Temperatura |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | temperatura (escolha **Visibilidade** junto a **temperatura**) |
 
@@ -415,9 +417,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Histórico de Eventos** com as informações na tabela seguinte:
 
-    | Definição      | Valor       |
+    | Definição      | Value       |
     | ------------ | ----------- |
-    | Cargo        | Eventos |
+    | Título        | Eventos |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | Erro do Motor da Ventoinha (escolha **Visibilidade** junto a **Erro do Motor da Ventoinha**) |
 
@@ -427,9 +429,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Histórico de Estado** com as informações na tabela seguinte:
 
-    | Definição      | Valor       |
+    | Definição      | Value       |
     | ------------ | ----------- |
-    | Cargo        | Modo da Ventoinha |
+    | Título        | Modo da Ventoinha |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas | Modo da Ventoinha (escolha **Visibilidade** junto a **Modo da Ventoinha**) |
 
@@ -443,9 +445,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
-    | Definição                 | Valor         |
+    | Definição                 | Value         |
     | ----------------------- | ------------- |
-    | Cargo                   | Definir temperatura de destino |
+    | Título                   | Definir temperatura de destino |
     | Definições e Propriedades | Definir Temperatura |
 
     As definições e propriedades que definiu anteriormente nas páginas Definições e Propriedades são apresentadas nas Colunas Disponíveis. 
@@ -460,9 +462,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
-    | Definição                 | Valor         |
+    | Definição                 | Value         |
     | ----------------------- | ------------- |
-    | Cargo                   | Número de série |
+    | Título                   | Número de série |
     | Definições e Propriedades | Número de série |
 
     ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings5.png)
@@ -475,9 +477,9 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
 1. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
-    | Definição                 | Valor            |
+    | Definição                 | Value            |
     | ----------------------- | ---------------- |
-    | Cargo                   | Versão do firmware |
+    | Título                   | Versão do firmware |
     | Definições e Propriedades | Versão do firmware |
 
     ![Definições de propriedade do número de série](./media/tutorial-define-device-type/propertysettings6.png)

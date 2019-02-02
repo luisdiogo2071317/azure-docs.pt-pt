@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243152"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563744"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -109,7 +109,7 @@ Se estiver a utilizar uma imagem de RHEL VM mais antiga, por exemplo, RHEL 7.4 (
 sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
-Em alternativa, em execução `sudo yum update` também atualizará o pacote de certificado de cliente apesar de erros de "certificado SSL expirado" verá para outros repositórios. Após a atualização, conectividade normal para outros repositórios do RHUI deve ser restaurada, por isso, será capaz de executar `sudo yum update` com êxito.
+Em alternativa, em execução `sudo yum update` também pode atualizar o pacote de certificado de cliente (dependendo da versão RHEL), apesar de erros de "certificado SSL expirado" verá para outros repositórios. Se esta atualização for bem-sucedida, conectividade normal para outros repositórios do RHUI deve ser restaurada, por isso, será capaz de executar `sudo yum update` com êxito.
 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Resolver problemas de ligação para o Azure RHUI

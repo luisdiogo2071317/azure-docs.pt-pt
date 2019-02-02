@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 3381bf32bfd3df538641b11b35a64b53fda6744f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ddf789dc6a1bf6c76643e9b5478ede75f865f4eb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466878"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563020"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
@@ -62,7 +62,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *tabelas de rotas* n
 2. Na lista que pretende ver os detalhes para, selecione a tabela de rotas. Sob **definições**, pode ver a **rotas** na tabela de rotas e o **sub-redes** a tabela de rotas é associada a.
 3. Para saber mais sobre as definições do Azure comuns, consulte as seguintes informações:
     *   [Registo de atividades](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -233,7 +233,7 @@ Pode determinar o tipo de próximo salto entre uma máquina virtual e o endereç
 
 Para executar tarefas em tabelas de rotas e rotas, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Ação                                                          |   Nome                                                  |
+| Ação                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar uma tabela de rotas                        |

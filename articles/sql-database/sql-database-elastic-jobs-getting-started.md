@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863538"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567014"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de bases de dados elásticas
 
@@ -259,20 +259,20 @@ Tarefas elásticas da base de dados suporta a criação de políticas de execuç
 Atualmente permitem definir políticas de execução:
 
 * Nome: Identificador para a política de execução.
-* Tempo limite da tarefa: Tempo Total antes de uma tarefa é cancelada por tarefas elásticas da base de dados.
-* Intervalo inicial de repetição: Intervalo a aguardar antes da primeira repetição.
-* Intervalo de repetições máximo: Limite de intervalos de repetição para utilizar.
-* Coeficiente de término do intervalo de repetição: O coeficiente utilizado para calcular o próximo intervalo entre repetições.  É utilizada a seguinte fórmula: (intervalo de repetição inicial) * Math.pow ((coeficiente de término de intervalo), (Number of Retries) - 2).
+* Tempo limite da tarefa: Tempo total antes de uma tarefa é cancelada por tarefas elásticas da base de dados.
+* Intervalo de repetição inicial: Intervalo de espera antes de primeira repetição.
+* Intervalo de repetições máxima: Limite de intervalos de repetição a utilizar.
+* Coeficiente de término do intervalo de repetição: Coeficiente utilizado para calcular o próximo intervalo entre repetições.  É utilizada a seguinte fórmula: (A inicial do intervalo entre tentativas) * Math.pow ((coeficiente de término de intervalo), (número de repetições) - 2).
 * Máximo de tentativas: O número máximo de repetições tentou fazer dentro de uma tarefa.
 
 A política de execução predefinido utiliza os seguintes valores:
 
-* Nome: Política de execução do padrão
-* Tempo limite da tarefa: semana
-* Intervalo de repetição inicial: 100 milissegundos
-* Intervalo de repetições máximo: 30 minutos
-* Repita o coeficiente de intervalo: 2
-* Máximo de tentativas: 2 147 483 647
+* Nome: Política de execução predefinida
+* Tempo limite da tarefa: uma semana
+* Intervalo de repetição inicial:  100 milissegundos
+* Intervalo de repetições máxima: 30 minutos
+* Coeficiente de intervalo de repetição: 2
+* Máximo de tentativas: 2,147,483,647
 
 Crie a política de execução desejado:
 
@@ -307,8 +307,8 @@ Tarefas elásticas da base de dados oferece suporte a solicitações de cancelam
 
 Existem duas formas diferentes, que as tarefas elásticas da base de dados pode efetuar um cancelamento:
 
-1. A cancelar a execução no momento tarefas: se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento for tentado no aspecto atualmente em execução da tarefa.  Por exemplo: se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, há uma tentativa de cancelar a consulta.
-2. Cancelamento de tarefa de repetições: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle evita a iniciar a tarefa e declara o pedido como canceladas.
+1. Cancelando tarefas atualmente em execução: Se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento for tentado no aspecto atualmente em execução da tarefa.  Por exemplo: Se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, há uma tentativa de cancelar a consulta.
+2. A cancelar a tarefa de repetições: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle evita a iniciar a tarefa e declara o pedido como canceladas.
 
 Se é pedido um cancelamento de tarefa para uma tarefa principal, a solicitação de cancelamento é honrada para a tarefa principal e para todas as tarefas de subordinado.
 

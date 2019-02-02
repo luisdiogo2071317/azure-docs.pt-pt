@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022024"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563624"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022024"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector Amazon Redshift no V2](../connector-amazon-redshift.md).
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Amazon Redshift. O artigo baseia-se a [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia. 
+Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Amazon Redshift. O artigo baseia-se a [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
 Atualmente, o Data Factory suporta apenas mover dados do Amazon Redshift para um [arquivo de dados sink suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Mover dados de outros arquivos de dados para o Amazon Redshift não é suportada.
 
@@ -44,13 +44,13 @@ Pode criar um pipeline com uma atividade de cópia para mover dados de uma orige
 
 A maneira mais fácil para criar um pipeline é usar o Assistente de cópia de fábrica de dados do Azure. Para uma passo a passo rápido sobre como criar um pipeline com o Assistente de cópia, consulte o [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode criar um pipeline com o portal do Azure, o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos Azure Resource Manager, a API .NET ou a API de REST também pode ser utilizada para criar o pipeline. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Também pode criar um pipeline com o portal do Azure, o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos Azure Resource Manager, a API .NET ou a API de REST também pode ser utilizada para criar o pipeline. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
 1. Crie serviços ligados para ligar a entrada e saída de arquivos de dados à fábrica de dados.
-2. Crie conjuntos de dados para representar os dados de entrada e saídos da operação de cópia. 
-3. Crie um pipeline com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
+2. Crie conjuntos de dados para representar os dados de entrada e saídos da operação de cópia.
+3. Crie um pipeline com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
 Quando utiliza o Assistente para copiar, definições de JSON para estas entidades do Data Factory são criadas automaticamente. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O [exemplo de JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados do Amazon Redshift.
 
@@ -63,8 +63,8 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | **tipo** |Esta propriedade tem de ser definida **AmazonRedshift**. |Sim |
-| **servidor** |O nome ou endereço IP anfitrião do servidor do Amazon Redshift. |Sim |
-| **Porta** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
+| **server** |O nome ou endereço IP anfitrião do servidor do Amazon Redshift. |Sim |
+| **port** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
 | **database** |O nome da base de dados do Amazon Redshift. |Sim |
 | **username** |O nome do utilizador que tem acesso à base de dados. |Sim |
 | **password** |A palavra-passe da conta de utilizador. |Sim |
@@ -139,7 +139,7 @@ Para este caso de utilização de exemplo, atividade de cópia primeiro descarre
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure
-Este exemplo mostra como copiar dados de uma base de dados do Amazon Redshift para o armazenamento de Blobs do Azure. Dados podem ser copiados diretamente a qualquer [suportado sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia.  
+Este exemplo mostra como copiar dados de uma base de dados do Amazon Redshift para o armazenamento de Blobs do Azure. Dados podem ser copiados diretamente a qualquer [suportado sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia.
 
 O exemplo possui as seguintes entidades do data factory:
 
@@ -162,7 +162,7 @@ O exemplo copia dados de um resultado da consulta no Amazon Redshift para um blo
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -334,14 +334,14 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | NÚMERO INTEIRO |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Único |
-| PRECISÃO DUPLA |Valor de duplo |
-| VALOR BOOLEANO |Cadeia |
-| CHAR |Cadeia |
-| VARCHAR |Cadeia |
+| REAL |Single |
+| PRECISÃO DUPLA |Double |
+| VALOR BOOLEANO |String |
+| CHAR |String |
+| VARCHAR |String |
 | DATA |DateTime |
 | TIMESTAMP |DateTime |
-| TEXTO |Cadeia |
+| TEXTO |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber como mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
@@ -350,7 +350,7 @@ Para saber como mapear colunas do conjunto de dados de origem para colunas do co
 Quando copia dados a partir de um arquivo de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a repetição **política** para um conjunto de dados voltar a executar um setor quando ocorre uma falha. Certifique-se de que os mesmos dados é de leitura, não importa quantas vezes o setor será novamente executado. Além disso, certifique-se de que os mesmos dados é de leitura, independentemente de como voltar a executar o setor. Para obter mais informações, consulte [Repeatable lê a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
-Saiba mais sobre os principais fatores que afetam o desempenho de atividade de cópia e formas de otimizar o desempenho na [guia de ajuste e de desempenho de atividade de cópia](data-factory-copy-activity-performance.md). 
+Saiba mais sobre os principais fatores que afetam o desempenho de atividade de cópia e formas de otimizar o desempenho na [guia de ajuste e de desempenho de atividade de cópia](data-factory-copy-activity-performance.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo para criar um pipeline com atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

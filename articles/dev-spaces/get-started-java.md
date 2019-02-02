@@ -1,5 +1,5 @@
 ---
-title: Criar um espaço de programador do Kubernetes na cloud com o Java e o VS Code | Microsoft Docs
+title: Criar um espaço de desenvolvimento de Kubernetes na cloud com Java e o VS Code | Documentos da Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,14 +11,14 @@ ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: mmontwil
-ms.openlocfilehash: 9dc219078377d8b8da5d1700fb2a93133649d924
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1840a451fc9354b32950283b335455d67ccbf43
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475782"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657251"
 ---
-# <a name="get-started-on-azure-dev-spaces-with-java"></a>Introdução aos Espaços de Programador do Azure com Java
+# <a name="get-started-on-azure-dev-spaces-with-java"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com Java
 
 Neste guia, vai aprender a:
 
@@ -226,4 +226,4 @@ Atualize a aplicação Web no browser. Deverá ver a mensagem personalizada apre
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre desenvolvimento em equipa](team-development-java.md)
+> [Aprenda sobre o desenvolvimento de múltiplos serviço](multi-service-java.md)

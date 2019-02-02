@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487953"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657880"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de leitura na base de dados do Azure para PostgreSQL
 
@@ -21,6 +21,8 @@ ms.locfileid: "55487953"
 A funcionalidade de réplica de leitura permite-lhe replicar dados a partir de uma base de dados do Azure para o servidor PostgreSQL (principal) até cinco só de leitura servidores (réplicas de leitura) na mesma região do Azure. Réplicas de leitura assíncrona são atualizadas utilizando a tecnologia de replicação nativo do mecanismo de PostgreSQL.
 
 Réplicas são novos servidores que podem ser geridos de formas similares como autónoma normal da base de dados do Azure para servidores PostgreSQL. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês.
+
+Visite o [página procedimento para saber como criar e gerir réplicas](howto-read-replicas-portal.md).
 
 ## <a name="when-to-use-read-replicas"></a>Quando a utilização de réplicas de leitura
 A funcionalidade de réplica de leitura é indicada para ajudar a melhorar o desempenho e dimensionamento de cargas de trabalho de leitura intensiva. Por exemplo, as cargas de trabalho de leitura podem ser isoladas para as réplicas, embora escrita cargas de trabalho podem ser direcionadas para o mestre.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 e, na linha de comandos, introduza a palavra-passe da conta de utilizador.
 
 ## <a name="monitoring-replication"></a>Monitorizar a replicação
-Há uma **atraso máx. entre as réplicas** métricas disponíveis no Azure Monitor. Esta métrica está disponível no servidor principal apenas. A métrica mostra o tempo de atraso entre o modelo global e a maioria das réplicas de lagging. 
+Há uma **atraso máx. entre as réplicas** métricas disponíveis no Azure Monitor. Esta métrica está disponível no servidor principal apenas. A métrica mostra o desfasamento de bytes entre o modelo global e o máximo lagging réplica. 
 
 Também fornecemos uma **desfasamento de réplica** métricas no Azure Monitor. Esta métrica está disponível para apenas as réplicas. 
 

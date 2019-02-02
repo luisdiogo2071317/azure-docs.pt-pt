@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
-ms.openlocfilehash: 7cd599ff75827ca8b0c6f7683cae01210a8fc8ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 34f6a03fc091fb4d86739af9d56993943ce44956
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183412"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662113"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 
@@ -102,6 +102,9 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Como posso utilizar as identidades geridas para os recursos do Azure?
 
 Para saber como pode utilizar as identidades geridas para aceder a diferentes recursos do Azure, experimente os seguintes tutoriais.
+
+> [!NOTE]
+> Veja a [identidades geridas por implementar recursos do Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) curso para obter mais informações sobre identidades geridas, incluindo detalhadas vídeo orientações passo a passo de vários cenários suportados.
 
 Saiba como utilizar uma identidade gerida com uma VM do Windows:
 

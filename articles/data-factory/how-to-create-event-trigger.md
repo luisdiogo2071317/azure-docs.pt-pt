@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 3fb9f98e94191c019b78c5666d2ff5336cc895eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021871"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561098"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
@@ -30,7 +30,7 @@ Para obter uma introdução de dez minutos e demonstração desta funcionalidade
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Certifique-se de que a sua subscrição está registada com o fornecedor de recursos do Event Grid. Para mais informações, veja [fornecedores de recursos e os tipos de](../azure-resource-manager/resource-manager-supported-services.md#portal).
+> A integração descrita neste artigo depende [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Certifique-se de que a sua subscrição está registada com o fornecedor de recursos do Event Grid. Para mais informações, veja [fornecedores de recursos e os tipos de](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -69,10 +69,10 @@ A tabela seguinte fornece uma descrição geral dos elementos do esquema relacio
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | Cadeia | ID de Gestor de recursos do Azure | Sim |
-| **eventos** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
-| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, `/records/blobs/december/` só é acionado o acionador para blobs no `december` pasta sob o `records` contentor. | Cadeia   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
-| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, `december/boxes.csv` só é acionado o acionador para blobs com o nome `boxes` num `december` pasta. | Cadeia   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | String | ID de Gestor de recursos do Azure | Sim |
+| **events** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
+| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, `/records/blobs/december/` só é acionado o acionador para blobs no `december` pasta sob o `records` contentor. | String   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, `december/boxes.csv` só é acionado o acionador para blobs com o nome `boxes` num `december` pasta. | String   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de acionadores baseados em eventos
 

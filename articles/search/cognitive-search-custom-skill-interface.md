@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628277"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657829"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada para um pipeline de pesquisa cognitiva
 
@@ -27,7 +27,14 @@ Criar uma habilidade personalizada dá-lhe uma forma de inserir transformações
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de habilidades personalizado da API Web
 
-WebAPI habilidade os pontos finais personalizados tem de devolver uma resposta dentro de um período de 5 minutos. O pipeline de indexação é síncrono e indexação produzirá um erro de tempo limite se não for recebida uma resposta nessa janela."
+WebAPI habilidade os pontos finais personalizados por tempo limite predefinido, se eles não devolverem uma resposta dentro de uma janela de 30 segundos. O pipeline de indexação é síncrono e indexação produzirá um erro de tempo limite se não for recebida uma resposta nessa janela.  É possível configurar o tempo limite para ser até 90 segundos, definindo o parâmetro de tempo limite:
+
+```json
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "description": "This skill has a 90 second timeout",
+        "uri": "https://[your custom skill uri goes here]",
+        "timeout": "PT90S",
+```
 
 Atualmente, o mecanismo de apenas para interagir com uma habilidade personalizada é através de uma interface de Web API. A API Web precisa têm de cumprir os requisitos descritos nesta secção.
 

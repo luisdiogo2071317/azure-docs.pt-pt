@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: b51cf5611bf00c133378a7d90d1693e50b27f7b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491584"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564141"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
 
@@ -137,10 +137,12 @@ Para acionar uma cópia de segurança a pedido de uma máquina virtual:
 ## <a name="stop-protecting-virtual-machines"></a>parar a proteção de máquinas virtuais
 Se optar por parar a proteção de uma máquina virtual, é-lhe perguntado se pretende manter os pontos de recuperação. Existem duas formas de parar a proteção de máquinas virtuais:
 
-* parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação, ou
-* parar todas as tarefas de cópia de segurança futuras, mas deixar os pontos de recuperação
+* Parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação ou
+* Parar todas as tarefas de cópia de segurança futuras, mas manter os pontos de recuperação
 
 Existe um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que pode restaurar a máquina virtual mais tarde, se assim o desejar. Para obter informações sobre o custo de deixar os pontos de recuperação, consulte a [os detalhes dos preços](https://azure.microsoft.com/pricing/details/backup/). Se optar por eliminar todos os pontos de recuperação, não é possível restaurar a máquina virtual.
+
+Sempre que parar cópia de segurança com reter dados, pontos de recuperação irão expirar de acordo com a política de retenção, mas do Azure Backup manterá sempre um último ponto de recuperação até eliminar explicitamente os dados de cópia de segurança. Da mesma forma se eliminar uma origem de dados sem executar parar cópia de segurança, novas cópias de segurança começarão a falhar e os pontos de recuperação antigos irão expirar de acordo com a política de retenção, mas um último ponto de recuperação sempre será mantido até que efetue parar cópia de segurança com excluir dados.
 
 Para parar a proteção para uma máquina virtual:
 

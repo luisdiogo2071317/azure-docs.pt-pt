@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189613"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562067"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances com a CLI do Azure
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com a CLI do Azure, forneça um nome de um grupo de recursos, o nome da instância de contentor e a imagem do contentor de Docker para o cmdlet [az container create][az-container-create]. Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste início rápido, vai implementar um contentor com uma etiqueta de nome DNS que aloja uma pequena aplicação Web escrita em Node.js.
+Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com a CLI do Azure, forneça um nome de um grupo de recursos, o nome da instância de contentor e a imagem do contentor de Docker para o cmdlet [az container create][az-container-create]. Neste início rápido, vai utilizar o `microsoft/aci-helloworld` imagem a partir do registo do Docker Hub público. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
+
+Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste início rápido, vai implementar um contentor com uma etiqueta de nome DNS para que a aplicação web estiver acessível publicamente.
 
 Execute o seguinte comando para iniciar a instância de um contentor. O valor `--dns-name-label` tem de ser exclusivo na região do Azure em que cria a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
@@ -92,7 +94,7 @@ listening on port 80
 
 Além de visualizar os registos, pode anexar o padrão local e os fluxos de erro padrão para o do contentor.
 
-Em primeiro lugar, execute o comando [az container attach][az-container-attach] para anexar a consola local aos fluxos de saída do contentor:
+Em primeiro lugar, execute o [contentor az anexar] [ az-container-attach] fluxos de saída do comando para anexar a consola local para o contentor:
 
 ```azurecli-interactive
 az container attach --resource-group myResourceGroup -n mycontainer
@@ -145,7 +147,7 @@ Neste início rápido, criou uma instância de contentor do Azure com uma imagem
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Para experimentar opções para executar contentores num sistema de orquestração no Azure, veja os inícios rápidos do [Service Fabric][service-fabric] ou do [Azure Kubernetes Service (AKS)][container-service].
+Para experimentar opções para executar contentores num sistema de orquestração no Azure, consulte a [do Azure Kubernetes Service (AKS)] [ container-service] inícios rápidos.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Para experimentar opções para executar contentores num sistema de orquestraç�
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

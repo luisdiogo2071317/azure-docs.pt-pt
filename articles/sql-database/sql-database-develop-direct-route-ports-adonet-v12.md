@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260028"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560894"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além do 1433 para ADO.NET 4.5
+
 Este tópico descreve o comportamento de ligação de base de dados do Azure SQL para clientes que utilizam o ADO.NET 4.5 ou posterior. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ Este tópico descreve o comportamento de ligação de base de dados do Azure SQL
 >
 
 ## <a name="outside-vs-inside"></a>Exteriores vs dentro
+
 Para as ligações à base de dados do Azure SQL, podemos devem primeiro solicitar se o seu programa cliente executa *fora* ou *dentro* o limite de cloud do Azure. As subsecções abordam dois cenários comuns.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fora:* cliente é executado no computador de secretária
+#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Fora:* Cliente é executado no computador de secretária
+
 A porta 1433 é a porta única que tem de estar aberta no computador de secretária que aloja a aplicação de cliente da base de dados SQL.
 
-#### <a name="inside-client-runs-on-azure"></a>*Interior:* cliente é executado no Azure
+#### <a name="inside-client-runs-on-azure"></a>*Dentro de:* Cliente é executado no Azure
+
 Quando o cliente é executado dentro do limite do cloud do Azure, ele usa o que podemos chamar um *rota direta* para interagir com o servidor de base de dados SQL. Após uma conexão é estabelecida, ainda mais as interações entre o cliente e a base de dados não envolvem nenhum Gateway de base de dados SQL do Azure.
 
 A sequência é o seguinte:
@@ -76,6 +80,6 @@ Esta secção esclarece os monikers que se referem às versões do produto. Ele 
 * [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md)
 * [Firewall de base de dados SQL do Azure](sql-database-firewall-configure.md)
-* [Como: configurar as definições da firewall na base de dados SQL](sql-database-configure-firewall-settings.md)
+* [How to: Configure firewall settings on SQL Database (Como: configurar as definições da firewall na Base de Dados SQL)](sql-database-configure-firewall-settings.md)
 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 1/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: ef7b4377da541068cef7cdd2de5a98d33c3b80ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88ffa70f7ac21a2c28af994f1e2ed3b6939f6ad9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199103"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567422"
 ---
 # <a name="azure-marketplace-participation-policies"></a>Políticas de participação do Azure Marketplace
 
@@ -35,7 +35,7 @@ Estas Políticas de Participação do Microsoft Azure Marketplace aplicam-se a t
 
 1. Os publicadores têm de estar localizados num país de origem de venda suportado pelo Azure Marketplace. Atualmente, o Azure Marketplace suporta os seguintes países de origem de venda:  Afeganistão, África do Sul, Albânia, Alemanha, Angola, Antígua e Barbuda, Arábia Saudita, Argélia, Argentina, Arménia, Austrália, Áustria, Azerbaijão, Bangladeche, Barém, Bélgica, Benim, Bielorrússia, Bolívia, Bósnia e Herzegovina, Botsuana, Brasil, Bulgária, Burquina Faso, Burundi, Camarões, Camboja, Canadá, Catar, Cazaquistão, Chade, Chile, Chipre, Colômbia, Comores, Congo (RDC), Coreia do Sul, Côte D'Ivoire (Costa do Marfim), Costa Rica, Croácia, Dinamarca, Domínica, Egito, El Salvador, Emirados Árabes Unidos, Equador, Eritreia, Eslováquia, Eslovénia, Espanha, Estados Unidos da América, Estónia, Etiópia, Filipinas, Finlândia, França, Gana, Geórgia, Grécia, Guatemala, Guiné, Haiti, Honduras, Hungria, Ilhas Fiji, Índia, Indonésia, Iraque, Irlanda, Islândia, Israel, Itália, Jamaica, Japão, Jordânia, Kuwait, Laos, Letónia, Líbano, Libéria, Listenstaine, Lituânia, Luxemburgo, Madagáscar, Malásia, Maláui, Mali, Malta, Marrocos, Maurícia, México, Moçambique, Mónaco, Mongólia, Montenegro, Nepal, Nicarágua, Níger, Nigéria, Noruega, Nova Zelândia, Omã, Países Baixos, Paquistão, Panamá, Paraguai, Peru, Polónia, Portugal, Quénia, RAE de Hong Kong, Reino Unido, República Centro-Africana, República Checa, República Democrática do Congo, República Dominicana, Roménia, Ruanda, Rússia, Senegal, Serra Leoa, Sérvia, Singapura, Somália, Sri Lanca, Suécia, Suíça, Tailândia, Tajiquistão, Tanzânia, Timor-Leste, Togo, Tonga, Trindade e Tobago, Tunísia, Turquemenistão, Turquia, Ucrânia, Uganda, Uruguai, Usbequistão, Venezuela, Vietname, Zâmbia, Zimbabué.
 
-1. Para cada oferta, os publicadores têm de disponibilizá-la, pelo menos, num país de destino de venda suportado pelo Azure Marketplace. Atualmente, o Azure Marketplace suporta os seguintes países de destino de venda:  África do Sul, Alemanha, Arábia Saudita, Argélia, Argentina, Austrália, Áustria, Barém, Bélgica, Bielorrússia, Brasil, Bulgária, Canadá, Catar, Cazaquistão, Chile, Chipre, Colômbia, Coreia do Sul, Costa Rica, Croácia, Dinamarca, Egito, Emirados Árabes Unidos, Equador, Eslováquia, Eslovénia, Espanha, Estados Unidos da América, Estónia, Filipinas, Finlândia, França, Grécia, Guatemala, Hong Kong, Hungria, Índia, Indonésia, Irlanda, Islândia, Israel, Itália, Japão, Jordânia, Koweit, Letónia, Listenstaine, Lituânia, Luxemburgo, Macedónia (FYROM), Malásia, Malta, Marrocos, México, Montenegro, Nigéria, Noruega, Nova Zelândia, Omã, Países Baixos, Panamá, Paquistão, Paraguai, Peru, Polónia, Porto Rico, Portugal, Quénia, Reino Unido, República Checa, República Dominicana, Roménia, Rússia, Salvador, Sérvia, Singapura, Sri Lanca, Suécia, Suíça, Tailândia, Taiwan, Trindade e Tobago, Tunísia, Turquia, Ucrânia, Uruguai e Venezuela. 
+1. Para cada oferta, os publicadores têm de disponibilizá-la, pelo menos, num país de destino de venda suportado pelo Azure Marketplace. Atualmente, o Azure Marketplace suporta os seguintes países de destino de venda: África do Sul, Alemanha, Arábia Saudita, Argélia, Argentina, Austrália, Áustria, Barém, Bélgica, Bielorrússia, Brasil, Bulgária, Canadá, Catar, Cazaquistão, Chile, Chipre, Colômbia, Coreia do Sul, Costa Rica, Croácia, Dinamarca, Egito, Emirados Árabes Unidos, Equador, Eslováquia, Eslovénia, Espanha, Estados Unidos da América, Estónia, Filipinas, Finlândia, França, Grécia, Guatemala, Hong Kong, Hungria, Índia, Indonésia, Irlanda, Islândia, Israel, Itália, Japão, Jordânia, Koweit, Letónia, Listenstaine, Lituânia, Luxemburgo, Macedónia (FYROM), Malásia, Malta, Marrocos, México, Montenegro, Nigéria, Noruega, Nova Zelândia, Omã, Países Baixos, Panamá, Paquistão, Paraguai, Peru, Polónia, Porto Rico, Portugal, Quénia, Reino Unido, República Checa, República Dominicana, Roménia, Rússia, Salvador, Sérvia, Singapura, Sri Lanca, Suécia, Suíça, Tailândia, Taiwan, Trindade e Tobago, Tunísia, Turquia, Ucrânia, Uruguai e Venezuela.
 
 1. Os publicadores têm de ter uma boa capacidade financeira.
 
@@ -47,7 +47,7 @@ Estas Políticas de Participação do Microsoft Azure Marketplace aplicam-se a t
 
 1. Os publicadores têm de anunciar a disponibilidade da sua oferta no Azure Marketplace no respetivo site público e têm de incluir hiperligações para as suas ofertas páginas de listas nos [ https://azuremarketplace.microsoft.com/marketplace/ ](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Os publicadores têm de classificar cada oferta com base num ou mais Taxonomias fornecidas pela Microsoft, incluindo as categorias descritas na secção 4 deste documento. Se a Microsoft considera uma classificação selecionados pelo publicador incorreta, ele se reserva o direito a reclassificar qualquer oferta.
+1. Os publicadores têm de classificar cada oferta com base num ou mais Taxonomias fornecidas pela Microsoft, incluindo as categorias descritas na **definições de classificação da oferta** seção deste documento. Se a Microsoft considera uma classificação selecionados pelo publicador incorreta, ele se reserva o direito a reclassificar qualquer oferta.
 
 1. Se uma oferta de um editor é o Microsoft Azure Certified e não é executado principalmente no Microsoft Azure, o publicador tem de disponibilizar uma versão paga da oferta no Marketplace, dentro de 90 dias de publicar um gratuita ou uma versão BYOL da oferta.
 
@@ -122,7 +122,7 @@ Depois de publicar uma oferta de serviços no Marketplace, os publicadores têm 
     * Oferta que recebe constantemente muitos pedidos de suporte; ou
     * Publicador que não cumpriu os termos e condições do Contrato de Publicador do Microsoft Marketplace, das Diretrizes de Publicação do Marketplace ou do presente documento.
 
-1. Pode decidir, por várias razões, remover a sua oferta do Marketplace. A Remoção da Oferta impede que novos clientes possam comprar ou implementar a sua oferta, mas não afeta os clientes existentes. A Extinção da Oferta é o processo de extinção do serviço e/ou contrato de licenciamento entre si e os seus clientes existentes. A documentação de orientação e as políticas relacionadas com a remoção e extinção de ofertas regem-se pelo Contrato de Publicador do Microsoft Marketplace (consultar Secção 7). Para requerer a remoção ou extinção, registe um pedido de suporte.
+1. Pode decidir, por várias razões, remover a sua oferta do Marketplace. A Remoção da Oferta impede que novos clientes possam comprar ou implementar a sua oferta, mas não afeta os clientes existentes. A Extinção da Oferta é o processo de extinção do serviço e/ou contrato de licenciamento entre si e os seus clientes existentes. Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelo contrato de publicador do Microsoft Marketplace (consulte a seção de "Termos de pagamento"). Para requerer a remoção ou extinção, registe um pedido de suporte.
 
 ## <a name="payment-terms"></a>Condições de pagamento
 
@@ -138,19 +138,35 @@ A Microsoft permite que os publicadores incluam os seguintes Produtos de Softwar
 
 ## <a name="taxes"></a>Impostos
 
-1. **Países de remessa da Microsoft.**
+1. **Responsabilidade de impostos sobre vendas do cliente final.**
 
-    1. Os seguintes países são países de remessa da Microsoft, conforme definido no contrato de publicador do Microsoft Marketplace: União Europeia, Canadá, Índia, Irlanda, Listenstaine, Mónaco, Nova Zelândia, Noruega, Porto Rico, Coreia do Sul, Suíça, Estados Unidos. Austrália, Arábia Saudita, Taiwan e Emirados Árabes Unidos são países de Remittance da Microsoft apenas para vendas Web Direct.
+    1. Em geral, cada uma das responsabilidades da Microsoft e do publicador de impostos sobre vendas do cliente final dependem do país e o cenário de compra no qual as ofertas são vendidas.
 
-    1. Na Irlanda, a Microsoft cobra o IVA em vigor na Irlanda a todos os clientes irlandeses (salvo quando os mesmos apresentam detalhes de um certificado VAT 56B válido). Para os clientes empresariais no território da União Europeia e da Noruega (fora da Irlanda), a Microsoft aplica a taxa zero do IVA quando é indicado um número de IVA válido. Se não for indicado um número de IVA válido, é cobrado aos clientes o IVA à taxa aplicável no país/jurisidção do cliente.
+    1. Em determinados países (**países geridos da Microsoft**) Microsoft assume a responsabilidade para o gerenciamento de tributação de cliente final, o que pode incluir a validar o status de negócios dos clientes, obtendo os números de registo de imposto sobre ou certificados de isenção, mais profundos geridos relações com os clientes e calcular, recolher e/ou remitting impostos.  Em casos em que as vendas são feitas através de parceiros, a Microsoft assume que todos os parceiros são as empresas e adequadamente são discharging suas obrigações.  Informações adicionais podem ser encontradas no [FAQs](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft cobra o IVA suíço a todos os clientes na Suíça ou Listenstaine.
+    1. Para todos os países que não são países de geridas da Microsoft (**países geridos de ISV**), os publicadores reconhece e concorda que os publicadores têm competência exclusiva para determinar e gerir tributação de cliente final, como Registro, imposto sobre vendas cálculo, a coleção e a remessa, validação do Estado de negócios de clientes e aprovisionamento de notas fiscais de imposto aos clientes, para todas as ofertas que desses publicadores optarem por tornar disponível nos países geridos de ISV.  Os publicadores reconhece que, em relação a qualquer venda num país de geridos de ISV, Microsoft atualmente pode não ser capaz de fornecer.
 
-1. **Países de remessa do ISV.**
+    1. Os clientes do fim podem comprar ofertas diretamente da Microsoft ou de parceiros da Microsoft a quem o publicador licenças seu produto.  Além disso, existem vários programas de licenciamento diferentes.  Em alguns casos, países geridos da Microsoft podem se tornar países geridos de ISV e vice-versa (consulte a secção sobre **países geridos da Microsoft**, abaixo). Podem encontrar informações sobre cenários de compra do cliente [FAQ do Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. Países de remessa do ISV incluem todos os venda países conforme definido na secção 1 (3) desta política que não são países de remessa da Microsoft. Além disso, as vendas da Austrália, Arábia Saudita, Taiwan e Emirados Árabes Unidos através do canal Enterprise são processadas como vendas de remessa do ISV. No entanto, com respeito a publicadores em Taiwan, Microsoft não é possível confirmar que qualquer desses publicadores Taiwanês estão a recolher e remitting os impostos aplicáveis.
+1. **Países geridas pela Microsoft.**
 
-    1. Se os publicadores optarem por disponibilizar ofertas num país de remessa ISV, desses publicadores tem o único responsável por determinar sua obrigação fiscal nesse país remessa ISV, caso existam.  Eles tem de confirmar que Microsoft não atualmente poderá fornecer os detalhes de transações, os publicadores necessários para fornecer aos clientes fiscais.
+    1. Os seguintes países são países de geridas da Microsoft para vendas através de todos os cenários de compra do cliente: Arménia, Bielorrússia, União Europeia, Canadá, Índia, Irlanda, Listenstaine, Mónaco, Nova Zelândia, Noruega, Porto Rico, Rússia, Arábia Saudita, Sérvia, Coreia do Sul, Suíça, Taiwan, Turquia, Reino Árabes Unidos e Estados Unidos. 
+
+    1. Austrália é um país do Microsoft geridos para vendas através de todos os cenários de compra do cliente, exceto o cenário de compra de clientes do contrato Enterprise.
+
+    1. A Microsoft gere tributação de cliente final para o publicador como uma conveniência e supõe que os cenários mais comuns para determinar os países e estratégias de gerenciamento de tributação de cliente final.
+
+    1. Microsoft não oferece qualquer garantira ações da Microsoft atenderão completamente obrigações de publicadores em países de geridas da Microsoft.  Para todos os Microsoft Managed países, a Microsoft recomenda vivamente editores de trabalham com seus próprios consultores de imposto para determinar se a remessa de impostos de Microsoft Managed endereços suficientemente requisitos de conformidade dos Publicadores.  Isso é particularmente crucial para qualquer países de geridas da Microsoft do qual os publicadores vendem seus produtos.  Por exemplo, um publicador estabelecida no e venda de ofertas no Arábia Saudita pode determinar que depender da Microsoft para gerir o imposto pode não ser suficiente para satisfazer as obrigações reguladoras de conformidade do Editor.
+
+1. **ISV geridos países.**
+
+    1. Países de ISV geridos incluem Austrália, para a compra de todas as vendas por meio do cliente do Enterprise Agreement cenário e todos os países não mencionados na seção sobre **países geridos da Microsoft**.
+
+1. **Casos especiais.**
+
+    1. *Brasil*.  Para vendas no Brasil através do cliente todos os cenários, exceto o CSP de compra, Brasil é um país de geridas da Microsoft e Microsoft atua como um revendedor, em vez de agente de editores.  Para vendas no Brasil através do cliente CSP comprar cenário, atua de Microsoft como agente de editores e sells de uma entidade de Brasil para CSPs brasileiro que parte do princípio de Microsoft são impostos em conformidade. 
+
+    1. *México*.  Para vendas no México o cenário de compra de cliente do Enterprise Agreement, México é um país de geridas da Microsoft e Microsoft atua como um revendedor, em vez de agente de editores.  Para vendas no México através de todos os cenários de compra do cliente, exceto o contrato Enterprise, México é um país de geridos de ISV e Microsoft funciona como agente de editores.
 
 ## <a name="security-events"></a>Eventos de segurança
 

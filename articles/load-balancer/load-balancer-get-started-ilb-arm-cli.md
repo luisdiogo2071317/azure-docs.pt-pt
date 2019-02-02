@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 746d0f51a876f24afc731486412eca0277b76d22
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106010"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659801"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure
 
@@ -30,7 +30,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupILB* na localização *eastus*:
 
@@ -41,7 +41,7 @@ O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupILB* na 
 ```
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* em *myResourceGroup*, através de [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Crie uma rede virtual com o nome *myVnet*, com uma sub-rede de nome *mySubnet* em *myResourceGroup*, através de [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 
-Crie um Balanceador de Carga Básico público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) com o nome **myLoadBalancer** que inclua uma configuração de IP de front-end com o nome **myFrontEnd**, um conjunto de back-end com o nome **myBackEndPool** que esteja associado a um endereço IP privado **10.0.0.7.
+Crie um Balanceador de Carga Básico público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome **myLoadBalancer** que inclua uma configuração de IP de front-end com o nome **myFrontEnd**, um conjunto de back-end com o nome **myBackEndPool** que esteja associado a um endereço IP privado **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Crie um Balanceador de Carga Básico público com [az network lb create](https:/
   ```
 ### <a name="create-the-health-probe"></a>Criar a sonda de estado de funcionamento
 
-Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem receber o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Crie uma sonda de estado de funcionamento com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) para monitorizar o estado de funcionamento das máquinas virtuais. 
+Uma sonda de estado de funcionamento verifica todas as instâncias de máquina virtual para assegurar que podem receber o tráfego de rede. A instância da máquina virtual com verificações de sonda com falha é removida do balanceador de carga até ficar novamente online e uma verificação de sonda determinar que está em bom estado. Crie uma sonda de estado de funcionamento com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorizar o estado de funcionamento das máquinas virtuais. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Uma sonda de estado de funcionamento verifica todas as instâncias de máquina v
 
 ### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
 
-Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) para escutar a porta 80 no conjunto de front-end *myFrontEnd* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80. 
+Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myHTTPRule* com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) para escutar a porta 80 no conjunto de front-end *myFrontEnd* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80. 
 
 ```azurecli-interactive
   az network lb rule create \

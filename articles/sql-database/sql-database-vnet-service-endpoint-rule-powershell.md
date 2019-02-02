@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 10/23/2018
+ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945931"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566300"
 ---
-# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Criar um ponto final de serviço Virtual e uma regra de VNet para o SQL
+# <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Criar um ponto final de serviço Virtual e uma regra de VNet para o SQL
 
 Do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suporta pontos finais de serviço Virtual.
 
@@ -31,7 +31,7 @@ Este artigo fornece e explica um script do PowerShell que executa as ações seg
 1. Cria um Microsoft Azure *ponto final de serviço Virtual* na sua sub-rede.
 2. Adiciona o ponto final para o firewall do seu servidor de base de dados do Azure SQL, para criar uma *regra de rede virtual*.
 
-Suas motivações para criar uma regra são explicadas em: [pontos finais de serviço Virtual para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+Suas motivações para criar uma regra são explicadas em: [Pontos finais de serviço virtual para a base de dados do Azure SQL][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
 > Se tudo o que precisa avaliar ou adicionar o ponto final de serviço Virtual *nome do tipo* para a base de dados SQL à sua sub-rede, pode avançar diretamente para o nosso mais [direcionar o script do PowerShell](#a-verify-subnet-is-endpoint-ps-100).
@@ -42,11 +42,11 @@ Este artigo enfatiza a **New-AzureRmSqlServerVirtualNetworkRule** cmdlet que adi
 
 A lista seguinte mostra a sequência de outros *principais* cmdlets que tem de executar para se preparar para a chamada **New-AzureRmSqlServerVirtualNetworkRule**. Neste artigo, essas chamadas ocorrem no [script 3 "regra de rede Virtual"](#a-script-30):
 
-1. [Novo-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): cria um objeto de sub-rede.
-2. [Novo-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): cria a sua rede virtual, dando a ele a sub-rede.
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): atribui um ponto de extremidade de serviço Virtual à sua sub-rede.
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): persistir atualizações feitas à sua rede virtual.
-5. [Novo-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): depois de sua sub-rede é um ponto de extremidade, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de base de dados do Azure SQL.
+1. [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Cria um objeto de sub-rede.
+2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): Cria a rede virtual, dando a ele a sub-rede.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): Atribui um ponto de extremidade de serviço Virtual à sua sub-rede.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): Mantém as atualizações feitas à sua rede virtual.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): Depois de sua sub-rede é um ponto de extremidade, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de base de dados do Azure SQL.
    - Este cmdlet oferece o parâmetro **- IgnoreMissingVNetServiceEndpoint**, a partir do módulo do Azure RM PowerShell versão 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para executar o PowerShell
@@ -63,7 +63,7 @@ Nossa demonstração de script do PowerShell está dividida numa seqüência de 
 
 <a name="a-script-10" />
 
-### <a name="script-1-variables"></a>Script 1: variáveis
+### <a name="script-1-variables"></a>Script 1: Variáveis
 
 Este script do PowerShell primeiro atribui valores às variáveis. Os scripts subsequentes dependem estas variáveis.
 
@@ -112,7 +112,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 <a name="a-script-20" />
 
-### <a name="script-2-prerequisites"></a>2 de script: pré-requisitos
+### <a name="script-2-prerequisites"></a>Script de 2: Pré-requisitos
 
 Este script prepara para o script seguinte, em que é a ação de ponto final. Este script cria para, o seguinte listado itens, mas apenas se eles ainda não existir. Pode ignorar script 2 se tiver a certeza de que estes itens ainda existam:
 
@@ -203,7 +203,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Criar um ponto de extremidade e uma regra
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script de 3: Criar um ponto de extremidade e uma regra
 
 Este script cria uma rede virtual com uma sub-rede. Em seguida, atribui o script a **Microsoft. SQL** tipo de ponto final à sua sub-rede. Por fim o script adiciona a sub-rede para a lista de controlo de acesso (ACL) do seu servidor de base de dados SQL, criando uma regra.
 
@@ -289,12 +289,12 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>Script 4: Limpeza
+## <a name="script-4-clean-up"></a>Script de 4: Limpeza
 
 Este script final elimina os recursos que os scripts anteriores criados para a demonstração. No entanto, o script pede-lhe confirmação antes de ele elimina o seguinte:
 
 - Servidor de base de dados SQL do Azure
-- Grupo de recursos do Azure
+- Grupo de Recursos do Azure
 
 Pode executar o script 4 a qualquer momento após a conclusão do script 1.
 

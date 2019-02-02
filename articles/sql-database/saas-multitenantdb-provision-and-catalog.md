@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055310"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562900"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionar e catalogar novos inquilinos numa aplicação SaaS com uma base de dados de SQL do Azure em partição horizontal do multi-inquilino
 
@@ -28,7 +28,7 @@ Este artigo tem duas partes principais:
 - [Discussão conceitual](#goto_2_conceptual) do aprovisionamento e catalogação de novos inquilinos.
 
 - [Tutorial](#goto_1_tutorial) que destaca o código de script do PowerShell que realiza o aprovisionamento e catalogação.
-    - O tutorial utiliza a aplicação Wingtip Tickets SaaS, adaptada para o padrão de base de dados em partição horizontal do multi-inquilino.
+  - O tutorial utiliza a aplicação Wingtip Tickets SaaS, adaptada para o padrão de base de dados em partição horizontal do multi-inquilino.
 
 <a name="goto_2_conceptual"/>
 
@@ -143,12 +143,12 @@ Nesta secção, é apresentada uma lista das ações principais para o aprovisio
 
 Seguem-se os principais elementos do fluxo de trabalho aprovisionamento, siga os passos:
 
-- **Calcular a nova chave de inquilino**: uma função de hash é utilizada para criar a chave de inquilino do nome do inquilino.
+- **Calcular a nova chave de inquilino**: É utilizada uma função hash para criar a chave de inquilino a partir do nome do inquilino.
 - **Verificar se a chave de inquilino já existe**: O catálogo é verificado para garantir que a chave já não foi registrada.
 - **Inicializar o inquilino na base de dados de inquilino predefinida**: A base de dados do inquilino é atualizado para adicionar as novas informações de inquilino.  
 - **Registar o inquilino no catálogo**: O mapeamento entre a nova chave de inquilino e a base de dados existente do tenants1 é adicionado ao catálogo. 
 - **Adicionar o nome do inquilino a uma tabela de extensão de catálogo**: O nome de local é adicionado à tabela de inquilinos no catálogo.  Esta adição mostra como a base de dados do catálogo pode ser estendido para oferecer suporte a dados adicionais de específico do aplicativo.
-- **Página aberta de eventos para o novo inquilino**: A *Bushwillow Blues* página Eventos é aberta no browser.
+- **Página aberta de eventos para o novo inquilino**: O *Bushwillow Blues* página Eventos é aberta no browser.
 
    ![eventos](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Para compreender como a aplicação Wingtip implementa o aprovisionamento numa b
    - **$VenueType** = **blues**, um dos tipos predefinidos de local: blues, música clássica, dança, jazz, judo, corrida, opera, música Rock, futebol (em minúsculas, sem espaços).
    - **$DemoScenario** = **1**, para aprovisionar um inquilino na base de dados partilhada com outros inquilinos.
 
-2. Adicionar um ponto de interrupção ao colocar o cursor em qualquer parte na linha 38, a linha que diz: *New-Tenant '* e, em seguida, prima **F9**.
+2. Adicione um ponto de interrupção ao colocar o cursor em qualquer parte na linha 38, a linha que diz: *Novo inquilino '* e, em seguida, prima **F9**.
 
    ![ponto de interrupção](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -181,14 +181,14 @@ Para obter mais informações sobre a depuração de scripts do PowerShell, cons
 
 Seguem-se os principais elementos do fluxo de trabalho que avança ao rastreamento o script:
 
-- **Calcular a nova chave de inquilino**: uma função de hash é utilizada para criar a chave de inquilino do nome do inquilino.
+- **Calcular a nova chave de inquilino**: É utilizada uma função hash para criar a chave de inquilino a partir do nome do inquilino.
 - **Verificar se a chave de inquilino já existe**: O catálogo é verificado para garantir que a chave já não foi registrada.
-- **Criar uma nova base de dados de inquilino**: A base de dados é criado ao copiar o *basetenantdb* base de dados com um modelo do Resource Manager.  O novo nome de base de dados baseia-se no nome do inquilino.
+- **Criar uma nova base de dados do inquilino**: A base de dados é criado ao copiar o *basetenantdb* base de dados com um modelo do Resource Manager.  O novo nome de base de dados baseia-se no nome do inquilino.
 - **Adicionar a base de dados para o catálogo de**: A nova base de dados de inquilino está registado como uma partição horizontal no catálogo.
 - **Inicializar o inquilino na base de dados de inquilino predefinida**: A base de dados do inquilino é atualizado para adicionar as novas informações de inquilino.  
-- **Registar o inquilino no catálogo**: O mapeamento entre a nova chave de inquilino e a *sequoiasoccer* base de dados é adicionada ao catálogo.
+- **Registar o inquilino no catálogo**: O mapeamento entre a nova chave de inquilino e o *sequoiasoccer* base de dados é adicionada ao catálogo.
 - **Nome do inquilino é adicionado ao catálogo de**: O nome de local é adicionado à tabela de extensão de inquilinos no catálogo.
-- **Página aberta de eventos para o novo inquilino**: A *Sequoia futebol* página Eventos é aberta no browser.
+- **Página aberta de eventos para o novo inquilino**: O *Sequoia futebol* página Eventos é aberta no browser.
 
    ![eventos](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

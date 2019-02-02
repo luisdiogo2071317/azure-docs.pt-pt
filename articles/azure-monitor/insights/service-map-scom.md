@@ -13,18 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 19e842fc3674536972327c3bc6d31641560e38db
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187216"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659189"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração de mapa de serviço com o System Center Operations Manager
-  > [!NOTE]
-  > Esta funcionalidade está em pré-visualização pública.
-  > 
-  
+
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Mapa de serviço permite-lhe ver os servidores a forma como considerá-los, como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária para além da instalação de um agente. Para obter mais informações, consulte a [documentação de mapa de serviço]( service-map.md).
 
 Com esta integração entre o mapa de serviço e o System Center Operations Manager, pode criar automaticamente diagramas de aplicação distribuída no Operations Manager que se baseiam os mapas de dependência dinâmico no mapa de serviço.
@@ -43,7 +40,7 @@ Ativar a integração entre o Operations Manager e o mapa de serviço através d
 * Mapa de serviço do Microsoft System Center
 
 ## <a name="configure-the-service-map-integration"></a>Configurar a integração de mapa de serviço
-Depois de instalar o pacote de gestão do mapa de serviço, um novo nó **mapa de serviço**, é apresentado em **Operations Management Suite** no **administração** painel. 
+Depois de instalar o pacote de gestão do mapa de serviço, um novo nó **mapa de serviço**, é apresentado em **Operations Management Suite** no **administração** painel.
 
 >[!NOTE]
 >[Operations Management Suite foi uma coleção de serviços](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) incluídos que o Log Analytics, que agora faz parte dos [do Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -63,11 +60,11 @@ Para configurar a integração de mapa de serviço, faça o seguinte:
     ![A área de trabalho de configuração do Operations Manager](media/service-map-scom/scom-config-workspace.png)
 
 4. Na **seleção de grupo de computadores** janela, escolher os grupos de máquina de mapa de serviço que pretende sincronizar para o Operations Manager. Clique em **Adicionar/remover grupos de máquinas**, selecione os grupos da lista de **grupos de máquinas disponíveis**e clique em **Add**.  Quando tiver terminado de selecionar os grupos, clique em **Ok** para concluir.
-    
+
     ![Os grupos de máquina de configuração do Gestor de operações](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. Na **seleção de servidor** janela, configurar o grupo de servidores de mapa de serviço com os servidores que pretende sincronizar entre o Operations Manager e o mapa de serviço. Clique em **Adicionar/remover servidores**.   
-    
+
     Para a integração criar um diagrama de aplicação distribuída para um servidor, tem de ser o servidor:
 
     * Gerido pelo Operations Manager
@@ -91,7 +88,7 @@ Depois que estiver ligada a área de trabalho do Log Analytics, uma nova pasta, 
 ![O painel de monitorização do Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 A pasta de mapa de serviço tem quatro nós:
-* **Alertas ativos**: Apresenta uma lista de todos os alertas ativos sobre a comunicação entre o Operations Manager e o mapa de serviço.  Tenha em atenção que estes alertas não são do Log Analytics alerta a ser sincronizado com o Operations Manager. 
+* **Alertas ativos**: Apresenta uma lista de todos os alertas ativos sobre a comunicação entre o Operations Manager e o mapa de serviço.  Tenha em atenção que estes alertas não são do Log Analytics alerta a ser sincronizado com o Operations Manager.
 
 * **Servidores**: Apresenta uma lista de servidores monitorizados que estão configurados para sincronizar a partir do mapa de serviço.
 
@@ -120,9 +117,9 @@ Uma regra _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criado para obter p
 
 ![A janela de propriedades substituições do Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Ativado**: Ativar ou desativar as atualizações automáticas. 
+* **Ativado**: Ativar ou desativar as atualizações automáticas.
 * **IntervalMinutes**: Repor o tempo entre as atualizações. O intervalo predefinido é de uma hora. Se pretender sincronizar os mapas de servidor com mais frequência, pode alterar o valor.
-* **TimeoutSeconds**: Repor o período de tempo antes do pedido exceder o tempo limite. 
+* **TimeoutSeconds**: Repor o período de tempo antes do pedido exceder o tempo limite.
 * **TimeWindowMinutes**: Repor a janela de tempo para consultar dados. A predefinição é uma janela de 60 minutos. O valor máximo permitido pelo mapa de serviço é 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos

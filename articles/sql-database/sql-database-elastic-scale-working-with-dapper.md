@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866309"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565586"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper
 Este documento é para desenvolvedores que contam com o Dapper a criação de aplicativos, mas também querem adotar [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para aumentar horizontalmente as camadas de dados.  Este documento ilustra as alterações nos aplicativos baseados no Dapper que são necessários para integrar em ferramentas de bases de dados elásticas. É nosso foco irá incidir na composição da gestão de partições horizontais de bases de dados elásticas e encaminhamento dependente de dados com o Dapper. 
 
-**Código de exemplo**: [ferramentas de bases de dados elásticas para o Azure SQL Database - integração o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de exemplo**: [Ferramentas de bases de dados elásticas para o Azure SQL Database - integração o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 Integrando **o Dapper** e **DapperExtensions** com a base de dados elástica biblioteca de clientes para a base de dados SQL do Azure é fácil. Seus aplicativos podem usar o encaminhamento dependente de dados, alterando a criação e a abertura de novas [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objetos para utilizar o [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) chamar a partir do [biblioteca de cliente ](https://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações na sua aplicação apenas para onde novas ligações são criadas e abertas. 
 
@@ -49,9 +49,9 @@ Em vez de usar a maneira tradicional de criar ligações para o Dapper, tem de u
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para integração com o Dapper
 Ao trabalhar com a biblioteca de clientes de bases de dados elásticas e as APIs o Dapper, em que pretenda manter as seguintes propriedades:
 
-* **Aumentar horizontalmente**: que queremos adicionar ou remover bases de dados da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. 
-* **Consistência**: uma vez que a aplicação está aumentada horizontalmente com a fragmentação, terá de efetuar o encaminhamento dependente de dados. Queremos usar recursos de roteamento dependente de dados da biblioteca para fazer isso. Em particular, que pretenda manter a validação e garante a consistência fornecida pelo ligações mediadas por meio do Gestor de mapas de partições horizontais para evitar corrupção ou os resultados da consulta errado. Isto garante que as ligações a um shardlet específico são rejeitadas ou interrompidas se (por exemplo) a shardlet atualmente é movido para das partições horizontais diferentes com APIs de dividir/unir.
-* **Mapeamento de objeto**: que queremos manter a conveniência dos mapeamentos fornecida pelo Dapper traduzir entre as classes no aplicativo e as estruturas de base de dados subjacente. 
+* **Aumentar horizontalmente**: Queremos adicionar ou remover bases de dados da camada de dados da aplicação em partição horizontal, conforme necessário para as necessidades de capacidade do aplicativo. 
+* **Consistência**: Uma vez que a aplicação está aumentada horizontalmente com a fragmentação, terá de efetuar o encaminhamento dependente de dados. Queremos usar recursos de roteamento dependente de dados da biblioteca para fazer isso. Em particular, que pretenda manter a validação e garante a consistência fornecida pelo ligações mediadas por meio do Gestor de mapas de partições horizontais para evitar corrupção ou os resultados da consulta errado. Isto garante que as ligações a um shardlet específico são rejeitadas ou interrompidas se (por exemplo) a shardlet atualmente é movido para das partições horizontais diferentes com APIs de dividir/unir.
+* **Mapeamento de objeto**: Queremos manter a conveniência dos mapeamentos fornecida pelo Dapper traduzir entre as classes no aplicativo e as estruturas de base de dados subjacente. 
 
 A secção seguinte fornece orientações para esses requisitos para aplicativos baseados no **o Dapper** e **DapperExtensions**.
 
@@ -137,7 +137,7 @@ E aqui está o código de exemplo para a consulta:
     }
 
 ### <a name="handling-transient-faults"></a>Processamento de falhas transitórias
-A Microsoft Patterns & Practices do azurecat publicou a [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar a atenuar as condições de falhas transitórias comuns encontradas durante a execução na cloud de desenvolvedores de aplicativos. Para obter mais informações, consulte [Perseverance, segredo de todos os Triumphs: usando o Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx).
+A Microsoft Patterns & Practices do azurecat publicou a [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar a atenuar as condições de falhas transitórias comuns encontradas durante a execução na cloud de desenvolvedores de aplicativos. Para obter mais informações, consulte [Perseverance, segredo de todos os Triumphs: Usando o bloco de aplicativo de processamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719.aspx).
 
 O código de exemplo se baseia na biblioteca de falhas transitórias para proteger contra falhas transitórias. 
 

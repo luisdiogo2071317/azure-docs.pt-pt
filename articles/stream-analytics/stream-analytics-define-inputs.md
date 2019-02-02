@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099737"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567949"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics tem integração de classe empresarial com fluxos de dados do A
 Estes recursos de entrada podem residir na mesma subscrição do Azure que a tarefa de Stream Analytics ou numa subscrição diferente.
 
 ### <a name="compression"></a>Compressão
-Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Tipos de referência atualmente suportados são: nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
+Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Tipos de referência atualmente suportados são: Nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou entradas de teste
 Pode utilizar o [portal do Azure](https://portal.azure.com) ao [criar novas entradas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e ver ou editar entradas existentes na sua tarefa de transmissão em fluxo. Também pode testar ligações de entrada e [testar consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) de dados de exemplo. Quando escreve uma consulta, apresentará uma lista de entrada na cláusula FROM. Pode obter a lista de entradas de disponíveis dos **consulta** página no portal. Se pretender utilizar várias entradas, pode `JOIN` -los ou escrever várias `SELECT` consultas.
@@ -75,7 +75,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Ao utilizar o Hub de eventos como um ponto de extremidade para rotas de Hub IoT, pode acessar o medadata de Hub de IoT com o [GetMetadataPropertyValue função](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> Ao utilizar o Hub de eventos como um ponto final para as rotas do IoT Hub, pode acessar os metadados de Hub de IoT com o [GetMetadataPropertyValue função](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Dados de Stream do IoT Hub
@@ -171,7 +171,7 @@ FROM Input
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
-> [Início rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Quickstart: Criar uma tarefa de Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

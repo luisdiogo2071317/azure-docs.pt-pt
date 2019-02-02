@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 3e9042251a4818af88aab7dcb5bc32ea9fedb66c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 93ba31112210ad8374edfbee8e568c13109a5403
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946685"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658162"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Exemplo de script de peering de duas redes virtuais
 
@@ -50,11 +50,11 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede e sub-rede virtual do Azure. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
 | [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) | Cria um peering entre duas redes virtuais.  |
 | [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

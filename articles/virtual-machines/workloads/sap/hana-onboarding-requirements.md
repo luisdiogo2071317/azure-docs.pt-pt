@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477861"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563835"
 ---
 # <a name="onboarding-requirements"></a>Requisitos de integração
 
@@ -33,7 +33,7 @@ Esta lista monta requisitos para executar o SAP HANA no Azure (instâncias grand
 
 **Conectividade de rede**
 
-- ExpressRoute entre no local para o Azure: Para ligar o seu centro de dados no local para o Azure, certifique-se solicitar, pelo menos, uma ligação de 1 Gbps a partir do seu ISP. Conectividade entre unidades de instância grande do HANA e o Azure está a utilizar tecnologia de ExpressRoute também. Esta ligação ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA. Portanto, como cliente, não tiver custos adicionais para além da sua ligação de ExpressRoute entre no local e o Azure.
+- ExpressRoute entre no local para o Azure: Para ligar o seu centro de dados no local para o Azure, certifique-se solicitar, pelo menos, uma ligação de 1 Gbps a partir do seu ISP. Conectividade entre unidades de instância grande do HANA e o Azure está a utilizar tecnologia de ExpressRoute também. Esta ligação ExpressRoute entre as unidades de instância grande do HANA e o Azure está incluída no preço das unidades de instância grande do HANA, incluindo todos os dados entrada e saída encargos para este circuito do ExpressRoute específico. Portanto, como cliente, não tiver custos adicionais para além da sua ligação de ExpressRoute entre no local e o Azure.
 
 **Sistema operativo**
 

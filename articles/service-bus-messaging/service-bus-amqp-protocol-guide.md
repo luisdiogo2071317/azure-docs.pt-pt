@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197930"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658271"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -134,7 +134,7 @@ Uma chamada de "receber" no nível da API que se traduz numa *fluxo* performativ
 
 O bloqueio numa mensagem é libertado quando a transferência é incorporada a um dos Estados de terminal *aceite*, *rejeitado*, ou *lançado*. A mensagem é removida do Service Bus, quando o estado terminal for *aceites*. Continua no Service Bus e é entregue ao destinatário seguinte quando a transferência atinge qualquer um dos outros Estados. Do Service Bus move automaticamente a mensagem numa fila de mensagens não entregues a entidade quando alcança a contagem máxima de entrega permitida para a entidade devido a rejeições repetidas ou de versões.
 
-Embora as APIs de barramento de serviço não expõem diretamente essa opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode utilizar o modelo de crédito de ligação para ativar a interação de "pull-style" de emissão de uma unidade de crédito para cada pedido de receção para um modelo de "push-style" por emitir um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. Push é suportado através da [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) configurações de propriedade. Quando estão diferente de zero, o cliente AMQP usa-o como o crédito de ligação.
+Embora as APIs de barramento de serviço não expõem diretamente essa opção hoje em dia, um cliente de protocolo AMQP de nível inferior pode utilizar o modelo de crédito de ligação para ativar a interação de "pull-style" de emissão de uma unidade de crédito para cada pedido de receção para um modelo de "push-style" por emitir um grande número de créditos de ligação e, em seguida, receber mensagens à medida que ficam disponíveis sem qualquer interação adicional. Push é suportado através da [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) ou [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) configurações de propriedade. Quando estão diferente de zero, o cliente AMQP usa-o como o crédito de ligação.
 
 Neste contexto, é importante compreender que o período de expiração do bloqueio da mensagem dentro da entidade começa quando a mensagem foi obtida da entidade, não quando a mensagem será colocada na conexão. Sempre que o cliente indica a preparação para receber mensagens através da emissão de crédito de ligação, espera-se, por conseguinte, para receber ativamente mensagens através da rede e estar pronto para manipulá-las. Caso contrário, o bloqueio da mensagem pode ter expirado, antes da mensagem ainda é entregue. A utilização do controlo de fluxo de crédito de ligação deve refletir diretamente a preparação de imediato para lidar com mensagens disponíveis expedidas para o recetor.
 
@@ -214,7 +214,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | --- | --- | --- |
 | durável |- |- |
 | prioridade |- |- |
-| TTL |Tempo de duração para esta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| TTL |Tempo de duração para esta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | primeiro acquirer |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 
 | Nome do Campo | Utilização | Nome da API |
 | --- | --- | --- |
-| id da mensagem |Identificador para esta mensagem definida pelo aplicativo, de forma livre. Utilizada para a deteção de duplicados. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| id da mensagem |Identificador para esta mensagem definida pelo aplicativo, de forma livre. Utilizada para a deteção de duplicados. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | id de utilizador |Identificador de utilizador definida pelo aplicativo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
-| para |Identificador de destino definido pelo aplicativo, não interpretado pelo Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| para |Identificador de destino definido pelo aplicativo, não interpretado pelo Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Definido pelo aplicativo codificação de conteúdo indicador para o corpo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
-| absolute-expiry-time |Declara em qual absoluto instantâneas a mensagem expira. Ignorada na entrada (cabeçalho TTL é observada), autoritativa de saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Declara em qual absoluto instantâneas a mensagem expira. Ignorada na entrada (cabeçalho TTL é observada), autoritativa de saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | hora de criação |Declara nesse momento a mensagem foi criada. Não é utilizada pelo barramento de serviço |Não está acessível através da API do barramento de serviço. |
-| group-id |Identificador para um conjunto relacionado de mensagens definidas pelo aplicativo. Utilizado para sessões de barramento de serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |Identificador para um conjunto relacionado de mensagens definidas pelo aplicativo. Utilizado para sessões de barramento de serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |Identificar o número de sequência relativo da mensagem dentro de uma sessão de contador. Ignorados pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 

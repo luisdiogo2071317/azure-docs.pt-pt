@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7b71b2bae540f4ef6b1e9c637c601d6f7b303ae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 75caad2c183ba2d3c5442a3620705c6af8070755
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250712"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659597"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -159,7 +159,7 @@ Pode utilizar um ambiente de sistema criado conda, um ambiente de Python já exi
 
 Utilize a Máquina Virtual de ciência de dados do Azure (DSVM) como VM do Azure à escolha para este cenário. Esta VM é um ambiente de desenvolvimento de IA do Azure e de ciência de dados pré-configurados. A VM oferece uma opção organizada de ferramentas e estruturas para o ciclo de vida completo de machine learning de desenvolvimento. Para obter mais informações sobre como utilizar a DSVM com o Azure Machine Learning, consulte [configurar um ambiente de desenvolvimento](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > O Azure Machine Learning suporta apenas máquinas virtuais que executar o Ubuntu. Quando criar uma VM ou escolha uma VM existente, tem de selecionar uma VM que utiliza o Ubuntu.
@@ -202,7 +202,7 @@ Agora que já anexados a computação e configurado a sua execução, a próxima
 
 O Azure HDInsight é uma plataforma popular para análise de macrodados. A plataforma fornece Apache Spark, que pode ser utilizado para preparar o seu modelo.
 
-1. **Criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     Quando criar o cluster, tem de especificar um nome de utilizador SSH e a palavra-passe. Tome nota destes valores, sempre que precisar para utilizar o HDInsight como um destino de computação.
     
@@ -384,5 +384,5 @@ Consulte estes blocos de notas para obter exemplos de treinamento com vários de
 
 * [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md) utiliza um destino de computação gerida para preparar um modelo.
 * Depois de ter um modelo preparado, saiba [como e onde implementar modelos](how-to-deploy-and-where.md).
-* Ver os [RunConfiguration classe](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) referência do SDK.
+* Ver os [RunConfiguration classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) referência do SDK.
 * [Utilizar o serviço Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

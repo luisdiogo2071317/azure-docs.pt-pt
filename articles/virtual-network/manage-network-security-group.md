@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438920"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567405"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -66,7 +66,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *grupos de seguranç
 2. Na lista que pretende ver os detalhes para, selecione o grupo de segurança de rede. Sob **definições** pode ver a **regras de segurança de entrada** e **regras de segurança de saída**, o **interfaces de rede** e  **Sub-redes** o grupo de segurança de rede está associado à. Também pode ativar ou desativar **registos de diagnóstico** e ver **regras de segurança efetivas**. Para obter mais informações, consulte [registos de diagnóstico](virtual-network-nsg-manage-log.md) e [ver as regras de segurança efetivas](diagnose-network-traffic-filter-problem.md).
 3. Para saber mais sobre as definições do Azure comuns listadas, veja os artigos seguintes:
     *   [Registo de atividades](../azure-monitor/platform/activity-logs-overview.md)
-    *   [Controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -116,7 +116,7 @@ Existe um limite para quantas regras por grupo de segurança de rede podem criar
 3. Selecione **regras de segurança de entrada** sob **definições**. Várias regras existentes estão listadas. Algumas das regras que não possa ter adicionado. Quando é criado um grupo de segurança de rede, várias regras de segurança predefinidas são criadas na mesma. Para obter mais informações, consulte [regras de segurança predefinidas](security-overview.md#default-security-rules).  Não é possível eliminar regras de segurança predefinidas, mas pode substitui-las com as regras que têm uma prioridade mais alta.
 4. <a name = "security-rule-settings"></a>Selecione **+ adicionar**.  Selecionar ou adicionar valores para as seguintes definições e, em seguida, selecione **OK**:
     
-    |Definição  |Valor  |Detalhes  |
+    |Definição  |Value  |Detalhes  |
     |---------|---------|---------|
     |Origem     | Selecione **qualquer**, **grupo de segurança de aplicações**, **endereços IP**, ou **etiqueta de serviço** para regras de segurança de entrada. Se estiver a criar uma regra de segurança de saída, as opções são as mesmas opções listadas para **destino**.       | Se selecionou **grupo de segurança de aplicativo**, em seguida, selecione um ou grupos de segurança de aplicação existentes mais que existe na mesma região que a interface de rede. Saiba como [crie um grupo de segurança de aplicações](#create-an-application-security-group). Se selecionou **grupo de segurança de aplicações** para ambos os **origem** e **destino**, as interfaces de rede em ambos os grupos de segurança de aplicação tem de estar na mesma rede virtual. Se selecionou **endereços IP**, em seguida, especifique **intervalos de endereços/CIDR do IP de origem**. Pode especificar um valor único ou uma lista separada por vírgulas de valores múltiplos. Um exemplo de vários valores é 10.0.0.0/16, 192.188.1.1. Existem limites ao número de valores que pode especificar. Ver [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes. Se selecionou **etiquetas de serviço**, em seguida, selecione uma etiqueta de serviço. A etiqueta de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre as etiquetas de serviço disponível e o que representa cada marca, veja [etiquetas de serviço](security-overview.md#service-tags). Se o endereço IP que especificou é atribuído a uma máquina virtual do Azure, certifique-se de que especifica o IP privado, não o endereço IP público atribuído à máquina virtual. Regras de segurança são processadas depois Azure traduz-se o endereço IP público para um endereço IP privado para regras de segurança de entrada e antes do Azure traduz-se um endereço IP privado para um endereço IP público para as regras de saída. Para saber mais sobre endereços IP públicos e privados no Azure, veja [tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalo de portas de origem     | Especifique uma porta única, como 80, um intervalo de portas, por exemplo 1024-65535, ou uma lista separada por vírgulas de portas únicas e/ou intervalos de portas, por exemplo, 80, a 1024 e 65535. Introduza um asterisco para permitir tráfego de qualquer porta. | As portas e intervalos de especificam o tráfego de portas é permitido ou negado pela regra. Existem limites ao número de portas que pode especificar. Ver [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.  |
@@ -125,7 +125,7 @@ Existe um limite para quantas regras por grupo de segurança de rede podem criar
     |Protocolo     | Selecione **qualquer**, **TCP**, ou **UDP**.        |         |
     |Ação     | Selecione **permitem** ou **negar**.        |         |
     |Prioridade     | Introduza um valor entre 100-4096 que seja exclusivo para todas as regras de segurança dentro do grupo de segurança de rede. |As regras são processadas na ordem de prioridade. Menor o número, maior será a prioridade. Recomenda-se que deixe uma lacuna entre os números de prioridade durante a criação de regras, como 100, 200, 300. Deixa intervalos torna mais fácil de adicionar regras no futuro que talvez precise fazer superior ou inferior do que as regras existentes.         |
-    |Nome     | Um nome exclusivo para a regra dentro do grupo de segurança de rede.        |  O nome pode ter até 80 carateres. Tem de começar com uma letra ou número, terminar com uma letra, número ou caráter de sublinhado e pode conter apenas letras, números, carateres de sublinhado, pontos ou hífenes.       |
+    |Name     | Um nome exclusivo para a regra dentro do grupo de segurança de rede.        |  O nome pode ter até 80 carateres. Tem de começar com uma letra ou número, terminar com uma letra, número ou caráter de sublinhado e pode conter apenas letras, números, carateres de sublinhado, pontos ou hífenes.       |
     |Descrição     | Uma descrição opcional.        |         |
 
 **Comandos**
@@ -192,7 +192,7 @@ Um grupo de segurança do aplicativo contém zero ou mais interfaces de rede. Pa
 
     | Definição        | Valor                                                   |
     | ---            | ---                                                     |
-    | Nome           | O nome tem de ser exclusivo dentro de um grupo de recursos.        |
+    | Name           | O nome tem de ser exclusivo dentro de um grupo de recursos.        |
     | Subscrição   | Selecione a sua subscrição.                               |
     | Grupo de recursos | Selecione um grupo de recursos existente ou crie um novo. |
     | Localização       | Selecione uma localização                                       |
@@ -252,7 +252,7 @@ Para executar tarefas em grupos de segurança de rede, as regras de segurança e
 
 ### <a name="network-security-group"></a>Grupo de segurança de rede
 
-| Ação                                                        |   Nome                                                                |
+| Ação                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obter grupo de segurança de rede                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar o grupo de segurança de rede                             |
@@ -262,7 +262,7 @@ Para executar tarefas em grupos de segurança de rede, as regras de segurança e
 
 ### <a name="network-security-group-rule"></a>Regra do grupo de segurança de rede
 
-| Ação                                                        |   Nome                                                                |
+| Ação                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Obter regra                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Criar ou atualizar a regra                                               |
@@ -270,7 +270,7 @@ Para executar tarefas em grupos de segurança de rede, as regras de segurança e
 
 ### <a name="application-security-group"></a>Grupo de segurança de aplicações
 
-| Ação                                                                     | Nome                                                     |
+| Ação                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Junte-se a uma configuração de IP para um grupo de segurança de aplicações|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Junte-se a uma regra de segurança para um grupo de segurança de aplicações    |

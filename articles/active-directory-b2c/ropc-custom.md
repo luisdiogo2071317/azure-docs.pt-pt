@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196417"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562203"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o recurso proprietário palavra-passe fluxo de credenciais no Azure Active Directory B2C utilizando uma política personalizada
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory (Azure AD) B2C, o fluxo de credenciais (ROPC) de palavra-passe de proprietário do recurso é um fluxo de autenticação padrão do OAuth. Neste fluxo, um aplicativo, também conhecido como a entidade confiadora, troca de credenciais válidas para tokens. As credenciais de incluem um ID de utilizador e palavra-passe. Os tokens devolvidos são um token de ID, o token de acesso e um token de atualização. 
+No Azure Active Directory (Azure AD) B2C, o fluxo de credenciais (ROPC) de palavra-passe de proprietário do recurso é um fluxo de autenticação padrão do OAuth. Neste fluxo, um aplicativo, também conhecido como a entidade confiadora, troca de credenciais válidas para tokens. As credenciais de incluem um ID de utilizador e palavra-passe. Os tokens devolvidos são um token de ID, o token de acesso e um token de atualização.
 
 O fluxo ROPC são suportadas as seguintes opções:
 
 - **Cliente nativo** -interação do usuário durante a autenticação ocorre quando o código é executado num dispositivo do lado do usuário.
 - **Fluxo de cliente público** -apenas o utilizador as credenciais que são recolhidas por um aplicativo são enviados na chamada de API. As credenciais do aplicativo não são enviadas.
-- **Adicionar nova afirmações** -conteúdo o ID de token pode ser alterada para adicionar nova afirmações. 
+- **Adicionar nova afirmações** -conteúdo o ID de token pode ser alterada para adicionar nova afirmações.
 
 Não são suportados os seguintes fluxos:
 
@@ -43,7 +43,7 @@ Conclua os passos na [introdução às políticas personalizadas no Azure Active
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**. 
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Add**.
 5. Introduza um nome para a aplicação, tal como *ROPC_Auth_app*.
 6. Selecione **não** para **API da Web/aplicação Web**e, em seguida, selecione **Sim** para **cliente nativo**.
@@ -193,7 +193,7 @@ Conclua os passos na [introdução às políticas personalizadas no Azure Active
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. Adicionar uma **UserJourneys** elemento e seus elementos subordinados para o **TrustFrameworkPolicy** elemento:
@@ -201,7 +201,7 @@ Conclua os passos na [introdução às políticas personalizadas no Azure Active
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -278,7 +278,7 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 
 - Substitua `user-account` com o nome de uma conta de utilizador no seu inquilino.
 - Substitua `password1` com a palavra-passe da conta de utilizador.
-- Substitua `application-id` com o ID de aplicação a partir de *ROPC_Auth_app* registo. 
+- Substitua `application-id` com o ID de aplicação a partir de *ROPC_Auth_app* registo.
 - *Offline_access* é opcional, se pretender receber um token de atualização.
 
 O pedido POST real terá um aspeto semelhante ao seguinte exemplo:
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 Uma resposta com êxito com acesso offline terá um aspeto semelhante ao seguinte exemplo:
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>Utilizar um token de atualização
@@ -322,7 +321,7 @@ Construa uma chamada POST, como o mostrado aqui. Utilize as informações na tab
 | refresh_token | `refresh-token` |
 
 - Substitua `application-id` com o ID de aplicação a partir de *ROPC_Auth_app* registo.
-- Substitua `refresh-token` com o **refresh_token** que foi enviada de volta na resposta anterior. 
+- Substitua `refresh-token` com o **refresh_token** que foi enviada de volta na resposta anterior.
 
 Uma resposta com êxito, terá um aspeto semelhante ao seguinte exemplo:
 
@@ -350,5 +349,3 @@ O Azure AD B2C atende aos padrões de OAuth 2.0 para credenciais de palavra-pass
 
 - Veja um exemplo completo deste cenário na [pacote de iniciante de política personalizada do Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
 - Saiba mais sobre os tokens que são utilizados pelo Azure Active Directory B2C no [referência de Token](active-directory-b2c-reference-tokens.md).
-
-

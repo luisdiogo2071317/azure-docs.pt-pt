@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019729"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567041"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um acionador que é executado um pipeline numa janela em cascata
 Este artigo fornece passos para criar, iniciar e monitorizar um acionador de janela em cascata. Para obter informações gerais sobre os acionadores e os tipos suportados, consulte [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
@@ -33,7 +33,7 @@ Para criar um acionador de janela em cascata no portal do Azure, selecione **aci
 ## <a name="tumbling-window-trigger-type-properties"></a>Em cascata propriedades do tipo de Acionador de janela
 Uma janela em cascata tem as seguintes propriedades de tipo de Acionador:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
@@ -47,43 +47,42 @@ Uma janela em cascata tem as seguintes propriedades de tipo de Acionador:
             "delay": "<<timespan – optional>>",
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
-                "count":  <<int - optional, default: 0>>,
+                "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
             }
         },
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "parameter1": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "parameter1": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter2": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
-                }
+                "parameter2": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
+                },
+                "parameter3": "https://mydemo.azurewebsites.net/api/demoapi"
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 A tabela seguinte fornece uma visão geral dos principais elementos JSON que estão relacionados com a periodicidade e o agendamento de um acionador de janela em cascata:
 
-| Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
+| Elemento JSON | Descrição | Type | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| **tipo** | O tipo de Acionador. O tipo é o valor fixo "TumblingWindowTrigger." | Cadeia | "TumblingWindowTrigger" | Sim |
-| **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Nota**: Este elemento está \<só de leitura >. | Cadeia | "Iniciado", "parada" "Desativada" | Sim |
-| **frequency** | Uma cadeia de caracteres que representa a unidade de frequência (minutos ou horas) com que o acionador voltar a ocorrer. Se o **startTime** valores de data são mais granulares do que o **frequência** valor, o **startTime** datas são consideradas quando os limites da janela são computados. Por exemplo, se o **frequência** valor é de hora a hora e o **startTime** valor é 2017-09-01T10:10:10Z, a primeira janela está (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Cadeia | "minuto", "hour"  | Sim |
+| **tipo** | O tipo de Acionador. O tipo é o valor fixo "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Sim |
+| **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Nota**: Este elemento está \<só de leitura >. | String | "Iniciado", "parada" "Desativada" | Sim |
+| **frequency** | Uma cadeia de caracteres que representa a unidade de frequência (minutos ou horas) com que o acionador voltar a ocorrer. Se o **startTime** valores de data são mais granulares do que o **frequência** valor, o **startTime** datas são consideradas quando os limites da janela são computados. Por exemplo, se o **frequência** valor é de hora a hora e o **startTime** valor é 2017-09-01T10:10:10Z, a primeira janela está (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minuto", "hour"  | Sim |
 | **interval** | Um valor inteiro positivo que indica o intervalo do valor **frequency**, que determina o número de vezes que o acionador é executado. Por exemplo, se o **intervalo** é 3 e o **frequência** é a "hour", o acionador voltar a ocorrer em três horas. | Número inteiro | Um número inteiro positivo. | Sim |
 | **startTime**| A primeira ocorrência, que pode ser no passado. O primeiro intervalo de Acionador é (**startTime**, **startTime** + **intervalo**). | DateTime | Um valor de DateTime. | Sim |
 | **endTime**| A última ocorrência, que pode ser no passado. | DateTime | Um valor de DateTime. | Sim |
-| **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define o tempo que o acionador aguarda posterior à hora de conclusão antes de acionar uma execução de novo. O **atraso** não altera a janela **startTime**. Por exemplo, um **atraso** valor de 00:00 10: implica um atraso de 10 minutos. | Timespan<br/>(hh: mm:)  | Um valor de intervalo de tempo em que a predefinição é 00:00:00. | Não |
+| **delay** | A quantidade de tempo para atrasar o início do processamento de dados para a janela. A execução do pipeline é iniciado após o tempo de execução esperado mais a quantidade de **atraso**. O **atraso** define o tempo que o acionador aguarda posterior à hora de conclusão antes de acionar uma execução de novo. O **atraso** não altera a janela **startTime**. Por exemplo, um **atraso** valor de 00:00 10: implica um atraso de 10 minutos. | Timespan<br/>(hh:mm:ss)  | Um valor de intervalo de tempo em que a predefinição é 00:00:00. | Não |
 | **maxConcurrency** | O número de execuções de Acionador simultâneas que são acionadas para o windows que estão prontos. Por exemplo, para preencher novamente hora a hora é executado para resultados de ontem no 24 windows. Se **maxConcurrency** = 10, o acionador de eventos são disparados apenas para os primeiros 10 windows (01 00:00:00 - 09:00-10:00). Depois de concluir as primeiras 10 execuções de pipeline acionadas, são acionadas execuções do acionador para os 10 em seguida windows (10:00-UTC+11:00-19: - 20 00:00). Continuar com este exemplo de **maxConcurrency** = 10, se existirem 10 windows estiver prontos, há 10 execuções de total pipeline. Se existir apenas 1 janela pronto, só existe 1 execução de pipeline. | Número inteiro | Um número inteiro entre 1 e 50. | Sim |
 | **retryPolicy: Contagem** | O número de tentativas antes da execução de pipeline está marcado como "Falhado".  | Número inteiro | Um número inteiro, em que a predefinição é 0 (não existem repetições). | Não |
 | **retryPolicy: intervalInSeconds** | O atraso entre tentativas de repetição especificado em segundos. | Número inteiro | O número de segundos, em que a predefinição é 30. | Não |
@@ -92,32 +91,31 @@ A tabela seguinte fornece uma visão geral dos principais elementos JSON que est
 
 Pode utilizar o **WindowStart** e **WindowEnd** variáveis do sistema do acionador de janela em cascata de seu **pipeline** definição (ou seja, para a parte de uma consulta). Passar as variáveis do sistema como parâmetros para o pipeline a **acionador** definição. O exemplo seguinte mostra como passar essas variáveis como parâmetros:
 
-```  
+```
 {
     "name": "MyTriggerName",
     "properties": {
         "type": "TumblingWindowTrigger",
             ...
-        "pipeline":
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "MyPipelineName"
+        "pipeline": {
+            "pipelineReference": {
+                "type": "PipelineReference",
+                "referenceName": "MyPipelineName"
+            },
+            "parameters": {
+                "MyWindowStart": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameters": {
-                    "MyWindowStart": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowStartTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    },
-                    "MyWindowEnd": {
-                        "type": "Expression",
-                        "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
-                    }
+                "MyWindowEnd": {
+                    "type": "Expression",
+                    "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 }
             }
-      }    
+        }
+    }
 }
-```  
+```
 
 Para utilizar o **WindowStart** e **WindowEnd** valores das variáveis de sistema na definição do pipeline, utilize os parâmetros "MyWindowStart" e "MyWindowEnd", em conformidade.
 
@@ -135,10 +133,10 @@ Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e 
 
 1. Crie um ficheiro JSON com o nome **MyTrigger.json** na pasta C:\ADFv2QuickStartPSH\ com o seguinte conteúdo:
 
-   > [!IMPORTANT]
-   > Antes de guardar o ficheiro JSON, defina o valor do **startTime** elemento para a hora UTC atual. Defina o valor do **endTime** elemento para uma hora posterior à hora UTC atual.
+    > [!IMPORTANT]
+    > Antes de guardar o ficheiro JSON, defina o valor do **startTime** elemento para a hora UTC atual. Defina o valor do **endTime** elemento para uma hora posterior à hora UTC atual.
 
-    ```json   
+    ```json
     {
       "name": "PerfTWTrigger",
       "properties": {
@@ -167,7 +165,7 @@ Esta secção mostra-lhe como utilizar o Azure PowerShell para criar, iniciar e 
         "runtimeState": "Started"
       }
     }
-    ```  
+    ```
 
 2. Criar um acionador com o **Set-AzureRmDataFactoryV2Trigger** cmdlet:
 

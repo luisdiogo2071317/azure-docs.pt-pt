@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e2aa82143b8e58e36509ee5d3adf99b34be89c69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076618"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567048"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar os modelos do Azure Machine Learning, utilizando a atividade de recursos de atualização
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo.
@@ -57,9 +57,6 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 }
 ```
 
-
-
-
 | Propriedade                      | Descrição                              | Necessário |
 | :---------------------------- | :--------------------------------------- | :------- |
 | nome                          | Nome da atividade no pipeline     | Sim      |
@@ -69,7 +66,6 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 | trainedModelName              | Nome do módulo modelo preparado na experimentação do serviço Web para ser atualizado | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço ligado do armazenamento do Azure que contém o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
 | trainedModelFilePath          | O caminho de ficheiro relativo no trainedModelLinkedService para representar o ficheiro ilearner a que é carregado pela operação de atualização | Sim      |
-
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 
@@ -114,14 +110,14 @@ Esta é uma definição de serviço ligado de exemplo:
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000  000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint1"
+                "type": "SecureString",
+                "value": "APIKeyOfEndpoint1"
             },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
-            "type": "SecureString",
-            "value": "servicePrincipalKey"
+                "type": "SecureString",
+                "value": "servicePrincipalKey"
             },
             "tenant": "mycompany.com"
         }
@@ -147,7 +143,7 @@ Esta é a definição de JSON de exemplo do serviço ligado:
 ```JSON
 {
     "name": "StorageLinkedService",
-      "properties": {
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
@@ -162,13 +158,13 @@ O seguinte fragmento JSON define um serviço ligado do Azure Machine Learning qu
 ```JSON
 {
     "name": "trainingEndpoint",
-      "properties": {
+    "properties": {
         "type": "AzureML",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
+            "apiKey": "myKey"
         }
-      }
+    }
 }
 ```
 
@@ -255,9 +251,9 @@ O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResou
                 "typeProperties": {
                     "trainedModelName": "ADFV2Sample Model [trained model]",
                     "trainedModelLinkedServiceName": {
-                                "type": "LinkedServiceReference",
-                                "referenceName": "StorageLinkedService"
-                            },
+                        "type": "LinkedServiceReference",
+                        "referenceName": "StorageLinkedService"
+                    },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
                 "dependsOn": [
@@ -265,8 +261,7 @@ O pipeline tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResou
                         "activity": "amlbeGetilearner",
                         "dependencyConditions": [ "Succeeded" ]
                     }
-                 ]
-
+                ]
             }
         ]
     }

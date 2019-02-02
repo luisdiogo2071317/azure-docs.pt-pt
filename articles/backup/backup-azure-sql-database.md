@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74b104ac399f00e08ed10ded5cd62a9c32c15d4a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224246"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566810"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -721,6 +721,8 @@ Quando parar a proteção para uma base de dados do SQL Server, o Azure Backup p
 * Parar todas as tarefas de cópia de segurança futuras, mas deixar os pontos de recuperação.
 
 Se optar por parar cópia de segurança mantendo os dados, pontos de recuperação serão limpo de acordo com a política de cópia de segurança. Será cobrado a instância protegida de SQL preços custo e o armazenamento consumido até que todos os pontos de recuperação são limpos. Para obter mais informações sobre os preços de cópia de segurança do Azure para SQL, consulte a [página de preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+
+Sempre que parar cópia de segurança com reter dados, pontos de recuperação irão expirar de acordo com a política de retenção, mas do Azure Backup manterá sempre um último ponto de recuperação até eliminar explicitamente os dados de cópia de segurança. Da mesma forma se eliminar uma origem de dados sem executar parar cópia de segurança, novas cópias de segurança começarão a falhar e os pontos de recuperação antigos irão expirar de acordo com a política de retenção, mas um último ponto de recuperação sempre será mantido até que efetue parar cópia de segurança com excluir dados.
 
 Para parar a proteção para uma base de dados:
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 20894a74bf0cc3911272385721da74871df95ade
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913238"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662912"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -152,7 +152,7 @@ Scripts de ações de script podem ser usados por meio dos utilitários a seguir
 
 HDInsight fornece scripts para instalar os seguintes componentes em clusters do HDInsight:
 
-| Nome | Script |
+| Name | Script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ver [adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ver [instalar e utilizar Hue no Hadoop do HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
@@ -182,10 +182,10 @@ Esta secção explica as diferentes formas que pode utilizar ações de script q
 
     A tabela seguinte descreve os elementos no formulário:
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
     | Selecionar um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Nome |Especifique um nome para a ação de script. |
+    | Name |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/Zookeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário, o script. |
@@ -224,7 +224,7 @@ Obter mais informações sobre como implementar um modelo:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Utilize uma ação de script durante a criação do cluster do Azure PowerShell
 
-Nesta secção, vai utilizar o [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Nesta secção, vai utilizar o [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet para invocar scripts para personalizar um cluster. Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 O script seguinte mostra como aplicar uma ação de script, quando criar um cluster com o PowerShell:
 
@@ -262,10 +262,10 @@ Vá para o [portal do Azure](https://portal.azure.com):
 
     A tabela seguinte descreve os elementos no formulário:
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
     | Selecionar um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Nome |Especifique um nome para a ação de script. |
+    | Name |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/Zookeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se necessário, o script. |
@@ -276,7 +276,7 @@ Vá para o [portal do Azure](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Aplicar uma ação de script para um cluster em execução a partir do Azure PowerShell
 
-Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Antes de começar, certifique-se de instalar e configurar o Azure PowerShell. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do HDInsight, consulte [descrição geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 O exemplo seguinte mostra como aplicar uma ação de script para um cluster em execução:
 

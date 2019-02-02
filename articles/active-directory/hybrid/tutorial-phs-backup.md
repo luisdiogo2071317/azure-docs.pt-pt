@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fb35f72d45cbdf1690329b0bf146fce4d47d0bd6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490112"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660413"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configurar o PHS como cópia de segurança para o AD FS no Azure AD Connect
 
@@ -43,7 +43,7 @@ Faça o seguinte:
 10. Já está!  Isso é tudo.  Sincronização de hash de palavra-passe agora ocorrerá e pode ser utilizada como uma cópia de segurança se do AD FS ficar indisponível.
 
 ## <a name="switch-to-password-hash-synchronization"></a>Mude para a sincronização de hash de palavra-passe
-Agora, mostraremos como mudar para a sincronização de hash de palavra-passe se for necessário.  Faça o seguinte:
+Agora, mostraremos como mudar para a sincronização de hash de palavra-passe. Antes de começar, considere condições sob as quais deve efetuar o comutador. Não fazer a transição por motivos de temporários, como uma falha de rede, um problema mínimo do AD FS ou um problema que afeta um subconjunto dos seus utilizadores. Se optar por fazer a transição, porque a corrigir o problema irá demorar demasiado tempo, efetue o seguinte:
 
 1. Faça duplo clique no ícone do Azure AD Connect que foi criado no ambiente de trabalho
 2.  Clique em **Configurar**.

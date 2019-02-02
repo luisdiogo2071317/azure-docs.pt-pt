@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 10717ccbfa05f204e60eb6d8cde5a83e9714b197
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426170"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562611"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -87,7 +87,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
     - **Diagrama**: O diagrama fornece uma representação visual de todos os dispositivos que estão ligadas à rede virtual. O diagrama tem algumas informações chave sobre os dispositivos. Para gerir um dispositivo nesta vista, no diagrama, selecione o dispositivo.
     - **Definições comuns de Azure**: Para saber mais sobre as definições do Azure comuns, consulte as seguintes informações:
         *   [Registo de atividades](../azure-monitor/platform/activity-logs-overview.md)
-        *   [Controlo de acesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+        *   [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
         *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -169,7 +169,7 @@ Pode eliminar uma rede virtual apenas se não houver nenhum recurso conectado a 
 
 Para executar tarefas em redes virtuais, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Ação                                  |   Nome                                |
+| Ação                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Ler uma rede virtual              |
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |
