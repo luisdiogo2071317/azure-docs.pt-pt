@@ -67,7 +67,7 @@
 
 ### [Gerir ofertas](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Criar oferta](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publicar oferta](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [Ver estado da oferta](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Atualizar a oferta](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Eliminar oferta](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Criar ativos técnicos do módulo de IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Publicar uma oferta de módulo do IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Atualizar oferta existente](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Oferta da aplicação do Power BI](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Pré-requisitos](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Criar oferta da aplicação do Power BI](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Separador Definições da oferta](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Separador Informações Técnicas](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Separador Detalhes da Loja](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Separador Contactos](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Criar recursos técnicos da aplicação do Power BI](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publicar oferta da aplicação do Power BI](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Atualizar oferta existente](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [Oferta da aplicação SaaS](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Pré-requisitos](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
