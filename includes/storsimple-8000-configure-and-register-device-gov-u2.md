@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165775"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736149"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
@@ -63,7 +63,7 @@ ms.locfileid: "50165775"
 11. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após a primeira sessão e terá de a alterar agora. Quando lhe for solicitado, forneça uma palavra-passe de administrador do dispositivo. Uma palavra-passe de administrador do dispositivo válida tem de ter entre 8 e 15 carateres. A palavra-passe tem de conter três dos seguintes: minúsculas, maiúsculas, números e carateres especiais.
     
     <br/>![Registar o dispositivo 5 do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. O último passo do assistente de configuração regista o dispositivo com o serviço Gestor de Dispositivos do StorSimple. Para isso, terá da chave de registo de serviço que obteve no [passo 2: obter a chave de registo do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registo, poderá ter de aguardar 2 a 3 minutos até o dispositivo ficar registado.
+12. O último passo do assistente de configuração regista o dispositivo com o serviço Gestor de Dispositivos do StorSimple. Para isso, terá da chave de registo de serviço que obteve no [passo 2: Obter a chave de registo do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registo, poderá ter de aguardar 2 a 3 minutos até o dispositivo ficar registado.
     
     > [!NOTE]
     > Pode premir Ctrl + C em qualquer momento para sair do assistente de configuração. Se tiver introduzido todas as definições de rede (Endereço IP para Data 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
@@ -81,7 +81,7 @@ ms.locfileid: "50165775"
 15. Regresse ao Portal de administração pública do Azure e conclua os seguintes passos:
     
     1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple.
-    2. Clique em **Dispositivos**. Na lista de dispositivos, identificar o dispositivo que está ddeploying. Certifique-se de que o dispositivo foi ligado com êxito para o serviço, vendo o estado. O estado do dispositivo deve ser **Online**.
+    2. Clique em **Dispositivos**. Na lista de dispositivos, identificar o dispositivo que está a implementar. Certifique-se de que o dispositivo foi ligado com êxito para o serviço, vendo o estado. O estado do dispositivo deve ser **Online**.
             
         Se o estado do dispositivo for **Offline**, aguarde alguns minutos para que o dispositivo fique online.
        

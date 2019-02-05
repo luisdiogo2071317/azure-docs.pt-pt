@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232347"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734560"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -134,7 +134,7 @@ NPM pode monitorizar a conectividade entre as redes em qualquer parte do mundo, 
 NPM pode monitorizar a conectividade a serviços em qualquer parte do mundo, a partir de uma área de trabalho que está alojada do [regiões suportadas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Que regiões são suportadas para o Monitor do ExpressRoute do NPM?
-NPM pode monitorizar os circuitos do ExpressRoute localizados em qualquer região do Azure. A carregar para o NPM, vai precisar de uma área de trabalho do Log Analytics que tem de estar alojada do [regiões suportadas](/azure/expressroute/how-to-npm#regions)
+NPM pode monitorizar os circuitos do ExpressRoute localizados em qualquer região do Azure. A carregar para o NPM, vai precisar de uma área de trabalho do Log Analytics que tem de estar alojada do [regiões suportadas](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

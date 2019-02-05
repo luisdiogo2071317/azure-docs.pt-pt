@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 261af3524b36d3742c68ef147bfa648bfe95034c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2965040a3e83def6b452b1449a0acb0c9c5a00ee
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887773"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692873"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento com um modelo do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
@@ -198,7 +198,7 @@ Quando **stress** mostrar um resultado semelhante ao *stress: info: hogs de [268
 
 Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 

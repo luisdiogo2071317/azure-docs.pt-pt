@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758625"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695258"
 ---
 # <a name="internet-of-things-security-overview"></a>Descrição geral da segurança de Internet das coisas
 Azure internet dos serviços de coisas (IoT) oferecem uma vasta gama de capacidades. Estes serviços de nível empresarial permitem-lhe:
@@ -45,7 +45,7 @@ Este artigo aborda os seguintes tópicos:
 
 * [Segurança começa com um modelo de ameaças](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [Segurança de IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [A arquitetura de referência do IoT do Azure de modelagem de ameaças](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [A arquitetura de referência do IoT do Azure de modelagem de ameaças](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Segurança desde o início
 O IoT apresenta desafios únicos de segurança, privacidade e conformidade para empresas em todo o mundo. Ao contrário de tecnologia de cibersegurança tradicional onde esses problemas giram em torno de software e como ele é implementado, IoT diz respeito o que acontece quando a informáticas e os mundos físicos convergem. Proteger soluções de IoT requer a garantia de seguro de aprovisionamento de dispositivos, conectividade segura entre estes dispositivos e a cloud e a proteção de proteger os dados na cloud durante o processamento e armazenamento. No entanto, trabalhar em relação a essa funcionalidade, são dispositivos de restrição de recursos, distribuição geográfica de implementações e número de dispositivos numa solução.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285698"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736255"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (pré-visualização) Managed Disks para cargas de trabalho de Máquina Virtual do Azure
 
@@ -23,9 +23,9 @@ SSD Ultra do Azure (pré-visualização) fornece débito elevado, o IOPS elevado
 
 **Discos geridos**: Ultra SSDs só estão disponíveis como Managed Disks. Ultra SSDs não podem ser implementados como um disco não gerido ou a BLOBs de páginas. Ao criar um disco gerido, especificar o sku de disco escreva como UltraSSD_LRS e indicar o tamanho do disco, o IOPS e débito de que precisa e o Azure cria e gere o disco por si.  
 
-**Máquinas virtuais**: Ultra SSDs foram concebidas para funcionar com todos os SKUs de Máquina Virtual do Azure de SSD Premium ativado; no entanto, como se encontra atualmente em pré-visualização, as VMs são o tamanho v3 de ES/DS.
+**Máquinas virtuais**: Ultra SSDs foram concebidas para trabalhar com todos os Premium SSD SKUs de Máquina Virtual do Azure ativado; No entanto, como se encontra atualmente em pré-visualização, as VMs for dimensionadas como v3 de ES/DS.
 
-**Configuração dinâmica de desempenho**: Ultra SSDs permitem-lhe alterar dinamicamente o desempenho (IOPS e débito) do disco, juntamente com suas necessidades de carga de trabalho sem ter de reiniciar as máquinas virtuais.
+**Configuração de desempenho dinâmico**: Ultra SSDs permitem-lhe alterar dinamicamente o desempenho (IOPS e débito) do disco, juntamente com suas necessidades de carga de trabalho sem ter de reiniciar as máquinas virtuais.
 
 ## <a name="scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho
 
@@ -33,7 +33,7 @@ Quando aprovisiona um SSD Ultra, terá a opção para configurar de forma indepe
 
 Alguns recursos principais do Ultra SSD são:
 
-- Capacidade do disco: Ultra SSD oferece uma variedade de tamanhos de disco diferente da GiB 4 até 64 TiB.
+- Capacidade do disco: Ultra SSD oferece uma variedade de tamanhos de disco diferente de 4 GiB até 64 TiB.
 - IOPS de disco: Ultra SSDs suportam limites de IOPS de 300 IOPS/GiB até um máximo de mil 160 IOPS por disco. Para atingir o IOPS aprovisionado, certifique-se de que o IOPS de disco selecionado são menos do que o IOPS de VM. O IOPS de disco mínimo é de 100 IOPS.
 - Débito de disco: Com o Ultra SSDs, o limite de taxa de transferência de um único disco é 256 KiB/s para cada aprovisionado IOPS, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 Bytes por segundo). O débito de disco mínimo é 1 MiB.
 
@@ -46,12 +46,12 @@ A tabela seguinte resume as diferentes configurações suportadas pelos diferent
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2,000         |
-|64     |19,200         |2,000         |
-|128     |38,400         |2,000         |
-|256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
-|1.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2,000         |
+|32     |9,600         |2.000         |
+|64     |19,200         |2.000         |
+|128     |38,400         |2.000         |
+|256     |76,800         |2.000         |
+|512     |80,000         |2.000         |
+|1.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2.000         |
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -64,7 +64,7 @@ Ao utilizar o Ultra SSDs, serão aplicadas as seguintes considerações de fatur
 
 ### <a name="managed-disk-size"></a>Tamanho do disco de geridos
 
-Discos geridos são faturados em tamanhos de VM choosed ao provisionning uma nova VM do Azure. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e será cobrada em conformidade numa base horária. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Esta faturação foi baseada no consumo de hora de computação, independentemente do volume de dados, na verdade, escritos no disco.
+Discos geridos são faturados sobre os tamanhos VM que escolher durante o aprovisionamento de uma nova VM do Azure. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e será cobrada em conformidade numa base horária. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Esta faturação foi baseada no consumo de hora de computação, independentemente do volume de dados, na verdade, escritos no disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>Disco gerido aprovisionado IOPS
 
@@ -74,7 +74,7 @@ IOPS são o número de pedidos que a aplicação está a enviar para os discos p
 
 O débito é a quantidade de dados que a aplicação estiver a enviar para os discos em intervalos especificados, medido em bytes por segundo. Se a sua aplicação está a efetuar operações de entrada/saída grandes, ela exige um débito elevado.  
 
-Existe uma relação entre o débito e IOPS, conforme mostrado na seguinte fórmula: IOPS x tamanho de e/s = débito
+Existe uma relação entre o débito e IOPS, conforme mostrado na seguinte fórmula:  IOPS x tamanho de e/s = débito
 
 Portanto, é importante determinar os valores IOPS e débito ideal que seu aplicativo requer. Ao testar otimizar um, o outro também obtém afetado. É recomendável iniciar com uma taxa de transferência, correspondente ao tamanho de e/s de KiB 16 e ajustar se necessitar de mais débito.
 

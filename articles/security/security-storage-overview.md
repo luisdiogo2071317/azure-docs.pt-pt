@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973133"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694273"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral da segurança de armazenamento do Azure
 
@@ -47,7 +47,7 @@ Saiba mais:
 
 ## <a name="delegated-access-to-storage-objects"></a>Acesso delegado a objetos de armazenamento
 
-Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. A SAS significa que pode conceder a que um cliente permissões limitadas a objetos na conta de armazenamento durante um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso da conta. 
+Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. A SAS significa que pode conceder a que um cliente permissões limitadas a objetos na conta de armazenamento durante um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso da conta.
 
 A SAS é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa de fornecer a SAS para o método ou construtor apropriado.
 
@@ -73,7 +73,7 @@ Saiba mais sobre a encriptação do lado do cliente:
 
 Para muitas organizações, [encriptação de dados em repouso](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório no sentido de soberania de dados, conformidade e privacidade de dados. Três recursos do Azure fornecem criptografia de dados que estão inativos:
 
-* [Encriptação do serviço de armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite-lhe pedido que o serviço de armazenamento encriptar dados automaticamente quando a escrevê-lo ao armazenamento do Azure.
+* [Encriptação do serviço de armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) está sempre ativada e encripta automaticamente dados de serviço de armazenamento ao escrevê-lo ao armazenamento do Azure.
 * [Encriptação do lado do cliente](../storage/common/storage-security-guide.md#client-side-encryption) também fornece a funcionalidade de encriptação em repouso.
 * [O Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite encriptar os discos de SO e discos de dados que utiliza a máquina virtual IaaS.
 
@@ -114,9 +114,9 @@ Saiba mais:
 
 ## <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
-O armazenamento do Azure fornece proteção avançada contra ameaças para uma camada adicional de inteligência de segurança Deteta tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de sua conta de armazenamento. Avançado monitores de proteção contra ameaças registos de diagnóstico de armazenamento do Azure para leitura suspeita, escrever ou eliminar pedidos ao armazenamento de Blobs. 
+O armazenamento do Azure fornece proteção avançada contra ameaças para uma camada adicional de inteligência de segurança Deteta tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de sua conta de armazenamento. Avançado monitores de proteção contra ameaças registos de diagnóstico de armazenamento do Azure para leitura suspeita, escrever ou eliminar pedidos ao armazenamento de Blobs.
 
-Alertas de proteção contra ameaças avançadas podem ser visualizadas a partir [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). Centro de segurança do Azure fornece detalhes sobre qualquer atividade suspeita detetada e recomendando ações para investigar e remediar a ameaça potencial. 
+Alertas de proteção contra ameaças avançadas podem ser visualizadas a partir [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). Centro de segurança do Azure fornece detalhes sobre qualquer atividade suspeita detetada e recomendando ações para investigar e remediar a ameaça potencial.
 
 Saiba mais:
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826620"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694487"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: Realojar a uma aplicação no local numa VM do Azure e a instância gerida da base de dados do SQL
 
@@ -173,7 +173,7 @@ Para configurar uma instância de gerida de base de dados do Azure SQL, a Contos
 - A sub-rede tem de ter uma definidas pelo utilizador (UDR) rota tabela de encaminhamento. O único caminho atribuído deve ser 0.0.0.0/0 próximo salto de internet. 
 - DNS personalizado opcional: Se o DNS personalizado é especificado na rede virtual do Azure, o endereço IP de resoluções de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Saiba como [configurar o DNS personalizado para uma instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - A sub-rede não pode ter um ponto final de serviço (armazenamento ou SQL) associado a ele. Pontos finais de serviço devem ser desativados na rede virtual.
-- A sub-rede tem de ter um mínimo de 16 endereços IP. Saiba como [tamanho de sub-rede da instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- A sub-rede tem de ter um mínimo de 16 endereços IP. Saiba como [tamanho de sub-rede da instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - No ambiente de híbrida da Contoso, definições de DNS personalizadas são necessárias. Contoso configura as definições de DNS para utilizar um ou mais servidores de DNS do Azure da empresa. Saiba mais sobre [personalização de DNS](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Configurar uma rede virtual para a instância gerida
@@ -207,7 +207,7 @@ Administradores de contoso, configure a rede virtual da seguinte forma:
 *Precisa de mais ajuda?*
 
 - Obtenha uma visão geral dos [mi](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Saiba como [criar uma rede virtual para uma instância gerida do SQL da base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Saiba como [criar uma rede virtual para uma instância gerida do SQL da base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Saiba como [configurar o peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Saiba como [atualizar as definições de DNS do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -609,7 +609,7 @@ A equipe de segurança da Contoso analisa a VMs do Azure e a SQL Database Manage
 
      ![Gerido de segurança de instância - deteção de ameaças](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-Para saber mais sobre as práticas de segurança para VMs, veja [melhores práticas de segurança para cargas de trabalho de IaaS no Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+Para saber mais sobre as práticas de segurança para VMs, veja [melhores práticas de segurança para cargas de trabalho de IaaS no Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### <a name="bcdr"></a>BCDR
 

@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911358"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694623"
 ---
 # <a name="os-patching-for-hdinsight"></a>Sistema operacional a aplicação de patches para HDInsight 
 
 > [!IMPORTANT]
-> Imagens do Ubuntu tornam-se disponível para criação de cluster do HDInsight novo dentro de 3 meses de ser publicada. A partir de Janeiro de 2019, são clusters em execução **não** aplicação de patches automática. Os clientes tem de utilizar as ações de script ou de outros mecanismos para corrigir um cluster em execução.
+> Imagens do Ubuntu tornam-se disponível para criação de cluster do HDInsight novo dentro de 3 meses de ser publicada. A partir de Janeiro de 2019, são clusters em execução **não** aplicação de patches automática. Os clientes tem de utilizar as ações de script ou de outros mecanismos para corrigir um cluster em execução. Clusters recém-criado sempre terá as atualizações mais recentes disponíveis, incluindo os mais recentes patches de segurança.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como configurar o sistema operacional a aplicação de patches de agendamento para clusters do HDInsight baseado em Linux
-As máquinas virtuais num cluster do HDInsight tem de ser reiniciado, ocasionalmente, para que podem ser instaladas patches de segurança importantes. A partir de 1 de Agosto de 2016, os novos clusters do HDInsight baseado em Linux (versão 3.4 ou superior,) são reiniciados através da agenda seguinte:
-
-1. Uma máquina virtual do cluster pode apenas de reinício para patches no máximo, uma vez durante um período de 30 dias.
-2. O reinício ocorre partida 12AM UTC.
-3. O processo de reinicialização é escalonado em máquinas virtuais no cluster, para que o cluster ainda está disponível durante o processo de reinício.
-4. O primeiro reinício para um cluster recém-criado não acontece mais cedo do que 30 dias após a data de criação do cluster.
+As máquinas virtuais num cluster do HDInsight tem de ser reiniciado, ocasionalmente, para que podem ser instaladas patches de segurança importantes. 
 
 Com a ação de script descrita neste artigo, pode modificar o sistema operacional a agenda de correção da seguinte forma:
 1. Ativar ou desativar reinícios automáticos

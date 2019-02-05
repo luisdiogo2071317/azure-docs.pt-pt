@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226664"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736114"
 ---
 Diagnosticar problemas com um serviço cloud do Microsoft Azure requer a recolher ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode usar a AzureLogCollector extensão sob demanda para efetuar única coleção de registos a partir de um ou mais VMs de serviço de nuvem (a partir de funções da web e funções de trabalho) e transferir os ficheiros recolhidos para uma conta de armazenamento do Azure – tudo sem logon remotamente a quaisquer as VMS.
 
@@ -175,13 +175,13 @@ param (
 ```
 
 * **ServiceName**: O nome do serviço cloud.
-* **Funções**: uma lista de funções, como "WebRole1" ou "WorkerRole1".
-* **Instâncias**: uma lista de nomes de instâncias de função, separados por vírgula – utilize a cadeia de carateres universais ("*") para todas as instâncias de função.
-* **Ranhura**: nome da ranhura. "Produção" ou "Transição".
-* **Modo**: modo de coleção. "Completo" ou "GA".
-* **StorageAccountName**: conta de armazenamento de nome do Azure para o armazenamento de dados recolhidos.
-* **StorageAccountKey**: chave de conta de armazenamento do nome do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **funções**: Uma lista de funções, como "WebRole1" ou "WorkerRole1".
+* **Instâncias**: Uma lista de nomes de instâncias de função, separados por vírgula – utilize a cadeia de carateres universais ("*") para todas as instâncias de função.
+* **Ranhura**: Nome da ranhura. "Produção" ou "Transição".
+* **Modo**: Modo de coleção. "Completo" ou "GA".
+* **StorageAccountName**: Nome da conta de armazenamento do Azure para armazenar os dados recolhidos.
+* **StorageAccountKey**: Nome da chave de conta de armazenamento do Azure.
+* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
 
   ```powershell
   {
@@ -258,10 +258,10 @@ param (
 
 * **ServiceName**: O nome do serviço cloud.
 * **VMName**: O nome da VM.
-* **Modo**: modo de coleção. "Completo" ou "GA".
-* **StorageAccountName**: conta de armazenamento de nome do Azure para o armazenamento de dados recolhidos.
-* **StorageAccountKey**: chave de conta de armazenamento do nome do Azure.
-* **AdditionalDataLocationList**: uma lista da seguinte estrutura:
+* **Modo**: Modo de coleção. "Completo" ou "GA".
+* **StorageAccountName**: Nome da conta de armazenamento do Azure para armazenar os dados recolhidos.
+* **StorageAccountKey**: Nome da chave de conta de armazenamento do Azure.
+* **AdditionalDataLocationList**: Uma lista da seguinte estrutura:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

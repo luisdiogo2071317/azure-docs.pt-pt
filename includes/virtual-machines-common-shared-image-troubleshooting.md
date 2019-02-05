@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048245"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736089"
 ---
-Caso se depare com problemas ao realizar operações em galerias de imagem partilhada, definições de imagem e versões de imagem, execute o comando falhar novamente no modo de depuração. Modo de depuração está ativado, passando a **-debug** mudar com a CLI e o **-depurar** mudar com o PowerShell. Depois de ter de localizar o erro, siga este documento para resolver os erros.
+Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. Modo de depuração está ativado, passando a **-debug** mudar com a CLI e o **-depurar** mudar com o PowerShell. Depois de ter de localizar o erro, siga este documento para resolver os erros.
 
 
 ## <a name="unable-to-create-a-shared-image-gallery"></a>Não é possível criar uma galeria de imagem partilhada
@@ -67,7 +67,7 @@ Certifique-se o estado de aprovisionamento da imagem gerida de origem está **be
 Utilize a tabela abaixo para ver se é suportada a região de origem pretendido:
 <br>
 
-| Criar galeria no ou "região de origem"   | Replicar rersion para ou "região de destino" |
+| Criar galeria no ou "região de origem"   | Replicar de versão para ou "região de destino" |
 |----------------------------------------|-------------------------------------------|
 | EUA Centro-Oeste                        | Todas as regiões de Cloud pública do Azure            |
 | EUA Centro-Sul                       |                                           |

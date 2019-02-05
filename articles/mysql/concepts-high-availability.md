@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548397"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691359"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de elevada disponibilidade no banco de dados do Azure para MySQL
 A base de dados do Azure para o serviço MySQL fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço com suporte financeiro (SLA) é 99,99% após disponibilidade geral. Praticamente nenhuma aplicação período de indisponibilidade quando utilizar este serviço.
@@ -32,5 +32,5 @@ Semelhante ao modelo de HA, quando uma base de dados do Azure para MySQL é aume
 Durante a operação de dimensionamento, ocorre uma interrupção para as ligações de base de dados. As aplicações de cliente estão ligado à Internet e abrir as transações não consolidadas serão canceladas. Assim que a aplicação de cliente a ligação, ou faz com que uma nova ligação, o gateway direciona a ligação à instância do tamanho recentemente. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para uma descrição geral do serviço, consulte [base de dados do Azure para MySQL descrição-geral](overview.md)
-- Para uma descrição geral sobre a lógica de repetição, consulte [tratamento de erros de conectividade transitória da base de dados do Azure para MySQL](concepts-connectivity.md)
+- Saiba mais sobre [tratamento de erros de conectividade transitório](concepts-connectivity.md)
+- Saiba como [replicar os seus dados com réplicas de leitura](howto-read-replicas-portal.md)
