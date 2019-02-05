@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbbb7f96ebf14781e2f461f5ffbb3e1172595928
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241292"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694589"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
 
@@ -154,7 +154,7 @@ Depois do domínio personalizado foi removido com êxito, verá uma notificaçã
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para remover um registo de domínio personalizado, utilize o [atualização da conta de armazenamento az](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI de comandos e, em seguida, especifique uma cadeia vazia (`""`) para o `--custom-domain` valor do argumento.
+Para remover um registo de domínio personalizado, utilize o [atualização da conta de armazenamento az](https://docs.microsoft.com/cli/azure/storage/account) CLI de comandos e, em seguida, especifique uma cadeia vazia (`""`) para o `--custom-domain` valor do argumento.
 
 * Formato do comando:
 

@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318583"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695032"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -129,5 +129,5 @@ Para informações mais atualizado sobre preços, consulte o serviço [página d
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar um servidor PostgreSQL no portal do](tutorial-design-database-using-azure-portal.md).
-- Saiba como [monitorizar e dimensionar uma base de dados do Azure para o servidor PostgreSQL com a CLI do Azure](scripts/sample-scale-server-up-or-down.md).
-- Saiba mais sobre o [limitações do serviço](concepts-limits.md). 
+- Saiba mais sobre [limites de serviço](concepts-limits.md). 
+- Saiba como [aumentar horizontalmente com a leitura réplicas](howto-read-replicas-portal.md).

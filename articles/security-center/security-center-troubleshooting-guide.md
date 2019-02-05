@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0c2bef66e0570db37a2264e72fe46e619ef7db75
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 688d8ec76f7a4682a02a168a888463bfc98879d3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565450"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692686"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), analistas de segurança de informações e administradores da cloud cujas organizações utilizam o Centro de Segurança do Azure e que precisam de resolver problemas relacionados com o Centro de Segurança.
@@ -84,7 +84,7 @@ O **estado da monitorização** define o motivo pelo qual o Centro de Segurança
 ## Requisitos de resolução de problemas de rede do agente de monitorização <a name="mon-network-req"></a>
 Para os agentes se ligarem e registarem no Centro de Segurança, precisam de ter acesso aos recursos de rede, incluindo os números de porta e os URLs de domínio.
 
-- Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
 - Para as firewalls que restringem o acesso à Internet, tem de configurar a firewall para permitir o acesso ao Log Analytics. Não é necessária nenhuma ação nas definições do agente.
 
 A tabela seguinte mostra os recursos necessários para a comunicação.

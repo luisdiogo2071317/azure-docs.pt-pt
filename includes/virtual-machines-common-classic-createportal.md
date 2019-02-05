@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 127ade3b37380c50461c5b648265b431a2f4467e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227345"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735782"
 ---
 Uma máquina virtual *personalizada* significa simplesmente uma máquina virtual criada com uma **Aplicação em destaque** a partir do **Marketplace** porque trabalha bastante por si. No entanto, pode continuar a realizar escolhas de configuração que incluem os seguintes itens:
 

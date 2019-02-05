@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458276"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691475"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Início rápido: Procure palavras com dicionário bilingue com Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Atualmente, está disponível um ponto final para Tradução de Texto e está definido como `base_url`. `path` define a rota `dictionary/lookup` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do texto do tradutor está definido como o `base_url`. `path` define a rota `dictionary/lookup` e identifica que queremos utilizar a versão 3 da API.
 
 São utilizados `params` para definir a origem e os idiomas de saída. Neste exemplo, utilizamos o inglês e espanhol: `en` e `es`.
 

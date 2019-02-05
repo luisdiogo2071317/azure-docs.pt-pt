@@ -11,20 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 29181b19498b6735651869b6499c4a1cda5a4c3a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488859"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691036"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Secção de saídas em modelos do Azure Resource Manager
 
 Na secção de saídas, especifique os valores que são devolvidos da implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída
 
@@ -84,6 +82,7 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
 | valor |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
 
+Para obter informações sobre como adicionar comentários, consulte [comentários em modelos](resource-group-authoring-templates.md#comments).
 
 ## <a name="example-templates"></a>Modelos de exemplo
 

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856621"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696758"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Criar uma aplicação de funções no Linux num plano do serviço de aplicações do Azure (pré-visualização)
 
@@ -84,7 +84,7 @@ Uma vez que `myAppServicePlan` é um plano do Linux, a imagem do docker incorpor
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Este artigo mostra-lhe como criar uma aplicação de funções de Linux alojado no Azure. Agora, pode [implementar um projeto de função](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) para esta aplicação de função. Pode utilizar as ferramentas de núcleo de funções do Azure para [criar um projeto de funções](functions-run-local.md#create-a-local-functions-project) no seu computador local e implemente-a sua nova aplicação de funções do Linux.  
+Este artigo mostra-lhe como criar uma aplicação de funções de Linux alojado no Azure. Agora, pode [implementar um projeto de função](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) para esta aplicação de função. Pode utilizar as ferramentas de núcleo de funções do Azure para [criar um projeto de funções](functions-run-local.md) no seu computador local e implemente-a sua nova aplicação de funções do Linux.  
 
 > [!div class="nextstepaction"] 
 > [Criar código e testar as Funções do Azure localmente](functions-run-local.md)

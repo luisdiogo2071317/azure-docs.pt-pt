@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199635"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693792"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -70,7 +70,7 @@ Estado do monitor de ponto final é um valor gerado pelo Gestor de tráfego, que
 | Estado do perfil | Estado do ponto final  | Estado do monitor de ponto final | Notas |
 | --- | --- | --- | --- |
 | Desativado |Ativado |Inativa |O perfil foi desativado. Embora o estado de ponto final estiver ativado, o estado do perfil (desativado) tem precedência. Pontos finais nos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
-| &lt;Qualquer&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos de extremidade desativados não são monitorizados. O ponto final não está incluído nas respostas DNS, por conseguinte, não receber o tráfego. |
+| &lt;any&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos de extremidade desativados não são monitorizados. O ponto final não está incluído nas respostas DNS, por conseguinte, não receber o tráfego. |
 | Ativado |Ativado |Online |O ponto final está a ser monitorizado e está em bom estado. Ele está incluído nas respostas DNS e pode receber o tráfego. |
 | Ativado |Ativado |Degradado |Ponto final de monitorização do Estado de funcionamento verificações estão a falhar. O ponto final não está incluído nas respostas DNS e não recebe o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todas elas são consideradas a ser devolvido na resposta da consulta).</br>|
 | Ativado |Ativado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto de extremidade no perfil. Um ponto de extremidade neste estado está incluído nas respostas DNS e pode receber o tráfego. |
@@ -113,7 +113,7 @@ A linha cronológica na figura a seguir é uma descrição detalhada do processo
 
 **Figura:  Tráfego manager endpoint ativação pós-falha e recuperação sequência**
 
-1. **OBTER**. Para cada ponto de extremidade, o sistema de monitoramento do Gestor de tráfego efetua um pedido GET no caminho especificado nas definições de monitorização.
+1. **GET**. Para cada ponto de extremidade, o sistema de monitoramento do Gestor de tráfego efetua um pedido GET no caminho especificado nas definições de monitorização.
 2. **Intervalo de código OK ou personalizadas de 200 especificadas definições de monitorização de perfil do Gestor de tráfego** . O sistema de monitorização espera um HTTP 200 OK ou o ou intervalo de código personalizado especificado a mensagem de definições a serem retornados dentro de 10 segundos da monitorização de perfil do Gestor de tráfego. Ao receber esta resposta, ele reconhece que o serviço está disponível.
 3. **30 segundos entre verificações**. A verificação de estado de funcionamento do ponto final é repetida a cada 30 segundos.
 4. **Serviço indisponível**. O serviço fica indisponível. O Gestor de tráfego não saberá até a próxima verificação de estado de funcionamento.
@@ -132,10 +132,10 @@ A linha cronológica na figura a seguir é uma descrição detalhada do processo
 Quando um ponto de extremidade tem o estado Degraded, já não é devolvido em resposta a consultas DNS. Em vez disso, um ponto final alternativo é escolhido e retornado. O método de encaminhamento de tráfego de mensagens em fila configurado no perfil determina como o ponto final alternativo é escolhido.
 
 * **Prioridade**. Uma lista prioritária de formulário de pontos de extremidade. O primeiro ponto de extremidade disponível na lista é sempre retornado. Se um Estado de ponto final está degradado, o próximo ponto de extremidade disponível é devolvido.
-* **Ponderada**. Qualquer ponto de extremidade disponível é escolhido aleatoriamente com base nos seus atribuídos pesos e as ponderações de outros disponíveis pontos finais.
+* **Weighted**. Qualquer ponto de extremidade disponível é escolhido aleatoriamente com base nos seus atribuídos pesos e as ponderações de outros disponíveis pontos finais.
 * **Desempenho**. O ponto final mais próximo do utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de tráfego move o tráfego para os pontos de extremidade na região do Azure mais próxima seguinte. Pode configurar planos de ativação pós-falha alternativo para o encaminhamento de tráfego de desempenho, utilizando [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfica**. O ponto final mapeado para servir a localização geográfica baseada no pedido de consulta IP é devolvido. Se esse ponto final não estiver disponível, outro ponto final não será selecionado para ativação pós-falha, uma vez que uma localização geográfica pode ser mapeada apenas para um ponto final num perfil (mais detalhes estão no [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como melhor prática, quando utiliza o encaminhamento geográfico, recomendamos que os clientes para utilizar perfis do Gestor de tráfego aninhados com mais de um ponto de extremidade como os pontos finais do perfil.
-* **MultiValue** pontos finais de múltiplas mapeados para endereços IPv4/IPv6 são devolvidos. Quando uma consulta é recebida para este perfil, os pontos finais de bom estado de funcionamento são devolvidos com base no **contagem de registos de máximo em resposta** valor que especificou. O número predefinido de respostas é dois pontos de extremidade.
+* **MultiValue** vários pontos de extremidade mapeados para endereços IPv4/IPv6 são devolvidos. Quando uma consulta é recebida para este perfil, os pontos finais de bom estado de funcionamento são devolvidos com base no **contagem de registos de máximo em resposta** valor que especificou. O número predefinido de respostas é dois pontos de extremidade.
 * **Sub-rede** é devolvido o ponto final mapeado para um conjunto de intervalos de endereços IP. Quando é recebido um pedido desse endereço IP, o ponto final devolveu é a que é mapeada para esse endereço IP. 
 
 Para obter mais informações, consulte [métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md).

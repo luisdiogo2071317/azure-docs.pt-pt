@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554542"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692933"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Descrição geral da continuidade comercial com a base de dados do Azure para MySQL
 
@@ -26,7 +26,7 @@ A tabela seguinte compara o ERT e o RPO para as funcionalidades disponíveis:
 | **Capacidade** | **Básica** | **Fins gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção |
-| Georrestauro a partir de cópias de segurança georreplicado | Não suportado | ERT < 12h<br/>RPO < 1 hora | ERT < 12h<br/>RPO < 1 hora |
+| Georrestauro a partir de cópias de segurança georreplicado | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
 > Eliminar servidores **não é possível** ser restaurada. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados.
@@ -50,6 +50,6 @@ A outra opção é usar a base de dados do Azure para a funcionalidade de restau
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre as cópias de segurança automáticas, veja [cópias de segurança na base de dados do Azure para MySQL](concepts-backup.md).
-- Para restaurar para um ponto no tempo, com o portal do Azure, consulte [restaurar base de dados para um ponto no tempo com o portal do Azure](howto-restore-server-portal.md).
-- Para restaurar para um ponto no tempo, com a CLI do Azure, consulte [restaurar base de dados para um ponto no tempo com a CLI](howto-restore-server-cli.md).
+- Saiba mais sobre o [automatizada de cópias de segurança na base de dados do Azure para MySQL](concepts-backup.md).
+- Aprender a restaurar utilizando [do portal do Azure](howto-restore-server-portal.md) ou [a CLI do Azure](howto-restore-server-cli.md).
+- Saiba mais sobre [ler réplicas na base de dados do Azure para MySQL](concepts-read-replicas.md).

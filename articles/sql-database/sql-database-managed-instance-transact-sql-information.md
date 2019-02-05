@@ -1,6 +1,6 @@
 ---
 title: Diferenças do T-SQL de instância de gerida de base de dados SQL do Azure | Documentos da Microsoft
-description: Este artigo aborda as diferenças do T-SQL entre a instância gerida da base de dados SQL do Azure e o SQL Server
+description: Este artigo aborda as diferenças do T-SQL entre uma instância gerida na base de dados do Azure SQL e SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 01/31/2019
-ms.openlocfilehash: 3fa0977a8239a3d0db1aea99d39a2079945b724a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/04/2019
+ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567728"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734611"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Base de dados SQL do Azure geridos diferenças do T-SQL de instância do SQL Server
 
-Instância de gerida de base de dados de SQL do Azure fornece compatibilidade com o motor de base de dados de servidor de SQL no local. Maioria das funcionalidades do motor de base de dados do SQL Server é suportadas na instância gerida.
+A opção de implementação de instância gerida fornece compatibilidade com o motor de base de dados de servidor de SQL no local. A maioria das funcionalidades do motor de base de dados do SQL Server é suportada numa instância gerida.
 
 ![Migração](./media/sql-database-managed-instance/migration.png)
 
@@ -30,14 +30,14 @@ Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este
 - [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credentials), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
 - [Configuração](#configuration) incluindo as diferenças nos [a extensão do conjunto da memória intermédia](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels),[base de dados espelhamento](#database-mirroring), [opções de base de dados](#database-options), [SQL Server Agent](#sql-server-agent), [opções da tabela](#tables),
 - [Funcionalidades](#functionalities) incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [ Eventos expandidos](#extended-events), [bibliotecas externas](#external-libraries), [Filestream e Filetable](#filestream-and-filetable), [pesquisa semântica de texto completo](#full-text-semantic-search), [ligado servidores](#linked-servers), [Polybase](#polybase), [replicação](#replication), [restaurar](#restore-statement), [Service Broker](#service-broker), [ Os procedimentos armazenados, funções e disparadores](#stored-procedures-functions-triggers),
-- [Recursos que têm um comportamento diferente na instância gerida](#Changes)
+- [Recursos que têm um comportamento diferente em instâncias geridas](#Changes)
 - [Limitações temporárias e problemas conhecidos](#Issues)
 
 ## <a name="availability"></a>Disponibilidade
 
 ### <a name="always-on-availability"></a>Always On
 
-[Elevada disponibilidade](sql-database-high-availability.md) baseia-se para instância gerida e não pode ser controlado pelos utilizadores. Não são suportadas as seguintes instruções:
+[Elevada disponibilidade](sql-database-high-availability.md) baseia-se na instância gerida e não pode ser controlado pelos utilizadores. Não são suportadas as seguintes instruções:
 
 - [CRIE O PONTO FINAL... PARA DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CRIAR GRUPO DE DISPONIBILIDADE](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -47,9 +47,9 @@ Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este
 
 ### <a name="backup"></a>Cópia de segurança
 
-Instância gerida tem cópias de segurança automáticas e permite aos utilizadores criar base de dados completa `COPY_ONLY` cópias de segurança. Diferenciais, registo e de cópias de segurança de instantâneos de ficheiros não são suportadas.
+Instâncias geridas têm cópias de segurança automáticas e permite aos usuários criar base de dados completa `COPY_ONLY` cópias de segurança. Diferenciais, registo e de cópias de segurança de instantâneos de ficheiros não são suportadas.
 
-- Instância gerida, pode criar uma base de dados apenas para uma conta de armazenamento de Blobs do Azure:
+- Com uma instância gerida, pode fazer backup de uma base de dados de instância apenas a uma conta de armazenamento de Blobs do Azure:
   - Apenas `BACKUP TO URL` é suportada
   - `FILE`, `TAPE`, e os dispositivos de cópia de segurança não são suportados  
 - A maioria de gerais `WITH` as opções são suportadas
@@ -60,7 +60,7 @@ Instância gerida tem cópias de segurança automáticas e permite aos utilizado
 
 Limitações:  
 
-- Instância gerida, pode criar uma base de dados para uma cópia de segurança com até 32 reparte, que é o suficiente para as bases de dados até 4 TB se for utilizada a compactação de backup.
+- Com uma instância gerida, pode fazer backup de uma base de dados de instância para uma cópia de segurança com até 32 reparte, que é o suficiente para as bases de dados até 4 TB se for utilizada a compactação de backup.
 - Tamanho máximo do stripe de cópia de segurança é 195 GB (tamanho máximo de BLOBs). Aumente o número de reparte no comando de cópia de segurança para reduzir o tamanho do stripe individuais e se manter dentro este limite.
 
 > [!TIP]
@@ -72,18 +72,18 @@ Para obter informações sobre cópias de segurança com o T-SQL, consulte [cóp
 
 ### <a name="auditing"></a>Auditoria
 
-As principais diferenças entre auditoria de SQL na instância gerida, base de dados do Azure SQL e SQL Server no local são:
+As principais diferenças entre auditoria em bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server são:
 
-- Na instância gerida, a auditoria de SQL funciona no nível do servidor e arquivos `.xel` conta de armazenamento de BLOBs de ficheiros no Azure.  
-- Na base de dados SQL do Azure, a auditoria de SQL funciona ao nível da base de dados.
-- No SQL Server no local / máquina virtual, auditoria de SQL funciona ao nível do servidor, mas que armazena os eventos nos registos de eventos do windows/sistema de ficheiros.  
+- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros na conta de armazenamento de Blobs do Azure de registo.
+- Com a base de dados individual e opções de implementação do conjunto elástico na base de dados do Azure SQL, a auditoria funciona ao nível da base de dados.
+- No SQL Server no local / virtual máquinas, funciona de auditoria no servidor de nível, mas armazena os eventos nos registos de eventos do windows/sistema de ficheiros.
   
-Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Registos de ficheiros e do windows não são suportados.
+Destinos de armazenamento de Blobs do Azure oferece suporte a auditoria na instância gerida de XEvent. Registos de ficheiros e do windows não são suportados.
 
 A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde `.xel` serão colocados ficheiros
-- A sintaxe `TO FILE` não é suportada porque a instância gerida não é possível aceder a partilhas de ficheiros do Windows.
+- A sintaxe `TO FILE` não é suportada porque uma instância gerida não é possível aceder a partilhas de ficheiros do Windows.
 
 Para obter mais informações, consulte:  
 
@@ -93,7 +93,7 @@ Para obter mais informações, consulte:
 
 ### <a name="certificates"></a>Certificados
 
-A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições:
+Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que as seguintes restrições aplicam-se:
 
 - `CREATE FROM`/`BACKUP TO` ficheiro não é suportado para certificados
 - `CREATE`/`BACKUP` certificado do `FILE` / `ASSEMBLY` não é suportada. Não não possível utilizar os ficheiros de chave privados.  
@@ -116,7 +116,7 @@ Ver [criar CREDENCIAL](https://docs.microsoft.com/sql/t-sql/statements/create-cr
 
 ### <a name="cryptographic-providers"></a>Fornecedores de criptografia
 
-Instância gerida não é possível aceder aos ficheiros, pelo que não não possível criar provedores criptográficos:
+Uma instância gerida não é possível aceder aos ficheiros, pelo que não não possível criar provedores criptográficos:
 
 - `CREATE CRYPTOGRAPHIC PROVIDER` Não é suportada. Ver [fornecedor de CRIPTOGRAFIA de criar](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` Não é suportada. Ver [fornecedor de CRIPTOGRAFIA de ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -191,7 +191,7 @@ Para obter mais informações, consulte [CREATE DATABASE](https://docs.microsoft
 
 Algumas propriedades de ficheiro não não possível definir ou alterar:
 
-- Não é possível especificar o caminho do ficheiro no `ALTER DATABASE ADD FILE (FILENAME='path')` instrução T-SQL. Remover `FILENAME` de scripts porque gerida instância automaticamente coloca os ficheiros.  
+- Não é possível especificar o caminho do ficheiro no `ALTER DATABASE ADD FILE (FILENAME='path')` instrução T-SQL. Remover `FILENAME` de scripts porque uma instância gerida coloca automaticamente os ficheiros.  
 - Nome de ficheiro não pode ser alterado usando `ALTER DATABASE` instrução.
 
 As seguintes opções estão definidas por predefinição e não podem ser alteradas:
@@ -228,7 +228,7 @@ Para obter mais informações, consulte [ALTER DATABASE](https://docs.microsoft.
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
+- Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportada em instâncias geridas.  
 - Tarefas
   - Passos da tarefa de T-SQL são suportados.
   - São suportadas as seguintes tarefas de replicação:
@@ -240,7 +240,7 @@ Para obter mais informações, consulte [ALTER DATABASE](https://docs.microsoft.
     - Passo de tarefa de replicação de intercalação não é suportado.  
     - Leitor de fila não é suportada.  
     - Shell de comandos ainda não é suportada
-  - Instância gerida não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
+  - Instâncias geridas não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
   - PowerShell ainda não é suportado.
   - Não é suportado do Analysis Services
 - Notificações são parcialmente suportadas
@@ -275,14 +275,14 @@ Para obter informações sobre a criação e tabelas de alteração, consulte [C
 
 ### <a name="bulk-insert--openrowset"></a>Inserção em massa / openrowset
 
-Instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de BLOBs:
+Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de BLOBs:
 
 - `DATASOURCE` é necessário em `BULK INSERT` comando ao importar ficheiros do armazenamento de Blobs do Azure. Ver [inserção em massa](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` é necessário em `OPENROWSET` funcionar quando ler um conteúdo de um ficheiro de armazenamento de Blobs do Azure. Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
-A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Windows, pelo que são aplicadas as seguintes restrições:
+Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que as seguintes restrições aplicam-se:
 
 - Apenas `CREATE ASSEMBLY FROM BINARY` é suportada. Ver [CREATE ASSEMBLY de binário](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` Não é suportada. Ver [CREATE ASSEMBLY de ficheiro](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -291,7 +291,7 @@ A Instância Gerida não consegue aceder a partilhas de ficheiros e pastas do Wi
 
 ### <a name="dbcc"></a>DBCC
 
-Declarações DBCC não documentadas que estão ativadas no SQL Server não são suportadas na instância gerida.
+Declarações DBCC não documentadas que estão ativadas no SQL Server não são suportadas em instâncias geridas.
 
 - `Trace Flags` não são suportadas. Ver [sinalizadores de rastreio](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` Não é suportada. Ver [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -299,7 +299,7 @@ Declarações DBCC não documentadas que estão ativadas no SQL Server não são
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-Nenhuma das MSDTC nem [transações elásticas](sql-database-elastic-transactions-overview.md) atualmente são suportadas na instância gerida.
+Nenhuma das MSDTC nem [transações elásticas](sql-database-elastic-transactions-overview.md) atualmente são suportadas em instâncias geridas.
 
 ### <a name="extended-events"></a>Eventos Expandidos
 
@@ -333,7 +333,7 @@ Para obter mais informações, consulte [FILESTREAM](https://docs.microsoft.com/
 
 ### <a name="linked-servers"></a>Servidores ligados
 
-Servidores ligados na instância gerida suportam um número limitado de destinos:
+Servidores ligados em instâncias geridas suportarem um número limitado de destinos:
 
 - Destinos suportados: SQL Server e base de dados SQL
 - Não suportado destinos: arquivos, Analysis Services e outros RDBMS.
@@ -351,7 +351,7 @@ Tabelas externas, fazer referência aos arquivos no armazenamento de Blobs do HD
 
 ### <a name="replication"></a>Replicação
 
-A replicação está disponível para pré-visualização pública na instância gerida. Para obter informações sobre a replicação, consulte [replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+A replicação está disponível para pré-visualização pública para instâncias geridas. Para obter informações sobre a replicação, consulte [replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>RESTAURAR a instrução
 
@@ -420,11 +420,11 @@ Não é suportado o Mediador de serviço da instância de entre:
 
 As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
-- `SERVERPROPERTY('EngineEdition')` Devolve a 8 de valor. Esta propriedade identifica exclusivamente a instância gerida. Ver [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Devolve nulo, porque o conceito de instância, pois existe para o SQL Server não é aplicável a instância gerida. Ver [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` Devolve a 8 de valor. Esta propriedade identifica exclusivamente uma instância gerida. Ver [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Devolve nulo, porque o conceito de instância, pois existe para o SQL Server não é aplicável a uma instância gerida. Ver [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` Devolve nome DNS completo "conectável", por exemplo, meu instance.wcus17662feb9ce98.database.windows.net geridos. Ver [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -Devolve completa de nome DNS "conectável", tais como `myinstance.domain.database.windows.net` para propriedades 'name' e 'data_source'. Consulte [SYS. SERVIDORES](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` Devolve nulo, porque o conceito de serviço, pois existe para o SQL Server não é aplicável a instância gerida. Ver [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` Devolve nulo, porque o conceito de serviço, pois existe para o SQL Server não é aplicável a uma instância gerida. Ver [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` é suportada. Devolve Nulo se o início de sessão do AAD não está a ser sys.syslogins. Ver [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` Não é suportada. Devolve (problema conhecido temporário) de dados incorreto. Ver [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` e outras funções de data/hora incorporado devolve sempre a hora no fuso horário UTC. Ver [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -455,7 +455,7 @@ Certifique-se de que remove o líder `?` da chave de SAS gerado com o portal do 
 
 ### <a name="tooling"></a>Ferramentas
 
-SQL Server Management Studio (SSMS) e o SQL Server Data Tools (SSDT) podem ter alguns problemas ao aceder à instância gerida.
+SQL Server Management Studio (SSMS) e o SQL Server Data Tools (SSDT) podem ter alguns problemas ao aceder a uma instância gerida.
 
 - Usando a utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) com o SSDT não é atualmente suportada.
 - Scripts para utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) não são suportadas no SSMS.
@@ -474,9 +474,9 @@ Registos de erros que estão disponíveis na instância gerida não são mantido
 
 ### <a name="error-logs-are-verbose"></a>Registos de erros são detalhados
 
-Instância gerida coloca informações verbosas em registos de erros e muitos deles não são relevantes. A quantidade de informações nos registos de erro é reduzida no futuro.
+Uma instância gerida coloca informações verbosas em registos de erros e muitos deles não são relevantes. A quantidade de informações nos registos de erro é reduzida no futuro.
 
-**Solução**: Utilize um procedimento personalizado para a leitura de registos de erros que algumas entradas não relevantes de filtro-out. Para obter detalhes, consulte [SQL DB instância gerida do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solução**: Utilize um procedimento personalizado para a leitura de registos de erros que algumas entradas não relevantes de filtro-out. Para obter detalhes, consulte [instância gerida – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Âmbito de transação nas duas bases de dados dentro da instância do mesmo não é suportado
 
@@ -511,7 +511,7 @@ Embora esse código funciona com os dados dentro da instância do mesmo é neces
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Módulos CLR e algum tempo a servidores ligados não é possível referenciar o endereço IP local
 
-Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este erro é um problema transitório.
+Módulos CLR colocados numa instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este erro é um problema transitório.
 
 **Solução**: Se for possível utilize ligações de contexto no módulo CLR.
 
@@ -523,6 +523,6 @@ Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre a instância gerida, veja [o que é uma instância gerida?](sql-database-managed-instance.md)
+- Para obter detalhes sobre instâncias geridas, consulte [o que é uma instância gerida?](sql-database-managed-instance.md)
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
-- Para um início rápido mostra-lhe como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
+- Para um início rápido mostra-lhe como criar uma nova instância gerida, veja [criação de uma instância](sql-database-managed-instance-get-started.md).

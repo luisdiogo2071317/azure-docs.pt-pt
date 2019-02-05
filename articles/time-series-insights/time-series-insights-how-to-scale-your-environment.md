@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556684"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692430"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o seu ambiente do Time Series Insights
 
@@ -47,9 +47,9 @@ As capacidades de maneira linear, dimensionar, para que uma SKU S1 com capacidad
 ## <a name="change-the-capacity-of-your-environment"></a>Alterar a capacidade do seu ambiente
 1. No portal do Azure, localize e selecione o seu ambiente do Time Series Insights. 
 
-2. No menu do seu ambiente de Insighs de série de tempo, selecione **configurar**.
+2. No menu do seu ambiente do Time Series Insights, selecione **configurar**.
 
-   ![Configure.png](media/scale-your-environment/configure.png)
+   ![configure.png](media/scale-your-environment/configure.png)
 
 3. Ajustar a **capacidade** controlo de deslize para selecionar a capacidade de que cumpre os requisitos para as taxas de entrada e a capacidade de armazenamento. Observe que o **taxa de entrada**, **capacidade de armazenamento**, e **custo estimado** atualização dinamicamente para mostrar o impacto da alteração. 
 

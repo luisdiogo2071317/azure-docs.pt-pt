@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498400"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734475"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como as versões de tempo de execução de funções do Azure de destino
 
@@ -49,7 +49,7 @@ Também pode visualizar e definir o `FUNCTIONS_EXTENSION_VERSION` partir da CLI 
 >[!NOTE]
 >Porque outras definições, poderão ser afetadas pela versão do tempo de execução, deve alterar a versão no portal. O portal faz automaticamente as outras atualizações necessárias, tais como a pilha de versão e o runtime de node. js, quando altera as versões de tempo de execução.  
 
-Com a CLI do Azure, ver a versão de runtime atual com o [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) comando.
+Com a CLI do Azure, ver a versão de runtime atual com o [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) comando.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ Verá o `FUNCTIONS_EXTENSION_VERSION` na seguinte saída, que foi truncado por m
 ]
 ```
 
-Pode atualizar o `FUNCTIONS_EXTENSION_VERSION` definição na aplicação de funções com o [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) comando.
+Pode atualizar o `FUNCTIONS_EXTENSION_VERSION` definição na aplicação de funções com o [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) comando.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

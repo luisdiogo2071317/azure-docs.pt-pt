@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70b73fec4a6955bc1fcc91cb3895b07fd667ebca
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213808"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692767"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com o Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Atualmente, está disponível um ponto final para Tradução de Texto e está definido como `base_url`. `path` define a rota `detect` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do texto do tradutor está definido como o `base_url`. `path` define a rota `detect` e identifica que queremos utilizar a versão 3 da API.
 
 >[!NOTE]
 > Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).

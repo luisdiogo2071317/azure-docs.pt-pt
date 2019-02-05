@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185224"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692742"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto às aplicações no local através do Proxy de aplicações do Azure Active Directory 
 
@@ -28,7 +28,7 @@ Proxy de aplicações do Azure AD é:
 
 - **Proteger**. Aplicações no local podem utilizar os controlos de autorização e análises de segurança do Azure. Por exemplo, as aplicações no local podem utilizar o acesso condicional e verificação de dois passos. Proxy de aplicações não requer a abertura de ligações de entrada através da firewall.
  
-- **Económico**. Soluções no local, normalmente, tem de configurar e manter desmilitarizada zonas (DMVs), os servidores de borda ou outras infraestruturas complexas. Proxy da aplicação é executada na cloud, o que torna fácil de usar. Para utilizar o Proxy de aplicações, não precisa de alterar a infraestrutura de rede ou instalar aplicações adicionais no seu ambiente no local.
+- **Económico**. Soluções no local, normalmente, tem de configurar e manter desmilitarizada zonas (DMZs), os servidores de borda ou outras infraestruturas complexas. Proxy da aplicação é executada na cloud, o que torna fácil de usar. Para utilizar o Proxy de aplicações, não precisa de alterar a infraestrutura de rede ou instalar aplicações adicionais no seu ambiente no local.
 
 ## <a name="what-is-application-proxy"></a>O que é o Proxy de aplicações?
 Proxy de aplicações é uma funcionalidade do Azure AD que permite aos utilizadores aceder a aplicações web no local a partir de um cliente remoto. Proxy de aplicações inclui o serviço de Proxy da aplicação que é executado na cloud e o conector de Proxy da aplicação que é executado num servidor no local. O Azure AD, o serviço de Proxy de aplicações e o trabalho de conector de Proxy de aplicações em conjunto para ser transmitido em segurança o token de início de sessão utilizador do Azure AD para a aplicação web.

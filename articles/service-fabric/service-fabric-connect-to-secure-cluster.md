@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: 55564de4a3c5ff2d3ba3ddc5e68fa3d1b2d51e71
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296397"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694123"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 
@@ -174,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ligar a um cluster seguro a utilizar um certificado de cliente
 
-Os nós do cluster tem de ter certificados válidos cujo nome comum ou nome DNS no SAN é exibido no [propriedade RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) definir na [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Este processo permite a autenticação mútua entre o cliente e os nós do cluster.
+Os nós do cluster tem de ter certificados válidos cujo nome comum ou nome DNS no SAN é exibido no [propriedade RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) definir na [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Este processo permite a autenticação mútua entre o cliente e os nós do cluster.
 
 ```csharp
 using System.Fabric;

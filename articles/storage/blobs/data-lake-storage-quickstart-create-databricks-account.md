@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239930"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694172"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
 
@@ -29,15 +29,11 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>Reservar a configuração da conta de armazenamento
-
-Terá o nome da sua conta de armazenamento e um URI do ponto de extremidade sistema de ficheiros.
+## <a name="get-the-name-of-your-storage-account"></a>Obter o nome da sua conta de armazenamento
 
 Para obter o nome da conta de armazenamento no portal do Azure, escolha **todos os serviços** e filtre o termo *armazenamento*. Em seguida, selecione **contas de armazenamento** e localize a sua conta de armazenamento.
 
-Para obter o URI do ponto de extremidade sistema de ficheiros, escolha **propriedades**e no painel de propriedades, localize o valor da **primário ponto final do sistema de ficheiro ADLS** campo.
-
-Cole esses valores num arquivo de texto. Precisará-los em breve.
+Cole esse nome num arquivo de texto. Precisará dela em breve.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Cole esses valores num arquivo de texto. Precisará-los em breve.
 
 Crie um principal de serviço ao seguir as orientações neste tópico: [How to: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Há alguns pontos específicos que terá que fazer à medida que efetua os passos nesse artigo.
-
-:heavy_check_mark: Quando realizar os passos no [criar uma aplicação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) secção do artigo, certifique-se de definir o **URL de início de sessão** campo o **criar** caixa de diálogo para o URI do ponto final que acabou recolhidos.
+Há duas coisas específicas que terá que fazer à medida que efetua os passos nesse artigo.
 
 :heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a sua aplicação para o **função de contribuinte do armazenamento de BLOBs**.
 
@@ -136,7 +130,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
     > [!NOTE]
     > Este bloco de código acede diretamente o ponto de extremidade de geração 2 do Data Lake ao utilizar OAuth, mas existem outras formas de ligar a área de trabalho do Databricks à sua conta de geração 2 de armazenamento do Data Lake. Por exemplo, pode montar o sistema de ficheiros ao utilizar o OAuth ou utilize um acesso direto com a chave partilhada. <br>Para ver exemplos dessas abordagens, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no Web site do Azure Databricks.
 
-5. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando concluído os passos a [reserve conta de armazenamento configuração](#config) e [criar um principal de serviço](#service-principal) seções deste artigo.  Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
+5. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando concluído os passos a [obter o nome da sua conta de armazenamento ](#config) e [criar um principal de serviço](#service-principal) seções deste artigo.  Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
 
 6. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 

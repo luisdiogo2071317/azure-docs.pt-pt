@@ -4,17 +4,17 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296669"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698297"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -46,7 +46,8 @@ Por exemplo, o JSON seguinte mostra uma política que limita a onde os recursos 
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ Parâmetros ajudam a simplificar a gestão de políticas ao reduzir o número de
 Parâmetros funcionam da mesma forma, na criação de políticas. Ao incluir parâmetros na definição de política, pode reutilizar essa política para diferentes cenários com valores diferentes.
 
 > [!NOTE]
-> A definição de parâmetros para uma política ou a definição de iniciativa apenas pode ser configurada durante a criação inicial da política ou iniciativa. A definição de parâmetros não é possível alterar mais tarde.
-> Isto impede que existente atribuições da política ou iniciativa indiretamente que estão sendo feitas inválido.
+> Parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro tem de incluir o **defaultValue** propriedade. Isto impede que existente atribuições da política ou iniciativa indiretamente que estão sendo feitas inválido.
 
 Por exemplo, pode definir uma política para limitar as localizações onde os recursos podem ser implementados.
 Poderia declarar os seguintes parâmetros ao criar a política:
@@ -101,7 +101,8 @@ Poderia declarar os seguintes parâmetros ao criar a política:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```
@@ -221,7 +222,7 @@ São suportados os seguintes campos:
 - `location`
   - Uso **global** para recursos que desconhecem de localização. Por exemplo, veja [exemplos - localizações permitidos](../samples/allowed-locations.md).
 - `identity.type`
-  - Devolve o tipo de [identidade gerido](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
+  - Devolve o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
 - `tags`
 - `tags.<tagName>`
   - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.

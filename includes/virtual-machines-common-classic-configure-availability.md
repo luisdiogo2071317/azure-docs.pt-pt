@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227272"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55735845"
 ---
 Um conjunto de disponibilidade ajuda a manter as máquinas virtuais disponíveis durante o período de inatividade, por exemplo, durante a manutenção. Colocar duas ou mais máquinas virtuais configuradas de forma semelhante num conjunto de disponibilidade cria a redundância necessários para manter a disponibilidade das aplicações ou serviços que sua máquina virtual é executada. Para obter detalhes sobre como isto funciona, consulte [gerir a disponibilidade das máquinas virtuais][Manage the availability of virtual machines].
 

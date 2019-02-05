@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239575"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694538"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Criar uma máquina virtual a partir de um instantâneo com a CLI
 
@@ -49,9 +49,9 @@ Este script utiliza os seguintes comandos para criar um disco gerido, uma máqui
 
 | Comando | Notas |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtém o instantâneo com o nome do instantâneo e nome do grupo de recursos. A propriedade do ID do objeto devolvido é utilizada para criar um disco gerido.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Cria discos geridos a partir de um instantâneo com o ID do instantâneo, o nome do disco, o tipo de armazenamento e o tamanho  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria uma VM com um disco do SO gerido |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Obtém o instantâneo com o nome do instantâneo e nome do grupo de recursos. A propriedade do ID do objeto devolvido é utilizada para criar um disco gerido.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Cria discos geridos a partir de um instantâneo com o ID do instantâneo, o nome do disco, o tipo de armazenamento e o tamanho  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria uma VM com um disco do SO gerido |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

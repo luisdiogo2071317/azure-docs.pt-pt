@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958640"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693688"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -61,7 +61,7 @@ O comando _vmss create_ repõe as predefinições de certos valores de configura
 az vmss create --help
 ```
 
-Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um modelo do Azure Resource Manager, certifique-se de que o modelo cria um conjunto de dimensionamento com base em Managed Disks do Azure. Pode definir a propriedade _singlePlacementGroup_ para _falso_ na secção _propriedades_ do recurso _Microsoft.Compute/virtualMAchineScaleSets_. O fragmento JSON seguinte mostra o início de um modelo de conjunto de dimensionamento, incluindo a capacidade de 1000 VMs e a definição _"singlePlacementGroup" : falso_:
+Se estiver a criar um conjunto de dimensionamento de grande escala ao compor um modelo do Azure Resource Manager, certifique-se de que o modelo cria um conjunto de dimensionamento com base em Managed Disks do Azure. Pode definir o _singlePlacementGroup_ propriedade para _false_ no _propriedades_ seção o _Compute/virtualmachinescalesets_ recursos. O fragmento JSON seguinte mostra o início de um modelo de conjunto de dimensionamento, incluindo a capacidade de 1000 VMs e a definição _"singlePlacementGroup" : falso_:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
