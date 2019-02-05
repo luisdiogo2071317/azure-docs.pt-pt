@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256734"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700235"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -147,7 +147,7 @@ O exemplo seguinte mostra como ativar os registos de diagnóstico através de Cm
 
     Connect-AzureRmAccount 
 
-    SELECT-AzureSubscription - SubscriptionId 
+    Select-AzureSubscription -SubscriptionId 
 
 2. Para ativar registos de diagnóstico numa conta de armazenamento, introduza este comando:
 
@@ -185,7 +185,7 @@ Registos de análise de núcleo são gerados a cada hora e os dados são recolhi
 
 **Descrição de campos:**
 
-|Valor|Descrição|
+|Value|Descrição|
 |-------|---------|
 |ID da subscrição    |ID da subscrição do Azure no formato Guid.|
 |Nome do Grupo de Recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
@@ -290,7 +290,7 @@ Siga estes passos para adicionar uma solução de gestão do Log Analytics:
 
 ### <a name="offers-and-pricing-tiers"></a>Os escalões de preços e ofertas
 
-Pode ver, ofertas e os escalões de preços para soluções de gestão [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Pode ver, ofertas e os escalões de preços para soluções de gestão [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### <a name="customizing-views"></a>Personalizar vistas
 

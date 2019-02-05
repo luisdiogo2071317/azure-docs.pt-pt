@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 201487c9052ce8df9734e7e11e604cbae9102aab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d0da7e19934123534bf063deecb5bff584dbc317
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155838"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699287"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Iniciar sessão nas suas contas com a aplicação Microsoft Authenticator
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
@@ -28,7 +28,7 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 - Fornecer início de sessão sem exigir uma palavra-passe, utilizando o seu nome de utilizador e dispositivo móvel com a impressão digital, face ou o PIN.
 
  >[!Important]
- >Este método de início de sessão do telefone só funciona com suas contas Microsoft pessoais. Seu trabalho ou a conta escolar e a contas de não-Microsoft requerem que use o processo de verificação de dois fatores padrão.
+ >Este método de início de sessão do telefone só funciona com o seu trabalho ou escola e contas Microsoft pessoais. As contas de não-Microsoft exigem que use o processo de verificação de dois fatores padrão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de poder utilizar a aplicação Microsoft Authenticator, faça o seguinte:

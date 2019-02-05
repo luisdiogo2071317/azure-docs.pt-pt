@@ -4,158 +4,160 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: d8bddc309db3ede67586a2067fcf57fbede7d6b3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e6ffb7f797746fed30520c1c99130ff585909a9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152795"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: Integração do Active Directory do Azure com CloudPassage
 
 Neste tutorial, saiba como integrar CloudPassage com o Azure Active Directory (Azure AD).
-
 Integrar CloudPassage no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao CloudPassage
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para CloudPassage (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao CloudPassage.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para CloudPassage (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com CloudPassage, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um CloudPassage logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* CloudPassage logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando CloudPassage da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta CloudPassage **SP** iniciada SSO
 
 ## <a name="adding-cloudpassage-from-the-gallery"></a>Adicionando CloudPassage da Galeria
+
 Para configurar a integração do CloudPassage com o Azure AD, terá de adicionar CloudPassage a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar CloudPassage a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **CloudPassage**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/tutorial_cloudpassage_search.png)
+4. Na caixa de pesquisa, escreva **CloudPassage**, selecione **CloudPassage** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **CloudPassage**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![CloudPassage na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/tutorial_cloudpassage_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com CloudPassage com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no CloudPassage a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no CloudPassage deve ser estabelecido.
-
-CloudPassage, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com CloudPassage com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no CloudPassage deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com CloudPassage, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste CloudPassage](#creating-a-cloudpassage-test-user)**  - para ter um equivalente da Eduarda Almeida na CloudPassage que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar CloudPassage Single Sign-On](#configure-cloudpassage-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste CloudPassage](#create-cloudpassage-test-user)**  - para ter um equivalente da Eduarda Almeida na CloudPassage que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo CloudPassage.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com CloudPassage, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com CloudPassage, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **CloudPassage** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **CloudPassage** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **CloudPassage domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    ![CloudPassage domínio e URLs únicas início de sessão em informações](common/sp-reply.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://portal.cloudpassage.com/saml/init/accountid`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://portal.cloudpassage.com/saml/consume/accountid`. Pode obter o valor deste atributo clicando **documentação de configuração de SSO** no **configurações de logon único** seção do CloudPassage portal.
 
     ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
-     
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente CloudPassage](https://www.cloudpassage.com/company/contact/) obter esses valores. 
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o URL de resposta real. Contacte [equipa de suporte de cliente CloudPassage](https://www.cloudpassage.com/company/contact/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_certificate.png) 
+5. Aplicação de CloudPassage espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-1. Seu aplicativo CloudPassage espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo disso.
-   
-   ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_25.png) 
+    ![image](common/edit-attribute.png)
 
-1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
 
-    | Nome do Atributo | Valor do Atributo |
-    | --- | --- |
+    | Name | Atributo de origem|
+    | ---------------| --------------- |
     | FirstName |user.givenname |
     | Apelido |user.surname |
     | e-mail |user.mail |
-    
-    a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_attribute_04.png)
-    
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_attribute_05.png)
-    
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha.
-    
-    d. Clique em **OK**.
+    c. Deixe o **espaço de nomes** em branco.
 
-1. Clique em **guardar** botão.
+    d. Selecione a origem de dado **atributo**.
 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_general_400.png)
-    
-1. Sobre o **CloudPassage configuração** secção, clique em **configurar CloudPassage** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
 
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_configure.png) 
+    f. Clique em **Ok**
+
+    g. Clique em **Guardar**.
+
+7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+
+    ![O link de download de certificado](common/certificatebase64.png)
+
+8. Sobre o **configurar CloudPassage** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-cloudpassage-single-sign-on"></a>Configurar CloudPassage Single Sign-On
 
 1. Numa janela do browser diferente, início de sessão no site da sua empresa CloudPassage como administrador.
 
@@ -173,9 +175,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Selecione **sign-on(SSO) ativar único (SSO documentação de configuração)** caixa de verificação.
     
-    b. Colar **ID de entidade de SAML** para o **URL de emissor SAML** caixa de texto.
+    b. Colar **identificador do Azure Ad** para o **URL de emissor SAML** caixa de texto.
   
-    c. Colar **SAML único início de sessão no URL do serviço** para o **URL de ponto final SAML** caixa de texto.
+    c. Colar **URL de início de sessão** para o **URL de ponto final SAML** caixa de texto.
   
     d. Colar **URL de fim de sessão** para o **página de destino de fim de sessão** caixa de texto.
   
@@ -183,41 +185,58 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
   
     f. Clique em **Guardar**.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/cloudpassage-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-cloudpassage-test-user"></a>Criar um utilizador de teste CloudPassage
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para CloudPassage.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **CloudPassage**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **CloudPassage**.
+
+    ![A ligação de CloudPassage na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-cloudpassage-test-user"></a>Criar utilizador de teste CloudPassage
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no CloudPassage.
 
@@ -227,15 +246,15 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no CloudP
 
 1. Na barra de ferramentas na parte superior, clique em **configurações**e, em seguida, clique em **administração de sites**. 
    
-   ![Criar um utilizador de teste CloudPassage][22] 
+    ![Criar um utilizador de teste CloudPassage][22] 
 
 1. Clique nas **usuários** separador e, em seguida, clique em **adicionar novo utilizador**. 
    
-   ![Criar um utilizador de teste CloudPassage][23]
+    ![Criar um utilizador de teste CloudPassage][23]
 
 1. Na **adicionar novo utilizador** secção, execute os seguintes passos: 
    
-   ![Criar um utilizador de teste CloudPassage][24]
+    ![Criar um utilizador de teste CloudPassage][24]
     
     a. Na **nome próprio** caixa de texto, escreva a Eduarda. 
   
@@ -247,53 +266,22 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no CloudP
   
     e. Clique em **Adicionar**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para CloudPassage.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-![Atribuir utilizador][200] 
+Quando clica no mosaico CloudPassage no painel de acesso, deve ser automaticamente sessão iniciada no CloudPassage para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-**Para atribuir a Eduarda Almeida a CloudPassage, execute os seguintes passos:**
+## <a name="additional-resources"></a>Recursos Adicionais
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Atribuir utilizador][201] 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. Na lista de aplicações, selecione **CloudPassage**.
-
-    ![Configurar o início de sessão único](./media/cloudpassage-tutorial/tutorial_cloudpassage_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
-
-O objetivo desta secção consiste em testar a configuração de SSO do Azure AD através do painel de acesso.
-
-Quando clica no mosaico CloudPassage no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo CloudPassage.
-
-## <a name="additional-resources"></a>Recursos adicionais
-
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 
-[1]: ./media/cloudpassage-tutorial/tutorial_general_01.png
-[2]: ./media/cloudpassage-tutorial/tutorial_general_02.png
-[3]: ./media/cloudpassage-tutorial/tutorial_general_03.png
-[4]: ./media/cloudpassage-tutorial/tutorial_general_04.png
 [12]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_07.png
 [13]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_08.png
 [14]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_09.png
@@ -301,11 +289,4 @@ Quando clica no mosaico CloudPassage no painel de acesso, deve obter automaticam
 [22]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_15.png
 [23]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_16.png
 [24]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_17.png
-
-[100]: ./media/cloudpassage-tutorial/tutorial_general_100.png
-
-[200]: ./media/cloudpassage-tutorial/tutorial_general_200.png
-[201]: ./media/cloudpassage-tutorial/tutorial_general_201.png
-[202]: ./media/cloudpassage-tutorial/tutorial_general_202.png
-[203]: ./media/cloudpassage-tutorial/tutorial_general_203.png
 

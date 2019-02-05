@@ -15,17 +15,17 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512555"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699268"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
 
-As funções incorporadas estão sempre a evoluir. Para obter as definições de função mais recentes, utilize [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
+As funções incorporadas estão sempre a evoluir. Para obter as definições de função mais recentes, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Descrições de função incorporada
 A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions`, e `NotDataActions` para cada função.

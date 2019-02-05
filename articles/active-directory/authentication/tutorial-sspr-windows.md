@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 3446548a89c33e6eb8026e41fbea01ee651b2c88
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488072"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694028"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -33,7 +33,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
    * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
 * Se os dispositivos Windows 10 estão por trás de um servidor proxy ou de uma firewall, tem de adicionar os URLs `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` à sua lista de URLs permitidos de tráfego (porta 443) de HTTPS.
-* Reveja as limitações abaixo antes de tentar isso no seu ambiente.
+* Reveja as limitações abaixo antes de tentar esta funcionalidade no seu ambiente.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
 
@@ -87,7 +87,7 @@ Criou e atribuiu agora uma política de configuração de dispositivos para ativ
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configurar a ligação Repor palavra-passe com o registo
 
-1. Utilizar credenciais administrativas para iniciar sessão no PC Windows
+1. Inicie sessão no PC Windows com as credenciais administrativas
 2. Execute **regedit** como administrador
 3. Defina a chave de registo seguinte
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -99,13 +99,15 @@ Agora que a política está configurada e atribuída, que alterações há para 
 
 ![LoginScreen][LoginScreen]
 
-Quando os utilizadores tentam iniciar sessão, veem agora a ligação Repor palavra-passe, a qual abre a experiência de reposição personalizada de palavra-passe no ecrã de início de sessão. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
+Quando os utilizadores tentam iniciar sessão, veem agora experiência no ecrã de início de sessão de reposição de uma ligação de reposição de palavra-passe que abre-se a palavra-passe self-service. Com esta funcionalidade, os utilizadores podem repor as palavras-passe sem terem de utilizar outro dispositivo para aceder a um browser.
 
 Os seus utilizadores podem obter orientações sobre como utilizar esta funcionalidade em [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Repor a palavra-passe da conta escolar ou profissional)
 
 O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
 
 ![Ecrã de exemplo de início de sessão com reposição de palavra-passe no registo de auditoria do Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Quando os utilizadores, repor a palavra-passe a partir do ecrã de início de sessão de um dispositivo Windows 10, é criada uma conta temporária de baixo privilégio chamada "defaultuser1". Esta conta é utilizada para manter o processo de reposição de palavra-passe segura. A própria conta tem uma palavra-passe gerada aleatoriamente, não é exibida para o início de sessão de dispositivo e será automaticamente removida depois do utilizador repõe a palavra-passe. Vários perfis de "defaultuser" podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="limitations"></a>Limitações
 

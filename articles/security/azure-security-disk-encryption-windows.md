@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 1/31/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9cf926dc31f449398f756320aa2cb343ff47144
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: bfd90b3a8fc72bbb261f05e445ce543228d9fb83
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511127"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728167"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows
 
@@ -73,10 +73,10 @@ Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Desative a encriptação de disco:** Para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos em vez disso.
+- **Desative a encriptação de disco:** Para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos com VolumeType o - parâmetro de "All" para o PowerShell, caso contrário, o comando de Desativação falhará.
 
      ```azurepowershell-interactive
-     Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Ativar a encriptação em existente ou executar VMs com a CLI do Azure
@@ -103,10 +103,10 @@ Utilize o [ativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-en
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Desative a encriptação:** Para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos em vez disso.
+- **Desative a encriptação:** Para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos com o-- tipo de volume "All" parâmetro para a CLI, caso contrário, o comando de Desativação irá falhar.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "ALL"
      ```
  
  > [!NOTE]
@@ -338,7 +338,7 @@ Pode [adicione um novo disco a uma VM do Windows com o PowerShell](../virtual-ma
 
 
 ## <a name="disable-encryption"></a>Desativar a encriptação
-Pode desativar a encriptação com o Azure PowerShell, CLI do Azure, ou com um modelo do Resource Manager. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos em vez disso.
+Pode desativar a encriptação com o Azure PowerShell, CLI do Azure, ou com um modelo do Resource Manager. A desativação da encriptação de disco de dados numa VM do Windows quando criptografados discos de SO e dados não funciona conforme esperado. Desative a encriptação em todos os discos através de um VolumeType o - parâmetro de "All" para o PowerShell ou --tipo de volume "All" para a CLI, caso contrário, o comando de Desativação irá falhar. 
 
 - **Desative a encriptação de disco com o Azure PowerShell:** Para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive

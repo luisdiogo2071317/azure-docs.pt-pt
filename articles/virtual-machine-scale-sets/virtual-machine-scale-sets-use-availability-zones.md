@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 771aba1d18dc0cf691c338e06278a356caebda96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b80ee059459d4c1f4d90d14ee62dcead57596571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886242"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697155"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza as zonas de disponibilidade
 
@@ -81,7 +81,7 @@ O conjunto de dimensionamento e recursos, como o Balanceador de carga do Azure e
 
 O processo de criação de um conjunto de dimensionamento que utiliza uma zona de disponibilidade é o mesmo, conforme detalhado no [artigo de introdução](quick-create-cli.md). Para utilizar zonas de disponibilidade, tem de criar o seu conjunto de dimensionamento numa região do Azure suportada.
 
-Adicionar a `--zones` parâmetro para o [criar az vmss](/cli/azure/vmss#az_vmss_create) comando e especifique exatamente em qual zona a utilizar (como zona *1*, *2*, ou *3*). O exemplo seguinte cria um conjunto nomeado de dimensionamento de zona única *myScaleSet* na zona *1*:
+Adicionar a `--zones` parâmetro para o [criar az vmss](/cli/azure/vmss) comando e especifique exatamente em qual zona a utilizar (como zona *1*, *2*, ou *3*). O exemplo seguinte cria um conjunto nomeado de dimensionamento de zona única *myScaleSet* na zona *1*:
 
 ```azurecli
 az vmss create \

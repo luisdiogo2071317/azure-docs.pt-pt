@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188878"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700099"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de cloud-init para máquinas virtuais no Azure
 Este artigo explica o suporte de que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure.  
@@ -39,8 +39,8 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7-CI |mais recente |pré-visualizar |
-|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualizar |
+|OpenLogic |CentOS |7-CI |mais recente |pré-visualização |
+|RedHat |RHEL |7-RAW-CI |mais recente |pré-visualização |
 
 Atualmente o Azure Stack não suporta o aprovisionamento do RHEL 7.4 e no CentOS 7.4 com o cloud-init.
 
@@ -54,7 +54,7 @@ As configurações WALA VMs estão a restrição de tempo para trabalhar dentro 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementar uma cloud-init ativado a Máquina Virtual
 Implementar uma máquina virtual do cloud-init ativado é tão simples quanto fazer referência uma distribuição de cloud-init ativado durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar o cloud-init em suas imagens de publicados bases do Azure. Assim que tiver confirmado que a imagem que pretende implementar é o cloud-init ativado, pode utilizar a CLI do Azure para implementar a imagem. 
 
-O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group#az_group_create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
@@ -71,7 +71,7 @@ packages:
 ```
 Prima `ctrl-X` para o ficheiro de saída, escreva `y` para guardar o ficheiro e prima `enter` para confirmar o nome de ficheiro à saída.
 
-A etapa final é criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. 
+A etapa final é criar uma VM com o [az vm criar](/cli/azure/vm) comando. 
 
 O exemplo seguinte cria uma VM com o nome *centos74* e cria chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.  Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *centos74*:
 

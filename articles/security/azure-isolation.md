@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4d9a6b8bf2b6a9a50ee315d5150c15a18f37462d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974714"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696062"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Cloud pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -344,7 +344,7 @@ Implementação do Azure tem várias camadas de isolamento de rede. O diagrama s
 
 **Isolamento de tráfego:** R [rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) é o limite de isolamento de tráfego na plataforma do Azure. Máquinas virtuais (VMs) numa rede virtual não consegue comunicar diretamente para as VMs numa rede virtual diferente, mesmo se ambas as redes virtuais são criadas ao mesmo cliente. Isolamento é uma propriedade crítica que garante a VMs de cliente e comunicação são mantidos privada numa rede virtual.
 
-[Sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) oferece uma camada adicional de isolamento com na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias sub-redes para a organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar [grupo de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controlo de acesso (ACL) de NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
+[Sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) oferece uma camada adicional de isolamento com na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias sub-redes para a organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar [grupo de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controlo de acesso (ACL) de NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 
 ## <a name="next-steps"></a>Próximos Passos
 

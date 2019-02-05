@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: e10784957365df62e64c306c97ea17fb6a5e7c49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5ff6b05df74cd73fb374bbd7cf27b8fc7d69493
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202931"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697990"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
 Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 
@@ -42,7 +42,7 @@ As seguintes funcionalidades são suportadas por qualquer um dos tipos de quatro
 
 -   **Início Rápido** – comece a trabalhar com uma aplicação rapidamente ao seguir [passos de implementação simples](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
--   **Gestão de propriedades gerais** – obter um [deeplink direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) a uma aplicação, [personalizar a imagem corporativa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo, ou [desativar a aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os utilizadores.
+-   **Gestão de propriedades gerais** – obter um [deeplink direto](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a uma aplicação, [personalizar a imagem corporativa](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) de um aplicativo, ou [desativar a aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) para todos os utilizadores.
 
 -   **Gestão de utilizadores e grupos** – [atribuir](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) ou [remover](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) utilizadores e grupos a uma aplicação e, opcionalmente, atribua as funções de aplicação específica estes utilizadores e grupos têm acesso a
 
@@ -134,7 +134,7 @@ Para definir um aplicativo **início de sessão único** modo, siga estas instru
 -   **Aprovisionamento automático** – escolha o [automática](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **modo de aprovisionamento** se pretender ativar com base na API de aprovisionamento automático e/ou anular o aprovisionamento de contas de utilizador para esta aplicação 
 
    >[!NOTE]
-   >Esta opção só está disponível para aplicativos dentro de **em destaque** categoria da [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery).
+   >Esta opção só está disponível para aplicativos dentro de **em destaque** categoria da [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
    >
    >
 

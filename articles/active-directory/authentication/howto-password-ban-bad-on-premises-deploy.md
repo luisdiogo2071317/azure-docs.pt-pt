@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 105ed999fc7122fb1c99e2c380b26a8c4d8d9f62
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659529"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696868"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavras-passe do AD do Azure
 
@@ -40,7 +40,7 @@ Assim que a funcionalidade está em execução no modo de auditoria de tempo raz
 
 ## <a name="deployment-requirements"></a>Requisitos de implementação
 
-* Todos os controladores de domínio onde será instalado o serviço de agente do Azure AD palavra-passe proteção controlador de domínio têm de ser o Windows Server 2012 ou posterior.
+* Todos os controladores de domínio onde será instalado o serviço de agente do controlador de domínio de proteção de palavra-passe do Azure AD têm de ser o Windows Server 2012 ou posterior.
 * Todas as máquinas onde será instalado o serviço de Proxy de proteção de palavra-passe do Azure AD têm de executar Windows Server 2012 R2 ou posterior.
 * Todas as máquinas onde os componentes de proteção de palavra-passe do Azure AD estão instalados, incluindo controladores de domínio tem de ter o tempo de execução do Universal C instalado.
 Preferencialmente, isto é conseguido ao corrigir totalmente a máquina através do Windows Update. Caso contrário, pode ser um pacote de atualizações específicas do sistema operacional adequado instalado - veja [atualizar para o tempo de execução do C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
@@ -168,17 +168,17 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
       Os exemplos acima apenas terá êxito se o usuário conectado atualmente também é um administrador de domínio do Active Directory para o domínio de raiz. Se não for este o caso, pode fornecer credenciais de domínio alternativo por meio do parâmetro - ForestCredential.
 
-      > [!NOTE]
-      > Se vários servidores de proxy estão instalados no seu ambiente, não importa qual o servidor proxy está utiliza para registar a floresta.
+   > [!NOTE]
+   > Se vários servidores de proxy estão instalados no seu ambiente, não importa qual o servidor proxy está utiliza para registar a floresta.
 
-      > [!TIP]
-      > Pode haver um atraso considerável (vários segundos) na primeira vez que este cmdlet é executado para um determinado inquilino do Azure antes do cmdlet conclui a execução. A menos que uma falha é comunicada este atraso não deve ser considerado alarmante.
+   > [!TIP]
+   > Pode haver um atraso considerável (vários segundos) na primeira vez que este cmdlet é executado para um determinado inquilino do Azure antes do cmdlet conclui a execução. A menos que uma falha é comunicada este atraso não deve ser considerado alarmante.
 
-      > [!NOTE]
-      > Registo de floresta do Active Directory deve ser um único passo durante a vida útil da floresta. Os agentes do controlador de domínio em execução na floresta efetuará automaticamente quaisquer outra maintainenance necessário a partir deste ponto em diante. Uma vez que foi concluída com êxito para uma determinada floresta, invocações adicionais de `Register-AzureADPasswordProtectionForest` continuar a ter êxito, mas são desnecessários.
+   > [!NOTE]
+   > Registo de floresta do Active Directory deve ser um único passo durante a vida útil da floresta. Os agentes do controlador de domínio em execução na floresta efetuará automaticamente quaisquer outra maintainenance necessário a partir deste ponto em diante. Uma vez que foi concluída com êxito para uma determinada floresta, invocações adicionais de `Register-AzureADPasswordProtectionForest` continuar a ter êxito, mas são desnecessários.
 
-      > [!NOTE]
-      > Para que `Register-AzureADPasswordProtectionForest` tenha êxito, pelo menos, um Windows Server 2012 ou posterior domínio controlador tem de estar disponível no domínio do servidor de proxy. No entanto, não existe nenhum requisito que o software do agente DC ser instalado em quaisquer controladores de domínio antes deste passo.
+   > [!NOTE]
+   > Para que `Register-AzureADPasswordProtectionForest` tenha êxito, pelo menos, um Windows Server 2012 ou posterior domínio controlador tem de estar disponível no domínio do servidor de proxy. No entanto, não existe nenhum requisito que o software do agente DC ser instalado em quaisquer controladores de domínio antes deste passo.
 
 6. Configurar o serviço de Proxy de proteção de palavra-passe do Azure AD para comunicar através de um proxy de HTTP
 

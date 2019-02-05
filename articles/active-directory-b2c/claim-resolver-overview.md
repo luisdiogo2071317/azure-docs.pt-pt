@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162196"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692447"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as resoluções de afirmação em políticas personalizadas do Azure Active Directory B2C
 
@@ -136,7 +136,7 @@ Utilizar resoluções de afirmação, pode preencher o nome de início de sessã
 
 ### <a name="dynamic-ui-customization"></a>Personalização de interface de Usuário dinâmica
 
-Azure AD B2C permite-lhe transmitir parâmetros de cadeia de caracteres de consulta para os pontos finais de definição de conteúdo de HTML para que dinamicamente pode processar o conteúdo da página. Por exemplo, pode alterar a imagem de fundo da página de inscrição ou início de sessão de B2C do Azure AD com base num parâmetro personalizado que passar de seu aplicativo web ou móvel. Para obter mais informações, consulte [configurar a interface do Usuário de forma dinâmica ao utilizar políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Também pode localizar sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
+O Azure AD B2C permite-lhe transmitir parâmetros de cadeia de caracteres de consulta para os pontos finais de definição de conteúdo de HTML para que dinamicamente pode processar o conteúdo da página. Por exemplo, pode alterar a imagem de fundo da página de inscrição ou início de sessão de B2C do Azure AD com base num parâmetro personalizado que passar de seu aplicativo web ou móvel. Para obter mais informações, consulte [configurar a interface do Usuário de forma dinâmica ao utilizar políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Também pode localizar sua página HTML com base num parâmetro de idioma, ou pode alterar o conteúdo com base no ID do cliente.
 
 O exemplo seguinte transmite na cadeia de consulta, um parâmetro denominado **campaignId** com um valor de `hawaii`, um **linguagem** código de `en-US`, e **aplicação** que representa o ID de cliente:
 

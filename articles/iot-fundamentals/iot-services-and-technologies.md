@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288718"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694011"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Tecnologias de Internet das coisas (IoT) e soluções: PaaS e SaaS
 
@@ -58,7 +58,7 @@ As organizações com menos modelos de dispositivos, cenários mais previsíveis
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Comparar os aceleradores de soluções do Azure IoT e o Azure IoT Central
 
-Para implementar uma [arquitetura de solução de IoT](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) típica, o Azure IoT oferece várias opções ([Aceleradores de soluções do Azure IoT](/azure/iot-suite) e [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)), cada uma delas adequada para diferentes conjuntos de requisitos de cliente.
+Para implementar uma [arquitetura de solução de IoT](/azure/iot-fundamentals/iot-introduction) típica, o Azure IoT oferece várias opções ([Aceleradores de soluções do Azure IoT](/azure/iot-suite) e [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)), cada uma delas adequada para diferentes conjuntos de requisitos de cliente.
 
 O [Hub IoT](https://azure.microsoft.com/services/iot-hub/) é a principal PaaS do Azure que o Azure IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e uma solução na cloud. O Hub IoT ajuda a cumprir os desafios de implementação de IoT, como:
 

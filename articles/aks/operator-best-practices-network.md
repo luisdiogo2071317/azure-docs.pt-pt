@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101977"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699130"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade de rede e segurança no Azure Kubernetes Service (AKS)
 
@@ -21,44 +21,44 @@ Como criar e gerir clusters no Azure Kubernetes Service (AKS), fornecer conectiv
 Este artigo de melhores práticas se concentra na conectividade de rede e segurança para os operadores de cluster. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Comparar os modos de rede básicas e avançadas no AKS
+> * Compare os kubenet e modos de rede do Azure CNI no AKS
 > * Planear a conectividade e endereçamento de IP necessários
 > * Distribuir o tráfego através de balanceadores de carga, controladores de entrada ou um firewalls de aplicações web (WAF)
 > * Ligar de forma segura a nós do cluster
 
 ## <a name="choose-the-appropriate-network-model"></a>Escolha o modelo de rede adequada
 
-**Melhores diretrizes de práticas** – para integração com redes virtuais existentes ou redes no local, utilização avançada de rede no AKS. Esse modelo de rede também permite maior separação de controles e recursos num ambiente empresarial.
+**Melhores diretrizes de práticas** – para integração com redes virtuais existentes ou redes no local, utilizamos a rede de Azure CNI no AKS. Esse modelo de rede também permite maior separação de controles e recursos num ambiente empresarial.
 
 Redes virtuais fornecem a conectividade básica para os nós do AKS e clientes para aceder às suas aplicações. Existem duas formas diferentes de implementar clusters do AKS em redes virtuais:
 
-* **Rede básica** -Azure gere os recursos de rede virtual, à medida que o cluster é implementado e utiliza o [kubenet] [ kubenet] Plug-in do Kubernetes.
-* **Advanced networking** – implementa numa rede virtual existente e utiliza o [Interface de rede contentor do Azure (CNI)] [ cni-networking] Plug-in do Kubernetes. Pods recebem IPs individuais que possa rotear a outros serviços de rede ou a recursos no local.
+* **Redes de Kubenet** -Azure gere os recursos de rede virtual, à medida que o cluster é implementado e utiliza o [kubenet] [ kubenet] Plug-in do Kubernetes.
+* **Redes do Azure de CNI** – implementa numa rede virtual existente e utiliza o [Interface de rede contentor do Azure (CNI)] [ cni-networking] Plug-in do Kubernetes. Pods recebem IPs individuais que possa rotear a outros serviços de rede ou a recursos no local.
 
 A Interface de rede de contentor (CNI) é um protocolo de fornecedor independente que permite que o tempo de execução do contentor fazer pedidos para um fornecedor de rede. CNI o Azure atribui endereços IP a pods e nós e fornece recursos de gerenciamento (IPAM) de endereço IP como ligar a redes virtuais do Azure existentes. Cada recurso de nó e pod recebe um endereço IP na rede virtual do Azure e não encaminhamento adicional é necessária para comunicar com outros serviços ou recursos.
 
 ![Diagrama que mostra dois nós com pontes ligar cada uma a uma VNet do Azure única](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Para a maioria das implementações de produção, deve usar o sistema de rede avançado. Esse modelo de rede permite a separação de controle e gerenciamento de recursos. Da perspectiva de segurança, muitas vezes, equipas diferentes para gerenciar e proteger esses recursos. Avançado sistema de rede permite-lhe ligar a recursos do Azure existentes, a recursos no local ou outros serviços diretamente através de endereços IP atribuídos a cada pod.
+Para a maioria das implementações de produção, deve usar o sistema de rede do Azure CNI. Esse modelo de rede permite a separação de controle e gerenciamento de recursos. Da perspectiva de segurança, muitas vezes, equipas diferentes para gerenciar e proteger esses recursos. CNI do Azure permite-lhe ligar a recursos do Azure existentes, a recursos no local ou outros serviços diretamente através de endereços IP atribuídos a cada pod de rede.
 
-Quando utiliza o sistema de rede avançado, o recurso de rede virtual está num grupo de recursos separados para o cluster do AKS. Delegar permissões para o principal de serviço do AKS aceder e gerir estes recursos. O principal de serviço utilizado pelo cluster do AKS tem de ter, pelo menos, [contribuinte de rede](../role-based-access-control/built-in-roles.md#network-contributor) permissões na sub-rede na sua rede virtual. Se pretender definir um [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
+Quando utiliza o sistema de rede do Azure CNI, o recurso de rede virtual está num grupo de recursos separados para o cluster do AKS. Delegar permissões para o principal de serviço do AKS aceder e gerir estes recursos. O principal de serviço utilizado pelo cluster do AKS tem de ter, pelo menos, [contribuinte de rede](../role-based-access-control/built-in-roles.md#network-contributor) permissões na sub-rede na sua rede virtual. Se pretender definir um [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 Para obter mais informações sobre a delegação de principal de serviço do AKS, consulte [delegar o acesso a outros recursos do Azure][sp-delegation].
 
-À medida que cada nó e o pod receber o seu próprio endereço IP, planear os intervalos de endereços para as sub-redes AKS. A sub-rede tem de ser suficientemente grande para fornecer endereços IP para cada nó, os pods e recursos de rede que implementar. Cada cluster do AKS deve ser colocado na sua própria sub-rede. Para permitir a conetividade no local ou em modo de peering de redes no Azure, não utilize os intervalos de endereços IP que se sobreponha com recursos de rede existentes. Existem limites predefinidos para o número de pods que cada nó é executado com a rede básica e avançada. Para lidar com escala a eventos ou atualizações de cluster, também terá de endereços IP adicionais disponíveis para utilização na sub-rede atribuída.
+À medida que cada nó e o pod receber o seu próprio endereço IP, planear os intervalos de endereços para as sub-redes AKS. A sub-rede tem de ser suficientemente grande para fornecer endereços IP para cada nó, os pods e recursos de rede que implementar. Cada cluster do AKS deve ser colocado na sua própria sub-rede. Para permitir a conetividade no local ou em modo de peering de redes no Azure, não utilize os intervalos de endereços IP que se sobreponha com recursos de rede existentes. Existem limites predefinidos para o número de pods que cada nó é executado com kubenet e funcionamento em rede do Azure CNI. Para lidar com escala a eventos ou atualizações de cluster, também terá de endereços IP adicionais disponíveis para utilização na sub-rede atribuída.
 
-Para calcular o endereço IP necessário, veja [configurar avançadas de rede no AKS][advanced-networking].
+Para calcular o endereço IP necessário, veja [CNI do Azure de configurar o funcionamento em rede no AKS][advanced-networking].
 
-### <a name="basic-networking-with-kubenet"></a>Sistema de rede com Kubenet básico
+### <a name="kubenet-networking"></a>Redes de Kubenet
 
-Embora o sistema de rede básico não exige que configure as redes virtuais antes do cluster é implementado, há desvantagens:
+Embora kubenet não exige que configure as redes virtuais antes do cluster é implementado, há desvantagens:
 
-* Nós e pods são colocados em sub-redes IP diferentes. Reencaminhamento de IP e definida pelo utilizador encaminhamento (UDR) é utilizado para encaminhar o tráfego entre pods e nós. Esse roteamento adicionais reduz o desempenho da rede.
-* Ligações a redes no local de existente ou peering para outras redes virtuais do Azure é complexo.
+* Nós e pods são colocados em sub-redes IP diferentes. Reencaminhamento de IP e definida pelo utilizador encaminhamento (UDR) é utilizado para encaminhar o tráfego entre pods e nós. Esse roteamento adicionais pode reduzir o desempenho de rede.
+* Ligações a redes no local de existente ou peering para outras redes virtuais do Azure podem ser complexas.
 
-Rede básica é adequado para pequenas cargas de trabalho desenvolvimento ou teste, pois não terá de criar a rede virtual e sub-redes em separado do AKS cluster. Web sites simples com tráfego reduzido, ou para lift- and -shift de cargas de trabalho em contentores, também podem beneficiar a simplicidade de clusters do AKS implementadas com funcionamento de rede básico. Para a maioria das implementações de produção, planeie e utilizamos a rede avançada.
+Kubenet é adequado para pequenas cargas de trabalho desenvolvimento ou teste, pois não terá de criar a rede virtual e sub-redes em separado do AKS cluster. Web sites simples com tráfego reduzido, ou para lift- and -shift de cargas de trabalho em contentores, também podem beneficiar a simplicidade de clusters do AKS implementado com a rede de kubenet. Para a maioria das implementações de produção, deve planear e utilizar as redes Azure CNI. Também pode [configurar seus próprios intervalos de endereços IP e redes virtuais através de kubenet][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuir o tráfego de entrada
 
@@ -138,7 +138,7 @@ Este artigo concentra-se em segurança e conectividade de rede. Para obter mais 
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
-[Nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
+[nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
 [contour]: https://github.com/heptio/contour
 [haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
@@ -155,4 +155,5 @@ Este artigo concentra-se em segurança e conectividade de rede. Para obter mais 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

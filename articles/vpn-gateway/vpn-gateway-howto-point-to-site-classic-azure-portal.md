@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6aedfa3f0ef65fdb1b663db8637b648e685e31be
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0482dfd5b7b09d5e66fb830caae654be3242a916
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321482"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694105"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma ligação de ponto a Site através da autenticação de certificado (clássico)
 
@@ -61,21 +61,21 @@ Para obter mais informações sobre ligações ponto a Site, consulte [Point-to-
 Utilize os seguintes valores para criar um ambiente de teste ou consultá-estes valores para compreender melhor os exemplos neste artigo:
 
 - **Criar rede virtual definições (clássicas)**
-   - **Nome**: Introduza *VNet1*.
-   - **Espaço de endereços**: Introduza *192.168.0.0/16*. Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet, como apresentado no diagrama.
-   - **Nome da sub-rede**: Introduza *front-end*.
-   - **Intervalo de endereços da sub-rede**: Introduza *192.168.1.0/24*.
+   - **Nome**: Enter *VNet1*.
+   - **Espaço de endereços**: Enter *192.168.0.0/16*. Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet, como apresentado no diagrama.
+   - **Nome da sub-rede**: Enter *FrontEnd*.
+   - **Intervalo de endereços da sub-rede**: Enter *192.168.1.0/24*.
    - **Subscrição**: Selecione uma subscrição na lista de subscrições disponíveis.
    - **Grupo de recursos**: Introduza *TestRG*. Selecione **criar novo**, se o grupo de recursos não existe.
    - **Localização**: Selecione **E.U.A. Leste** da lista.
 
  - **Definições de ligação de VPN**
    - **Tipo de ligação**: Selecione **Point-to-site**.
-   - **Espaço de endereços de cliente**: Introduza *172.16.201.0/24*. Os clientes VPN que se ligam à VNet através desta ligação ponto a Site recebem um endereço IP a partir do agrupamento especificado.
+   - **Espaço de endereços de cliente**: Enter *172.16.201.0/24*. Os clientes VPN que se ligam à VNet através desta ligação ponto a Site recebem um endereço IP a partir do agrupamento especificado.
 
 - **Configurações de sub-rede do gateway**
    - **Nome**: Autofilled com *GatewaySubnet*.
-   - **Intervalo de endereços**: Introduza *192.168.200.0/24*. 
+   - **Intervalo de endereços**: Enter *192.168.200.0/24*. 
 
 - **Definições de configuração do gateway**:
    - **Tamanho**: Selecione o SKU de gateway que pretende utilizar.
@@ -290,7 +290,7 @@ Depois de concluída a atualização, o certificado já não pode ser utilizado 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois da ligação estiver concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). 
+- Depois da ligação estiver concluída, pode adicionar máquinas virtuais às suas redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). 
 
 - Para compreender melhor o funcionamento em rede e máquinas virtuais do Linux, veja [descrição geral da rede do Azure e a VM do Linux](../virtual-machines/linux/network-overview.md).
 

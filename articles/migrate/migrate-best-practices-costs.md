@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995053"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700643"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Melhores práticas para dimensionamento e custos de cargas de trabalho migradas para o Azure
 
@@ -154,7 +154,7 @@ Um portfólio de produtos no local/Azure Microsoft integrado gera vantagens comp
 
 - [Dê uma olhada](https://azure.microsoft.com/pricing/hybrid-benefit/) a Calculadora de poupanças do benefício híbrido.
 - [Saiba mais](https://azure.microsoft.com/pricing/hybrid-benefit/) sobre o benefício híbrido para o Windows Server.
-- [Revisão](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) preços orientações para VMs do Azure do SQL Server.
+- [Revisão](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) preços orientações para VMs do Azure do SQL Server.
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>Prática recomendada: Utilizar instâncias de VM reservadas
@@ -174,7 +174,7 @@ Utilizar instâncias de VMS reservadas do Azure, paga previamente para um ou ins
 **Saiba mais:**
 - [Saiba mais sobre](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) reservas do Azure.
 - [Leitura](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) as instâncias reservadas FAQ.
-- [Obtenha preços orientações](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) para VMs do SQL Server do Azure.
+- [Obtenha preços orientações](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) para VMs do SQL Server do Azure.
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Prática recomendada: Gastos com a cloud agregada entre subscrições
