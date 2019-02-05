@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 1761dafd04a4b8d27a16af4a5e1b0034b90c51a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ec34b9c5f78b4d0ea59382f616fab88e0e1dedc9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656877"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730939"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -50,7 +50,7 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 * O corpo do evento tem o mesmo esquema que outros eventos do Event Grid.
 * A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * A propriedade de dados do evento inclui um `validationCode` propriedade com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
-* Se estiver usando a versão de 2018-05-01-a pré-visualização da API, os dados de evento também incluem um `validationUrl` propriedade com um URL para a subscrição a validação manual.
+* Os dados de evento também incluem um `validationUrl` propriedade com um URL para a subscrição a validação manual.
 * A matriz contém apenas o evento de validação. Outros eventos são enviados numa solicitação separada depois de recuperar o código de validação.
 * Os SDKs do plano de dados de EventGrid possuem classes correspondentes para os dados de eventos de validação de subscrição e a resposta de validação de subscrição.
 

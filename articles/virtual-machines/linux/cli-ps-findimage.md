@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169697"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734144"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Encontrar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
 
@@ -35,7 +35,7 @@ Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/i
 
 ## <a name="list-popular-images"></a>Listar imagens populares
 
-Executar o [lista de imagens de vm de az](/cli/azure/vm/image#az_vm_image_list) comando, sem o `--all` opção, para ver uma lista de imagens populares da VM no Azure Marketplace. Por exemplo, execute o seguinte comando para apresentar uma lista em cache de imagens populares em formato de tabela:
+Executar o [lista de imagens de vm de az](/cli/azure/vm/image) comando, sem o `--all` opção, para ver uma lista de imagens populares da VM no Azure Marketplace. Por exemplo, execute o seguinte comando para apresentar uma lista em cache de imagens populares em formato de tabela:
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
  
-Outra maneira de encontrar uma imagem numa localização é executar o [lista de imagem de vm de az-publicadores](/cli/azure/vm/image#az_vm_image_list_publishers), [lista-ofertas de imagem de vm az](/cli/azure/vm/image), e [lista de imagem de vm de az-skus](/cli/azure/vm/image#az_vm_image_list_skus) comandos em sequência. Com estes comandos, determinar estes valores:
+Outra maneira de encontrar uma imagem numa localização é executar o [lista de imagem de vm de az-publicadores](/cli/azure/vm/image), [lista-ofertas de imagem de vm az](/cli/azure/vm/image), e [lista de imagem de vm de az-skus](/cli/azure/vm/image) comandos em sequência. Com estes comandos, determinar estes valores:
 
 1. Listar os publicadores de imagem.
 2. Para um determinado publicador, liste as respetivas ofertas.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Agora pode escolher com precisão a imagem que pretende utilizar por tomar nota do valor URN. Transmite este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm#az_vm_create) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
+Agora pode escolher com precisão a imagem que pretende utilizar por tomar nota do valor URN. Transmite este valor com o `--image` parâmetro ao criar uma VM com o [az vm criar](/cli/azure/vm) comando. Lembre-se de que, opcionalmente, pode substituir o número de versão a URN por "mais recente". Esta versão é sempre a versão mais recente da imagem. 
 
 Se implementar uma VM com um modelo do Resource Manager, defina os parâmetros de imagem individualmente no `imageReference` propriedades. Veja a [referência do modelo](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -337,7 +337,7 @@ Saída:
 
 ### <a name="accept-the-terms"></a>Aceitar os termos
 
-Para ver e aceitar os termos de licença, utilize o [az vm imagem aceitar-termos](/cli/azure/vm/image?#az_vm_image_accept_terms) comando. Ao aceitar os termos, habilitar a implementação programática na sua subscrição. Só tem de aceitar os termos de uma vez por subscrição para a imagem. Por exemplo:
+Para ver e aceitar os termos de licença, utilize o [az vm imagem aceitar-termos](/cli/azure/vm/image?) comando. Ao aceitar os termos, habilitar a implementação programática na sua subscrição. Só tem de aceitar os termos de uma vez por subscrição para a imagem. Por exemplo:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

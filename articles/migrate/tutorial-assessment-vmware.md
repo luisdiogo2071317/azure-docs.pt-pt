@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61eca35bb03ba62bbc10105819e12a8c0ebb41ca
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487919"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730769"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -185,7 +185,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade de internet e o [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) que acessa o recoletor.
 
       > [!NOTE]
-      > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet inicialmente poderá falhar se não tiver importado o certificado de proxy; [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) na forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.
+      > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet inicialmente poderá falhar se não tiver importado o certificado de proxy; [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) na forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.
 
     - O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
     - Transfira e instale o VMware PowerCLI.
@@ -196,7 +196,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Em **Âmbito da coleção**, selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) acerca da deteção de um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
-8. Em **Ver o progresso da recolha**, monitorize o estado da deteção. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
+8. Em **Ver o progresso da recolha**, monitorize o estado da deteção. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
 
 > [!NOTE]
 > O recoletor só suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e da interface do recoletor.

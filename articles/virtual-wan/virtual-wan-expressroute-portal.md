@@ -1,21 +1,21 @@
 ---
-title: Utilize o WAN Virtual do Azure para criar as ligações ExpressRoute para ambientes do Azure e no local | Microsoft Docs
-description: Neste tutorial vai aprender a utilizar o WAN Virtual do Azure para criar ligações do ExpressRoute para ambientes do Azure e no local.
+title: Utilize o WAN Virtual do Azure para criar as ligações ExpressRoute para ambientes do Azure e no local | Documentos da Microsoft
+description: Neste tutorial, saiba como utilizar o WAN Virtual do Azure para criar as ligações ExpressRoute para ambientes do Azure e no local.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: c02020ba8d49b123cf8914214d52ac40896a3c20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
+ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248185"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692889"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação do ExpressRoute com a WAN Virtual do Azure (Pré-visualização)
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma associação de ExpressRoute com o Azure WAN Virtual (pré-visualização)
 
 Este tutorial mostra-lhe como utilizar a WAN Virtual para se ligar aos seus recursos no Azure através de um circuito e associação do ExpressRoute. Para obter mais informações sobre a WAN Virtual, veja [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual)
 
@@ -45,7 +45,7 @@ Antes de poder configurar uma WAN Virtual, tem de inscrever primeiro a sua subsc
 
 **Considerações sobre a Pré-visualização:**
 
-* Disponibilidade por Regiões: EUA Centro-Oeste
+* Disponibilidade de região: EUA Centro-Oeste
 * O circuito do ExpressRoute tem de estar ativado num país que suporte o [Alcance Global do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
@@ -70,12 +70,12 @@ Num browser, navegue para o [portal do Azure (pré-visualização)](https://aka.
 
 1. Selecione o seu vWAN e em **Arquitetura do WAN Virtual**, selecione **Circuitos do ExpressRoute**
 2. Se o circuito do ExpressRoute estiver na mesma subscrição que o seu vWAN, clique em **Selecionar circuito do ExpressRoute** na sua subscrição(ões) 
-3. Com a lista pendente, selecione o ExpressRoute que gostaria de associar ao hub.
-4. Se o circuito do ExpressRoute não estiver na mesma subscrição ou tiver recebido [um ID de elemento ou chave de autorização](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **Encontrar um circuito que resgate uma chave de autorização**
+3. Utilizando a lista pendente, selecione o ExpressRoute que pretende associar ao hub.
+4. Se o circuito do ExpressRoute não estiver na mesma subscrição ou foram fornecidos [um ID de chave e o mesmo nível de autorização](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selecione **localizar um circuito resgatar uma chave de autorização**
 5. Introduza os seguintes detalhes:
 * **Chave de autorização** – Gerado pelo proprietário do circuito, conforme descrito acima
 * **URI do circuito do elemento** – URI do circuito que é apresentado pelo proprietário do circuito e é o identificador exclusivo do circuito
-* **Peso de encaminhamento** - [Peso de Encaminhamento](../expressroute/expressroute-optimize-routing.md) permite-lhe dar preferência a determinados caminhos quando vários circuitos de diferentes localizações de peering estão ligadas ao mesmo hub
+* **Peso de encaminhamento** - [peso de encaminhamento](../expressroute/expressroute-optimize-routing.md) permite-lhe dar preferência a determinados caminhos quando vários circuitos de diferentes localizações de peering estão ligados ao mesmo hub
 6. Clique em **Encontrar circuito** e selecione o circuito, se for encontrado
 7. Selecione 1 ou mais hubs no menu pendente e clique em **Guardar**
 
@@ -116,7 +116,7 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

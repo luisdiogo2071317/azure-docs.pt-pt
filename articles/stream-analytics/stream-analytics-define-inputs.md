@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 98a4d0ace2113c3936e13d357d0d8b641982d7c4
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567949"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694640"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics tem integração de classe empresarial com fluxos de dados do A
 Estes recursos de entrada podem residir na mesma subscrição do Azure que a tarefa de Stream Analytics ou numa subscrição diferente.
 
 ### <a name="compression"></a>Compressão
-Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Tipos de referência atualmente suportados são: Nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
+Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Os tipos de compressão atualmente suportados são: Nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou entradas de teste
 Pode utilizar o [portal do Azure](https://portal.azure.com) ao [criar novas entradas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e ver ou editar entradas existentes na sua tarefa de transmissão em fluxo. Também pode testar ligações de entrada e [testar consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) de dados de exemplo. Quando escreve uma consulta, apresentará uma lista de entrada na cláusula FROM. Pode obter a lista de entradas de disponíveis dos **consulta** página no portal. Se pretender utilizar várias entradas, pode `JOIN` -los ou escrever várias `SELECT` consultas.

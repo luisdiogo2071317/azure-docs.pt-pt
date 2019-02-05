@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854121"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728317"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Reencaminhamentos de como usar o WCF de reencaminhamento do Azure com .NET
 Este artigo descreve como utilizar o serviço de reencaminhamento do Azure. Os exemplos são escritos em C# e utilizam a API do Windows Communication Foundation (WCF) com extensões contidas na assemblagem do Service Bus. Para obter mais informações sobre o reencaminhamento do Azure, consulte a [descrição geral do reencaminhamento do Azure](relay-what-is-it.md).
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-No exemplo, cria dois pontos finais que estão na mesma implementação do contrato. Um é local e o outro é criado através do reencaminhamento do Azure. As principais diferenças entre eles são os enlaces; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para o local e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding) para o ponto de extremidade de reencaminhamento e os endereços. O ponto final local tem um endereço de rede local com uma porta distinta. O ponto de final de reencaminhamento tem um endereço de ponto final composto pela cadeia `sb`, seu nome de espaço de nomes e o caminho "solucionador". Isso resulta no URI `sb://[serviceNamespace].servicebus.windows.net/solver`, identificar o ponto final do serviço como um ponto final TCP do Service Bus (reencaminhamento) com um nome DNS externo completamente qualificado. Se colocar o código que substitui os marcadores de posição na função `Main` da aplicação de **Serviço**, terá um serviço funcional. Se pretender que o serviço escute exclusivamente no reencaminhamento do, remova a declaração de ponto final local.
+No exemplo, cria dois pontos finais que estão na mesma implementação do contrato. Um é local e o outro é criado através do reencaminhamento do Azure. As principais diferenças entre eles são os enlaces; [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx) para o local e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) para o ponto de extremidade de reencaminhamento e os endereços. O ponto final local tem um endereço de rede local com uma porta distinta. O ponto de final de reencaminhamento tem um endereço de ponto final composto pela cadeia `sb`, seu nome de espaço de nomes e o caminho "solucionador". Isso resulta no URI `sb://[serviceNamespace].servicebus.windows.net/solver`, identificar o ponto final do serviço como um ponto final TCP do Service Bus (reencaminhamento) com um nome DNS externo completamente qualificado. Se colocar o código que substitui os marcadores de posição na função `Main` da aplicação de **Serviço**, terá um serviço funcional. Se pretender que o serviço escute exclusivamente no reencaminhamento do, remova a declaração de ponto final local.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>Configurar um anfitrião do serviço no ficheiro App.config
 Também pode configurar o anfitrião através do ficheiro App.config. O código de alojamento do serviço é, neste caso, apresentando no exemplo seguinte.
@@ -161,7 +161,7 @@ Após efetuar estas alterações, o serviço inicia como anteriormente, porém, 
 
 ### <a name="create-the-client"></a>Criar o cliente
 #### <a name="configure-a-client-programmatically"></a>Configurar um cliente através de programação
-Para consumir o serviço, pode criar um cliente de WCF utilizando um objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). O Service Bus utiliza um modelo de segurança baseado em tokens implementado através de SAS. A classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa um fornecedor de tokens de segurança com métodos de fábrica incorporados que devolvem alguns fornecedores de tokens conhecidos. O exemplo seguinte utiliza o método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para processar a aquisição do token SAS adequado. O nome e a chave são aqueles obtidos a partir do portal conforme descrito na secção anterior.
+Para consumir o serviço, pode criar um cliente de WCF utilizando um objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). O Service Bus utiliza um modelo de segurança baseado em tokens implementado através de SAS. A classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa um fornecedor de tokens de segurança com métodos de fábrica incorporados que devolvem alguns fornecedores de tokens conhecidos. O exemplo seguinte utiliza o método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) para processar a aquisição do token SAS adequado. O nome e a chave são aqueles obtidos a partir do portal conforme descrito na secção anterior.
 
 Em primeiro lugar, referencie ou copie o código de contrato `IProblemSolver` do serviço para o projeto do cliente.
 

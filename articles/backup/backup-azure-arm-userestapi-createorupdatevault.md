@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289702"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734339"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre dos serviços de recuperação do Azure com a REST API
 
@@ -29,13 +29,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>Criar um pedido
 
-Para criar o *colocar* pedido, o `{subscription-id}` é necessário o parâmetro. Se tiver várias subscrições, veja [trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Define um `{resourceGroupName}` e `{vaultName}` para os seus recursos, juntamente com o `api-version` parâmetro. Este artigo utiliza `api-version=2016-06-01`.
+Para criar o *colocar* pedido, o `{subscription-id}` é necessário o parâmetro. Se tiver várias subscrições, veja [trabalhar com várias subscrições](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). Define um `{resourceGroupName}` e `{vaultName}` para os seus recursos, juntamente com o `api-version` parâmetro. Este artigo utiliza `api-version=2016-06-01`.
 
 Os seguintes cabeçalhos são necessários:
 
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Necessário. Definido como `application/json`. |
+| *Content-Type:*  | Necessário. Definido como `application/json`. |
 | *Autorização:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Para obter mais informações sobre como criar o pedido, consulte [componentes de uma REST API de solicitação/resposta](/rest/api/azure/#components-of-a-rest-api-requestresponse).
@@ -44,10 +44,10 @@ Para obter mais informações sobre como criar o pedido, consulte [componentes d
 
 As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização do recurso      |
+|eTag     |         |   String      |  ETag opcional       |
+|localização     |  true       |String         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do Cofre       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo de cada recurso do Azure     |
 |etiquetas     |         | Object        |     Etiquetas de recursos    |
@@ -72,7 +72,7 @@ O corpo de exemplo seguinte é utilizado para criar um cofre em "E.U.A. Oeste". 
 
 Existem duas respostas com êxito para a operação criar ou atualizar um cofre dos serviços de recuperação:
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [Cofre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 criado     | [Cofre](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

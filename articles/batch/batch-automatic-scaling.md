@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459847"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730019"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para dimensionar nós de computação de um conjunto do Batch
 
@@ -551,7 +551,7 @@ No .NET do Batch, o [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/a
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-Na API do REST, o [obter informações sobre um conjunto](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) solicitação retorna informações sobre o agrupamento, o que inclui o dimensionamento automático mais recente executar informações no [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) propriedade.
+Na API do REST, o [obter informações sobre um conjunto](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) solicitação retorna informações sobre o agrupamento, o que inclui o dimensionamento automático mais recente executar informações no [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) propriedade.
 
 O seguinte trecho de código do c# utiliza a biblioteca .NET do Batch para imprimir informações sobre o executar no conjunto de dimensionamento automático do último _myPool_:
 

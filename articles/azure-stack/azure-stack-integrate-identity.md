@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 15beebb3ef6fda098c3f540f945fc3d6b836e517
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246252"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697983"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -306,7 +306,7 @@ Existem muitos cenários que requerem a utilização de um nome de principal de 
 > [!Important]  
 > AD FS suporta apenas as sessões de início de sessão interativo. Se necessitar de um início de sessão não interativo para um cenário de automatizada, tem de utilizar um SPN.
 
-Para obter mais informações sobre como criar um SPN, consulte [criar principal de serviço para o AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Para obter mais informações sobre como criar um SPN, consulte [criar principal de serviço para o AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 
 ## <a name="troubleshooting"></a>Resolução de problemas

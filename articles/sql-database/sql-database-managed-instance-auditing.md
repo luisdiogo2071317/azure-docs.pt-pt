@@ -1,6 +1,6 @@
 ---
 title: Base de dados SQL do Azure geridos instância auditoria | Documentos da Microsoft
-description: Saiba como começar com o Azure SQL da base de dados geridos instância auditoria com T-SQL
+description: Saiba como começar com a auditoria de instância de base de dados do SQL do Azure geridos com o T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,17 +13,17 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456039"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729002"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução ao Azure SQL da base de dados geridos instância de auditoria
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
-[O Azure SQL Database Managed Instance](sql-database-managed-instance.md) faixas de auditoria de base de dados eventos e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. Auditoria também:
+[Instância gerida](sql-database-managed-instance.md) auditoria regista os eventos de base de dados e escreve-as num registo de auditoria na sua conta de armazenamento do Azure. Auditoria também:
 
 - Ajuda-o a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança.
 - Ativa e facilita o cumprimento das normas de conformidade, embora ele não garante a conformidade. Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/).
@@ -38,7 +38,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
    1. Navegue para o armazenamento do Azure onde pretende armazenar os seus registos de auditoria.
 
       > [!IMPORTANT]
-      > Utilize uma conta de armazenamento na mesma região que o servidor de instância gerida para evitar leituras/escritas entre regiões.
+      > Utilize uma conta de armazenamento na mesma região que a instância gerida para evitar leituras/escritas entre regiões.
 
    1. Na conta de armazenamento, aceda a **descrição geral** e clique em **Blobs**.
 
@@ -64,7 +64,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
         ![URL de cópia de contentor do blob](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     1. Gerar um armazenamento do Azure **Token de SAS** para conceder direitos de acesso de auditoria de instância gerida para a conta de armazenamento:
+     1. Gerar um armazenamento do Azure **Token de SAS** para conceder direitos de acesso à conta de armazenamento de auditoria de instância gerida:
 
         - Navegue para a conta de armazenamento do Azure onde criou o contentor no passo anterior.
 
@@ -154,7 +154,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
 Para obter informações adicionais:
 
-- [Auditoria de diferenças entre a instância gerida, BD SQL do Azure e SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Auditoria de diferenças entre bases de dados individuais, o conjunto elástico, s e instâncias geridas no Azure SQL Database e bases de dados no SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
 - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -162,7 +162,7 @@ Para obter informações adicionais:
 
 Registos de auditoria a partir de uma instância gerida podem ser enviados para o mesmo Hubs ou o Log Analytics através do Azure Monitor. Esta secção descreve como configurar esta opção:
 
-1. Navegue no [Portal do Azure](https://portal.azure.com/) para o SQL instância gerida.
+1. Navegue no [Portal do Azure](https://portal.azure.com/) para a instância gerida.
 
 2. Clique em **das definições de diagnóstico**.
 
@@ -209,9 +209,6 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 - Para obter uma lista completa dos métodos de consumo de log de auditoria, consulte a [introdução à auditoria da base de dados SQL](sql-database-auditing.md).
 
-  > [!IMPORTANT]
-  > Visualizar os registos de auditoria do portal do Azure (painel de registos de auditoria) não está atualmente disponível para a instância gerida.
-
 ### <a name="consume-logs-stored-in-event-hub"></a>Consumir registos armazenados no Hub de eventos
 
 Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte a documentação de Hubs de eventos do Azure.
@@ -222,21 +219,21 @@ Se os registos de auditoria são escritos para o Log Analytics, estão disponív
 
 O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics, consulte [referência de pesquisa do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Auditoria de diferenças entre a instância gerida, base de dados do Azure SQL e SQL Server
+## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Auditoria de diferenças entre bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server
 
-As principais diferenças entre auditoria de SQL na instância gerida, base de dados do Azure SQL e SQL Server no local são:
+As principais diferenças entre auditoria em bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server são:
 
-- Na instância gerida, a auditoria de SQL funciona no nível do servidor e arquivos `.xel` ficheiros na conta de armazenamento de Blobs do Azure de registo.
-- Na base de dados SQL do Azure, a auditoria de SQL funciona ao nível da base de dados.
-- No SQL Server no local / virtual máquinas, funciona de auditoria de SQL no servidor de nível, mas os eventos de arquivos no sistema de ficheiros/windows registos de eventos.
+- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros na conta de armazenamento de Blobs do Azure de registo.
+- Com a base de dados individual e opções de implementação do conjunto elástico na base de dados do Azure SQL, a auditoria funciona ao nível da base de dados.
+- No SQL Server no local / virtual máquinas, funciona de auditoria no servidor de nível, mas armazena os eventos nos registos de eventos do windows/sistema de ficheiros.
 
-Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Os registos de ficheiros e do windows estão **nepodporuje**.
+Destinos de armazenamento de Blobs do Azure oferece suporte a auditoria na instância gerida de XEvent. Os registos de ficheiros e do windows estão **nepodporuje**.
 
-A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazenamento de Blobs do Azure são:
+A chave de diferenças no `CREATE AUDIT` sintaxe de auditoria para o armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde o `.xel` ficheiros são colocados.
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para ativar os destinos de até mesmo Hub e o Log Analytics.
-- A sintaxe `TO FILE` é **nepodporuje** porque a instância gerida não é possível aceder a partilhas de ficheiros do Windows.
+- A sintaxe `TO FILE` é **nepodporuje** porque a base de dados SQL não é possível aceder a partilhas de ficheiros do Windows.
 - É a opção Encerrar **nepodporuje**.
 - `queue_delay` 0 é **nepodporuje**.
 

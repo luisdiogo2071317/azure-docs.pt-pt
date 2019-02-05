@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064649"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727913"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar no Azure Container Instances do registo de contentor do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064649"
 
 Em qualquer cenário de produção, o acesso a um Azure container registry deve ser fornecido com o [principais de serviço](../container-registry/container-registry-auth-service-principal.md). Principais de serviço permitem que forneça [controlo de acesso baseado em funções](../container-registry/container-registry-roles.md) para as imagens de contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
 
-Nesta secção, crie um cofre de chave do Azure e um principal de serviço e armazenar credenciais do principal de serviço no cofre.
+Na secção seguinte, criar um cofre de chave do Azure e um principal de serviço e armazenar credenciais do principal de serviço no cofre. 
 
 ### <a name="create-key-vault"></a>Criar o cofre de chaves
 
@@ -134,9 +134,11 @@ Para obter detalhes sobre a referenciar segredos do Cofre de chaves do Azure num
 
 ## <a name="deploy-with-azure-portal"></a>Implementar com o portal do Azure
 
-Se manter imagens de contentor no Azure Container Registry, pode facilmente criar um contentor no Azure Container Instances com o portal do Azure.
+Se mantenha as imagens de contentor num registo de contentor do Azure, pode facilmente criar um contentor no Azure Container Instances com o portal do Azure. Quando utilizar o portal para implementar uma instância de contentor a partir de um registo de contentor, tem de ativar o registo [conta de administrador](../container-registry/container-registry-authentication.md#admin-account). A conta de administrador foi concebida para um único utilizador aceder ao registo, principalmente para fins de teste. 
 
 1. No portal do Azure, navegue para o seu registo de contentor.
+
+1. Para confirmar que a conta de administrador está ativada, selecione **chaves de acesso**e, em **utilizador administrador** selecionar **ativar**.
 
 1. Selecione **repositórios**, em seguida, selecione o repositório que pretende implementar a partir de, com o botão direito a etiqueta da imagem de contentor que pretende implementar e selecione **executar instância**.
 

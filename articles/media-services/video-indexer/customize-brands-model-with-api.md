@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827589"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734322"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
 
@@ -26,17 +26,17 @@ Pode utilizar as APIs do indexador de vídeo para criar, usar e editar os modelo
 
 ## <a name="create-a-brand"></a>Criar uma marca
 
-Isso cria uma nova marca personalizada e adiciona-o para o modelo de marcas personalizado para a conta especificada. 
+Isso cria uma nova marca personalizada e adiciona-o para o modelo de marcas personalizado para a conta especificada.
 
 ### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
 
-### <a name="request-parameters"></a>Parâmetros do pedido 
+### <a name="request-parameters"></a>Parâmetros do pedido
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ Remove uma marca do modelo de marcas personalizado para a conta especificada. A 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
@@ -117,17 +117,17 @@ Não há nenhum conteúdo devolvido quando a marca é eliminada com êxito.
 
 ## <a name="get-a-specific-brand"></a>Obtenha uma marca específica
 
-Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o id de marca. 
+Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o id de marca.
 
 ### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido 
+### <a name="request-parameters"></a>Parâmetros do pedido
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ A resposta fornece informações sobre a marca que procurou (usando o ID da marc
 
 ## <a name="update-a-specific-brand"></a>Atualizar uma marca específica
 
-Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o ID da marca. 
+Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o ID da marca.
 
 ### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
@@ -237,7 +237,7 @@ Esta ação devolve todas as marcas no modelo de marcas personalizado para a con
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
@@ -270,7 +270,7 @@ A resposta fornece uma lista de todas as marcas na sua conta e cada um dos respe
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ Esta ação devolve as definições de modelo de marcas na conta especificada. A
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
@@ -330,14 +330,14 @@ A resposta mostra se marcas do Bing estão ativadas, seguindo o formato de exemp
 
 Este procedimento atualiza as definições de modelo de marcas na conta especificada. As definições de modelo de marcas representam se a deteção da base de dados de marcas do Bing está ativada ou não. Se as marcas do Bing não estiverem ativadas, o Video Indexer irá detetar apenas marcas do modelo de marcas personalizada da conta especificada.
 
-### <a name="request-url"></a>URL do pedido: 
+### <a name="request-url"></a>URL do pedido:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
 
-### <a name="request-parameters"></a>Parâmetros do pedido 
+### <a name="request-parameters"></a>Parâmetros do pedido
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|

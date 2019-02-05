@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a7b091fa02c7ab6eb56826ebc7487d7ca0691610
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510889"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730514"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -132,9 +132,9 @@ Porta 1433. Base de dados SQL comunica através desta porta. Para ligar a partir
 
 Base de dados SQL, pode ativar a auditoria para controlar eventos de base de dados. [A auditoria de base de dados SQL](sql-database-auditing.md) registra os eventos de base de dados e escreve-as num arquivo de log de auditoria na sua conta de armazenamento do Azure. A auditoria é especialmente útil se pretende obter informações sobre potenciais violações de segurança e a política, manter a conformidade regulamentar etc. Permite-lhe definir e configurar determinadas categorias de eventos que acredita que precisa de auditoria e com base no que pode obter relatórios pré-configurados e um dashboard para obter uma descrição geral dos eventos que ocorrem na sua base de dados. Pode aplicar estas políticas de auditorias ao nível da base de dados ou ao nível do servidor. Um guia sobre como ativar a auditoria para o servidor/base de dados, consulte: [Ativar a base de dados SQL auditoria](sql-database-security-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Deteção de Ameaças
+#### <a name="threat-detection"></a>Deteção de ameaças
 
-Com o [deteção de ameaças](sql-database-threat-detection.md), tem a capacidade de agir de acordo com as violações de política de segurança ou detetadas pela auditoria muito facilmente. Não precisa de ser um especialista em para resolver potenciais ameaças ou violações de seu sistema de segurança. Deteção de ameaças também tem algumas capacidades incorporadas, como deteção de Injeção de SQL. Injeção de SQL é uma tentativa de alterar ou comprometer os dados e uma maneira bastante comum de atacar um aplicativo de banco de dados em geral. Deteção de ameaças da base de dados de SQL executa vários conjuntos de algoritmos que detetar potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso anómalos da base de dados (por exemplo, o acesso a partir de uma localização invulgar ou por um principal invulgar). Responsáveis pela segurança ou outros administradores designados recebem uma notificação por e-mail, se uma ameaça é detetada na base de dados. Cada notificação fornece detalhes sobre a atividade suspeita e recomendações sobre como investigar e mitigar a ameaça. Para saber como ativar a deteção de ameaças, consulte: [Ativar a deteção de ameaças da base de dados SQL](sql-database-security-tutorial.md#enable-security-features).
+Com o [deteção de ameaças](sql-database-threat-detection.md), tem a capacidade de agir de acordo com as violações de política de segurança ou detetadas pela auditoria muito facilmente. Não precisa de ser um especialista em para resolver potenciais ameaças ou violações de seu sistema de segurança. Deteção de ameaças também tem algumas capacidades incorporadas, como deteção de Injeção de SQL. Injeção de SQL é uma tentativa de alterar ou comprometer os dados e uma maneira bastante comum de atacar um aplicativo de banco de dados em geral. Deteção de ameaças executa vários conjuntos de algoritmos que detetar potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso anómalos da base de dados (por exemplo, o acesso a partir de uma localização invulgar ou por um principal invulgar). Responsáveis pela segurança ou outros administradores designados recebem uma notificação por e-mail, se uma ameaça é detetada na base de dados. Cada notificação fornece detalhes sobre a atividade suspeita e recomendações sobre como investigar e mitigar a ameaça. Para saber como ativar a deteção de ameaças, consulte: [Ativar deteção de ameaças](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Como posso proteger meus dados em geral na base de dados SQL
 
@@ -220,7 +220,7 @@ Com informações de desempenho de consulta, pode obter recomendações personal
 
 ### <a name="security-optimization"></a>Otimização de segurança
 
-Base de dados SQL fornece recomendações de segurança acionáveis para ajudar a proteger os seus dados e deteção de ameaças para identificar e investigar atividades suspeitas da base de dados que possam representar um thread potencial para a base de dados. [Avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md) é uma base de dados, análise e relatórios de serviço que permite-lhe monitorizar o estado de segurança das bases de dados em escala e identifique riscos de segurança e se desviam de uma linha de base de segurança definida por si. Depois de cada análise, é fornecida uma lista personalizada de passos acionáveis e scripts de remediação, bem como um relatório de avaliação que pode ser utilizado para ajudar a cumprir requisitos de conformidade.
+Base de dados SQL fornece recomendações de segurança acionáveis para ajudar a proteger os seus dados e deteção de ameaças para identificar e investigar atividades suspeitas da base de dados que possam representar um thread potencial para a base de dados. [Avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é uma base de dados, análise e relatórios de serviço que permite-lhe monitorizar o estado de segurança das bases de dados em escala e identifique riscos de segurança e se desviam de uma linha de base de segurança definida por si. Depois de cada análise, é fornecida uma lista personalizada de passos acionáveis e scripts de remediação, bem como um relatório de avaliação que pode ser utilizado para ajudar a cumprir requisitos de conformidade.
 
 Com o Centro de segurança do Azure, identifique as recomendações de segurança em geral e aplicá-las com um único clique.
 

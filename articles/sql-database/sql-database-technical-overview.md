@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: db5e833ea8ee265053b650433562690194b88771
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/04/2019
+ms.openlocfilehash: 2711e2ade0e6a7d385f8a3a2adae336e96fbccf3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509070"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729851"
 ---
 # <a name="the-azure-sql-database-service"></a>O serviço de base de dados do Azure SQL
 
@@ -53,7 +53,7 @@ Base de dados SQL proporciona um desempenho previsível com vários tipos de rec
 
 Base de dados SQL, cada base de dados é isolada umas das outras e portáteis, tendo cada um com sua própria camada de serviços dentro do [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [o modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um garantida tamanho de computação. Base de dados SQL fornece diferentes tamanhos de computação para diferentes necessidades e permite a bases de dados ser agrupados para maximizar a utilização de recursos e poupar dinheiro.
 
-- Com o [mi](sql-database-managed-instance.md), cada instância está isolada das restantes instâncias com recursos garantidos. Para obter mais informações, veja [Instância Gerida da Base de Dados SQL](sql-database-managed-instance.md).
+- Com o [instâncias geridas](sql-database-managed-instance.md), cada instância está isolada das restantes instâncias com recursos garantidos. Para obter mais informações, consulte [instância gerida de base de dados SQL](sql-database-managed-instance.md).
 - Com o [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md) (pré-visualização) o modelo de compra de vCore, pode aumenta para 100 TB com cópia de segurança rápida e recursos de restauração.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste o desempenho e dimensione a capacidade sem períodos de indisponibilidade
@@ -81,7 +81,7 @@ Com os conjuntos elásticos, não tem de se concentrar em ajustar o desempenho d
 Os scripts podem ajudar na monitorização e no dimensionamento dos conjuntos elásticos. Por exemplo, veja [Utilizar o Azure PowerShell para monitorizar e dimensionar um conjunto elástico SQL na Base de Dados SQL do Azure](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
-> A Instância Gerida da Base de Dados SQL não suporta conjuntos elásticos.
+> Uma instância gerida não suporta conjuntos elásticos. Em vez disso, uma instância gerida é uma coleção de bases de dados de instância que partilham recursos de instância gerida.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Combinar bases de dados individuais com bases de dados agrupadas
 
@@ -148,7 +148,7 @@ A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e 
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada Contra Ameaças
 
-Segurança avançada de dados do SQL é um pacote unificado para funções de segurança avançadas do SQL. Inclui a funcionalidade para detetar e classificar dados confidenciais, gerir as vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
+Segurança avançada de dados é um pacote unificado para funções de segurança avançadas do SQL. Inclui a funcionalidade para detetar e classificar dados confidenciais, gerir as vulnerabilidades da sua base de dados e detetar atividades anómalas que podem indicar uma ameaça à sua base de dados. Oferece uma localização única para ativar e gerir estas capacidades.
 
 - [Dados de deteção e classificação](sql-database-data-discovery-and-classification.md):
 
@@ -158,15 +158,15 @@ Segurança avançada de dados do SQL é um pacote unificado para funções de se
   Este serviço pode detetar, monitorizar e ajudarão a remediar potenciais vulnerabilidades das bases de dados. Oferece visibilidade sobre o estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
 - [Deteção de ameaças](sql-database-threat-detection.md):
 
-  Esta funcionalidade Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Os alertas da Deteção de Ameaças mostram detalhes da atividade suspeita e a ação recomendada para investigar e mitigar essa ameaça.
+  Esta funcionalidade Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de sua base de dados. Monitoriza continuamente a sua base de dados quanto a atividades suspeitas e apresenta alertas de segurança imediata em potenciais vulnerabilidades, ataques de injeção SQL e padrões de acesso de base de dados anómalos. Alertas de deteção de ameaças fornecem detalhes da atividade suspeita e a ação sobre como investigar e mitigar a ameaça recomendada.
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria para conformidade e segurança
 
-A [Auditoria da Base de Dados SQL](sql-database-auditing.md) regista os eventos da base de dados e escreve-os num registo de auditoria na sua conta de armazenamento do Azure. A auditoria pode ajudá-lo a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que possam traduzir preocupações comerciais ou suspeitas de violações de segurança.
+[Auditoria](sql-database-auditing.md) faixas de base de dados eventos e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. A auditoria pode ajudá-lo a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que possam traduzir preocupações comerciais ou suspeitas de violações de segurança.
 
 ### <a name="data-encryption"></a>Encriptação de dados
 
-A Base de Dados SQL protege os seus dados ao oferecer encriptação para dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados inativos com [Encriptação de Dados Transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e para dados em utilização com [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+Base de dados SQL protege os seus dados ao fornecer encriptação para dados em movimento com [segurança de camada de transporte](https://support.microsoft.com/kb/3135244), para dados Inativos com [encriptação de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)e para os dados em utilização com [ sempre encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 

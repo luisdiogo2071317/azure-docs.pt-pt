@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0aa15c34e6fd6c7952a457d36e072bc91d4d5dab
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c3c4556d22aae4328883436f7323840fd3c60c18
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102177"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729307"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -203,7 +203,7 @@ var app = new ConfidentialClientApplication(
 > | `userTokenCache`  | Instância de uma cache de token para o utilizador. Neste caso, uma vez que esta aplicação é executada no contexto da aplicação e não pelo usuário, este valor é nulo|
 > | `appTokenCache`  | Instância de uma cache de token para a aplicação|
 
-Para obter mais informações, consulte o [documentação de referência `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache)
+Para obter mais informações, consulte o [documentação de referência `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451670"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729409"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço importar/exportar do Azure
 
@@ -61,14 +61,14 @@ Antes de criar uma tarefa de importação, tem de obter um envio de localizaçã
 
  Siga os passos abaixo para obter a localização de envio:
 
--   Identificar o nome da localização da conta de armazenamento. Este valor pode ser encontrado no **localização** campo na conta de armazenamento **Dashboard** no Azure portal ou consultado para usando a operação de API de gestão de serviço [obter conta de armazenamento Propriedades](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identificar o nome da localização da conta de armazenamento. Este valor pode ser encontrado no **localização** campo na conta de armazenamento **Dashboard** no Azure portal ou consultado para usando a operação de API de gestão de serviço [obter conta de armazenamento Propriedades](/rest/api/storagerp/storageaccounts).
 
 -   Obter a localização que esteja disponível para processar esta conta de armazenamento ao chamar o `Get Location` operação.
 
 -   Se o `AlternateLocations` propriedade da localização contém a localização em si, em seguida, há problema em utilizar esta localização. Caso contrário, chamar o `Get Location` operação com uma das localizações alternativas. A localização original pode ser fechada temporariamente para manutenção.
 
 ## <a name="creating-the-import-job"></a>Criar a tarefa de importação
-Para criar a tarefa de importação, chamar o [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação. Terá de fornecer as seguintes informações:
+Para criar a tarefa de importação, chamar o [colocar tarefa](/rest/api/storageimportexport/jobs) operação. Terá de fornecer as seguintes informações:
 
 -   Um nome para a tarefa.
 

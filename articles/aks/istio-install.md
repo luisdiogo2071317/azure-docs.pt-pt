@@ -1,18 +1,18 @@
 ---
 title: Instalar Istio no Azure Kubernetes Service (AKS)
-description: Saiba como instalar e ise Istio para criar uma malha de serviço num cluster do Azure Kubernetes Service (AKS)
+description: Saiba como instalar e utilizar Istio para criar uma malha de serviço num cluster do Azure Kubernetes Service (AKS)
 services: container-service
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: ecabb139b79494e8a62687a5634d9865d578c5c6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104470"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699216"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar Istio no Azure Kubernetes Service (AKS)
 
@@ -98,7 +98,7 @@ Se gostaria de conclusão da linha de comandos para o Istio `istioctl` cliente b
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions
@@ -122,7 +122,7 @@ Se gostaria de conclusão da linha de comandos para o Istio `istioctl` cliente b
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions

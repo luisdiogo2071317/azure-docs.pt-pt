@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712063"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701017"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendas avançadas e recorrências para as tarefas no agendador do Azure
 
@@ -24,13 +24,13 @@ ms.locfileid: "51712063"
 
 Dentro de um [agendador do Azure](../scheduler/scheduler-intro.md) tarefa, a agenda é o núcleo que determina quando e como o serviço de Scheduler executa a tarefa. Pode configurar várias agendas recorrentes e de uso individual para uma tarefa com o Scheduler. Agendas de uma única vez execute apenas uma vez numa hora específica e basicamente são recorrente agendas que são executados apenas uma vez. Executam agendas periódicas numa frequência especificada. Com essa flexibilidade, pode utilizar o programador para vários cenários de negócios, por exemplo:
 
-* **Limpar dados regularmente**: criar uma tarefa diária, que elimina todos os tweets com mais de três meses.
+* **Limpar dados regularmente**: Crie uma tarefa diária que elimina todos os tweets com mais de três meses.
 
-* **Arquivar dados**: criar uma tarefa mensal que pushes de nota fiscal histórico para um serviço de cópia de segurança.
+* **Arquivar dados**: Crie uma tarefa mensal que pushes de nota fiscal histórico para um serviço de cópia de segurança.
 
-* **Solicitar dados externos**: criar uma tarefa que é executado a cada 15 minutos e obtém um novo relatório de meteorologia da NOAA.
+* **Solicitar dados externos**: Crie uma tarefa que é executado a cada 15 minutos e obtém um novo relatório de meteorologia da NOAA.
 
-* **Processar imagens**: criar uma tarefa de dia da semana que é executado durante o horário de pico e utiliza a informática na cloud para a compressão de imagens carregadas durante o dia.
+* **Processar imagens**: Crie uma tarefa de dia da semana que é executado durante o horário de pico e utiliza a informática na cloud para a compressão de imagens carregadas durante o dia.
 
 Este artigo descreve as tarefas de exemplo que pode criar ao utilizar o Scheduler e o [API de REST do agendador do Azure](/rest/api/scheduler)e inclui a definição de JavaScript Object Notation (JSON) para cada agenda. 
 
@@ -53,9 +53,9 @@ Este artigo descreve mais tarde estes cenários mais detalhadamente.
 
 Para criar um agendamento básico com o [API de REST do agendador do Azure](/rest/api/scheduler), siga estes passos:
 
-1. Registar a sua subscrição do Azure com um fornecedor de recursos utilizando o [Registre-se a operação - API de REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). É o nome do fornecedor para o serviço Azure Scheduler **Microsoft.Scheduler**. 
+1. Registar a sua subscrição do Azure com um fornecedor de recursos utilizando o [Registre-se a operação - API de REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). É o nome do fornecedor para o serviço Azure Scheduler **Microsoft.Scheduler**. 
 
-1. Criar uma coleção de tarefas utilizando o [operação criar ou atualizar para coleções de tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) na API de REST do Scheduler. 
+1. Criar uma coleção de tarefas utilizando o [operação criar ou atualizar para coleções de tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections) na API de REST do Scheduler. 
 
 1. Criar uma tarefa com o [operação criar ou atualizar para as tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 

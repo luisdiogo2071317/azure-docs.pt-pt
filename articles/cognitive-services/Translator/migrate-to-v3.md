@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7f5dfd9488e6017acfdf66cdb7d4cee3aedd1ab3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227782"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699929"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -109,7 +109,7 @@ Global
 
 Microsoft Translator V3 usa a tradução automática neural por predefinição. Como tal, não pode ser utilizado com o Microsoft Translator Hub. O Hub de Microsoft Translator suporta apenas herdados estatísticos de tradução automática. Personalização de tradução neural já está disponível com o Translator personalizado. [Saiba mais sobre a personalização de tradução automática neural](custom-translator/overview.md)
 
-Tradução neural com a API de texto da V3 não suporta a utilização das categorias padrão (SMT, voz, texto, generalnn).
+Tradução neural com a API de texto da V3 não suporta a utilização das categorias padrão (SMT, voz, tech, generalnn).
 
 | |Ponto Final|    Compatibilidade do processador GDPR|  Utilize o Hub de Microsoft Translator| Utilize o Translator personalizado (pré-visualização)|
 |:-----|:-----|:-----|:-----|:-----|

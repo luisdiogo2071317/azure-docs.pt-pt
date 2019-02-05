@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 92eb13165326f44432f09322ea97f3cee5ccec2b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251248"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736088"
 ---
 Definições de configuração para [funções duráveis](../articles/azure-functions/durable-functions-overview.md).
 
@@ -43,7 +43,7 @@ Os nomes de hubs de tarefas devem começar com uma letra e consistir apenas letr
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternativo [hub tarefas](../articles/azure-functions/durable-functions-task-hubs.md) nomes podem ser utilizados para isolar várias aplicações de funções durável entre si, mesmo que eles usando o mesmo back-end de armazenamento.|
+|HubName|DurableFunctionsHub|Alternativo [hub tarefas](../articles/azure-functions/durable-functions-task-hubs.md) nomes podem ser utilizados para isolar várias aplicações de funções durável entre si, mesmo se estiver a utilizar o mesmo back-end de armazenamento.|
 |ControlQueueBatchSize|32|O número de mensagens para solicitar a partir da fila de controle de cada vez.|
 |PartitionCount |4|O número de partições para a fila de controle. Pode ser um número inteiro positivo entre 1 e 16.|
 |ControlQueueVisibilityTimeout |5 minutos|O tempo limite de visibilidade de mensagens de fila de retirada da fila de controle.|

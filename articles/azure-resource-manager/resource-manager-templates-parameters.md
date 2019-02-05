@@ -4,21 +4,19 @@ description: Descreve a secção de parâmetros de modelos Azure Resource Manage
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722147"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695675"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Secção de parâmetros de modelos Azure Resource Manager
 Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
@@ -93,7 +91,7 @@ O exemplo anterior mostrou apenas algumas das propriedades que pode utilizar a s
 | maxValue |Não |O valor máximo para os parâmetros de tipo int, este valor é inclusivo. |
 | minLength |Não |O comprimento mínimo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
 | maxLength |Não |O comprimento máximo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
-| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. |
+| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
 
 ## <a name="template-functions-with-parameters"></a>Funções de modelo com parâmetros
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465593"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733140"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
@@ -79,7 +79,7 @@ Os SDKs nativos (.NET/.NET Core, Java, node. js e Python) implicitamente captura
 
 Se tiver mais do que um cliente cumulativamente e a funcionar consistentemente acima a taxa de pedidos, a predefinição contagem de repetições atualmente que está definida para 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com o estado de código 429 à aplicação. A contagem de repetições padrão pode ser alterada ao definir o `RetryOptions` na instância ConnectionPolicy. Por predefinição, o DocumentClientException com código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos se o pedido continuar a operar acima a taxa de pedidos. Isto ocorre mesmo quando o número atual de tentativas é menor que o número máximo de tentativas, seja ele o padrão de 9 ou de um valor definido pelo utilizador. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) está definido para 3, então, neste caso, se uma operação de pedido tem velocidade limitada por ter excedido o débito reservado para a coleção, a operação de pedido tentará novamente três vezes antes que ocorra a exceção ao aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definida como 60, então, nesse caso se a repetição cumulativa aguarda o tempo em segundos desde o primeiro pedido excede 60 segundos, a exceção é lançada.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) está definido para 3, então, neste caso, se uma operação de pedido tem velocidade limitada por ter excedido o débito reservado para a coleção, a operação de pedido tentará novamente três vezes antes que ocorra a exceção ao aplicativo.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definida como 60, então, nesse caso se a repetição cumulativa aguarda o tempo em segundos desde o primeiro pedido excede 60 segundos, a exceção é lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 

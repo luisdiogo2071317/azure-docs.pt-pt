@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: f2fe9efd7d75c95d6cd13cb65e196723c9953716
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658832"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729324"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -132,7 +132,7 @@ Nós não suportam atualmente expor mais de uma porta.
 
 **Posso usar o meu próprio armazenamento?**
 
-Nós não suportam atualmente trazer o seu próprio armazenamento.
+Sim, [traga seu próprio armazenamento](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) está em pré-visualização.
 
 **Por que não pode procurar os ficheiro sistema ou a executar processos meu contentor personalizado do SCM site?**
 

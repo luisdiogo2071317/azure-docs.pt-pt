@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103524"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700779"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -29,7 +29,7 @@ Este tutorial mostra como configurar a recuperação após desastre para uma reg
 > * Ativar replicação para uma VM
 
 > [!NOTE]
-> Este artigo fornece instruções para implementar a recuperação após desastre com as definições mais simples. Se quiser saber mais sobre as definições personalizadas, consulte os artigos sob o [como a seção](azure-to-azure-how-to-enable-replication.md). S
+> Este artigo fornece instruções para implementar a recuperação após desastre com as definições mais simples. Se quiser saber mais sobre as definições personalizadas, consulte os artigos sob o [como a seção](azure-to-azure-how-to-enable-replication.md). o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -170,7 +170,7 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
     - **Frequência de instantâneos consistentes com a aplicação**: Por predefinição, o Site Recovery tira um instantâneo consistente com a aplicação a cada 4 horas. Pode configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistente com a aplicação é um instantâneo de ponto no tempo dos dados de aplicação dentro da VM. O Serviço de Cópia Sombra de Volumes (VSS) garante que a aplicação está num estado consistente quando se obtém o instantâneo.
     - **Grupo de replicação**: Se a sua aplicação precisar de consistência multi-VM entre VMs, pode criar um grupo de replicação para essas VMs. Por predefinição, as VMs selecionadas não fazem parte de qualquer grupo de replicação.
 
-5. Na **personalizar**, selecione **Sim** por razões de consistência de várias VMS, se pretender adicionar VMs a um grupo de replicação de novo ou existente. faça parte de um grupo de replicação. Em seguida, clique em **OK**.
+5. Na **personalizar**, selecione **Sim** por razões de consistência de várias VMS, se pretender adicionar VMs a um grupo de replicação de novo ou existente. Em seguida, clique em **OK**.
 
     - Todas as máquinas num grupo de replicação irão partilhar pontos de recuperação consistentes com a aplicação e com falhas aquando da ativação pós-falha. Ativar a consistência multi-VM pode afetar o desempenho da carga de trabalho (como ele é exigente em termos de CPU) e deve ser usado apenas se as máquinas estão a executar a mesma carga de trabalho e precisar de consistência entre várias máquinas.
     - Pode optar por ter no máximas 16 máquinas de virtuais num grupo de replicação.

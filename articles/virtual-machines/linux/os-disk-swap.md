@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b17647a09c88491e2486046b1ca99ee277f0cc28
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851867"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700218"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Alterar o disco do SO utilizado por uma VM do Azure com a CLI
 
@@ -44,7 +44,7 @@ az disk list \
 ```
 
 
-Uso [stop do az vm](/cli/azure/vm#stop) para stop\deallocate a VM antes de passar os discos.
+Uso [stop do az vm](/cli/azure/vm) para stop\deallocate a VM antes de passar os discos.
 
 ```azurecli-interactive
 az vm stop \
@@ -62,7 +62,7 @@ az vm update \
    --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
    ```
    
-Reinicie a VM com [início de vm de az](/cli/azure/vm#start).
+Reinicie a VM com [início de vm de az](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm start \

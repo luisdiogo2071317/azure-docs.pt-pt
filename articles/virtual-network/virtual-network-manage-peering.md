@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 7592203b13f22f5c396b8e8bd2942c230a6fd4bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492016"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730098"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -70,7 +70,7 @@ Para obter instruções passo a passo para implementar o peering entre redes vir
 
 ### <a name="commands"></a>Comandos
 
-- **CLI do Azure**: [criar peering de vnet de rede de az](/cli/azure/network/vnet/peering#create)
+- **CLI do Azure**: [criar peering de vnet de rede de az](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Ver ou alterar as definições de peering
@@ -87,7 +87,7 @@ Antes de alterar um peering, familiarize-se com o [requisitos e restrições](#r
 
 **Comandos**
 
-- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as definições de peering. |
+- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering) para alterar as definições de peering. |
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) para obter as definições de peering do modo de exibição e [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) para alterar as definições.
 
 ## <a name="delete-a-peering"></a>Eliminar um peering
@@ -96,7 +96,7 @@ Antes de eliminar um peering, certifique-se a sua conta tem o [as permissões ne
 
 Quando um peering for eliminado, o tráfego de uma rede virtual já não fluxos para a rede virtual em modo de peering. Quando criado o peering entre redes virtuais implementadas através do Resource Manager, a cada rede virtual tem um peering para outra rede virtual. Embora a eliminar o peering de uma rede virtual desativa a comunicação entre as redes virtuais, não elimina o peering da rede virtual. É o estado do peering para o peering que existe na rede virtual **desligado**. Não é possível recriar o peering até voltar a criar o peering da primeira rede virtual e o estado do peering para ambas as alterações de redes virtuais *ligado*. 
 
-Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, em vez de eliminar um peering, pode definir o **permitir o acesso de rede virtual** definição **desativado** em vez disso. Para saber como, leia o passo 6 do [criar um peering](#create-peering) seção deste artigo. Pode achar desabilitando e habilitando o acesso à rede mais fácil do que a eliminação e recriação de peerings.
+Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, em vez de eliminar um peering, pode definir o **permitir o acesso de rede virtual** definição **desativado** em vez disso. Para saber como, leia o passo 6 do [criar um peering](#create-a-peering) seção deste artigo. Pode achar desabilitando e habilitando o acesso à rede mais fácil do que a eliminação e recriação de peerings.
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Selecione a rede virtual na lista que pretende eliminar o peering.
@@ -116,7 +116,7 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 - Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure ou em regiões da cloud na China, mas não está no governo regiões de cloud. Pode apenas ponto a ponto as redes virtuais na mesma região em regiões de cloud do Azure Government.
 - Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure numa rede virtual em modo de peering global. O Balanceador de carga e os recursos que se comunicam com o mesmo tem de ser numa rede virtual na mesma região. Se as redes virtuais em modo de peering na mesma região no entanto, os recursos em qualquer rede virtual podem comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure em qualquer rede virtual no peering.
 - Não é possível utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais global em modo de peering. Para utilizar gateways remotos ou permitir que o trânsito de gateway, as redes virtuais em modo de peering tem de ser na mesma região.
-- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao inquilino do Azure Active Directory idêntica ou diferente. Se ainda não tiver um inquilino do AD, pode rapidamente [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Suporte para o peering entre redes virtuais das subscrições associadas aos diferentes inquilinos do Azure Active Directory não está disponível no Portal. Pode utilizar modelos, PowerShell ou CLI.
+- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao inquilino do Azure Active Directory idêntica ou diferente. Se ainda não tiver um inquilino do AD, pode rapidamente [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Suporte para o peering entre redes virtuais das subscrições associadas aos diferentes inquilinos do Azure Active Directory não está disponível no Portal. Pode utilizar modelos, PowerShell ou CLI.
 - As redes virtuais que configurar o peering tem de ter espaços de endereços IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, veja [gerir redes virtuais](manage-virtual-network.md).
 - Pode configurar o peering entre duas redes virtuais implementadas através do Gestor de recursos ou uma rede virtual implementado através do Resource Manager com uma rede virtual implementada por meio do modelo de implementação clássica. Não é possível configurar o peering entre duas redes virtuais criadas através do modelo de implementação clássica. Se não estiver familiarizado com os modelos de implementação do Azure, leia os [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo. Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ac3e01756ad66dcb44869556bb103eb20bc2658c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ca4156c19adbeea72ae268fe62638d40919b08f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221490"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699621"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilizar a consola de série para chamadas SysRq e NMI
 
@@ -38,7 +38,7 @@ Escolher "Enviar o comando SysRq" abrirá uma caixa de diálogo, que irá fornec
 
 Não é possível utilizar o comando SysRq em máquinas virtuais que estão parados ou cujo kernel está num Estado não responsivo. (por exemplo um entre em pânico do kernel).
 
-### <a name="enable-sysrq"></a>Ativar SysRq 
+### <a name="enable-sysrq"></a>Enable SysRq 
 Conforme descrito no *Guia do administrador do SysRq* acima, pode ser configurado SysRq, de modo que todos os, none ou apenas determinados comandos estão disponíveis. Pode ativar todos os comandos de SysRq utilizando o passo abaixo, mas ele será sobrevivem a uma inicialização:
 ```
 echo "1" >/proc/sys/kernel/sysrq
@@ -63,7 +63,7 @@ No Guia do administrador SysRq acima:
 |``h``  |   Irá apresentar a ajuda (qualquer outra chave que os listados aqui também irá apresentar a ajuda, mas ``h`` é fácil de memorizar :-)
 |``i``  |    Envie um SIGKILL para todos os processos, exceto para init.
 |``j``  |    A forçar "Apenas descongelá-lo" - congelados por FIFREEZE ioctl de sistemas de ficheiros.
-|``k``  |    Chave de acesso seguro (SAK) interrompe todos os programas na consola do virtual atual. Nota: Veja importantes comentários abaixo na secção SAK.
+|``k``  |    Chave de acesso seguro (SAK) interrompe todos os programas na consola do virtual atual. NOTA: Veja importantes comentários abaixo na secção SAK.
 |``l``  |    Mostra um stack backtrace para todas as CPUs de Active Directory.
 |``m``  |    Despejará informações de memória atual para a consola.
 |``n``  |    Utilizada para efetuar tarefas de RT bom ajustável
@@ -111,7 +111,7 @@ Para sistemas Linux que suportam sysctl para configurar parâmetros de kernel, p
 1. Reiniciar ou atualizar sysctl através da execução <br>
     `sysctl -p`
 
-Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, consulte: [documentação para/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter documentação de distribuição específicos sobre NMI e os passos para configurar o Linux para criar um despejo de falha quando recebe um NMI, veja as ligações abaixo:
+Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi`, e `panic_on_unrecovered_nmi`, consulte: [Documentação para/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter documentação de distribuição específicos sobre NMI e os passos para configurar o Linux para criar um despejo de falha quando recebe um NMI, veja as ligações abaixo:
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [Informação de falha de kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

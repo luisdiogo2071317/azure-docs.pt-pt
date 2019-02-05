@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840100"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700813"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
@@ -229,7 +229,7 @@ O parâmetro _deployment-container-image-name_ indica a imagem alojada no Docker
 
 A função precisa da cadeia de ligação para ligar à conta de armazenamento predefinida. Quando estiver a publicar a sua imagem personalizada numa conta de contentor privada, deve definir estas definições de aplicação como variáveis de ambiente no Dockerfile com a [instrução ENV](https://docs.docker.com/engine/reference/builder/#env) ou algo semelhante.
 
-Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

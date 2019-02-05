@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.openlocfilehash: 8e46058432743febd70a017ee5131081a052364b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1b3dde1b2d638f6dd6c19ce173c7f9f071868d23
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195397"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734220"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início rápido: Criar uma rede virtual com a CLI do Azure
 
@@ -32,7 +32,7 @@ Se optar por instalar e utilizar a CLI do Azure localmente em vez disso, este in
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
-Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para alojar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). Este exemplo cria um grupo de recursos chamado *myResourceGroup* no *eastus* localização:
+Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para alojar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* no *eastus* localização:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ Crie duas VMs na rede virtual.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização chave predefinida, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A opção `--no-wait` cria a VM em segundo plano, para que possa prosseguir para o passo seguinte. Este exemplo cria uma VM com o nome *myVm1*:
+Crie uma VM com [az vm create](/cli/azure/vm). Se as chaves SSH ainda não existirem numa localização chave predefinida, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A opção `--no-wait` cria a VM em segundo plano, para que possa prosseguir para o passo seguinte. Este exemplo cria uma VM com o nome *myVm1*:
 
 ```azurecli-interactive
 az vm create \

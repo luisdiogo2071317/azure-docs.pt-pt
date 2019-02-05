@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4400bdf9a88c492a08c7eeafb074af89dee8abb1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661773"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734169"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Como carregar, transferir e listar blobs através de node. js SDK v2
 
@@ -108,7 +108,7 @@ Na seguinte implementação, cada uma das funções *blobService* é encapsulada
 
 ### <a name="list-containers"></a>Listar contentores
 
-A função *listContainers* chama o método [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listcontainerssegmented) que devolve coleções de contentores em grupos.
+A função *listContainers* chama o método [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) que devolve coleções de contentores em grupos.
 
 ```javascript
 const listContainers = async () => {
@@ -150,7 +150,7 @@ A utilização de **createContainerIfNotExists** permite que a aplicação execu
 
 ### <a name="upload-text"></a>Carregar texto
 
-A função *uploadString* chama o método [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) para escrever (ou substituir) uma sequência arbitrária no contentor de blobs.
+A função *uploadString* chama o método [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) para escrever (ou substituir) uma sequência arbitrária no contentor de blobs.
 
 ```javascript
 const uploadString = async (containerName, blobName, text) => {
@@ -184,7 +184,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Outras abordagens disponíveis para carregar conteúdo nos blobs incluem trabalhar com [texto](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) e [fluxos](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Para confirmar se o ficheiro está carregado no armazenamento de blobs, pode utilizar o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ver os dados na sua conta.
+Outras abordagens disponíveis para carregar conteúdo nos blobs incluem trabalhar com [texto](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--) e [fluxos](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Para confirmar se o ficheiro está carregado no armazenamento de blobs, pode utilizar o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ver os dados na sua conta.
 
 ### <a name="list-the-blobs"></a>Listar os blobs
 
@@ -208,7 +208,7 @@ Chamar *listBlobsSegmented* devolve os metadados do blob como uma matriz de inst
 
 ### <a name="download-a-blob"></a>Transferir um blob
 
-A função *downloadBlob* utiliza o método [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtotext) para transferir os conteúdos do blob para o caminho absoluto do ficheiro especificado.
+A função *downloadBlob* utiliza o método [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) para transferir os conteúdos do blob para o caminho absoluto do ficheiro especificado.
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -224,7 +224,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-A implementação aqui apresentada altera a origem e devolve os conteúdos do blob como uma cadeia. Também pode transferir o blob como uma [transmissão](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream), bem como diretamente para um [ficheiro local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
+A implementação aqui apresentada altera a origem e devolve os conteúdos do blob como uma cadeia. Também pode transferir o blob como uma [transmissão](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest), bem como diretamente para um [ficheiro local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
 
 ### <a name="delete-a-blob"></a>Eliminar um blob
 

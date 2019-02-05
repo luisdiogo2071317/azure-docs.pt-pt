@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c5cb5a821d9bae6841c3229155c69fd2aa20e13
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242268"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698314"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -53,7 +53,7 @@ Para obter estas informações para os serviços web implementados, há um três
     print(service.scoring_uri)
     ```
 
-* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que podem ser filtradas no, consulte a [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) documentação de referência.
+* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que podem ser filtradas no, consulte a [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) documentação de referência.
 
     ```python
     services = Webservice.list(ws)

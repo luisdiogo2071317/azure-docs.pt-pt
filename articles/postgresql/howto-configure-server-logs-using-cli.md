@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 2ebba9a66e55cf82f42773276e36a952264eeee2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656316"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700201"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
 Pode transferir os registos de erros de servidor PostgreSQL, utilizando a interface de linha de comandos (CLI do Azure). No entanto, o acesso aos logs de transação não é suportado. 
@@ -31,7 +31,7 @@ Pode configurar o servidor para aceder a registos de consulta e registos de erro
 Para obter mais informações, consulte [personalizar os parâmetros de configuração de servidor](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista de registos da base de dados do Azure para o servidor PostgreSQL
-Para listar os ficheiros de registo disponíveis para o seu servidor, execute o [lista do az postgres server-logs](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) comando.
+Para listar os ficheiros de registo disponíveis para o seu servidor, execute o [lista do az postgres server-logs](/cli/azure/postgres/server-logs) comando.
 
 Pode listar os ficheiros de registo para o servidor **mydemoserver.postgres.database.azure.com** sob o grupo de recursos **myresourcegroup**. Em seguida, direcionar a lista de ficheiros de registo para um arquivo de texto chamado **log\_arquivos\_txt**.
 ```azurecli-interactive

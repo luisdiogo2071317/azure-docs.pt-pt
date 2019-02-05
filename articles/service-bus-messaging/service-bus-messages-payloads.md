@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849367"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733931"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -28,7 +28,7 @@ O modelo de objeto dos clientes do Service Bus oficiais para .NET e Java reflete
  
 Uma mensagem do Service Bus é composta por uma secção de payload binário do Service Bus nunca processa em qualquer formulário no lado do serviço e dois conjuntos de propriedades. O *mediador propriedades* estão predefinidas pelo sistema. Essas propriedades predefinidas optar por controlam a funcionalidade de nível de mensagem dentro do Mediador, ou podem ser mapeados para itens de metadados comuns e normalizada. O *propriedades de utilizador* são uma coleção de pares chave-valor que pode ser definida e configurada pelo aplicativo.
  
-As propriedades de Mediador predefinidos estão listadas na tabela seguinte. Os nomes são utilizados com todas as APIs de cliente oficial e também na [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) objeto JSON de mapeamento de protocolo HTTP.
+As propriedades de Mediador predefinidos estão listadas na tabela seguinte. Os nomes são utilizados com todas as APIs de cliente oficial e também na [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) objeto JSON de mapeamento de protocolo HTTP.
  
 Os nomes de equivalentes utilizados ao nível do protocolo AMQP são listados entre parênteses. 
 

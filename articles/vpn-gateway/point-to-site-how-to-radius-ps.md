@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 01ce4bb7b48e2f1331ebb57dc503c79b31bcc8b0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510124"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700064"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação RADIUS: PowerShell
 
@@ -148,7 +148,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
  
 * -RadiusServer podem ser especificado por nome ou por endereço IP. Se especificar o nome e o servidor reside no local, em seguida, o gateway de VPN pode não conseguir resolver o nome. Se for esse o caso, em seguida, é melhor especificar o endereço IP do servidor. 
 * -RadiusSecret deve corresponder ao que está configurado no seu servidor RADIUS.
-* -VpnCientAddressPool é o intervalo a partir do qual os clientes VPN ligados recebem um endereço IP. Utilize um intervalo de endereços IP privados que não se sobrepõe à localização no local onde irá estabelecer ligação ou com a VNet a que pretende ligar. Certifique-se de que tem um conjunto de endereços suficientemente grande configurado.  
+* -VpnClientAddressPool é o intervalo a partir do qual os clientes VPN ligados recebem um endereço IP. Utilize um intervalo de endereços IP privados que não se sobrepõe à localização no local onde irá estabelecer ligação ou com a VNet a que pretende ligar. Certifique-se de que tem um conjunto de endereços suficientemente grande configurado.  
 
 1. Crie uma cadeia segura para o RADIUS secreta.
 
@@ -243,4 +243,4 @@ Estas FAQ aplicam-se para P2S através da autenticação RADIUS
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).

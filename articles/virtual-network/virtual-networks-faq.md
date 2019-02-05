@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: eba703e454e02e5b83efae2de01003a2efc1f764
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493254"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694062"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -329,7 +329,7 @@ Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais
 Para proteger serviços do Azure para várias sub-redes numa rede virtual ou em várias redes virtuais, ativar pontos finais de serviço no lado de rede em cada um das sub-redes de forma independente e, em seguida, proteger os recursos de serviço do Azure para todas as sub-redes através da configuração ACLs de VNet apropriadas no lado do serviço do Azure.
  
 ### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como pode filtrar o tráfego de saída de uma rede virtual para serviços do Azure e continuar a utilizar pontos finais de serviço?
-Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço para a sub-rede em que a aplicação virtual de rede é implementado e segura de serviço do Azure de recursos apenas para esta sub-rede através de ACLs da VNet. Este cenário também pode ser útil se pretender restringir o acesso de serviço do Azure da sua rede virtual apenas para recursos específicos do Azure com a filtragem de aplicação virtual de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço para a sub-rede em que a aplicação virtual de rede é implementado e segura de serviço do Azure de recursos apenas para esta sub-rede através de ACLs da VNet. Este cenário também pode ser útil se pretender restringir o acesso de serviço do Azure da sua rede virtual apenas para recursos específicos do Azure com a filtragem de aplicação virtual de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando acessar uma conta de serviço do Azure com a rede virtual lista de controle acesso (ACL) ativada a partir de fora da VNet?
 É devolvido o erro HTTP 403 ou HTTP 404.

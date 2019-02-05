@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154816"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731534"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -109,9 +109,11 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 
    Saiba mais sobre a [ferramenta de linha de comandos aqui](https://www.npmjs.com/package/dps-keygen).
 
-1. Transfira e deszipe (Windows) a ferramenta dps_cstr a partir do [GitHub](https://github.com/Azure/dps-keygen/tree/master/bin)
+1. Transfira e deszipe a ferramenta de dps_cstr no [GitHub] ((Windows)https://github.com/Azure/dps-keygen/archive/master.zip
 
-    Certifique-se de que pode escolher a que corresponde à sua plataforma. Por exemplo, no Windows, o dps_cstr.exe e os ficheiros dll já devem estar disponíveis na sua pasta. 
+)
+
+    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. A cadeia de ligação para uma instância de dispositivo na sua aplicação é gerada a partir das informações do dispositivo concedidas pelo IoT Central.
 
@@ -353,7 +355,7 @@ Na secção anterior, criou um projeto em Node.js para uma aplicação que liga 
 
     ![A telemetria de temperatura é agora superior](media/tutorial-add-device/highertemperature.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239925"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699147"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS de três camadas para UK OFFICIAL
 
@@ -186,7 +186,7 @@ Nestas VNets continuam a ser geridas como recursos separados, mas aparecem como 
 
 [Diretrizes para implementar o Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Integração do Active Directory**: Como alternativa para uma arquitetura dedicada do AD DS, os clientes podem querer por utilizar [do Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integração ou [do Active Directory no Azure associado a uma floresta no local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Integração do Active Directory**: Como alternativa para uma arquitetura dedicada do AD DS, os clientes podem querer por utilizar [do Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integração ou [do Active Directory no Azure associado a uma floresta no local](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
 
 ### <a name="security"></a>Segurança
 

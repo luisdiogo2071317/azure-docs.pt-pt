@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: c451377d6274c50f22e3b1d4cd32fb0f3edd9d9e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220405"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734186"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM do Linux para outra subscrição ou grupo de recursos
 Este artigo explica como mover uma máquina virtual (VM) do Linux entre grupos de recursos ou subscrições. Mover uma VM entre subscrições, pode ser útil se tiver criado uma VM numa subscrição de pessoal e agora quero movê-lo para a subscrição da sua empresa.
@@ -35,7 +35,7 @@ Este artigo explica como mover uma máquina virtual (VM) do Linux entre grupos d
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Utilizar a CLI do Azure para mover uma VM
 
 
-Antes de prosseguir a VM com a CLI do Azure, terá de certificar-se de que as subscrições de origem e de destino existem no mesmo inquilino. Para verificar que ambas as subscrições têm o mesmo ID de inquilino, utilize [show de conta de az](/cli/azure/account#az_account_show).
+Antes de prosseguir a VM com a CLI do Azure, terá de certificar-se de que as subscrições de origem e de destino existem no mesmo inquilino. Para verificar que ambas as subscrições têm o mesmo ID de inquilino, utilize [show de conta de az](/cli/azure/account).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -43,13 +43,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Se os IDs de inquilino para as subscrições de origem e de destino não são os mesmos, tem de contactar [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para mover os recursos para um novo inquilino.
 
-Para mover com êxito uma VM, terá de mover a VM e todos os seus recursos de suporte. Utilize o [lista de recursos de az](/cli/azure/resource#az_resource_list) command para listar todos os recursos num grupo de recursos e os respetivos IDs. Ele ajuda a encaminhar o resultado deste comando num arquivo para que possa copiar e colar os IDs de comandos posteriores.
+Para mover com êxito uma VM, terá de mover a VM e todos os seus recursos de suporte. Utilize o [lista de recursos de az](/cli/azure/resource) command para listar todos os recursos num grupo de recursos e os respetivos IDs. Ele ajuda a encaminhar o resultado deste comando num arquivo para que possa copiar e colar os IDs de comandos posteriores.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Para mover uma VM e os respetivos recursos para outro grupo de recursos, utilize [movimentação do recurso de az](/cli/azure/resource#az_resource_move). O exemplo seguinte mostra como mover uma VM e dos recursos mais comuns que precisa. Utilize o **-ids** parâmetro e passe uma lista separada por vírgulas (sem espaços) de IDs para os recursos para mover.
+Para mover uma VM e os respetivos recursos para outro grupo de recursos, utilize [movimentação do recurso de az](/cli/azure/resource). O exemplo seguinte mostra como mover uma VM e dos recursos mais comuns que precisa. Utilize o **-ids** parâmetro e passe uma lista separada por vírgulas (sem espaços) de IDs para os recursos para mover.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

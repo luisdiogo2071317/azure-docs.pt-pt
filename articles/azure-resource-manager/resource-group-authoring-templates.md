@@ -10,16 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d6b942ea8b2bf61bee472811648e5089f280354
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 77dda85c920fda90b8379445a79569413b2dd463
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102419"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691510"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
+
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
@@ -40,7 +41,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>Para implementações de subscrição, utilize `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
 | parâmetros |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
 | Variáveis |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
@@ -161,6 +162,7 @@ Cada elemento tem propriedades que pode definir. O exemplo seguinte mostra a sin
 Este artigo descreve as seções do modelo em mais detalhes.
 
 ## <a name="syntax"></a>Sintaxe
+
 A sintaxe básica do modelo é um JSON. No entanto, expressões e funções estendem os valores JSON disponíveis dentro do modelo.  Expressões são escritas dentro de literais de cadeia de caracteres do JSON cujo primeiro e último carateres são os colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implementado. Embora escrito como um literal de cadeia, o resultado da avaliação da expressão pode ser de um tipo diferente do JSON, como uma matriz ou um número inteiro, consoante a expressão real.  Ter uma cadeia literal, comece com um colchete `[`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`.
 
 Normalmente, usar expressões com as funções para executar operações para configurar a implantação. Da mesma forma que no JavaScript, chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de pontos e [Índice].
@@ -176,6 +178,7 @@ O exemplo seguinte mostra como utilizar várias funções ao construir um valor:
 Para obter a lista completa de funções de modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parâmetros
+
 Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
 
 O exemplo seguinte mostra uma definição de parâmetro simples:
@@ -194,6 +197,7 @@ O exemplo seguinte mostra uma definição de parâmetro simples:
 Para obter informações sobre como definir parâmetros, consulte [secção de parâmetros de modelos Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variáveis
+
 Na secção de variáveis, é possível construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir variáveis, mas elas, muitas vezes, simplificam seu modelo, reduzindo as expressões complexas.
 
 O exemplo seguinte mostra uma simple definição de variável:
@@ -293,6 +297,80 @@ Na secção de saídas, especifique os valores que são devolvidos da implementa
 ```
 
 Para obter mais informações, consulte [produz a seção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
+
+## <a name="comments"></a>Comentários
+
+Tem algumas opções para adicionar comentários ao seu modelo.
+
+Para **parâmetros**, adicione um `metadata` objeto com um `description` propriedade.
+
+```json
+"parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "User name for the Virtual Machine."
+      }
+    },
+```
+
+Ao implementar o modelo através do portal, o texto que fornecer na descrição do é automaticamente utilizado como uma dica para esse parâmetro.
+
+![Mostrar a sugestão de parâmetro](./media/resource-group-authoring-templates/show-parameter-tip.png)
+
+Para **recursos**, adicione um `comments` elemento.
+
+```json
+"resources": [
+    {
+      "comments": "Storage account used to store VM disks",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "apiVersion": "2018-07-01",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('storageAccountType')]"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+```
+
+Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. Gestor de recursos ignora o objeto, mas o seu editor de JSON pode avisá-lo que a propriedade não é válida. O objeto, defina as propriedades que precisa.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
+
+Para **produz**, adicionar um objeto de metadados para o valor de saída.
+
+```json
+"outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+      "metadata": {
+        "comments": "Return the fully qualified domain name"
+      }
+    },
+```
+
+Não é possível adicionar um objeto de metadados para as funções definidas pelo utilizador.
+
+Para comentários gerais, pode usar `//` , mas essa sintaxe causa um erro ao implementar o modelo com a CLI do Azure.
+
+```json
+"variables": {
+    // Create unique name for the storage account
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+},
+```
 
 ## <a name="template-limits"></a>Limites do modelo
 

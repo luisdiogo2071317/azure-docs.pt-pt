@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aafa1acdf6cca58ea0cfbc968f73ce13eb65bf91
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256226"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700507"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -50,7 +50,7 @@ Este white paper descreve a abordagem da Microsoft para segurança operacionais 
 
 5.  [Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
-6.  [O Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
 ## <a name="microsoft-azure-log-analytics"></a>Do Microsoft Azure Log Analytics
@@ -135,31 +135,31 @@ O Centro de Segurança recolhe dados das suas máquinas virtuais (VMs) para aval
 
 - O Centro de Segurança do Azure analisa dados das origens seguintes para proporcionar visibilidade para o estado da segurança, identificar vulnerabilidades e recomendar mitigações e detetar ameaças ativas:
 
--   Serviços do Azure: utiliza informações sobre a configuração dos serviços do Azure que implementou através da comunicação com o fornecedor de recursos desses serviços.
+-   Serviços do Azure: Utiliza informações sobre a configuração dos serviços do Azure que implementou através da comunicação com o fornecedor de recursos desses serviços.
 
-- Tráfego de Rede: utiliza metadados de tráfego de rede de amostragem da infraestrutura da Microsoft, tais como porta/IP de origem/destino, tamanho do pacote e protocolo de rede.
+- Tráfego de rede: Amostragem a utiliza metadados de tráfego de rede da infraestrutura da Microsoft, tais como porta/IP de origem/destino, tamanho do pacote e protocolo de rede.
 
--   Soluções de Parceiros: utiliza alertas de segurança das soluções de parceiros integradas, tais como firewalls e soluções antimalware.
+-   Soluções de parceiros: Utiliza alertas de segurança de soluções de parceiros integradas, tais como firewalls e soluções antimalware.
 
--   As suas Máquinas Virtuais: utiliza informações de configuração e informações sobre eventos de segurança, tais como eventos do Windows e registos de auditoria, registos do IIS, mensagens do syslog e ficheiros de informação de falha de sistema das suas máquinas virtuais.
+-   As máquinas virtuais: Utiliza informações de configuração e informações sobre eventos de segurança, tais como o Windows eventos e registos de auditoria, registos do IIS, mensagens do syslog e ficheiros de informação de falha das suas máquinas virtuais.
 
 ### <a name="data-protection"></a>Proteção de dados
 
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
 
--   **Segregação de dados**: os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
+-   **Segregação de dados**: Dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
--   **Acesso a dados**: para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, o pessoal técnico da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços do Azure, incluindo ficheiros de informação de falha, a processar eventos de criação, o disco da VM os instantâneos e artefactos, que podem incluir, involuntariamente, dados do cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qual estado em que a Microsoft não se utiliza dados do cliente ou derivará informações dos mesmos para fins publicitários ou comerciais.
+-   **Acesso a dados**: Para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, o pessoal técnico da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços do Azure, incluindo os ficheiros de informação de falha, processar eventos de criação, instantâneos de disco da VM e artefactos, que Pode incluir, involuntariamente, dados do cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), qual estado em que a Microsoft não se utiliza dados do cliente ou derivará informações dos mesmos para fins publicitários ou comerciais.
 
--   **Utilização de dados**: a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **A utilização de dados**: A Microsoft utiliza os padrões e informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção; podemos fazê-lo de acordo com os compromissos de privacidade descritos na nossa [declaração de privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Localização dos dados
 
 O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de informação de falha de sistema e analisa-as para encontrar sinais de tentativas de exploração e casos em que a segurança tenha sido comprometida. O Centro de Segurança do Azure faz esta análise na mesma Geografia que a área de trabalho e elimina as cópias efémeras quando a análise estiver concluída. Os artefactos das máquinas são armazenados centralmente na mesma região que as VMs.
 
--   **As contas de armazenamento**: é especificada uma conta de armazenamento para cada região em que as máquinas virtuais são executadas. Isto permite-lhe armazenar dados na mesma região que a máquina virtual a partir da qual os dados são recolhidos.
+-   **As contas de armazenamento**: É especificada uma conta de armazenamento para cada região em que as máquinas virtuais são executadas. Isto permite-lhe armazenar dados na mesma região que a máquina virtual a partir da qual os dados são recolhidos.
 
--   **Armazenamento do Centro de Segurança do Azure**: as informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e estado de funcionamento da segurança, são armazenadas de forma central, atualmente nos Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
+-   **Armazenamento do Centro de segurança do Azure**: Informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e estado de funcionamento de segurança são armazenadas centralmente, atualmente nos Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -218,7 +218,7 @@ O Azure Monitor permite-lhe consumir telemetria ganhar visibilidade sobre o dese
 
 A auditoria de segurança de rede é vital para detectar vulnerabilidades de rede e assegurar a conformidade com o modelo de normas de governação e segurança de TI. Com a vista de grupo de segurança, pode recuperar o grupo de segurança de rede configurado e regras de segurança e as regras de segurança efetivas. Com a lista de regras aplicadas, é possível determinar as portas que estão abertas e avaliar a vulnerabilidade de rede.
 
-[Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de rede no, a e do Azure. Diagnóstico de rede e ferramentas de visualização disponíveis com o observador de rede ajudam a compreender, diagnosticar e obter informações da sua rede no Azure. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
+[Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de rede no, a e do Azure. Diagnóstico de rede e ferramentas de visualização disponíveis com o observador de rede ajudam a compreender, diagnosticar e obter informações da sua rede no Azure. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
 
 ![Observador de rede do Azure](./media/azure-operational-security/azure-operational-security-fig8.png)
 

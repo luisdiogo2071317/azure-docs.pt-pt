@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 18ba3d70951cd59f59b566c8bfff2403a32e4874
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469649"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730464"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Como carregar, transferir e listar os blobs com o SDK de Java v7
 
@@ -130,7 +130,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 
-Para carregar um ficheiro para um blob de blocos, obtenha uma referência para o blob no contentor de destino. Assim que tiver a referência do blob, pode carregar dados para o mesmo com [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Esta operação cria o blob, caso este ainda não exista, ou substitui o mesmo se já existir.
+Para carregar um ficheiro para um blob de blocos, obtenha uma referência para o blob no contentor de destino. Assim que tiver a referência do blob, pode carregar dados para o mesmo com [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Esta operação cria o blob, caso este ainda não exista, ou substitui o mesmo se já existir.
 
 O código de exemplo cria um ficheiro local que vai ser utilizado para o carregamento e a transferência, armazenando o ficheiro a carregar como **origem** e o nome do blob em **blob**. O exemplo seguinte carrega o ficheiro para o seu contentor com o nome **quickstartcontainer**.
 
@@ -156,7 +156,7 @@ Os blobs de blocos podem ser qualquer tipo de ficheiro binário ou de texto. Os 
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de ficheiros no contentor com [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs). O código seguinte obtém a lista de blobs, depois percorre-a e mostra os URIs dos blobs encontrados. Pode copiar o URI a partir da janela de comandos e colá-lo num browser para ver o ficheiro.
+Pode obter uma lista de ficheiros no contentor com [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs). O código seguinte obtém a lista de blobs, depois percorre-a e mostra os URIs dos blobs encontrados. Pode copiar o URI a partir da janela de comandos e colá-lo num browser para ver o ficheiro.
 
 ```java
 //Listing contents of container
@@ -182,7 +182,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisa dos blobs que carregou, pode eliminar o contentor inteiro com [Deleteifexists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Este método também elimina os ficheiros no contentor.
+Se já não precisa dos blobs que carregou, pode eliminar o contentor inteiro com [Deleteifexists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Este método também elimina os ficheiros no contentor.
 
 ```java
 try {

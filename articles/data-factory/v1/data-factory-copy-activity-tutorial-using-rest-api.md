@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025849"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700184"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Crie os seguintes ficheiros JSON na pasta onde está localizado curl.exe.
 
 Para obter detalhes sobre as propriedades JSON, veja [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) (Serviço ligado do Armazenamento do Azure).
 
-### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
+### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
 > Substitua **servername**, **databasename**, **username** e **password** pelos nomes do seu servidor SQL do Azure, nome da base de dados SQL, conta de utilizador e palavra-passe da conta.  
 > 

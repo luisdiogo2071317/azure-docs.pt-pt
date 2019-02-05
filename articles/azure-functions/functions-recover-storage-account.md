@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000024"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732163"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 
@@ -71,7 +71,7 @@ No passo anterior, se não tinha uma cadeia de ligação de conta de armazenamen
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciais da conta de armazenamento inválidas
 
-As cadeias de ligação de conta de armazenamento acima têm de ser atualizadas se voltar a gerar chaves de armazenamento. [Leia mais sobre armazenamento gestão de chaves aqui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+As cadeias de ligação de conta de armazenamento acima têm de ser atualizadas se voltar a gerar chaves de armazenamento. [Leia mais sobre armazenamento gestão de chaves aqui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>Conta de armazenamento inacessível
 

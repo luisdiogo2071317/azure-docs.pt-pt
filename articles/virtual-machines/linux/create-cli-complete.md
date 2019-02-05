@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 75853d0fa35d1cb5fe593ad92a88d054d2ed77f6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7090f9da1ec1bd1453b6f0ddb327abe2f1374844
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662301"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697078"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.
 
-Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e uma conta do Azure com a sessão iniciada [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e uma conta do Azure com a sessão iniciada [início de sessão az](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
 
@@ -103,7 +103,7 @@ O resultado mostra que a sub-rede é logicamente criada dentro da rede virtual:
 
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Agora vamos criar um endereço IP público [criar a rede de az public-ip](/cli/azure/network/public-ip#az_network_public_ip_create). Este endereço IP público permite-lhe ligar às suas VMs a partir da Internet. Como o endereço predefinido é dinâmico, criar uma entrada DNS com o nome com o `--domain-name-label` parâmetro. O exemplo seguinte cria um IP público com o nome *myPublicIP* com o nome DNS *mypublicdns*. Uma vez que o nome DNS tem de ser exclusivo, forneça o nome DNS exclusivo:
+Agora vamos criar um endereço IP público [criar a rede de az public-ip](/cli/azure/network/public-ip). Este endereço IP público permite-lhe ligar às suas VMs a partir da Internet. Como o endereço predefinido é dinâmico, criar uma entrada DNS com o nome com o `--domain-name-label` parâmetro. O exemplo seguinte cria um IP público com o nome *myPublicIP* com o nome DNS *mypublicdns*. Uma vez que o nome DNS tem de ser exclusivo, forneça o nome DNS exclusivo:
 
 ```azurecli
 az network public-ip create \
@@ -142,7 +142,7 @@ Saída:
 
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
-Para controlar o fluxo de tráfego que entra e sai as suas VMs, é possível aplicar um grupo de segurança de rede a um NIC ou sub-rede virtual. O exemplo seguinte utiliza [criar o nsg de rede de az](/cli/azure/network/nsg#az_network_nsg_create) criar um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Para controlar o fluxo de tráfego que entra e sai as suas VMs, é possível aplicar um grupo de segurança de rede a um NIC ou sub-rede virtual. O exemplo seguinte utiliza [criar o nsg de rede de az](/cli/azure/network/nsg) criar um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -150,7 +150,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Pode definir regras que permitem ou negam o tráfego específico. Para permitir ligações de entrada na porta 22 (para habilitar o acesso SSH), crie uma regra de entrada com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleSSH*:
+Pode definir regras que permitem ou negam o tráfego específico. Para permitir ligações de entrada na porta 22 (para habilitar o acesso SSH), crie uma regra de entrada com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule). O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -176,7 +176,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Examine o grupo de segurança de rede e regras com [show de nsg de rede de az](/cli/azure/network/nsg#az_network_nsg_show):
+Examine o grupo de segurança de rede e regras com [show de nsg de rede de az](/cli/azure/network/nsg):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -445,7 +445,7 @@ Domínios de atualização indicam os grupos de máquinas virtuais e o hardware 
 
 Azure distribui automaticamente as VMs entre os domínios de falha e de atualização quando colocá-las num conjunto de disponibilidade. Para obter mais informações, consulte [o gerenciamento de VMs](manage-availability.md).
 
-Criar conjunto de disponibilidade para a VM com [criar conjunto de disponibilidade do az vm](/cli/azure/vm/availability-set#az_vm_availability_set_create). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
+Criar conjunto de disponibilidade para a VM com [criar conjunto de disponibilidade do az vm](/cli/azure/vm/availability-set). O exemplo seguinte cria um conjunto de disponibilidade designado *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -478,11 +478,11 @@ As notas de saída domínios de falha e domínios de atualização:
 
 
 ## <a name="create-a-vm"></a>Criar uma VM
-Acabou de criar os recursos de rede para suportar VMs acessível pela Internet. Agora, crie uma VM e protegê-la com uma chave SSH. Neste exemplo, vamos criar um VM com base no mais recente LTS do Ubuntu. Pode encontrar imagens adicionais com [lista de imagens de vm de az](/cli/azure/vm/image#az_vm_image_list), conforme descrito nas [encontrar imagens de VM do Azure](cli-ps-findimage.md).
+Acabou de criar os recursos de rede para suportar VMs acessível pela Internet. Agora, crie uma VM e protegê-la com uma chave SSH. Neste exemplo, vamos criar um VM com base no mais recente LTS do Ubuntu. Pode encontrar imagens adicionais com [lista de imagens de vm de az](/cli/azure/vm/image), conforme descrito nas [encontrar imagens de VM do Azure](cli-ps-findimage.md).
 
 Especifique uma chave SSH para utilizar para autenticação. Se não tiver um par de chaves públicas SSH, pode [criá-los](mac-create-ssh-keys.md) ou utilizar o `--generate-ssh-keys` parâmetro criá-los para. Se já tiver um par de chaves, este parâmetro utiliza as chaves existentes no `~/.ssh`.
 
-Criar a VM ao trazer todos os recursos e informações em conjunto com o [az vm criar](/cli/azure/vm#az_vm_create) comando. O exemplo seguinte cria uma VM com o nome *myVM*:
+Criar a VM ao trazer todos os recursos e informações em conjunto com o [az vm criar](/cli/azure/vm) comando. O exemplo seguinte cria uma VM com o nome *myVM*:
 
 ```azurecli
 az vm create \
@@ -567,7 +567,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Este comando cria o `myResourceGroup.json` ficheiro no diretório de trabalho atual. Quando criar um ambiente a partir deste modelo, são-lhe pedido para todos os nomes de recursos. Pode preencher esses nomes em seu arquivo de modelo ao adicionar o `--include-parameter-default-value` parâmetro para o `az group export` comando. Editar o modelo JSON para especificar os nomes de recursos, ou [crie um ficheiro Parameters. JSON](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes de recursos.
 
-Para criar um ambiente a partir do seu modelo, utilize [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create) da seguinte forma:
+Para criar um ambiente a partir do seu modelo, utilize [criar a implementação do grupo az](/cli/azure/group/deployment) da seguinte forma:
 
 ```azurecli
 az group deployment create \

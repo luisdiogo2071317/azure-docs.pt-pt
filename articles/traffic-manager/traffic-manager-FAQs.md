@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200052"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696810"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -285,7 +285,7 @@ Sim. Serviço em nuvem blocos de "teste" pode ser configurado no Traffic Manager
 
 ### <a name="does-traffic-manager-support-ipv6-endpoints"></a>O Gestor de tráfego suporta pontos finais IPv6?
 
-Atualmente, o Gestor de tráfego não fornece IPv6 addressible servidores de nomes. No entanto, o Gestor de tráfego ainda podem ser utilizado pelos clientes de IPv6 ligar pontos finais IPv6. Um cliente não faz a pedidos DNS diretamente para o Gestor de tráfego. Em vez disso, o cliente utiliza um serviço DNS recursivo. Um cliente apenas de IPv6 envia pedidos ao serviço DNS recursivo através de IPv6. Em seguida, o serviço de recursiva deve ser capaz de contactar os servidores de nomes do Gestor de tráfego utilizando IPv4.
+Atualmente, o Gestor de tráfego não fornece IPv6 endereçável servidores de nomes. No entanto, o Gestor de tráfego ainda podem ser utilizado pelos clientes de IPv6 ligar pontos finais IPv6. Um cliente não faz a pedidos DNS diretamente para o Gestor de tráfego. Em vez disso, o cliente utiliza um serviço DNS recursivo. Um cliente apenas de IPv6 envia pedidos ao serviço DNS recursivo através de IPv6. Em seguida, o serviço de recursiva deve ser capaz de contactar os servidores de nomes do Gestor de tráfego utilizando IPv4.
 
 O Gestor de tráfego responde com o nome DNS ou endereço IP do ponto de extremidade. Para oferecer suporte a um ponto de extremidade do IPv6, existem duas opções. É possível adicionar o ponto final como um nome DNS que tenha um registo AAAA associado e o Gestor de tráfego irá verificação de estado de funcionamento, esse ponto de extremidade e retorno-o como um registo CNAME escreva na resposta da consulta. Também pode adicionar o ponto de extremidade diretamente com o endereço de IPv6 e o Gestor de tráfego irá devolver um registo de tipo AAAA na resposta da consulta. 
 

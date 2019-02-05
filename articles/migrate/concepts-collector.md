@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488718"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700932"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -103,8 +103,6 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
     7. Verifique que o certificado é importado conforme esperado e verifique que a verificação de pré-requisitos a conectividade internet funcionar conforme esperado.
 
 
-
-
 ### <a name="urls-for-connectivity"></a>URLs para conectividade
 
 A verificação de conectividade é validada ao ligar a uma lista de URLs.
@@ -150,6 +148,79 @@ O recoletor comunica conforme resumido no diagrama e a tabela seguinte.
 Serviço do Azure Migrate | TCP 443 | Recoletor se comunica com o serviço Azure Migrate através de SSL 443.
 vCenter Server | TCP 443 | O Recoletor tem de ser capaz de comunicar com o vCenter Server.<br/><br/> Por padrão, ele se conecta ao vCenter em 443.<br/><br/> Se o vCenter Server escuta numa porta diferente, essa porta deve estar disponível como porta de saída no Recoletor.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>Metadados recolhidos
+
+A aplicação recoletora Deteta os seguintes metadados de configuração para cada VM. Os dados de configuração para as VMs estão disponíveis uma hora depois de iniciar a deteção.
+
+- Nome de exibição VM (no vCenter Server)
+- Caminho de inventário da VM (o anfitrião/pasta no vCenter Server)
+- Endereço IP
+- Endereço MAC
+- Sistema operativo
+- Número de núcleos, discos, NICs
+- Tamanho da memória, tamanhos de disco
+- Contadores de desempenho da VM, disco e rede.
+
+### <a name="performance-counters"></a>Contadores de desempenho
+
+ A aplicação recoletora recolhe os seguintes contadores de desempenho para cada VM do anfitrião ESXi num intervalo de 20 segundos. Esses contadores são contadores do vCenter e embora a terminologia diga média, os exemplos de 20 segundos são contadores em tempo real. Os dados de desempenho para as VMs começaram a se tornar disponível no portal de duas horas depois de ter iniciada a deteção. Recomenda-se vivamente que aguarde, pelo menos, um dia antes de criar com base em desempenho avaliações para obter recomendações de tamanho adequado precisas. Se estiver à procura de instantâneos, pode criar avaliações com critério de dimensionamento como *como no local* qual não irá considerar os dados de desempenho para o dimensionamento certo.
+
+**Contador** |  **Impacto na avaliação**
+--- | ---
+cpu.usage.average | Tamanho VM recomendados e os custos  
+mem.usage.average | Tamanho VM recomendados e os custos  
+virtualDisk.read.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.write.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberReadAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+virtualDisk.numberWriteAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
+net.received.average | Calcula o tamanho da VM                          
+net.transmitted.average | Calcula o tamanho da VM     
+
+A lista completa dos contadores de VMware recolhidos pelo Azure Migrate está disponível abaixo:
+
+**Categoria** |  **metadados** | **ponto de dados do vCenter**
+--- | --- | ---
+Detalhes da máquina | ID da VM | vm.Config.InstanceUuid
+Detalhes da máquina | o nome da VM | vm.Config.Name
+Detalhes da máquina | ID do servidor do vCenter | VMwareClient.InstanceUuid
+Detalhes da máquina |  Descrição da VM |  vm.Summary.Config.Annotation
+Detalhes da máquina | Nome do produto de licença | vm.Client.ServiceContent.About.LicenseProductName
+Detalhes da máquina | Tipo de sistema operativo | vm.Summary.Config.GuestFullName
+Detalhes da máquina | Versão do sistema operativo | vm.Summary.Config.GuestFullName
+Detalhes da máquina | Tipo de arranque | vm.Config.Firmware
+Detalhes da máquina | Número de núcleos | vm.Config.Hardware.NumCPU
+Detalhes da máquina | Megabytes de memória | vm.Config.Hardware.MemoryMB
+Detalhes da máquina | Número de discos | VM. Config.Hardware.Device.ToList(). FindAll(x => x is VirtualDisk).count
+Detalhes da máquina | Lista de tamanho de disco | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk)
+Detalhes da máquina | Lista de adaptadores de rede | VM. Config.Hardware.Device.ToList(). FindAll (x = > x é VirtualEthernetCard)
+Detalhes da máquina | Utilização da CPU | cpu.usage.average
+Detalhes da máquina | Utilização da memória | mem.usage.average
+Detalhes do disco (por disco) | Valor de chave de disco | disco. Chave
+Detalhes do disco (por disco) | Número de unidade de disco | disk.UnitNumber
+Detalhes do disco (por disco) | Valor de chave do controlador de disco | disk.ControllerKey.Value
+Detalhes do disco (por disco) | Gigabytes aprovisionados | virtualDisk.DeviceInfo.Summary
+Detalhes do disco (por disco) | Nome do disco | Este valor é gerado usando o disco. UnitNumber, o disco. Chave e o disco. ControllerKey.Value
+Detalhes do disco (por disco) | Número de operações de leitura por segundo | virtualDisk.numberReadAveraged.average
+Detalhes do disco (por disco) | Número de operações de escrita por segundo | virtualDisk.numberWriteAveraged.average
+Detalhes do disco (por disco) | Megabytes por segundo de débito de leitura | virtualDisk.read.average
+Detalhes do disco (por disco) | Megabytes por segundo de débito de escrita | virtualDisk.write.average
+Detalhes do adaptador de rede (por NIC) | Nome do adaptador de rede | nic.Key
+Detalhes do adaptador de rede (por NIC) | Endereço MAC | ((VirtualEthernetCard)nic).MacAddress
+Detalhes do adaptador de rede (por NIC) | Endereços IPv4 | vm.Guest.Net
+Detalhes do adaptador de rede (por NIC) | Endereços IPv6 | vm.Guest.Net
+Detalhes do adaptador de rede (por NIC) | Megabytes por segundo de débito de leitura | net.received.average
+Detalhes do adaptador de rede (por NIC) | Megabytes por segundo de débito de escrita | net.transmitted.average
+Detalhes do caminho de inventário | Name | container.GetType().Name
+Detalhes do caminho de inventário | Tipo de objeto subordinado | container.ChildType
+Detalhes do caminho de inventário | Detalhes de referência | container.MoRef
+Detalhes do caminho de inventário | Caminho de inventário completo | contentor. Dê um nome com o caminho completo
+Detalhes do caminho de inventário | Detalhes de principal | Container.Parent
+Detalhes do caminho de inventário | Detalhes da pasta para cada VM | ((Folder)container).ChildEntity.Type
+Detalhes do caminho de inventário | Detalhes do Centro de dados para cada pasta de VM | ((Datacenter)container).VmFolder
+Detalhes do caminho de inventário | Detalhes do Centro de dados para cada pasta de anfitrião | ((Datacenter)container).HostFolder
+Detalhes do caminho de inventário | Detalhes do cluster para cada anfitrião | ((ClusterComputeResource)container).Host)
+Detalhes do caminho de inventário | Detalhes do anfitrião para cada VM | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Proteger a aplicação Recoletora
@@ -200,34 +271,6 @@ Depois de configurar a aplicação, pode executar a deteção. Eis como funciona
 - Deteção das VMs e seus dados de desempenho e de metadados são enviados para o Azure. Estas ações fazem parte de uma tarefa de coleção.
     - A aplicação Recoletora é atribuída um ID específico do Recoletor que é persistente para um determinado computador entre deteções.
     - Uma tarefa em execução é fornecida um ID de sessão específicos. O ID é alterado para cada tarefa de coleção e pode ser utilizado para resolução de problemas.
-
-### <a name="collected-metadata"></a>Metadados recolhidos
-
-A aplicação recoletora Deteta os seguintes metadados de configuração para cada VM. Os dados de configuração para as VMs estão disponíveis uma hora depois de iniciar a deteção.
-
-- Nome de exibição VM (no vCenter Server)
-- Caminho de inventário da VM (o anfitrião/pasta no vCenter Server)
-- Endereço IP
-- Endereço MAC
-- Sistema operativo
-- Número de núcleos, discos, NICs
-- Tamanho da memória, tamanhos de disco
-- Contadores de desempenho da VM, disco e rede.
-
-#### <a name="performance-counters"></a>Contadores de desempenho
-
- A aplicação recoletora recolhe os seguintes contadores de desempenho para cada VM do anfitrião ESXi num intervalo de 20 segundos. Esses contadores são contadores do vCenter e embora a terminologia diga média, os exemplos de 20 segundos são contadores em tempo real. Os dados de desempenho para as VMs começaram a se tornar disponível no portal de duas horas depois de ter iniciada a deteção. Recomenda-se vivamente que aguarde, pelo menos, um dia antes de criar com base em desempenho avaliações para obter recomendações de tamanho adequado precisas. Se estiver à procura de instantâneos, pode criar avaliações com critério de dimensionamento como *como no local* qual não irá considerar os dados de desempenho para o dimensionamento certo.
-
-**Contador** |  **Impacto na avaliação**
---- | ---
-cpu.usage.average | Tamanho VM recomendados e os custos  
-mem.usage.average | Tamanho VM recomendados e os custos  
-virtualDisk.read.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.write.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.numberReadAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-virtualDisk.numberWriteAveraged.average | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-net.received.average | Calcula o tamanho da VM                          
-net.transmitted.average | Calcula o tamanho da VM     
 
 ## <a name="next-steps"></a>Passos Seguintes
 

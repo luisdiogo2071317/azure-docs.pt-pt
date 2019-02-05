@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: daf75987a49d2ce90a436fdfcff1a85d2fc0ca21
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300409"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697454"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: Avaliar cargas de trabalho no local para migração no Azure
 
@@ -125,7 +125,7 @@ Contoso e outros utilizadores têm de cumprir os seguintes pré-requisitos para 
 - Pelo menos, duas VMs do VMware no local, uma a executar uma base de dados do SQL Server.
 - Permissões para instalar agentes do Azure Migrate em cada VM.
 - As VMs devem ter conectividade à Internet direta.  
-    - Pode restringir o acesso à internet para o [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - Pode restringir o acesso à internet para o [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector).  
     - Se as suas VMs não tem ligação à internet, o Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) tem de estar instalado nos mesmos e o tráfego de agente direcionado através do mesmo.
 - Do FQDN da VM a executar a instância do SQL Server, para avaliação da base de dados.
 - Firewall do Windows em execução na VM do SQL Server deve permitir ligações externas na porta TCP 1433 (predefinição). Esta configuração permite que dados Migration Assistant para se ligar.

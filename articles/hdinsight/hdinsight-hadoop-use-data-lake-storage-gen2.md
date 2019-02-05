@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464794"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728848"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -40,7 +40,7 @@ Para criar um cluster do HDInsight, que usa a geração 2 de armazenamento do Da
 
     ![Captura de ecrã que mostra a criação da conta de armazenamento no portal do Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Atribuir a identidade gerida para o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento. Consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Atribuir a identidade gerida para o **proprietário de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento. Consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. Na [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento.
     1. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
@@ -48,9 +48,9 @@ Para criar um cluster do HDInsight, que usa a geração 2 de armazenamento do Da
         ![Captura de ecrã que mostra as definições de controlo de acesso de armazenamento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
-    1. Na **adicionar atribuição de função** janela, selecione a **contribuinte de dados de Blob de armazenamento (pré-visualização)** função. Em seguida, selecione a subscrição que tem a conta de armazenamento e de identidade gerida. Em seguida, procure para localizar a identidade de gerido atribuído ao utilizador que criou anteriormente. Por fim, selecione a identidade gerida e serão listada sob **membros selecionados**.
+    1. Na **adicionar atribuição de função** janela, selecione a **proprietário de dados de Blob de armazenamento (pré-visualização)** função. Em seguida, selecione a subscrição que tem a conta de armazenamento e de identidade gerida. Em seguida, procure para localizar a identidade de gerido atribuído ao utilizador que criou anteriormente. Por fim, selecione a identidade gerida e serão listada sob **membros selecionados**.
     
-        ![Captura de ecrã que mostra como atribuir uma função RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Captura de ecrã que mostra como atribuir uma função RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Clique em **Guardar**. A identidade de utilizador atribuída que selecionou é agora listada sob a **contribuinte** função.
 

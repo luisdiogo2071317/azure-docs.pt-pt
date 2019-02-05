@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427292"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700016"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada com o Azure PowerShell
 
@@ -34,12 +34,14 @@ Neste tutorial, ficará a saber como:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, irá precisar de:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instalado localmente
+- [Azure PowerShell](/powershell/azure/install-az-ps) instalado localmente
 
 ## <a name="sign-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
 
@@ -49,10 +51,10 @@ Iniciar sessão no [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 A forma mais fácil de criar uma função personalizada é começar com uma função incorporada, editá-la e, em seguida, criar uma nova função.
 
-1. No PowerShell, utilize o comando [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para obter a lista de operações para o fornecedor de recursos Microsoft.Support. É útil conhecer as operações disponíveis para criar as suas permissões. Também pode ver uma lista de todas as operações em [operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
+1. No PowerShell, utilize o [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) comando para obter a lista de operações para o fornecedor de recursos Microsoft. support. É útil conhecer as operações disponíveis para criar as suas permissões. Também pode ver uma lista de todas as operações em [operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md#microsoftsupport).
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
     ```
     
     ```Output
@@ -63,10 +65,10 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. Utilize o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para devolver a função [Leitor](built-in-roles.md#reader) no formato JSON.
+1. Utilize o [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando à saída do [leitor](built-in-roles.md#reader) função no formato JSON.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
 1. Abra o ficheiro **ReaderSupportRole.json** num editor.
@@ -75,34 +77,28 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
-        "Actions":  [
-                        "*/read"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/"
-                             ]
+      "Name": "Reader",
+      "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "IsCustom": false,
+      "Description": "Lets you view everything, but not make any changes.",
+      "Actions": [
+        "*/read"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/"
+      ]
     }
     ```
     
 1. Edite o ficheiro JSON para adicionar a operação `"Microsoft.Support/*"` à propriedade `Actions`. Não se esqueça de incluir uma vírgula após a operação de leitura. Esta ação irá permitir ao utilizador criar pedidos de suporte.
 
-1. Obtenha o ID da sua subscrição com o comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Obter o ID da sua subscrição com o [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) comando.
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 1. Em `AssignableScopes`, adicione o ID de subscrição com o seguinte formato: `"/subscriptions/00000000-0000-0000-0000-000000000000"`
@@ -117,32 +113,26 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
-1. Para criar a nova função personalizada, utilize o comando [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) e especifique o ficheiro de definição de função JSON.
+1. Para criar a nova função personalizada, utilize o [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) comando e especifique o ficheiro de definição de função JSON.
 
     ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
     ```
 
     ```Output
@@ -161,10 +151,10 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-- Para listar todas as funções personalizadas, utilize o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition).
+- Para listar todas as funções personalizadas, utilize o [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
     ```Output
@@ -181,10 +171,10 @@ A forma mais fácil de criar uma função personalizada é começar com uma fun�
 
 Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utilizar o objeto `PSRoleDefinition`.
 
-1. Para atualizar o ficheiro JSON, utilize o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para devolver a função personalizada no formato JSON.
+1. Para atualizar o ficheiro JSON, utilize o [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando para a função personalizada no formato JSON de saída.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
+    Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
 
 1. Abra o ficheiro num editor.
@@ -195,34 +185,28 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "Id": "22222222-2222-2222-2222-222222222222",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
-1. Para atualizar a função personalizada, utilize o comando [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) e especifique o ficheiro JSON atualizado.
+1. Para atualizar a função personalizada, utilize o [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) de comando e especifique o ficheiro JSON atualizado.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    Set-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
     ```
 
     ```Output
@@ -237,10 +221,10 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. Para utilizar o objeto `PSRoleDefintion` para atualizar a sua função personalizada, primeiro utilize o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para obter a função.
+1. Para utilizar o `PSRoleDefintion` objeto para atualizar a sua função personalizada, primeiro utilizar o [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando para obter a função.
 
     ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
+    $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
 1. Chame o método `Add` para adicionar a operação para ler as definições de diagnóstico.
@@ -249,10 +233,10 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
     ```
 
-1. Utilize o [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) para atualizar a função.
+1. Utilize o [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) para atualizar a função.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
+    Set-AzRoleDefinition -Role $role
     ```
     
     ```Output
@@ -270,16 +254,16 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
     
 ## <a name="delete-a-custom-role"></a>Eliminar uma função personalizada
 
-1. Utilize o comando [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para obter o ID da função personalizada.
+1. Utilize o [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) comando para obter o ID da função personalizada.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    Get-AzRoleDefinition "Reader Support Tickets"
     ```
 
-1. Utilize o comando [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) e especifique o ID da função para eliminar a função personalizada.
+1. Utilize o [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) de comandos e especificar o ID de função para eliminar a função personalizada.
 
     ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
+    Remove-AzRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
     ```
 
     ```Output

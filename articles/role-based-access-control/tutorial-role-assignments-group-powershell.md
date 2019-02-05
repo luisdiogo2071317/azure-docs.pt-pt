@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301008"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697556"
 ---
-# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutorial: Conceder acesso a um grupo com o RBAC e o Azure PowerShell
+# <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutorial: Conceder acesso para um grupo através do RBAC e o Azure PowerShell
 
 [O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Neste tutorial irá conceder acesso a um grupo para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
 
@@ -32,6 +32,8 @@ Neste tutorial, ficará a saber como:
 > * Remover o acesso
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,16 +70,16 @@ Para atribuir uma função, precisa de um utilizador, um grupo ou um principal d
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Se não tiver permissões para criar grupos, em vez disso, pode experimentar o [Tutorial: Conceder acesso a um utilizador para utilizar o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md).
+Se não tiver permissões para criar grupos, pode experimentar o [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md) em vez disso.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Utilize um grupo de recursos para mostrar como atribuir uma função num âmbito do grupo de recursos.
 
-1. Obtenha uma lista de localizações de regiões com o comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+1. Obter uma lista de localizações de região através da [Get-AzLocation](/powershell/module/az.resources/get-azlocation) comando.
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. Selecione uma localização perto de si e atribua-a a uma variável.
@@ -86,10 +88,10 @@ Utilize um grupo de recursos para mostrar como atribuir uma função num âmbito
    $location = "westus"
    ```
 
-1. Crie um novo grupo de recursos com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+1. Criar um novo recurso grupo utilizando o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -102,7 +104,7 @@ Utilize um grupo de recursos para mostrar como atribuir uma função num âmbito
 
 ## <a name="grant-access"></a>Conceder acesso
 
-Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir uma função. Tem de especificar o principal de segurança, a definição de função e o âmbito.
+Para conceder acesso para o grupo, utilize o [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando para atribuir uma função. Tem de especificar o principal de segurança, a definição de função e o âmbito.
 
 1. Obtenha o ID do objeto do grupo com o comando [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup).
 
@@ -122,10 +124,10 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Obtenha o ID da sua subscrição com o comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+1. Obter o ID da sua subscrição com o [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) comando.
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -144,7 +146,7 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
 1. Atribua a função [Leitor](built-in-roles.md#reader) ao grupo no âmbito da subscrição.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -164,7 +166,7 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
 1. Atribua a função [Contribuidor](built-in-roles.md#contributor) ao grupo no âmbito do grupo de recursos.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -183,10 +185,10 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
 
 ## <a name="list-access"></a>Listar o acesso
 
-1. Para verificar o acesso à subscrição, utilize o comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) para listar as atribuições de funções.
+1. Para verificar o acesso para a subscrição, utilize o [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command para listar as atribuições de funções.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
+    Get-AzRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -203,10 +205,10 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
 
     No resultado, pode ver que a função de Leitor foi atribuída ao grupo do Tutorial do RBAC no âmbito da subscrição.
 
-1. Para verificar o acesso ao grupo de recursos, utilize o comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) para listar as atribuições de funções.
+1. Para verificar o acesso para o grupo de recursos, utilize o [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command para listar as atribuições de funções.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -245,12 +247,12 @@ Para conceder acesso ao grupo, utilize o comando [New-AzureRmRoleAssignment](/po
 
 ## <a name="remove-access"></a>Remover o acesso
 
-Para remover o acesso dos utilizadores, grupos e aplicações, utilize [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) para remover uma atribuição de função.
+Para remover o acesso para utilizadores, grupos e aplicações, utilize [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) para remover uma atribuição de função.
 
 1. Utilize o seguinte comando para remover a atribuição da função de Contribuidor para o grupo no âmbito do grupo de recursos.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -258,7 +260,7 @@ Para remover o acesso dos utilizadores, grupos e aplicações, utilize [Remove-A
 1. Utilize o seguinte comando para remover a atribuição da função de Leitor para a subscrição do grupo de recursos.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -267,10 +269,10 @@ Para remover o acesso dos utilizadores, grupos e aplicações, utilize [Remove-A
 
 Para limpar os recursos criados por este tutorial, elimine o grupo de recursos e o grupo.
 
-1. Elimine o grupo de recursos com o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+1. Eliminar o grupo de recursos com o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando.
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -289,7 +291,7 @@ Para limpar os recursos criados por este tutorial, elimine o grupo de recursos e
     
     Se receber um erro ao tentar eliminar o grupo, também pode eliminar o grupo no portal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Gerir acesso através do PowerShell e do RBAC](role-assignments-powershell.md)

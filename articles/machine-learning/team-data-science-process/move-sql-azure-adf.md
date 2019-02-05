@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 500d3b0d6d56267f3f3d334f346df23c62e1c471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472733"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733914"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
@@ -68,8 +68,8 @@ Pode adaptar o procedimento aqui apresentado para um conjunto de seus próprios 
 ## <a name="create-adf"></a> Criar uma fábrica de dados do Azure
 As instruções para criar uma nova fábrica de dados do Azure e o grupo de recursos na [portal do Azure](https://portal.azure.com/) são fornecidos [criar uma fábrica de dados do Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nomeie a nova instância do ADF *adfdsp* e dê o nome do grupo de recursos que criou *adfdsprg*.
 
-## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o Azure Data Factory Integration Runtime 
-O Runtime de integração é uma infraestrutura de integração de dados geridos de cliente utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em ambientes de rede diferentes. Este tempo de execução era anteriormente denominado "Gateway de gestão de dados". 
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o Azure Data Factory Integration Runtime
+O Runtime de integração é uma infraestrutura de integração de dados geridos de cliente utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em ambientes de rede diferentes. Este tempo de execução era anteriormente denominado "Gateway de gestão de dados".
 
 Para configurar, [siga instrutions para criar um pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -94,7 +94,7 @@ Crie tabelas que especificam a estrutura, a localização e a disponibilidade do
 As definições de acesso baseado em JSON nas tabelas utilizam os seguintes nomes:
 
 * o **nome da tabela** no SQL no local é servidor *nyctaxi_data*
-* o **nome do contentor** no armazenamento de Blobs do Azure é a conta *containername*  
+* o **nome do contentor** no armazenamento de Blobs do Azure é a conta *containername*
 
 Três definições de tabela são necessários para este pipeline do ADF:
 
@@ -110,30 +110,31 @@ Três definições de tabela são necessários para este pipeline do ADF:
 ### <a name="adf-table-onprem-sql"></a>Tabela do SQL no local
 A definição da tabela para o SQL Server no local é especificada no seguinte ficheiro de JSON:
 
+```json
+{
+    "name": "OnPremSQLTable",
+    "properties":
+    {
+        "location":
         {
-            "name": "OnPremSQLTable",
-            "properties":
+            "type": "OnPremisesSqlServerTableLocation",
+            "tableName": "nyctaxi_data",
+            "linkedServiceName": "adfonpremsql"
+        },
+        "availability":
+        {
+            "frequency": "Day",
+            "interval": 1,
+            "waitOnExternal":
             {
-                "location":
-                {
-                "type": "OnPremisesSqlServerTableLocation",
-                "tableName": "nyctaxi_data",
-                "linkedServiceName": "adfonpremsql"
-                },
-                "availability":
-                {
-                "frequency": "Day",
-                "interval": 1,   
-                "waitOnExternal":
-                {
                 "retryInterval": "00:01:00",
                 "retryTimeout": "00:10:00",
                 "maximumRetry": 3
-                }
-
-                }
             }
         }
+    }
+}
+```
 
 Os nomes das colunas não foram incluídos aqui. Pode selecionar inferiores nos nomes das colunas ao incluí-los aqui (para obter detalhes, veja a [documentação ADF](../../data-factory/copy-activity-overview.md) tópico.
 
@@ -145,62 +146,66 @@ Copiar a definição de JSON da tabela num arquivo chamada *onpremtabledef.json*
 ### <a name="adf-table-blob-store"></a>Tabela de BLOBs
 Definição da tabela para a localização do blob de saída está a ser o seguinte (que mapeia os dados ingeridos no local ao blob do Azure):
 
+```json
+{
+    "name": "OutputBlobTable",
+    "properties":
+    {
+        "location":
         {
-            "name": "OutputBlobTable",
-            "properties":
+            "type": "AzureBlobLocation",
+            "folderPath": "containername",
+            "format":
             {
-                "location":
-                {
-                "type": "AzureBlobLocation",
-                "folderPath": "containername",
-                "format":
-                {
                 "type": "TextFormat",
                 "columnDelimiter": "\t"
-                },
-                "linkedServiceName": "adfds"
-                },
-                "availability":
-                {
-                "frequency": "Day",
-                "interval": 1
-                }
-            }
+            },
+            "linkedServiceName": "adfds"
+        },
+        "availability":
+        {
+            "frequency": "Day",
+            "interval": 1
         }
+    }
+}
+```
 
 Copiar a definição de JSON da tabela num arquivo chamada *bloboutputtabledef.json* do ficheiro e guarde-o para um local conhecido (aqui, pressupõe-se para ser *C:\temp\bloboutputtabledef.json*). Crie a tabela no ADF com o seguinte cmdlet do PowerShell do Azure:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
+    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
 ### <a name="adf-table-azure-sql"></a>SQL Azure tabela
 Definição da tabela para o SQL Azure de saída é o seguinte (neste esquema mapeia os dados originários do blob):
 
+```json
+{
+    "name": "OutputSQLAzureTable",
+    "properties":
     {
-        "name": "OutputSQLAzureTable",
-        "properties":
+        "structure":
+        [
+            { "name": "column1", "type": "String"},
+            { "name": "column2", "type": "String"}
+        ],
+        "location":
         {
-            "structure":
-            [
-                { "name": "column1", type": "String"},
-                { "name": "column2", type": "String"}                
-            ],
-            "location":
-            {
-                "type": "AzureSqlTableLocation",
-                "tableName": "your_db_name",
-                "linkedServiceName": "adfdssqlazure_linked_servicename"
-            },
-            "availability":
-            {
-                "frequency": "Day",
-                "interval": 1            
-            }
+            "type": "AzureSqlTableLocation",
+            "tableName": "your_db_name",
+            "linkedServiceName": "adfdssqlazure_linked_servicename"
+        },
+        "availability":
+        {
+            "frequency": "Day",
+            "interval": 1
         }
     }
+}
+```
 
 Copiar a definição de JSON da tabela num arquivo chamada *AzureSqlTable.json* do ficheiro e guarde-o para um local conhecido (aqui, pressupõe-se para ser *C:\temp\AzureSqlTable.json*). Crie a tabela no ADF com o seguinte cmdlet do PowerShell do Azure:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
+    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
 
 ## <a name="adf-pipeline"></a>Definir e criar o pipeline
@@ -216,72 +221,72 @@ Especifique as atividades que pertencem ao pipeline e criar o pipeline com os se
 
 Utilizar as definições de tabela fornecidas anteriormente, a definição de pipeline para o ADF é especificada da seguinte forma:
 
-        {
-            "name": "AMLDSProcessPipeline",
-            "properties":
+```json
+{
+    "name": "AMLDSProcessPipeline",
+    "properties":
+    {
+        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "activities":
+        [
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
-                 "activities":
-                [
+                "name": "CopyFromSQLtoBlob",
+                "description": "Copy data from on-premises SQL server to blob",
+                "type": "CopyActivity",
+                "inputs": [ {"name": "OnPremSQLTable"} ],
+                "outputs": [ {"name": "OutputBlobTable"} ],
+                "transformation":
+                {
+                    "source":
                     {
-                        "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premises SQL server to blob",     
-                        "type": "CopyActivity",
-                        "inputs": [ {"name": "OnPremSQLTable"} ],
-                        "outputs": [ {"name": "OutputBlobTable"} ],
-                        "transformation":
-                        {
-                            "source":
-                            {                               
-                                "type": "SqlSource",
-                                "sqlReaderQuery": "select * from nyctaxi_data"
-                            },
-                            "sink":
-                            {
-                                "type": "BlobSink"
-                            }   
-                        },
-                        "Policy":
-                        {
-                            "concurrency": 3,
-                            "executionPriorityOrder": "NewestFirst",
-                            "style": "StartOfInterval",
-                            "retry": 0,
-                            "timeout": "01:00:00"
-                        }       
-
-                     },
-
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "select * from nyctaxi_data"
+                    },
+                    "sink":
                     {
-                        "name": "CopyFromBlobtoSQLAzure",
-                        "description": "Push data to Sql Azure",        
-                        "type": "CopyActivity",
-                        "inputs": [ {"name": "OutputBlobTable"} ],
-                        "outputs": [ {"name": "OutputSQLAzureTable"} ],
-                        "transformation":
-                        {
-                            "source":
-                            {                               
-                                "type": "BlobSource"
-                            },
-                            "sink":
-                            {
-                                "type": "SqlSink",
-                                "WriteBatchTimeout": "00:5:00",                
-                            }            
-                        },
-                        "Policy":
-                        {
-                            "concurrency": 3,
-                            "executionPriorityOrder": "NewestFirst",
-                            "style": "StartOfInterval",
-                            "retry": 2,
-                            "timeout": "02:00:00"
-                        }
-                     }
-                ]
+                        "type": "BlobSink"
+                    }
+                },
+                "Policy":
+                {
+                    "concurrency": 3,
+                    "executionPriorityOrder": "NewestFirst",
+                    "style": "StartOfInterval",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }
+            },
+            {
+                "name": "CopyFromBlobtoSQLAzure",
+                "description": "Push data to Sql Azure",
+                "type": "CopyActivity",
+                "inputs": [ {"name": "OutputBlobTable"} ],
+                "outputs": [ {"name": "OutputSQLAzureTable"} ],
+                "transformation":
+                {
+                    "source":
+                    {
+                        "type": "BlobSource"
+                    },
+                    "sink":
+                    {
+                        "type": "SqlSink",
+                        "WriteBatchTimeout": "00:5:00",
+                    }
+                },
+                "Policy":
+                {
+                    "concurrency": 3,
+                    "executionPriorityOrder": "NewestFirst",
+                    "style": "StartOfInterval",
+                    "retry": 2,
+                    "timeout": "02:00:00"
+                }
             }
-        }
+        ]
+    }
+}
+```
 
 Esta definição de JSON do pipeline num arquivo chamada de cópia *pipelinedef.json* do ficheiro e guarde-o para um local conhecido (aqui, pressupõe-se para ser *C:\temp\pipelinedef.json*). Crie o pipeline no ADF com o seguinte cmdlet do PowerShell do Azure:
 

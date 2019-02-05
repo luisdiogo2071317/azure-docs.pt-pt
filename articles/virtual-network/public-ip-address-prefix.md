@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 5bbe0709f89ca198b0571526291f700c99e9e59f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966831"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700745"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo do endereço IP público
 
@@ -31,7 +31,7 @@ Endereços IP públicos são atribuídos a partir de um conjunto de endereços e
 Crie um prefixo de endereço IP público numa região do Azure e subscrição ao especificar um nome e quantos endereços que pretende que o prefixo para incluir. Por exemplo, se criar um prefixo de endereço IP público de/28, o Azure aloca 16 endereços de um dos seus intervalos para. Não sabe o intervalo Azure serão atribuídas depois de criar o intervalo, mas os endereços sejam contíguos. Prefixos de endereços IP públicos têm uma taxa. Para obter detalhes, consulte [preços de endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 > [!IMPORTANT]
-> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: e.u.a. centro-oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, visite [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, visite [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Porquê criar um prefixo de endereço IP público?
 
@@ -53,7 +53,7 @@ Pode associar os seguintes recursos para um endereço IP público estático a pa
 |---|---|---|
 |Virtual Machines| Associar IPs públicos de um prefixo para as máquinas virtuais no Azure reduz a sobrecarga de gerenciamento que diz respeito à lista de permissões IPs numa firewall. Pode simplesmente lista branca um prefixo de inteiro com uma única regra de firewall. À medida que aumenta com máquinas virtuais no Azure, pode associar IPs do mesmo prefixo, economizando custo, tempo e custos de gestão.| Para associar IPs de um prefixo para a máquina virtual: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. [Associe o IP para a interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Balanceador de Carga | Associar IPs públicos de um prefixo para o seu IP de front-end configuração ou a regra de saída de um balanceador de carga garante simplificação do seu espaço de endereço IP público do Azure. Pode simplificar o seu cenário pelo tratamento de ligações de saída para ser originado de um intervalo de endereços IP contíguos definido pelo prefixo IP público. | Para associar IPs de um prefixo para o Balanceador de carga: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Ao criar o Balanceador de carga, selecione ou atualizar o IP criado no passo 2 acima, como o IP de front-end do seu Balanceador de carga. |
-| Azure Firewall | Pode utilizar um IP público de um prefixo de SNAT de saída. Isso significa que todo tráfego de rede virtual saída é traduzido para o [Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) IP público. Uma vez que este IP é proveniente de um prefixo predeterminado, é muito fácil de saber antecipadamente aparência sua pegada de IP pública no Azure. | 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Quando [implantar o firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), certifique-se de que selecione IP alocado previosuly o prefixo.|
+| Azure Firewall | Pode utilizar um IP público de um prefixo de SNAT de saída. Isso significa que todo tráfego de rede virtual saída é traduzido para o [Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) IP público. Uma vez que este IP é proveniente de um prefixo predeterminado, é muito fácil de saber antecipadamente aparência sua pegada de IP pública no Azure. | 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Quando [implantar o firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), certifique-se de que selecione IP alocados anteriormente o prefixo.|
 
 ## <a name="constraints"></a>Restrições
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509708"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699946"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -391,8 +391,8 @@ O armazenamento do Azure suporta seguintes dimensões de métricas no Azure Moni
 | BlobType | O tipo de blob para apenas as métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
 | ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros de servidor, exceto aqueles descrito </li> <li> ServerBusyError: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. O limite de tempo excedido devido a um erro de servidor. </li> <li> AuthorizationError: Pedido autenticado que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li> NetworkError: Pedido autenticado que falhou por erros de rede. Normalmente ocorre quando um cliente prematuramente fecha uma conexão antes da expiração de tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou o tempo limite do pedido estiver definido como um valor inferior que o esperado pelo serviço de armazenamento, é um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente exceto aqueles descrito. </li> <li> Êxito: Pedido com êxito|
 | GeoType | Transação do cluster primária ou secundária. Os valores disponíveis incluem primária e secundária. Aplica-se para Storage(RA-GRS) redundantes de Georreplicação de acesso de leitura ao ler objetos do inquilino secundário. |
-| ApiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
-| Autenticação | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso de OAuth.</li> <li>Anónimo: A transação é solicitada anonimamente. Ele não inclui pedidos de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |
+| ApiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| Authentication | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso de OAuth.</li> <li>Anónimo: A transação é solicitada anonimamente. Ele não inclui pedidos de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |
 
 Para as dimensões de suporte de métricas, terá de especificar o valor de dimensão para ver os valores de métricas correspondentes. Por exemplo, se olhar **transações** valor para respostas com êxito, tem de filtrar a **ResponseType** dimensão com **êxito**. Ou se olhar **BlobCount** valor para o Blob de bloco, precisa filtrar os **BlobType** dimensão com **BlockBlob**.
 

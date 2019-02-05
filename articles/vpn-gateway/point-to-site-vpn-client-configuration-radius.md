@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510158"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700167"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar os ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
@@ -98,10 +98,10 @@ Utilize os seguintes passos para configurar o cliente de VPN do Windows nativo p
 
 2. Localize a **mobileconfig** ficheiros no Mac.
 
-   ![Localização do ficheiro mobilconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Localização do ficheiro mobileconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Passo opcional - se de que pretende especificar um DNS personalizado, adicione as seguintes linhas para o **mobileconfig** ficheiro:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -262,15 +262,15 @@ Para utilizar um tipo de autenticação diferentes (por exemplo, OTP), ou para u
 
 1. Utilize o `Get-AzureRmVpnClientConfiguration` cmdlet para gerar a configuração de cliente VPN para EapMSChapv2. Para obter instruções, consulte [esta secção](#ccradius) do artigo.
 
-2. Deszipe o ficheiro de VpnClientConfiguration.zip e procure o **GenenericDevice** pasta. Ignore as pastas que contêm os programas de instalação do Windows para arquiteturas de 64 bits e 32 bits.
+2. Deszipe o ficheiro de VpnClientConfiguration.zip e procure o **GenericDevice** pasta. Ignore as pastas que contêm os programas de instalação do Windows para arquiteturas de 64 bits e 32 bits.
  
-3. O **GenenericDevice** pasta contém um arquivo XML denominado **VpnSettings**. Esse arquivo contém todas as informações necessárias:
+3. O **GenericDevice** pasta contém um arquivo XML denominado **VpnSettings**. Esse arquivo contém todas as informações necessárias:
 
    * **VpnServer**: FQDN do gateway de VPN do Azure. Este é o endereço que o cliente se liga a.
    * **VpnType**: Tipo de túnel que utilizar para ligar.
    * **Rotas**: Rotas que tem de configurar no seu perfil, para que apenas o tráfego que está vinculado a rede virtual do Azure é enviado através do túnel de P2S.
    
-   O **GenenericDevice** pasta também contém um ficheiro. cer, chamado **VpnServerRoot**. Este ficheiro contém o certificado de raiz que é necessário para validar o gateway de VPN do Azure durante a configuração de ligação de P2S. Instale o certificado em todos os dispositivos que irão ligar à rede virtual do Azure.
+   O **GenericDevice** pasta também contém um ficheiro. cer, chamado **VpnServerRoot**. Este ficheiro contém o certificado de raiz que é necessário para validar o gateway de VPN do Azure durante a configuração de ligação de P2S. Instale o certificado em todos os dispositivos que irão ligar à rede virtual do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

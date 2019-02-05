@@ -10,18 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 923ce9b5840ec8d99234b9a3b869005ff59848e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494623"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697505"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço do Azure Batch para tarefas do Azure Machine Learning Studio
 
 Processamento do Machine Learning Batch Pool fornece dimensionamento gerida pelo cliente para o serviço de execução de lote do Azure Machine Learning. O processamento de batch de clássico para aprendizagem ocorre num ambiente multi-inquilino, o que limita o número de tarefas simultâneas pode enviar e tarefas são colocados em fila numa base first-in-first-out. Essa incerteza significa que não é possível prever com precisão quando a tarefa será executada.
 
 Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote. Controla o tamanho do conjunto e, para que conjunto da tarefa é submetida. Seu trabalho BES é executado no seu próprio espaço de processamento de fornecer o desempenho do processamento previsível e a capacidade de criar agrupamentos de recursos que correspondem a carga de processamento que submeter.
+
+> [!NOTE]
+> Tem de ter um novo Gerenciador de recursos com base em Machine Learning web service para criar um conjunto. Depois de criado, pode executar serviço da web, os dois novos do Resource Manager clássico e com base no conjunto para qualquer BES.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Como utilizar o processamento do conjunto do Batch
 
@@ -36,7 +39,7 @@ Depois de criar a sua conta, utilize a chave de URL do serviço de agrupamento e
 
 ![Arquitetura de serviço do batch pool.](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-Criar conjuntos ao chamar a operação Criar conjunto acerca do URL de serviço do conjunto CSS fornecido a. Quando cria um conjunto, especifique o número de VMs e o URL do swagger de um Gerenciador de recursos novo com base em serviço web Machine Learning. Esse web service é fornecido para estabelecer a associação de faturação. O serviço do conjunto do Batch utiliza o swagger para associar o agrupamento de um plano de faturação. Pode executar qualquer BES serviço da web, ambos baseados no Resource Manager novas e clássicas, escolher no conjunto.
+Criar conjuntos ao chamar a operação Criar conjunto acerca do URL de serviço do conjunto CSS fornecido a. Quando cria um conjunto, especifique o número de VMs e o URL do swagger de um Gerenciador de recursos novo com base em serviço web Machine Learning. Esse web service é fornecido para estabelecer a associação de faturação. O serviço do conjunto do Batch utiliza o swagger para associar o agrupamento de um plano de faturação. Pode executar qualquer BES serviço da web, os dois novos do Resource Manager clássico e com base no conjunto.
 
 Pode usar qualquer serviço da web baseados no Resource Manager novas, mas lembre-se de que a faturação para as tarefas são cobradas conforme o plano de faturação associado a esse serviço. Pode querer criar um serviço web e um novo plano de faturação especificamente para executar tarefas de conjunto do Batch.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411888"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730327"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Início rápido: Criar uma máquina virtual do Windows com a CLI do Azure
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar a CLI localmente, este guia de início rápido 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo utiliza *azureuser* para um nome de utilizador administrativo e *myPassword12* como palavra-passe. Atualize estes valores para algo adequado ao ambiente. Estes valores são necessários quando liga à VM.
+Crie uma VM com [az vm create](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVM*. Este exemplo utiliza *azureuser* para um nome de utilizador administrativo e *myPassword12* como palavra-passe. Atualize estes valores para algo adequado ao ambiente. Estes valores são necessários quando liga à VM.
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +73,7 @@ Tenha em atenção o seu próprio `publicIpAddress` na saída da VM. Este endere
 
 ## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web
 
-Por predefinição, apenas as ligações RDP são abertas ao criar uma VM do Windows no Azure. Utilize [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir a porta TCP 80 para utilização com o servidor Web do IIS:
+Por predefinição, apenas as ligações RDP são abertas ao criar uma VM do Windows no Azure. Utilize [az vm open-port](/cli/azure/vm) para abrir a porta TCP 80 para utilização com o servidor Web do IIS:
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

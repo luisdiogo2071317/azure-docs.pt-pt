@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330743"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729477"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionar uma máquina virtual do SQL Server do Linux no portal do Azure
 
@@ -129,7 +129,7 @@ Se estiver em execução no Windows e não tiver uma shell de BASH, instale um c
 
 1. Selecione **aberto** e introduza o nome de utilizador e palavra-passe nos pedidos.
 
-Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma VM do Linux no Azure com o Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
+Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma VM do Linux no Azure com o Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
 > [!Note]
 > Se vir um alerta de segurança PuTTY sobre a chave de anfitrião do servidor que não sejam armazenada no Registro, escolha uma das opções seguintes. Se confiar neste anfitrião, selecione **Sim** para adicionar a chave para a cache do PuTTy e continuar a ligar. Se quiser transportar sobre como ligar apenas uma vez, sem adicionar a chave para a cache, selecione **não**. Se não confia este anfitrião, selecione **Cancelar** abandonar a ligação.

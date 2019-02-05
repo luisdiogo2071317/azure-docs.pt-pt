@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5c81a172c99ea6e2591a25f53705ab9cd30fd83
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 97c7af9eb86b1c2e904e2253933b2b01c9e38cf5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660634"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729341"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
 
@@ -38,8 +38,8 @@ A tabela seguinte lista os tipos de exceções de mensagens e suas causas e aç�
 
 | Tipo de Excepção | Descrição/causa/exemplos | Ação sugerida | Tenha em atenção aquando da repetição imediata/automático |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |O servidor não respondeu para a operação pedida no período especificado, o que é controlada pela [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). O servidor de pode concluir a operação pedida. Essa exceção pode acontecer devido a rede ou de outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente se necessário.<br /> Ver [TimeoutException](#timeoutexception). | Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |A operação de utilizador solicitada não é permitida dentro do servidor ou serviço. Ver a mensagem de exceção para obter detalhes. Por exemplo, [concluída](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) gera esta exceção se a mensagem foi recebida na [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modo. | Verifique o código e a documentação. Certifique-se de que a operação pedida é válida. | Repetição não ajudará. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |O servidor não respondeu para a operação pedida no período especificado, o que é controlada pela [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). O servidor de pode concluir a operação pedida. Essa exceção pode acontecer devido a rede ou de outros atrasos de infraestrutura. |Verifique o estado do sistema para manter a consistência e tente novamente se necessário.<br /> Ver [TimeoutException](#timeoutexception). | Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
+| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |A operação de utilizador solicitada não é permitida dentro do servidor ou serviço. Ver a mensagem de exceção para obter detalhes. Por exemplo, [concluída](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) gera esta exceção se a mensagem foi recebida na [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modo. | Verifique o código e a documentação. Certifique-se de que a operação pedida é válida. | Repetição não ajudará. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | É efetuada uma tentativa de invocar uma operação num objeto que já foi fechado, abortada ou eliminado. Em casos raros, a transação de ambiente já foi eliminada. | Verifique o código e certifique-se de que ele não invoca operações num objeto descartado. | Repetição não ajudará. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | O [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) objeto não foi possível obter um token, o token é inválido ou o token não contém as declarações necessárias para efetuar a operação. | Certifique-se de que o fornecedor do token é criado com os valores corretos. Verifique a configuração do serviço de controlo de acesso. | Repetição poderá ajudar em alguns casos; Adicione lógica de repetição ao código. |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Um ou mais argumentos fornecidos para o método são inválidos. O URI fornecido a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém o caminho de modo. O esquema URI fornecido a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. O valor da propriedade é maior do que 32 KB. | Verifique o código de chamada e certifique-se de que os argumentos estão corretos. | Repetição não ajudará. |
@@ -81,7 +81,7 @@ Este erro pode ocorrer para um dos dois motivos:
 
 1. A carga não é distribuída uniformemente entre todas as partições no hub de eventos e uma partição atinge a limitação de unidades de débito local.
     
-    Resolução: Rever a estratégia de distribuição de partição ou tentar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) poderá ajudar.
+    Resolução: Rever a estratégia de distribuição de partição ou tentar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) poderá ajudar.
 
 2. O espaço de nomes de Hubs de eventos não tem unidades de débito suficiente (pode verificar o **métricas** ecrã de evento de janela de espaço de nomes de Hubs no [portal do Azure](https://portal.azure.com) para confirmar). O portal mostra informações de agregados (1 minuto), mas a taxa de transferência em tempo real – é medida, portanto, é apenas uma estimativa.
 

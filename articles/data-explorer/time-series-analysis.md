@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 63182657e7c5793a2102efecabeb7d51fa1086a9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636698"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729494"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 
@@ -36,16 +36,16 @@ A tabela resultante contém uma coluna timestamp, três colunas de dimensões co
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
 |   | Carimbo de data/hora | BrowserVer | OsVer | País |
-|   | 2016 e 08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Reino Unido |
-|   | 2016 e 08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
-|   | 2016 e 08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Reino Unido |
-|   | 2016 e 08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | Reino Unido |
-|   | 2016 e 08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | República de Lituânia |
-|   | 2016 e 08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Índia |
-|   | 2016 e 08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Reino Unido |
-|   | 2016 e 08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Países Baixos |
-|   | 2016 e 08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Reino Unido |
-|   | 2016 e 08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Índia |
+|   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Reino Unido |
+|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
+|   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Reino Unido |
+|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | Reino Unido |
+|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | República de Lituânia |
+|   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Índia |
+|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Reino Unido |
+|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Países Baixos |
+|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Reino Unido |
+|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Índia |
 
 Uma vez que existem não existem métricas, só é possível criar um conjunto de séries de tempo que representa a contagem de tráfego em si, particionada por sistema operacional usando a seguinte consulta:
 
@@ -64,7 +64,7 @@ demo_make_series1
     - `byOsVer`: a partição pelo sistema operacional
 - A estrutura de dados de séries de tempo real é uma matriz numérico do valor agregado por cada posição de tempo. Usamos `render timechart` para visualização.
 
-Na tabela acima, temos três partições. Podemos criar uma série de tempo separado: Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão de SO, como visto no gráfico:
+Na tabela acima, temos três partições. Podemos criar uma série de tempo separadas: Com o Windows 10 (vermelho), 7 (azul) e 8.1 (verde) para cada versão de SO, como visto no gráfico:
 
 ![Partição de série de tempo](media/time-series-analysis/time-series-partition.png)
 
@@ -103,6 +103,7 @@ Exemplo de `series_fit_line()` e `series_fit_2lines()` funções numa consulta d
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
+| project x, y, series_fit_2lines_y_line_fit, series_fit_line_y_line_fit 
 | render linechart
 ```
 
@@ -182,10 +183,10 @@ demo_many_series1
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
 |   | TIMESTAMP | Loc | anonOp | DB | DataRead |
-|   | 21:00:00.0000000 2016-09-11 | 9 de Loc | 5117853934049630089 | 262 | 0 |
-|   | 21:00:00.0000000 2016-09-11 | 9 de Loc | 5117853934049630089 | 241 | 0 |
-|   | 21:00:00.0000000 2016-09-11 | 9 de Loc | -865998331941149874 | 262 | 279862 |
-|   | 21:00:00.0000000 2016-09-11 | 9 de Loc | 371921734563783410 | 255 | 0 |
+|   | 2016-09-11 21:00:00.0000000 | 9 de Loc | 5117853934049630089 | 262 | 0 |
+|   | 2016-09-11 21:00:00.0000000 | 9 de Loc | 5117853934049630089 | 241 | 0 |
+|   | 2016-09-11 21:00:00.0000000 | 9 de Loc | -865998331941149874 | 262 | 279862 |
+|   | 2016-09-11 21:00:00.0000000 | 9 de Loc | 371921734563783410 | 255 | 0 |
 
 E estatísticas simples:
 
@@ -196,8 +197,8 @@ demo_many_series1
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | Núm. | min\_t | máximo\_t |
-|   | 2177472 | 00:00:00.0000000 2016-09-08 | 23:00:00.0000000 2016-09-11 |
+|   | num | min\_t | max\_t |
+|   | 2177472 | 2016-09-08 00:00:00.0000000 | 2016-09-11 23:00:00.0000000 |
 
 Criação de uma série de tempo em contentores de 1 hora da métrica de leitura (total de quatro dias * 24 horas = 96 pontos), resulta em flutuação padrão normal:
 
@@ -255,8 +256,8 @@ demo_many_series1
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
 |   | Loc | anonOp | DB | inclinação |
-|   | 15 de Loc | -3207352159611332166 | 1151 | -102743.910227889 |
-|   | 13 de Loc | -3207352159611332166 | 1249 | -86303.2334644601 |
+|   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
+|   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
 Em menos de dois minutos, ADX analisados mais de 20.000 séries de tempo e detetou duas séries de tempo anormal em que a contagem de leitura, de repente, removido.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: 884d64c2d7286dde7a62ac5e9a6fd3054b683fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245969"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733846"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um balanceador de carga para balancear carga de VMs com CLI do Azure
 
@@ -168,7 +168,7 @@ Neste exemplo, o utilizador cria três máquinas virtuais para serem utilizadas 
 
 ### <a name="create-an-availability-set"></a>Criar um Conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

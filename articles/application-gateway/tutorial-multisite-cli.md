@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2f7c56176841b0916a850dbbca4f564c4f216092
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660617"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732078"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Criar um gateway de aplicação com o alojamento de vários sites com a CLI do Azure
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az-net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -102,7 +102,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-backend-pools"></a>Adicionar os conjuntos de back-end
 
-Adicionar os conjuntos de back-end com o nome *contosoPool* e *fabrikamPool* que são necessários para conter os servidores de back-end com [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create).
+Adicionar os conjuntos de back-end com o nome *contosoPool* e *fabrikamPool* que são necessários para conter os servidores de back-end com [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www.contoso.com* e *www.fabrikam.com*. 
 
-Adicionar os serviços de escuta com o nome *contosoListener* e *fabrikamListener* que são necessárias para encaminhar o tráfego utilizando [az rede application-gateway http-listener criar](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Adicionar os serviços de escuta com o nome *contosoListener* e *fabrikamListener* que são necessárias para encaminhar o tráfego utilizando [az rede application-gateway http-listener criar](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 As regras são processadas na ordem em que são criados e o tráfego é direcionado através da primeira regra que corresponda ao URL enviado para o gateway de aplicação. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
-Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. Pode adicionar a regra com [az network application-gateway rule create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway rule create \

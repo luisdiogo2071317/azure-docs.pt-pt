@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468398"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694116"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -87,7 +87,8 @@ Quando a conectividade é restringida por uma firewall, o requisito de proxy ou 
 Quaisquer definições de grupo de segurança de rede que são aplicadas ainda permite que o ponto final de acordo com a configuração de rede documentado [pré-requisitos](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) para a encriptação de disco.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>O Azure Key Vault protegido por uma firewall
-Quando a encriptação está a ser ativada com [credenciais do Azure AD](azure-security-disk-encryption-prerequisites-aad.md), a VM de destino deve ter acesso aos pontos de extremidade de autenticação do Azure AD, bem como os pontos de extremidade do Key Vault.  Para obter mais informações sobre este processo, consulte a documentação de orientação sobre como aceder ao Cofre de chaves através de uma firewall que o [do Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) equipe mantém. 
+
+Quando a encriptação está a ser ativada com [credenciais do Azure AD](azure-security-disk-encryption-prerequisites-aad.md), a VM de destino têm de permitir conectividade para pontos finais do Azure Active Directory e pontos de extremidade do Key Vault. Pontos finais de autenticação do Azure Active Directory atuais são mantidos nas secções 56 e 59 do [intervalos de endereços IP e URLs do Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentação. Instruções do Cofre de chaves são fornecidas na documentação sobre como [acesso do Azure Key Vault protegido por uma firewall](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 A VM tem de ser capaz de aceder a [serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) ponto final que utiliza um endereço IP bem conhecido não encaminháveis internos (`169.254.169.254`) que podem ser acedidos apenas a partir de dentro da VM.

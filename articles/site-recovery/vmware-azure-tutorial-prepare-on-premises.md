@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970819"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700116"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -107,11 +107,11 @@ Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o segui
 
 
 ## <a name="failback-requirements"></a>Requisitos de reativação pós-falha
-Se planear a reativação pós-falha no local, terá também de se certificar de que certos [pré-requisitos são cumpridos](vmware-azure-reprotect.md##before-you-begin). No entanto, estes **não são necessários para começar a utilizar a ativação da recuperação após desastre** nas suas VMs, e também podem ser feitos após a ativação pós-falha do Azure.
+Se planear para a reativação pós-falha no local, terá também de se certificar de que certos [pré-requisitos são cumpridos](vmware-azure-reprotect.md##before-you-begin). No entanto, estes **não são necessários para começar a utilizar a ativação da recuperação após desastre** nas suas VMs, e também podem ser feitos após a ativação pós-falha do Azure.
 
 ## <a name="useful-links"></a>Ligações úteis
 
-Se estiver a replicar várias VMs, deverá planear a capacidade e a implementação antes de começar. [Saiba mais](site-recovery-deployment-planner.md).
+Se estiver a replicar várias VMs, deve planear capacidade e de implementação antes de começar. [Saiba mais](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

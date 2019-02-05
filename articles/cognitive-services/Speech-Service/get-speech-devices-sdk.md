@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223362"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733472"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter os dispositivos de voz dos serviços cognitivos SDK
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 Conclua os passos seguintes para aderir ao Azure AD com o endereço de e-mail que indicou durante o registo. Este processo lhe concede acesso para o SDK de dispositivos de voz [site de download](https://shares.datatransfer.microsoft.com/).
 
-1. Na mensagem de e-mail que recebeu, selecione **começar**. Se sua organização já é cliente do Office 365, lhe for pedido para iniciar sessão e pode avançar diretamente para o passo 8.
+1. Na mensagem de e-mail que recebeu, selecione **começar**. Se sua organização já é cliente do Office 365, lhe for pedido para iniciar sessão e pode avançar diretamente para o passo 7.
 
 2. Na janela do browser que se abre, selecione **seguinte**.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 05/4/2018
-ms.openlocfilehash: d450b8d154e920bfc9a82314d34f20a52af71dab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bde43a02b844d0dc0be8b6a270ac94e0b1422b69
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182001"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733285"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Criar e gerir a base de dados do Azure para as regras de firewall do PostgreSQL com a CLI do Azure
 Regras de firewall ao nível do servidor permitem que os administradores gerir o acesso a uma base de dados do Azure para o servidor PostgreSQL de um endereço IP específico ou intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para PostgreSQL regras de firewall, consulte [base de dados do Azure para as regras de firewall do servidor PostgreSQL](concepts-firewall-rules.md)
@@ -26,7 +26,7 @@ Para seguir este guia de procedimentos, terá de:
 O [az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) comandos são utilizados para configurar regras de firewall.
 
 ## <a name="list-firewall-rules"></a>Listar regras de firewall 
-Para listar as regras de firewall de servidor existentes, execute o [lista do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list) comando.
+Para listar as regras de firewall de servidor existentes, execute o [lista do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) comando.
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -35,7 +35,7 @@ A saída lista as regras de firewall, se houver, por predefinição em JSON form
 az postgres server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-firewall-rule"></a>Criar regra de firewall
-Para criar uma nova regra de firewall no servidor, execute o [az postgres server firewall-rule criar](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) comando. 
+Para criar uma nova regra de firewall no servidor, execute o [az postgres server firewall-rule criar](/cli/azure/postgres/server/firewall-rule) comando. 
 
 ```
 To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example, replacing the IP shown here with your specific IP.
@@ -54,7 +54,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 Após a conclusão bem-sucedida, a saída do comando lista os detalhes da regra de firewall que criou, por predefinição no formato JSON. Se houver uma falha, o resultado mostra uma mensagem de erro em vez disso.
 
 ## <a name="update-firewall-rule"></a>Atualizar regra de firewall 
-Atualizar uma regra de firewall existente no servidor com [atualização do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) comando. Forneça o nome da regra de firewall existente como entrada e o início de atributos IP de IP e de fim para atualizar.
+Atualizar uma regra de firewall existente no servidor com [atualização do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) comando. Forneça o nome da regra de firewall existente como entrada e o início de atributos IP de IP e de fim para atualizar.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.0
 ```
@@ -63,7 +63,7 @@ Após a conclusão bem-sucedida, a saída do comando lista os detalhes da regra 
 > Se a regra de firewall não existir, este é criado pelo comando de atualização.
 
 ## <a name="show-firewall-rule-details"></a>Mostrar os detalhes da regra de firewall
-Também pode mostrar os detalhes de uma regra de firewall ao nível do servidor existente executando [show do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show) comando.
+Também pode mostrar os detalhes de uma regra de firewall ao nível do servidor existente executando [show do az postgres server firewall-rule](/cli/azure/postgres/server/firewall-rule) comando.
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

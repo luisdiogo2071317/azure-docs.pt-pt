@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: c326c255636bac7e698a64044e9ab65c8c05d01c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460725"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734509"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorizar a utilização e custos estimados
 
@@ -73,7 +73,7 @@ Há outra alteração aos dados ingeridos no Log Analytics ou o Application Insi
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Os novos preços modelo e elegibilidades da subscrição do Operations Management Suite
 
-Os clientes que compraram o Microsoft Operations Management Suite E1 e E2 são elegíveis para elegibilidade de ingestão de dados por nó para [do Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Para receber esta elegibilidade para áreas de trabalho do Log Analytics ou recursos do Application Insights numa determinada subscrição: 
+Os clientes que compraram o Microsoft Operations Management Suite E1 e E2 são elegíveis para elegibilidade de ingestão de dados por nó para [do Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Para receber esta elegibilidade para áreas de trabalho do Log Analytics ou recursos do Application Insights numa determinada subscrição: 
 
 - Modelo de preços da subscrição tem de permanecer no modelo de pré-Abril de 2018.
 - Áreas de trabalho do log Analytics, devem utilizar o "por nó (OMS)" escalão de preço.

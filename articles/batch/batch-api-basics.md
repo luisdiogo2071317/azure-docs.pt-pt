@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: bdb7b1477725235ca88e9cf527c7f711fd6f6b73
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754072"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732265"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -153,7 +153,7 @@ Para obter requisitos e passos detalhados, veja [Utilizar uma imagem personaliza
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Suporte de contentor em agrupamentos de Máquinas Virtuais
 
-Ao criar um agrupamento de Configuração de Máquinas Virtuais com as APIs do Batch, pode configurar o agrupamento para executar tarefas nos contentores do Docker. Atualmente, tem de criar o agrupamento através de uma imagem que suporte contentores do Docker. Utilize o Windows Server 2016 Datacenter com a imagem de Contentores do Azure Marketplace ou forneça uma imagem da VM personalizada que inclua o Docker Community Edition ou Enterprise Edition e quaisquer controladores necessários. As definições do agrupamento têm de incluir uma [configuração de contentor](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie as imagens do contentor para as VMs quando for criado o agrupamento. As tarefas executadas no agrupamento podem, então, referenciar as imagens e as opções de execução do contentor.
+Ao criar um agrupamento de Configuração de Máquinas Virtuais com as APIs do Batch, pode configurar o agrupamento para executar tarefas nos contentores do Docker. Atualmente, tem de criar o agrupamento através de uma imagem que suporte contentores do Docker. Utilize o Windows Server 2016 Datacenter com a imagem de Contentores do Azure Marketplace ou forneça uma imagem da VM personalizada que inclua o Docker Community Edition ou Enterprise Edition e quaisquer controladores necessários. As definições do agrupamento têm de incluir uma [configuração de contentor](/rest/api/batchservice/pool/add) que copie as imagens do contentor para as VMs quando for criado o agrupamento. As tarefas executadas no agrupamento podem, então, referenciar as imagens e as opções de execução do contentor.
 
 Para obter mais informações, veja [Aplicações de contentor do Run Docker no Azure Batch](batch-docker-container-workloads.md).
 
@@ -355,7 +355,7 @@ O diretório de raiz contém a seguinte estrutura de diretórios:
 
 ![Estrutura de diretórios do nó de computação][1]
 
-* **partilhado**: Este diretório proporciona acesso de leitura/gravação para *todos os* tarefas executadas num nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
+* **shared**: Este diretório proporciona acesso de leitura/gravação para *todos os* tarefas executadas num nó. Qualquer tarefa executada no nó pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_SHARED_DIR` para aceder a este diretório.
 * **arranque**: Este diretório é utilizado por uma tarefa de início como o diretório de trabalho. Todos os ficheiros que tenham sido transferidos para o nó pela tarefa de início são armazenados aqui. A tarefa de início pode criar, ler, atualizar e eliminar ficheiros neste diretório. As tarefas podem consultar a variável de ambiente `AZ_BATCH_NODE_STARTUP_DIR` para aceder a este diretório.
 * **Tarefas**: É criado um diretório para cada tarefa executada no nó. O diretório é acedido ao consultar a variável de ambiente `AZ_BATCH_TASK_DIR`.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856132"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733319"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Descrição geral das filas de mensagens não entregues do Service Bus
 
@@ -60,13 +60,13 @@ Não é possível desativar esse comportamento, mas pode definir [MaxDeliveryCou
 
 ## <a name="exceeding-timetolive"></a>TimeToLive exceder
 
-Quando o [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) estiver definida como **true** (a predefinição é **false**), todas as mensagens prestes a expirar são movidas para o DLQ, especificando o `TTLExpiredException` código de razão.
+Quando o [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) estiver definida como **true** (a predefinição é **false**), todas as mensagens prestes a expirar são movidas para o DLQ, especificando o `TTLExpiredException` código de razão.
 
 Tenha em atenção que mensagens expiradas são apenas removidas e movidas para o DLQ quando existe pelo menos um recetor ativo, extrair a partir da fila de principal ou a subscrição; esse comportamento é propositado.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erros ao processar as regras de subscrição
 
-Quando o [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) propriedade está ativada para uma subscrição, quaisquer erros que ocorrem enquanto executa a regra de filtro SQL de uma subscrição são capturados na DLQ ao longo com a mensagem incorreto.
+Quando o [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) propriedade está ativada para uma subscrição, quaisquer erros que ocorrem enquanto executa a regra de filtro SQL de uma subscrição são capturados na DLQ ao longo com a mensagem incorreto.
 
 ## <a name="application-level-dead-lettering"></a>Nível de aplicativo de mensagens não entregues
 
@@ -84,7 +84,7 @@ Para obter essas mensagens lettered em papel já era, pode criar um recetor util
 
 ## <a name="example"></a>Exemplo
 
-O fragmento de código seguinte cria um recetor de mensagem. No loop de recebimento para a fila principal, o código obtém a mensagem com [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), que pede o mediador instantaneamente retornar qualquer mensagem prontamente disponível ou a devolver com nenhum resultado. Se o código de receber uma mensagem, ele imediatamente abandona-lo, que incrementa a `DeliveryCount`. Depois do sistema move a mensagem para o DLQ, a fila principal está vazia e sai do loop, como [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) devolve **nulo**.
+O fragmento de código seguinte cria um recetor de mensagem. No loop de recebimento para a fila principal, o código obtém a mensagem com [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que pede o mediador instantaneamente retornar qualquer mensagem prontamente disponível ou a devolver com nenhum resultado. Se o código de receber uma mensagem, ele imediatamente abandona-lo, que incrementa a `DeliveryCount`. Depois do sistema move a mensagem para o DLQ, a fila principal está vazia e sai do loop, como [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) devolve **nulo**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

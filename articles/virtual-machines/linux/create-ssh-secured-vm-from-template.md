@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62ef6cad2f1c8f8f871043a8d1f70cbd08ccd65f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013201"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729392"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos Azure Resource Manager
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-O exemplo seguinte cria uma VM a partir [este modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create). É permitida apenas a autenticação SSH. Quando solicitado, forneça o valor de sua própria chave pública SSH, como o conteúdo do *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, veja [como criar e utilizar um par de chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
+O exemplo seguinte cria uma VM a partir [este modelo do Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [criar a implementação do grupo az](/cli/azure/group/deployment). É permitida apenas a autenticação SSH. Quando solicitado, forneça o valor de sua própria chave pública SSH, como o conteúdo do *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, veja [como criar e utilizar um par de chaves SSH para VMs do Linux no Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create \
@@ -75,8 +75,8 @@ Neste exemplo, criou uma VM do Linux básica. Para obter mais modelos do Resourc
 
 Para saber mais sobre a criação de modelos, veja a sintaxe JSON e propriedades para os tipos de recursos que implementou:
 
-* [Networksecuritygroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
 * [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Network/virtualnetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
 * [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

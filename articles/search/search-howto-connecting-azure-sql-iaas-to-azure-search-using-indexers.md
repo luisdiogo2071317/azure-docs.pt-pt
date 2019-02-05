@@ -6,20 +6,23 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312037"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732367"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma ligação a partir de um indexador de Azure Search para o SQL Server numa VM do Azure
 Conforme observado na [ligar o Azure SQL Database para a Azure Search utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), criação de indexadores contra **do SQL Server em VMs do Azure** (ou **VMs do SQL Azure** para abreviar) é suportada pelo Azure Search, mas há alguns pré-requisitos relacionados à segurança para cuidar do primeiro. 
 
-**Duração da tarefa:** Cerca de 30 minutos, assumindo que já instalado um certificado na VM.
+Ligações a partir do Azure Search para o SQL Server numa VM é uma ligação de internet pública. Todas as medidas de segurança que pode normalmente seguir para que estas ligações se aplicam aqui também:
+
++ Obter um certificado de um [fornecedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio completamente qualificado da VM do Azure.
++ Instalar o certificado na VM e, em seguida, ativar e configurar ligações encriptadas na VM com as instruções neste artigo.
 
 ## <a name="enable-encrypted-connections"></a>Ativar ligações encriptadas
 O Azure Search necessita de um canal criptografado para todos os pedidos de indexador através de uma ligação de internet pública. Esta secção lista os passos para fazer isso funcionar.

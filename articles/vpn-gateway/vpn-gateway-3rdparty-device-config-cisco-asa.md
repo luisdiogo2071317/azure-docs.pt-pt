@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f51a97e1493803998cfbdd81523e4e479b50346d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467230"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697111"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração de exemplo: Cisco ASA (IKEv2/não-BGP) do dispositivo
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração de exemplo: Dispositivo Cisco ASA (IKEv2/não BGP)
 Este artigo fornece configurações de exemplo para dispositivos de ligação adaptável segurança da aplicação (ASA) da Cisco para gateways de VPN do Azure. O exemplo se aplica a dispositivos de Cisco ASA que estejam a executar o IKEv2 sem o protocolo BGP (Border Gateway). 
 
 ## <a name="device-at-a-glance"></a>Dispositivo rapidamente
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

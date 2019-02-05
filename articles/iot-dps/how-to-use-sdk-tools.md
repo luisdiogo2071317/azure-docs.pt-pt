@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 647f54d8252c594a280f81d661a3de6270bf692b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001352"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729970"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como utilizar ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para o aprovisionamento
 O serviço de aprovisionamento de dispositivos do IoT Hub simplifica o processo de aprovisionamento sem toque, just-in-time [aprovisionamento automático](concepts-auto-provisioning.md) de forma segura e dimensionável.  É necessário o atestado de segurança sob a forma de certificado X.509 ou Trusted Platform Module (TPM).  Microsoft também é a nossa parceria com a [outros parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para melhorar a confiança na proteção de implementação de IoT. Noções básicas sobre o requisito de segurança de hardware pode ser um grande desafio para os desenvolvedores. Um conjunto de SDKs de serviço de aprovisionamento do Azure IoT são fornecidos para que os desenvolvedores podem usar uma camada de conveniência para clientes de escrita que comunicar com o serviço de aprovisionamento. Os SDKs também fornecem exemplos para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança no desenvolvimento.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Simulador de Platform Module (TPM) fidedigna
-[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) pode fazer referência a um padrão para armazenar de forma segura as chaves para autenticar a plataforma, ou ele pode consultar a interface de e/s utilizada para interagir com os módulos implementando o padrão. Os TPMs podem existir como distintos a hardware, hardware integrada, com base em firmware ou baseada em software.  Na produção, TPM está localizado no dispositivo, como distintos a hardware, hardware integrada, ou baseada em firmware. Na fase de teste, um simulador TPM com base em software é fornecido para desenvolvedores.  Este simulador só está disponível para o desenvolvimento na plataforma Windows, por agora.
+[TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) pode fazer referência a um padrão para armazenar de forma segura as chaves para autenticar a plataforma, ou ele pode consultar a interface de e/s utilizada para interagir com os módulos implementando o padrão. Os TPMs podem existir como distintos a hardware, hardware integrada, com base em firmware ou baseada em software.  Na produção, TPM está localizado no dispositivo, como distintos a hardware, hardware integrada, ou baseada em firmware. Na fase de teste, um simulador TPM com base em software é fornecido para desenvolvedores.  Este simulador só está disponível para o desenvolvimento na plataforma Windows, por agora.
 
 Passos para utilizar o simulador de TPM são:
-1. [Preparar o ambiente de desenvolvimento](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) e clonar o repositório do GitHub:
+1. [Preparar o ambiente de desenvolvimento](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) e clonar o repositório do GitHub:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
@@ -34,7 +34,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 [Certificados X.509](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates) pode ser utilizado como um mecanismo de atestado para aumentar a produção e simplificar o aprovisionamento de dispositivos.  Existem [várias formas](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) para obter um certificado X.509:
 * Para o ambiente de produção, recomendamos que adquirir um certificado X.509 de AC de uma autoridade de certificação de raiz público.
 * Para o ambiente de teste, pode gerar um certificado de raiz X.509 certificado X.509 ou cadeia com:
-    * OpenSSL: Pode utilizar scripts para a geração do certificado:
+    * OpenSSL: Pode usar scripts para a geração do certificado:
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell ou Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
@@ -46,7 +46,7 @@ Os SDKs fornecem um gerador de certificados X.509 com o emulador de DICE, locali
 Atualmente, enquanto o emulador de REPARTIR produz um certificado de raiz, um certificado intermédio, um certificado de folha e chave privada associada.  No entanto, o certificado de raiz ou intermediária não pode ser utilizado para assinar um certificado de folha separado.  Se pretende testar o cenário de inscrição de grupo em que um certificado de assinatura é utilizado para assinar os certificados de folha de vários dispositivos, pode utilizar OpenSSL para produzir uma cadeia de certificados.
 
 Para gerar certifikát X.509 pomocí esse gerador:
-1. [Preparar o ambiente de desenvolvimento](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java#prepare-the-development-environment) e clonar o repositório do GitHub:
+1. [Preparar o ambiente de desenvolvimento](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) e clonar o repositório do GitHub:
 ```
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```

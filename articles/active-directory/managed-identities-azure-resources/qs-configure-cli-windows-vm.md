@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195669"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699895"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades geridas para recursos do Azure na VM do Azure com a CLI do Azure
 
@@ -82,7 +82,7 @@ Para ativar a identidade gerida atribuído de sistema numa VM, a conta tem do [c
    az login
    ```
 
-2. Uso [atribuir identidade da vm de az](/cli/azure/vm/identity/#az-vm-identity-assign) com o `identity assign` comando ativar a identidade do sistema atribuído a uma VM existente:
+2. Uso [atribuir identidade da vm de az](/cli/azure/vm/identity/) com o `identity assign` comando ativar a identidade do sistema atribuído a uma VM existente:
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ Se tiver uma máquina virtual que já não necessita de identidade atribuída de
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Para remover a identidade gerida para a extensão VM de recursos do Azure (planeada para preterição em Janeiro de 2019), usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Para remover a identidade gerida para a extensão VM de recursos do Azure (planeada para preterição em Janeiro de 2019), usuário `-n ManagedIdentityExtensionForWindows` ou `-n ManagedIdentityExtensionForLinux` mudar (consoante o tipo de VM) com [delete de extensão az vm](https://docs.microsoft.com/cli/azure/vm/):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [
    }
    ```
 
-2. Atribuir a identidade de utilizador atribuído à VM com [atribuir identidade da vm de az](/cli/azure/vm#az-vm-identity-assign). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é o recurso do utilizador atribuído identidade gerida `name` propriedade, como foi criado no passo anterior:
+2. Atribuir a identidade de utilizador atribuído à VM com [atribuir identidade da vm de az](/cli/azure/vm). Certifique-se de que substitui os valores de parâmetros `<RESOURCE GROUP>` e `<VM NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY NAME>` é o recurso do utilizador atribuído identidade gerida `name` propriedade, como foi criado no passo anterior:
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

@@ -11,21 +11,21 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 032146742c1a49fc8cdbda24d5c732add3cc5ea7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 64302a04050196b4299be45d910f7136f3ecaaa6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465355"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734271"
 ---
-# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-database"></a>Deteção de ameaças do SQL da base de dados do Azure para autónoma ou de bases de dados agrupadas
+# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-databases"></a>Deteção de ameaças de base de dados SQL do Azure para autónoma ou de bases de dados agrupadas
 
-SQL do Azure [deteção de ameaças](sql-database-threat-detection-overview.md) para autónomo e bases de dados agrupadas Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
+[Deteção de ameaças](sql-database-threat-detection-overview.md) para autónomo e bases de dados agrupadas Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#threat-detection-alerts).
 
 Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-[Deteção de ameaças](sql-database-threat-detection-overview.md) faz parte da [segurança avançada de dados do SQL](sql-advanced-threat-protection.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal de anúncios de SQL central. O pacote de segurança avançada de dados é cobrado 15$ / mês por servidor lógico, com os primeiros 30 dias sem encargos.
+[Deteção de ameaças](sql-database-threat-detection-overview.md) faz parte dos [dados de segurança avançada](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal de anúncios de SQL central. O pacote de segurança avançada de dados é cobrado 15$ / mês por servidor lógico, com os primeiros 30 dias sem encargos.
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a deteção de ameaças da base de dados no portal do Azure
 
@@ -46,7 +46,7 @@ Para obter um exemplo de script, consulte [configurar a deteção de ameaças e 
 
 - Saiba mais sobre [deteção de ameaças](sql-database-threat-detection-overview.md).
 - Saiba mais sobre [deteção de ameaças na instância gerida](sql-database-managed-instance-threat-detection.md).  
-- Saiba mais sobre [segurança de dados avançada SQL](sql-advanced-threat-protection.md).
-- Saiba mais sobre [auditoria de base de dados SQL do Azure](sql-database-auditing.md)
+- Saiba mais sobre [segurança de dados avançada](sql-database-advanced-data-security.md).
+- Saiba mais sobre [auditoria](sql-database-auditing.md)
 - Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para obter mais informações sobre os preços, consulte o [página de preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Para obter mais informações sobre os preços, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/)  

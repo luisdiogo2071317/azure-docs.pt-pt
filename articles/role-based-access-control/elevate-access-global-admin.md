@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437475"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695585"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerir todas as subscrições do Azure e grupos de gestão
 
@@ -83,12 +83,14 @@ Siga estes passos para elevar o acesso de Administrador Global no portal do Azur
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ### <a name="list-role-assignment-at-the-root-scope-"></a>Lista de atribuição de função no âmbito da raiz (/)
 
-Para listar a atribuição de função de administrador de acesso de utilizador para um utilizador no âmbito da raiz (`/`), utilize o [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) comando.
+Para listar a atribuição de função de administrador de acesso de utilizador para um utilizador no âmbito da raiz (`/`), utilize o [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) comando.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
   -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
@@ -111,10 +113,10 @@ Para remover uma atribuição de função de administrador de acesso de utilizad
 1. Inicie sessão como um utilizador que pode remover o acesso elevado. Isso pode ser o mesmo utilizador que foi utilizado para elevar o acesso ou outro administrador Global com acesso elevado no âmbito da raiz.
 
 
-1. Utilize o [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) comando para remover a atribuição de função de administrador de acesso do utilizador.
+1. Utilize o [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) comando para remover a atribuição de função de administrador de acesso do utilizador.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+    Remove-AzRoleAssignment -SignInName <username@example.com> `
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 

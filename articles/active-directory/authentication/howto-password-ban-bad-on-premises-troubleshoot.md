@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: a1d06919ae0a76647fafeb9c8499476e533bfebf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7474027368949d5ad2202881ac68096fac2b8bd2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656401"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693909"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Pré-visualização: Resolução de problemas de proteção de palavra-passe do AD do Azure
 
@@ -26,8 +26,6 @@ ms.locfileid: "55656401"
 
 Após a implementação de proteção de palavra-passe do Azure AD, a resolução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudar a compreender alguns passos de resolução de problemas comuns.
 
-## 
-
 ## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Não são introdução rejeitadas senhas fracas, conforme o esperado
 
 Isto pode ter várias causas possíveis:
@@ -35,12 +33,16 @@ Isto pode ter várias causas possíveis:
 1. Os agentes do DC não tem transferido ainda uma política. O sintoma é 30001 eventos no registo de eventos de administração do agente de controlador de domínio.
 
     As causas possíveis para este problema incluem:
+
     1. Floresta ainda não está registada
     2. Proxy ainda não está registado
     3. Problemas de conectividade de rede estão a impedir o serviço de Proxy de comunicação com o Azure (requisitos de Proxy HTTP de verificação)
 
-2. O modo de imposição de política de palavra-passe ainda está definido para auditoria. Se for este o caso, simplesmente reconfigurá-la para impor com o portal de proteção de palavra-passe do Azure AD.
-3. O algoritmo de validação da palavra-passe pode funcionar como esperado.  Veja [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
+2. O modo de imposição de política de palavra-passe ainda está definido para auditoria. Se for este o caso, reconfigurá-la para impor com o portal de proteção de palavra-passe do Azure AD. Veja [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+3. A política de palavra-passe foi desativada. Se for este o caso, reconfigurá-la ativada com o portal de proteção de palavra-passe do Azure AD. Veja [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+4. O algoritmo de validação da palavra-passe pode funcionar como esperado. Veja [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Modo de reparação de serviços de diretório
 
@@ -50,7 +52,7 @@ Se o controlador de domínio é iniciado no modo de reparação dos serviços de
 
 Caso de uma situação em que o serviço de agente do controlador de domínio está a causar problemas, o serviço de agente do controlador de domínio pode ser imediatamente desligado. A dll de filtro de palavras-passe de agente do DC ainda tenta chamar o serviço de não execução e registrará em log os eventos de aviso (10012, 10013), mas todas as senhas de entrada são aceites durante esse período. O serviço do agente DC, em seguida, também pode ser configurado através do Gestor de controlo de serviço de Windows com um tipo de arranque de "Disabled" conforme necessário.
 
-Outra medida de remediação seria definir o modo de ativação para não no portal de proteção de palavra-passe do Azure AD. Assim que tiver sido baixada a política atualizada, cada serviço de agentes do DC irá entrar num modo inativo em que todas as senhas são aceites como-é. Para obter mais informações, consulte [modo imposição](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Outra medida de remediação seria definir o modo de ativação para não no portal de proteção de palavra-passe do Azure AD. Assim que tiver sido baixada a política atualizada, cada serviço de agente do controlador de domínio irão entrar num modo inativo em que todas as senhas são aceites como-é. Para obter mais informações, consulte [modo imposição](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## <a name="domain-controller-demotion"></a>Despromoção do controlador de domínio
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 04acbb36b34a5e1eb0a0ead28cc7a1d40a50851c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807750"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697640"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como pode incorporar widgets do Video Indexer nas suas ap
 > [!NOTE]
 > A partir de 1 de Fevereiro de 2018, versão 1 dos **Insights cognitivos** widget vai ser preterido. A versão de URL de incorporação será predefinido para `version=2`.
 
-A partir da versão 2, o URL de base do widget inclui a região da conta estar. Por exemplo, gera uma conta na região Oeste dos E.U.A.: `https://wus2.videoindexer.ai/embed/insights/...`.
+A partir da versão 2, o URL de base do widget inclui a região da conta. Por exemplo, gera uma conta na região Oeste dos E.U.A.: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Tipos de widget
 
@@ -31,7 +31,7 @@ A partir da versão 2, o URL de base do widget inclui a região da conta estar. 
 
 Um widget **Cognitive Insights** inclui todas as informações visuais que foram extraídas do processo de indexação do seu vídeo. O widget de informações suporta os seguintes parâmetros de URL:
 
-|Nome|Definição|Descrição|
+|Name|Definição|Descrição|
 |---|---|---|
 |widgets|Cadeias separadas por vírgulas|Permite-lhe controlar as informações que pretende compor. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` irá compor apenas as informações de IU de marcas e pessoas<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Não suportado se o URL tiver o parâmetro version=2.<br/><br/>**Nota:** O **widgets** param de URL não é suportada se **versão = 2** é utilizado. |
 |versão|Versões do widget **Cognitive Insights**|Para obter as informações mais recentes atualizações de widget, adicionar `?version=2` param para o URL de incorporação de consulta. Por exemplo, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obter a versão mais antiga, remova o parâmetro `version=2` do URL.
@@ -40,7 +40,7 @@ Um widget **Cognitive Insights** inclui todas as informações visuais que foram
 
 Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de transmissão adaptável. O widget Player suporta os seguintes parâmetros de URL:
 
-|Nome|Definição|Descrição|
+|Name|Definição|Descrição|
 |---|---|---|
 |t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
 |captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|

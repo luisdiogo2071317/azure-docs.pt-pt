@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886276"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731738"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início rápido: SSH/RDP sobre fluxos de dispositivo do IoT Hub com C do proxy de aplicações (pré-visualização)
 
@@ -56,7 +56,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-device-sdk-c-intro.md). Irá preparar um ambiente de desenvolvimento usado para clonar e criar os [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) do GitHub. O SDK no GitHub inclui o código de exemplo utilizado neste início rápido. 
 
 
-1. Transfira a versão 3.11.4 do [sistema de compilação CMake](https://cmake.org/download/). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizou o Windows PowerShell para verificar o hash criptográfico para a versão 3.11.4 da distribuição de MSI x64:
+1. Baixe a versão 3.11.4 dos [sistema de compilação CMake](https://cmake.org/download/) partir [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizou o Windows PowerShell para verificar o hash criptográfico para a versão 3.11.4 da distribuição de MSI x64:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -77,7 +77,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
 
@@ -86,7 +86,6 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -102,14 +101,14 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 No Windows, execute os seguintes comandos na linha de comandos do programador para o Visual Studio 2015 ou 2017 de linha de comandos:
 
 ```
-    # In Windows
-    # For VS2015
-    $ cmake .. -G "Visual Studio 15 2015"
-    
-    # Or for VS2017
-    $ cmake .. -G "Visual Studio 15 2017
+    rem In Windows
+    rem For VS2015
+    cmake .. -G "Visual Studio 15 2015"
 
-    # Then build the project
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
+
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
     
@@ -165,11 +164,12 @@ No Windows, execute os seguintes comandos na linha de comandos do programador pa
 ```
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ make -j
+    make -j
+```
 
-
-    # In Windows
-    # Go to cmake at root of repository
+```
+    rem In Windows
+    rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
 ```
 
@@ -177,10 +177,12 @@ No Windows, execute os seguintes comandos na linha de comandos do programador pa
 ```
     # In Linux
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    $ ./iothub_client_c2d_streaming_proxy_sample
+    ./iothub_client_c2d_streaming_proxy_sample
+```
 
-    # In Windows
-    # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+```
+    rem In Windows
+    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
 ```
 

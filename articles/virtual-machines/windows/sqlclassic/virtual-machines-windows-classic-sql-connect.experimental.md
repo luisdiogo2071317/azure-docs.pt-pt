@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 558606b6993aff2053dfbbf6adfd864cd827bbb1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328985"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733523"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ A forma como um cliente se conecta ao SQL Server em execução numa máquina Vir
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Ligar ao SQL Server no mesmo serviço cloud
-Várias máquinas virtuais podem ser criadas no mesmo serviço cloud. Para compreender este cenário de máquinas virtuais, veja [como ligar máquinas virtuais com um serviço de rede ou na cloud virtual](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Neste cenário, um cliente numa máquina virtual tenta ligar ao SQL Server em execução em outra máquina virtual no mesmo serviço cloud.
+Várias máquinas virtuais podem ser criadas no mesmo serviço cloud. Para compreender este cenário de máquinas virtuais, veja [como ligar máquinas virtuais com um serviço de rede ou na cloud virtual](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Neste cenário, um cliente numa máquina virtual tenta ligar ao SQL Server em execução em outra máquina virtual no mesmo serviço cloud.
 
 Neste cenário, pode ligar-se com a VM **Name** (também mostrado como **nome do computador** ou **nome de anfitrião** no portal). Este é o nome que indicou para a VM durante a criação. Por exemplo, se denominar a VM do SQL **mysqlvm**, uma VM do cliente no mesmo serviço cloud poderia usar a seguinte cadeia de ligação para ligar:
 
@@ -64,7 +64,7 @@ Por exemplo, considere uma máquina virtual clássica com o nome **mysqlvm** com
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Embora esta cadeia de ligação permite a conectividade para clientes na Internet, isso não significa que qualquer pessoa pode ligar ao SQL Server. Fora os clientes têm do nome de utilizador correto e a palavra-passe. Para segurança adicional, não utilize esta porta 1433 para o ponto de extremidade pública da máquina virtual. E se for possível, considere adicionar uma ACL no seu ponto final para restringir o tráfego apenas para os clientes permitir. Para obter instruções sobre como utilizar as ACLs com pontos finais, consulte [gerir a ACL num ponto de extremidade](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Embora esta cadeia de ligação permite a conectividade para clientes na Internet, isso não significa que qualquer pessoa pode ligar ao SQL Server. Fora os clientes têm do nome de utilizador correto e a palavra-passe. Para segurança adicional, não utilize esta porta 1433 para o ponto de extremidade pública da máquina virtual. E se for possível, considere adicionar uma ACL no seu ponto final para restringir o tráfego apenas para os clientes permitir. Para obter instruções sobre como utilizar as ACLs com pontos finais, consulte [gerir a ACL num ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
 > Quando usar essa técnica para comunicar com o SQL Server, todos os dados de saída do datacenter do Azure está sujeito a normal [dos preços das transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/).

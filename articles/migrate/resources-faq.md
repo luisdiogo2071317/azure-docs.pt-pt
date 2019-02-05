@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c89780722e1f3038f99ab0a4c85cd2d2ecbe624
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079261"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699490"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -108,7 +108,7 @@ A deteção com base no agente é uma opção disponível além da deteção com
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Deve haver nenhum impacto no desempenho no ambiente de anfitrião do ESXi analisado?
 
-No caso do [uma abordagem de deteção de tempo](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), para recolher os dados de desempenho, o nível de estatísticas no vCenter server tinha que ser definido como 3. Defini-la para este nível recolheria uma grande quantidade de dados, que seriam armazenados na base de dados do servidor vCenter de resolução de problemas. Portanto, poderão resultar em alguns problemas de desempenho no vCenter Server. Deve haver impacto mínimo no anfitrião ESXi.
+No caso do [uma abordagem de deteção de tempo](https://docs.microsoft.com/azure/migrate/concepts-collector), para recolher os dados de desempenho, o nível de estatísticas no vCenter server tinha que ser definido como 3. Defini-la para este nível recolheria uma grande quantidade de dados, que seriam armazenados na base de dados do servidor vCenter de resolução de problemas. Portanto, poderão resultar em alguns problemas de desempenho no vCenter Server. Deve haver impacto mínimo no anfitrião ESXi.
 
 Introduzimos de criação de perfis contínua de dados de desempenho (o que estão em pré-visualização). Com a criação de perfis contínua, já não existe a necessidade de alterar o nível de estatísticas do servidor para executar uma avaliação com base no desempenho do vCenter. A aplicação recoletora vai agora criar perfis para as máquinas no local para medir os dados de desempenho das máquinas virtuais. Isso ter um impacto de desempenho de quase zero nos anfitriões ESXi, bem como no vCenter Server.
 

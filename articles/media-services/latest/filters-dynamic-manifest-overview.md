@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 139f6283c2b59aee53afa3f0dd52e06e2b0eff4c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912038"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695224"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e dos manifestos dinâmicos
 
@@ -34,7 +34,7 @@ Os filtros são regras do lado do servidor que permitem que os clientes podem fa
 - Entrega apenas as representações especificadas e/ou faixas de idioma especificado que são suportadas pelo dispositivo que é utilizado para reproduzir o conteúdo ("filtragem de representação"). 
 - Ajuste a janela de apresentação (DVR) a fim de fornecer uma duração limitada da janela DVR no player de ("Ajuste janela apresentação").
 
-Este tópico descreve [conceitos](#concepts) e [mostra as definições de filtros](#definitions). Em seguida, fornece detalhes sobre [cenários comuns](#common-scenarios). No final do artigo, encontrará links que mostram como criar filtros de forma programática.  
+Este tópico descreve [conceitos](#concepts) e [mostra as definições de filtros](#definitions). Ele, em seguida, forneça os detalhes sobre cenários comuns. No final do artigo, encontrará links que mostram como criar filtros de forma programática.  
 
 ## <a name="concepts"></a>Conceitos
 
@@ -110,7 +110,7 @@ Dependendo do seu cenário, decidir que tipo de um filtro é mais adequada (filt
 
 Utilize as seguintes propriedades para descrever os filtros. 
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |firstQuality|A primeira qualidade velocidade de transmissão do filtro.|
 |presentationTimeRange|O intervalo de tempo de apresentação. Esta propriedade é utilizada para filtragem de pontos de início/fim manifesto, duração da janela de apresentação e a posição inicial em direto. <br/>Para obter mais informações, consulte [PresentationTimeRange](#PresentationTimeRange).|
@@ -120,7 +120,7 @@ Utilize as seguintes propriedades para descrever os filtros.
 
 Use essa propriedade com o **Asset filtros**. Não é recomendado para definir a propriedade com o **filtros de conta**.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |**endTimestamp**|O limite de tempo absoluto final. Aplica-se para vídeo a pedido (VoD). Para a apresentação em direto, é ignorada e aplicada automaticamente quando as extremidades de apresentação e o fluxo de se tornar VoD.<br/><br/>O valor representa um ponto final absoluto da transmissão em fluxo. -É arredondado para o próximo início de GOP mais próximo.<br/><br/>Utilize StartTimestamp e EndTimestamp para cortar a lista de reprodução (manifesto). Por exemplo, StartTimestamp = 40000000 e EndTimestamp = 100000000 irá gerar uma lista de reprodução que contém o suporte de dados entre StartTimestamp e EndTimestamp. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto.<br/><br/>Além disso, veja a **forceEndTimestamp** definição que se segue.|
 |**forceEndTimestamp**|Aplica-se aos filtros em direto.<br/><br/>**forceEndTimestamp** é um valor booleano que indica se é ou não **endTimestamp** foi definido para um valor válido. <br/><br/>Se o valor for **true**, o **endTimestamp** deve ser especificado qualquer valor. Se não for especificada, em seguida, é devolvido um pedido incorreto.<br/><br/>Se, por exemplo, pretende definir um filtro que começa em 5 minutos para o vídeo de entrada e dura até ao final da transmissão em fluxo, definiria **forceEndTimestamp** como falso e omitir a definição **endTimestamp**.|
@@ -135,7 +135,7 @@ Especifique uma lista de condições de propriedade de controle de filtro (Filte
 
 Condições de propriedade de controle de filtro descrevem os tipos de controlo, valores (descritos na tabela a seguir) e operações (igual, NotEqual). 
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |**Velocidade de transmissão**|Utilize a velocidade de transmissão da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de velocidades de transmissão em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: Embora seja possível usar um valor de velocidade de transmissão específica, como 250000 (bits por segundo), essa abordagem não é recomendada, como as velocidades de transmissão exatas podem variar de um recurso para outro.|
 |**FourCC**|Utilize o valor de FourCC da faixa de filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado nas [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, são suportados os codecs seguintes: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", da "ec-3"<br/><br/>Para determinar os valores de FourCC roteiros num elemento [obter e examinar o arquivo de manifesto](#get-and-examine-manifest-files).|

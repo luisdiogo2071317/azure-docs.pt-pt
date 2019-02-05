@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c869d129d901a5c8dee7ed09b907805980e5c573
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455223"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727199"
 documentType: LandingData
 title: Base de dados SQL do Azure - segurança avançada
 metadata:
@@ -69,7 +69,7 @@ sections:
       - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
       - href: 
       - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
-    - title: Configurar a deteção de ameaças na instância gerida
+    - title: Configurar a deteção de ameaças numa instância gerida
       values:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
@@ -94,6 +94,6 @@ sections:
     - html: A proteção em contra ameaças <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">instâncias geridas</a> e <a href="/azure/sql-database/sql-database-threat-detection">bases de dados</a> Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados.
     - html: Auditoria para <a href="/azure/sql-database/sql-database-managed-instance-auditing">instâncias geridas</a> e <a href="/azure/sql-database/sql-database-auditing">bases de dados</a> faixas de base de dados eventos e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure, a área de trabalho do OMS ou a Hubs de eventos.
     - html: <a href="/azure/sql-database/sql-database-firewall-configure">Regras de firewall do servidor de base de dados</a> na ativação de bases de dados individuais para controlar o que os endereços IP pode aceder a sua base de dados.
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">Integração VNet</a> na instância gerida permite-lhe colocar as bases de dados no seu próprio espaço de endereços privados.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">Integração VNet</a> no gerida o instância permite-lhe colocar as bases de dados no seu próprio espaço de endereços privados.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">Sempre encriptado</a> protege os dados confidenciais Inativos no servidor, durante a movimentação entre cliente e servidor e, enquanto os dados estão em utilização, garantindo que os dados confidenciais nunca é apresentada como texto não criptografado dentro do sistema de base de dados.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">Máscara de dados dinâmicos</a> ajuda a impedir o acesso não autorizado a dados confidenciais ao permitir aos clientes designar a quantidade de dados confidenciais a revelar com um impacto mínimo na camada da aplicação.

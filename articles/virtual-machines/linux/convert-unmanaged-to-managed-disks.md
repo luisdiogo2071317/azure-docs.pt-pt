@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 692de0e18ac279174f1227a7c25913fc59e626eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470064"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700830"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não geridos para managed disks
 
@@ -44,13 +44,13 @@ Esta secção abrange como converter VMs do Azure de instância única de discos
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Converter VM para managed disks, utilizando [az vm converter](/cli/azure/vm#az_vm_convert). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
+2. Converter VM para managed disks, utilizando [az vm converter](/cli/azure/vm). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Iniciar a VM após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm#az_vm_start). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`.
+3. Iniciar a VM após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -62,7 +62,7 @@ Se as VMs que pretende converter para gerido discos estão num conjunto de dispo
 
 Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de converter o conjunto de disponibilidade. Plano para converter todas as VMs em discos geridos depois do conjunto próprio de disponibilidade foi convertida num conjunto de disponibilidade gerido. Em seguida, iniciar todas as VMs e continuar a funcionar normalmente.
 
-1. Listar todas as VMs num conjunto através de disponibilidade [lista de conjunto de disponibilidade de VMS de az](/cli/azure/vm/availability-set#az_vm_availability_set_list). O exemplo seguinte lista todas as VMs no conjunto de disponibilidade `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
+1. Listar todas as VMs num conjunto através de disponibilidade [lista de conjunto de disponibilidade de VMS de az](/cli/azure/vm/availability-set). O exemplo seguinte lista todas as VMs no conjunto de disponibilidade `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -78,7 +78,7 @@ Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de conv
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Converter a conjunto de disponibilidade, utilizando [converter o conjunto de disponibilidade az vm](/cli/azure/vm/availability-set#az_vm_availability_set_convert). O exemplo a seguir converte a conjunto de disponibilidade designado `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
+3. Converter a conjunto de disponibilidade, utilizando [converter o conjunto de disponibilidade az vm](/cli/azure/vm/availability-set). O exemplo a seguir converte a conjunto de disponibilidade designado `myAvailabilitySet` no grupo de recursos com o nome `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -86,13 +86,13 @@ Todas as VMs no conjunto de disponibilidade tem de ser desalocadas antes de conv
         --name myAvailabilitySet
     ```
 
-4. Converter todas as VMs em discos geridos, utilizando [az vm converter](/cli/azure/vm#az_vm_convert). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
+4. Converter todas as VMs em discos geridos, utilizando [az vm converter](/cli/azure/vm). O processo a seguir converte a VM com o nome `myVM`, incluindo o disco do SO e de quaisquer discos de dados:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Iniciar todas as VMs após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm#az_vm_start). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
+5. Iniciar todas as VMs após a conversão para discos geridos, utilizando [início de vm de az](/cli/azure/vm). O exemplo seguinte inicia a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

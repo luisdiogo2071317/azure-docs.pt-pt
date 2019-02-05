@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: cynthn
-ms.openlocfilehash: 1e90fac2bdfc93e2865389d43f36e7db258fbc31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 87b70c69ab807ef76cb8fb2156b380b1ff3cade6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882893"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727529"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Criar Rapidamente uma máquina virtual com a CLI do Azure
 
@@ -48,11 +48,11 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao grupo de segurança de rede. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Cria uma regra do grupo de segurança de rede para permitir tráfego de entrada. Neste exemplo, a porta 80 está aberta para o tráfego HTTP. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Adiciona e executa uma extensão de máquina virtual numa VM. Neste exemplo, é utilizada a extensão de script personalizada para instalar o IIS.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra do grupo de segurança de rede para permitir tráfego de entrada. Neste exemplo, a porta 80 está aberta para o tráfego HTTP. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adiciona e executa uma extensão de máquina virtual numa VM. Neste exemplo, é utilizada a extensão de script personalizada para instalar o IIS.|
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

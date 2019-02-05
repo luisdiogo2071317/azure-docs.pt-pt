@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: bc1887ef3cdbc56732317aea15be7a618c35847e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003581"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729817"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -203,7 +203,7 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a utilizar ferramentas do portal do Hub IoT do Azure e comandos da CLI do Azure para testar a conectividade do dispositivo.
 

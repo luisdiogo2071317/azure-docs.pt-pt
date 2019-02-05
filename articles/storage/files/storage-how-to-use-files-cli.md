@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ddd97ea73ce476e72c0c94a756c749e5527799ae
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473515"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730786"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
@@ -34,7 +34,7 @@ az login
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos do Azure, pode utilizar o comando [az group create](/cli/azure/group#create) para criar um. 
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos do Azure, pode utilizar o comando [az group create](/cli/azure/group) para criar um. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *E.U.A Leste*:
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar partilhas de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas de ficheiros. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
-O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount\<random number\>* através do comando [az storage account create](/cli/azure/storage/account#create) e, em seguida, coloca o nome dessa conta de armazenamento na variável `$STORAGEACCT`. Os nomes da conta de armazenamento devem ser exclusivos. Utilizar `$RANDOM` associa um número ao nome da conta de armazenamento para o tornar único. 
+O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount\<random number\>* através do comando [az storage account create](/cli/azure/storage/account) e, em seguida, coloca o nome dessa conta de armazenamento na variável `$STORAGEACCT`. Os nomes da conta de armazenamento devem ser exclusivos. Utilizar `$RANDOM` associa um número ao nome da conta de armazenamento para o tornar único. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -67,7 +67,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
-Agora, pode criar a sua primeira partilha de ficheiros do Azure. Crie partilhas de ficheiros com o comando [az storage share create](/cli/azure/storage/share#create). Este exemplo cria uma partilha de ficheiros do Azure com o nome *myshare*: 
+Agora, pode criar a sua primeira partilha de ficheiros do Azure. Crie partilhas de ficheiros com o comando [az storage share create](/cli/azure/storage/share). Este exemplo cria uma partilha de ficheiros do Azure com o nome *myshare*: 
 
 ```azurecli-interactive
 az storage share create \
@@ -98,7 +98,7 @@ Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer tra
 Os exemplos seguintes mostram como utilizar a CLI do Azure para manipular a partilha de ficheiros do Azure com o protocolo de REST de ficheiros. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
-Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):
+Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory):
 
 ```azurecli-interactive
 az storage directory create \
@@ -109,7 +109,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
-Para demonstrar como carregar um ficheiro com o comando [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload), primeiro crie um ficheiro para carregar na unidade temporária do Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
+Para demonstrar como carregar um ficheiro com o comando [`az storage file upload`](/cli/azure/storage/file), primeiro crie um ficheiro para carregar na unidade temporária do Cloud Shell. No exemplo seguinte, irá criar e carregar o ficheiro:
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -261,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando terminar, pode utilizar o comando [`az group delete`](/cli/azure/group#delete) para remover o grupo de recursos e todos os recursos relacionados: 
+Quando terminar, pode utilizar o comando [`az group delete`](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados: 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

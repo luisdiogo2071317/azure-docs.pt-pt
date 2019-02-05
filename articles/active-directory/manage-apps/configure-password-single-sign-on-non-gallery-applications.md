@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f0f4d160b9e9d5e556813115aa39c60ea8f4edb2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184381"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733336"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 
@@ -23,7 +23,7 @@ Além das escolhas encontradas dentro da Galeria de aplicações do Azure AD, te
 
 Depois de adicionar uma aplicação de externas à galeria, em seguida, pode configurar a método de início de início de sessão único esta aplicação utiliza ao selecionar o **início de sessão único** item de navegação num aplicativo empresarial a [deportaldoAzure](https://portal.azure.com/).
 
-Um dos início de sessão único métodos disponíveis para é o [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) opção. Com o **adicionar uma aplicação de externas à galeria** experiência, pode integrar qualquer aplicativo que processa um nome de utilizador baseada em HTML e a palavra-passe de entrada campo, mesmo que não está no nosso conjunto de aplicações previamente integradas.
+Um dos início de sessão único métodos disponíveis para é o [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) opção. Com o **adicionar uma aplicação de externas à galeria** experiência, pode integrar qualquer aplicativo que processa um nome de utilizador baseada em HTML e a palavra-passe de entrada campo, mesmo que não está no nosso conjunto de aplicações previamente integradas.
 
 A maneira como isso funciona é uma tecnologia que faz parte da extensão do painel de acesso que permite-nos campos de entrada de nome de utilizador e palavra-passe de deteção automática, armazená-los de forma segura para a instância da aplicação específico de recorte de página. Em seguida, reproduza com segurança nomes de utilizador e palavras-passe para esses campos quando um utilizador navega para essa aplicação no painel de acesso de aplicações.
 
@@ -47,7 +47,7 @@ Esta é uma ótima maneira de começar a integrar rapidamente qualquer tipo de a
 
 -   Permitir que um **administrador** para especificar o nome de utilizador partilhada ou a palavra-passe utilizada por um grupo de pessoas com as credenciais de atualização de funcionalidades quando [atribuir um grupo a uma aplicação](#assign-an-application-to-a-group-directly)
 
-A seguinte secção descreve como pode permitir [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) a qualquer aplicativo que adicionar usando o **adicionar uma aplicação de externas à galeria** experiência.
+A seguinte secção descreve como pode permitir [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a qualquer aplicativo que adicionar usando o **adicionar uma aplicação de externas à galeria** experiência.
 
 ## <a name="overview-of-steps-required"></a>Descrição geral dos passos necessários
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 6011defcea54a26aa25877aeace6a1a8a629fdf6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567524"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730701"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -68,7 +68,7 @@ O portal não fornece a opção de atribuir a interface de rede para grupos de s
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Ver definições de interface de rede
@@ -93,7 +93,7 @@ Se um endereço IPv6 for atribuído a uma interface de rede, a saída do PowerSh
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[lista de nic de redes de AZ](/cli/azure/network/nic#az_network_nic_list) para ver interfaces de rede na subscrição; [show de nic de rede de az](/cli/azure/network/nic#az_network_nic_show) para ver as definições para uma interface de rede|
+|CLI|[lista de nic de redes de AZ](/cli/azure/network/nic) para ver interfaces de rede na subscrição; [show de nic de rede de az](/cli/azure/network/nic) para ver as definições para uma interface de rede|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) para ver interfaces de rede nas definições de vista de subscrição ou para uma interface de rede|
 
 ## <a name="change-dns-servers"></a>Servidores DNS de alteração
@@ -153,7 +153,7 @@ Pode alterar a sub-rede, mas não a rede virtual, atribuída a uma interface de 
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adicionar ou remover grupos de segurança de aplicação

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 70feaffdc5289b592f372ee02d1df699c190c7a3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657232"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732452"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake
 
@@ -192,7 +192,7 @@ Para tal, introduza o seguinte comando ao utilizar o Cloud Shell ou um shell loc
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group#az_group_create).
+Para criar um novo grupo de recursos com a CLI do Azure, utilize o comando [az group create](/cli/azure/group).
 
 ```azurecli-interactive
 az group create `

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 02/04/2019
+ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718185"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700864"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados Azure SQL](../sql-database/sql-database-managed-instance.md), com um período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
@@ -135,6 +135,15 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
    ![Detalhes da origem](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Selecione **Guardar**.
+
+4. No ecrã **Selecionar bases de dados de origem**, selecione a base de dados **Adventureworks2012** para migração.
+
+   ![Selecionar as bases de dados de origem](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > Se utilizar o SQL Server Integration Services (SSIS), DMS não suporta atualmente migrar a base de dados de catálogo dos projetos/pacotes do SSIS (SSISDB) do SQL Server para instância gerida da base de dados SQL do Azure. No entanto, pode aprovisionar o SSIS no Azure Data Factory (ADF) e voltar a implementar dos projetos/pacotes do SSIS para o SSISDB alojado por instância gerida da base de dados SQL do Azure de destino. Para obter mais informações sobre a migração de pacotes de SSIS, veja o artigo [pacotes de migrar o SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+
+5. Selecione **Guardar**.
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 

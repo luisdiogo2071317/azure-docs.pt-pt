@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 746d0f51a876f24afc731486412eca0277b76d22
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659801"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732095"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Criar um balanceador de carga interno para balanceamento de carga de VMs através da CLI do Azure
 
@@ -128,7 +128,7 @@ Neste exemplo, o utilizador cria duas máquinas virtuais para serem utilizadas c
 
 ### <a name="create-an-availability-set"></a>Criar um Conjunto de disponibilidade
 
-Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Crie um conjunto de disponibilidade com [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ Para testar o balanceador de carga, crie uma máquina virtual, *myVMTest* e asso
 
 Para testar o balanceador de carga, tem de começar por obter o endereço IP privado do balanceador de carga. De seguida, inicie sessão na máquina virtual myVMTest e escreva o endereço IP privado na barra de endereço do respetivo browser.
 
-Para obter o endereço IP privado do balanceador de carga, utilize [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copie o endereço IP privado e, em seguida, cole-o na barra de endereço de um browser da sua máquina virtual *myVMTest*.
+Para obter o endereço IP privado do balanceador de carga, utilize [az network lb show](/cli/azure/network/public-ip). Copie o endereço IP privado e, em seguida, cole-o na barra de endereço de um browser da sua máquina virtual *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \

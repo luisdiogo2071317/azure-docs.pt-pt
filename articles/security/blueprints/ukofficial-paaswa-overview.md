@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718519"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700983"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -73,7 +73,7 @@ A secção seguinte fornece detalhes sobre os elementos de implantação e a imp
 
 #### <a name="identity-and-authentication"></a>Identidade e autenticação
 
-Este esquema garante que o acesso aos recursos está protegido por meio de serviços de gestão de identidades e diretórios. Esta arquitetura faz uso total de [identidade como o perímetro de segurança](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+Este esquema garante que o acesso aos recursos está protegido por meio de serviços de gestão de identidades e diretórios. Esta arquitetura faz uso total de [identidade como o perímetro de segurança](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
 As seguintes tecnologias fornecem capacidades de gestão no ambiente do Azure de identidade:
 
@@ -240,7 +240,7 @@ Foram fornecidas três abordagens para a implementação; Um simples "expressa" 
 
 [Gestão de API do Azure](https://azure.microsoft.com/services/api-management/) poderia ser utilizado em frente o serviço de aplicações de API para fornecer camadas adicionais de segurança, limitação e controles para expor, proxy e proteger APIs.
 
-### <a name="azure-b2c"></a>B2C do Azure
+### <a name="azure-b2c"></a>Azure B2C
 
 [O Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os utilizadores para se registrar, criar uma identidade e ativar a autorização e controlo para a aplicação web públicos de acesso.
 

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466990"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730905"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora pode monitorizar serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho de aplicativo recolhidos pelo Monitor do Azure, incluindo vários registos e métricas. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -66,7 +66,7 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
 
 3. Criar um principal de serviço - o Grafana utiliza um principal de serviço do Azure Active Directory para ligar a APIs do Azure Monitor e recolher dados. Tem de criar ou utilizar um principal de serviço existente, para gerir o acesso aos recursos do Azure.
     * Ver [estas instruções](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar um principal de serviço. Copie e guarde o seu inquilino ID (ID de diretório), o ID de cliente (ID de aplicação) e o segredo do cliente (valor da chave de aplicação).
-    * Ver [atribua a aplicação à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor para a aplicação do Azure Active Directory da subscrição, grupo de recursos ou recurso que pretende monitorizar. 
+    * Ver [atribua a aplicação à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) para atribuir a função de leitor para a aplicação do Azure Active Directory da subscrição, grupo de recursos ou recurso que pretende monitorizar. 
     A API do Log Analytics requer o [função de leitor do Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função de leitor e adiciona a ela.
 
 4. Forneça os detalhes de ligação para as APIs que pretende utilizar. Pode ligar-se a todos ou alguns deles. 

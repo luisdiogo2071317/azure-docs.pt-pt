@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 295b03a8d61a7f83605a3badcafc7a4d6b59fdbd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61dd4930d7c34b30a4cedb34a4d815aa553d001e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497354"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697691"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -219,7 +219,7 @@ O log Analytics com base em consulta alertas serão acionados sempre que o limit
 
 Suprimir a propriedade do Log Analytics a regra de alerta é especificada com o *limitação* valor e a utilização do período de supressão *DurationInMinutes* valor.
 
-A seguir é uma resposta de exemplo para uma ação com apenas um limite, gravidade e suprimir a propriedade
+É uma resposta de exemplo para uma ação com apenas um limite, gravidade, a seguir e suprimir a propriedade
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -248,7 +248,7 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
 #### <a name="action-groups"></a>Grupos de Ação
 Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais. 
 
-Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [API de grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Para os utilizadores que têm expandidos seus alertas para o Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [API de grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Para Adicionar associação de grupo de ação para um alerta, especifique o ID de Gestor de recursos do Azure exclusivo do grupo de ação na definição de alerta. Uma ilustração de exemplo é fornecida abaixo:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 02b70909e701dbeffaec0aa6bdc39e449bdfad08
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660362"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732843"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com rede várias placas de interface
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660362"
 Este artigo fornece detalhes sobre como criar uma VM com vários NICs com a CLI do Azure.
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instalar a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
+Instalar a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e para iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *mystorageaccount*, e *myVM*.
 
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Crie uma sub-rede para o tráfego de back-end com [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). O exemplo seguinte cria uma sub-rede denominada *mySubnetBackEnd*:
+Crie uma sub-rede para o tráfego de back-end com [criar a sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet). O exemplo seguinte cria uma sub-rede denominada *mySubnetBackEnd*:
 
 ```azurecli
 az network vnet subnet create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Para adicionar um NIC a uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte desaloca a VM com o nome *myVM*:
+Para adicionar um NIC a uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm). O exemplo seguinte desaloca a VM com o nome *myVM*:
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Adicionar a NIC com o [az vm nic adicionar](/cli/azure/vm/nic#az_vm_nic_add). O exemplo seguinte adiciona *myNic3* ao *myVM*:
+Adicionar a NIC com o [az vm nic adicionar](/cli/azure/vm/nic). O exemplo seguinte adiciona *myNic3* ao *myVM*:
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 Adicionar tabelas de roteamento para o SO convidado, concluindo os passos em [configurar o sistema operacional convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Remover um NIC de uma VM
-Para remover um NIC de uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm#az_vm_deallocate). O exemplo seguinte desaloca a VM com o nome *myVM*:
+Para remover um NIC de uma VM existente, desaloque a VM com [az vm deallocate](/cli/azure/vm). O exemplo seguinte desaloca a VM com o nome *myVM*:
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Remover a NIC com o [az vm nic remover](/cli/azure/vm/nic#az_vm_nic_remove). O exemplo seguinte remove *myNic3* partir *myVM*:
+Remover a NIC com o [az vm nic remover](/cli/azure/vm/nic). O exemplo seguinte remove *myNic3* partir *myVM*:
 
 ```azurecli
 az vm nic remove \

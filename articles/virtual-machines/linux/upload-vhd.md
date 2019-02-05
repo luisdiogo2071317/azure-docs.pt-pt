@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638116"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696851"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM do Linux a partir de um disco personalizado com a CLI do Azure
 
@@ -73,7 +73,7 @@ O Azure suporta várias distribuições de Linux (veja [distribuições apoiadas
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Outras pessoas: Distribuições não aprovadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Outros: Distribuições não aprovadas pelo Azure](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Consulte também os [observações de instalação de Linux](create-upload-generic.md#general-linux-installation-notes) para obter dicas mais gerais sobre como preparar imagens do Linux para o Azure.
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Criar uma conta de armazenamento para o seu disco personalizada e as VMs com [criar conta de armazenamento az](/cli/azure/storage/account#az-storageaccount-create). O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount* no grupo de recursos criado anteriormente:
+Criar uma conta de armazenamento para o seu disco personalizada e as VMs com [criar conta de armazenamento az](/cli/azure/storage/account). O exemplo seguinte cria uma conta de armazenamento com o nome *mystorageaccount* no grupo de recursos criado anteriormente:
 
 ```azurecli
 az storage account create \

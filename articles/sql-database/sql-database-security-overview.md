@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462023"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728407"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -40,14 +40,14 @@ Regras de firewall do IP concedem acesso a bancos de dados com base no endereço
 [Regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) ativar base de dados do Azure SQL aceitar apenas comunicações que são enviadas do selecionado sub-redes numa rede virtual.
 
 > [!NOTE]
-> Controlar o acesso com regras de firewall faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure**. Para obter mais informações sobre a configuração de rede necessária, consulte [ligar a uma instância gerida](sql-database-managed-instance-connect-app.md)
+> Controlar o acesso com regras de firewall faz *não* aplicam-se ao **uma instância gerida**. Para obter mais informações sobre a configuração de rede necessária, consulte [ligar a uma instância gerida](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>Gestão de acesso
 
 > [!IMPORTANT]
 > Gestão de bases de dados e servidores de base de dados no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A autenticação é o processo de comprovar o usuário é quem eles alegam ser. Base de dados SQL do Azure suporta dois tipos de autenticação:
 
@@ -55,7 +55,7 @@ A autenticação é o processo de comprovar o usuário é quem eles alegam ser. 
 
     Autenticação do SQL da base de dados refere-se para a autenticação de um utilizador quando se liga ao [base de dados do Azure SQL](sql-database-technical-overview.md) com o nome de utilizador e palavra-passe. Durante a criação de servidor de base de dados para a base de dados, tem de ser especificado um início de sessão "Administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, um "administrador do servidor" pode autenticar qualquer base de dados nesse servidor de base de dados como o proprietário da base de dados. Depois disso, os utilizadores e inícios de sessão do SQL adicionais podem ser criados pelo administrador do servidor, que permitem aos utilizadores ligar com o nome de utilizador e palavra-passe.
 
-- **O Azure Active Directory Authentication**:
+- **Autenticação do Azure Active Directory**:
 
     Autenticação do Azure Active Directory é um mecanismo de ligação a [Azure SQL Database](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (Azure AD). Autenticação do Azure AD permite aos administradores gerir centralmente as identidades e permissões de utilizadores de base de dados, juntamente com outros serviços da Microsoft num local central. Isto inclui a minimização de armazenamento de palavra-passe e permite que as políticas de rotação da palavra-passe centralizado.
 
@@ -64,7 +64,7 @@ A autenticação é o processo de comprovar o usuário é quem eles alegam ser. 
     Adicionais estão disponíveis as opções de autenticação do Azure AD [Active Directory Universal Authentication para o SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) ligações incluindo [multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) e [ Acesso condicional](sql-database-conditional-access.md).
 
 > [!IMPORTANT]
-> Gestão de bases de dados e servidores no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md). Controlar o acesso com regras de firewall faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure**. Veja o seguinte artigo sobre [ligar a uma instância gerida](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
+> Gestão de bases de dados e servidores no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md). Controlar o acesso com regras de firewall faz *não* aplicam-se ao **uma instância gerida**. Veja o seguinte artigo sobre [ligar a uma instância gerida](sql-database-managed-instance-connect-app.md) para obter mais informações sobre a configuração de rede necessária.
 
 Autorização refere-se para as permissões atribuídas para um utilizador na base de dados SQL do Azure e determina o que o utilizador tem permissão para fazer. As permissões são controladas através da adição de contas de utilizador ao [funções de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles) que define permissões ao nível da base de dados ou conceder ao usuário determinado [ao nível do objeto permissões](/sql/relational-databases/security/permissions-database-engine). Para obter mais informações, consulte [inícios de sessão e utilizadores](sql-database-manage-logins.md)
 
@@ -88,9 +88,9 @@ Base de dados SQL protege os dados dos clientes, fornecendo capacidades de dete�
 
 A auditoria de base de dados SQL controla as atividades de base de dados e ajuda a manter a conformidade com as normas de segurança, registrando eventos de base de dados para uma auditoria iniciar sessão numa conta de armazenamento do Azure pertencentes ao cliente. A auditoria permite aos utilizadores monitorizar atividades de base de dados em curso, bem como analisar e investigar atividade do histórico para identificar potenciais ameaças ou suspeitas abuso e violações de segurança. Para obter mais informações, consulte Introdução à [a auditoria de base de dados SQL](sql-database-auditing.md).  
 
-### <a name="sql-threat-detection"></a>Deteção de ameaças do SQL
+### <a name="threat-detection"></a>Deteção de ameaças
 
-Tentarem ameaças que melhora a deteção de auditoria através da análise de registos de auditoria para comportamentos incomuns e potencialmente prejudiciais de aceder ou explorar bases de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anómalos, como ataques de injeção de SQL, potenciais infiltração de dados e ataques de palavra-passe de força bruta. Alertas de deteção de ameaças são visualizadas a partir da [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde são fornecidos os detalhes das atividades suspeitas e recomendações para ainda mais investigação fornecida junto com ações para mitigar a ameaça. Deteção de ameaças custa us $15/servidor/mês. É gratuito durante os primeiros 60 dias. Para obter mais informações, veja [Get started with SQL Database Threat Detection (Introdução à Deteção de Ameaças da Base de Dados SQL)](sql-database-threat-detection.md).
+Tentarem ameaças melhora a deteção de auditoria através da análise de registos de auditoria para comportamentos incomuns e potencialmente prejudiciais de aceder ou explorar bases de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anómalos, como ataques de injeção de SQL, potenciais infiltração de dados e ataques de palavra-passe de força bruta. Alertas de deteção de ameaças são visualizadas a partir da [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde são fornecidos os detalhes das atividades suspeitas e recomendações para ainda mais investigação fornecida junto com ações para mitigar a ameaça. Deteção de ameaças custa us $15/servidor/mês. É gratuito durante os primeiros 60 dias. Para obter mais informações, consulte [introdução à deteção de ameaças da base de dados de SQL](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,11 +137,11 @@ Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados 
 
 ## <a name="security-management"></a>Gestão de segurança
 
-### <a name="sql-vulnerability-assessment"></a>Avaliação de Vulnerabilidades do SQL
+### <a name="vulnerability-assessment"></a>Avaliação de vulnerabilidades
 
-[Avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md) é fácil de configurar o serviço que pode detetar, controlar e ajudar a remediar potenciais vulnerabilidades das bases de dados com o objetivo para proativamente melhorar a segurança geral da base de dados. Avaliação de vulnerabilidade (VA) faz parte da oferta SQL segurança de dados avançadas (ADS), que é um pacote unificado para funções de segurança avançadas do SQL. Avaliação de vulnerabilidades pode ser acedida e gerenciada através do portal de anúncios de SQL central.
+[Avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é fácil de configurar o serviço que pode detetar, controlar e ajudar a remediar potenciais vulnerabilidades das bases de dados com o objetivo para proativamente melhorar a segurança geral da base de dados. Avaliação de vulnerabilidades (VA) faz parte da oferta de segurança (ADS) avançada de dados, que é um pacote unificado para funções de segurança avançadas do SQL. Avaliação de vulnerabilidades pode ser acedida e gerenciada através do portal de anúncios de SQL central.
 
-### <a name="data-discovery--classification"></a>Dados de deteção e classificação
+### <a name="data-discovery--classification"></a>Deteção e classificação de dados
 
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados SQL do Azure para detetar, classificação, etiquetagem e proteger os dados confidenciais em seus bancos de dados. A detetar e classificar os dados confidenciais extrema (empresas financeiras, cuidados de saúde, os dados pessoais, etc.) podem desempenham um papel essencial na sua organização escritor de proteção de informações. Que possa servir como a infraestrutura para:
 
@@ -149,7 +149,7 @@ Deteção de dados e classificação (atualmente em pré-visualização) fornece
 - Controlar o acesso ao e o sistema de proteção de segurança, bases de dados que contêm dados altamente confidenciais.
 - Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados.
 
-Para obter mais informações, consulte [introdução à deteção de dados do SQL DB e classificação](sql-database-data-discovery-and-classification.md).
+Para obter mais informações, consulte [começar com dados de deteção e classificação](sql-database-data-discovery-and-classification.md).
 
 ### <a name="compliance"></a>Conformidade
 

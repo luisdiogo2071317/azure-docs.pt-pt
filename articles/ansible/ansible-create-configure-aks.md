@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: df1efc1506fbbe51ba5afb03f147c51a57d9bbdb
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258837"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727063"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Azure Kubernetes Service no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o Azure Kubernetes Service (AKS). Este artigo mostra-lhe como utilizar o Ansible para criar e configurar um cluster do Azure Kubernetes Service.
@@ -25,13 +25,13 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
+> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial.
 
 ## <a name="create-a-managed-aks-cluster"></a>Criar um cluster do AKS gerido
 O código nesta secção apresenta um playbook de Ansible de exemplo para criar um grupo de recursos e um cluster do AKS que reside no grupo de recursos.
 
 > [!Tip]
-> Para o `your_ssh_key` marcador de posição, introduza a chave pública RSA no formato de linha única - começando por "ssh-rsa" (sem as aspas). 
+> Para o `your_ssh_key` marcador de posição, introduza a chave pública RSA no formato de linha única - começando por "ssh-rsa" (sem as aspas).
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -71,8 +71,8 @@ O código nesta secção apresenta um playbook de Ansible de exemplo para criar 
   ```
 
 As marcas abaixo ajudam a explicar o código do manual de procedimentos do Ansible anterior:
-- A primeira secção nas **tarefas** define um grupo de recursos com o nome **myResourceGroup** na localização **eastus**. 
-- A segunda secção nas **tarefas** define um cluster do AKS com o nome **myAKSCluster** no grupo de recursos **myResourceGroup**. 
+- A primeira secção nas **tarefas** define um grupo de recursos com o nome **myResourceGroup** na localização **eastus**.
+- A segunda secção nas **tarefas** define um cluster do AKS com o nome **myAKSCluster** no grupo de recursos **myResourceGroup**.
 
 Para criar o cluster do AKS com o Ansible, guarde o manual de procedimentos de exemplo anterior como `azure_create_aks.yml` e execute-o com o seguinte comando:
 
@@ -100,10 +100,10 @@ A saída do comando **ansible-playbook* parece semelhante ao seguinte, que mostr
 
 ## <a name="scale-aks-nodes"></a>Dimensionar nós do AKS
 
-O manual de procedimentos de exemplo na secção anterior define dois nós. Se precisar de mais ou menos cargas de trabalho do contentor no seu cluster, pode ajustar o número de nós facilmente. O manual de procedimentos de exemplo nesta secção aumenta o número de nós de dois nós para três. A modificação do número de nós é feita ao alterar o valor **count** no bloco **agent_pool_profiles**. 
+O manual de procedimentos de exemplo na secção anterior define dois nós. Se precisar de mais ou menos cargas de trabalho do contentor no seu cluster, pode ajustar o número de nós facilmente. O manual de procedimentos de exemplo nesta secção aumenta o número de nós de dois nós para três. A modificação do número de nós é feita ao alterar o valor **count** no bloco **agent_pool_profiles**.
 
 > [!Tip]
-> Para o `your_ssh_key` marcador de posição, introduza a chave pública RSA no formato de linha única - começando por "ssh-rsa" (sem as aspas). 
+> Para o `your_ssh_key` marcador de posição, introduza a chave pública RSA no formato de linha única - começando por "ssh-rsa" (sem as aspas).
 
 ```yaml
 - name: Scale AKS cluster
@@ -120,10 +120,10 @@ O manual de procedimentos de exemplo na secção anterior define dois nós. Se p
   tasks:
   - name: Scaling an existed AKS cluster
     azure_rm_aks:
-        name: "{{ aks_name }}"    
+        name: "{{ aks_name }}"
         location: "{{ location }}"
-        resource_group: "{{ resource_group }}" 
-        dns_prefix: "{{ aks_name }}" 
+        resource_group: "{{ resource_group }}"
+        dns_prefix: "{{ aks_name }}"
         linux_profile:
           admin_username: "{{ username }}"
           ssh_key: "{{ ssh_key }}"
@@ -168,7 +168,7 @@ A secção do manual de procedimentos de exemplo do Ansible seguinte ilustra com
       resource_group: myResourceGroup
       aks_name: myAKSCluster
     tasks:
-    - name: 
+    - name:
       azure_rm_aks:
         name: "{{ aks_name }}"
         resource_group: "{{ resource_group }}"
@@ -193,7 +193,7 @@ TASK [azure_rm_aks] ************************************************************
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
-  
+
 ## <a name="next-steps"></a>Passos Seguintes
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Tutorial: Dimensionar a aplicação no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

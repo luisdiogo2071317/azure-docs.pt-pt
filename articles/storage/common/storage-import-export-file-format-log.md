@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454849"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697837"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure formato de ficheiro do registo de serviço de importação/exportação
 Quando o serviço de importação/exportação do Microsoft Azure realiza uma ação numa unidade como parte de uma tarefa de importação ou uma tarefa de exportação, os registos são escritos para bloquear os blobs na conta de armazenamento associadas com essa tarefa.  
@@ -22,7 +22,7 @@ Existem dois registos que podem ser gravados pelo serviço de importação/expor
   
 -   O registo de erros é sempre gerado no caso de um erro.  
   
--   O registo verboso não está ativado por predefinição, mas pode ser ativado ao configurar o `EnableVerboseLog` propriedade num [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs#Jobs_Update) operação.  
+-   O registo verboso não está ativado por predefinição, mas pode ser ativado ao configurar o `EnableVerboseLog` propriedade num [colocar tarefa](/rest/api/storageimportexport/jobs) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs) operação.  
   
 ## <a name="log-file-location"></a>Localização do ficheiro de registo  
 Os registos são escritos para bloquear os blobs no contentor ou do diretório virtual especificado pelos `ImportExportStatesPath` definição, que pode definir um `Put Job` operação. A localização para o qual os registos são escritos depende de como a autenticação é especificada para a tarefa, juntamente com o valor especificado para `ImportExportStatesPath`. Autenticação para a tarefa pode ser especificada através de uma chave de conta de armazenamento ou um contentor SAS (assinatura de acesso partilhado).  
@@ -38,7 +38,7 @@ A tabela abaixo mostra as opções possíveis:
 |SAS de contentor|Valor predefinido|Um diretório virtual com o nome `waimportexport`, que é o nome predefinido, sob o contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, seria a localização do registo `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAS de contentor|Valor especificado pelo utilizador|Um diretório virtual com o nome pelo usuário, por baixo do contentor especificado na SAS.<br /><br /> Por exemplo, se a SAS especificada para a tarefa é `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, e o nome do diretório virtual especificado `mylogblobs`, em seguida, a localização do registo seria `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
-Pode obter o URL para os registos verbosos e um erro ao chamar o [Get Job de](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação. Os registos estão disponíveis após a conclusão do processamento da unidade.  
+Pode obter o URL para os registos verbosos e um erro ao chamar o [Get Job de](/rest/api/storageimportexport/jobs) operação. Os registos estão disponíveis após a conclusão do processamento da unidade.  
   
 ## <a name="log-file-format"></a>Formato de ficheiro de registo  
 O formato para ambos os logs é o mesmo: um blob que contém descrições de XML dos eventos que ocorreram ao copiar blobs entre o disco rígido e a conta do cliente.  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6362b243bff91233c3cd08f26904866dd7be9ebd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9610256ac68b6c1be12ca22220e317752c068b85
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248882"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730838"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Resolver problemas de máquina virtual do Windows implementar no Azure
 
@@ -87,7 +87,7 @@ Para ativar o seu crédito mensal, veja este [artigo](https://azure.microsoft.co
 
 ## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>Como adicionar ao meu Enterprise Agreement (EA) para obter acesso a imagens de cliente da janela de Enterprise programador/teste?
 
-A capacidade de criar subscrições baseadas na oferta Enterprise programador/teste é restrita a proprietários da conta que tem permissão para fazer isso por um administrador empresarial. O proprietário da conta cria subscrições através do Portal de conta do Azure e, em seguida, deve adicionar subscritores ativos do Visual Studio como coadministradores. Para que eles podem gerir e utilizar os recursos necessários para desenvolvimento e teste. Para obter mais informações, consulte [Enterprise programador/teste](https://azure.microsoft.com/offers/ms-azr-0148p/).
+A capacidade de criar subscrições baseadas na oferta Enterprise Dev/Test é restrita a Proprietários da Conta que tenham recebido permissão para tal de um Administrador Empresarial. O proprietário da conta cria subscrições através do Portal de conta do Azure e, em seguida, deve adicionar subscritores ativos do Visual Studio como coadministradores. Para que eles podem gerir e utilizar os recursos necessários para desenvolvimento e teste. Para obter mais informações, consulte [Enterprise programador/teste](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Meus controladores estão em falta para a minha VM de série N do Windows
 
@@ -124,7 +124,7 @@ Escolha um tamanho que é suportado num cluster de conjunto de disponibilidade. 
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Pode adicionar uma VM clássica existente para um conjunto de disponibilidade?
 
-Sim. Pode adicionar uma VM clássica existente para um novo ou existente do conjunto de disponibilidade. Para obter mais informações, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](../windows/classic/configure-availability-classic.md#addmachine).
+Sim. Pode adicionar uma VM clássica existente para um novo ou existente do conjunto de disponibilidade. Para obter mais informações, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239235"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697484"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Implementar uma rede de blockchain Ethereum no Azure Stack
 
@@ -25,7 +25,7 @@ O modelo de solução Ethereum foi concebido para que seja mais fácil e rápido
 
 Com um punhado de entradas do utilizador e uma implementação de clique único através do portal de inquilino do Azure Stack, cada membro pode aprovisionar a seus requisitos de espaço da rede. Requisitos de espaço de rede de cada membro é composta por um conjunto de nós de transação com balanceamento de carga com que uma aplicação ou o utilizador pode interagir para submeter transações, um conjunto de nós de extração para registrar transações e uma aplicação Virtual de rede (NVA). Um passo de ligação subsequentes liga-se as NVAs para criar uma rede de totalmente configurado com vários membros blockchain.
 
-Para configurar isso,:
+Para configurar:
 
 - Escolha uma arquitetura de implantação
 - Implementar um autónomo, o líder de consórcio ou a rede de membro de consórcio
@@ -157,7 +157,7 @@ Para verificar a implementação do membro, procure o site de administração do
 
 ![Resumo da implementação do membro](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-Como mostrado na imagem, o estado de nós do membro é **não está em execução**. Isso é porque não for possível estabelecer a ligação entre o membro e o líder. A ligação entre o membro e líder é uma ligação bidirecional. Quando implementa o membro, o modelo cria automaticamente a ligação de membro para o líder. Para criar a ligação da líder para o membro, vá para o passo seguinte.
+Como mostrado na imagem, o estado de nós do membro é **não está em execução**. Este estado é porque não for possível estabelecer a ligação entre o membro e o líder. A ligação entre o membro e líder é uma ligação bidirecional. Quando implementa o membro, o modelo cria automaticamente a ligação de membro para o líder. Para criar a ligação da líder para o membro, vá para o passo seguinte.
 
 ### <a name="connect-member-and-leader"></a>Ligue-se membro e líder
 

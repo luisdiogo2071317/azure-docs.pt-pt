@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: f053f2f70b266a53684f72ceb9d997a718c66444
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663915"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700710"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core
 
@@ -99,13 +99,7 @@ Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes
 Nesta secção, vai criar uma aplicação Web em ASP.NET Core e executá-la num contentor no Kubernetes.
 
 ### <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
-Se tiver o [.NET Core](https://www.microsoft.com/net) instalado, pode criar rapidamente uma aplicação Web ASP.NET Core numa pasta denominada `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Em alternativa, **transfira o código de exemplo do GitHub** ao navegar para https://github.com/Azure/dev-spaces e selecione **Clone or Download** (Clonar ou Transferir) para transferir o repositório do GitHub para o seu ambiente local. O código para este guia está em `samples/dotnetcore/getting-started/webfrontend`.
+Clonar ou transferir os [aplicação de exemplo do Azure Dev espaços](https://github.com/Azure/dev-spaces). Este artigo usa o código na *amostras/dotnetcore/obter-iniciada/webfrontend* diretório.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Preparar o código para implementação do Docker e Kubernetes
 Neste momento, tem uma aplicação Web básica que pode ser executada localmente. Agora, irá colocá-la em contentor ao criar recursos que definem o contentor da aplicação e como esta será implementada no Kubernetes. É fácil executar esta tarefa com o Azure Dev Spaces: 

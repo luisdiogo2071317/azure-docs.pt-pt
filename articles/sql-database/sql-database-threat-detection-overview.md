@@ -1,6 +1,6 @@
 ---
 title: Deteção de ameaças - base de dados SQL do Azure | Documentos da Microsoft
-description: Deteção de ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados SQL do Azure.
+description: Deteção de ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,34 +11,34 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451721"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729511"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Deteção de ameaças da base de dados SQL do Azure
+# <a name="azure-sql-database-threat-detection"></a>Deteção de ameaças de base de dados SQL do Azure
 
-Deteção de ameaças do SQL do Azure para [Azure SQL Database](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados.
+Para a deteção de ameaças [Azure SQL Database](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados.
 
-Deteção de ameaças é a parte a [segurança de dados avançada do SQL](sql-advanced-threat-protection.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal de anúncios de SQL central.
+Deteção de ameaças é a parte a [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal de anúncios de SQL central.
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 ## <a name="what-is-threat-detection"></a>O que é a deteção de ameaças
 
-Deteção de ameaças do SQL oferece uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas. Os utilizadores recebem um alerta após a atividades suspeitas da base de dados, potenciais vulnerabilidades, e injeção de SQL, ataques, bem como de acesso de base de dados anómalas e padrões de consulta. Deteção de ameaças SQL integra alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), que inclui detalhes da ação de atividade e recomendamos suspeita sobre como investigar e mitigar a ameaça. Deteção de ameaças SQL simplifica a resolução de potenciais ameaças à base de dados sem a necessidade de ser um especialista em segurança ou gerir sistemas de monitorização de segurança avançada.
+Deteção de ameaças oferece uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas. Os utilizadores recebem um alerta após a atividades suspeitas da base de dados, potenciais vulnerabilidades, e injeção de SQL, ataques, bem como de acesso de base de dados anómalas e padrões de consulta. Deteção de ameaças integra alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), que inclui detalhes da ação de atividade e recomendamos suspeita sobre como investigar e mitigar a ameaça. A deteção de ameaças facilita lidar com potenciais ameaças à base de dados sem que seja necessário ser especialista em segurança ou gerir sistemas de monitorização de segurança avançados.
 
 Para uma experiência de investigação completo, é recomendado que ative [a auditoria de base de dados SQL](sql-database-auditing.md), que escreve o registo de eventos de base de dados para uma auditoria na sua conta de armazenamento do Azure.  
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Alertas de deteção de ameaças da base de dados SQL do Azure
+## <a name="threat-detection-alerts"></a>Alertas de deteção de ameaças
 
 Deteção de ameaças da base de dados do Azure SQL Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados e ele pode acionar os seguintes alertas:
 
-- **Vulnerabilidade a Injeção de SQL**: Este alerta é acionado quando uma aplicação gera uma instrução SQL defeituosa na base de dados. Este alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Existem dois motivos possíveis para a geração de uma instrução defeituosa:
+- **Vulnerabilidade a injeção de SQL**: Este alerta é acionado quando uma aplicação gera uma instrução SQL defeituosa na base de dados. Este alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Existem dois motivos possíveis para a geração de uma instrução defeituosa:
 
   - Um defeito no código da aplicação que constitui a instrução SQL defeituosa
   - O código de aplicação ou os procedimentos armazenados não saneiam a entrada de utilizador ao criar a instrução SQL defeituosa, o que pode ser explorado para Injeção SQL
@@ -67,7 +67,7 @@ Receber uma notificação por e-mail após a deteção de atividades anómalas d
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explore os alertas de deteção de ameaças da base de dados no portal do Azure
 
-Deteção de ameaças da base de dados SQL integra seus alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). Live ameaças SQL, mosaicos de deteção na base de dados e os painéis de anúncios de SQL no portal do Azure rastrear o status de ameaças ativas.
+Deteção de ameaças integra seus alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). Live ameaças SQL, mosaicos de deteção na base de dados e os painéis de anúncios de SQL no portal do Azure rastrear o status de ameaças ativas.
 
 Clique em **alerta de deteção de ameaças** para iniciar o Centro de segurança do Azure a alertas de página e obter uma visão geral do Active Directory SQL ameaças detetadas no armazém de dados ou base de dados.
 
@@ -77,9 +77,9 @@ Clique em **alerta de deteção de ameaças** para iniciar o Centro de seguranç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [deteção de ameaças na autónoma e bases de dados agrupadas](sql-database-threat-detection.md).
+- Saiba mais sobre [deteção na autónoma e bases de dados agrupadas de ameaças](sql-database-threat-detection.md).
 - Saiba mais sobre [deteção de ameaças na instância gerida](sql-database-managed-instance-threat-detection.md).
-- Saiba mais sobre [segurança de dados avançada SQL](sql-advanced-threat-protection.md).
-- Saiba mais sobre [auditoria de base de dados SQL do Azure](sql-database-auditing.md)
+- Saiba mais sobre [segurança de dados avançada](sql-database-advanced-data-security.md).
+- Saiba mais sobre [auditoria de base de dados do Azure SQL](sql-database-auditing.md)
 - Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para obter mais informações sobre os preços, consulte o [página de preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Para obter mais informações sobre os preços, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/)  

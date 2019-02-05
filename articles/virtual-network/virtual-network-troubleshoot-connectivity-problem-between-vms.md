@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7574ac1a5937fbe963ef764d42f04d00f6c02d69
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fc3d6ab1d7fdf05963d9ecd350deccd940a95b87
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241774"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732520"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Resolução de problemas de conectividade entre as VMs do Azure
 
@@ -47,7 +47,7 @@ Uma que VM do Azure não é possível ligar a outra VM do Azure.
 
 Siga estes passos para resolver o problema. Depois de completar cada passo, verifique se o problema está resolvido. 
 
-### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passo 1: Verificar se a NIC está configurado incorretamente
+### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passo 1: Verifique se a NIC está configurado incorretamente
 
 Siga os passos em [como repor a interface de rede VM do Azure Windows](../virtual-machines/windows/reset-network-interface.md). 
 
@@ -65,15 +65,15 @@ Para obter mais informações, consulte [interfaces de rede para adicionar ou re
 - [Reimplementar VM do Windows](../virtual-machines/windows/redeploy-to-new-node.md)
 - [Reimplementar VM do Linux](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passo 2: Verificar se o tráfego de rede está bloqueado por NSG ou UDR
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passo 2: Verifique se o tráfego de rede está bloqueado por NSG ou UDR
 
 Uso [verificação do fluxo de rede observador IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) e [registo de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se é um grupo de segurança de rede (NSG) ou definidas pelo utilizador rota (UDR) que está a interferir com o fluxo de tráfego.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Passo 3: Verificar se o tráfego de rede é bloqueado pela firewall VM
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Passo 3: Verifique se o tráfego de rede é bloqueado pela firewall VM
 
 Desabilitar o firewall e, em seguida, o resultado do teste. Se o problema for resolvido, verifique as definições de firewall e, em seguida, volte a ativar a firewall.
 
-### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Passo 4: Verificar se a aplicação VM ou serviço está a escutar na porta
+### <a name="step-4-check-whether-vm-app-or-service-is-listening-on-the-port"></a>Passo 4: Verifique se a aplicação VM ou serviço está a escutar na porta
 
 Pode utilizar um dos seguintes métodos para verificar se a aplicação VM ou o serviço está a escutar na porta.
 
@@ -93,11 +93,11 @@ Pode utilizar um dos seguintes métodos para verificar se a aplicação VM ou o 
 
 Em alguns cenários, a VM é colocada atrás de uma solução de balanceamento de carga que tem uma dependência em recursos fora do Azure. Nestes cenários, se tiver problemas de ligação intermitentes, o problema pode ser causado por [exaustão de porta SNAT](../load-balancer/load-balancer-outbound-connections.md). Para resolver o problema, crie um VIP (ou ILPIP para a clássica) para cada VM que está por detrás do Balanceador de carga e proteger com NSG ou a ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Passo 6: Verificar se o tráfego é bloqueado pelas ACLs para a VM clássica
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Passo 6: Verifique se o tráfego está bloqueado por ACLs para a VM clássica
 
-Uma lista de controlo de acesso (ACL) fornece a capacidade para seletivamente permitir ou negar o tráfego para um ponto de final de máquina virtual. Para obter mais informações, consulte [gerir a ACL num ponto de extremidade](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Uma lista de controlo de acesso (ACL) fornece a capacidade para seletivamente permitir ou negar o tráfego para um ponto de final de máquina virtual. Para obter mais informações, consulte [gerir a ACL num ponto de extremidade](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
-### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passo 7: Verificar se o ponto final é criado para a VM clássica
+### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passo 7: Verifique se o ponto final é criado para a VM clássica
 
 Todas as VMs que criar no Azure, utilizando o modelo de implementação clássica podem automaticamente comunicar através de um canal de rede privada com outras máquinas virtuais no mesmo serviço cloud ou rede virtual. No entanto, os computadores em outras redes virtuais requerem pontos finais para direcionar o tráfego de rede de entrada para uma máquina virtual. Para obter mais informações, consulte [como configurar pontos finais](../virtual-machines/windows/classic/setup-endpoints.md).
 
@@ -105,7 +105,7 @@ Todas as VMs que criar no Azure, utilizando o modelo de implementação clássic
 
 Se não conseguir ligar-se para uma partilha de rede VM, o problema pode dever-se indisponível NICs na VM. Para eliminar os NICs indisponíveis, veja [como eliminar os NICs indisponíveis](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
-### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: A conectividade de verificação Inter-Vnet
+### <a name="step-9-check-inter-vnet-connectivity"></a>Passo 9: Verifique a conectividade Inter-Vnet
 
 Uso [verificação do fluxo de rede observador IP](../network-watcher/network-watcher-ip-flow-verify-overview.md) e [registo de fluxo de NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar se é um NSG ou UDR que está a interferir com o fluxo de tráfego. Também pode verificar a configuração de Inter-Vnet [aqui](https://support.microsoft.com/en-us/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 

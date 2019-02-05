@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 494826701431ee397b468c6ddfcef664c015861d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661485"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697139"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -48,15 +48,9 @@ A seguir mostra uma função personalizada aparência tal como apresentado no fo
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-
-  ],
-  "DataActions": [
-
-  ],
-  "NotDataActions": [
-
-  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/subscriptions/{subscriptionId1}",
     "/subscriptions/{subscriptionId2}",
@@ -73,12 +67,12 @@ Quando cria uma função personalizada, ele aparece no portal do Azure com um í
 
 1. Determinar as permissões que necessárias
 
-    Quando cria uma função personalizada, precisa saber o recurso de operações de fornecedor que estão disponíveis para definir as suas permissões. Para ver a lista de operações, pode utilizar o [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) ou [lista de operação de fornecedores de az](/cli/azure/provider/operation#az-provider-operation-list) comandos.
+    Quando cria uma função personalizada, precisa saber o recurso de operações de fornecedor que estão disponíveis para definir as suas permissões. Para ver a lista de operações, pode utilizar o [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [lista de operação de fornecedores de az](/cli/azure/provider/operation#az-provider-operation-list) comandos.
     Para especificar as permissões para a sua função personalizada, adicione as operações para o `Actions` ou `NotActions` propriedades do [definição de função](role-definitions.md). Se tiver de operações de dados, adicioná-los para o `DataActions` ou `NotDataActions` propriedades.
 
 2. Criar a função personalizada
 
-    Pode utilizar o Azure PowerShell ou a CLI do Azure para criar a função personalizada. Normalmente, começar com uma função incorporada existente e, em seguida, modificá-lo para as suas necessidades. Em seguida, utilizar o [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) ou [criação da definição de função de az](/cli/azure/role/definition#az-role-definition-create) comandos para criar a função personalizada. Para criar uma função personalizada, tem de ter o `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `AssignableScopes`, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
+    Pode utilizar o Azure PowerShell ou a CLI do Azure para criar a função personalizada. Normalmente, começar com uma função incorporada existente e, em seguida, modificá-lo para as suas necessidades. Em seguida, utilizar o [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [criação da definição de função de az](/cli/azure/role/definition#az-role-definition-create) comandos para criar a função personalizada. Para criar uma função personalizada, tem de ter o `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `AssignableScopes`, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
 
 3. Testar a função personalizada
 

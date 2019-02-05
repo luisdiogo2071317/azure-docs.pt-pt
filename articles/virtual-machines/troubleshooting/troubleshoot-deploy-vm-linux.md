@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 45e15fa5b17f75dcc6cfdc7305861d38804f1266
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748141"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729715"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Resolver problemas de implantação problemas de máquina virtual do Linux no Azure
 
@@ -93,7 +93,7 @@ Pode encontrar a lista em Linux no [Azure-Endorsed distribuições](../linux/end
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Pode adicionar uma VM clássica existente para um conjunto de disponibilidade?
 
-Sim. Pode adicionar uma VM clássica existente para um novo ou existente do conjunto de disponibilidade. Para obter mais informações, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](../windows/classic/configure-availability-classic.md#addmachine).
+Sim. Pode adicionar uma VM clássica existente para um novo ou existente do conjunto de disponibilidade. Para obter mais informações, consulte [adicionar uma máquina virtual existente a um conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

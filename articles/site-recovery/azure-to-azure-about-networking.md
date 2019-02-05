@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992123"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693994"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
 
@@ -99,7 +99,8 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    Coreia do Sul | 52.231.298.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
-
+   Austrália central| 20.36.34.70 | 20.36.46.142
+   Austrália Central 2| 20.36.69.62 | 20.36.74.130
 
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
@@ -112,7 +113,7 @@ Este exemplo mostra como configurar regras NSG para uma VM a replicar.
 
 1. Crie uma regra de segurança de saída HTTPS (443) para "Eastus" no NSG conforme mostrado na captura de ecrã abaixo.
 
-      ![etiqueta de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Crie uma regra de segurança de saída HTTPS (443) para "AzureActiveDirectory" no NSG conforme mostrado na captura de ecrã abaixo.
 
@@ -147,7 +148,7 @@ Pode criar um ponto de extremidade do serviço de rede na sua rede virtual para 
 
 - Selecione a rede virtual do Azure e clique em "Pontos finais de serviço"
 
-    ![ponto final de armazenamento](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
 
 - Clique em "Adicionar" e "Adicionar pontos finais de serviço" separador abre-se
 - Selecione "Microsoft. Storage" em "Service" e as sub-redes necessárias em campo "Sub-redes" e clique em "Adicionar"

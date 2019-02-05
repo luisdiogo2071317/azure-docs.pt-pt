@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 0997b12ed7bc86134d0f2cc875a98ee554c667d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd875fe19bdf9d02fc7217b66c8fd442abef2d42
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461241"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700269"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com o Python
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Atualmente, está disponível um ponto final para Tradução de Texto e está definido como `base_url`. `path` define a rota `transliterate` e identifica que queremos utilizar a versão 3 da API.
+O ponto final global do texto do tradutor está definido como o `base_url`. `path` define a rota `transliterate` e identifica que queremos utilizar a versão 3 da API.
 
 Os `params` são utilizados para definir o idioma de entrada e os scripts de entrada e saída. Neste exemplo, estamos a transliterar de japonês para o alfabeto latino.
 

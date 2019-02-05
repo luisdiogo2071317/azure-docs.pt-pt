@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5d7e21661d7ee905ff77a4856544d358924cd9ea
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413826"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700881"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Oracle Golden Gate numa VM do Linux do Azure 
 
@@ -51,7 +51,7 @@ Segue-se um resumo da configuração do ambiente:
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
-Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index#az_login) comando. Em seguida, siga na tela as direções.
+Inicie sessão na sua subscrição do Azure com o [início de sessão az](/cli/azure/reference-index) comando. Em seguida, siga na tela as direções.
 
 ```azurecli
 az login
@@ -81,7 +81,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create). 
+Crie uma VM com o comando [az vm create](/cli/azure/vm). 
 
 O exemplo seguinte cria duas VMs com o nome `myVM1` e `myVM2`. Crie chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 

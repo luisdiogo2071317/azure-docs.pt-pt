@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884899"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733183"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
@@ -40,7 +40,7 @@ Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recur
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Estas chaves SSH são utilizadas se precisar de iniciar sessão nas instâncias de VM. Para utilizar um conjunto existente de chaves SSH, utilize o parâmetro `--ssh-key-value` e especifique a localização das suas chaves.
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Estas chaves SSH são utilizadas se precisar de iniciar sessão nas instâncias de VM. Para utilizar um conjunto existente de chaves SSH, utilize o parâmetro `--ssh-key-value` e especifique a localização das suas chaves.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 ## <a name="deploy-sample-application"></a>Implementar aplicação de exemplo
 Para testar o conjunto de dimensionamento, instale uma aplicação Web básica. A Extensão de Script Personalizado do Azure serve para transferir e executar um script que instala uma aplicação nas instâncias de VM. Esta extensão é útil para a configuração pós-implementação, instalação de software ou qualquer outra tarefa de gestão/configuração. Para obter mais informações, veja a [Descrição geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
 
-Utilize a Extensão de Script Personalizado para instalar um servidor Web de NGINX básico. Aplique a Extensão de Script Personalizado que instala o NGINX com [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set), da seguinte forma:
+Utilize a Extensão de Script Personalizado para instalar um servidor Web de NGINX básico. Aplique a Extensão de Script Personalizado que instala o NGINX com [az vmss extension set](/cli/azure/vmss/extension), da seguinte forma:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Permitir o tráfego para a aplicação
-Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implementado. O balanceador de carga distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance a aplicação Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
+Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implementado. O balanceador de carga distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance a aplicação Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ Introduza o endereço IP público do balanceador de carga num browser. O balance
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma. O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
+Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados da seguinte forma. O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

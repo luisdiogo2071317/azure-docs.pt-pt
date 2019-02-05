@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 61c1afbe6252d1feefc9bc648457ef21a57d23d5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887959"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733999"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo em C, por meio de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -64,7 +64,7 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     Atualmente, o tamanho deste repositório é de cerca de 220 MB.
@@ -73,7 +73,6 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -89,14 +88,14 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 No Windows, execute os seguintes comandos na linha de comandos do programador para o Visual Studio 2015 ou 2017 de linha de comandos:
 
 ```
-    # In Windows
-    # For VS2015
+    rem In Windows
+    rem For VS2015
     cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 

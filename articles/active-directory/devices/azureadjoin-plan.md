@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bb8ab22db18bbe170a20d253e601eb78855aafa7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88a1405a55432b6f5932f2675260540a8aea46aa
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102741"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697704"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -126,6 +126,8 @@ Associação ao Azure AD:
 - Só é aplicável a dispositivos Windows 10. 
 
 - Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se tiver dispositivos do Windows 7/8.1, tem de atualizar para o Windows 10 para implementar a associação do Azure AD.
+
+- Não é suportada em dispositivos com o TPM no modo FIPS.
  
 **Recomendação:** Utilize sempre a versão mais recente do Windows 10 para tirar partido das funcionalidades atualizadas.
 

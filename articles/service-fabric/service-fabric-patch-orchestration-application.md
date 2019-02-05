@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 646a64435ba02877d2588b8debbb3920a32a5cf1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563087"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732316"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -131,7 +131,7 @@ Para ativar o serviço de Gestor de reparação:
     ],
     ```
 
-3. Atualizar o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [criar um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualizar a configuração de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Depois do cluster está em execução com o manifesto do cluster atualizado, pode ver agora o serviço de sistema do reparo manager em execução no seu cluster, o que é chamado `fabric:/System/RepairManagerService`, em sistema dos serviços de seção no Explorador do Service Fabric.
+3. Atualizar o manifesto do cluster com essas alterações, usando o manifesto do cluster atualizado [criar um novo cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) ou [atualizar a configuração de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Depois do cluster está em execução com o manifesto do cluster atualizado, pode ver agora o serviço de sistema do reparo manager em execução no seu cluster, o que é chamado `fabric:/System/RepairManagerService`, em sistema dos serviços de seção no Explorador do Service Fabric.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Desativar atualização automática do Windows em todos os nós
 

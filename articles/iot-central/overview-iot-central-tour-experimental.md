@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a5457299d0a0112685b194887802b4808a21d983
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 10f9aaed87d573926aa261435ba0d7cee9d01370
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666601"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733982"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Faça um tour do Azure IoT Central da interface do Usuário (design de nova interface do Usuário)
 
@@ -71,7 +71,7 @@ A página de boas-vindas é a primeira página que vê ao iniciar sessão na sua
 Mostra a página de Explorador a _dispositivos_ na sua aplicação do Azure IoT Central, agrupada por _modelo de dispositivo_.
 
 * Um modelo do dispositivo define um tipo de dispositivo que pode ligar à aplicação. Para obter mais informações, veja [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-* Um dispositivo representa um dispositivo real ou simulado na aplicação. Para obter mais informações, veja [Adicionar um novo dispositivo à aplicação do Azure IoT Central](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* Um dispositivo representa um dispositivo real ou simulado na aplicação. Para obter mais informações, veja [Adicionar um novo dispositivo à aplicação do Azure IoT Central](tutorial-add-device-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="device-sets"></a>Conjuntos de dispositivos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 772070b73f1d2dcf83d15283f6be70ab4fef148b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e05e26c944dac2fb18508e73c6d35c6875d26548
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155671"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729443"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -288,7 +288,7 @@ localização | Região do Azure a VM está em execução | 2017-04-02
 nome | Nome da VM | 2017-04-02
 oferta | Oferecem informações para a imagem VM. Este valor só é aplicável imagens implementadas a partir da Galeria de imagens do Azure. | 2017-04-02
 publicador | Publicador da imagem VM | 2017-04-02
-SKU | SKU específica para a imagem VM | 2017-04-02
+sku | SKU específica para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução | 2017-04-02
@@ -299,8 +299,8 @@ subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de dimensionamento de máquinas virtuais definido | 2017-08-01
-plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante | 2017-04-02
-publicKeys | Coleção de chaves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] atribuído à VM e caminhos | 2017-04-02
+plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante | 2018-04-02
+publicKeys | Coleção de chaves públicas [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] atribuído à VM e caminhos | 2018-04-02
 vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de dimensionamento de máquinas virtuais definido | 2017-12-01
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02

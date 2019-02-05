@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c75d4404cb0892c3d90261af2fb4982ac84041c4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163791"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732024"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Enviar eventos para Hubs de eventos do Azure com node. js
 
@@ -44,7 +44,7 @@ Clonar o repositório de Git de exemplo da [GitHub](https://github.com/Azure/azu
 ## <a name="install-nodejs-package"></a>Instalar o pacote de node. js
 Instale o pacote de node. js para os Hubs de eventos do Azure no seu computador. 
 
-```nodejs
+```shell
 npm install @azure/event-hubs
 ```
 
@@ -59,13 +59,13 @@ O SDK tem um clone contém vários exemplos que mostram-lhe como enviar eventos 
 3. Configure a sua cadeia de ligação do hub de eventos, o nome do hub de eventos e o ponto final de armazenamento. Pode copiar a cadeia de ligação para o seu hub de eventos de **primário de cadeia de ligação** chave sob **RootManageSharedAccessKey** na página do Hub de eventos no portal do Azure. Para obter passos detalhados, consulte [obter cadeia de ligação](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Sobre a CLI do Azure, navegue para o **cliente** caminho da pasta. Instalar pacotes de nó e compile o projeto ao executar os comandos seguintes:
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. Inicie o envio de eventos ao executar o seguinte comando: 
 
-    ```nodejs
+    ```shell
     node dist/examples/simpleSender.js
     ```
 
@@ -74,7 +74,7 @@ O SDK tem um clone contém vários exemplos que mostram-lhe como enviar eventos 
 Aqui está o código de exemplo para enviar eventos para um hub de eventos com node. js. Manualmente pode criar um ficheiro de sampleSender.js e execute-o para enviar eventos para um hub de eventos. 
 
 
-```nodejs
+```javascript
 const { EventHubClient, EventPosition } = require('@azure/event-hubs');
 
 const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
@@ -95,7 +95,7 @@ main().catch((err) => {
 
 Não se esqueça de definir as variáveis de ambiente antes de executar o script. Pode configurar esta opção na linha de comandos, conforme mostrado no exemplo seguinte, ou utilizar o [dotenv pacote](https://www.npmjs.com/package/dotenv#dotenv). 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"

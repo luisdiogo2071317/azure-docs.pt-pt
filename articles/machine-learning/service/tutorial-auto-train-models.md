@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cd14f2bdc394cb0887d318457dcf9295e216eb7b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 419e2cd8444d391c15c55c60c1cf7e086470b848
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489500"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730983"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -34,7 +34,6 @@ Neste tutorial, vai aprender as seguintes tarefas:
 > * Autotrain um modelo de regressão.
 > * Execute o modelo localmente com parâmetros personalizados.
 > * Explore os resultados.
-> * Registe o melhor modelo.
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
@@ -783,7 +782,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1217,6 +1215,5 @@ Nessa automático tutorial do machine learning, fez as seguintes tarefas:
 > * Configurar uma área de trabalho e dados preparados para uma experimentação.
 > * Formação utilizando um modelo de regressão automatizada localmente com parâmetros personalizados.
 > * Resultados de treinamento explorada e revistos.
-> * Registado o melhor modelo.
 
 [Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.

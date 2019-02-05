@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32cd3b9eb60a6d12c71be047740fa96ffdd56310
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094161"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731942"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou VHD
 
@@ -58,10 +58,10 @@ Primeiro vou desaprovisionar a VM ao utilizar o agente de VM do Azure para elimi
 3. Introduza **y** para continuar. Pode adicionar o `-force` parâmetro para evitar esta etapa de confirmação.
 4. Depois do comando for concluído, introduza **sair** para fechar o cliente SSH.
 
-## <a name="step-2-create-vm-image"></a>Passo 2: Criar a imagem de VM
+## <a name="step-2-create-vm-image"></a>Passo 2: Criar imagem de VM
 Utilize a CLI do Azure para marcar a VM como generalizado e capturar a imagem. Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem *myResourceGroup*, *myVnet*, e *myVM*.
 
-1. Desaloque a VM que desaprovisionado com [az vm deallocate](/cli/azure/vm#deallocate). O exemplo seguinte desaloca a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*.
+1. Desaloque a VM que desaprovisionado com [az vm deallocate](/cli/azure/vm). O exemplo seguinte desaloca a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ Utilize a CLI do Azure para marcar a VM como generalizado e capturar a imagem. N
       --name myVM
     ```
 
-2. Marque a VM como generalizado com [az vm generalize](/cli/azure/vm#generalize). O exemplo seguinte marca a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup* como generalizada.
+2. Marque a VM como generalizado com [az vm generalize](/cli/azure/vm). O exemplo seguinte marca a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup* como generalizada.
    
     ```azurecli
     az vm generalize \
@@ -91,7 +91,7 @@ Utilize a CLI do Azure para marcar a VM como generalizado e capturar a imagem. N
    > Se gostaria de armazenar a imagem no armazenamento resiliente para a zona, terá de criá-la numa região que suporta [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `--zone-resilient true` parâmetro.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passo 3: Criar uma VM a partir da imagem capturada
-Criar uma VM com a imagem criada com [az vm criar](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM com o nome *myVMDeployed* da imagem com o nome *myImage*.
+Criar uma VM com a imagem criada com [az vm criar](/cli/azure/vm). O exemplo seguinte cria uma VM com o nome *myVMDeployed* da imagem com o nome *myImage*.
 
 ```azurecli
 az vm create \

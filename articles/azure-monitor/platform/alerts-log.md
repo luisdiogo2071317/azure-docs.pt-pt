@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 46fc0202fe8e04cd7caefeeca948ebef251822fc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8a78abd7f3eea1493ef3f6e8cf3053720ba47478
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562288"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695445"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -61,21 +61,17 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
 1.  *Alertas de registo*: Depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
 
- ![Configurar a regra de alerta](media/alerts-log/AlertsPreviewAlertLog.png)
+    ![Configurar a regra de alerta](media/alerts-log/AlertsPreviewAlertLog.png)
 
- > [!NOTE]
-
+    > [!NOTE]
+    
     > Visualização de dados históricos pode ser apresentada apenas se os resultados da consulta tem os detalhes de tempo. Se a sua consulta resulta em dados resumidos ou valores de coluna de específicos - mesmo é mostrado como um desenho singular.
-
-    >  Para o tipo de medida da métrica de alertas de registo com o Application insights, pode especificar qual variável específico para agrupar os dados utilizando o **agregada no** opção; conforme ilustrado na abaixo:
-
+    >  Para o tipo de medida da métrica de alertas de registo com o Application Insights ou [mudado para a nova API](alerts-log-api-switch.md), pode especificar qual variável específico para agrupar os dados utilizando o **agregado em** opção; conforme ilustrado na abaixo:    
     ![Agregar na opção](media/alerts-log/aggregate-on.png)
 
-1.  *Alertas de registo*: Com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Por fim especifique na lógica de tempo para avaliar a condição especificada, utilizando **período** opção. Juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
-
-Para **alertas de registo** alertas podem ser baseados em:
-   - *Número de registos*: É criado um alerta se a contagem de registos devolvidos pela consulta for maior ou menor que o valor fornecido.
-   - *Medida da métrica*: É criado um alerta se cada *agregar valor* nos resultados excede o valor de limiar fornecido e é *agrupados por* escolhido o valor. O número de falhas de um alerta é o número de vezes que o limite é excedido no período de tempo escolhido. Pode especificar o Total de falhas para qualquer combinação de violações de entre o conjunto de resultados ou falhas consecutivas para exigir que as violações devem ocorrer no amostras consecutivas. Saiba mais sobre [alertas de registo e os tipos de](../../azure-monitor/platform/alerts-unified-log.md).
+1.  *Alertas de registo*: Com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Por fim especifique na lógica de tempo para avaliar a condição especificada, utilizando **período** opção. Juntamente com a frequência com que o alerta deve executar selecionando **frequência**. **Alertas de registo** podem basear-se em:
+    - [Número de registos](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): É criado um alerta se a contagem de registos devolvidos pela consulta for maior ou menor que o valor fornecido.
+    - [Medida da métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules): É criado um alerta se cada *agregar valor* nos resultados excede o valor de limiar fornecido e é *agrupados por* escolhido o valor. O número de falhas de um alerta é o número de vezes que o limite é excedido no período de tempo escolhido. Pode especificar o Total de falhas para qualquer combinação de violações de entre o conjunto de resultados ou falhas consecutivas para exigir que as violações devem ocorrer no amostras consecutivas.
 
 
 1. Como o segundo passo, defina um nome para o alerta no **nome da regra de alerta** campo juntamente com um **Descrição** com detalhes sobre as especificações para o alerta e **gravidade** partir das opções fornecidas. Esses detalhes são reutilizados em todos os e-mails de alerta, notificações ou push feita pelo Azure Monitor. Além disso, o utilizador pode optar por ativar imediatamente a regra de alerta após a criação, ativando adequadamente **ativar regra após a criação** opção.
@@ -132,9 +128,95 @@ Alertas de registo no Azure Monitor estão associadas com o tipo de recurso `Mic
 > [!NOTE]
 > Alertas de registo para o Log Analytics também podem ser geridas com o legado [API de alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) e os modelos de legado do [guardada do Log Analytics, pesquisas e alertas](../../azure-monitor/insights/solutions-resources-searches-alerts.md) também. Para obter mais informações sobre como utilizar a nova API de ScheduledQueryRules descritas aqui, por padrão, consulte [mudar para a nova API para alertas do Log Analytics](alerts-log-api-switch.md).
 
-Segue-se a estrutura para [criação de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base em modelo de recursos, com o conjunto de dados de exemplo como variáveis.
+
+### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Criação de alerta de registo de exemplo usando o modelo de recursos do Azure
+
+Segue-se a estrutura para [criação de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base usando a consulta de pesquisa de registo padrão de modelo do resource [número de alerta de registo do tipo de resultados](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), com o conjunto de dados de exemplo como variáveis.
 
 ```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0", 
+    "parameters": {      
+    },   
+    "variables": {
+    "alertLocation": "southcentralus",
+    "alertName": "samplelogalert",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+    "alertDescription": "Sample log search alert",
+    "alertStatus": "true",
+    "alertSource":{
+        "Query":"requests",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Type":"ResultCount"
+         },
+     "alertSchedule":{
+         "Frequency": 15,
+         "Time": 60
+         },
+     "alertActions":{
+         "SeverityLevel": "4"
+         },
+      "alertTrigger":{
+        "Operator":"GreaterThan",
+        "Threshold":"1"
+         },
+       "actionGrp":{
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "Subject": "Customized Email Header",
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
+         }
+  },
+  "resources":[ {
+    "name":"[variables('alertName')]",
+    "type":"Microsoft.Insights/scheduledQueryRules",
+    "apiVersion": "2018-04-16",
+    "location": "[variables('alertLocation')]",
+    "tags":{"[variables('alertTag')]": "Resource"},
+    "properties":{
+       "description": "[variables('alertDescription')]",
+       "enabled": "[variables('alertStatus')]",
+       "source": {
+           "query": "[variables('alertSource').Query]",
+           "dataSourceId": "[variables('alertSource').SourceId]",
+           "queryType":"[variables('alertSource').Type]"
+       },
+      "schedule":{
+           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+       },
+      "action":{
+           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+           "severity":"[variables('alertActions').SeverityLevel]",
+           "aznsAction":{
+               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "emailSubject":"[variables('actionGrp').Subject]",
+               "customWebhookPayload":"[variables('actionGrp').Webhook]"
+           },
+       "trigger":{
+               "thresholdOperator":"[variables('alertTrigger').Operator]",
+               "threshold":"[variables('alertTrigger').Threshold]"
+           }
+       }
+     }
+   }
+ ]
+}
+
+```
+
+> [!IMPORTANT]
+> Campo de etiqueta com ligação de oculto para o recurso de destino é obrigatório na utilização de [regras de consulta agendada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modelo de chamada ou recurso de API. 
+
+O json de exemplo acima podem ser salvas como (Digamos) sampleScheduledQueryRule.json para efeitos destas instruções e podem ser implementado com [Gestor de recursos do Azure no portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+
+
+### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registo de consulta entre recursos com o modelo de recursos do Azure
+
+Segue-se a estrutura para [criação de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) com base através do modelo de recurso [consulta de pesquisa de registo entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) de [alerta de registo de tipo de medida da métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), com o conjunto de dados de exemplo como variáveis.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
@@ -220,9 +302,11 @@ Segue-se a estrutura para [criação de regras de consulta agendada](https://doc
    }
  ]
 }
+
 ```
+
 > [!IMPORTANT]
-> Campo de etiqueta com ligação de oculto para o recurso de destino é obrigatório na utilização de [regras de consulta agendada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modelo de chamada ou recurso de API. 
+> Campo de etiqueta com ligação de oculto para o recurso de destino é obrigatório na utilização de [regras de consulta agendada ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modelo de chamada ou recurso de API. Ao utilizar a consulta entre recursos no registo de alerta, a utilização de [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) é obrigatório e o utilizador tem de ter acesso à lista de recursos indicado
 
 O json de exemplo acima podem ser salvas como (Digamos) sampleScheduledQueryRule.json para efeitos destas instruções e podem ser implementado com [Gestor de recursos do Azure no portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

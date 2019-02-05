@@ -4,17 +4,17 @@ description: Utilize o Azure Policy para impor normas, corresponder a requisitos
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845627"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730276"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerir políticas para impor a conformidade
 
@@ -322,7 +322,7 @@ Devolve todas as definições de política disponíveis, incluindo políticas in
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Criar e atribuir uma definição de iniciativa
 
-Com uma definição de iniciativa, pode agrupar várias definições de política para alcançar um objetivo mais abrangente. Criar uma definição de iniciativa para validar que recursos dentro do escopo do tempo de permanência a definição em conformidade com as definições de política que constituem a definição de iniciativa. Para obter mais informações sobre as definições de iniciativa, veja [Descrição geral do Azure Policy](../overview.md).
+Com uma definição de iniciativa, pode agrupar várias definições de política para alcançar um objetivo mais abrangente. Uma iniciativa avalia os recursos no âmbito da atribuição de conformidade para as políticas incluídas. Para obter mais informações sobre as definições de iniciativa, veja [Descrição geral do Azure Policy](../overview.md).
 
 ### <a name="create-an-initiative-definition"></a>Criar uma definição de iniciativa
 

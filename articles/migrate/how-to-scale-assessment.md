@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297145"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733642"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -22,7 +22,7 @@ O Azure Migrate tem um limite de 1500 máquinas por projeto, este artigo descrev
 - **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server versão 5.5, 6.0, 6.5 ou 6.7. Além disso, terá uma versão em execução de anfitrião ESXi 5.5 ou posterior para implementar a VM do recoletor.
 - **a conta do vCenter**: Precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: No vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato de OVA.
-- **Definições das estatísticas**: Este requisito só é aplicável para o [modelo de deteção única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) que foi despromovido agora. Para o modelo de deteção única, as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. O nível de estatísticas é para ser definido como 3 para cada um dos intervalos de coleção de mês, semana e dia. Se o nível for inferior a 3 para qualquer um dos intervalos de coleção de três, a avaliação funcionará, mas não serão recolhidos os dados de desempenho para armazenamento e rede. As recomendações de tamanho, em seguida, irão basear-se em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
+- **Definições das estatísticas**: Este requisito só é aplicável para o [modelo de deteção única](https://docs.microsoft.com/azure/migrate/concepts-collector) que foi despromovido agora. Para o modelo de deteção única, as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. O nível de estatísticas é para ser definido como 3 para cada um dos intervalos de coleção de mês, semana e dia. Se o nível for inferior a 3 para qualquer um dos intervalos de coleção de três, a avaliação funcionará, mas não serão recolhidos os dados de desempenho para armazenamento e rede. As recomendações de tamanho, em seguida, irão basear-se em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
 
 > [!NOTE]
 > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.

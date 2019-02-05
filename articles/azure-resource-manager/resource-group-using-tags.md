@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7f84e188324bcdb9fb1a26d701805978f1fd625
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489398"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734441"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -29,11 +29,15 @@ Para aplicar etiquetas a recursos, o utilizador tem de ter acesso de escrita par
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="policies"></a>Políticas
+
+Pode usar [do Azure Policy](../governance/policy/overview.md) para impor a etiquetagem regras e as convenções. Ao criar uma política, evite o cenário de recursos ser implementado na sua subscrição que não estejam em conformidade com as etiquetas esperadas para a sua organização. Em vez de aplicar etiquetas manualmente ou procurar recursos que não estão em conformidade, pode criar uma política que aplica automaticamente as etiquetas necessárias durante a implementação. A secção seguinte mostra algumas políticas para as etiquetas.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver a versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/install-az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para ver as etiquetas existentes de um *grupo de recursos*, utilize:
 
@@ -275,5 +279,4 @@ Para operações de REST API, consulte [referência de API de REST de faturaçã
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](tag-support.md).
-* Pode aplicar restrições e convenções na sua subscrição ao utilizar políticas personalizadas. Uma política que definir pode exigir que todos os recursos tenham um valor para uma etiqueta específica. Para obter mais informações, consulte [o que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  

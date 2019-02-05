@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 473cc855e2667f0e87d79b99786c879c17dc6363
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3eb5b0d84186eb06af6f99695fee9419f25a91db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101163"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730956"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma determinada API 
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
 - Saiba mais sobre como utilizam aplicações de cliente [solicitações de permissão delegadas e da aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) para aceder aos recursos.
-- Veja as instruções passo a passo sobre como [configurar pedidos de permissão de um aplicativo de cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-a-client-application-to-access-web-apis)
+- Veja as instruções passo a passo sobre como [configurar pedidos de permissão de um aplicativo de cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 - Para obter mais detalhes, saiba como expõem aplicativos de recursos [âmbitos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) e [funções de aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) para aplicações de cliente, como o delegado de manifesto e permissões de aplicação, respetivamente, no Azure Portal. 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cc0521f1f27ddfc1fc44b9f24212393d11177d70
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660974"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700397"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -221,6 +221,12 @@ Associação ao Azure AD híbrido tem precedência sobre o estado do Azure AD re
 **P: Por que meus usuários tiverem problemas em dispositivos do Windows 10 híbridos associados ao Azure AD depois de alterar o respetivo UPN?**
 
 **R:** Atualmente as alterações do UPN não são totalmente suportadas com os dispositivos associados ao Azure AD híbrido. Embora os utilizadores podem iniciar sessão no dispositivo e acesso às suas aplicações no local, a autenticação com o Azure AD falha depois de alterar um UPN. Como resultado, os utilizadores têm o SSO e problemas de acesso condicional nos respetivos dispositivos. Neste momento, precisa desassocie o dispositivo do Azure AD (execute "dsregcmd /leave" com privilégios elevados) e voltar a associar (ocorre automaticamente) para resolver o problema. Estamos atualmente a trabalhar sobre como solucionar este problema. No entanto, os utilizadores iniciar sessão com o Windows Hello para empresas se deparam este problema. 
+
+---
+
+**P: Dispositivos do Windows 10 híbridos associados ao Azure AD precisam linha Visual para o controlador de domínio para obter acesso a recursos na cloud?**
+
+**R:** Não. Associação do após Windows 10 híbrida do Azure AD estiver concluída e o utilizador ter iniciado sessão pelo menos uma vez, o dispositivo não exige a linha de visão para o controlador de domínio para aceder a recursos na cloud. Windows 10 pode obter único início de sessão para aplicações do Azure AD em qualquer lugar com uma ligação à internet, exceto quando uma palavra-passe for alterada. Se uma palavra-passe é alterada fora da rede empresarial (por exemplo, utilizando o Azure AD SSPR), o utilizador tem de ter a linha de visão para o controlador de domínio antes que sejam capazes de iniciar sessão no dispositivo com a nova palavra-passe. Caso contrário, eles podem apenas iniciar sessão com a palavra-passe antiga, o que é invalidada pelo Azure AD e impede o início de sessão único no. No entanto, este problema não ocorre quando utiliza o Windows Hello para empresas. Os utilizadores que inicie sessão com Windows Hello para empresas continua a receber único inicie sessão aplicações do Azure AD depois de alterar uma palavra-passe, mesmo que eles não têm de linha de visão para seu controlador de domínio. 
 
 ---
 

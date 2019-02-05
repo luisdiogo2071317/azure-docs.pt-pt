@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678445"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700575"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
 
@@ -40,7 +40,7 @@ Suporte técnico para as NVAs de terceiros e sua integração com a plataforma d
 - UDRs em sub-redes da rede virtual que direcionar o tráfego de NVA
 - Tabelas de roteamento e regras da NVA (por exemplo, a partir de NIC1 para NIC2)
 - Rastreio em NICs de NVA para verificar a receber e enviar o tráfego de rede
-- Quando utiliza um Standard SKU e o IP público tem de existir um NSG criado e uma regra de explícita para permitir o tráfego encaminhado para a NVA.
+- Quando utilizar um Standard SKU e IPs públicos, tem de existir um NSG criado e uma regra de explícita para permitir o tráfego encaminhado para a NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Passos de resolução de problemas básicos
 
@@ -78,7 +78,7 @@ Utilizar o PowerShell
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Verificar a existência de NSG ao utilizar o IP de Pubilc de SKU Standard** ao utilizar um Standard SKU e o IP público tem de existir um NSG criado e uma regra de explícita para permitir o tráfego para a NVA.
+**Verificar a existência de NSG ao utilizar o IP público de SKU Standard** ao utilizar um Standard SKU e IPs públicos, tem de existir um NSG criado e uma regra de explícita para permitir o tráfego para a NVA.
 
 **Verifique se o tráfego pode ser encaminhado para a NVA**
 

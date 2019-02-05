@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2ec679196e0ed71de76e110fadeb394dfb3234f7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a1fadb098fdb4262ee73725ec96c3c9602b1b68d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661994"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734237"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento com a CLI do Azure
 
@@ -38,7 +38,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group#create).
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com [az group create](/cli/azure/group).
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAG* na localização *eastus*.
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede 
 
-Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet#az-net). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet). Em seguida, pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -70,7 +70,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>Criar o gateway de aplicação com o mapa de URL
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway#create) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar conjuntos e portas de back-end de imagens e vídeos
 
-Pode adicionar conjuntos de back-end com o nome *imagesBackendPool* e *videoBackendPool* para o gateway de aplicação utilizando [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create). Adicione a porta de front-end para os conjuntos, com [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). 
+Pode adicionar conjuntos de back-end com o nome *imagesBackendPool* e *videoBackendPool* para o gateway de aplicação utilizando [decriaçãodeendereçodegatewaydeaplicaçãoderededeaz-conjunto](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create). Adicione a porta de front-end para os conjuntos, com [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -133,7 +133,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>Adicionar o mapa de caminho do URL
 
-Os mapas de caminho de URL asseguram que são encaminhados URLs específicos para conjuntos de back-end específicos. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)
+Os mapas de caminho de URL asseguram que são encaminhados URLs específicos para conjuntos de back-end específicos. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -157,7 +157,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Adicionar a regra de encaminhamento
 
-A regra de encaminhamento associa os mapas do URL ao serviço de escuta que criou. Pode adicionar a regra com o nome *rule2* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+A regra de encaminhamento associa os mapas do URL ao serviço de escuta que criou. Pode adicionar a regra com o nome *rule2* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gatewaywork_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 93370b927f825752b8ce2b5e9d4ca94b3a4e0536
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664187"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697932"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -196,7 +196,7 @@ Rede de registo e monitorização no Azure é abrangente e abrange duas amplas c
 
 * [Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Monitorização de rede baseada em cenário é fornecido com os recursos do observador de rede. Este serviço inclui a captura de pacotes, próximo salto, fluxo de IP verificar, a vista de grupo de segurança, os registos de fluxo do NSG. A monitorização ao nível do cenário fornece uma vista de ponta a ponta dos recursos de rede em comparação com a monitorização de recursos de rede individuais.
 
-* [Monitorização de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Monitorização de nível de recursos é composto por quatro recursos, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todos esses recursos são criados ao nível de recursos da rede.
+* [Monitorização de recursos](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Monitorização de nível de recursos é composto por quatro recursos, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todos esses recursos são criados ao nível de recursos da rede.
 
 ![Registos de rede do Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Para além das capacidades de registo mencionado anteriormente, o observador de 
 
 * [Gateway de rede virtual e a resolução de problemas de ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ajuda-o a resolver problemas de ligações e gateways de rede virtual.
 
-* [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Permite-lhe ver a utilização de recursos de rede contra limites.
+* [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Permite-lhe ver a utilização de recursos de rede contra limites.
 
 ### <a name="application-insights"></a>Application Insights
 

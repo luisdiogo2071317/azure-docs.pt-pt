@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 492e7cf466dd8019efe8617b67e9fa6b14f5b3c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661668"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697005"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -385,7 +385,7 @@ Se a instalação do agente de dependência foi concluída com êxito, mas não 
 **Windows**: Procure o serviço com o nome "Agente Microsoft Dependency."<br>
 **Linux**: Procure o processo em execução "microsoft--agente de dependência."
 
-* Está o [escalão do Operations Management Suite/Log Analytics de preço gratuito](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Permite que o plano gratuito para até cinco servidores exclusivos do mapa de serviço. Todos os servidores subsequentes não aparecerão no mapa de serviço, mesmo que os cinco anterior já não estão a enviar dados.
+* Está o [escalão do Operations Management Suite/Log Analytics de preço gratuito](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? Permite que o plano gratuito para até cinco servidores exclusivos do mapa de serviço. Todos os servidores subsequentes não aparecerão no mapa de serviço, mesmo que os cinco anterior já não estão a enviar dados.
 
 * É o seu registo de envio do servidor e dados de desempenho para o Log Analytics? Vá para a pesquisa de registos e execute a seguinte consulta para o seu computador: 
 

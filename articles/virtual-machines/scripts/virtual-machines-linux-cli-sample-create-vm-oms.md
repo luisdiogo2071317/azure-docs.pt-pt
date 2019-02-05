@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a7ec987a9b2a1917f547c79eb13857dfc3d852e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 70eb7ef93d4802f30bb1343c442c414cda48464b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662474"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732792"
 ---
 # <a name="monitor-a-vm-with-azure-monitoring"></a>Monitorizar uma VM com a Monitorização do Azure
 
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem da máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Executa uma extensão da VM em relação a uma máquina virtual. Neste caso, é utilizada a extensão de agente do Log Analytics para instalar o agente do Log Analytics e inscrever a VM numa área de trabalho do Log Analytics. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |

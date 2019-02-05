@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: c3532ff5422ae35aa6bb079fcedf3a2a90d45349
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 77de3e554e20b5380656e33bd15c9174a1f36681
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181576"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Active Directory do Azure com StatusPage
 
@@ -222,7 +222,7 @@ StatusPage suporta o aprovisionamento de just-in-time. Já ativou-lo na [configu
    
     ![Criar um utilizador de teste do Azure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Tipo de **endereço de E-Mail**, **nome próprio**, e **Sur nome** de um utilizador válido que pretende aprovisionar em caixas de texto relacionadas. 
+1. Tipo de **endereço de E-Mail**, **nome próprio**, e **Apelido** de um utilizador válido que pretende aprovisionar em caixas de texto relacionadas. 
    
     ![Criar um utilizador de teste do Azure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

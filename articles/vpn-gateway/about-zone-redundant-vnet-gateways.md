@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871409"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697816"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em zonas de disponibilidade do Azure
 
@@ -26,7 +26,7 @@ Para implementar automaticamente os seus gateways de rede virtual em zonas de di
 <br>
 <br>
 
-![gráfico de gateways de zona redunant](./media/create-zone-redundant-vnet-gateway/zonered.png)
+![gráfico de gateways com redundância de zona](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
 ### <a name="zgw"></a>Gateways zonais
 

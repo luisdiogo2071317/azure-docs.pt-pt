@@ -1,6 +1,6 @@
 ---
-title: Dados de base de dados SQL do Azure deteção e classificação | Documentos da Microsoft
-description: Dados de base de dados SQL do Azure deteção e classificação
+title: Deteção de dados de base de dados SQL do Azure e classificação | Documentos da Microsoft
+description: Deteção de dados de base de dados SQL do Azure e classificação
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466597"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731857"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
+# <a name="azure-sql-database-data-discovery--classification"></a>Deteção de dados de base de dados SQL do Azure e classificação
 
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados do Azure SQL para **detetar**, **classificar**, **etiquetagem**  &  **proteger** os dados confidenciais em seus bancos de dados.
 A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cuidados de saúde, dados de identificação pessoal (PII) e assim por diante.) podem desempenham um papel essencial no seu escritor de proteção de informações da organização. Que possa servir como a infraestrutura para:
@@ -28,14 +28,14 @@ A detetar e classificar os dados mais confidenciais (comerciais, financeiros, cu
 - Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais.
 - Controlar o acesso ao e o sistema de proteção de segurança de bases de dados que contém dados altamente confidenciais.
 
-Dados de deteção e classificação faz parte do [segurança de dados do SQL avançadas](sql-advanced-threat-protection.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. Dados de deteção e classificação podem ser acedida e geridos através do portal de anúncios de SQL central.
+Dados de deteção e classificação faz parte do [segurança de dados avançada](sql-database-advanced-data-security.md) (ADS) oferta, que é um pacote unificado para funções de segurança avançadas do SQL. dados de deteção e classificação podem ser acedidas e geridos através do portal de anúncios de SQL central.
 
 > [!NOTE]
 > Este documento está relacionado com a base de dados do Azure SQL apenas. Para o SQL Server (no local), consulte [deteção de dados SQL e classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>O que é a classificação e de deteção de dados
+## <a id="subheading-1"></a>O que é a deteção de dados e classificação
 
-Dados de deteção e classificação apresenta um conjunto de serviços avançados e novas capacidades de SQL, formando um novo paradigma de proteção de informações de SQL com o objetivo de proteger os dados, não apenas a base de dados:
+Dados de deteção e classificação apresenta um conjunto de serviços avançados e novas capacidades SQL, formando um novo paradigma de proteção de informações de SQL com o objetivo de proteger os dados, não apenas a base de dados:
 
 - **Deteção & recomendações**
 
@@ -77,7 +77,7 @@ Depois da política ao nível do inquilino tiver sido definida, pode continuar c
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
-2. Navegue para **segurança de dados avançada** sob o cabeçalho de segurança no seu painel de SQL Database do Azure. Clique para ativar a segurança de dados avançada e, em seguida, clique nas **deteção de dados e classificação (pré-visualização)** cartão.
+2. Navegue para **segurança de dados avançada** sob o cabeçalho de segurança no seu painel de SQL Database do Azure. Clique para ativar a segurança avançada de dados e, em seguida, clique nas **deteção de dados e classificação (pré-visualização)** cartão.
 
    ![Uma base de dados de análise](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ Também pode utilizar as APIs REST para gerir programaticamente classificações
 
 ## <a id="subheading-5"></a>Passos seguintes
 
-- Saiba mais sobre [segurança de dados avançada SQL](sql-advanced-threat-protection.md).
+- Saiba mais sobre [segurança de dados avançada](sql-database-advanced-data-security.md).
 - Considere configurar [auditoria de base de dados SQL do Azure](sql-database-auditing.md) para monitorização e auditoria de acesso aos seus dados confidenciais classificados.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

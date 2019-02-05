@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8a0c474ab610d89bd702613bc778ad29523a4192
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461207"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732724"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Proteger um autónoma ou de bases de dados agrupadas
 
@@ -231,7 +231,7 @@ Para copiar uma cadeia de ligação segura:
 
 ## <a name="enable-security-features"></a>Ativar funcionalidades de segurança
 
-Base de dados SQL do Azure fornece recursos de segurança que são acedidos no portal do Azure. Estas funcionalidades estão disponíveis para a base de dados e o servidor, exceto para a máscara de dados, que só está disponível na base de dados. Para obter mais informações, consulte [segurança de dados avançada](sql-advanced-threat-protection.md), [auditoria](sql-database-auditing.md), [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md), e [encriptação de dados transparente](transparent-data-encryption-azure-sql.md).
+Base de dados SQL do Azure fornece recursos de segurança que são acedidos no portal do Azure. Estas funcionalidades estão disponíveis para a base de dados e o servidor, exceto para a máscara de dados, que só está disponível na base de dados. Para obter mais informações, consulte [segurança de dados avançada](sql-database-advanced-data-security.md), [auditoria](sql-database-auditing.md), [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md), e [encriptação de dados transparente](transparent-data-encryption-azure-sql.md).
 
 ### <a name="advanced-data-security"></a>Advanced Data Security
 

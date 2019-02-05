@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 23066339ffcb0b8b3c7885ad24c6c3d136629ab2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262034"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700058"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -58,14 +58,14 @@ DevTest Labs é um serviço gratuito. Criar laboratórios e configurar política
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os níveis de segurança diferentes no DevTest Labs?
 Acesso de segurança é determinado pelo [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/built-in-roles.md). Para saber como funciona o acesso, ele ajuda a saber as diferenças entre uma permissão, uma função e um âmbito, conforme definido pelo RBAC.
 
-* **Permissão**: uma permissão é um acesso definidas para uma ação específica. Por exemplo, uma permissão pode ser o acesso de leitura a todas as VMs.
-* **Função**: uma função é um conjunto de permissões que podem ser agrupados e atribuídos a um usuário. Por exemplo, um utilizador com uma função de proprietário da subscrição tem acesso a todos os recursos numa subscrição.
-* **Âmbito**: um âmbito é um nível na hierarquia de um recurso do Azure. Por exemplo, um âmbito pode ser um grupo de recursos, um único laboratório ou a subscrição completa.
+* **Permissão**: Uma permissão é um acesso definidas para uma ação específica. Por exemplo, uma permissão pode ser o acesso de leitura a todas as VMs.
+* **Função**: Uma função é um conjunto de permissões que podem ser agrupados e atribuídos a um usuário. Por exemplo, um utilizador com uma função de proprietário da subscrição tem acesso a todos os recursos numa subscrição.
+* **Âmbito**: Um âmbito é um nível na hierarquia de um recurso do Azure. Por exemplo, um âmbito pode ser um grupo de recursos, um único laboratório ou a subscrição completa.
 
 Dentro do escopo do DevTest Labs, existem dois tipos de funções que definem as permissões de utilizador:
 
-* **Proprietário do laboratório**: proprietário de um laboratório tem acesso a todos os recursos no laboratório. Proprietário de um laboratório pode modificar as políticas, ler e escrever todas as VMs, altere a rede virtual e assim por diante.
-* **Utilizador do laboratório**: um utilizador de laboratório, pode ver todos os recursos de laboratório, como VMs, políticas e redes virtuais. No entanto, um utilizador de laboratório não é possível modificar as políticas ou de VMS para as quais foram criados por outros utilizadores. 
+* **Proprietário do laboratório**: Proprietário de um laboratório tem acesso a todos os recursos no laboratório. Proprietário de um laboratório pode modificar as políticas, ler e escrever todas as VMs, altere a rede virtual e assim por diante.
+* **Utilizador do laboratório**: Um utilizador de laboratório, pode ver todos os recursos de laboratório, como VMs, políticas e redes virtuais. No entanto, um utilizador de laboratório não é possível modificar as políticas ou de VMS para as quais foram criados por outros utilizadores. 
 
 Também pode criar funções personalizadas no DevTest Labs. Para saber como criar funções personalizadas no DevTest Labs, veja [conceder permissões de utilizador para políticas de laboratório específico](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -227,7 +227,7 @@ Uma possibilidade é que o seu nome de rede virtual contém períodos. Nesse cas
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Por que motivo recebo um erro "O recurso principal não encontrado" ao aprovisionar uma VM a partir do PowerShell?
 Quando um recurso é um elemento principal para outro recurso, o recurso principal tem de existir antes de criar o recurso de subordinados. Se o recurso principal não existir, verá uma **ParentResourceNotFound** mensagem. Se não especificar uma dependência no recurso principal, o recurso subordinado pode ser implementado antes do elemento principal.
 
-As VMs são recursos subordinados num laboratório num grupo de recursos. Ao utilizar modelos do Resource Manager para implementar VMs com o PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [resolver erros comuns de implementação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+As VMs são recursos subordinados num laboratório num grupo de recursos. Ao utilizar modelos do Resource Manager para implementar VMs com o PowerShell, o nome do grupo de recursos fornecido no script do PowerShell deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [resolver erros comuns de implementação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações sobre o erro se uma implementação de VM falhar?
 Erros de implementação de VM são capturados nos registos de atividades. Pode encontrar registos de atividade da VM no laboratório **registos de auditoria** ou **diagnósticos de máquinas virtuais** no menu de recursos no painel VM do laboratório (no painel que aparece depois de selecionar a VM a partir do **meu virtual máquinas** lista).

@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8402d0228e062aed60adee1c4622ade31771584d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210952"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700286"
 ---
 # <a name="quickstart-query-for-facts"></a>Início rápido: Consultar os fatos
 
 Se a consulta for de um facto como uma data ou conhecimentos identificáveis, a resposta pode conter respostas de `facts`. As respostas de facto contêm resultados relevantes, extraídos de parágrafos em documentos Web.  Estas consultas devolvem sempre páginas Web, e os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
-As consultas como valentines+2016 (dia+de+são+valentim+2016), when+is+ramadan (quando+é+o+ramadão) são consideradas consultas relacionadas com datas. Se o Bing determinar que a consulta está relacionada com uma data, a resposta contém uma resposta de `facts`. 
+As consultas como valentines+2016 (dia+de+são+valentim+2016), when+is+ramadan (quando+é+o+ramadão) são consideradas consultas relacionadas com datas. Se o Bing determinar que a consulta está relacionada com uma data, a resposta contém uma resposta de `facts`.
 
-Segue-se um exemplo de uma resposta de `facts` relacionada com uma data. 
+Segue-se um exemplo de uma resposta de `facts` relacionada com uma data.
 
 **Consulta:**
 ```
@@ -34,28 +34,29 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 **Resposta:** O `subjectName` campo contém uma versão de exibição de consulta do utilizador que pode utilizar como uma etiqueta ao exibir o fato. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
 
 ```
-{   
-    "_type" : "SearchResponse",   
-    "queryContext" : {   
-        "originalQuery" : "valentines 2016" 
-    },   
-    "facts" : {   
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",   
-        "value" : [{   
-            "description" : "Valentine's Day was on Sunday, February 14, 2016.",   
-            "subjectName" : "Valentine's Day 2016"   
-        }]   
-    },   
-    "rankingResponse" : {   
-        "mainline" : {   
-            "items" : [{   
-                "answerType" : "Facts",   
-                "value" : {   
-                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"                   }   
-            }]   
-        }   
-    }   
-}   
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "valentines 2016"
+    },
+    "facts" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",
+        "value" : [{
+            "description" : "Valentine's Day was on Sunday, February 14, 2016.",
+            "subjectName" : "Valentine's Day 2016"
+        }]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "Facts",
+                "value" : {
+                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"
+                }
+            }]
+        }
+    }
+}
 
 ```
 
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 Em alguns casos, os factos podem ser devolvidos como `_type: StructuredValue/TabularData`. A consulta seguinte obtém dados tabulares com informações que comparam café e chá.
 
 ```
-https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
+https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us
 
 ```
 Os resultados dos `facts` incluem as seguintes linhas e células:

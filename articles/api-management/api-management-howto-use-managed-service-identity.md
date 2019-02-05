@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970489"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730752"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Utilizar a identidade do serviço gerido do Azure na gestão de API do Azure
 
@@ -38,7 +38,7 @@ Para configurar uma identidade de serviço gerida no portal, irá criar primeiro
 
 ### <a name="using-the-azure-resource-manager-template"></a>Usando o modelo Azure Resource Manager
 
-Pode criar uma instância de gestão de API com uma identidade, incluindo a seguinte propriedade na definição do recurso: 
+Pode criar uma instância de gestão de API com uma identidade, incluindo a seguinte propriedade na definição do recurso:
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ Pode criar uma instância de gestão de API com uma identidade, incluindo a segu
 }
 ```
 
-Isso informa ao Azure para criar e gerir a identidade para a sua instância de gestão de API. 
+Isso informa ao Azure para criar e gerir a identidade para a sua instância de gestão de API.
 
 Por exemplo, um modelo Azure Resource Manager completo pode ser semelhante ao seguinte:
 
@@ -70,8 +70,8 @@ Por exemplo, um modelo Azure Resource Manager completo pode ser semelhante ao se
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ Por exemplo, um modelo Azure Resource Manager completo pode ser semelhante ao se
 
 > [!NOTE]
 > Atualmente, a identidade de serviço gerido pode ser utilizada para obter certificados do Azure Key Vault para nomes de domínio personalizado de gestão de API. Mais cenários serão suportados em breve.
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
 
 #### <a name="prerequisites"></a>Pré-requisitos
-1. O Cofre de chaves que contém o certificado de pfx tem de estar na mesma subscrição do Azure e o mesmo grupo de recursos que o serviço de gestão de API. Este é um requisito do modelo do Azure Resource Manager. 
+1. O Cofre de chaves que contém o certificado de pfx tem de estar na mesma subscrição do Azure e o mesmo grupo de recursos que o serviço de gestão de API. Este é um requisito do modelo do Azure Resource Manager.
 2. O tipo de conteúdo do segredo do tem de ser *application/x-pkcs12*. Pode utilizar o seguinte script para carregar o certificado:
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> Se a versão de objeto do certificado não for fornecida, gestão de API irá obter automaticamente a versão mais recente do certificado após ser carregada para o Key Vault. 
+> Se a versão de objeto do certificado não for fornecida, gestão de API irá obter automaticamente a versão mais recente do certificado após ser carregada para o Key Vault.
 
 O exemplo seguinte mostra um modelo do Azure Resource Manager que contém os seguintes passos:
 
@@ -180,7 +180,6 @@ O exemplo seguinte mostra um modelo do Azure Resource Manager que contém os seg
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ O exemplo seguinte mostra um modelo do Azure Resource Manager que contém os seg
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ O exemplo seguinte mostra um modelo do Azure Resource Manager que contém os seg
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Saiba mais sobre a identidade do serviço gerido do Azure:
 
 * [Identidade de serviço gerida para recursos do Azure](../active-directory/msi-overview.md)
 * [Modelos Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
-
