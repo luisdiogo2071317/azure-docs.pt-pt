@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a1bcde635d890384e660435845c42f016738e00
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 533ef6f8c238ef0d6d80ae2c94e3a823bda6521f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687066"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700405"
 documentType: LandingData
 title: Load balancer
 metadata:
@@ -53,7 +53,7 @@ sections:
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Balancear carga de tráfego interno para VMs</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Balancear carga de VMs por zonas de disponibilidade</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Balanceamento de carga de VMs dentro de uma zona de disponibilidade específica</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configurar reencaminhamento de porta no Balanceador de Carga</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configurar o reencaminhamento de portas no Balanceador de Carga</a>
 - title: Desenvolva as suas competências com o Microsoft Learn
   items:
   - type: list

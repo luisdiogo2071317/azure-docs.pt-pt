@@ -1,7 +1,7 @@
 # [Documentação do Azure Marketplace e AppSource](index.md)
+## [Roteiro do Azure Marketplace e AppSource](./marketplace-roadmap.md)
 
 ## [Descrição geral e benefícios do Azure Marketplace e do AppSource](./marketplace-publishers-guide.md)  
-
 ### [Tornar-se um publicador no marketplace](./become-publisher.md)  
 #### [Criar uma conta Microsoft](./guidelines.md)
 #### [Registar no Dev Center](./register-dev-center.md) 
