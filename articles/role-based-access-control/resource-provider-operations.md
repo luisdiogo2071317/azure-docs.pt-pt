@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191546"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697117"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
 Este artigo lista as operações disponíveis para cada fornecedor de recursos do Azure Resource Manager. Estas operações podem ser utilizadas em [funções personalizadas](custom-roles.md) para fornecer granular [controlo de acesso baseado em funções (RBAC)](overview.md) aos recursos no Azure. Cadeias de caracteres de operação tem o seguinte formato: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-As operações de fornecedor de recursos estão sempre a evoluir. Para obter as operações mais recente, utilize [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) ou [lista de operação de fornecedores de az](/cli/azure/provider/operation#az-provider-operation-list).
+As operações de fornecedor de recursos estão sempre a evoluir. Para obter as operações mais recente, utilize [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [lista de operação de fornecedores de az](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -1524,10 +1524,10 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | Apresenta uma lista ou obtém as agendas de largura de banda |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | Cria ou atualiza as agendas de largura de banda |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Elimina os dispositivos de limite de caixa de dados |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Transferir as atualizações no dispositivo |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Transferir Atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Obtém o recurso de outras informações sobre o |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | Cria ou atualiza o recurso de outras informações sobre o |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Instalar atualizações no dispositivo |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Instalar Atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Apresenta uma lista ou obtém as tarefas |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Apresenta uma lista ou obtém as definições de rede do dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Apresenta uma lista ou obtém os dispositivos de limite de caixa de dados |

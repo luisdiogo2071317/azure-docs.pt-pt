@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427102"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693029"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como utilizar o serviço de correio eletrónico SendGrid do PHP
 
@@ -46,7 +46,7 @@ Para obter mais informações, consulte [ https://sendgrid.com ] [ https://sendg
 
 Com o SendGrid num aplicativo PHP do Azure não requer nenhum especial de codificação ou configuração. Como o SendGrid é um serviço, pode ser acedido exatamente da mesma forma de uma aplicação na cloud possível de uma aplicação no local.
 
-## <a name="how-to-send-an-email"></a>Como: enviar um E-Mail
+## <a name="how-to-send-an-email"></a>Como: Enviar um E-Mail
 
 Pode enviar um e-mail com a API Web fornecidos pela SendGrid ou SMTP.
 
@@ -161,7 +161,7 @@ Utilizar o do PHP [curl função] [ curl function] enviar e-mails com a API Web 
 
 API de Web do SendGrid é muito semelhante a uma API REST, que não esteja verdadeiramente uma API RESTful, uma vez que, na maioria das chamadas, ambos OBTERÃO e verbos POST podem ser utilizados alternadamente.
 
-## <a name="how-to-add-an-attachment"></a>Como: adicionar um anexo
+## <a name="how-to-add-an-attachment"></a>Como: Adicionar um anexo
 
 ### <a name="smtp-api"></a>API DE SMTP
 
@@ -296,7 +296,7 @@ Enviar um anexo com a API Web é muito semelhante a enviar um e-mail com a API W
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: utilizar filtros para ativar rodapés, rastreamento e análise
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: Utilizar filtros para ativar rodapés, rastreamento e análise
 
 O SendGrid disponibiliza a funcionalidade de e-mail adicionais através da utilização de *filtros*. Estas são as definições que podem ser adicionadas a uma mensagem de e-mail para ativar a funcionalidade específica, como ativar o controlo de cliques em, do Google analytics, subscrição de controlo e assim por diante.
 
@@ -349,7 +349,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

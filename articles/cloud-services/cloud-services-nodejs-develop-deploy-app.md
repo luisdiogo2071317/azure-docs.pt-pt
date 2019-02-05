@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: de78e70b30c4e0b03f87ad6b1bfe00356f897f43
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722282"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698275"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -60,8 +60,8 @@ Execute as seguintes tarefas para criar um novo projeto do Serviço em Nuvem do 
 
     O cmdlet cria os seguintes ficheiros:
 
-   * **Serviceconfiguration**, **ServiceConfiguration.Local.cscfg** e **servicedefinition. Csdef**: Ficheiros de específicos do Azure necessários para a publicação da sua aplicação. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
-   * **Deploymentsettings**: Armazena as definições locais que são utilizadas pelos cmdlets de implementação do Azure PowerShell.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: Ficheiros de específicos do Azure necessários para a publicação da sua aplicação. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
+   * **deploymentSettings.json**: Armazena as definições locais que são utilizadas pelos cmdlets de implementação do Azure PowerShell.
 4. Introduza o comando seguinte para adicionar uma nova função da Web:
 
        Add-AzureNodeWebRole
@@ -168,7 +168,7 @@ Para obter mais informações, consulte o [Centro de Programadores do Node.js].
 [utilização de uma aplicação Web simples]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Ligue o PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
+[Ligue o PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: http://nodejs.org/
 [Descrição Geral da Criação de um Serviço Alojado do Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Centro de Programadores do Node.js]: https://azure.microsoft.com/develop/nodejs/

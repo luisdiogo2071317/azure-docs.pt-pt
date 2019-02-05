@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079209"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693889"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
@@ -105,98 +105,98 @@ Aceda ao Microsoft Download Center e [transferir o conjunto de ferramentas BYOK 
 - - -
 **Estados Unidos:**
 
-Reino de KeyVault BYOK ferramentas States.zip
+KeyVault-BYOK-Tools-UnitedStates.zip
 
 2E8C00320400430106366A4E8C67B79015524E4EC24A2D3A6DC513CA1823B0D4
 
 - - -
 **Europa:**
 
-Cofre de chaves-BYOK-Tools-Europe.zip
+KeyVault-BYOK-Tools-Europe.zip
 
 9AAA63E2E7F20CF9BB62485868754203721D2F88D300910634A32DFA1FB19E4A
 
 - - -
 **Ásia:**
 
-Cofre de chaves-BYOK-Tools-AsiaPacific.zip
+KeyVault-BYOK-Tools-AsiaPacific.zip
 
 4BC14059BF0FEC562CA927AF621DF665328F8A13616F44C977388EC7121EF6B5
 
 - - -
 **América Latina:**
 
-Cofre de chaves-BYOK-Tools-LatinAmerica.zip
+KeyVault-BYOK-Tools-LatinAmerica.zip
 
 E7DFAFF579AFE1B9732C30D6FD80C4D03756642F25A538922DD1B01A4FACB619
 
 - - -
 **Japão:**
 
-Cofre de chaves-BYOK-Tools-Japan.zip
+KeyVault-BYOK-Tools-Japan.zip
 
 3933C13CC6DC06651295ADC482B027AF923A76F1F6BF98B4D4B8E94632DEC7DF
 
 - - -
 **Coreia:**
 
-Cofre de chaves-BYOK-Tools-Korea.zip
+KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
 
 - - -
 **Austrália:**
 
-Cofre de chaves-BYOK-Tools-Australia.zip
+KeyVault-BYOK-Tools-Australia.zip
 
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**O Azure Government:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
-Cofre de chaves-BYOK-Tools-USGovCloud.zip
+KeyVault-BYOK-Tools-USGovCloud.zip
 
 F8DB2FC914A7360650922391D9AA79FF030FD3048B5795EC83ADC59DB018621A
 
 - - -
 **Governo dos E.U.A. DOD:**
 
-Cofre de chaves-BYOK-Tools-USGovernmentDoD.zip
+KeyVault-BYOK-Tools-USGovernmentDoD.zip
 
 A79DD8C6DFFF1B00B91D1812280207A205442B3DDF861B79B8B991BB55C35263
 
 - - -
 **Canadá:**
 
-Cofre de chaves-BYOK-Tools-Canada.zip
+KeyVault-BYOK-Tools-Canada.zip
 
 61BE1A1F80AC79912A42DEBBCC42CF87C88C2CE249E271934630885799717C7B
 
 - - -
 **Alemanha:**
 
-Cofre de chaves-BYOK-Tools-Germany.zip
+KeyVault-BYOK-Tools-Germany.zip
 
 5385E615880AAFC02AFD9841F7BADD025D7EE819894AA29ED3C71C3F844C45D6
 
 - - -
 **Índia:**
 
-Cofre de chaves-BYOK-Tools-India.zip
+KeyVault-BYOK-Tools-India.zip
 
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
 - - -
 **França:**
 
-Cofre de chaves-BYOK-Tools-France.zip
+KeyVault-BYOK-Tools-France.zip
 
 5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
 
 - - -
 **Reino Unido:**
 
-Cofre de chaves-BYOK-Tools-UnitedKingdom.zip
+KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 432746BD0D3176B708672CCFF19D6144FCAA9E5EB29BB056489D3782B3B80849
 
@@ -260,6 +260,9 @@ Inicie um prompt de comando e execute o programa de novo universo da Thales.
    ```
 
 Este programa cria um **universo de segurança** ficheiros em % NFAST_KMDATA%\local\world, que corresponde à pasta C:\ProgramData\nCipher\Key Management data\local. Pode utilizar valores diferentes para o quórum, mas no nosso exemplo, lhe for pedido que introduza três cartões em branco e pins para cada um deles. Em seguida, usar dois dos cartões forneça acesso total ao universo de segurança. Estes cartões tornam-se a **conjunto de cartões de administrador** para o novo universo de segurança.
+
+> [!NOTE]
+> Se o seu HSM oferece suporte a mais recente DLf3072s256mRijndael de conjunto de cifras, pode substituir – conjunto de cifras = DLf1024s160mRijndael – com o conjunto de cifras = DLf3072s256mRijndael
 
 Em seguida, faça o seguinte:
 
@@ -421,7 +424,7 @@ Quando o comando estiver concluído, verá **resultado: SUCESSO** e a cópia da 
 
 Pode inspeciona a através de ACLS seguintes comandos usando os utilitários da Thales:
 
-* aclprint.PY:
+* aclprint.py:
 
         "%nfast_home%\bin\preload.exe" -m 1 -A xferacld -K contosokey "%nfast_home%\python\bin\python" "%nfast_home%\python\examples\aclprint.py"
 * kmfile-dump.exe:
@@ -482,7 +485,7 @@ Quando executar este comando, utilize estas instruções:
 * Substitua *SubscriptionID* com o ID da subscrição do Azure que contém o seu Cofre de chaves. Que obteve este valor anteriormente, no **passo 1.2: Obter o seu ID de subscrição do Azure** partir de [preparar a estação de trabalho ligada à Internet](#step-1-prepare-your-internet-connected-workstation) passo.
 * Substitua *ContosoFirstHSMKey* com uma etiqueta que é utilizada para o seu nome de ficheiro de saída.
 
-Quando isso for concluída com êxito, ele exibe **resultado: ÊXITO** e há um novo ficheiro na pasta atual, que tem o seguinte nome: KeyTransferPackage -*ContosoFirstHSMkey*. byok
+Quando isso for concluída com êxito, ele exibe **resultado: ÊXITO** e há um novo ficheiro na pasta atual, que tem o seguinte nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passo 4.3: Copie o pacote de transferência da chave para a estação de trabalho ligada à Internet
 

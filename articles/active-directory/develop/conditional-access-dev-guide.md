@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c5df6d1b3480a93a0667aaec0bcf0e171d4a0fe6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b84d7a6f266ffae062d861c53a229225403e07c5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101758"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727998"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação para programadores de acesso condicional do Azure Active Directory
 
@@ -77,7 +77,7 @@ Os desenvolvedores podem assumir esse desafio e acrescentá-lo num novo pedido p
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Acesso condicional do Azure AD é uma funcionalidade incluída no [do Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Pode saber mais sobre o licenciamento requisitos no [relatório de utilização não licenciados](../active-directory-conditional-access-unlicensed-usage-report.md). Os desenvolvedores podem participar da [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que inclui uma subscrição gratuita para o Enterprise Mobility Suite, que inclui o Azure AD Premium.
+Acesso condicional do Azure AD é uma funcionalidade incluída no [do Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Pode saber mais sobre o licenciamento requisitos no [relatório de utilização não licenciados](../active-directory-conditional-access-unlicensed-usage-report.md). Os desenvolvedores podem participar da [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que inclui uma subscrição gratuita para o Enterprise Mobility Suite, que inclui o Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerações para cenários específicos
 

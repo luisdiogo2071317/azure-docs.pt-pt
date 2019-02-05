@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 1a4a5bada779edfe2766338584c05d4fcf3e3ca4
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660350"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698268"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
 
@@ -176,7 +176,7 @@ Em seguida, vai adicionar a API fictícia. Substitua o ficheiro proxies.json pel
 }
 ```
 
-Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, modifica a resposta predefinida dos Proxies com uma substituição de resposta. As substituições de pedido e resposta também podem ser utilizadas em conjunto com um URL de back-end. Isto é particularmente útil para criar um proxy para um sistema legado, onde poderá ter de modificar os cabeçalhos, parâmetros de consulta, etc. Para saber mais sobre substituições de pedido e resposta, veja [Modificar pedidos e respostas nos Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+Esta ação adiciona um novo proxy, "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, modifica a resposta predefinida dos Proxies com uma substituição de resposta. As substituições de pedido e resposta também podem ser utilizadas em conjunto com um URL de back-end. Isto é particularmente útil para criar um proxy para um sistema legado, onde poderá ter de modificar os cabeçalhos, parâmetros de consulta, etc. Para saber mais sobre substituições de pedido e resposta, veja [Modificar pedidos e respostas nos Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Teste a sua API fictícia, chamando o ponto final `<YourProxyApp>.azurewebsites.net/api/users/{username}` com um browser ou com o seu cliente REST favorito. Não se esqueça de substituir _{username}_ por um valor de cadeia que represente um nome de utilizador.
 
