@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/25/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075470"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751519"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -43,6 +43,9 @@ Não sabe sobre como atualizar o SO convidado? Verifique [isso] [ cloud updates]
 
 ## <a name="news-updates"></a>Notícias sobre atualizações
 
+###### <a name="february-5-2019"></a>**5 de Fevereiro de 2019**
+O sistema operacional convidado de Janeiro já lançada.
+
 ###### <a name="january-24-2019"></a>**24 de Janeiro de 2019**
 SO de convidado de família 6 (Windows Server 2019) já lançada.
 
@@ -64,9 +67,6 @@ Lançou o SO de convidado de Agosto.
 ###### <a name="august-3-2018"></a>**3 de Agosto de 2018**
 Lançou o SO de convidado de Julho.
 
-###### <a name="july-3-2018"></a>**3 de Julho de 2018**
-Lançou o SO de convidado de Junho.
-
 ## <a name="releases"></a>Versões
 
 ## <a name="family-6-releases"></a>Versões de família 6
@@ -80,8 +80,9 @@ Lançou o SO de convidado de Junho.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-GUEST-OS-6.3_201901-01 |5 de Fevereiro de 2019 |Post 6.5 |
 | WA-GUEST-OS-6.2_201812-01 |24 de Janeiro de 2019 |Post 6.4 |
-| WA-GUEST-OS-6.1_201811-01 |24 de Janeiro de 2019 |Post 6.3 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |24 de Janeiro de 2019 |5 de Fevereiro de 2019 |
 
 ## <a name="family-5-releases"></a>Versões de família 5
 **Windows Server 2016**
@@ -94,13 +95,13 @@ Lançou o SO de convidado de Junho.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-GUEST-OS-5.27_201901-01 |5 de Fevereiro de 2019 |Post 5.29 |
 | WA-GUEST-OS-5.26_201812-01 |7 de Janeiro de 2019 |Post 5.28 |
-| WA-GUEST-OS-5.25_201811-01 |14 de Dezembro de 2018 |Post 5.27 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |14 de Dezembro de 2018 |5 de Fevereiro de 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 de novembro de 2018 |7 de Janeiro de 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 de Outubro de 2018 |14 de Dezembro de 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 de Setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
@@ -109,13 +110,13 @@ Lançou o SO de convidado de Junho.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-GUEST-OS-4.62_201901-01 |5 de Fevereiro de 2019 |Post 4.64 |
 | WA-GUEST-OS-4.61_201812-01 |7 de Janeiro de 2019 |Post 4.63 |
-| WA-GUEST-OS-4.60_201811-01 |14 de Dezembro de 2018 |Post 4.62 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |14 de Dezembro de 2018 |5 de Fevereiro de 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 de novembro de 2018 |7 de Janeiro de 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 de Outubro de 2018 |14 de Dezembro de 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 de Setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
@@ -124,13 +125,13 @@ Lançou o SO de convidado de Junho.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-GUEST-OS-3.69_201901-01 |5 de Fevereiro de 2019 |Post 3.71 |
 | WA-GUEST-OS-3.68_201812-01 |7 de Janeiro de 2019 |Post 3.70 |
-| WA-GUEST-OS-3.67_201811-01 |14 de Dezembro de 2018 |Post 3.69 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |14 de Dezembro de 2018 |5 de Fevereiro de 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 de novembro de 2018 |7 de Janeiro de 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 de Outubro de 2018 |14 de Dezembro de 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 de Setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
@@ -139,10 +140,11 @@ Lançou o SO de convidado de Junho.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-GUEST-OS-2.82_201901-01 |5 de Fevereiro de 2019 |Post 2.84 |
 | WA-GUEST-OS-2.81_201812-01 |7 de Janeiro de 2019 |Post 2.83 |
-| WA-GUEST-OS-2.80_201811-01 |14 de Dezembro de 2018 |Post 2.82 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |14 de Dezembro de 2018 |5 de Fevereiro de 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 de novembro de 2018 |7 de Janeiro de 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~|12 de Outubro de 2018 |14 de Dezembro de 2018 |
+|~~WA-GUEST-OS-2.78_201809-01~~ |12 de Outubro de 2018 |14 de Dezembro de 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 de Setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |

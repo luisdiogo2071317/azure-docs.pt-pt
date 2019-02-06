@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436591"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747565"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -184,7 +184,6 @@ ms.locfileid: "54436591"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -339,41 +338,37 @@ Em todo o documento, podemos utilizar os seguintes termos:
 * IaaS: Infraestrutura como serviço
 * PaaS: Plataforma como Serviço
 * SaaS: Software como serviço
-* Componente SAP: um SAP aplicativos individuais como ECC, BW, Gestor de solução ou EP.  Componentes SAP podem basear-se em tecnologias tradicionais de ABAP ou Java ou um aplicativo de não com base em NetWeaver, como objetos comerciais.
+* Componente SAP: um SAP aplicativos individuais como ECC, BW, Gestor de solução ou S/4HANA.  Componentes SAP podem basear-se em tecnologias tradicionais de ABAP ou Java ou um aplicativo de não com base em NetWeaver, como objetos comerciais.
 * Ambiente de SAP: um ou mais componentes SAP logicamente agrupados para executar uma função de negócio, como o desenvolvimento, QAS, treinamento, DR ou de produção.
 * Ambiente SAP: Esse termo refere-se para os ativos SAP inteiros num cliente paisagem IT. A paisagem SAP inclui todos os ambientes de não produção e produção.
 * Sistema SAP: A combinação de camadas do DBMS e aplicação de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste de SAP BW, sistema de produção do SAP CRM, etc. Nas implementações do Azure, não é suportada para dividir estas duas camadas entre no local e o Azure. Significa que um sistema SAP é implementado no local ou está implementado no Azure. No entanto, pode implantar os sistemas diferentes de um ambiente SAP para o Azure ou no local. Por exemplo, pode implementar o desenvolvimento de CRM do SAP e testar sistemas no Azure, mas a SAP CRM produção sistema no local.
-* Implementação apenas na cloud: Uma implementação em que a subscrição do Azure não está ligada através de um site a site ou a ligação do ExpressRoute para a infraestrutura de rede no local. Documentação do Azure em comum, esses tipos de implementações também são descritos como implementações de "Apenas na Cloud". Máquinas virtuais implementadas com este método são acedidas através da internet e um endereço IP público e/ou um nome DNS público atribuído para as VMs no Azure. Para o Microsoft Windows, o local do Active Directory (AD) e DNS não estiver expandido para o Azure nesses tipos de implementações. Por conseguinte, as VMs não fazem parte do Active Directory no local. Mesmo se aplica para implementações de Linux utilizar, por exemplo, OpenLDAP + Kerberos.
+* Em vários locais ou híbrida: Descreve um cenário em que as VMs são implementadas para uma subscrição do Azure que tem conectividade do ExpressRoute entre o datacenter(s) no local e o Azure, múltiplos sites ou site a site. Documentação do Azure em comum, esses tipos de implementações também são descritos como no local ou híbrido cenários. O motivo para a ligação é para expandir os domínios no local/OpenLDAP de diretório Active Directory no local e no local DNS para o Azure. O Panorama de no local é expandido para recursos do Azure da subscrição. Com esta extensão, as VMs podem ser parte do domínio no local. Os utilizadores de domínio do domínio no local podem aceder aos servidores e podem executar serviços nessas VMS (como o DBMS serviços). Resolução de nomes e de comunicação entre as VMs implementadas no local e as VMs implementadas do Azure é possível. Esse é o caso de mais comuns e quase exclusivo implementar recursos SAP no Azure. Para obter mais informações, consulte [isso] [ vpn-gateway-cross-premises-options] artigo e [isso][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
-> Uma implementação apenas na cloud neste documento é definida como completas panoramas SAP em execução exclusivamente no Azure sem a extensão do Active Directory / OpenLDAP ou da resolução do nome do local para a cloud pública. Configurações de apenas na cloud não são suportadas para sistemas SAP de produção ou configurações onde SAP STMS ou a outros recursos no local tem de ser usada entre sistemas SAP alojados no Azure e recursos que residem no local.
+> No local ou híbrido implementações de sistemas SAP em máquinas virtuais do Azure com sistemas SAP são membros de um domínio no local são suportadas para sistemas SAP de produção. No local ou híbrido configurações são suportadas para a implementação de partes ou concluir cenários SAP no Azure. Até mesmo executar o ambiente completo do SAP no Azure requer ter essas VMs a fazer parte do domínio no local e anúncios/OpenLDAP. 
 >
 >
 
-* Em vários locais: Descreve um cenário em que as VMs são implementadas para uma subscrição do Azure que tem conectividade do ExpressRoute entre o datacenter(s) no local e o Azure, múltiplos sites ou site a site. Documentação do Azure em comum, esses tipos de implementações também são descritos como cenários de vários locais. O motivo para a ligação é para expandir os domínios no local/OpenLDAP de diretório Active Directory no local e no local DNS para o Azure. O Panorama de no local é expandido para recursos do Azure da subscrição. Com esta extensão, as VMs podem ser parte do domínio no local. Os utilizadores de domínio do domínio no local podem aceder aos servidores e podem executar serviços nessas VMS (como o DBMS serviços). Resolução de nomes e de comunicação entre as VMs implementadas no local e as VMs implementadas do Azure é possível. Esse é o caso de mais comuns e quase exclusivo implementar recursos SAP no Azure. Para obter mais informações, consulte [isso] [ vpn-gateway-cross-premises-options] artigo e [isso][vpn-gateway-site-to-site-create].
 
-> [!NOTE]
-> Implementações em vários locais dos sistemas SAP em máquinas virtuais do Azure com sistemas SAP são membros de um domínio no local são suportadas para sistemas SAP de produção. Configurações em vários locais são suportadas para a implementação de partes ou concluir cenários SAP no Azure. Até mesmo executar o ambiente completo do SAP no Azure requer ter essas VMs a fazer parte do domínio no local e anúncios/OpenLDAP. Nas versões anteriores da documentação, falamos sobre cenários de TI híbrida, em que o termo *híbrida* está enraizada no fato de que existe uma conectividade em vários locais entre no local e o Azure. Além disso, o fato de que as VMs no Azure fazem parte do Active Directory no local / OpenLDAP.
->
->
-
-Alguma documentação de Microsoft descreve os cenários de em vários locais de forma um pouco diferente, especialmente para configurações de HA do DBMS. No caso dos documentos relacionados com o SAP, o cenário em vários locais apenas se resume a ter uma site a site ou conectividade privada (ExpressRoute) e o fato de que o ambiente SAP é distribuído entre no local e o Azure.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Recursos
-Os guias de adicionais seguintes estão disponíveis para o tópico de implementações de SAP no Azure:
+O ponto de entrada para a carga de trabalho SAP na documentação do Azure é encontrado [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Começando com este ponto de entrada encontrará muitos artigos que abrangem os tópicos de:
 
-* [Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver (neste documento) do Azure][planning-guide]
-* [Implementação de máquinas virtuais do Azure para SAP NetWeaver][deployment-guide]
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP NetWeaver][dbms-guide]
+- SAP NetWeaver e de negócios uma diante do Azure
+- Guias do SAP DBMS para vários sistemas DBMS no Azure
+- Elevada disponibilidade e recuperação após desastre para cargas de trabalho SAP no Azure
+- Orientações específicas para execução do SAP HANA no Azure
+- Orientação específica para instâncias grandes do HANA do Azure para o SAP HANA DBMS 
+
 
 > [!IMPORTANT]
-> Sempre que possível uma ligação para o guia de instalação SAP referência é utilizada (referência InstGuide-01, consulte <http://service.sap.com/instguides>). Quando se trata os pré-requisitos e o processo de instalação, os guias de instalação do SAP NetWeaver devem sempre ser lidos com cuidado, como este documento cobre apenas a tarefas específicas para sistemas SAP NetWeaver instalados numa máquina de Virtual do Microsoft Azure.
+> Sempre que possível uma ligação para a referência de guias de instalação SAP ou outra documentação SAP é utilizada (referência InstGuide-01, consulte <http://service.sap.com/instguides>). Quando se trata-se para a pré-requisitos, processo de instalação ou detalhes de funcionalidades específicas do SAP guias de documentação do SAP e devem sempre ser lida com cuidado, como o Microsoft documentos cobre apenas a tarefas específicas para software SAP instalado e em funcionamento num Máquina Virtual do Microsoft Azure.
 >
 >
 
 As seguintes notas de SAP estão relacionadas ao tópico de SAP no Azure:
 
-| Número de nota | Cargo |
+| Número de nota | Título |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e o dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -431,22 +426,7 @@ Uma última etapa é avaliar requisitos de disponibilidade. Isso pode acontecer,
 
 Para poder implementar com êxito um sistema SAP no Azure, no local SAP sistemas sistema operacional, base de dados e aplicações SAP tem de aparecer na matriz de suporte do Azure do SAP, se encaixa nos recursos do Azure pode fornecer a infraestrutura e que podem trabalhar com as ofertas de disponibilidade SLAs Microsoft Azure. Como esses sistemas são identificados, precisa decidir em um dos seguintes cenários de implementação de dois.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>Apenas na cloud - implementações de máquinas virtuais no Azure sem dependências na rede de cliente no local
-![VM única com o cenário de treinamento implementadas no Azure ou de demonstração SAP][planning-guide-figure-100]
 
-Neste cenário é comum para treinamentos ou sistemas de demonstração, onde todos os componentes do SAP e software não SAP, são instalados dentro de uma única VM. Sistemas SAP de produção não são suportados neste cenário de implementação. Em geral, este cenário cumpre os seguintes requisitos:
-
-* As VMs propriamente ditas são acessíveis através da rede pública. Conectividade de rede direta para as aplicações em execução nas VMs à rede no local da empresa de qualquer proprietário do conteúdo de demonstrações ou treinamentos ou com o cliente não é necessária.
-* Em caso de várias VMs que representa o cenário de demonstração ou treinamentos, resolução de nomes e de comunicações de rede tem de funcionar entre as VMs. Mas tem de ser isolados, para que vários conjuntos de VMs podem ser implementados lado a lado, sem interferência comunicações entre o conjunto de VMs.  
-* Conectividade com a Internet é necessária para o utilizador final para início de sessão remoto em para as VMs alojadas no Azure. Dependendo do convidado SO, serviços de Terminal/RDS ou VNC/ssh é utilizado para aceder à VM para satisfazer as tarefas de formação ou realizar as demonstrações. Se o SAP portas, tais como 3200, 3300 & 3600 podem também ser exposto a instância da aplicação SAP pode ser acessada em qualquer área de trabalho conectada de Internet.
-* Os sistemas SAP (e VM(s)) representam um cenário de autónomo no Azure, que apenas necessita de conectividade de internet pública para acesso do utilizador final e não exige uma conexão com outras VMs no Azure.
-* SAPGUI e um browser instalados e executados diretamente na VM.
-* É necessário uma reposição rápida de uma VM para o estado original e a nova implementação desse estado original novamente.
-* No caso e cenários de treinamento de demonstração, que é percebido em várias VMs, um Active Directory / serviço OpenLDAP e/ou o DNS é necessário para cada conjunto de VMs.
-
-![Grupo de VMS que representa um cenário de treinamento num serviço Cloud do Azure ou de demonstração][planning-guide-figure-200]
-
-É importante ter em mente que a VM (s) em cada um dos conjuntos têm de ser implementada em paralelo, onde os nomes das VMS em cada do conjunto são os mesmos.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Em vários locais - implantação de uma única ou várias VMs de SAP no Azure com o requisito de que está a ser totalmente integrados à rede no local
 ![VPN com a conectividade de Site a Site (em vários locais)][planning-guide-figure-300]
@@ -648,9 +628,9 @@ O Microsoft Azure fornece uma infraestrutura de rede, que permite o mapeamento d
 
 Pode encontrar mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Há muitas possibilidades diferentes para configurar o nome e a resolução IP no Azure. Neste documento, cenários apenas na Cloud contam com a predefinição da utilização do DNS do Azure (ao contrário de definir um serviço DNS próprio). Também é um novo serviço de DNS do Azure, que pode ser utilizado em vez de definir seu próprio servidor DNS. Podem encontrar mais informações em [este artigo] [ virtual-networks-manage-dns-in-vnet] e, na [esta página](https://azure.microsoft.com/services/dns/).
+Há muitas possibilidades diferentes para configurar o nome e a resolução IP no Azure. Também é um serviço de DNS do Azure, que pode ser utilizado em vez de definir seu próprio servidor DNS. Podem encontrar mais informações em [este artigo] [ virtual-networks-manage-dns-in-vnet] e, na [esta página](https://azure.microsoft.com/services/dns/).
 
-Para cenários em vários locais, podemos da entidade confiadora no fato de que no local foi estendido via VPN ou ligação privada AD/OpenLDAP/DNS para o Azure. Para determinados cenários, conforme documentado aqui, poderá ser necessário ter uma réplica do AD/OpenLDAP instalada no Azure.
+Para híbrida no local ou cenários, nós da entidade confiadora no fato de que no local foi estendido via VPN ou ligação privada AD/OpenLDAP/DNS para o Azure. Para determinados cenários, conforme documentado aqui, poderá ser necessário ter uma réplica do AD/OpenLDAP instalada no Azure.
 
 Porque o sistema de rede e resolução de nomes é essencial para a implementação de base de dados para um sistema SAP, esse conceito é abordado em mais detalhes a [guia de implementação de DBMS][dbms-guide].
 
@@ -892,8 +872,6 @@ Requisitos ao preparar o seu próprio disco de VM do Azure são:
 * Ele precisa estar no formato VHD fixo. Os VHDs ou VHDs no formato VHDx dinâmica ainda não são suportadas no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
 * VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) e [este artigo (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
 * Adicione outra conta local com privilégios de administrador, que pode ser utilizada pelo suporte da Microsoft ou que podem ser atribuído como contexto para serviços e aplicações sejam executadas em até que a VM é implementada e os utilizadores mais adequados pode ser utilizada.
-* Para o caso de utilizar um cenário de implementação apenas na Cloud (consulte o capítulo [apenas na Cloud - implementações de máquinas virtuais no Azure sem dependências na rede de cliente no local] [ planning-guide-2.1] deste documento) em a combinação com este método de implementação, as contas de domínio podem não funcionar quando o disco do Azure estiver implementado no Azure. Isso é especialmente verdadeiro para as contas, que são utilizadas para executar serviços como os aplicativos DBMS ou SAP. Por isso terá de substituir essas contas de domínio com as contas locais de VM e eliminar as contas de domínio no local na VM. Manter os utilizadores de domínio no local na imagem VM não é um problema quando a VM é implementada no cenário em vários locais, conforme descrito no capítulo [em vários locais - implantação de uma única ou várias VMs de SAP no Azure com o requisito de ser totalmente integrado à rede no local] [ planning-guide-2.2] neste documento.
-* Se as contas de domínio usadas como inícios de sessão do DBMS ou os utilizadores quando executar o sistema no local e essas VMs devem ser implementados em cenários de apenas na Cloud, os utilizadores de domínio têm de ser eliminadas. Tem de certificar-se de que o administrador local e ainda outro utilizador local de VM é adicionado como um início de sessão/utilizador para o DBMS como administradores.
 * Adicione outras contas locais, como aqueles podem ser necessários para o cenário de implantação específicos.
 
 - - -
@@ -920,9 +898,6 @@ Requisitos ao preparar a sua própria imagem de VM do Azure são:
 * Originalmente, o VHD que contém o sistema operacional pode ter um tamanho máximo de 127GB apenas. Esta limitação foi eliminada no final de Março de 2015. Agora o VHD que contém o sistema operativo pode ser até 1TB de tamanho como qualquer outro armazenamento do Azure alojada VHD também.
 * Ele precisa estar no formato VHD fixo. Os VHDs ou VHDs no formato VHDx dinâmica ainda não são suportadas no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
 * VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) e [este artigo (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
-* Uma vez que todos os utilizadores de domínio registado os utilizadores na VM vão existir num cenário de apenas na Cloud (consulte o capítulo [apenas na Cloud - implementações de máquinas virtuais no Azure sem dependências na rede de cliente no local] [ planning-guide-2.1] deste documento), serviços a utilizar esse domínio contas poderão não funcionar depois da imagem é implementada no Azure. Isso é especialmente verdadeiro para as contas, que são utilizadas para executar serviços como o DBMS ou SAP aplicações. Por isso terá de substituir essas contas de domínio com as contas locais de VM e eliminar as contas de domínio no local na VM. Manter os utilizadores de domínio no local na imagem VM poderão não ser um problema quando a VM é implementada no cenário em vários locais, conforme descrito no capítulo [em vários locais - implantação de uma única ou várias VMs de SAP no Azure com o requisito de que está a ser totalmente integrado na rede no local] [ planning-guide-2.2] neste documento.
-* Adicione outra conta local com privilégios de administrador, que pode ser utilizada pelo suporte da Microsoft em investigações de problema ou que podem ser atribuído como contexto para serviços e aplicações sejam executadas em até que a VM é implementada e usuários mais adequados pode ser utilizada.
-* Em implementações apenas na Cloud e em que as contas de domínio foram usadas como inícios de sessão do DBMS ou os utilizadores ao executar o sistema no local, os utilizadores de domínio devem ser eliminados. Tem de certificar-se de que o administrador local e ainda outro utilizador local de VM é adicionado como um início de sessão do utilizador do DBMS como administradores.
 * Adicione outras contas locais, como aqueles podem ser necessários para o cenário de implantação específicos.
 * Se a imagem tiver uma instalação do SAP NetWeaver e mudar o nome do nome do anfitrião, o nome original no ponto da implementação do Azure, é provável que, é recomendado para copiar as versões mais recentes do DVD do Gestor de SAP de aprovisionamento de Software para o modelo. Isso permitirá que facilmente usar a funcionalidade de mudança de nome de SAP fornecido para adaptar o nome de anfitrião foi alterado e/ou alterar o SID do sistema SAP dentro da imagem VM implementada assim que uma nova cópia é iniciada.
 
@@ -1336,7 +1311,7 @@ Para a implantação final e os passos exatos, particularmente com respeito a im
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Aceder a sistemas SAP em execução em VMs do Azure
 
-Para cenários de apenas na Cloud, pode querer ligar a esses sistemas SAP através da internet pública usando a GUI do SAP. Nesses casos, os procedimentos seguintes têm de ser aplicadas.
+Para cenários em que pretende ligar a esses sistemas SAP através da internet pública usando a GUI do SAP, os procedimentos seguintes têm de ser aplicadas.
 
 Mais tarde o documento, abordaremos o outro cenário principais, ligar a sistemas SAP em implementações em vários locais, que tem uma ligação site a site (túnel VPN) ou a ligação do ExpressRoute do Azure entre os sistemas no local e os sistemas do Azure.
 
@@ -1349,7 +1324,7 @@ Com o Azure Resource Manager, existem não padrão pontos finais mais, como no a
 
 Ver a diferença de arquitetura entre ARM e o modelo clássico, conforme descrito em [este artigo][virtual-machines-azure-resource-manager-architecture].
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>Configuração de sistema SAP e SAP GUI de conectividade para o cenário de apenas na Cloud
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração da conetividade sistema SAP e SAP GUI através da internet
 
 Consulte este artigo, que descreve os detalhes a esse tópico: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
@@ -1392,13 +1367,12 @@ A GUI do SAP não liga imediatamente a qualquer uma das instâncias do SAP (port
 
 conforme documentado no [definições de segurança para o servidor de mensagens do SAP ](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
-## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>Conceitos de implementação apenas na Cloud de instâncias do SAP
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>VM única com o SAP NetWeaver cenário de demonstração/treinamento
 
 ![Com os mesmos nomes VM a executar sistemas de demonstração de SAP de VM únicos, isolados nos serviços Cloud do Azure][planning-guide-figure-1700]
 
-Neste cenário (consulte o capítulo [apenas na Cloud] [ planning-guide-2.1] deste documento), estamos implementando um cenário de sistema de treinamento/demonstração típico em que o cenário de treinamento/demonstração completo está contido numa única VM. Partimos do princípio de que a implementação é feita por meio de modelos de imagem VM. Vamos também assumir esse múltiplo destes demonstração/treinamentos necessidade de VMs a serem implantados com as VMs com o mesmo nome.
+Neste cenário, estamos implementando um cenário de sistema de treinamento/demonstração típico em que o cenário de treinamento/demonstração completo está contido numa única VM. Partimos do princípio de que a implementação é feita por meio de modelos de imagem VM. Vamos também assumir esse múltiplo destes demonstração/treinamentos necessidade de VMs a serem implantados com as VMs com o mesmo nome. Os sistemas de treinamento inteiro não têm conectividade com seus recursos no local e são um oposto para uma implementação híbrida.
 
 A pressuposição é de que criou uma imagem de VM, conforme descrito em algumas seções do capítulo [preparar VMs SAP para o Azure] [ planning-guide-5.2] neste documento.
 
@@ -1445,7 +1419,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Cria uma máquina virtual. Para o cenário de apenas na Cloud, todas as VMS terão o mesmo nome. O SID SAP das instâncias do SAP NetWeaver nessas VMs serão os mesmos também. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure podem executar as VMs com o mesmo nome. A conta de "Administrador" predefinidas do Windows ou de raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definido, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
+* Cria uma máquina virtual. Para este cenário, todas as VMS terão o mesmo nome. O SID SAP das instâncias do SAP NetWeaver nessas VMs serão os mesmos também. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure podem executar as VMs com o mesmo nome. A conta de "Administrador" predefinidas do Windows ou de raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definido, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
 
 ```powershell
 #####
@@ -1560,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Cria uma máquina virtual. Para o cenário de apenas na Cloud, todas as VMS terão o mesmo nome. O SID SAP das instâncias do SAP NetWeaver nessas VMs serão os mesmos também. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure podem executar as VMs com o mesmo nome. A conta de "Administrador" predefinidas do Windows ou de raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definido, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
+* Cria uma máquina virtual. Para este cenário, todas as VMS terão o mesmo nome. O SID SAP das instâncias do SAP NetWeaver nessas VMs serão os mesmos também. Dentro do grupo de recursos do Azure, o nome da VM tem de ser exclusivo, mas em diferentes grupos de recursos do Azure podem executar as VMs com o mesmo nome. A conta de "Administrador" predefinidas do Windows ou de raiz para Linux não são válidos. Por conseguinte, um novo nome de utilizador de administrador tem de ser definido, juntamente com uma palavra-passe. O tamanho da VM também tem de ser definido.
 
 ```
 #####
@@ -1614,7 +1588,7 @@ Pode utilizar os modelos de exemplo no repositório de modelos de início rápid
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Implementar um conjunto de VMs que comuniquem no Azure
 
-Este cenário apenas na Cloud é um cenário típico de formação e demonstração fins onde o software que representa o treinamento/demonstração cenário está distribuído por várias VMs. Os diferentes componentes instalados nas VMs diferentes precisam se comunicar entre si. Novamente, este cenário não locais comunicação de rede ou cenário entre locais é necessária.
+Este cenário não híbrido é um cenário típico de formação e demonstração fins onde o software que representa o treinamento/demonstração cenário está distribuído por várias VMs. Os diferentes componentes instalados nas VMs diferentes precisam se comunicar entre si. Novamente, este cenário não locais comunicação de rede ou cenário entre locais é necessária.
 
 Este cenário é uma extensão da instalação descrita no capítulo [única VM com o SAP NetWeaver demonstração/treinamento cenário] [ planning-guide-7.1] deste documento. Neste caso mais máquinas virtuais serão adicionadas a um grupo de recursos existente. No exemplo a seguir, o Panorama de treinamento consiste numa VM do SAP ASCS/SCS, uma VM a executar um DBMS e uma instância de servidor de aplicações SAP VM.
 
@@ -1643,11 +1617,11 @@ Podem encontrar mais detalhes sobre redes virtuais do Azure e como defini-las no
 
 Executar um ambiente SAP e pretende dividir a implementação entre bare-metal de servidores de grande porte DBMS, ambientes locais virtualizados para camadas do aplicativo e menor de 2 camadas configurada sistemas SAP e IaaS do Azure. A pressuposição de base é que sistemas SAP dentro de um ambiente SAP precisam se comunicar entre si e com vários outros componentes de software implementados na empresa, independentemente de sua forma de implementação. Também não deverá haver nenhum diferenças introduzidas pelo formulário de implementação para o usuário final a ligar ao SAP GUI ou outras interfaces. Estas condições apenas podem ser atendidas quando temos as/OpenLDAP de diretório Active Directory no local e os serviços DNS estendidos para os sistemas do Azure através de ligações privadas, como o Azure ExpressRoute ou de conectividade de site-para-site/várias-site.
 
-Para obter mais informações sobre os detalhes da implementação de SAP no Azure, é recomendável que leia capítulo [implementação de conceitos de Cloud-Only de instâncias do SAP] [ planning-guide-7] deste documento, que explica alguns as construções de noções básicas do Azure e como eles devem ser usados com aplicações SAP no Azure.
+
 
 ### <a name="scenario-of-an-sap-landscape"></a>Cenário de um ambiente SAP
 
-O cenário em vários locais pode ser aproximadamente descrito como em gráficos abaixo:
+O local ou híbrido cenário pode ser descrito mais ou menos como em gráficos abaixo:
 
 ![Conectividade de site a Site entre no local e de recursos do Azure][planning-guide-figure-2100]
 
@@ -1851,7 +1825,7 @@ A configuração de um Portal de SAP numa máquina Virtual não diferem de uma i
 
 ![Portal SAP expostos][planning-guide-figure-2700]
 
-Um cenário de implementação especial por alguns clientes é a exposição direta do Portal da empresa do SAP para a Internet, ao passo que o anfitrião de máquina virtual está ligado à rede da empresa através do túnel VPN de site a site ou ExpressRoute. Para um cenário, terá de certificar-se de que as portas específicas são abertos e não está bloqueado por grupo de segurança de rede ou firewall. A mecânica do mesmo têm de ser aplicada quando pretende ligar a uma instância de Java de SAP no local num cenário de apenas na Cloud.
+Um cenário de implementação especial por alguns clientes é a exposição direta do Portal da empresa do SAP para a Internet, ao passo que o anfitrião de máquina virtual está ligado à rede da empresa através do túnel VPN de site a site ou ExpressRoute. Para um cenário, terá de certificar-se de que as portas específicas são abertos e não está bloqueado por grupo de segurança de rede ou firewall. 
 
 O URI de portal inicial é http (s):`<Portalserver`>: 5XX00/irj onde a porta é formada por mais de 50000 (Systemnumber?? 100). É o sistema de URI do SAP portal padrão 00 `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Para obter mais detalhes, dê uma olhada <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 

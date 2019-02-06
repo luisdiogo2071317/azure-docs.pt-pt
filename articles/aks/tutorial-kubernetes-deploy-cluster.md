@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720667"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754562"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Azure Kubernetes Service (AKS)
 
@@ -67,10 +67,10 @@ Primeiro, obtenha o ID do recurso do ACR com [az acr show][]. Atualize o nome do
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Para conceder o acesso correto ao cluster do AKS para este utilizar imagens armazenadas no ACR, crie uma atribuição de função com o comando [az role assignment create][]. Substitua `<appId`> e `<acrId>` pelos valores recolhidos nos dois passos anteriores.
+Para conceder o acesso correto para o cluster do AKS para imagens de pull armazenadas no ACR, atribuir os `AcrPull` função com o [criação da atribuição de função de az][] comando. Substitua `<appId`> e `<acrId>` pelos valores recolhidos nos dois passos anteriores.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
@@ -143,7 +143,7 @@ Prossiga para o próximo tutorial para saber como implementar uma aplicação no
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az acr show]: /cli/azure/acr#az-acr-show
-[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
+[criação da atribuição de função de az]: /cli/azure/role/assignment#az-role-assignment-create
 [az aks create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
