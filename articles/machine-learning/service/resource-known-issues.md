@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 706d8986eb25d2d67e3099ae5b0bfc6e55f94ad3
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507373"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746495"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
@@ -42,7 +42,7 @@ Imagem de criação Falha ao implementar o serviço web. Solução alternativa �
 
 ## <a name="deployment-failure"></a>Falha de implementação
 
-Se observar `'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, alterar o SKU para VMs utilizadas na sua implementação para um que tenha mais memória.
+Se observar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, alterar o SKU para VMs utilizadas na sua implementação para um que tenha mais memória.
 
 ## <a name="fpgas"></a>FPGAs
 Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e foi aprovada para a quota FPGA. Para pedir acesso, preencha o formulário de pedido de quota: https://aka.ms/aml-real-time-ai

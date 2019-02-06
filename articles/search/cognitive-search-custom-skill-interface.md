@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fe575a79fe2f47729e7c7fe039989b2c08af1282
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e4fe511228f6e80a17af8325ee74ae0927a760bd
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657829"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754732"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada para um pipeline de pesquisa cognitiva
 
-R [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montada a partir de [predefinidos habilidades](cognitive-search-predefined-skills.md) , bem como as competências personalizadas que criar e adicionar ao pipeline pessoal. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite para ser incluída num pipeline de pesquisa cognitiva. 
+Uma [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montada a partir de [predefinidos habilidades](cognitive-search-predefined-skills.md) , bem como [competências personalizadas](cognitive-search-custom-skill-web-api.md) que criar e adicionar a pessoalmente o pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite para ser incluída num pipeline de pesquisa cognitiva. 
 
 Criar uma habilidade personalizada dá-lhe uma forma de inserir transformações exclusivas ao seu conteúdo. Uma habilidade personalizada é executado de forma independente, aplicar qualquer passo de enriquecimento necessitar. Por exemplo, poderia definir entidades personalizadas de campo específico, criar modelos de classificação personalizada para diferenciar empresariais e contratos financeiros e documentos ou adicionar uma habilidade de reconhecimento de voz para alcançar-se em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
 

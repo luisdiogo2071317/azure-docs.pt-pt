@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 8a0c474ab610d89bd702613bc778ad29523a4192
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732724"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752522"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Proteger um autónoma ou de bases de dados agrupadas
 
@@ -45,7 +45,7 @@ Para concluir o tutorial, certifique-se de que tem os seguintes pré-requisitos:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Um servidor SQL do Azure e a base de dados
-  - Criá-los com [portal do Azure](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), ou [PowerShell](sql-database-powershell-samples.md)
+  - Criá-los com [portal do Azure](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), ou [PowerShell](sql-database-powershell-samples.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -64,7 +64,7 @@ Definir **permitir o acesso aos serviços do Azure** ao **OFF** para a configura
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>Configurar regras de firewall do servidor de base de dados SQL
 
-Regras de firewall ao nível do servidor aplicam-se a todas as bases de dados no mesmo servidor de base de dados SQL.
+Regras de firewall do IP ao nível do servidor aplicam-se a todas as bases de dados no mesmo servidor de base de dados SQL.
 
 Para configurar uma regra de firewall ao nível do servidor:
 
@@ -233,7 +233,7 @@ Para copiar uma cadeia de ligação segura:
 
 Base de dados SQL do Azure fornece recursos de segurança que são acedidos no portal do Azure. Estas funcionalidades estão disponíveis para a base de dados e o servidor, exceto para a máscara de dados, que só está disponível na base de dados. Para obter mais informações, consulte [segurança de dados avançada](sql-database-advanced-data-security.md), [auditoria](sql-database-auditing.md), [máscara de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md), e [encriptação de dados transparente](transparent-data-encryption-azure-sql.md).
 
-### <a name="advanced-data-security"></a>Advanced Data Security
+### <a name="advanced-data-security"></a>Segurança de dados avançada
 
 A funcionalidade de segurança de dados avançada Deteta potenciais ameaças à medida que ocorrem e fornece alertas de segurança relativamente a atividades anómalas. Os utilizadores podem explorar estes eventos suspeitos com a funcionalidade de auditoria e determinar se o evento foi aceder, violar ou explorar dados na base de dados. Os utilizadores também são fornecidos uma visão geral de segurança que inclui uma avaliação de vulnerabilidades e a ferramenta de deteção e classificação de dados.
 

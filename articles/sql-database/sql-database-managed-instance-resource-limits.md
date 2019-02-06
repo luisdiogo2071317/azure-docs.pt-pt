@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 228de2b7c47115373b26dcaa24b44e90baf76143
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/05/2019
+ms.openlocfilehash: be6e2cbea7dd23cbe6932f0110ac1c8b630a17c2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662607"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753202"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -50,17 +50,19 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56GB - 156GB<br/>Gen5: 44GB-440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB - 156GB <br/> Gen5: 41GB-408GB<br/>\*Proporcional ao número de vCores |
+| Memória | Gen4: 56 GB - 168 GB<br/>Gen5: 40.8 GB - 408 GB<br/>\*Proporcional ao número de vCores | Gen4: 56 GB - 168 GB <br/> Gen5: 40.8 GB - 408 GB<br/>\*Proporcional ao número de vCores |
 | Tamanho máximo de armazenamento | 8 TB | Geração 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS de dados/do registo (aproximado) | 500-7500 por ficheiro<br/>\*[Depende do tamanho do ficheiro] (https://docs.microsoft.com/azure/virtual-machines ce débito de registo | 22MB/s por instância | 3MB/s por vCore<br/>Máx. 48MB/s |
-| Débito de dados (aproximado) | 100 a 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s por vCore |
+| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines)| 11 mil - 110 mil (1,375 por vCore) |
+|Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Número máximo de 48 MB/s |
+| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s por vCore |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
-| Tamanho máximo de tempDB | 192 1920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
+| Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
 
 **Notas de**:
+
 - Tamanho do ficheiro de dados e de registo no utilizador e bases de dados do sistema estão incluídas no tamanho de armazenamento de instância é comparado com o limite de tamanho de armazenamento máximo. Uso <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">master_files</a> vista de sistema para determinar o total de espaço utilizado pelas bases de dados. Registos de erros não são persistentes e não incluídos no tamanho. As cópias de segurança não estão incluídas no tamanho de armazenamento.
 - Débito e IOPS também dependem do tamanho de página que não está limitado explicitamente por instância gerida.
 

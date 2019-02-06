@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454764"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756755"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
 Depois de uma tarefa de exportação foi concluída, pode executar a ferramenta de importação/exportação do Microsoft Azure no local para:  
@@ -81,7 +81,7 @@ O ficheiro de registo de cópia indica que ocorreu uma falha durante o serviço 
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Uso RepairExport para validar o conteúdo da unidade  
 Também pode utilizar Importar/exportar do Azure com o **RepairExport** opção para validar o conteúdo na unidade estão corretos. O ficheiro de manifesto em cada unidade de exportação contém MD5s para o conteúdo da unidade.  
   
-O serviço importar/exportar do Azure também pode guardar os ficheiros de manifestos para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros de manifestos está disponível através da [Get Job de](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação quando a tarefa for concluída. Ver [serviço importar/exportar formato de ficheiro de manifesto](storage-import-export-file-format-metadata-and-properties.md) para obter mais informações sobre o formato de um arquivo de manifesto de unidade.  
+O serviço importar/exportar do Azure também pode guardar os ficheiros de manifestos para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros de manifestos está disponível através da [Get Job de](/rest/api/storageimportexport/jobs) operação quando a tarefa for concluída. Ver [serviço importar/exportar formato de ficheiro de manifesto](storage-import-export-file-format-metadata-and-properties.md) para obter mais informações sobre o formato de um arquivo de manifesto de unidade.  
   
 O exemplo seguinte mostra como executar a ferramenta de importação/exportação do Azure com o **/ManifestFile** e **/CopyLogFile** parâmetros:  
   

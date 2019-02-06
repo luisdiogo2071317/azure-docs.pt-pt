@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e07937710dd36c14e7118caf6028a161ad7dc4ee
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543449"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753627"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
@@ -74,7 +74,7 @@ Manutenção self-service não é recomendada para implementações que utilizam
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>Encontrar VMs agendadas para manutenção com a CLI
 
-Informações de manutenção planeada podem ser vistas utilizando [get-instance-view da vm do azure](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Informações de manutenção planeada podem ser vistas utilizando [get-instance-view da vm do azure](/cli/azure/vm?view=azure-cli-latest).
  
 Informações de manutenção são devolvidas apenas se há manutenção planeada. Se não houver que nenhuma manutenção agendada que impactos a VM, o comando não devolve quaisquer informações de manutenção. 
 
@@ -84,7 +84,7 @@ az vm get-instance-view -g rgName -n vmName
 
 Os seguintes valores são devolvidos em MaintenanceRedeployStatus: 
 
-| Valor | Descrição   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento ||
 | PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM ||

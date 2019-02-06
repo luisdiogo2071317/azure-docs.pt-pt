@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87fcfd98065bcf1f0fea3a06029853f69d67842d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663813"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751502"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com a CLI do Azure
 
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-Criar uma rede virtual com uma sub-rede com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create).
+Criar uma rede virtual com uma sub-rede com [vnet de rede de az criar](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Ativar um ponto final de serviço 
 
-Pode ativar pontos finais de serviço apenas para serviços que suportam os pontos finais de serviço. Ver serviços de ativado o ponto final de serviço disponíveis na localização do Azure com [az network vnet-endpoint-serviços de lista](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services). O exemplo seguinte devolve uma lista de serviços de capacidade de ponto final de serviço disponíveis na *eastus* região. A lista de serviços devolvidos irá aumentar ao longo do tempo, à medida que mais serviços do Azure forem ponto final de serviço ativado.
+Pode ativar pontos finais de serviço apenas para serviços que suportam os pontos finais de serviço. Ver serviços de ativado o ponto final de serviço disponíveis na localização do Azure com [az network vnet-endpoint-serviços de lista](/cli/azure/network/vnet). O exemplo seguinte devolve uma lista de serviços de capacidade de ponto final de serviço disponíveis na *eastus* região. A lista de serviços devolvidos irá aumentar ao longo do tempo, à medida que mais serviços do Azure forem ponto final de serviço ativado.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Criar regras de segurança com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). A regra que se segue permite acesso de saída para os endereços IP públicos atribuídos ao serviço do armazenamento do Azure: 
+Criar regras de segurança com [criar regra de nsg de rede de az](/cli/azure/network/nsg/rule). A regra que se segue permite acesso de saída para os endereços IP públicos atribuídos ao serviço do armazenamento do Azure: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-Depois de criar a conta de armazenamento, obter a cadeia de ligação para a conta de armazenamento numa variável com [armazenamento az account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). A cadeia de ligação é utilizada para criar uma partilha de ficheiros num passo posterior.
+Depois de criar a conta de armazenamento, obter a cadeia de ligação para a conta de armazenamento numa variável com [armazenamento az account show-connection-string](/cli/azure/storage/account). A cadeia de ligação é utilizada para criar uma partilha de ficheiros num passo posterior.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ Para testar o acesso de rede a uma conta de Armazenamento, implemente uma VM em 
 
 ### <a name="create-the-first-virtual-machine"></a>Criar a primeira máquina virtual
 
-Criar uma VM no *pública* sub-rede com [az vm criar](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
+Criar uma VM no *pública* sub-rede com [az vm criar](/cli/azure/vm). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

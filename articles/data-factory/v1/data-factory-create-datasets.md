@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 690c2769e129d5661e7d66cb3f9f968643c0dbdb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332613"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747014"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Um conjunto de dados no Data Factory é definido no formato JSON, da seguinte fo
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -316,7 +316,7 @@ Conjuntos de dados externos são aqueles que não são produzidos por uma execu�
 
 A menos que um conjunto de dados está a ser produzido pela fábrica de dados, deverá ser marcado como **externo**. Esta definição geralmente aplica-se para as entradas da primeira atividade num pipeline, a menos que a atividade ou o encadeamento de pipeline está a ser utilizado.
 
-| Nome | Descrição | Necessário | Valor predefinido |
+| Name | Descrição | Necessário | Valor predefinido |
 | --- | --- | --- | --- |
 | dataDelay |O tempo para atrasar a verificação da disponibilidade dos dados externos para o determinado setor. Por exemplo, pode atrasar uma verificação de hora a hora, utilize esta definição.<br/><br/>A definição só se aplica a hora presente. Por exemplo, caso seja 1 que, neste momento, e este valor é 10 minutos, a validação começa em 1:10 PM.<br/><br/>Tenha em atenção que esta definição não afeta setores no passado. Reparte com **hora de fim do setor** + **dataDelay** < **agora** são processadas sem demora.<br/><br/>Vezes maior do que 23:59 horas devem ser especificadas utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, a não utilize 24: 00:00. Em alternativa, utilize 1.00:00:00. Se usar 24: 00:00, ela é tratada como 24 dias (24.00:00:00). Para 1 dia e quatro horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e da próxima tentativa. Esta definição aplica-se a hora atual. Se o anterior tentar com falha, repita seguinte é depois do **retryInterval** período. <br/><br/>Se for 1 que, neste momento, começamos a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a próxima repetição é em 1:00 + 1 min (duração) + 1min (intervalo de repetições) = 1:02 PM. <br/><br/>Para setores no passado, não existe nenhum atraso. A nova tentativa ocorre imediatamente. |Não |01: 00:00 (1 minuto) |
