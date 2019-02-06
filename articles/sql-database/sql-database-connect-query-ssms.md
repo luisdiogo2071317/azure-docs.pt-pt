@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b6b97e2a7637e90d9cba6b94cd55b56dbc619ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 095d7cf43d071d3857160d05e721bf7ac165cba2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511698"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756789"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
@@ -30,7 +30,7 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* Uma regra de firewall de ao nível do servidor configurada. Para obter mais informações, consulte [criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
+* Uma regra de firewall de ao nível do servidor configurada. Para obter mais informações, consulte [criar regra de firewall ao nível do servidor](sql-database-server-level-firewall-rule.md).
 
 ## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 

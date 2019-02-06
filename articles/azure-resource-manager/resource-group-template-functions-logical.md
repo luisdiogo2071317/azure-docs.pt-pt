@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493767"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745576"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
@@ -34,9 +34,9 @@ Resource Manager fornece várias funções para fazer comparações nos seus mod
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>e
-`and(arg1, arg2)`
+`and(arg1, arg2, ...)`
 
-Verifica se os dois valores de parâmetro são verdadeiros.
+Verifica se todos os valores de parâmetro são verdadeiros.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -44,10 +44,11 @@ Verifica se os dois valores de parâmetro são verdadeiros.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |boolean |O segundo valor a verificar se é verdadeiro. |
+| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiras. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Devolve **True** se ambos os valores forem true; caso contrário, **falso**.
+Devolve **True** se todos os valores são verdadeiro; caso contrário, **falso**.
 
 ### <a name="examples"></a>Exemplos
 
@@ -366,9 +367,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="or"></a>ou
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-Verifica se o valor do parâmetro é verdadeiro.
+Verifica se a qualquer valor de parâmetro é verdadeira.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -376,6 +377,7 @@ Verifica se o valor do parâmetro é verdadeiro.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |boolean |O segundo valor a verificar se é verdadeiro. |
+| argumentos adicionais |Não |boolean |Argumentos adicionais para verificar se são verdadeiras. |
 
 ### <a name="return-value"></a>Valor de retorno
 

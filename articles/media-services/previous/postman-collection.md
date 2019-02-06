@@ -1,6 +1,6 @@
 ---
-title: Importar a coleção de Postman com operações a transmissão em fluxo a pedido do Azure
-description: Este artigo fornece uma definição da coleção Postman para chamadas de REST de serviços de suporte de dados do Azure.
+title: Importar a coleção do Postman com operações a transmissão em fluxo a pedido do Azure
+description: Este artigo fornece uma definição de coleção do Postman para chamadas REST de serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 311bc6a67e2b63f6f514da5abacb00e5c3cb434f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34eb7c48c8ebc36f9172f97dda845542b3840a19
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790693"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747684"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção de Postman com operações de transmissão em fluxo a pedido
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção do Postman com operações sob demanda de transmissão em fluxo
 
-Este artigo contém uma definição do **Postman** coleção que contenha agrupados pedidos de HTTP chamar as APIs REST do serviços de suporte de dados do Azure. Para obter informações sobre como configurar **Postman** para que possam ser utilizado para chamar as APIs REST do suporte de dados de serviços, consulte [chama de configurar o Postman para API de REST dos serviços de suporte de dados](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição do **Postman** agrupados de coleção que contém os pedidos HTTP que chamam as APIs de REST de serviços de multimédia do Azure. Para obter informações sobre como configurar **Postman** para que possa ser utilizada para chamar as APIs de REST de serviços de multimédia, veja [chama de configurar o Postman para a API de REST dos serviços de multimédia](media-rest-apis-with-postman.md) tutorial.
 
-```
+```json
 {
     "info": {
         "name": "Azure Media Services Operations",
@@ -4264,7 +4264,7 @@ Este artigo contém uma definição do **Postman** coleção que contenha agrupa
                                 "MediaProcessors"
                             ]
                         },
-                        "description": "List MediaProcesors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "List MediaProcessors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 }

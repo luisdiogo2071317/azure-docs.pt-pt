@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd614a632945dbcc89c530df54b8416809029d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194033"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756449"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -105,8 +105,8 @@ Utilize as seguintes informações para instalar e configurar a solução.
   - Para orquestração de vários anfitriões do Docker:
     - Se tiver um ambiente de Red Hat OpenShift, reveja [configurar um agente de Log Analytics para o Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - Se tiver um cluster do Kubernetes com o Azure Container Service:
-       - Revisão [configurar um agente Linux do Log Analytics para o Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Revisão [configurar um agente do Windows do Log Analytics para Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Revisão [configurar um agente Linux do Log Analytics para o Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
+       - Revisão [configurar um agente do Windows do Log Analytics para Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Revisão [Helm de utilização para implementar o agente do Log Analytics no Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Se tiver um cluster do DC/OS do Azure Container Service, saiba mais em [monitorizar um cluster DC/OS do Azure Container Service com o Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se tiver um ambiente de modo Docker Swarm, saiba mais em [configurar um agente de Log Analytics para o Docker Swarm](#configure-an-oms-agent-for-docker-swarm).

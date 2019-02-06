@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fb47654a3eb6ea45d2aebab956b555e720faef4c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487120"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751128"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com Jenkins, GitHub e Docker
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupJenkins* na localização *eualeste*:
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupJenkins* na localização *eualeste*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Demora alguns minutos até que a VM seja criada e configurada.
 
-Para permitir que o tráfego Web alcance a sua VM, utilize [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir a porta *8080* para o tráfego do Jenkins e a porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
+Para permitir que o tráfego Web alcance a sua VM, utilize [az vm open-port](/cli/azure/vm) para abrir a porta *8080* para o tráfego do Jenkins e a porta *1337* para a aplicação Node.js que é utilizada para executar uma aplicação de exemplo:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

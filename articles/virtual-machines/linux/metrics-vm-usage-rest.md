@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b888d1ac9b5ebffc95d35ecda4ab8d9d260fa6d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669871"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754851"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métrica de utilização de Máquina Virtual com a API REST
 
@@ -37,14 +37,14 @@ Os seguintes cabeçalhos são necessários:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Necessário. Definido como `application/json`.|  
+|*Content-Type:*|Necessário. Definido como `application/json`.|  
 |*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos do Azure associado com o recurso. Pode obter este valor de API do Gestor de recursos do Azure, CLI ou o portal. |
 | vmname | O nome da Máquina Virtual do Azure. |
 | metricnames | Lista separada por vírgulas de válido [métricas de Balanceador de carga](/azure/load-balancer/load-balancer-standard-diagnostics). |
@@ -56,7 +56,7 @@ Os seguintes cabeçalhos são necessários:
 
 O corpo do pedido não é necessária para esta operação.
 
-## <a name="handle-the-response"></a>Tratar da resposta
+## <a name="handle-the-response"></a>Processar a resposta
 
 Código de estado 200 é retornado quando a lista de valores de métrica é devolvida com êxito. Uma lista completa dos códigos de erro está disponível na [documentação de referência](/rest/api/monitor/metrics/list#errorresponse).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5bd631bf31ba4e6a840c3e4e818062d322da0158
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a9a1446db66e528cfac98222d4bd258efc660c84
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727931"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750380"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de voz
 
@@ -46,12 +46,14 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
     Pode [criar um modelo do LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilize o exemplo de modelo do LUIS, LUIS example.json. O exemplo de modelo do LUIS está disponível a partir da [site de download do SDK de dispositivos de voz](https://shares.datatransfer.microsoft.com/). Para carregar o ficheiro JSON de seu modelo para o [portal de LUIS](https://www.luis.ai/home), selecione **importar a nova aplicação**e, em seguida, selecione o ficheiro JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
-
-1. Ligar o kit de desenvolvimento para um PC ou ligar o adaptador usando um cabo USB micro de alta qualidade. Um indicador de power verde serão apresentados em quadro superior.
-
-1. Ligue o kit de desenvolvimento para um computador com uma segunda mini cabo USB.
+    
+1. O kit de desenvolvimento tem dois conectores USB micro. O conector do esquerda é criar o kit de desenvolvimento e está realçado como poder na imagem abaixo. O direito de um é para controlá-lo e está marcada como depurar na imagem.
 
     ![ligar o kit de desenvolvimento](media/speech-devices-sdk/qsg-1.png)
+       
+1. O kit de desenvolvimento de energia usando um cabo USB micro para ligar a porta de energia para um PC ou ligar o adaptador. Um indicador de power verde serão apresentados em quadro superior.
+
+1. Para controlar o desenvolvimento kit ligue a porta de depuração para um computador com uma segunda micro cabo USB. É essencial para utilizar um cabo de alta qualidade para assegurar a comunicação confiáveis.
 
 1. Orientar o seu kit de desenvolvimento por qualquer configuração do circular ou linear.
 
@@ -75,6 +77,8 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
 
     > [!NOTE]
     > Estes comandos utilizem a ponte de depuração do Android, `adb.exe`, que faz parte da instalação do Android Studio. Esta ferramenta está localizada no C:\Users\[nome de utilizador] \AppData\Local\Android\Sdk\platform ferramentas. Pode adicionar esse diretório ao seu caminho para que seja mais conveniente para invocar `adb`. Caso contrário, tem de especificar o caminho completo para a instalação do adb.exe em todos os comandos que invoquem `adb`.
+    >
+    > Se vir um erro `no devices/emulators found` verificar, em seguida, o cabo USB está ligado e é um cabo de alta qualidade. Pode usar `adb devices` para verificar que o computador pode se comunicar com o kit de desenvolvimento como irá devolver uma lista de dispositivos.
 
     > [!TIP]
     > Mudo microfone e palestrante Certifique-se de que está a trabalhar com microfones o kit de desenvolvimento do seu PC. Dessa forma, não acidentalmente aciona o dispositivo com o áudio do PC.

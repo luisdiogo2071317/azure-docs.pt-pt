@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 14b6125bd1467efcd6120bc367a7042ad29552bb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902062"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744505"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -38,7 +38,7 @@ Se tiver máquinas virtuais, Azure Cosmos DB ou bases de dados do SQL que são e
 
 - Instância de Máquina Virtual reservada: Uma reserva abrange apenas os custos de computação de máquina virtual. Não cobre custos adicionais de software, sistema de rede ou armazenamento.
 - Base de dados SQL reservados vCore: Apenas os custos de computação são incluídos com uma reserva. A licença é faturada em separado.
-- O Azure Cosmos DB a capacidade de reserva: Uma reserva abrange o débito aprovisionado para os seus recursos, não abrange os custos de armazenamento e rede. 
+- O Azure Cosmos DB a capacidade de reserva: Uma reserva abrange o débito aprovisionado para os seus recursos, não abrange os custos de armazenamento e rede.
 
 Para as máquinas virtuais do Windows e a base de dados SQL, que podem ser cobertos os custos de licenciamento com [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -46,11 +46,16 @@ Para as máquinas virtuais do Windows e a base de dados SQL, que podem ser cober
 
 Os clientes do Azure com esses tipos de subscrições, podem comprar uma reserva:
 
-- Tipo de oferta de subscrição Contrato Enterprise (MS-AZR-0017P).
-- Tipo de oferta de subscrição [Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Tem de ter a função "Proprietário" na subscrição para comprar uma reserva.
+- Tipo (MS-AZR - 0017P ou MS-AZR - 0148P) de oferta de subscrição do Enterprise agreement.
+- Pay as you go subscrição o tipo de oferta (MS-AZR - 003P ou MS-AZR - 0023P).
 - Parceiros da cloud Solution Provider (CSP) podem utilizar o portal do Azure ou [Centro de parceiros](https://docs.microsoft.com/partner-center/azure-reservations) comprar reservas do Azure.
 
 Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP.
+
+ Comprar um plano:
+
+- Deve estar numa função de proprietário de, pelo menos, uma empresa ou uma subscrição pay as you go.
+- Para subscrições Enterprise, **adicionar as instâncias reservadas** tem de estar ativada no [portal EA](https://ea.azure.com). Em alternativa, se essa definição estiver desativada, tem de ser um administrador de EA da subscrição.
 
 ## <a name="how-is-a-reservation-billed"></a>Como é faturada uma reserva?
 
@@ -60,7 +65,7 @@ A reserva é cobrada ao método de pagamento associado à subscrição. Se tiver
 
 O desconto de reserva se aplica a utilização de recursos que corresponda os atributos que selecionou quando comprar a reserva. Os atributos incluem o âmbito em que executar as VMs correspondentes, bases de dados SQL, Azure Cosmos DB ou outros recursos. Por exemplo, se pretender que um desconto de reserva para quatro máquinas de virtuais de Standard D2 na região E.U.A. oeste, selecione a subscrição em que as VMs estão em execução. Se as máquinas virtuais são executadas em subscrições diferentes na sua conta/inscrição, em seguida, selecione o âmbito como partilhado. Âmbito partilhado permite que o desconto de reserva a ser aplicado entre subscrições. Pode alterar o âmbito depois de comprar uma reserva. Para obter mais informações, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
 
-Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP. Recursos que são executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva. Para inscrições de empresas, as subscrições de desenvolvimento/teste empresarial não elegíveis para o benefício de reserva.
+Um desconto de reserva aplica-se apenas aos recursos associados a tipos de subscrição Enterprise, pay as you go ou CSP. Recursos que são executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva.
 
 Para compreender melhor como as reservas afeta sua faturação, consulte os seguintes tópicos:
 

@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745814"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Utilizar um dispositivo simulado para testar a conectividade com o seu hub IoT
 
 Neste tutorial, irá utilizar ferramentas do portal do Hub IoT do Azure e comandos da CLI do Azure para testar a conectividade do dispositivo. Este tutorial também utiliza um simulador de dispositivos simples que executa no seu computador.
 
@@ -75,7 +75,7 @@ Para obter a cadeia de ligação de **MyTestDevice**, clique na mesma na lista d
 
 Para simular o **MyTestDevice** a enviar dados telemétricos para o hub do IoT, execute a aplicação de dispositivo simulado Node.js que transferiu anteriormente.
 
-Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para a pasta **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
+Numa janela de terminal no computador de desenvolvimento, navegue para a pasta raiz do projeto Node.js de exemplo que transferiu. Em seguida, navegue para o **iot hub\Tutorials\ConnectivityTests** pasta.
 
 Na janela de terminal, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado. Utilize a cadeia de ligação do dispositivo tomou nota do quando adicionou o dispositivo no portal.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093245"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745967"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorizar a atividade de consulta e consumo de recursos no Azure Search
 
@@ -65,7 +65,7 @@ A tabela seguinte compara as opções para armazenar os registos e a adição de
 | [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados para um contentor de BLOBs e armazenados em ficheiros JSON. Utilize um editor de JSON para ver o conteúdo do ficheiro.|
 | [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados e métricas de consulta, com base em esquemas documentados neste artigo. Escolha esta opção como um serviço de recolha de dados alternativo para os registos de muito grandes. |
 
-O Log Analytics e o armazenamento de BLOBs estão disponíveis como serviço gratuito, partilhado para que pode experimentar, sem encargos durante o tempo de vida da sua subscrição do Azure. O Application Insights é gratuito para inscrever-se e utilizar, desde que o tamanho de dados de aplicação está em determinados limites (consulte a [página de preços](https://azure.microsoft.com/ricing/details/monitor/) para obter detalhes).
+O Log Analytics e o armazenamento de BLOBs estão disponíveis como serviço gratuito, partilhado para que pode experimentar, sem encargos durante o tempo de vida da sua subscrição do Azure. O Application Insights é gratuito para inscrever-se e utilizar, desde que o tamanho de dados de aplicação está em determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
 
 A secção seguinte explica os passos para ativar e utilizar o armazenamento de Blobs do Azure para recolher e aceder aos dados de log criados por operações de pesquisa do Azure.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722364"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746797"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters do HDInsight baseado em Windows com ação de Script
 **Ação de script** pode ser usado para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação de cluster para a instalação de software adicional num cluster.
@@ -46,7 +46,7 @@ Cada cluster pode aceitar várias ações de script que são invocadas na ordem 
 
 HDInsight fornece vários scripts para instalar os seguintes componentes em clusters do HDInsight:
 
-| Nome | Script |
+| Name | Script |
 | --- | --- |
 | **Instalar o Apache Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Ver [instalar e utilizar clusters do Apache Spark no HDInsight][hdinsight-install-spark]. |
 | **Instalar o R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Ver [instalar e utilizar R nos clusters do HDInsight](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
@@ -63,8 +63,8 @@ HDInsight fornece vários scripts para instalar os seguintes componentes em clus
     ![Utilize a ação de Script para personalizar um cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "utiliza a ação de Script para personalizar um cluster")
 
     <table border='1'>
-        <tr><th>Propriedade</th><th>Valor</th></tr>
-        <tr><td>Nome</td>
+        <tr><th>Propriedade</th><th>Value</th></tr>
+        <tr><td>Name</td>
             <td>Especifique um nome para a ação de script.</td></tr>
         <tr><td>URI do script</td>
             <td>Especifique o URI para o script que é invocado para personalizar o cluster. s</td></tr>
@@ -80,8 +80,9 @@ HDInsight fornece vários scripts para instalar os seguintes componentes em clus
 ## <a name="call-scripts-using-azure-powershell"></a>Scripts de chamada com o Azure PowerShell
 Este script do PowerShell seguinte demonstra como instalar o Spark num cluster de HDInsight com base do Windows.  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -158,7 +159,7 @@ Este script do PowerShell seguinte demonstra como instalar o Spark num cluster d
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 Para instalar outro software, terá de substituir o ficheiro de script no script:
 
@@ -171,12 +172,14 @@ O exemplo a seguir demonstra como instalar o Apache Spark num cluster de HDInsig
 
 1. Crie uma aplicação de consola c# no Visual Studio.
 2. A partir da consola do Gestor de pacotes Nuget, execute o seguinte comando.
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. Utilize as seguintes instruções "using" no ficheiro Program.cs:
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -186,8 +189,10 @@ O exemplo a seguir demonstra como instalar o Apache Spark num cluster de HDInsig
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. Coloque o código na classe com o seguinte:
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -276,6 +281,8 @@ O exemplo a seguir demonstra como instalar o Apache Spark num cluster de HDInsig
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. Prima **F5** para executar a aplicação.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para o software de código aberto utilizada nos clusters do HDInsight

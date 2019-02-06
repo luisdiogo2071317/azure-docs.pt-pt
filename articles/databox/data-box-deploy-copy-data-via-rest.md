@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900889"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751621"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o armazenamento de BLOBs de caixa de dados do Azure através de REST APIs  
 
@@ -154,7 +154,7 @@ A primeira etapa é criar um contentor, porque os blobs são sempre carregados p
 
    ![Criar o menu de contexto de contentores de BLOBs](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. É apresentada uma caixa de texto abaixo a **contentores de BLOBs** pasta. Introduza o nome do contentor de blobs. Consulte a [criar o contentor e definir permissões](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) para obter informações sobre regras e restrições à nomenclatura dos contentores de Blobs.
+4. É apresentada uma caixa de texto abaixo a **contentores de BLOBs** pasta. Introduza o nome do contentor de blobs. Consulte a [criar o contentor e definir permissões](../storage/blobs/storage-quickstart-blobs-dotnet.md) para obter informações sobre regras e restrições à nomenclatura dos contentores de Blobs.
 5. Prima **Enter** quando terminar de criar o contentor de BLOBs, ou **Esc** para cancelar. Depois de criar o contentor de Blobs com êxito, é apresentado no **contentores de BLOBs** pasta para a conta de armazenamento selecionada.
 
    ![Contentor de BLOBs criado](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

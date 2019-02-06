@@ -15,12 +15,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a1ca5125162460b95c0ffcadb1551173d06b5838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1117ffa94a30a55b7b2a7477bf2770d21dcb5441
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163590"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746511"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -164,7 +164,7 @@ Este evento de risco identifica os endereços IP, não os dispositivos de utiliz
 
 Recomendamos que contacte o utilizador e analisar todos os dispositivos do utilizador. Também é possível que o dispositivo pessoal de um utilizador está infetado ou que alguém estava a utilizar um dispositivo infetado do mesmo endereço IP que o utilizador. Dispositivos infetados com freqüência infetados com malware que ainda não tenham sido identificadas pelo software de antivírus e também pode indicar qualquer hábitos de usuário incorretos que podem ter causado o dispositivo ser infectados.
 
-Para obter mais informações sobre como infeções de software maligno de endereço, consulte a [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Para obter mais informações sobre como infeções de software maligno de endereço, consulte a [Malware Protection Center](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inícios de sessão de endereços IP com atividade suspeita
 

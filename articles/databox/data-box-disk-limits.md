@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159354"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744794"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados do Azure
 
@@ -66,8 +66,8 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 
 | Tipo de objeto do Azure | Limite predefinido                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de Blocos        | ~ 8 TB                                                 |
-| Blob de Página         | 1 TB <br> (Todos os ficheiros carregados no formato de Blob de páginas têm de ter 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
+| Blob de Blocos        | ~ 4.75 TiB                                                 |
+| Blob de Página         | 8 TiB <br> (Todos os ficheiros carregados no formato de Blob de páginas têm de ter 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Blob de blocos do Azure e convenções de nomenclatura de BLOBs de páginas

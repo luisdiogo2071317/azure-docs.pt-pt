@@ -16,16 +16,15 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: fcd8f4f8408c7c51265802fde057146e6cdbb090
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657625"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754307"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
-Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar. 
-
+Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
 
@@ -40,7 +39,7 @@ az vm disk attach \
    --size-gb 50
 ```
 
-## <a name="attach-an-existing-disk"></a>Anexar um disco existente 
+## <a name="attach-an-existing-disk"></a>Anexar um disco existente
 
 Para anexar um disco existente, localizar o ID do disco e passar a ID para o [anexar o disco da vm az](/cli/azure/vm/disk?view=azure-cli-latest) comando. As seguintes consultas de exemplo para um disco chamado *myDataDisk* na *myResourceGroup*, em seguida, liga-a VM com o nome *myVM*:
 
@@ -50,9 +49,9 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
-
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ligar à VM do Linux para montar o disco novo
-Para particionar e formatar para montar o disco novo, para que a sua VM do Linux pode utilizá-lo, SSH à VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte liga a uma VM com a entrada DNS pública dos *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*: 
+
+Para particionar e formatar para montar o disco novo, para que a sua VM do Linux pode utilizá-lo, SSH à VM. Para obter mais informações, veja [como utilizar SSH com Linux no Azure](mac-create-ssh-keys.md). O exemplo seguinte liga a uma VM com a entrada DNS pública dos *mypublicdns.westus.cloudapp.azure.com* com o nome de utilizador *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -74,10 +73,10 @@ O resultado é semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `fdisk`, torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
+Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `parted`, se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT criação de partições, se está sob 2TiB, em seguida, pode usar o particionamento de MBR ou GPT. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `parted` processos no */desenvolvimento/sdc*:
 
 ```bash
-sudo fdisk /dev/sdc
+sudo parted /dev/sdc
 ```
 
 Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o restante dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:
@@ -228,9 +227,10 @@ Existem duas formas de ativar a limitação de suporte na sua VM do Linux. Como 
     ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Para garantir a sua VM do Linux está configurada corretamente, reveja os [otimizar o desempenho da máquina Linux](optimization.md) recomendações.
 * Expandir a sua capacidade de armazenamento através da adição de discos adicionais e [configurar o RAID](configure-raid.md) para desempenho adicionais.
-

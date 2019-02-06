@@ -1,43 +1,40 @@
 ---
-title: Pontos finais de pesquisa de entidades do Bing
+title: O ponto final de API de pesquisa de entidades do Bing
 titlesuffix: Azure Cognitive Services
-description: Resumo do ponto de final de API de pesquisa de entidades.
+description: Saiba mais sobre o ponto final de API de pesquisa de entidades do Bing e enviar pedidos para o mesmo.
 services: cognitive-services
-author: aahill
+author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.author: aahi
-ms.openlocfilehash: 561c64db2b97ed8792acab6cc87de861ecc30fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/01/2019
+ms.author: v-gedod
+ms.openlocfilehash: cae65c8fb7deb9f68a297de2058a86249b60136b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183990"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753985"
 ---
-# <a name="entity-search-endpoints"></a>Pontos finais de pesquisa de entidades
-O **API de pesquisa de entidades** inclui um ponto final.
+# <a name="bing-entity-search-api-endpoint"></a>Ponto final de API de pesquisa de entidades do Bing
 
-## <a name="endpoint"></a>Ponto Final
-Para pedir os resultados da pesquisa de entidades, envie um pedido para o seguinte ponto de extremidade. Utilize os cabeçalhos e os parâmetros de URL para definir ainda mais especificações.
 
-Endpoint `GET`: 
-``` 
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+A API de pesquisa de entidades do Bing tem um ponto de extremidade que retorne entidades a partir da Web com base numa consulta. Esses resultados de pesquisa são devolvidos em JSON.
+
+## <a name="get-entity-results-from-the-endpoint"></a>Obter resultados de entidade a partir do ponto final
+
+Para obter os resultados utilizando o **API do Bing**, enviar um `GET` pedido para o seguinte ponto de extremidade. Uso [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) e [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) para personalizar o seu pedido de pesquisa. Pedidos de pesquisa podem ser enviados com o `?q=` parâmetro.
+
+```cURL
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-
-Os seguintes parâmetros de URL são necessários:
-- mkt. O mercado de onde os resultados provêm. 
-- q. A consulta de pesquisa de entidades.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Inícios rápidos de pesquisa de entidades do Bing](quickstarts/csharp.md)
+> [O que é a API de pesquisa de entidades do Bing?](overview.md)
 
 ## <a name="see-also"></a>Consulte também 
 
-[Descrição geral de pesquisa de entidades do Bing](search-the-web.md )
-[referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+Para obter mais informações sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros e muito mais, consulte a [API de pesquisa de entidades do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) artigo de referência.

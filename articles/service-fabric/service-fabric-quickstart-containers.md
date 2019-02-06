@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 085f3fd8ee3fe22333c260fb4de18a8c06c9c55c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 816f12ca5837fa99b4e945c965f9cbad406c63bb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568571"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749802"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -91,7 +91,7 @@ Também na *Applicationmanifest* de ficheiros, alterar **PasswordEncrypted** par
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-O script de exemplo seguinte cria um cluster do Service Fabric de cinco nós protegido por um certificado X.509. O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local. Pode saber mais sobre como criar um cluster com este script nos [criar um cluster do Service Fabric](/scripts/service-fabric-powershell-create-secure-cluster-cert).
+O script de exemplo seguinte cria um cluster do Service Fabric de cinco nós protegido por um certificado X.509. O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local. Pode saber mais sobre como criar um cluster com este script nos [criar um cluster do Service Fabric](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 Se necessário, instale o Azure PowerShell com as instruções no [Guia do Azure PowerShell](/powershell/azure/overview).
 

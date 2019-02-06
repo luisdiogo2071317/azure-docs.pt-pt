@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473430"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755174"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -107,7 +107,7 @@ As secções seguintes fornecem uma visão geral dos passos para recuperar atrav
 
 Independentemente da funcionalidade de continuidade empresarial utilizada, tem de:
 
-- Identificar e preparar o servidor de destino, incluindo as regras de firewall ao nível do servidor, os inícios de sessão e as permissões ao nível da base de dados mestra.
+- Identificar e preparar o servidor de destino, incluindo regras de firewall do IP ao nível do servidor, inícios de sessão e permissões ao nível da base de dados mestra.
 - Determinar como redirecionar os clientes e as aplicações de cliente para o novo servidor
 - Documentar outras dependências, tais como definições e alertas de auditoria
 
@@ -132,7 +132,7 @@ Se estiver a utilizar as cópias de segurança automatizadas com o armazenamento
 Após a recuperação a partir de qualquer mecanismo de recuperação, tem de efetuar as seguintes tarefas adicionais antes de os seus utilizadores e aplicações ficarem funcionais:
 
 - Redirecionar os clientes e as aplicações de cliente para o novo servidor e base de dados restaurada
-- Certificar-se de que estão implementadas regras de firewall ao nível do servidor adequadas para que os utilizadores liguem (ou utilizar [firewalls ao nível da base de dados](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Certifique-se de regras de firewall IP ao nível do servidor adequadas estão em vigor para os utilizadores a ligar ou usar [firewalls ao nível da base de dados](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) para ativar as regras adequadas.
 - Certificar-se de que estão implementados inícios de sessão e permissões ao nível da base de dados mestra no local adequados (ou utilizar [utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurar auditorias, conforme adequado
 - Configurar alertas, conforme adequado

@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: de8bb0adf45a7cdaf9cc0d9a451af203e01e87da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564884"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754881"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptados: Proteger dados confidenciais e armazenar chaves de encriptação no arquivo de certificados do Windows
 
@@ -47,7 +47,7 @@ Para este tutorial, terá de:
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **criar um recurso** > **dados + armazenamento** > **base de dados SQL**.
-3. Criar uma **em branco** com o nome da base de dados **clínica** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
+3. Criar uma **em branco** com o nome da base de dados **clínica** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-single-database-get-started.md).
    
     ![Criar uma base de dados vazia](./media/sql-database-always-encrypted/create-database.png)
 

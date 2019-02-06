@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187079"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745678"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (pré-visualização)
 
@@ -27,6 +27,7 @@ Este artigo aborda problemas conhecidos com o Azure Monitor para as VMs, uma sol
 ## <a name="health"></a>Estado de Funcionamento 
 Os seguintes são problemas conhecidos da versão atual do recurso de estado de funcionamento:
 
+- O painel de propriedades VM apresenta o sistema de operativo do Windows Server 2019 como Windows Server 2016. Isso será corrigido numa versão futura.
 - Se uma VM do Azure é removida ou eliminada, é apresentada na vista de lista de VM durante algum tempo. Além disso, o estado de uma VM removida ou eliminada de clicar abre o **diagnóstico de estado de funcionamento** ver e, em seguida, inicia um ciclo de carregamento. Selecionar o nome da VM eliminada é aberto um painel com uma mensagem a indicar que a VM tiver sido eliminada.
 - Alterações de configuração, como atualizar um limite, demorar até 30 minutos, mesmo que o portal ou a API de Monitor da carga de trabalho pode atualizá-las imediatamente. 
 - O diagnóstico de estado de funcionamento experiência mais rapidamente do que as outras vistas de atualizações. As informações podem estar atrasadas quando alternar entre elas. 

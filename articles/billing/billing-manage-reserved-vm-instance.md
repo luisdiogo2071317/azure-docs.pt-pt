@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904009"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743638"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -36,11 +36,11 @@ Para atualizar o âmbito de uma reserva:
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione a reserva.
 4. Selecione **Definições** > **Configuração**.
-5. Altere o âmbito. 
+5. Altere o âmbito.
 
 Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições no mesmo contexto de faturação que a reserva, pode ser selecionada.
 
-O âmbito só se aplica a oferta de pay as you go MS-AZR - 0003p, a oferta Enterprise MS-AZR - 0017P ou tipos de subscrição do CSP. Para contratos enterprise, subscrições de desenvolvimento/teste não são elegíveis para obter o desconto de reserva.
+O âmbito só se aplica a oferta pay as you go, MS-AZR - 0003p ou MS-AZR - 0023P, Enterprise oferecem MS-AZR - 0017P ou MS-AZR - 0148P ou tipos de subscrição do CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
 

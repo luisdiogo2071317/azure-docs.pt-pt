@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
 ms.author: priyamo
-ms.openlocfilehash: c19c5031c27ac37aee3707911268965912c20994
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e266ebca40ac9a3c1d6c1a77e30fed717f4b1b51
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158201"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753462"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao armazenamento do Azure por meio da chave de acesso
 
@@ -173,5 +173,5 @@ Name              : testblob
 Neste tutorial aprendeu a criar uma identidade gerida atribuída pelo sistema para aceder ao Armazenamento do Azure através de uma chave de acesso.  Para saber mais sobre as chaves de acesso ao Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
->[Gerir as chaves de acesso ao armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gerir as chaves de acesso ao armazenamento](/azure/storage/common/storage-create-storage-account)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 664dc101232ed092b76e2642ec94c6e7aa5e7a88
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660570"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755413"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -60,7 +60,7 @@ As redes virtuais do Azure permitem ligações de rede seguras entre as máquina
 
 Neste tutorial, é criada uma rede virtual individual com duas sub-redes. Uma sub-rede de front-end para alojar uma aplicação Web e uma sub-rede de back-end para alojar um servidor de bases de dados.
 
-Antes de poder criar uma rede virtual, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myRGNetwork* na localização eastus.
+Antes de poder criar uma rede virtual, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myRGNetwork* na localização eastus.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Criar sub-rede
 
-É adicionada uma sub-rede nova à rede virtual com o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Neste exemplo, a sub-rede tem o nome *myBackendSubnet* e recebe o prefixo de endereço *10.0.2.0/24*. Esta sub-rede é utilizada com todos os serviços de back-end.
+É adicionada uma sub-rede nova à rede virtual com o comando [az network vnet subnet create](/cli/azure/network/vnet/subnet). Neste exemplo, a sub-rede tem o nome *myBackendSubnet* e recebe o prefixo de endereço *10.0.2.0/24*. Esta sub-rede é utilizada com todos os serviços de back-end.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -103,11 +103,11 @@ O método de alocação pode ser definido como estático, o que garante que o en
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Quando cria uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create), o método alocação predefinido do endereço IP público é dinâmico. Se criar uma máquina virtual com o comando [az vm create](/cli/azure/vm#az_vm_create), inclua o argumento `--public-ip-address-allocation static` para atribuir um endereço IP público estático. Esta operação não é demonstrada neste tutorial. No entanto, na secção seguinte, um endereço IP alocado dinamicamente vai ser alterado para um endereço alocado de forma estática. 
+Quando cria uma VM com o comando [az vm create](/cli/azure/vm), o método alocação predefinido do endereço IP público é dinâmico. Se criar uma máquina virtual com o comando [az vm create](/cli/azure/vm), inclua o argumento `--public-ip-address-allocation static` para atribuir um endereço IP público estático. Esta operação não é demonstrada neste tutorial. No entanto, na secção seguinte, um endereço IP alocado dinamicamente vai ser alterado para um endereço alocado de forma estática. 
 
 ### <a name="change-allocation-method"></a>Alterar o método de alocação
 
-O método de alocação do endereço IP pode ser alterado com o comando [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update). Neste exemplo, o método de alocação do endereço IP da VM de front-end é alterado para estático.
+O método de alocação do endereço IP pode ser alterado com o comando [az network public-ip update](/cli/azure/network/public-ip). Neste exemplo, o método de alocação do endereço IP da VM de front-end é alterado para estático.
 
 Em primeiro lugar, anule a alocação da VM.
 
@@ -115,7 +115,7 @@ Em primeiro lugar, anule a alocação da VM.
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Utilize o comando [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) para atualizar o método de alocação. Neste caso, `--allocation-method` vai ser definido como *estático*.
+Utilize o comando [az network public-ip update](/cli/azure/network/public-ip) para atualizar o método de alocação. Neste caso, `--allocation-method` vai ser definido como *estático*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -133,7 +133,7 @@ Muitas vezes, as VMs não têm de estar acessíveis através da internet. Para c
 
 ## <a name="create-a-front-end-vm"></a>Criar uma VM de front-end
 
-Utilize o comando [az vm create](/cli/azure/vm#az_vm_create) para criar a VM chamada *myFrontendVM* com *myPublicIPAddress*.
+Utilize o comando [az vm create](/cli/azure/vm) para criar a VM chamada *myFrontendVM* com *myPublicIPAddress*.
 
 ```azurecli-interactive 
 az vm create \
@@ -165,7 +165,7 @@ As regras predefinidas dos NSGs são:
 
 ### <a name="create-network-security-groups"></a>Criar grupos de segurança de rede
 
-Pode ser criado um grupo de segurança de rede ao mesmo tempo que uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create). Ao fazê-lo, o NSG é associado à interface de rede das VMs e é criada automaticamente uma regra de NSG para permitir tráfego na porta *22* a partir de qualquer origem. Anteriormente no tutorial, o NSG de front-end foi criado automaticamente com a VM de front-end. Também foi criada automaticamente uma regra de NSG para a porta 22. 
+Pode ser criado um grupo de segurança de rede ao mesmo tempo que uma VM com o comando [az vm create](/cli/azure/vm). Ao fazê-lo, o NSG é associado à interface de rede das VMs e é criada automaticamente uma regra de NSG para permitir tráfego na porta *22* a partir de qualquer origem. Anteriormente no tutorial, o NSG de front-end foi criado automaticamente com a VM de front-end. Também foi criada automaticamente uma regra de NSG para a porta 22. 
 
 Em alguns casos, poderá ser útil pré-criar um NSG, por exemplo, quando não devem ser criadas regras de SSH predefinidas ou quando o NSG deve ser ligado a uma sub-rede. 
 
@@ -191,7 +191,7 @@ az network vnet subnet update \
 
 Quando a VM de front-end foi criada, foi criada uma regra de NSG para permitir o tráfego de entrada na porta 22. Esta regra permite ligações SSH à VM. Neste exemplo, o tráfego também deve ser permitido na porta *80*. Esta configuração permite aceder a uma aplicação Web na VM.
 
-Utilize o comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) para criar uma regra para a porta *80*.
+Utilize o comando [az network nsg rule create](/cli/azure/network/nsg/rule) para criar uma regra para a porta *80*.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -218,7 +218,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 Também é possível aplicar regras de grupos de segurança de rede entre VMs. Neste exemplo, a VM de front-end tem de comunicar com a VM de back-end nas portas *22* e *3306*. Esta configuração permite ligações SSH a partir da VM de front-end e também permite que uma aplicação nesta última comunique com uma base de dados MySQL de back-end. Todo o outro tráfego deve ser bloqueado entre as máquinas virtuais de front-end e de back-end.
 
-Utilize o comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) para criar uma regra para a porta 22. Repare que o argumento `--source-address-prefix` especifica o valor *10.0.1.0/24*. Esta configuração assegura que apenas o tráfego da sub-rede de front-end é permitido através do NSG.
+Utilize o comando [az network nsg rule create](/cli/azure/network/nsg/rule) para criar uma regra para a porta 22. Repare que o argumento `--source-address-prefix` especifica o valor *10.0.1.0/24*. Esta configuração assegura que apenas o tráfego da sub-rede de front-end é permitido através do NSG.
 
 ```azurecli-interactive 
 az network nsg rule create \

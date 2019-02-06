@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 9cd4845bcf107941f969255eb223567d4341ea41
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1b27bbaa3d8e570c8431708934edee564e994487
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508509"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745661"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -43,7 +43,7 @@ Os seguintes tipos de pedidos autenticados são registados:
 * Pedidos com um acesso assinatura partilhado (SAS), incluindo pedidos de falhadas e bem-sucedidas.
 * Pedidos de dados de análise.
 
-Pedidos efetuados por análise de armazenamento em si, como o registo é criada ou eliminada, não tem sessão iniciados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) e [formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format.md) tópicos.
+Pedidos efetuados por análise de armazenamento em si, como o registo é criada ou eliminada, não tem sessão iniciados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format) tópicos.
 
 ### <a name="logging-anonymous-requests"></a>Registo de pedidos anónimos
 Os seguintes tipos de solicitações anônimas são registados:
@@ -53,7 +53,7 @@ Os seguintes tipos de solicitações anônimas são registados:
 * Erros de tempo limite de cliente e servidor.
 * OBTER pedidos falhados com código de erro 304 (não é modificada).
 
-Todos os outros pedidos anónimos com falhas não são registados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) e [formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format.md) tópicos.
+Todos os outros pedidos anónimos com falhas não são registados. Uma lista completa dos dados com sessão iniciada está documentada no [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [formato de registo de análise de armazenamento](/rest/api/storageservices/storage-analytics-log-format) tópicos.
 
 ### <a name="how-logs-are-stored"></a>Como os registos são armazenados
 Todos os registos são armazenados em blobs de blocos num contentor com o nome $logs, que é criado automaticamente quando a análise de armazenamento é ativada para uma conta de armazenamento. O contentor de $logs está localizado no espaço de nomes de BLOBs da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Não é possível eliminar este contentor assim que tiver sido ativada a análise de armazenamento, embora seu conteúdo pode ser eliminado.
@@ -139,7 +139,7 @@ Dados de capacidade é registados diariamente para serviço de uma conta de arma
 * **ContainerCount**: O número de contentores de BLOBs no serviço de Blob da conta de armazenamento.
 * **ObjectCount**: O número de consolidada e não consolidados bloco ou página blobs no serviço de Blob da conta de armazenamento.
 
-Para obter mais informações sobre as métricas de capacidade, consulte [esquema de tabela de métricas de análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).
+Para obter mais informações sobre as métricas de capacidade, consulte [esquema de tabela de métricas de análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema).
 
 ### <a name="how-metrics-are-stored"></a>Como as métricas são armazenadas
 Todos os dados de métricas para cada um dos serviços de armazenamento são armazenados em três tabelas reservadas para esse serviço: uma tabela para obter informações de transação, uma tabela para informações sobre transações minuto e outra tabela para obter informações de capacidade. Informações de transação de transação e o minuto consistem em dados de solicitação e resposta e informações de capacidade consiste em armazenamento dados de utilização. Métrica de hora, a métrica de minuto e a capacidade para o serviço de Blob de uma conta de armazenamento podem ser acedidos em tabelas com o nome, tal como descrito na tabela seguinte.
@@ -171,7 +171,7 @@ Se tiver configurado uma política de retenção de dados, não é cobradas para
 ### <a name="understanding-billable-requests"></a>Noções básicas sobre pedidos faturáveis
 Cada solicitação feita ao serviço de uma conta de armazenamento está sujeito a faturação ou não faturável. Análise de armazenamento de registos cada pedidos individuais efetuados para um serviço, incluindo uma mensagem de estado que indica como o pedido foi processado. Da mesma forma, a análise de armazenamento armazena as métricas para um serviço e as operações de API do serviço, incluindo as percentagens e a contagem de determinadas mensagens de estado. Juntos, esses recursos podem ajudar a analisar seus pedidos faturáveis, fazer melhorias na sua aplicação e diagnosticar problemas com os pedidos aos seus serviços. Para obter mais informações sobre a faturação, consulte [Noções básicas sobre faturação do Azure Storage - largura de banda, transações e capacidade](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-Ao analisar os dados de análise de armazenamento, pode utilizar as tabelas a [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) tópico para determinar que pedidos são a cobrar. Em seguida, pode comparar os dados de métricas para as mensagens de estado para ver se foram bem cobrados por uma solicitação específica e registos. Também pode utilizar as tabelas no tópico anterior para investigar a disponibilidade para um serviço de armazenamento ou a operação de API individual.
+Ao analisar os dados de análise de armazenamento, pode utilizar as tabelas a [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) tópico para determinar que pedidos são a cobrar. Em seguida, pode comparar os dados de métricas para as mensagens de estado para ver se foram bem cobrados por uma solicitação específica e registos. Também pode utilizar as tabelas no tópico anterior para investigar a disponibilidade para um serviço de armazenamento ou a operação de API individual.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md)

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: c070858354bb8bf5628a17e24e6830f133414d32
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734407"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751553"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -74,8 +74,8 @@ O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para 
 
 No modelo de vCore, pode escolher entre gerações de hardware.
 
-- **Geração 4** CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) físicas de processadores de 2,4 GHz, SSD anexado, núcleos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- **Fins gerais 5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
+- **Gen4** CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) físicas de processadores de 2,4 GHz, SSD anexado, núcleos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
+- **Gen5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
 
 Encontrar mais informações sobre a diferença entre gerações de hardware no [geridos limites de recursos de instância](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

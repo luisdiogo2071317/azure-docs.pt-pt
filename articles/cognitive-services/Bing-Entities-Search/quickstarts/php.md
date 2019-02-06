@@ -1,31 +1,33 @@
 ---
-title: 'Início rápido: Pesquisa de entidades do Bing API, PHP'
+title: 'Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com PHP'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Entidades do Bing.
+description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing entidade com PHP e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195499"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753440"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Início Rápido da API de Pesquisa de Entidades do Bing com PHP
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com PHP
 
-Este artigo mostra-lhe como utilizar o [pesquisa de entidades do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API com PHP.
+Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de entidades do Bing e ver a resposta JSON. Este aplicativo simples do PHP envia uma consulta de pesquisa de notícias para a API e apresenta a resposta. 
+
+Embora esse aplicativo é escrito em PHP, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="search-entities"></a>Pesquisar entidades
 
@@ -145,11 +147,10 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 }
 ```
 
-[Voltar ao início](#HOLTop)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial da Pesquisa de Entidades do Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Descrição geral da Pesquisa de Entidades do Bing](../search-the-web.md )
-> [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
+
+* [O que é a API de pesquisa de entidades do Bing?](../overview.md )
+* [Referência de API de pesquisa de entidades do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

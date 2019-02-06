@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: 42cc101f76d106c82dd418d9207ba44f15d96b79
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: abae7e3a8be87f51fe49f61305d54158e98ca5b0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476286"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750890"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Descrição geral sobre como adicionar contas para a aplicação Microsoft Authenticator
 
@@ -24,6 +24,9 @@ ms.locfileid: "55476286"
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
+
+>[!Important]
+>A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
 
 Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
 
@@ -44,7 +47,7 @@ Pode ativar a verificação de dois fatores para muitas contas que utilize todos
 |------|------------|
 |[Adicionar a sua conta escolar ou profissional](microsoft-authenticator-app-add-work-account.md)|Descreve como adicionar a sua conta escolar ou profissional para a aplicação Microsoft Authenticator para verificação de dois fatores.|
 |[Adicionar a sua conta Microsoft pessoal](microsoft-authenticator-app-add-personal-account.md)|Descreve como adicionar as suas contas pessoais da Microsoft para verificação de dois fatores e início de sessão no telefone (também conhecido como passe início de sessão).|
-|[Adicionar a sua conta pessoal do não-Microsoft](microsoft-authenticator-app-add-non-microsoft-account.md)|Descreve como adicionar as suas contas pessoais da não-Microsoft para a verificação de dois fatores.|
+|[Adicionar a sua conta não Microsoft](microsoft-authenticator-app-add-non-microsoft-account.md)|Descreve como adicionar as contas de terceiros para a verificação de dois fatores.|
 |[Adicionar manualmente a sua conta](microsoft-authenticator-app-add-account-manual.md)|Descreve como adicionar manualmente a sua conta para a aplicação Microsoft Authenticator se a câmara não é possível capturar o código QR.|
 
 

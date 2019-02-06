@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063119"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755901"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
 
@@ -90,7 +90,7 @@ Para ver alertas ativos e as regras subjacentes que fazem com que os alertas ser
 
 ![Captura de ecrã da experiência de análise](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Conjunto cloud_RoleName
+## <a name="set-cloudrolename"></a>Set cloud_RoleName
 
 Mapa da aplicação utiliza o `cloud_RoleName` propriedade para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente o `cloud_RoleName` propriedade para a telemetria emitida por componentes. Por exemplo, o SDK irá adicionar um nome do web site ou um nome de função de serviço para o `cloud_RoleName` propriedade. No entanto, há casos em que poderá pretender substituir o valor predefinido. Para substituir cloud_RoleName e alterar o que é apresentado no mapa de aplicativo:
 
@@ -191,7 +191,7 @@ Para obter mais informações sobre como substituir a propriedade cloud_RoleName
 
 Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado, experimente estes passos:
 
-1. Certifique-se de que está a utilizar um SDK oficialmente suportado. SDKs de Comunidade/não suportadas não suportem a correlação.
+1. Confirme que está a utilizar um SDK suportado oficialmente. Os SDKs não suportados/da comunidade poderão não suportar a correlação.
 
     Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista dos SDKs suportados.
 
@@ -199,9 +199,9 @@ Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado,
 
 3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirme [cloud_RoleName](app-map.md#Set-cloud-RoleName) está configurado corretamente.
+4. Confirme [cloud_RoleName](app-map.md#set-cloudrolename) está configurado corretamente.
 
-5. Se não tem uma dependência, certificar-se de que ele está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode ainda controlá-lo manualmente com um [controlar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Comentários do portal
 Para enviar comentários, utilize a opção de comentários.

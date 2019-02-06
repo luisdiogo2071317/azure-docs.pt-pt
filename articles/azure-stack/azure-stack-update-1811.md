@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246539"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746715"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -153,6 +153,9 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
 
 <!-- 3190553 - IS ASDK -->
 - Foi corrigido um problema que gerou alertas desnecessárias que indica que uma instância de função de infraestrutura não estava disponível ou nó de unidade de escala estava offline.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed um problema em que a página de descrição geral VM não é possível mostrar corretamente o gráfico de métricas da VM. 
 
 ## <a name="changes"></a>Alterações
 
@@ -297,11 +300,6 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 <!-- 1662991 IS ASDK --> 
 - Diagnóstico de VM do Linux não é suportado no Azure Stack. Quando implementa uma VM do Linux com o diagnóstico VM ativado, a implementação falhar. A implementação falhar, também, se ativar as métricas básicas de VM do Linux através das definições de diagnóstico.  
-
-<!-- 2724961- IS ASDK --> 
-- Quando registra o **Microsoft.Insight** fornecedor de recursos nas definições de subscrição e criar uma VM do Windows com o convidado SO diagnóstico ativado, o gráfico de percentagem de CPU na página de descrição geral da VM faz não mostrar dados de métricas.
-
-   Para localizar dados de métricas, como o gráfico de percentagem de CPU para a VM, vá para o **métricas** métricas de convidado de janela e mostrar todas as VMS suportadas do Windows.
 
 <!-- 3507629 - IS, ASDK --> 
 - Discos geridos cria dois novos [tipos de quota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos geridos que podem ser aprovisionados. Por predefinição, 2048 GiB é alocado para cada tipo de quota de discos geridos. No entanto, pode encontrar os seguintes problemas:

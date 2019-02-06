@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: a04c4d41d9682389347009446c590fc4e27400b1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659546"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755041"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carregar e criar uma VM do Linux a partir de discos personalizados com a CLI do Azure
 
@@ -31,11 +31,11 @@ Este tópico utiliza contas de armazenamento para os VHDs finais, mas também o 
 ## <a name="quick-commands"></a>Comandos rápidos
 Se precisar de realizar rapidamente a tarefa, os seguintes detalhes para a secção de segurança da base de comandos para carregar um VHD para o Azure. Mais informações detalhadas e contexto de cada etapa pode ver o resto do documento, [a partir de aqui](#requirements).
 
-Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `WestUs`:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -48,7 +48,7 @@ az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Listar as chaves de acesso para a sua conta de armazenamento com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list). Tome nota do `key1`:
+Listar as chaves de acesso para a sua conta de armazenamento com [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys). Tome nota do `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
@@ -61,7 +61,7 @@ az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Por fim, carregue o VHD para o contentor que criou com [carregamento de BLOBs de armazenamento az](/cli/azure/storage/blob#az_storage_blob_upload). Especifique o caminho local para o VHD em `/path/to/disk/mydisk.vhd`:
+Por fim, carregue o VHD para o contentor que criou com [carregamento de BLOBs de armazenamento az](/cli/azure/storage/blob). Especifique o caminho local para o VHD em `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -97,7 +97,7 @@ Para concluir os passos seguintes, tem de:
   * Criar uma conta de armazenamento e um contentor para conter o seu disco personalizada e VMs criadas
   * Depois de criar todas as suas VMs, pode eliminar em segurança o disco
 
-Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index#az_login).
+Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos `myResourceGroup`, `mystorageaccount`, e `mydisks`.
 
@@ -122,7 +122,7 @@ Consulte também os **[observações de instalação de Linux](create-upload-gen
 > 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Grupos de recursos logicamente reunir todos os recursos do Azure para suportar as suas máquinas virtuais, como o sistema de rede virtual e o armazenamento. Para obter mais grupos de recursos de informações, consulte [descrição geral de grupos de recursos](../../azure-resource-manager/resource-group-overview.md). Antes de carregar o seu disco personalizado e criação de VMs, tem primeiro de criar um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create).
+Grupos de recursos logicamente reunir todos os recursos do Azure para suportar as suas máquinas virtuais, como o sistema de rede virtual e o armazenamento. Para obter mais grupos de recursos de informações, consulte [descrição geral de grupos de recursos](../../azure-resource-manager/resource-group-overview.md). Antes de carregar o seu disco personalizado e criação de VMs, tem primeiro de criar um grupo de recursos com [criar grupo az](/cli/azure/group).
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westus`:
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Listar chaves de conta de armazenamento
-Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são utilizados durante a autenticação da conta de armazenamento, por exemplo, para realizar operações de escrita. Leia mais sobre [gerir o acesso a armazenamento aqui](../../storage/common/storage-account-manage.md#access-keys). Exibir as chaves de acesso sem [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys#az_storage_account_keys_list).
+Azure gera duas chaves de acesso de 512 bits para cada conta de armazenamento. Essas chaves de acesso são utilizados durante a autenticação da conta de armazenamento, por exemplo, para realizar operações de escrita. Leia mais sobre [gerir o acesso a armazenamento aqui](../../storage/common/storage-account-manage.md#access-keys). Exibir as chaves de acesso sem [lista de chaves de conta de armazenamento az](/cli/azure/storage/account/keys).
 
 Ver as chaves de acesso para a conta de armazenamento que criou:
 
@@ -175,7 +175,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>Carregar o VHD
-Agora carregue seus discos personalizados com [carregamento de BLOBs de armazenamento az](/cli/azure/storage/blob#az_storage_blob_upload). Carregar e armazenar o disco personalizada como um blob de página.
+Agora carregue seus discos personalizados com [carregamento de BLOBs de armazenamento az](/cli/azure/storage/blob). Carregar e armazenar o disco personalizada como um blob de página.
 
 Especifique a chave de acesso, o contentor que criou no passo anterior e, em seguida, o caminho para o disco personalizado no seu computador local:
 
@@ -226,7 +226,7 @@ Dentro de `Microsoft.Compute/virtualMachines` fornecedor do seu modelo, tem um `
 
 Pode usar [este modelo existente para criar uma VM a partir de uma imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou leitura sobre [criando seus próprios modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Assim que tiver um modelo de configurado, utilize [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create) para criar as suas VMs. Especifique o URI do seu modelo JSON com o `--template-uri` parâmetro:
+Assim que tiver um modelo de configurado, utilize [criar a implementação do grupo az](/cli/azure/group/deployment) para criar as suas VMs. Especifique o URI do seu modelo JSON com o `--template-uri` parâmetro:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \

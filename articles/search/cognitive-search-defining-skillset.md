@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320800"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751978"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de capacidades num pipeline de melhoria
 
@@ -38,9 +38,9 @@ Um passo inicial recomendado é decidir quais os dados para extrair dos seus dad
 
 Suponha que esteja interessado no processamento de um conjunto de comentários do analista financeiro. Para cada ficheiro que pretende extrair nomes de empresa e o sentimento geral dos comentários. Também poderá escrever um enricher personalizado que utiliza o serviço de pesquisa de entidades do Bing para encontrar informações adicionais sobre a empresa, como o tipo de negócios, a empresa está participando de. Essencialmente, que pretende extrair informações semelhantes ao seguinte indexados para cada documento:
 
-| texto de registo | Empresas | sentimento | descrições de empresa |
+| record-text | Empresas | sentimento | descrições de empresa |
 |--------|-----|-----|-----|
-|registo de exemplo| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation é uma empresa de tecnologia multinacional American...", "LinkedIn é um e emprego-orientado a negócios Comunidades..."]
+|sample-record| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation é uma empresa de tecnologia multinacional American...", "LinkedIn é um e emprego-orientado a negócios Comunidades..."]
 
 O diagrama seguinte ilustra um pipeline de enriquecimento hipotético:
 
@@ -142,11 +142,11 @@ A próxima peça o conjunto de capacidades é uma matriz de habilidades. Pode pe
 
 ## <a name="add-predefined-skills"></a>Adicionar competências predefinidas
 
-Vamos examinar a habilidade de primeira, que é o predefinido [habilidade de reconhecimento de entidades com o nome](cognitive-search-skill-named-entity-recognition.md):
+Vamos examinar a habilidade de primeira, que é o predefinido [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Vamos examinar a habilidade de primeira, que é o predefinido [habilidade de rec
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Lembre-se a estrutura do enricher de pesquisa de entidade personalizada do Bing:
     }
 ```
 
-Esta definição é uma habilidade personalizada que chama uma API web como parte do processo de melhoria. Para cada organização identificada pelo reconhecimento de entidades, essa habilidade chama uma API web para encontrar a descrição de nessa organização. A orquestração de quando a chamada da API web e como as informações recebidas de fluxo é tratada internamente pelo mecanismo de melhoria. No entanto, a inicialização necessária para chamar esta API personalizada deve ser fornecida no JSON (por exemplo, uri, httpHeaders e as entradas esperadas). Para obter orientações sobre como criar uma API de web personalizado para o pipeline de melhoria, consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
+Esta definição é uma [competências personalizadas](cognitive-search-custom-skill-web-api.md) que chama uma API web como parte do processo de melhoria. Para cada organização identificada pelo reconhecimento de entidades, essa habilidade chama uma API web para encontrar a descrição de nessa organização. A orquestração de quando a chamada da API web e como as informações recebidas de fluxo é tratada internamente pelo mecanismo de melhoria. No entanto, a inicialização necessária para chamar esta API personalizada deve ser fornecida no JSON (por exemplo, uri, httpHeaders e as entradas esperadas). Para obter orientações sobre como criar uma API de web personalizado para o pipeline de melhoria, consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md).
 
 Tenha em atenção que o campo de "contexto" é definido como ```"/document/organizations/*"``` com um asterisco, o que significa que o passo de melhoria é chamado *para cada* organização sob ```"/document/organizations"```. 
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912787"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746392"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -26,7 +26,7 @@ Este artigo descreve os limites e os detalhes de configuração para criar e exe
 
 Aqui estão os limites para uma definição de aplicação lógica única:
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Ações por fluxo de trabalho | 500 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
 | Profundidade de aninhamento para ações de permissão | 8 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. | 
@@ -48,7 +48,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 |------|-------|-------| 
 | Duração de execução | 90 dias | Para alterar este limite, consulte [a duração da execução de alteração](#change-duration). | 
 | Retenção de armazenamento | hora de início de 90 dias a partir da execução | Para alterar este limite para um valor entre 7 dias e 90 dias, consulte [alterar a retenção de armazenamento](#change-retention). | 
@@ -83,15 +83,15 @@ Quando elimina uma aplicação lógica, não são instanciadas novas execuções
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Simultaneidade de Acionador | 50 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para um acionador, o limite predefinido é 25. Este limite descreve o número máximo de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [limite de simultaneidade do acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Máximo de espera de execuções | 100 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para um acionador, o limite predefinido é 10. Este limite descreve o número máximo de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido para um valor entre 0 e 100, inclusivamente, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Itens de matriz de foreach | 100 000 | Este limite descreve o número máximo de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
-| Simultaneidade de foreach | 50 quando limita a simultaneidade | Quando ativar o controlo de simultaneidade para esse loop, o limite predefinido é 20. Este limite descreve o número máximo de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar simultaneidade "for each" limite](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
-| Itens SplitOn | 100 000 | | 
-| Iterações until | 5.000 | | 
-|||| 
+| Simultaneidade de Acionador | * Ilimitado quando o controle de simultaneidade está desativado <p><p>* 25 é o limite padrão quando o controle de simultaneidade estiver ativado, que não pode ser anulado depois de ativar o controlo. Pode alterar o padrão para um valor entre 1 e 50, inclusivamente. | Este limite descreve o maior número de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [limite de simultaneidade do acionador de alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [acionar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Máximo de espera de execuções | Quando o controle de simultaneidade é ativado, o número mínimo de execuções de espera é 10 mais o número de execuções simultâneas (simultaneidade de Acionador). Pode alterar o número máximo de até 100, inclusivamente. | Este limite descreve o maior número de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. <p><p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Itens de matriz de foreach | 100 000 | Este limite descreve o maior número de itens de matriz, que pode processar um loop "for each". <p><p>Para filtrar matrizes maiores, pode utilizar o [ação de consulta](../connectors/connectors-native-query.md). | 
+| Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desligado. Pode alterar o padrão para um valor entre 1 e 50, inclusivamente. | Este limite é o maior número de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>Para alterar o limite predefinido para um valor entre 1 e 50, inclusivamente, consulte [alterar simultaneidade "for each" limite](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Itens SplitOn | 100 000 | Para acionadores que retornam uma matriz, pode especificar uma expressão que utiliza uma propriedade "SplitOn" que [divide ou debatches itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Esta expressão referencia a matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item da matriz. |
+| Iterações until | 5.000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -99,7 +99,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Ação: Execuções por 5 minutos | 300,000 | O limite predefinido é 100 000. Para alterar o limite predefinido, consulte [executar a aplicação lógica no modo de "débitos"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está em pré-visualização. Em alternativa, pode distribuir a carga de trabalho em mais do que uma aplicação de lógica, conforme necessário. | 
 | Ação: Chamadas simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
@@ -117,7 +117,7 @@ Para passar destes limites no processamento normal ou executar o teste de carga 
 
 ### <a name="file-size"></a>Tamanho dos ficheiros
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 |------|-------|-------|
 | FTP | 50 MB | Para exceder este limite para ações apenas, veja [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: Segmentação não se aplica a acionadores. Além disso, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
 | SFTP | 50 MB | Para exceder este limite para ações apenas, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). <p>**Nota**: Segmentação não se aplica a acionadores. Além disso, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
@@ -134,7 +134,7 @@ Aqui estão os limites para uma única solicitação HTTP ou uma chamada síncro
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam os pedidos de webhook, portanto, o tempo limite para essas operações pode ser maior do que estes limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [acionadores de fluxo de trabalho e as ações](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Pedido de saída | 120 Segundos | Para mais operações em execução, utilize um [padrão de consulta assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou uma [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
 | Resposta síncrona | 120 Segundos | Para a solicitação original obter a resposta, todos os passos na resposta deverá ser concluída dentro do limite, a menos que chamar outra aplicação de lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, acionar, ou aninhar aplicações lógicas](../logic-apps/logic-apps-http-endpoint.md). | 
@@ -142,7 +142,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam os pedido
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Tamanho da mensagem | 100 MB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. | 
 | Tamanho de mensagem com a segmentação | 1 GB | Este limite aplica-se a ações que nativamente suportam segmentação ou permitem-lhe ativar a divisão na respetiva configuração de tempo de execução. Para obter mais informações, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). | 
@@ -151,7 +151,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam os pedido
 
 #### <a name="retry-policy"></a>Política de repetição
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Tentativas de repetição | 90 | A predefinição é 4. Para alterar a predefinição, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Intervalo máx. de repetição | 1 dia | Para alterar a predefinição, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -164,7 +164,7 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam os pedido
 
 Aqui estão os limites dos conectores personalizados que pode criar a partir de web APIs.
 
-| Nome | Limite | 
+| Name | Limite | 
 | ---- | ----- | 
 | Número de conectores personalizados | 1000 por subscrição do Azure | 
 | Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos por ligação |
@@ -174,7 +174,7 @@ Aqui estão os limites dos conectores personalizados que pode criar a partir de 
 
 ## <a name="managed-identities"></a>Identidades geridas
 
-| Nome | Limite | 
+| Name | Limite | 
 | ---- | ----- | 
 | Número de aplicações lógicas com atribuído o sistema gerido identidades por subscrição do Azure | 10 | 
 |||
@@ -234,7 +234,7 @@ Utilize o escalão gratuito apenas para cenários de exploratórios, não os cen
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacidade de artefacto
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize o [URI de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mapa (ficheiro XSLT) | 2 MB | | 
@@ -250,7 +250,7 @@ Utilize o escalão gratuito apenas para cenários de exploratórios, não os cen
 
 Aqui estão os limites que se aplicam aos protocolos B2B:
 
-| Nome | Limite | Notas | 
+| Name | Limite | Notas | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | Aplica-se a descodificar e codificar | 
 | X12 | 50 MB | Aplica-se a descodificar e codificar | 

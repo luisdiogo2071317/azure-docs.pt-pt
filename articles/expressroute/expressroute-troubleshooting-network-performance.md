@@ -1,5 +1,5 @@
 ---
-title: 'Resolver problemas de desempenho de rede virtual: Azure | Documentos da Microsoft'
+title: 'Resolver problemas de desempenho de rede virtual: Azure | Microsoft Docs'
 description: Esta página fornece um método padronizado de testes de desempenho de ligação de rede do Azure.
 services: expressroute
 author: tracsman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277629"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753508"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolução de problemas de desempenho da rede
 ## <a name="overview"></a>Descrição geral
@@ -180,7 +180,7 @@ Configuração de teste:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Localização|Azure<br/>Região|Estimado<br/>Distância (km)|Latência|1 sessão<br/>Largura de Banda|Máximo<br/>Largura de Banda|
-| Seattle | EUA Oeste 2        |    191 km de distância |   5 ms | 262.0 Mbits/s |  3.74 Gbits/seg | 21
+| Seattle | EUA Oeste 2        |    191 km |   5 ms | 262.0 Mbits/s |  3.74 Gbits/seg | 21
 | Seattle | EUA Oeste          |  1,094 km de distância |  18 ms |  82.3 Mbits/s |  3.70 Gbits/seg | 20
 | Seattle | EUA Central       |  2,357 km de distância |  40 ms |  38.8 Mbits/s |  2.55 Gbits/seg | 17
 | Seattle | EUA Centro-Sul |  2,877 km de distância |  51 ms |  30.6 Mbits/s |  2,49 Gbits/seg | 19
@@ -210,7 +210,7 @@ Configuração de teste:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index#pivot=services&panel=network
+[Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: http://aka.ms/AzCT
 

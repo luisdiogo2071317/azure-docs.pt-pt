@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
-ms.openlocfilehash: 2ca70805a0806078613bb37ac1d2836dd8d626c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8274909b40d872309230f9c9f6c045b4283fd6eb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180743"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752335"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos do Azure
 
@@ -95,7 +95,7 @@ Tipo de identidade gerido |  Disponíveis em geral<br>Regiões globais do Azure 
 Consulte a lista seguinte para configurar a identidade gerida para o Azure Logic Apps (nas regiões onde disponível):
 
 - [Portal do Azure](/azure/logic-apps/create-managed-service-identity#azure-portal)
-- [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity#deployment-template)
+- [Modelo do Azure Resource Manager](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 

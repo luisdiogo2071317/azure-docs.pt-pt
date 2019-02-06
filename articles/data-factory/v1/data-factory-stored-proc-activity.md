@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5604767b49e6234bba5c16179bebe717938170cf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352534"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753270"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
-> * [Atividade do Hive](data-factory-hive-activity.md) 
+> * [Atividade do Hive](data-factory-hive-activity.md)
 > * [Atividade PIg](data-factory-pig-activity.md)
 > * [Atividade MapReduce](data-factory-map-reduce.md)
 > * [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)
@@ -39,19 +39,18 @@ ms.locfileid: "54352534"
 ## <a name="overview"></a>Descrição geral
 Utilize atividades de transformação de dados numa fábrica de dados [pipeline](data-factory-create-pipelines.md) para transformar e processar dados não processados em predições e informações. A atividade de procedimento armazenado é uma das atividades de transformação que o Data Factory suporta. Este artigo baseia-se a [atividades de transformação de dados](data-factory-data-transformation-activities.md) artigo, que apresenta uma visão geral de transformação de dados e as atividades de transformação suportados no Data Factory.
 
-Pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um dos seguintes arquivos de dados na sua empresa ou numa máquina virtual do Azure (VM): 
+Pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado em um dos seguintes arquivos de dados na sua empresa ou numa máquina virtual do Azure (VM):
 
 - Base de Dados SQL do Azure
 - Azure SQL Data Warehouse
-- Base de dados do SQL Server.  Se estiver a utilizar o SQL Server, instale o Data Management Gateway no mesmo computador que aloja a base de dados ou num computador separado que tenha acesso à base de dados. O Data Management Gateway é um componente que liga os dados de origens no local/na VM do Azure com os serviços cloud de forma segura e gerida. Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes.
+- Base de dados do SQL Server. Se estiver a utilizar o SQL Server, instale o Data Management Gateway no mesmo computador que aloja a base de dados ou num computador separado que tenha acesso à base de dados. O Data Management Gateway é um componente que liga os dados de origens no local/na VM do Azure com os serviços cloud de forma segura e gerida. Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes.
 
 > [!IMPORTANT]
-> Quando se copiam dados na base de dados do Azure SQL ou SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando o **sqlWriterStoredProcedureName** propriedade. Para obter mais informações, consulte [invocar um procedimento armazenado de atividade de cópia](data-factory-invoke-stored-procedure-from-copy-activity.md). Para obter detalhes sobre a propriedade, veja a seguir os artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Invocar um procedimento armazenado ao copiar dados para um Azure SQL Data Warehouse, utilizando uma atividade de cópia não é suportada. No entanto, pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado num SQL Data Warehouse. 
->  
-> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [armazém de dados SQL do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> Quando se copiam dados na base de dados do Azure SQL ou SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando o **sqlWriterStoredProcedureName** propriedade. Para obter mais informações, consulte [invocar um procedimento armazenado de atividade de cópia](data-factory-invoke-stored-procedure-from-copy-activity.md). Para obter detalhes sobre a propriedade, veja a seguir os artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Invocar um procedimento armazenado ao copiar dados para um Azure SQL Data Warehouse, utilizando uma atividade de cópia não é suportada. No entanto, pode usar a atividade de procedimento armazenado para invocar um procedimento armazenado num SQL Data Warehouse.
+>
+> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [armazém de dados SQL do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-
-A instrução a seguir usa a atividade de procedimento armazenado num pipeline para invocar um procedimento armazenado numa base de dados SQL do Azure. 
+A instrução a seguir usa a atividade de procedimento armazenado num pipeline para invocar um procedimento armazenado numa base de dados SQL do Azure.
 
 ## <a name="walkthrough"></a>Instruções
 ### <a name="sample-table-and-stored-procedure"></a>Tabela de exemplo e o procedimento armazenado
@@ -92,14 +91,14 @@ A instrução a seguir usa a atividade de procedimento armazenado num pipeline p
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **NEW** no menu da esquerda, clique em **inteligência + análise**e clique em **Data Factory**.
 
-    ![Nova fábrica de dados](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Nova fábrica de dados](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. Na **nova fábrica de dados** painel, introduza **SProcDF** para o nome. Os nomes de fábrica de dados do Azure são **globalmente exclusivo**. Terá de preceder o nome da fábrica de dados com seu nome, para permitir a criação bem-sucedida da fábrica.
 
-   ![Nova fábrica de dados](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Nova fábrica de dados](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Selecione a sua **subscrição do Azure**.
 5. Para **Grupo de Recursos**, siga um destes passos:
    1. Clique em **criar novo** e introduza um nome para o grupo de recursos.
-   2. Clique em **utilizar existente** e selecione um grupo de recursos existente.  
+   2. Clique em **utilizar existente** e selecione um grupo de recursos existente.
 6. Selecione a **localização** da fábrica de dados.
 7. Selecione **afixar ao dashboard** para que possa ver a fábrica de dados no dashboard próxima vez que iniciar sessão.
 8. Clique em **Criar** no painel **Nova fábrica de dados**.
@@ -127,7 +126,7 @@ Depois de criar a fábrica de dados, criar um SQL do Azure serviço ligado que l
     ![Vista de árvore com o serviço ligado](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
-Tem de especificar um conjunto de dados de saída para uma atividade de procedimento armazenado, mesmo que o procedimento armazenado não produz quaisquer dados. Isso ocorre porque é o conjunto de dados de saída que controla a agenda da atividade (a frequência com que a atividade é executada - hora a hora, diariamente, etc.). O conjunto de dados de saída tem de utilizar um **serviço ligado** que se refere a uma base de dados do SQL do Azure ou um Azure SQL Data Warehouse ou uma base de dados SQL Server em que pretenda que o procedimento armazenado a executar. O conjunto de dados de saída pode servir como uma forma de transmitir o resultado do procedimento armazenado para processamento por outra atividade subsequente ([encadear atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a fábrica de dados não automaticamente escrever a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve para uma tabela SQL que o conjunto de dados de saída aponta para. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício** (um conjunto de dados que aponta para uma tabela que não realmente contém a saída do procedimento armazenado). Este conjunto de dados fictício é utilizado apenas para especificar a agenda para executar a atividade de procedimento armazenado. 
+Tem de especificar um conjunto de dados de saída para uma atividade de procedimento armazenado, mesmo que o procedimento armazenado não produz quaisquer dados. Isso ocorre porque é o conjunto de dados de saída que controla a agenda da atividade (a frequência com que a atividade é executada - hora a hora, diariamente, etc.). O conjunto de dados de saída tem de utilizar um **serviço ligado** que se refere a uma base de dados do SQL do Azure ou um Azure SQL Data Warehouse ou uma base de dados SQL Server em que pretenda que o procedimento armazenado a executar. O conjunto de dados de saída pode servir como uma forma de transmitir o resultado do procedimento armazenado para processamento por outra atividade subsequente ([encadear atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a fábrica de dados não automaticamente escrever a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve para uma tabela SQL que o conjunto de dados de saída aponta para. Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício** (um conjunto de dados que aponta para uma tabela que não realmente contém a saída do procedimento armazenado). Este conjunto de dados fictício é utilizado apenas para especificar a agenda para executar a atividade de procedimento armazenado.
 
 1. Clique em **... Obter mais** na barra de ferramentas, clique em **novo conjunto de dados**e clique em **SQL do Azure**. **Novo conjunto de dados** na barra de comandos e selecione **SQL do Azure**.
 
@@ -135,7 +134,7 @@ Tem de especificar um conjunto de dados de saída para uma atividade de procedim
 2. Copiar/colar o seguinte script JSON para o editor de JSON.
 
     ```JSON
-    {                
+    {
         "name": "sprocsampleout",
         "properties": {
             "type": "AzureSqlTable",
@@ -155,16 +154,16 @@ Tem de especificar um conjunto de dados de saída para uma atividade de procedim
     ![Vista de árvore com serviços ligados](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Criar um pipeline com atividade SqlServerStoredProcedure
-Agora, vamos criar um pipeline com uma atividade de procedimento armazenado. 
+Agora, vamos criar um pipeline com uma atividade de procedimento armazenado.
 
-Tenha em atenção as seguintes propriedades: 
+Tenha em atenção as seguintes propriedades:
 
-- O **tipo** estiver definida como **SqlServerStoredProcedure**. 
+- O **tipo** estiver definida como **SqlServerStoredProcedure**.
 - O **storedProcedureName** propriedades do tipo está definido como **usp_sample** (nome do procedimento armazenado).
 - O **storedProcedureParameters** secção contém um parâmetro com o nome **DateTime**. Nome e tem maiúsculas e minúsculas do parâmetro no JSON têm de corresponder o nome e o parâmetro na definição do procedimento armazenado letras maiúsculas e minúsculas. Se precisar passar nulo para um parâmetro, utilize a sintaxe: `"param1": null` (em minúsculas).
- 
+
 1. Clique em **... Obter mais** na barra de comandos e clique em **novo pipeline**.
-2. Copiar/colar o fragmento JSON seguinte:   
+2. Copiar/colar o fragmento JSON seguinte:
 
     ```JSON
     {
@@ -191,13 +190,13 @@ Tenha em atenção as seguintes propriedades:
                     "name": "SprocActivitySample"
                 }
             ],
-             "start": "2017-04-02T00:00:00Z",
-             "end": "2017-04-02T05:00:00Z",
+            "start": "2017-04-02T00:00:00Z",
+            "end": "2017-04-02T05:00:00Z",
             "isPaused": false
         }
     }
     ```
-3. Para implementar o pipeline, clique em **Deploy** na barra de ferramentas.  
+3. Para implementar o pipeline, clique em **Deploy** na barra de ferramentas.
 
 ### <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 1. Clique em **X** para fechar os painéis do Editor do Data Factory e para regressar ao painel Data Factory e, em seguida, clique em **Diagrama**.
@@ -213,22 +212,20 @@ Tenha em atenção as seguintes propriedades:
 
    ![Dados de saída](./media/data-factory-stored-proc-activity/output.png)
 
-   Ver [monitorizar o pipeline](data-factory-monitor-manage-pipelines.md) para obter informações detalhadas sobre a monitorização de pipelines do Azure Data Factory.  
-
+   Ver [monitorizar o pipeline](data-factory-monitor-manage-pipelines.md) para obter informações detalhadas sobre a monitorização de pipelines do Azure Data Factory.
 
 ## <a name="specify-an-input-dataset"></a>Especifique um conjunto de dados de entrada
 No passo a passo, a atividade de procedimento armazenado não tem quaisquer conjuntos de dados de entrada. Se especificar um conjunto de dados de entrada, a atividade de procedimento armazenado não é executado até que o setor de conjunto de dados de entrada está disponível (no estado pronto). O conjunto de dados pode ser um conjunto de dados externo (que não é produzido pelo outra atividade no mesmo pipeline) ou um conjunto de dados interno que é produzido por uma atividade a montante (a atividade que é executado antes desta atividade). É possível especificar vários conjuntos de dados de entrada para a atividade de procedimento armazenado. Se fizer isso, a atividade de procedimento armazenado é executado apenas quando todos os setores do conjunto de dados de entrada estão disponíveis (no estado pronto). O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Só é utilizado para verificar a dependência antes de iniciar a atividade de procedimento armazenado.
 
 ## <a name="chaining-with-other-activities"></a>O encadeamento com outras atividades
-Se quiser encadear uma atividade a montante com esta atividade, especifique a saída da atividade a montante como entrada dessa atividade. Ao fazê-lo, a atividade de procedimento armazenado não é executado até que a atividade a montante esteja concluída e o conjunto de dados de saída da atividade a montante está disponível (no estado pronto). Pode especificar os conjuntos de dados de saída de várias atividades a montante como conjuntos de dados de entrada da atividade de procedimento armazenado. Ao fazê-lo, a atividade de procedimento armazenado é executado apenas quando todos os setores do conjunto de dados de entrada estão disponíveis.  
+Se quiser encadear uma atividade a montante com esta atividade, especifique a saída da atividade a montante como entrada dessa atividade. Ao fazê-lo, a atividade de procedimento armazenado não é executado até que a atividade a montante esteja concluída e o conjunto de dados de saída da atividade a montante está disponível (no estado pronto). Pode especificar os conjuntos de dados de saída de várias atividades a montante como conjuntos de dados de entrada da atividade de procedimento armazenado. Ao fazê-lo, a atividade de procedimento armazenado é executado apenas quando todos os setores do conjunto de dados de entrada estão disponíveis.
 
-No exemplo seguinte, a saída da atividade de cópia é: OutputDataset, que é uma entrada da atividade de procedimento armazenado. Por conseguinte, a atividade de procedimento armazenado não é executado até concluir a atividade de cópia e o setor de OutputDataset está disponível (no estado pronto). Se especificar vários conjuntos de dados de entrada, a atividade de procedimento armazenado não é executado até que todos os setores de entrada do conjunto de dados estejam disponíveis (no estado pronto). Os conjuntos de dados de entrada não podem ser utilizados diretamente como parâmetros para a atividade de procedimento armazenado. 
+No exemplo seguinte, a saída da atividade de cópia é: OutputDataset, que é uma entrada da atividade de procedimento armazenado. Por conseguinte, a atividade de procedimento armazenado não é executado até concluir a atividade de cópia e o setor de OutputDataset está disponível (no estado pronto). Se especificar vários conjuntos de dados de entrada, a atividade de procedimento armazenado não é executado até que todos os setores de entrada do conjunto de dados estejam disponíveis (no estado pronto). Os conjuntos de dados de entrada não podem ser utilizados diretamente como parâmetros para a atividade de procedimento armazenado.
 
 Para obter mais informações sobre o encadeamento de atividades, consulte [múltiplas atividades num pipeline](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)
 
 ```json
 {
-
     "name": "ADFTutorialPipeline",
     "properties": {
         "description": "Copy data from a blob to blob",
@@ -268,7 +265,6 @@ Para obter mais informações sobre o encadeamento de atividades, consulte [múl
                 },
                 "name": "RunStoredProcedure"
             }
-
         ],
         "start": "2017-04-12T00:00:00Z",
         "end": "2017-04-13T00:00:00Z",
@@ -281,8 +277,8 @@ Da mesma forma, para ligar a atividade de procedimento de arquivo com **atividad
 
 > [!IMPORTANT]
 > Quando se copiam dados na base de dados do Azure SQL ou SQL Server, pode configurar o **SqlSink** na atividade de cópia para invocar um procedimento armazenado utilizando o **sqlWriterStoredProcedureName** propriedade. Para obter mais informações, consulte [invocar um procedimento armazenado de atividade de cópia](data-factory-invoke-stored-procedure-from-copy-activity.md). Para obter detalhes sobre a propriedade, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
->  
-> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [armazém de dados SQL do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
+> 
+> Quando se copiam dados a partir da base de dados do Azure SQL ou SQL Server ou o Azure SQL Data Warehouse, pode configurar **SqlSource** na atividade de cópia para invocar um procedimento armazenado para ler dados da base de dados de origem com o  **sqlReaderStoredProcedureName** propriedade. Para obter mais informações, consulte os seguintes artigos de conector: [Base de dados SQL do Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [do SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [armazém de dados SQL do Azure](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
 ## <a name="json-format"></a>Formato JSON
 Este é o formato JSON para a definição de uma atividade de procedimento armazenado:
@@ -292,12 +288,12 @@ Este é o formato JSON para a definição de uma atividade de procedimento armaz
     "name": "SQLSPROCActivity",
     "description": "description",
     "type": "SqlServerStoredProcedure",
-    "inputs":  [ { "name": "inputtable"  } ],
-    "outputs":  [ { "name": "outputtable" } ],
+    "inputs": [ { "name": "inputtable" } ],
+    "outputs": [ { "name": "outputtable" } ],
     "typeProperties":
     {
         "storedProcedureName": "<name of the stored procedure>",
-        "storedProcedureParameters":  
+        "storedProcedureParameters":
         {
             "param1": "param1Value"
             …

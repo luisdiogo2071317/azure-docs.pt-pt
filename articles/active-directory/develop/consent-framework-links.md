@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: da22c7a62d39b348e2114fd208d2aa8dd9711e0d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2356167fca0bde9fd7dd78c3c893218967e41220
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099231"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750057"
 ---
 # <a name="how-application-consent-works"></a>Como funciona o consentimento da aplicação
 
@@ -28,8 +28,8 @@ Este artigo é para o ajudar a obter mais informações sobre como o framework d
 ## <a name="recommended-documents"></a>Documentos recomendados
 
 - Obter uma compreensão geral do [como o consentimento permite que um proprietário do recurso governar o acesso de um aplicativo para recursos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Obtenha uma visão geral passo a passo dos [como o framework de consentimento do Azure AD implementa consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.
+- Obtenha uma visão geral passo a passo dos [como o framework de consentimento do Azure AD implementa consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.
 - Para obter mais detalhes, saiba [como o consentimento é suportado na camada de protocolo de OAuth 2.0 durante o fluxo de concessão do código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Passos Seguintes

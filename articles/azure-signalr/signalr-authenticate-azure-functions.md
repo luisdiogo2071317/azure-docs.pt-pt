@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720973"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746383"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -54,7 +54,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Introduza as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
     | Nome do recurso | Nome exclusivo da instância do SignalR Service |
     | Grupo de recursos | Criar um novo grupo de recursos |
@@ -134,11 +134,11 @@ Quando a aplicação de chat é aberta pela primeira vez no browser, requer cred
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
-    | Nome | SignalRInfo |
+    | Name | SignalRInfo |
     | Nível de autorização | Anónimo |
 
     É criada uma pasta chamada **SignalRInfo** com a nova função.
@@ -194,11 +194,11 @@ A aplicação Web também requer uma API HTTP para enviar mensagens de chat. Vai
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
-    | Nome | SendMessage |
+    | Name | SendMessage |
     | Nível de autorização | Anónimo |
 
     É criada uma pasta chamada **SendMessage** com a nova função.
@@ -302,7 +302,7 @@ Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a 
 
 Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clientes ligados ou apenas para os clientes que tenham sido autenticados para um determinado utilizador.
 
-1. No VS Code, abra **SendMessage/function.json**.
+1. No VS Code, abra **SignalRInfo/function.json**.
 
 1. Insira uma [expressão de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) na propriedade *userId* do enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. É definido o valor para o nome do utilizador autenticado. O atributo deverá ter agora o seguinte aspeto.
 
@@ -324,7 +324,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
     | Pasta para implementar | Selecione a pasta de projetos principal |
     | Subscrição | Selecione a sua subscrição |
@@ -345,7 +345,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
     | Ficheiro de definições locais | local.settings.json |
     | Subscrição | Selecione a sua subscrição |
@@ -403,9 +403,9 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza as seguintes informações.
 
-    | Nome | Valor |
+    | Name | Value |
     |---|---|
-    | Nome | Nome exclusivo para a conta de armazenamento de blobs |
+    | Name | Nome exclusivo para a conta de armazenamento de blobs |
     | Tipo de conta | StorageV2 (fins gerais v2) |
     | Localização | Selecione a mesma região dos outros recursos |
     | Replicação | Armazenamento localmente redundante (LRS) |

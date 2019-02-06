@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 36514fe321fa352c2526db5a18ac8618d7af713e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514388"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756772"
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução à gestão de dispositivo (Python)
 
@@ -68,7 +68,7 @@ Nesta secção, irá:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Adicionar variáveis, incluindo uma **CONNECTION_STRING** variável e o intialization de cliente.  Substitua a cadeia de ligação com a cadeia de ligação do dispositivo.  
+1. Adicionar variáveis, incluindo uma **CONNECTION_STRING** variável e a inicialização do cliente.  Substitua a cadeia de ligação com a cadeia de ligação do dispositivo.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

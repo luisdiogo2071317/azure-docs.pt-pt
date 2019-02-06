@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095796"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750363"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obter o estado de funcionamento de recursos com a API REST 
 
@@ -37,14 +37,14 @@ Os seguintes cabeçalhos são necessários:
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Necessário. Definido como `application/json`.|  
+|*Content-Type:*|Necessário. Definido como `application/json`.|  
 |*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2015-04-01`, incluído no URL acima.  |
 | $filter | A opção de filtragem para reduzir o conjunto de resultados devolvidos. Os padrões permitidos para este parâmetro estão disponíveis [de referência para a operação de registos de atividades](/rest/api/monitor/activitylogs/list#uri-parameters). O exemplo mostrado a captura todos os eventos num intervalo de tempo entre 2018-05-16 e de 2018-06-20 |
 | &nbsp; | &nbsp; |

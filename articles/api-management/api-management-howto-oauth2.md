@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967934"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746732"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador na gestão de API do Azure com o OAuth 2.0
 
@@ -51,9 +51,9 @@ Este guia mostra como configurar a sua instância do serviço de gestão de API 
 
     ![Novo servidor do OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. A secção seguinte do formulário contém os **tipos de concessão do código de autorização**, **URL de ponto final de autorização**, e **método de pedido de autorização** definições.
+4. A secção seguinte do formulário contém os **tipos de concessão de autorização**, **URL de ponto final de autorização**, e **método de pedido de autorização** definições.
 
-    Especifique a **tipos de concessão do código de autorização** verificando os tipos de pretendido. **Código de autorização** é especificado por predefinição.
+    Especifique a **tipos de concessão de autorização** verificando os tipos de pretendido. **Código de autorização** é especificado por predefinição.
 
     Introduza o **URL de ponto final de autorização**. Para o Azure Active Directory, este URL será semelhante ao URL seguinte, onde `<client_id>` é substituído com o id de cliente que identifica a sua aplicação para o servidor de OAuth 2.0.
 
@@ -75,7 +75,7 @@ Este guia mostra como configurar a sua instância do serviço de gestão de API 
 
     ![Novo servidor do OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Se **tipos de concessão do código de autorização** está definida como **palavra-passe de proprietário do recurso**, o **credenciais de palavra-passe de proprietário do recurso** secção é utilizada para especificar essas credenciais; caso contrário, pode deixá-lo em branco.
+    Se **tipos de concessão de autorização** está definida como **palavra-passe de proprietário do recurso**, o **credenciais de palavra-passe de proprietário do recurso** secção é usado para especificar essas credenciais; caso contrário, Pode deixar em branco.
 
     Quando o formulário estiver concluído, clique em **criar** para guardar a configuração de servidor de autorização de API Management OAuth 2.0. Depois da configuração do servidor é guardada, pode configurar as APIs para utilizar esta configuração, conforme mostrado na próxima seção.
 

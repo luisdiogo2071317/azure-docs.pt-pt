@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 2b60d4aed1b16db433439e69f9d6813f36f2faac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4fc30deb68039130850f87cb70dbb606be463600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732554"
+ms.locfileid: "55747395"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -147,7 +147,7 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a API de chamam. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. |
 | <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "Foreach". Quando utiliza o `SplitOn` propriedade, obtém as instâncias em simultâneo até ao limite de que o acionador e o serviço podem devolver. <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
 ||||
 
@@ -237,7 +237,7 @@ Este acionador envia um pedido de subscrição para um ponto de extremidade atra
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. |
 | <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). |
-| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "Foreach". Quando utiliza o `SplitOn` propriedade, obtém as instâncias em simultâneo até ao limite de que o acionador e o serviço podem devolver. <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
 ||||
 
@@ -682,8 +682,9 @@ Por predefinição, um acionador é acionado apenas depois de obter um "200 OK" 
 
 ## <a name="trigger-multiple-runs"></a>Acionar várias execuções
 
-Se o acionador retorna uma matriz para a sua aplicação lógica processar, às vezes, um loop "for each" poderá demorar demasiado tempo a processar cada item da matriz. Em vez disso, pode utilizar o **SplitOn** propriedade no seu acionador para *debatch* a matriz. Divisões, divida os itens de matriz e inicia uma nova instância de aplicação lógica que é executada para cada item da matriz. Essa abordagem é útil, por exemplo, quando quer consultar um ponto de extremidade que pode devolver vários itens novos entre intervalos de consulta.
-Para o número máximo de matriz de itens que **SplitOn** pode processar numa execução de aplicação lógica única, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Se o acionador retorna uma matriz para a sua aplicação lógica processar, às vezes, um loop "for each" poderá demorar demasiado tempo a processar cada item da matriz. Em vez disso, pode utilizar o **SplitOn** propriedade no seu acionador para *debatch* a matriz. Divisões, divida os itens de matriz e inicia uma nova instância de aplicação lógica que é executada para cada item da matriz. Essa abordagem é útil, por exemplo, quando quer consultar um ponto de extremidade que pode devolver vários itens novos entre intervalos de consulta. 
+
+Quando utiliza o `SplitOn` propriedade, obtém as instâncias em simultâneo até ao limite de que o acionador e o serviço podem devolver. Para o número máximo de matriz de itens que **SplitOn** pode processar numa execução de aplicação lógica única, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > Não é possível usar **SplitOn** com um padrão de resposta síncrona. Qualquer fluxo de trabalho que utiliza **SplitOn** e inclui uma resposta de ação é executada de forma assíncrona e enviará imediatamente uma `202 ACCEPTED` resposta.
@@ -1425,9 +1426,9 @@ Ao contrário de outras ações, o **resposta** ação tem restrições especiai
 
   No entanto, se o seu fluxo de trabalho chama outra aplicação de lógica como um fluxo de trabalho aninhado, o fluxo de trabalho principal aguarda até que a conclusão do fluxo de trabalho aninhado, não importa quanto tempo passa antes de concluir o fluxo de trabalho aninhado.
 
-* Quando o fluxo de trabalho utiliza o **resposta** ação e um padrão de resposta síncrona, o fluxo de trabalho também não é possível utilizar o **splitOn** comando na definição do acionador porque esse comando cria várias execuções. Verifique neste caso, quando o método PUT é usado e se for VERDADEIRO, devolver uma resposta de "Solicitação incorreta".
+* Quando o fluxo de trabalho utiliza o **resposta** ação e um padrão de resposta síncrona, o fluxo de trabalho também não é possível utilizar o **SplitOn** propriedade na definição do acionador porque esse comando cria várias execuções. Verifique neste caso, quando o método PUT é usado e se for VERDADEIRO, devolver uma resposta de "Solicitação incorreta".
 
-  Caso contrário, se o seu fluxo de trabalho utiliza o **splitOn** comando e um **resposta** ação, o fluxo de trabalho é executado de forma assíncrona e retorna imediatamente uma resposta "202 aceite".
+  Caso contrário, se o seu fluxo de trabalho utiliza o **SplitOn** propriedade e um **resposta** ação, o fluxo de trabalho é executado de forma assíncrona e retorna imediatamente uma resposta "202 aceite".
 
 * Quando atinge a execução do fluxo de trabalho do **resposta** ação, mas a solicitação de entrada já recebeu uma resposta, o **resposta** ação está marcada como "Falha" devido ao conflito. E, consequentemente, a execução da aplicação lógica também está marcada com estado de "Falhado".
 

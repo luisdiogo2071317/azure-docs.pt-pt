@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828184"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745389"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
@@ -33,7 +33,7 @@ Serviços de multimédia suportam atualmente pré-visualizando o analisador inte
 
 |**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio único. Pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região". Idiomas suportados são do inglês (en-US e en-GB), Espanhol ("es-ES" e "es-MX"), francês ("fr-FR"), Italiano ("it-IT"), japonês ('ja-JP"), português ("pt-BR"), chinês ("zh-CN"), alemão ("de-DE"), Árabe ("ar-por exemplo,"), russo ('ru-RU"), Híndi ("hi-IN" ) e coreano ('ko-KR').<br/><br/> Se o idioma não está especificado ou definido como deteção de idioma de nulo, automática irá ser utilizado. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. A funcionalidade de deteção de idioma automática funciona melhor com gravações de áudio com fala claramente discernable. Se a deteção de idioma automática não conseguir encontrar o idioma, a transcrição irá reverter para inglês.|
+|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio única que contém a voz num único idioma. Pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região". Idiomas suportados são do inglês (en-US e en-GB), Espanhol ("es-ES" e "es-MX"), francês ("fr-FR"), Italiano ("it-IT"), japonês ('ja-JP"), português ("pt-BR"), chinês ("zh-CN"), alemão ("de-DE"), Árabe ("ar-por exemplo,"), russo ('ru-RU"), Híndi ("hi-IN" ) e coreano ('ko-KR').<br/><br/> Se o idioma não está especificado ou definido como deteção de idioma de nulo, automática irá escolher o primeiro idioma detetado e processar com o idioma selecionado para a duração do ficheiro. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não suporta atualmente dinamicamente a alternância entre linguagens após o primeiro idioma é detetado. A funcionalidade de deteção de idioma automática funciona melhor com gravações de áudio com fala claramente discerníveis. Se a deteção de idioma automática não conseguir encontrar o idioma, a transcrição irá reverter para inglês.|
 |**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -61,7 +61,7 @@ A saída inclui um ficheiro JSON (insights.json) com todas as informações que 
 
 ### <a name="transcript"></a>transcrição
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de linha.|
 |texto|A transcrição em si.|
@@ -99,7 +99,7 @@ Exemplo:
 
 ### <a name="ocr"></a>OCR
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de linha de OCR.|
 |texto|O texto de OCR.|
@@ -142,7 +142,7 @@ Exemplo:
 
 ### <a name="faces"></a>faces
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID do rosto.|
 |nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
@@ -187,7 +187,7 @@ Exemplo:
 
 ### <a name="shots"></a>capturas de
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
@@ -244,7 +244,7 @@ Exemplo:
 
 ### <a name="statistics"></a>Estatísticas
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |WordCount|O número de palavras por orador.|
@@ -257,7 +257,7 @@ Exemplo:
 
 Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/negativo). Por exemplo, 0-0.1, 0,1 0,2.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de sentimentos.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
@@ -292,7 +292,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 ### <a name="labels"></a>etiquetas
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
@@ -351,7 +351,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 ### <a name="keywords"></a>palavras-chave
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de palavra-chave.|
 |texto|O texto de palavra-chave.|
@@ -402,7 +402,7 @@ O bloco de visualContentModeration contém intervalos de tempo que o indexador d
 
 Vídeos que encontram-se para conter o conteúdo de adultos poderão estar disponíveis para ver privada apenas. Os utilizadores têm a opção para submeter um pedido para uma revisão de segurança do conteúdo, em que, caso o atributo IsAdult irá conter o resultado da revisão humana.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de moderação de conteúdos visual.|
 |adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c8961017fbd63e2d40e98acc19b2819c85118e15
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728372"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750210"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Compor uma cena com o Azure Batch 
 
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-As tarefas geram ficheiros de saída com o nome *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e carregam-nos para o contentor *job-myrenderjob* da sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch). Por exemplo:
+As tarefas geram ficheiros de saída com o nome *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e carregam-nos para o contentor *job-myrenderjob* da sua conta de armazenamento. Para ver o resultado, transfira os ficheiros para uma pasta para o computador local, com o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
 
 ```azurecli-interactive
 az storage blob download-batch \

@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247753"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751400"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
 
@@ -90,7 +90,7 @@ Eis um exemplo de um evento de BlobCreated:
 Para obter mais informações, consulte [esquema de eventos de armazenamento de BLOBs](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtragem de eventos
-Subscrições de eventos de blob podem ser filtradas com base no tipo de evento e, pelo nome do contentor e o nome de blob do objeto que foi criado ou eliminado.  Pode aplicar os filtros para subscrições de eventos ou durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) a subscrição de evento ou [num momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Filtros de requerente em projetos do Event Grid com base no "começa com" e "termina com" correspondências, para que os eventos com um assunto correspondente são entregues ao subscritor. 
+Subscrições de eventos de blob podem ser filtradas com base no tipo de evento e, pelo nome do contentor e o nome de blob do objeto que foi criado ou eliminado.  Pode aplicar os filtros para subscrições de eventos ou durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) a subscrição de evento ou [num momento posterior](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Filtros de requerente em projetos do Event Grid com base no "começa com" e "termina com" correspondências, para que os eventos com um assunto correspondente são entregues ao subscritor. 
 
 O assunto de eventos de armazenamento de BLOBs utiliza o formato:
 

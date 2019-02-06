@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ddd97ea73ce476e72c0c94a756c749e5527799ae
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730786"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750975"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
 Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>Obter a chave da conta de armazenamento
-As chaves de contas de armazenamento controlam o acesso aos recursos numa conta de armazenamento. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys#list): 
+As chaves de contas de armazenamento controlam o acesso aos recursos numa conta de armazenamento. As chaves são criadas automaticamente quando cria uma conta de armazenamento. Pode obter as chaves da conta de armazenamento para a mesma com o comando [az storage account keys list](/cli/azure/storage/account/keys): 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -124,7 +124,7 @@ az storage file upload \
 
 Se estiver a executar a CLI do Azure localmente, substitua `~/clouddrive` por um caminho existente no seu computador.
 
-Depois de carregar o ficheiro, pode utilizar o comando [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) para assegurar que o ficheiro foi carregado para a partilha de ficheiros do Azure:
+Depois de carregar o ficheiro, pode utilizar o comando [`az storage file list`](/cli/azure/storage/file) para assegurar que o ficheiro foi carregado para a partilha de ficheiros do Azure:
 
 ```azurecli-interactive
 az storage file list \
@@ -136,7 +136,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Transferir um ficheiro
-Pode utilizar o comando [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) para transferir uma cópia do ficheiro que carregou para a unidade temporária do Cloud Shell:
+Pode utilizar o comando [`az storage file download`](/cli/azure/storage/file) para transferir uma cópia do ficheiro que carregou para a unidade temporária do Cloud Shell:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -191,7 +191,7 @@ Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é c
 
 - Instantâneos do [Gestor de Volumes Lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
-- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros do Windows, como NTFS e ReFS Pode criar um instantâneo de partilha com o comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
+- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros do Windows, como NTFS e ReFS Pode criar um instantâneo de partilha com o comando [`az storage share snapshot`](/cli/azure/storage/share):
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -250,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Pode eliminar um instantâneo de partilha com o comando [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
+Pode eliminar um instantâneo de partilha com o comando [`az storage share delete`](/cli/azure/storage/share). Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \

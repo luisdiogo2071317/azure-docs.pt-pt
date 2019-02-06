@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d274642c8e35374dee2d584e6285165a15cd3128
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065448"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747038"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -41,7 +41,7 @@ A tabela seguinte mostra os mapeamentos suportados:
 |Sudeste da Austrália.|Sudeste da Austrália.|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|Eualeste2|
+|EastUS|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
@@ -49,6 +49,7 @@ A tabela seguinte mostra os mapeamentos suportados:
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|EUA Oeste 2|EUA Oeste 2|
 
 A solução de Controlo de Alterações e Inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, vai ativar a solução numa máquina virtual.
 
@@ -66,9 +67,9 @@ Cada solução utiliza uma configuração de âmbito dentro da área de trabalho
 
 Se a área de trabalho selecionada ainda não tiver as soluções de gestão de atualizações ou controlo de alterações, são criadas as seguintes configurações de escopo:
 
-* **MicrosoftDefaultScopeConfig ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **Atualizações de MicrosoftDefaultScopeConfig**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Se a área de trabalho selecionada já tem a solução, a solução não é novamente implementada e a configuração de âmbito não for adicionada a ele.
 
@@ -78,7 +79,7 @@ Quando é adicionado um computador para o gerenciamento de atualizações ou as 
 
 Navegue para a sua conta de automatização e selecione **pesquisas guardadas** sob **geral**. As duas pesquisas guardadas utilizadas por estas soluções podem ser vistas na tabela a seguir:
 
-|Nome     |Categoria  |Alias  |
+|Name     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |

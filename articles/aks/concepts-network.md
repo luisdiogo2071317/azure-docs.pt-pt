@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: d71360d830ab7b90a8d91e6d17c7a3698d8fca5c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 624e49cb0b211139a70d0262fbb8500deef8bf5b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692584"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744863"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
 
@@ -68,7 +68,7 @@ No AKS, pode implementar um cluster que utiliza um dos seguintes modelos de duas
 
 O *kubenet* opção de rede é a configuração predefinida para a criação de cluster do AKS. Com o *kubenet*, nós obtém um endereço IP da sub-rede da rede virtual do Azure. Pods recebem um endereço IP a partir de um espaço de endereço logicamente diferente para a sub-rede de rede virtual do Azure de nós. Tradução de endereços de rede (NAT), em seguida, está configurada para que os pods podem chegar a recursos na rede virtual do Azure. O endereço IP de origem do tráfego é que NAT para IP primária o nó o resolveria.
 
-Nós de utilizar o [kubenet] [ kubenet] Plug-in do Kubernetes. Pode permitir que a plataforma do Azure, criar e configurar as redes virtuais para ou optar por implementar o seu cluster do AKS para uma sub-rede de rede virtual existente. Mais uma vez, apenas os nós de receber um endereço IP encaminhável e os pods utilizam NAT para comunicar com outros recursos fora do cluster do AKS. Essa abordagem reduz significativamente o número de endereços IP que tem de reservar no seu espaço de rede para os pods utilizar.
+Nós de utilizar o [kubenet] [ kubenet] Plug-in do Kubernetes. Pode permitir que a plataforma do Azure, criar e configurar as redes virtuais para ou optar por implementar o seu cluster do AKS para uma sub-rede de rede virtual existente. Mais uma vez, apenas os nós a receber um endereço IP encaminhável e os pods utilizam NAT para comunicar com outros recursos fora do cluster do AKS. Essa abordagem reduz significativamente o número de endereços IP que tem de reservar no seu espaço de rede para os pods utilizar.
 
 Para obter mais informações, consulte [configurar kubenet de rede para um cluster do AKS][aks-configure-kubenet-networking].
 

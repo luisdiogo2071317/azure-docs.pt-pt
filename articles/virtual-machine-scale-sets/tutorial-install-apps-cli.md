@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9f979922b2abd2ce1a707a8b91656bbe64119938
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38dec49083e84d105f4eed9cbc149bbc025c5e40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157266"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755718"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquina virtual com a CLI do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -82,7 +82,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="apply-the-custom-script-extension"></a>Aplicar a Extensão de Script Personalizado
-Aplique a configuração de Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension#set). O exemplo seguinte aplica a configuração *customConfig.json* às instâncias de VM *myScaleSet* no grupo de recursos com o nome *myResourceGroup*:
+Aplique a configuração de Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento com [az vmss extension set](/cli/azure/vmss/extension). O exemplo seguinte aplica a configuração *customConfig.json* às instâncias de VM *myScaleSet* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -112,7 +112,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#show). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP* criada como parte do conjunto de dimensionamento:
+Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetLBPublicIP* criada como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Na shell atual, crie um ficheiro com o nome *customConfigv2.json* e cole a segui
 }
 ```
 
-Aplique a configuração da Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento novamente com [az vmss extension set](/cli/azure/vmss/extension#set). O *customConfigv2.json* é utilizado para aplicar a versão atualizada da aplicação:
+Aplique a configuração da Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento novamente com [az vmss extension set](/cli/azure/vmss/extension). O *customConfigv2.json* é utilizado para aplicar a versão atualizada da aplicação:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -159,7 +159,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group#az_group_delete). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
+Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

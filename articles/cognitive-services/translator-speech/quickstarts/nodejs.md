@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a88eade0d5fbfe4fd951e3e98c72a1e697099f1a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f2adf743760c85b8c2a75c0f398bc5b61fd1061
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466324"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754240"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Início rápido: Voz do Translator API com node. js 
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar est
 
 Tem de instalar o [pacote Websocket ](https://www.npmjs.com/package/websocket) para Node. js.
 
-Necessita de ter um ficheiro . wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro . wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz. Pode obter esse ficheiro .wav a partir da [API de Conversão de Texto em Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Necessita de ter um ficheiro . wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro . wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz. Pode obter esse ficheiro .wav a partir da [API de Conversão de Texto em Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Tem de ter uma [conta de API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Voz do Microsoft Translator**. Tem de ter uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -68,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis
 */
 let input_path = 'speak.wav';
 

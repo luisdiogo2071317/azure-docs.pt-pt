@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 614d8fac4130b3331cf5326800aaf5a2a3c58513
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658051"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749240"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início rápido: Carregar, transferir e listar os blobs com a CLI do Azure
 
@@ -46,7 +46,7 @@ O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de
 Primeiro, crie um ficheiro para carregar para um blob.
 Se estiver a utilizar o Azure Cloud Shell, utilize o seguinte para criar um ficheiro: `vi helloworld` quando o ficheiro abrir, prima **insert**, escreva "Hello world" e, em seguida, prima **Esc** e introduza `:x` e prima **Enter**.
 
-Neste exemplo, carregue um blob para o contentor criado no último passo com o comando [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
+Neste exemplo, carregue um blob para o contentor criado no último passo com o comando [az storage blob upload](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 Esta operação cria o blob, caso este ainda não exista, ou substitui-o se o mesmo já existir. Carregue os ficheiros que quiser antes de continuar.
 
-Para carregar múltiplos ficheiros em simultâneo, pode utilizar o comando [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
+Para carregar múltiplos ficheiros em simultâneo, pode utilizar o comando [az storage blob upload-batch](/cli/azure/storage/blob).
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Liste os blobs no contentor com o comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
+Liste os blobs no contentor com o comando [az storage blob list](/cli/azure/storage/blob).
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Transferir um blob
 
-Utilize o comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) para transferir o blob carregado anteriormente.
+Utilize o comando [az storage blob download](/cli/azure/storage/blob) para transferir o blob carregado anteriormente.
 
 ```azurecli-interactive
 az storage blob download \

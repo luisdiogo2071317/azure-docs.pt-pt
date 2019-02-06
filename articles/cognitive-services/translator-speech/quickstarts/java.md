@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1fb6eeb30b8ba348ce90916955bd8ffbb2cbb7c5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e9545a6bc8ec56bc5ae9c9532d80822bfe3505
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459177"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753134"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Início rápido: Voz do Translator API com Java 
 <a name="HOLTop"></a>
@@ -39,7 +39,7 @@ Vai necessitar dos ficheiros seguintes.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (ou mais recente)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (ou mais recente)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Vai necessitar de ter um ficheiro .wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro .wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz. Pode obter esse ficheiro .wav a partir da [API de Conversão de Texto em Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Vai necessitar de ter um ficheiro .wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro .wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz. Pode obter esse ficheiro .wav a partir da [API de Conversão de Texto em Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Tem de ter uma [conta de API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Voz do Microsoft Translator**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

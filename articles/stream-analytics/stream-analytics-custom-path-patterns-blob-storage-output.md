@@ -1,28 +1,76 @@
 ---
-title: Padrões de caminho de DateTime para o Azure Stream Analytics blob de saída (pré-visualização)
-description: Este artigo descreve a funcionalidade de padrões de caminho personalizada DateTime de saída de armazenamento de BLOBs de tarefas do Azure Stream Analytics.
+title: Criação de partições (pré-visualização) de saída do blob de personalizado do Azure Stream Analytics
+description: Este artigo descreve os padrões de caminho de DateTime personalizados e os recursos de campo ou atributos personalizados para a saída de armazenamento de BLOBs de tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090794"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746528"
 ---
-# <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Saída de armazenamento (pré-visualização) de blob de padrões de caminho de DateTime personalizadas para o Azure Stream Analytics
+# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Criação de partições (pré-visualização) de saída do blob de personalizado do Azure Stream Analytics
 
-O Azure Stream Analytics suporta datas personalizadas e especificadores de formato de tempo no caminho de ficheiro para saídas de armazenamento de Blobs. Padrões de caminho de DateTime personalizadas permitem-lhe especificar um formato de saída que se alinha com convenções de ramo de registo de transmissão em fluxo, oferecendo a capacidade de enviar dados para o Azure HDInsight e o Azure Databricks para processar downstream de Azure Stream Analytics. Padrões de caminho de DateTime personalizados facilmente são implementados usando o `datetime` palavra-chave no campo de prefixo do caminho do seu blob de saída, juntamente com o especificador de formato. Por exemplo, `{datetime:yyyy}`.
+O Azure Stream Analytics suporta a criação de partições com campos personalizados ou atributos e DateTime personalizadas padrões de caminho de saída de blob personalizado. 
+
+## <a name="custom-field-or-attributes"></a>Campo personalizado ou atributos
+
+Campo personalizado ou atributos de entrada melhoram downstream processamento de dados e relatórios de fluxos de trabalho, permitindo mais controle sobre a saída.
+
+### <a name="partition-key-options"></a>Opções de chave de partição
+
+A chave de partição ou o nome de coluna, utilizado para particionar os dados de entrada pode conter carateres alfanuméricos, hífenes, carateres de sublinhado e espaços. Não é possível usar campos aninhados como uma chave de partição, a menos que utilizado em conjunto com aliases.
+
+### <a name="example"></a>Exemplo
+
+Suponha que uma tarefa leva dados de entrada de sessões de utilizador em direto ligados a um serviço externo de vídeo de jogo em que os dados ingeridos contém uma coluna **client_id** para identificar as sessões. Para particionar os dados por **client_id**, defina o campo de padrão do caminho de Blob para incluir um token de partição **{client_id}** nas propriedades de saída do blob durante a criação de uma tarefa. Como os dados com vários **client_id** valores fluem através de tarefa do Stream Analytics, os dados de saída são guardados em pastas separadas com base num único **client_id** valor por pasta.
+
+![Padrão do caminho com o id de cliente](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+
+Da mesma forma, se a tarefa de entrada foi dados de sensores de milhões de sensores em que cada sensor tinha uma **sensor_id**, o padrão de caminho seria **{sensor_id}** para particionar cada dados de sensor para pastas diferentes.  
+
+
+Arquivo usado para que a solicitação com a API REST, a secção de saída de um JSON pode ser semelhante ao seguinte:  
+
+![Saída de REST API](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+
+Assim que a tarefa é iniciada em execução, o *clientes* contentor pode ser semelhante ao seguinte:  
+
+![Contentor de clientes](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+
+Cada pasta pode conter vários blobs em que cada blob contém um ou mais registos. No exemplo acima, há um único blob numa pasta assinaladas como "06000000" com o seguinte conteúdo:
+
+![Conteúdo do blob](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+
+Tenha em atenção que cada registo no blob tem um **client_id** nome da coluna correspondente na pasta, desde que a coluna utilizada para particionar a saída no caminho de saída foi **client_id**.
+
+### <a name="limitations"></a>Limitações
+
+1. Apenas uma chave de partição personalizada é permitida na propriedade de saída do blob de padrão do caminho. Todos os seguintes padrões de caminho são válidos:
+
+   * cluster1/{date}/{aFieldInMyData}  
+   * cluster1/{time}/{aFieldInMyData}  
+   * cluster1/{aFieldInMyData}  
+   * cluster1/{date}/{time}/{aFieldInMyData}  
+
+2. As chaves de partição diferenciam maiúsculas de minúsculas, pelo que as chaves de partição, como "John" e "João" são equivalentes. Além disso, expressões não podem ser utilizadas como chaves de partição. Por exemplo, **{ferramenta + columnB}** não funciona.  
+
+3. Quando um fluxo de entrada é composta por registos com uma cardinalidade de chave de partição em 8000, os registos serão acrescentados a blobs existentes e apenas criar novos blobs quando necessário. Se a cardinalidade é efetuada através de 8000 não existe nenhuma garantia existente blobs de escrita e novos blobs não serão criados para um número arbitrário de registos com a mesma chave de partição.  
+
+## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizadas
+
+Padrões de caminho de DateTime personalizadas permitem-lhe especificar um formato de saída que se alinha com convenções de ramo de registo de transmissão em fluxo, oferecendo a capacidade de enviar dados para o Azure HDInsight e o Azure Databricks para processar downstream de Azure Stream Analytics. Padrões de caminho de DateTime personalizados facilmente são implementados usando o `datetime` palavra-chave no campo de prefixo do caminho do seu blob de saída, juntamente com o especificador de formato. Por exemplo, `{datetime:yyyy}`.
 
 Utilize esta ligação para [Portal do Azure](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) para ativar/desativar o sinalizador de funcionalidade que permite que os padrões de caminho de DateTime personalizados para a pré-visualização de saída de armazenamento de Blobs. Esta funcionalidade será ativada em breve no portal do principal.
 
-## <a name="supported-tokens"></a>Tokens suportados
+### <a name="supported-tokens"></a>Tokens suportados
 
 Os tokens de especificador de formato seguinte podem ser usados individualmente ou em combinação para alcançar os formatos de DateTime personalizados:
 
@@ -42,7 +90,7 @@ Se não pretender utilizar padrões de DateTime personalizadas, pode adicionar a
 
 ![Formatos de DateTime antigos do Stream Analytics](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-## <a name="extensibility-and-restrictions"></a>Extensibilidade e restrições
+### <a name="extensibility-and-restrictions"></a>Extensibilidade e restrições
 
 Pode utilizar os tokens, `{datetime:<specifier>}`, conforme desejar no padrão de caminho, até atingir o limite de carateres de prefixo do caminho. Especificadores de formato não podem ser combinados num único token para além das combinações já listadas pelas listas pendentes de data e hora. 
 
@@ -54,7 +102,7 @@ Para uma partição de caminho de `logs/MM/dd`:
 
 Pode utilizar o mesmo especificador de formato várias vezes no prefixo do caminho. O token deve ser repetido a cada vez.
 
-## <a name="hive-streaming-conventions"></a>Convenções de transmissão em fluxo do ramo de registo
+### <a name="hive-streaming-conventions"></a>Convenções de transmissão em fluxo do ramo de registo
 
 Padrões de caminho personalizado para o armazenamento de BLOBs podem ser utilizadas com a Convenção de ramo de registo de transmissão em fluxo, que espera pastas para ser rotulados com `column=` no nome da pasta.
 

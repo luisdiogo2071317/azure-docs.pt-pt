@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 6ebef74cee6f919fe6b8cf666db06e0ab22cec73
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566929"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755157"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligar à base de dados SQL com C e C++
 
@@ -40,7 +40,7 @@ O Azure tem atualmente duas opções para alojar cargas de trabalho do SQL serve
 Ligar-se a BD SQL do Azure não é diferente e, atualmente, existem duas formas de ligar a bases de dados: ODBC (Open Database connectivity) e OLE DB (objeto de ligação e incorporar da base de dados). Nos últimos anos, a Microsoft tem alinhado com [ODBC para acesso a dados relacionais](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC é relativamente simples e também muito mais rápida do que o OLE DB. A única limitação aqui é que o ODBC a usar uma antiga API em estilo C.
 
 ## <a id="Create"></a>Passo 1:  Criar base de dados SQL do Azure
-Consulte a [página de introdução](sql-database-get-started-portal.md) para saber como criar uma base de dados de exemplo.  Em alternativa, pode seguir esta [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar uma base de dados SQL do Azure no portal do Azure.
+Consulte a [página de introdução](sql-database-single-database-get-started.md) para saber como criar uma base de dados de exemplo.  Em alternativa, pode seguir esta [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar uma base de dados SQL do Azure no portal do Azure.
 
 ## <a id="ConnectionString"></a>Passo 2:  Obter cadeia de ligação
 Depois de ter sido aprovisionado a sua base de dados SQL do Azure, terá de realizar os passos seguintes para determinar as informações de ligação e adicione o IP de cliente para acesso de firewall.

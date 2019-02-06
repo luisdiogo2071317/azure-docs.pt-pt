@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353044"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756500"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à Internet através do gateway do Log Analytics
+
+>[!NOTE]
+>Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, o gateway do OMS será referido como o gateway do Log Analytics. 
+>
+
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o gateway do Log Analytics quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O gateway do Log Analytics, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  
 
 O gateway do Log Analytics suporta:
@@ -146,7 +151,7 @@ Para compreender os requisitos e passos sobre como instalar o agente Log Analyti
 
 Depois de instalar o agente no servidor de gateway, pode configurá-lo para reportar para a área de trabalho ou falar com o gateway de agentes de áreas de trabalho. Se o agente do Windows do Log Analytics não está instalado no gateway, o evento 300 é escrito para o **registo de Gateway de OMS** registo de eventos que indica que o agente tem de ser instalado. Se o agente estiver instalado, mas não configurado para reportar a mesma área de trabalho que os agentes comunicar através do mesmo, o evento 105 é escrito para o mesmo registo de eventos, informando que o agente no gateway tem de ser configurados para reportar a mesma área de trabalho que os agentes conversando com t gateway de he.
 
-Depois de concluir a configuração, tem de reiniciar o **Gateway de OMS** serviço para que as alterações entrem em vigor. Caso contrário, o gateway irão rejeitar agentes a tentar comunicar com o Log Analytics e o relatório de id de evento 105 no **registo de Gateway de OMS** registo de eventos. Isso também se aplica ao adicionar ou remover uma área de trabalho a partir da configuração de agente no servidor de gateway.   
+Depois de concluir a configuração, tem de reiniciar o **Gateway de OMS** serviço para que as alterações entrem em vigor. Caso contrário, o gateway irão rejeitar agentes a tentar comunicar com o Log Analytics e o relatório de evento ID 105 na **registo de Gateway de OMS** registo de eventos. Isso também se aplica ao adicionar ou remover uma área de trabalho a partir da configuração de agente no servidor de gateway.   
 
 Para informações relacionadas com o Runbook Worker do Automation híbrida, veja [implementar a função de trabalho de Runbook do híbrida](../../automation/automation-hybrid-runbook-worker.md).
 

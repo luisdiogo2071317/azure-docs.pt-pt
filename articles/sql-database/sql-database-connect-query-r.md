@@ -12,14 +12,14 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fb45d5fe549966dbf1635ee23447f90080bbb627
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725748"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751298"
 ---
-# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início Rápido: Utilizar o Machine Learning Services (com R) na Base de Dados SQL do Azure (pré-visualização)
+# <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início rápido: Utilizar o Machine Learning Services (com R) na base de dados do Azure SQL (pré-visualização)
 
 Este artigo explica-lhe como pode utilizar a pré-visualização pública do Machine Learning Services (com R) na Base de Dados SQL do Azure. Orienta-o pelas noções básicas da movimentação de dados entre uma base de dados SQL e R. Também lhe explica como encapsular código R bem formatado no procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para compilar, preparar e utilizar modelos de machine learning numa base de dados SQL.
 
@@ -47,7 +47,7 @@ Pode ligar à Base de Dados SQL e executar os scripts R com qualquer ferramenta 
 
 No exercício [adicionar um pacote](#add-package), também terá de instalar o [R](https://www.r-project.org/) e o [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) no computador local.
 
-Este guia de início rápido também necessita que configure uma regra de firewall ao nível do servidor. Para ver um guia de início rápido que mostre como fazer isto, veja [Criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
+Este guia de início rápido também necessita que configure uma regra de firewall ao nível do servidor. Para ver um guia de início rápido que mostre como fazer isto, veja [Criar regra de firewall ao nível do servidor](sql-database-server-level-firewall-rule.md).
 
 ## <a name="different-from-sql-server"></a>Diferente do SQL Server
 
@@ -293,7 +293,7 @@ Pode utilizar R para preparar um modelo e guardá-lo numa tabela na Base de Dado
     - Forneça os dados de entrada que vão ser utilizados na preparação do modelo.
 
     > [!TIP]
-    > Se precisar de fazer uma revisão dos modelos lineares, recomendamos o tutorial [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) (Ajustar Modelos Lineares), que descreve o processo de ajustar modelos mediante a utilização de rxLinMod.
+    > Se precisar de relembrar alguns aspetos sobre os modelos de lineares, recomendamos neste tutorial, que descreve o processo de que se ajusta a um modelo usando rxLinMod: [Que se ajusta modelos Linear](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
     Para compilar o modelo, defina a fórmula dentro do código R e transmita os dados como parâmetro de entrada.
 
@@ -533,6 +533,6 @@ Se precisar de utilizar um pacote que ainda não esteja instalado na sua Base de
 Para obter mais informações sobre o Machine Learning Services, veja os artigos abaixo sobre o Machine Learning Services para SQL Server. Embora os artigos digam respeito ao SQL Server, a maioria das informações também se aplicam ao Machine Learning Services (com R) na Base de Dados SQL do Azure.
 
 - [Serviços de Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Learn in-database analytics using R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Tutorial: Aprender o que são as análises na base de dados com R no SQL Server)
+- [Tutorial: Aprenda a análise de na base de dados com o R no SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Instruções completas de ciência de dados para R e SQL Server)
-- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages) (Tutorial: Utilizar funções RevoScaleR com dados do SQL Server)
+- [Tutorial: Utilizar funções de RevoScaleR R com dados do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

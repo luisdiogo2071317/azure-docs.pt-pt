@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 77dda85c920fda90b8379445a79569413b2dd463
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691510"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745594"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -318,22 +318,30 @@ Ao implementar o modelo através do portal, o texto que fornecer na descrição 
 
 ![Mostrar a sugestão de parâmetro](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-Para **recursos**, adicione um `comments` elemento.
+Para **recursos**, adicione um `comments` elemento ou um objeto de metadados. O exemplo seguinte mostra um elemento de comentários e um objeto de metadados.
 
 ```json
 "resources": [
-    {
-      "comments": "Storage account used to store VM disks",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2018-07-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "Storage",
-      "properties": {}
+  {
+    "comments": "Storage account used to store VM disks",
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "location": "[parameters('location')]",
+    "metadata": {
+      "comments": "These tags are needed for policy compliance."
     },
+    "tags": {
+      "Dept": "[parameters('deptName')]",
+      "Environment": "[parameters('environment')]"
+    },
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {}
+  }
+]
 ```
 
 Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. Gestor de recursos ignora o objeto, mas o seu editor de JSON pode avisá-lo que a propriedade não é válida. O objeto, defina as propriedades que precisa.
@@ -363,14 +371,27 @@ Para **produz**, adicionar um objeto de metadados para o valor de saída.
 
 Não é possível adicionar um objeto de metadados para as funções definidas pelo utilizador.
 
-Para comentários gerais, pode usar `//` , mas essa sintaxe causa um erro ao implementar o modelo com a CLI do Azure.
+Para comentários embutidos, pode usar `//` mas essa sintaxe não funciona com todas as ferramentas. Não é possível utilizar a CLI do Azure para implementar o modelo com comentários embutidos. E, não é possível utilizar o editor de modelos de portal para trabalhar em modelos com comentários embutidos. Se adicionar esse estilo de comentário, certifique-se as ferramentas que utiliza o suporte inline JSON comentários.
 
 ```json
-"variables": {
-    // Create unique name for the storage account
-    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ // storage account and network interface must be deployed first
+      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
 ```
+
+No VS Code, pode definir o modo de idioma para JSON com comentários. Os comentários de inline já não estão marcados como inválidos. Para alterar o modo:
+
+1. Abra a seleção do modo de idioma (Ctrl + K M)
+
+1. Selecione **JSON com comentários**.
+
+   ![Selecione o modo de idioma](./media/resource-group-authoring-templates/select-json-comments.png)
 
 ## <a name="template-limits"></a>Limites do modelo
 
@@ -393,4 +414,4 @@ Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter
 * Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para obter recomendações sobre a criação de modelos, veja [práticas recomendadas do modelo do Azure Resource Manager](template-best-practices.md).
-* Para obter recomendações sobre como criar modelos do Resource Manager que pode utilizar no Azure global, em clouds soberanas do Azure e no Azure Stack, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).
+* Para obter recomendações sobre como criar modelos do Resource Manager que pode ser usado em todos os ambientes do Azure e Azure Stack, veja [modelos de desenvolver o Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).

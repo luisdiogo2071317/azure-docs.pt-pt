@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686386"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746919"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais com um modelo Azure Resource Manager 
 
@@ -47,7 +47,7 @@ O restante deste artigo aborda os modelos do Resource Manager que utilizam Micro
 [Melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferece muitas orientações e sugestões para ajudar a criar modelos Azure Resource Manager que são confiáveis e fáceis de usar.
 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Ver e guardar o modelo do Resource Manager de uma máquina virtual
-1. Siga os passos indicados em [criar a sua primeira VM num laboratório](devtest-lab-create-first-vm.md) para começar a criar uma máquina virtual.
+1. Siga os passos indicados em [criar a sua primeira VM num laboratório](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) para começar a criar uma máquina virtual.
 1. Introduza as informações necessárias para a máquina virtual e adicione quaisquer artefactos de que pretende para esta VM.
 1. Na parte inferior da janela configurar as definições, escolha **modelo de ARM de vista**.
 

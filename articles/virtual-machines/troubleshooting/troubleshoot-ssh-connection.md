@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d84881d4c86fd91fce430956705791097e200937
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100279"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753423"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de ligações SSH para uma VM do Linux do Azure que falhar, erros de saída, ou for recusada
 Este artigo ajuda-o a encontrar e corrigir os problemas que ocorrem devido a erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusado ao tentar ligar a uma máquina virtual (VM) do Linux. Pode utilizar o portal do Azure, CLI do Azure, ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -78,20 +78,20 @@ Uso [fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-por
 Utilizar o observador de rede [do próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de utilizar rotas efetivas para resolver problemas da VM](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
-Se ainda não o fez, instale a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index#az_login).
+Se ainda não o fez, instale a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e iniciar sessão no Azure através da conta [início de sessão az](/cli/azure/reference-index).
 
 Se criou e carregou uma imagem de disco personalizada do Linux, certifique-se de que o [o agente Linux do Microsoft Azure](../extensions/agent-windows.md) versão 2.0.5 ou posterior está instalado. Para as VMs criadas com imagens da galeria, esta extensão de acesso já está instalado e configurado para si.
 
 ### <a name="reset-ssh-configuration"></a>Repor configuração SSH
 Pode inicialmente tentar repor a configuração de SSH para os valores predefinidos e reiniciar o servidor SSH na VM. Isso não altera o nome de conta de utilizador, palavra-passe ou chaves SSH.
-O exemplo seguinte utiliza [pt vm utilizador reposição-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) reposição da configuração de SSH na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [pt vm utilizador reposição-ssh](/cli/azure/vm/user) reposição da configuração de SSH na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Repor as credenciais SSH para um utilizador
-O exemplo seguinte utiliza [atualização do utilizador az vm](/cli/azure/vm/user#az_vm_user_update) para repor as credenciais dos `myUsername` para o valor especificado na `myPassword`, na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [atualização do utilizador az vm](/cli/azure/vm/user) para repor as credenciais dos `myUsername` para o valor especificado na `myPassword`, na VM com o nome `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -117,7 +117,7 @@ Crie um ficheiro denominado `settings.json` com o seguinte conteúdo:
 }
 ```
 
-Utilizar a CLI do Azure, em seguida, chame o `VMAccessForLinux` extensão para repor a sua ligação de SSHD ao especificar o ficheiro json. O exemplo seguinte utiliza [conjunto de extensão az vm](/cli/azure/vm/extension#az_vm_extension_set) SSHD na VM com o nome de repor `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+Utilizar a CLI do Azure, em seguida, chame o `VMAccessForLinux` extensão para repor a sua ligação de SSHD ao especificar o ficheiro json. O exemplo seguinte utiliza [conjunto de extensão az vm](/cli/azure/vm/extension) SSHD na VM com o nome de repor `myVM` no `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -191,7 +191,7 @@ Para reiniciar uma VM com o portal do Azure, selecione a sua VM e, em seguida, s
 ![Reiniciar uma VM no portal do Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
-O exemplo seguinte utiliza [reinício da vm az](/cli/azure/vm#az_vm_restart) para reiniciar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+O exemplo seguinte utiliza [reinício da vm az](/cli/azure/vm) para reiniciar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -218,7 +218,7 @@ Para Reimplementar uma VM com o portal do Azure, selecione a sua VM e desloque p
 ![Reimplementar uma VM no portal do Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
-A utilização de exemplo seguintes [reimplementação da vm de az](/cli/azure/vm#az_vm_redeploy) para voltar a implementar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
+A utilização de exemplo seguintes [reimplementação da vm de az](/cli/azure/vm) para voltar a implementar a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`. Utilize os seus próprios valores da seguinte forma:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

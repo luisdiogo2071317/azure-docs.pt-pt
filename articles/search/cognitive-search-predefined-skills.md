@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf840dc00f36ee19f2e76ead6e61ae2377b97167
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203696"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749123"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competências predefinidas para melhoria do conteúdo (Azure Search)
 
@@ -28,7 +28,7 @@ Neste artigo, ficará a conhecer as capacidades cognitivas fornecidas com o Azur
 
 ## <a name="predefined-skills"></a>Competências predefinidas
 
-Várias habilidades são flexíveis o que consomem ou produzir. Em geral, a maioria das habilidades são baseadas em modelos com formação prévia, o que significa que não é possível preparar o modelo de utilizar os seus próprios dados de treinamento. Para obter orientações sobre como criar uma habilidade personalizada, veja [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md). A tabela seguinte enumera e descreve as capacidades fornecidas pela Microsoft. 
+Várias habilidades são flexíveis o que consomem ou produzir. Em geral, a maioria das habilidades são baseadas em modelos com formação prévia, o que significa que não é possível preparar o modelo de utilizar os seus próprios dados de treinamento. A tabela seguinte enumera e descreve as capacidades fornecidas pela Microsoft. 
 
 | Habilidades | Descrição |
 |-------|-------------|
@@ -41,6 +41,10 @@ Várias habilidades são flexíveis o que consomem ou produzir. Em geral, a maio
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Essa habilidade usa um algoritmo de deteção de imagem para identificar o conteúdo de uma imagem e gerar uma descrição de texto. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Reconhecimento ótico de carateres. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Mapas de saída para um tipo complexo (com várias partes tipo de dados, que pode ser utilizado para um nome completo, um endereço com várias linha ou uma combinação de apelido e um identificador pessoal.) |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Permite a extensibilidade do pipeline de pesquisa cognitiva, fazendo uma chamada HTTP para uma API Web personalizada |
+
+
+Para obter orientações sobre como criar uma [competências personalizadas](cognitive-search-custom-skill-web-api.md), consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
 
 ## <a name="see-also"></a>Consulte também
 

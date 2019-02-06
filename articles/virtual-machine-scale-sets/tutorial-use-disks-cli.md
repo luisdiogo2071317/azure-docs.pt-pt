@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163063"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751162"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e utilizar discos com o conjunto com a CLI do Azure de dimensionamento de máquina virtual
 Os conjuntos de dimensionamento de máquinas virtuais utilizam discos para armazenar o sistema operativo, as aplicações e os dados da instância de VM. Ao criar e gerir um conjunto de dimensionamento, é importante escolher um tamanho de disco e a configuração adequados para a carga de trabalho esperada. Este tutorial abrange como criar e gerir discos de VM. Neste tutorial, ficará a saber como:
@@ -48,7 +48,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 **Disco temporário** – os discos temporários utilizam uma unidade de estado sólido que está localizada no mesmo anfitrião do Azure da instância de VM. São discos de elevado desempenho e podem ser utilizados para operações como o processamento de dados temporários. No entanto, se a instância de VM for movida para um novo anfitrião, todos os dados armazenados num disco temporário são removidos. O tamanho do disco temporário é determinado pelo tamanho da instância de VM. Os discos temporários estão identificados como */dev/sdb* e têm um ponto de montagem de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamanhos dos discos temporários
-| Tipo | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
+| Type | Tamanhos comuns | Tamanho máximo de disco temporário (GiB) |
 |----|----|----|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 1600 |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
@@ -62,7 +62,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, são anexados a
 Podem ser adicionados mais discos de dados se precisar de instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. Cada disco de dados tem a capacidade máxima de 4 TB. O tamanho da instância de VM determina quantos discos de dados podem ser anexados. Para cada vCPU de VM, podem ser expostos dois discos de dados.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de dados máximos por VM
-| Tipo | Tamanhos comuns | Discos de dados máximos por VM |
+| Type | Tamanhos comuns | Discos de dados máximos por VM |
 |----|----|----|
 | [Fins gerais](../virtual-machines/linux/sizes-general.md) | Séries A, B e D | 64 |
 | [Com otimização de computação](../virtual-machines/linux/sizes-compute.md) | Série F | 64 |
@@ -95,13 +95,13 @@ Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elev
 Pode criar e anexar discos quando criar um conjunto de dimensionamento ou com um conjunto de dimensionamento existente.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anexar discos durante a criação do conjunto de dimensionamento
-Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*.
+Primeiro, crie um grupo de recursos com o comando [az group create](/cli/azure/group). Neste exemplo, é criado um grupo de recursos chamado *myResourceGroup* na região *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss#az_vmss_create). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* e gera chaves SSH, caso não existam. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
+Crie um conjunto de dimensionamento de máquinas virtuais com o comando [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto nomeado de dimensionamento *myScaleSet* e gera chaves SSH, caso não existam. São criados dois discos com o parâmetro `--data-disk-sizes-gb`. O primeiro disco tem *64* GB de tamanho e o segundo disco tem *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 A criação e configuração de todas as instâncias de VM e recursos do conjunto de dimensionamento demora alguns minutos.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>Anexar um disco a um conjunto de dimensionamento existente
-Também pode anexar discos a um conjunto de dimensionamento existente. Utilize o conjunto de dimensionamento criado no passo anterior para adicionar outro disco com [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). O exemplo seguinte anexa um disco de *128* GB adicional:
+Também pode anexar discos a um conjunto de dimensionamento existente. Utilize o conjunto de dimensionamento criado no passo anterior para adicionar outro disco com [az vmss disk attach](/cli/azure/vmss/disk). O exemplo seguinte anexa um disco de *128* GB adicional:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-Para confirmar que os discos foram preparados corretamente, utilize o SSH numa das instâncias de VM. Liste as informações de ligação do seu conjunto de dimensionamento com [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Para confirmar que os discos foram preparados corretamente, utilize o SSH numa das instâncias de VM. Liste as informações de ligação do seu conjunto de dimensionamento com [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>Listar os discos anexados
-Para ver informações sobre os discos anexados a um conjunto de dimensionamento, utilize [az vmss show](/cli/azure/vmss#az_vmss_show) e consulte em *virtualMachineProfile.storageProfile.dataDisks*:
+Para ver informações sobre os discos anexados a um conjunto de dimensionamento, utilize [az vmss show](/cli/azure/vmss) e consulte em *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ São apresentadas informações sobre o tamanho do disco, a camada de armazename
 
 
 ## <a name="detach-a-disk"></a>Desligar um disco
-Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss#az_vmss_show) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
+Quando já não precisar de um determinado disco, pode desanexá-lo do conjunto de dimensionamento. O disco é removido de todas as instâncias de VM no conjunto de dimensionamento. Para desanexar um disco de um conjunto de dimensionamento, utilize [az vmss disk detach](/cli/azure/vmss/disk) e especifique o LUN do disco. Os LUNs são apresentados no resultado de [az vmss show](/cli/azure/vmss) na secção anterior. O exemplo seguinte desanexa o LUN *2* do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de dimensionamento e os discos, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group#az_group_delete). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
+Para remover o seu conjunto de dimensionamento e os discos, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

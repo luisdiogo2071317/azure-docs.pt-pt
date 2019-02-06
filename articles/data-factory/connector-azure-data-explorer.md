@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: orspod
-ms.openlocfilehash: f492878ffcb888560d2aed269608950927cebd43
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55570043"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747193"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 
@@ -50,7 +50,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Explorador d
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade deve ser definida **AzureDataExplorer** | Sim |
-| endpoint | URL de ponto final do cluster do Azure Data Explorer, com o formato como `https://<clusterName>.kusto.windows.net`. | Sim |
+| endpoint | URL de ponto final do cluster do Azure Data Explorer, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net `. | Sim |
 | base de dados | Nome da base de dados. | Sim |
 | inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-lo passando o Mouse com o mouse no canto superior direito do portal do Azure. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
@@ -64,7 +64,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Explorador d
     "properties": {
         "type": "AzureDataExplorer",
         "typeProperties": {
-            "endpoint": "https://<clusterName>.kusto.windows.net",
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
             "database": "<database name>",
             "tenant": "<tenant name/id e.g. microsoft.onmicrosoft.com>",
             "servicePrincipalId": "<service principal id>",
@@ -119,8 +119,8 @@ Para copiar dados a partir do Explorador de dados do Azure, defina o **tipo** pr
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como: **AzureDataExplorerSource** | Sim |
-| consulta | Utilize a consulta KQL personalizada para ler os dados. | Sim |
-| queryTimeout | Especifique o tempo de espera antes do pedido de consulta exceder o tempo limite. Valor predefinido é 10 minutos (00: 10:00); permitido valor máximo é de 1 hora (01: 00:00). | Não |
+| consulta | Um pedido de só de leitura fornecido num [formato KQL](/azure/kusto/query/). Utilize a consulta KQL personalizada como uma referência. | Sim |
+| queryTimeout | O tempo de espera antes do pedido de consulta exceder o tempo limite. Valor predefinido é 10 minutos (00: 10:00); permitido valor máximo é de 1 hora (01: 00:00). | Não |
 
 **Exemplo:**
 
@@ -162,7 +162,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como: **AzureDataExplorerSink** | Sim |
-| ingestionMappingName | Nome da [mapeamento de csv](/azure/kusto/management/mappings#csv-mapping) na tabela. Para mapear as colunas de origem para explorar os dados do Azure, também pode utilizar a atividade de cópia [mapeamento de colunas](copy-activity-schema-and-type-mapping.md). | Não |
+| ingestionMappingName | Nome de uma pré-criada [mapeamento de csv](/azure/kusto/management/mappings#csv-mapping) numa tabela de Kusto. Para mapear as colunas de origem para explorar os dados do Azure, também pode utilizar a atividade de cópia [mapeamento de colunas](copy-activity-schema-and-type-mapping.md). | Não |
 
 **Exemplo:**
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2200b869bc2f4614b67fbea3751827bb802f3c7d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8f8884f903108deae673d030f8fd2ee1d0d9f982
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510277"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745457"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -26,9 +26,10 @@ Poupe dinheiro com a base de dados do Azure SQL ao prepaying para recursos de co
 Não é necessário atribuir a reserva a instâncias de base de dados SQL. Correspondência de instâncias de base de dados SQL, que já estão em execução ou aqueles que são implementados recentemente, obtém automaticamente o benefício. Ao comprar uma reserva, está a pagar previamente os custos de computação para as instâncias de base de dados SQL durante um período de um ou três anos. Assim que adquirir uma reserva, a base de dados de SQL, os custos de computação que correspondem os atributos de reserva já não são cobrados a pay as you go taxas. Uma reserva não abrange os custos de software, armazenamento ou nas redes associados à instância de base de dados SQL. No final do período de reserva, expira o benefício de faturação e as bases de dados do SQL são cobrados ao pay as you acedo preço. As reservas não de renovação automática. Para obter informações sobre preços, consulte a [base de dados SQL reservadas oferta de capacidade](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 Pode adquirir capacidade de base de dados do SQL Azure reservado [portal do Azure](https://portal.azure.com). Base de dados SQL de comprar capacidade de reserva:
+
 - Tem de estar na função de proprietário para, pelo menos, uma empresa ou uma subscrição pay as you go.
-- Para subscrições Enterprise, compras de reserva do Azure tem de estar ativadas no [portal EA](https://ea.azure.com).
--  Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar capacidade de base de dados de SQL reservadas.
+- Para subscrições Enterprise, **adicionar as instâncias reservadas** tem de estar ativada no [portal EA](https://ea.azure.com). Em alternativa, se essa definição estiver desativada, tem de ser um administrador de EA da subscrição.
+- Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar capacidade de base de dados de SQL reservadas.
 
 Os detalhes sobre como são cobrados os clientes empresariais e os clientes de pay as you go para compras de reserva, consulte [utilização de reserva de compreender o Azure da sua inscrição de Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md) e [reserva de compreender o Azure utilização para a sua subscrição pay as you go](../billing/billing-understand-reserved-instance-usage.md).
 
@@ -50,8 +51,8 @@ Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 
     | Campo      | Descrição|
     |:------------|:--------------|
     |Name        |O nome desta reserva.| 
-    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade de base de dados de SQL reservadas. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva de capacidade de base de dados de SQL reservadas. O tipo de subscrição tem de ser um contrato enterprise (número da oferta: MS-AZR-0017P) ou pay as you go (número da oferta: MS-AZR-0003P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
-    |Âmbito       |Âmbito da reserva de vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva de vCore é aplicada às instâncias de base de dados SQL nesta subscrição. </li><li>O desconto de reserva de vCore partilhado - é aplicado às instâncias de base de dados SQL em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de desenvolvimento/teste) na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
+    |Subscrição|A subscrição utilizada para pagar a reserva de capacidade de base de dados de SQL reservadas. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva de capacidade de base de dados de SQL reservadas. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR - 0023 P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
+    |Âmbito       |Âmbito da reserva de vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva de vCore é aplicada às instâncias de base de dados SQL nesta subscrição. </li><li>O desconto de reserva de vCore partilhado - é aplicado às instâncias de base de dados SQL em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
     |Região      |A região do Azure que é abrangida por base de dados SQL reservado reserva de capacidade.|    
     |Tipo de Implementação|O tipo de recurso SQL que deseja comprar a reserva para.|
     |Escalão de Desempenho|A camada de serviços para as instâncias de base de dados SQL.
@@ -66,7 +67,7 @@ Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 
 
 Se precisar de cancelar a sua base de dados de SQL reservadas de reserva de capacidade, pode haver uma taxa de rescisão antecipada de 12%. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos estão limitados a 50 000 $ por ano. O reembolso que receber corresponde ao saldo rateado restante menos a taxa de cessação antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
 
-Se precisar de alterar a sua reserva de capacidade de base de dados de SQL reservadas para outra região, tipo de implementação, o escalão de desempenho ou termo, podem trocá-lo para outro reserva do valor igual ou superior. A data de início do período da nova reserva não transita da reserva trocada. O período de 1 ou 3 anos começa a partir do momento em que cria a nova reserva. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
+Se precisar de alterar a capacidade de reserva da sua Base de Dados SQL para outra região, tipo de implementação, escalão de desempenho ou termo, pode trocá-la por outra reserva de valor igual ou superior. A data de início do período da nova reserva não transita da reserva trocada. O período de 1 ou 3 anos começa a partir do momento em que cria a nova reserva. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade de tamanho de vCore
 

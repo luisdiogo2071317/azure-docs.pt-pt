@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508166"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744661"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -37,6 +37,9 @@ Siga estas diretrizes quando planear a infraestrutura de rede Avere vFXT do seu 
 * Localize os sistemas de computação de clientes próximo vFXT cluster. Armazenamento de back-end pode ser mais remoto.  
 
 * Para simplificar, localize o cluster de vFXT e o controlador de cluster VM na mesma rede virtual (vnet) e no mesmo grupo de recursos. Também devem utilizar a mesma conta de armazenamento. (O controlador de cluster cria o cluster e também pode ser utilizado para gestão de linha de comandos cluster.)  
+
+  > [!NOTE] 
+  > O modelo de criação do cluster pode criar um novo grupo de recursos e uma nova conta de armazenamento para o cluster. Pode especificar um grupo de recursos existente, mas tem de estar vazio.
 
 * O cluster tem de estar localizado na sua própria sub-rede para evitar conflitos de endereços IP com clientes ou os recursos de computação. 
 

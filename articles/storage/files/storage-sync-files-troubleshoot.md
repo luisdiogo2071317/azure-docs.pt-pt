@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c1ac1a0fccc2ac9a428a04a1b15030c489968a3f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563699"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752097"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -538,7 +538,7 @@ Este erro ocorre porque há o alterações na partilha de ficheiros do Azure dir
 | **Cadeia de erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediação necessária** | Sim |
 
-Em casos em que há muitas por erros de sincronização de ficheiros, sessões de sincronização podem começar a falhar. Para resolver problemas neste estado, consulte [resolução de problemas por erros de sincronização de diretório do ficheiro](#troubleshooting-per-file-directory-sync-errors).
+Em casos em que há muitas por erros de sincronização de ficheiros, sessões de sincronização podem começar a falhar. Para resolver problemas neste estado, consulte [resolução de problemas por erros de sincronização de diretório do ficheiro]().
 
 > [!NOTE]
 > O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos.

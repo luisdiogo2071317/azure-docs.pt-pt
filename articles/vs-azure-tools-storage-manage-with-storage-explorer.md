@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: cdfb1e11a2eb468e390546d69617ff4cadd17a7e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658881"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756823"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 
@@ -87,8 +87,8 @@ Além disso, pode trabalhar com contas de armazenamento no Azure global e nacion
 * [Ligar a uma subscrição do Azure](#connect-to-an-azure-subscription): Gerir recursos de armazenamento que pertencem à sua subscrição do Azure.
 * [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage): Gerir o armazenamento local utilizando o emulador de armazenamento do Azure.
 * [Anexar ao armazenamento externo](#attach-or-detach-an-external-storage-account): Gerir recursos de armazenamento que pertencem a outra subscrição do Azure ou que são Clouds nacionais do Azure com o nome, a chave e os pontos finais da conta de armazenamento.
-* [Anexar uma conta de armazenamento com SAS](): Gerir recursos de armazenamento que pertencem a outra subscrição do Azure através de uma assinatura de acesso partilhado (SAS).
-* [Anexar um serviço com SAS](#attach-service-using-sas): Gerir um serviço de armazenamento específico (contentor de blob, fila ou tabela) que pertence a outra subscrição do Azure com SAS.
+* [Anexar uma conta de armazenamento com SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Gerir recursos de armazenamento que pertencem a outra subscrição do Azure através de uma assinatura de acesso partilhado (SAS).
+* [Anexar um serviço com SAS](#attach-a-service-by-using-a-shared-access-signature-sas): Gerir um serviço de armazenamento específico (contentor de blob, fila ou tabela) que pertence a outra subscrição do Azure com SAS.
 * [Ligar a uma conta do Azure Cosmos DB com uma cadeia de ligação](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Gerir conta do Cosmos DB com uma cadeia de ligação.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
@@ -295,7 +295,7 @@ Além disso, gerir contas do Azure Cosmos DB através da subscrição Azure, uma
 
     ![ligar ao Azure Cosmos DB através de uma cadeia de ligação][21]
 
-2. Escolha a API do Azure Cosmos DB, cole sua **cadeia de ligação**e, em seguida, clique em **OK** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como obter a cadeia de ligação, veja [Obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Escolha a API do Azure Cosmos DB, cole sua **cadeia de ligação**e, em seguida, clique em **OK** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como obter a cadeia de ligação, veja [Obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

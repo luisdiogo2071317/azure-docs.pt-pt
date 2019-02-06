@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306340"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750414"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch com a API Python
 
@@ -170,7 +170,7 @@ O número de nós e o tamanho da VM são definidos através de constantes defini
 
 Além das propriedades dos nós físicos, esta configuração de conjuntos inclui um objeto [StartTask](/python/api/azure.batch.models.starttask). O StartTask é executado em cada nó à medida que esse nó se associa ao conjunto, e sempre que um nó for reiniciado. Neste exemplo, o StartTask executa comandos da shell Bash para instalar o pacote ffmpeg e as dependências nos nós.
 
-O método [pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) submete o conjunto para o serviço Batch.
+O método [pool.add](/python/api/azure.batch.operations.pooloperations) submete o conjunto para o serviço Batch.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
+Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `create_job`. Esta função definida utiliza a classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [job.add](/python/api/azure.batch.operations.joboperations) submete o conjunto para o serviço Batch. Inicialmente, o trabalho não tem tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ A aplicação cria tarefas no trabalho com uma chamada para `add_tasks`. Esta fu
 
 O exemplo cria um objeto [OutputFile](/python/api/azure.batch.models.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade `output_files` da tarefa.
 
-Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection), o que as coloca em fila para serem executadas nos nós de computação. 
+Em seguida, a aplicação adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure.batch.operations.taskoperations), o que as coloca em fila para serem executadas nos nós de computação. 
 
 ```python
 tasks = list()

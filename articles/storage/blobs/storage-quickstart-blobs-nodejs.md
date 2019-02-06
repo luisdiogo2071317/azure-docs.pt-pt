@@ -1,23 +1,26 @@
 ---
-title: Como criar um blob no armazenamento do Azure com o SDK node. js v2
+title: Como criar um blob no armazenamento do Azure com a biblioteca de cliente para v2 de node. js
 description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, utilize a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob para o armazenamento do Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: tamram
-ms.openlocfilehash: 6af1a7c1cf140ba8ff4710c0cc90559e3df55135
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734169"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750079"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Como carregar, transferir e listar blobs através de node. js SDK v2
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v2 de node. js
 
-Este guia de procedimentos, irá aprender a utilizar o node. js para carregar, transferir e listar os blobs e gerir contentores com o armazenamento de Blobs do Azure.
+Este guia de procedimentos, irá aprender a utilizar a biblioteca de cliente para v2 de node. js para carregar, transferir e listar os blobs com o armazenamento de Blobs do Azure.
+
+> [!TIP]
+> A versão mais recente da biblioteca de cliente do armazenamento do Azure para node. js é v10. A Microsoft recomenda que utilize a versão mais recente da biblioteca de clientes sempre que possível. Para começar a utilizar com v10, consulte o artigo [início rápido: Carregar, transferir, listar e eliminar blobs com a biblioteca de cliente de armazenamento do Azure para JavaScript v10 (pré-visualização)](storage-quickstart-blobs-nodejs-v10.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +99,7 @@ O objetivo dos módulos é o seguinte:
 
 Ficheiro com o nome *.env* no contexto de execução atual
 - *path* é necessário para determinar o caminho absoluto do ficheiro a carregar no armazenamento de blobs
-- *azure-storage* é o módulo do [SDK do Armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) para o Node.js
+- *armazenamento do Azure* é o [biblioteca de clientes de armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) módulo para node. js
 
 Em seguida, a variável **blobService** é iniciada como uma nova instância do serviço Blob do Azure.
 
@@ -358,4 +361,4 @@ Veja estes recursos adicionais para o desenvolvimento de Node.js com o Armazenam
 Este artigo demonstra como carregar um ficheiro entre um disco local e o armazenamento de Blobs do Azure com node. js. Para saber mais sobre a utilização do armazenamento de blobs, avance para o repositório do GitHub.
 
 > [!div class="nextstepaction"]
-> [SDK de Armazenamento do Azure para o repositório de JavaScript](https://github.com/Azure/azure-storage-node)
+> [Armazenamento do Microsoft Azure SDK para node. js e JavaScript para navegadores](https://github.com/Azure/azure-storage-node)

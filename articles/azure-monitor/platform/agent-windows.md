@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352823"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755046"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
-Para monitorizar e gerir máquinas virtuais ou computadores físicos no seu datacenter local ou outro ambiente de cloud com o Log Analytics, terá de implementar o Microsoft Monitoring Agent (MMA) e configurá-la para reportar a um ou mais áreas de trabalho do Log Analytics.  O agente também suporta a função de trabalho de Runbook híbrida de automatização do Azure.  
+Para monitorizar e gerir máquinas virtuais ou computadores físicos no seu datacenter local ou outro ambiente de cloud com o Log Analytics, terá de implementar o agente do Log Analytics (também referido como o Microsoft Monitoring Agent (MMA)) e configurá-lo para reportar a um ou mais áreas de trabalho do Log Analytics. O agente também suporta a função de trabalho de Runbook híbrida de automatização do Azure.  
 
 Num computador Windows monitorizado, o agente é listado como o serviço Microsoft Monitoring Agent. O serviço Microsoft Monitoring Agent recolhe os eventos de ficheiros de registo e registo de eventos do Windows, dados de desempenho e outra telemetria. Mesmo quando o agente não consegue comunicar com o serviço do Log Analytics que reporta a, o agente continua a ser executado e coloca em fila os dados recolhidos no disco do computador monitorizado. Quando a ligação é restaurada, o serviço Microsoft Monitoring Agent envia os dados recolhidos para o serviço.
 
@@ -36,7 +36,7 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 Para compreender a configuração suportada, consulte [sistemas operativos Windows suportados](log-analytics-agent.md#supported-windows-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
-Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da chave da área de trabalho do Log Analytics.  Estas informações são necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e certifique-se de que pode comunicar com êxito com o Log Analytics no Azure comercial e na cloud do Governo dos EUA.  
+Antes de instalar o agente do Log Analytics para Windows, terá do ID de área de trabalho e a chave para a área de trabalho do Log Analytics.  Estas informações são necessárias durante a configuração de cada método de instalação para configurar corretamente o agente e certifique-se de que pode comunicar com êxito com o Log Analytics no Azure comercial e na cloud do Governo dos EUA.  
 
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na sua lista de áreas de trabalho do Log Analytics, selecione a área de trabalho que tenciona sobre como configurar o agente para reportar a.
@@ -64,7 +64,7 @@ Configurar o .NET Framework 4.6 ou posterior para dar suporte seguro criptografi
 5. Reinicie o sistema para as definições entrem em vigor. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente utilizando o Assistente de configuração
-Os seguintes passos instale e configure o agente do Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o Microsoft Monitoring Agent no seu computador. Se quiser saber como configurar o agente para também reportar a um grupo de gestão do System Center Operations Manager, consulte [implementar o agente do Operations Manager com o Assistente de configuração do agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Os seguintes passos instale e configure o agente do Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o agente no seu computador. Se quiser saber como configurar o agente para também reportar a um grupo de gestão do System Center Operations Manager, consulte [implementar o agente do Operations Manager com o Assistente de configuração do agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. Na área de trabalho do Log Analytics, do **servidores do Windows** página navegada anteriormente, selecionar o **transferir o agente do Windows** versão para transferir consoante a arquitetura de processador do o sistema operativo do Windows.   
 2. Execute a Configuração para instalar o agente no seu computador.
@@ -87,7 +87,7 @@ O ficheiro transferido para o agente é um pacote de instalação autônomo.  O 
 >[!NOTE]
 >Se quiser atualizar um agente, terá de utilizar a API de scripting do Log Analytics. Consulte o tópico [gerir e manter o agente Log Analytics para Windows e Linux](agent-manage.md) para obter mais informações.
 
-A tabela seguinte realça os parâmetros específicos do Log Analytics, suportados pelo programa de configuração para o agente, incluindo quando implementado utilizando o DSC de automatização.
+A tabela seguinte realça os parâmetros específicos suportados pelo programa de configuração para o agente, incluindo quando implementado utilizando o DSC de automatização.
 
 |Opções específicas do MMA                   |Notas         |
 |---------------------------------------|--------------|

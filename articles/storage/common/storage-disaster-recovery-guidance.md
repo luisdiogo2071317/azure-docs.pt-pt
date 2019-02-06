@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc79379d1b893beffc085e79b7643fcb6e1dc26f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657319"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753593"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Após desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure
 
@@ -158,15 +158,11 @@ Discos não geridos são armazenados como blobs de páginas no armazenamento do 
 
 Tenha em atenção que todos os dados armazenados num disco temporário são perdidos quando a VM é encerrada.
 
-#### <a name="azure-file-sync"></a>Azure File Sync
-
-O Azure File Sync suporta a ativação pós-falha de conta. No entanto, terá de reconfigurar todas as definições de sincronização de ficheiros do Azure depois de concluída a ativação pós-falha.
-
 ### <a name="unsupported-features-or-services"></a>Funcionalidades não suportadas ou serviços
-
 Os seguintes recursos ou serviços não são suportados para a ativação pós-falha de conta para a versão de pré-visualização:
 
-- Partilhas de ficheiros hierárquico de geração 2 de armazenamento do Azure Data Lake não é possível efetuar a ativação pós-falha.
+- O Azure File Sync não suporta a ativação pós-falha de conta de armazenamento. Contas de armazenamento que contém as partilhas de ficheiros do Azure a ser utilizadas como pontos finais da cloud no Azure File Sync devem não efetuar a ativação pós-falha. Se o fizer, sincronização causa para parar o trabalho e Maio também causará perda de dados inesperado no caso de ficheiros recentemente em camadas.  
+- Contas de armazenamento com espaço de nomes hierárquico de geração 2 de armazenamento do Azure Data Lake não é possível efetuar a ativação pós-falha.
 - Uma conta de armazenamento que contém blobs arquivados não é possível efetuar a ativação pós-falha. Manter blobs arquivados numa conta de armazenamento separado que não planeja fazer a ativação pós-falha.
 - Uma conta de armazenamento que contém os blobs de blocos de premium não é possível efetuar a ativação pós-falha. Contas de armazenamento que suportam blobs de blocos de premium não suportam atualmente pela georredundância.
 

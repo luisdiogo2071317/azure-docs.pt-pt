@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567955"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750329"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -38,7 +38,7 @@ As recomendações neste documento estão alinhadas com o [pontuação de proteg
 
 ![Pontuação de seguro de identidade](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: proteger contas com privilégios com a MFA
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: Proteger as contas com privilégios com a MFA
 
 Antes de começar esta lista de verificação, certifique-se de que não são comprometidas enquanto estiver lendo esta lista de verificação. Primeiro tem de proteger as suas contas com privilégios.
 
@@ -78,6 +78,9 @@ Se a sua organização utilizar uma solução de identidade híbrida com a auten
 
 Saiba mais sobre como [sincronização de hash de palavra-passe](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) funciona.
 
+> [!NOTE]
+> Se ativar a sincronização de hash de palavra-passe e estiver a utilizar o Azure AD Domain services, hashes de Kerberos (AES 256) e, opcionalmente, hashes NTLM (RC4, sem salt) serão também ser encriptados e sincronizados com o Azure AD. 
+
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementar o bloqueio de extranet inteligente do AD FS
 
 As organizações, que configura as aplicações para autenticar diretamente para o Azure AD se beneficiar [bloqueio inteligente do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Se utilizar o AD FS no Windows Server 2012R2, implementar o AD FS [proteção de bloqueio de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se utilizar o AD FS no Windows Server 2016, implemente [bloqueio de extranet inteligente](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS inteligente Extranet lockout protege contra força bruta ataques, de destino que do AD FS, enquanto impede os utilizadores de que está a ser bloqueada no Active Directory.
@@ -90,13 +93,13 @@ Usando [Hello do Windows](https://docs.microsoft.com/windows/security/identity-p
 
 Tendo em conta a permeabilidade do comprometimento de palavra-passe, minimizar a superfície de ataque da sua organização é fundamental. Eliminar o uso de protocolos mais antigos e menos seguros, limitando a entrada de acesso a pontos e executamos mais significativo controlo de acesso administrativo aos recursos podem ajudar a reduzir a área de superfície de ataque.
 
-### <a name="block-legacy-authentication"></a>Autenticação de legado do bloco
+### <a name="block-legacy-authentication"></a>Bloquear a autenticação legada
 
 Aplicações com seus próprios métodos herdados para autenticar com o Azure AD e aceder aos dados da empresa, representar outro risco para as organizações. Exemplos de aplicações que utilizam autenticação herdada são clientes POP3, IMAP4 ou SMTP. As aplicações de autenticação autenticar em nome do utilizador e impedem que ao fazê-lo advanced avaliações de segurança do Azure AD. A autenticação moderna, alternativa, irá reduzir o risco de segurança, uma vez que suporta a autenticação multifator e acesso condicional. Recomendamos as seguintes três ações:
 
 1. Bloco [antigos de autenticação se utilizar o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Programa de configuração [SharePoint Online e Exchange Online, para utilizar a autenticação moderna](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Uso [políticas de acesso condicional para bloquear antigos de autenticação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Uso [políticas de acesso condicional para bloquear antigos de autenticação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Pontos de entrada de autenticação inválido de bloco
 

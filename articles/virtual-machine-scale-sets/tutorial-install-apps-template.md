@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883998"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750397"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquina virtual com um modelo do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -77,13 +77,13 @@ Para obter um exemplo completo de um modelo do Azure que implementa um conjunto 
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Vamos utilizar o modelo de exemplo para criar um conjunto de dimensionamento e aplicar a Extensão de Script Personalizado. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Vamos utilizar o modelo de exemplo para criar um conjunto de dimensionamento e aplicar a Extensão de Script Personalizado. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Quando lhe for pedido, forneça o seu nome de utilizador e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az group deployment create](/cli/azure/group/deployment). Quando lhe for pedido, forneça o seu nome de utilizador e a palavra-passe que são utilizados como as credenciais para cada instância de VM:
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip#show). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP*, criado como parte do conjunto de dimensionamento:
+Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP*, criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ Para atualizar a definição da Extensão de Script Personalizado, edite o model
 }
 ```
 
-Aplique a configuração da Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento novamente, com [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Este modelo *azuredeployv2.json* é utilizado para aplicar a versão atualizada da aplicação. Na prática, tem de editar o modelo *azuredeploy.json* existente para fazer referência ao script de instalação atualizado, conforme mostrado na secção anterior. Quando lhe for pedido, introduza as mesmas credenciais de nome de utilizador e palavra-passe que utilizou ao criar o conjunto de dimensionamento:
+Aplique a configuração da Extensão de Script Personalizado às instâncias de VM no seu conjunto de dimensionamento novamente, com [az group deployment create](/cli/azure/group/deployment). Este modelo *azuredeployv2.json* é utilizado para aplicar a versão atualizada da aplicação. Na prática, tem de editar o modelo *azuredeploy.json* existente para fazer referência ao script de instalação atualizado, conforme mostrado na secção anterior. Quando lhe for pedido, introduza as mesmas credenciais de nome de utilizador e palavra-passe que utilizou ao criar o conjunto de dimensionamento:
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ Todas as instâncias de VM no conjunto de dimensionamento são automaticamente a
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group#az_group_delete). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
+Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

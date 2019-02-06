@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 79a7aad8cd747c3fdadcd0f7eec12d861f31fcc0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730514"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751944"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -108,7 +108,7 @@ Existem várias técnicas à sua disposição que pode utilizar para a competên
 
 Uma firewall impede o acesso ao seu servidor de uma entidade externa ao permitir apenas acesso de entidades específicas ao seu servidor de base de dados SQL. Por predefinição, todas as ligações e bases de dados contidas no servidor de base de dados SQL não são permitidas, exceto ligações proveniente de outros serviços do Azure. Com uma regra de firewall é possível abrir o acesso ao seu servidor apenas para entidades (por exemplo, uma máquina de programador), aprovar, ao permitir que o endereço IP do computador através da firewall. Ele também permite-lhe especificar um intervalo de IPs que gostaria de permitir o acesso ao servidor de base de dados SQL. Por exemplo, endereços IP de máquinas do programador na sua organização podem ser adicionados ao mesmo tempo, especificando um intervalo na página de definições de Firewall.
 
-Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall ao nível do servidor podem ser criadas através do Azure no portal ou com o SSMS. Para saber mais sobre como configurar um servidor e uma regra de firewall ao nível da base de dados, consulte: [Criar regras de firewall na base de dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
+Pode criar regras de firewall ao nível do servidor ou ao nível da base de dados. Regras de firewall IP ao nível do servidor podem ser criadas através do Azure no portal ou com o SSMS. Para saber mais sobre como definir uma regra de firewall ao nível do servidor e ao nível da base de dados, consulte: [Criar regras de firewall IP na base de dados SQL](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Pontos finais de serviço
 

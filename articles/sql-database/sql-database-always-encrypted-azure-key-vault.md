@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041242"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755667"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre encriptados: Proteger dados confidenciais e armazenar chaves de encriptação no Azure Key Vault
 
@@ -81,7 +81,7 @@ Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obt
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Aceda a **criar um recurso** > **bases de dados** > **base de dados SQL**.
-3. Criar uma **em branco** com o nome da base de dados **clínica** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
+3. Criar uma **em branco** com o nome da base de dados **clínica** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-single-database-get-started.md).
    
     ![Criar uma base de dados vazia](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474790"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749040"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma base de dados do Azure SQL ou a ativação pós-falha para uma secundária
 
@@ -38,7 +38,7 @@ Para saber mais sobre os cenários de continuidade de negócios e os recursos pa
 Para o êxito da recuperação para outra região de dados através de grupos de ativação pós-falha ou cópias de segurança georredundante, tem de preparar um servidor no Centro de dados de outra falha se tornar o novo servidor primário caso seja preciso surgir, bem como tem bem definidos passos documentados e testadas para assegurar uma recuperação sem problemas. Estes passos de preparação incluem:
 
 - Identifica o servidor de base de dados SQL em outra região para se tornar o novo servidor primário. Para o restauro geográfico, isso geralmente é um servidor no [região emparelhada](../best-practices-availability-paired-regions.md) para a região em que se encontra a base de dados. Isso elimina o custo de tráfego adicional durante as operações de restauração de georreplicação.
-- Identifique e definir opcionalmente, as regras de firewall ao nível do servidor necessárias em que os utilizadores acedam a nova base de dados primário.
+- Identifique e definir opcionalmente, as regras de firewall ao nível do servidor IP necessárias em que os utilizadores acedam a nova base de dados primário.
 - Determine como vai redirecionar utilizadores para o novo servidor primário, por exemplo, alterando as cadeias de ligação ou alterando as entradas de DNS.
 - Identifique e, opcionalmente, criar, os inícios de sessão que têm de estar presente na base de dados mestra no novo servidor primário e certifique-se de que estes inícios de sessão tem as permissões adequadas na base de dados mestra, se houver. Para obter mais informações, consulte [segurança da base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md)
 - Identifica as regras de alerta que precisam ser atualizados para mapear para a nova base de dados primário.

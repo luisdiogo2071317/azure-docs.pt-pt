@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ffc724c52fdab01bfbf2846ff06a35f38a57c8eb
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060700"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753934"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Perguntas frequentes sobre máquinas virtuais do Linux
 Este artigo aborda algumas perguntas comuns sobre as máquinas de virtuais de Linux criadas no Azure com o modelo de implementação do Resource Manager. Para a versão do Windows deste tópico, consulte [pergunta mais frequente sobre máquinas de virtuais do Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -31,7 +31,7 @@ Todos os subscritores podem executar software de servidor numa máquina virtual 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode ser até 4 TB (4095 GB). O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Os Managed Disks oferecem dois tipos de opções de armazenamento duráveis: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
+Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferta dois tipos de opções de armazenamento duráveis: Discos geridos Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operativo e qualquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -53,10 +53,10 @@ As duas novas regiões do Canadá Central e leste do Canadá não são automatic
 Sim, isso agora é possível. A VM tem primeiro de ser parada desalocada. Em seguida, pode adicionar ou remover um NIC (a menos que é a última NIC na VM). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Existem quaisquer requisitos de nome de computador?
-Sim. O nome do computador pode ter um máximo de 64 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações em torno de seus recursos de atribuição de nomes.
+Sim. O nome do computador pode ter um máximo de 64 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações em torno de seus recursos de atribuição de nomes.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Existem todos os recursos os requisitos de nome de grupo?
-Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre grupos de recursos.
+Sim. O nome do grupo de recursos pode ter um máximo de 90 carateres de comprimento. Ver [restrições e regras de convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions) para obter mais informações sobre grupos de recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de utilizador, ao criar uma VM?
 
@@ -66,16 +66,16 @@ Não são permitidos nomes de utilizador seguintes:
 
 <table>
     <tr>
-        <td style="text-align:center">Administrador </td><td style="text-align:center"> administrador </td><td style="text-align:center"> Utilizador </td><td style="text-align:center"> Utilizador1</td>
+        <td style="text-align:center">Administrador </td><td style="text-align:center"> admin </td><td style="text-align:center"> Utilizador </td><td style="text-align:center"> Utilizador1</td>
     </tr>
     <tr>
-        <td style="text-align:center">teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> usuário3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
     </tr>
     <tr>
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
     </tr>
     <tr>
         <td style="text-align:center">cópia de segurança </td><td style="text-align:center"> consola </td><td style="text-align:center"> David </td><td style="text-align:center"> convidado</td>
@@ -87,7 +87,7 @@ Não são permitidos nomes de utilizador seguintes:
         <td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys.</td>
     </tr>
     <tr>
-        <td style="text-align:center">TEST2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 
@@ -108,7 +108,7 @@ As palavras-passe seguintes não são permitidas:
         <td style="text-align:center">P@$$w0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">Word $$ de Pa</td>
+        <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>

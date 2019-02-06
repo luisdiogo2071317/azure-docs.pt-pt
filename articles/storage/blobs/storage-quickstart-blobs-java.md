@@ -1,23 +1,26 @@
 ---
-title: Como criar um blob no armazenamento do Azure com o Java SDK de armazenamento v7 | Documentos da Microsoft
+title: Como criar um blob no armazenamento do Azure com a biblioteca de cliente para v7 de Java | Documentos da Microsoft
 description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Em seguida, utilize a biblioteca de cliente de armazenamento do Azure para Java v7 para carregar um blob para o armazenamento do Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 18ba3d70951cd59f59b566c8bfff2403a32e4874
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730464"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753219"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Como carregar, transferir e listar os blobs com o SDK de Java v7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v7 de Java
 
-Este guia de procedimentos, irá aprender a utilizar o Java para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure.
+Este guia de procedimentos, irá aprender a utilizar a biblioteca de cliente para v7 de Java para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure.
+
+> [!TIP]
+> A versão mais recente da biblioteca de cliente do armazenamento do Azure para Java é v10. A Microsoft recomenda que utilize a versão mais recente da biblioteca de clientes sempre que possível. Para começar a utilizar com v10, consulte o artigo [início rápido: Carregar, transferir e listar os blobs ao utilizar a V10 de SDK de armazenamento de Java](storage-quickstart-blobs-java-v10.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 Neste artigo, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Java. Para saber mais sobre como trabalhar com o Java, avance para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java) 
-> [Referência da API](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-> [Exemplos de Código para Java](../common/storage-samples-java.md)
-
-* Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Gerir recursos do armazenamento de Blobs do Azure com o Explorador de Armazenamento).
+> [SDK de armazenamento do Microsoft Azure v10 para Java](https://github.com/azure/azure-storage-java) 
+> [referência da API Java](https://docs.microsoft.com/java/azure/)
+> [exemplos de código para Java](../common/storage-samples-java.md)

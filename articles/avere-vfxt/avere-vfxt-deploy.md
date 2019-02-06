@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f6d847e9042341f47a06fde0f9aa4a70f2549a07
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745440"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -80,7 +80,7 @@ Preencha as seguintes informações:
 
 * **Subscrição** -selecione a subscrição para o vFXT Avere. 
 
-* **Grupo de recursos** - selecione o grupo de recursos para o cluster de vFXT Avere, ou clique em "Criar nova" e introduza um nome de grupo de recursos novo. 
+* **Grupo de recursos** - selecione um grupo de recursos vazio existente para o cluster de vFXT Avere, ou clique em "Criar nova" e introduza um nome de grupo de recursos novo. 
 
 * **Localização** -selecione a localização do Azure para o cluster e recursos.
 

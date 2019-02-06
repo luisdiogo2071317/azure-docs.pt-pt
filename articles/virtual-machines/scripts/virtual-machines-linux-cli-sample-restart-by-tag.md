@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622946"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751145"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -87,12 +87,12 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Cria as máquinas virtuais.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Utilizado com `--query` para garantir que as VMs são aprovisionadas antes de serem reiniciadas e, em seguida, para obter os IDs das VMs para reiniciá-las. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Utilizado com `--query` para obter os IDs das VMs através da etiqueta. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Reinicia as VMs. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Cria as máquinas virtuais.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Utilizado com `--query` para garantir que as VMs são aprovisionadas antes de serem reiniciadas e, em seguida, para obter os IDs das VMs para reiniciá-las. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Utilizado com `--query` para obter os IDs das VMs através da etiqueta. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Reinicia as VMs. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

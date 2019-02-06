@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: d0da7e19934123534bf063deecb5bff584dbc317
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dc1246f8035dbe35ecc35f91f47aeb6caaa9ab8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699287"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750264"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Iniciar sessão nas suas contas com a aplicação Microsoft Authenticator
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
@@ -35,7 +35,7 @@ Antes de poder utilizar a aplicação Microsoft Authenticator, faça o seguinte:
 
  1. Baixe e instale a aplicação Microsoft Authenticator. Se ainda não tiver feito isso ainda, veja [transferir e instalar a aplicação](microsoft-authenticator-app-how-to.md).
 
- 2. Adicione as suas contas escolares/pessoais e de terceiros para a aplicação Microsoft Authenticator. Para obter os passos detalhados, consulte [adicionar a sua conta escolar ou profissional](microsoft-authenticator-app-add-work-account.md), [Adicione suas contas pessoais](microsoft-authenticator-app-add-personal-account.md), e [adicionar as suas contas de não-Microsoft pessoais](microsoft-authenticator-app-add-non-microsoft-account.md).
+ 2. Adicione as suas contas escolares/pessoais e de terceiros para a aplicação Microsoft Authenticator. Para obter os passos detalhados, consulte [adicionar a sua conta escolar ou profissional](microsoft-authenticator-app-add-work-account.md), [Adicione suas contas pessoais](microsoft-authenticator-app-add-personal-account.md), e [adicionar as contas de não-Microsoft](microsoft-authenticator-app-add-non-microsoft-account.md).
 
 ## <a name="turn-on-and-use-phone-sign-in-for-your-work-or-school-account"></a>Ativar e utilizar o início de sessão no telefone para a sua conta escolar ou profissional
 Início de sessão no telefone é um tipo de verificação de dois passos. Ainda tem de verificar sua identidade, fornecendo uma coisa que sabe e uma coisa que tenha, mas permite início de sessão de telefone, ignore a introduzir a palavra-passe de conta e executa todos a verificação de identidade no seu dispositivo móvel.
@@ -113,7 +113,6 @@ Para os passos necessários para iniciar sessão no seu trabalho ou escola ou su
 |**Como parar de utilizar esta funcionalidade e voltar atrás e utilizar a minha palavra-passe?**|Contas pessoais, selecione o **em alternativa, utilize uma palavra-passe** ligação durante o início de sessão. À sua escolha mais recente memorizada e disponibilizada por predefinição na próxima vez que iniciar sessão. Se alguma vez pretender voltar a utilizar o início de sessão no telefone, selecione o **em alternativa, utilize uma aplicação** ligação durante o início de sessão.<br><br>Para contas profissionais ou escolares, tem à sua página de verificação de segurança adicionais (como, por exemplo https://aka.ms/MFASetup) e remover a aplicação Microsoft Authenticator.|
 |**Por que não é possível utilizar mais de uma conta escolar ou profissional para início de sessão no telefone?**| Um telefone tem de estar registado para uma única conta escolar ou profissional. Se pretender ativar o início de sessão no telefone para uma conta escolar ou profissional de diferente, deve primeiro anular o registo o dispositivo antigo por meio da **definições** página.|
 |**Posso entrar no meu PC com o meu telefone?**| Para o seu PC, recomendamos que iniciar sessão utilizando Hello do Windows no Windows 10. Windows Hello permite-lhe utilizar face, a identificação digital ou o PIN para iniciar sessão.|
-|**Posso utilizar início de sessão no telefone com o meu telefone do Windows?**| Não. Esta funcionalidade não é suportada pela aplicação Microsoft Authenticator no Windows Phone.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Se tiver perguntas mais gerais sobre a aplicação, veja o [FAQs do Microsoft Authenticator](microsoft-authenticator-app-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C | Documentos da Microsoft
+title: Tutorial - personalizar a interface de experiências de utilizador - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C no portal do Azure.
 services: B2C
 author: davidmu1
@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1c95772eeb6057b4ff7b12a79897fda73e1e017c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156665"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752386"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface de experiências de utilizador no Azure Active Directory B2C
 
 Para experiências de usuário mais comuns, tais como inscrição, início de sessão e edição de perfil, pode usar [fluxos de utilizador](active-directory-b2c-reference-policies.md) no Azure Active Directory (Azure AD) B2C. As informações neste tutorial ajudam-o a saber como [personalizar a interface de utilizador (IU)](customize-ui-overview.md) destas experiências com seus próprios arquivos HTML e CSS.
 
@@ -25,14 +25,14 @@ Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar arquivos de personalização da interface do Usuário
-> * Criar um fluxo de inscrição e início de sessão de utilizador que utiliza os ficheiros
+> * O fluxo de utilizador para utilizar os ficheiros de atualização
 > * Testar a interface do Usuário personalizada
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver criado o seu [inquilino do Azure AD B2C](tutorial-create-tenant.md), crie uma agora. Se tiver criado uma num tutorial anterior, pode usar um inquilino existente.
+[Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir aos utilizadores inscrever-se e iniciar sessão na sua aplicação.
 
 ## <a name="create-customization-files"></a>Criar arquivos de personalização
 
@@ -42,17 +42,15 @@ Criar uma conta de armazenamento do Azure e o contentor e, em seguida, colocar f
 
 Embora armazene seus arquivos de várias maneiras, para este tutorial, armazene-os na [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
-1. Certifique-se de que está a utilizar o diretório que contém a sua subscrição do Azure. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém a sua subscrição. Este diretório é diferente daquela que contém o inquilino B2C do Azure.
-
-    ![Mude para o diretório da subscrição](./media/tutorial-customize-ui/switch-directories.png)
-
-2. Selecione todos os serviços no canto superior esquerdo do portal do Azure, procure e selecione **contas de armazenamento**. 
-3. Selecione **Adicionar**.
-4. Sob **grupo de recursos**, selecione **criar nova**, introduza um nome para o novo grupo de recursos e, em seguida, clique em **OK**.
-5. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
-6. Selecione a localização da conta de armazenamento ou aceite a localização predefinida. 
-7. Aceite todos os outros valores predefinidos, selecione **rever + criar**e, em seguida, clique em **criar**.
-8. Depois de criar a conta de armazenamento, selecione **Ir para recurso**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Certifique-se de que está a utilizar o diretório que contém a sua subscrição do Azure. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém a sua subscrição. Este diretório é diferente daquela que contém o inquilino B2C do Azure.
+3. Selecione todos os serviços no canto superior esquerdo do portal do Azure, procure e selecione **contas de armazenamento**. 
+4. Selecione **Adicionar**.
+5. Sob **grupo de recursos**, selecione **criar nova**, introduza um nome para o novo grupo de recursos e, em seguida, clique em **OK**.
+6. Introduza um nome para a conta de armazenamento. O nome que escolher tem de ser exclusivo no Azure, deve ter entre 3 e 24 carateres de comprimento e apenas pode conter números e letras minúsculas.
+7. Selecione a localização da conta de armazenamento ou aceite a localização predefinida. 
+8. Aceite todos os outros valores predefinidos, selecione **rever + criar**e, em seguida, clique em **criar**.
+9. Depois de criar a conta de armazenamento, selecione **Ir para recurso**.
 
 ### <a name="create-a-container"></a>Criar um contentor
 
@@ -137,42 +135,17 @@ Neste tutorial, vai armazenar os ficheiros que criou na conta de armazenamento p
 4. Copie o URL para o ficheiro que carregou para utilizar mais tarde no tutorial.
 5. Repita os passos 3 e 4 para o *style. CSS* ficheiro.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Criar um fluxo de utilizador de inscrição e início de sessão
+## <a name="update-the-user-flow"></a>Atualizar o fluxo de utilizador
 
-Para concluir os passos neste tutorial, terá de criar um fluxo de utilizador de aplicação e a inscrição ou início de sessão de teste no Azure AD B2C. Pode aplicar os princípios descritos neste tutorial para as outras experiências de utilizador, tal como a edição de perfil.
-
-### <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação do Azure AD B2C
-
-Comunicação com o Azure AD B2C ocorre por meio de um aplicativo que criar no seu inquilino. Os passos seguintes criam um aplicativo que redireciona o token de autorização devolvida [ https://jwt.ms ](https://jwt.ms).
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Add**.
-5. Introduza um nome para o aplicativo, por exemplo *testapp1*.
-6. Para **aplicação Web / Web API**, selecione `Yes`e, em seguida, introduza `https://jwt.ms` para o **URL de resposta**.
-7. Clique em **Criar**.
-
-### <a name="create-the-user-flow"></a>Criar o fluxo de utilizador
-
-Para testar seus arquivos de personalização, crie um fluxo de utilizador incorporada de inscrição ou início de sessão que utiliza a aplicação que criou anteriormente.
-
-1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador**e, em seguida, clique em **novo fluxo de utilizador**.
-2. Sobre o **recomendado** separador, clique em **inscrever-se e iniciar sessão**.
-3. Introduza um nome para o fluxo de utilizador. Por exemplo, *signup_signin*. O prefixo *B2C_1* é automaticamente adicionado ao nome quando o fluxo de utilizador é criado.
-4. Sob **fornecedores de identidade**, selecione **inscrição de Email**.
-5. Sob **atributos de utilizador e afirmações**, clique em **mostrar mais**.
-6. Na **atributo recolher** coluna, escolha os atributos que quer recolher do cliente durante a inscrição. Por exemplo, defina **país/região**, **nome a apresentar**, e **Código Postal**.
-7. Na **declaração de retorna** coluna, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de inscrição ou início de sessão com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
-8. Clique em **OK**.
-9. Clique em **Criar**.
-10. Sob **personalizar**, selecione **layouts de página**. Selecione **unificado a página de inscrição ou início de sessão**e um simples clique **Sim** para **utilizar conteúdo da página personalizada**.
-11. Na **URI da página personalizada**, introduza o URL para o *personalizado ui.html* ficheiro que registou anteriormente.
-12. Na parte superior da página, clique em **guardar**.
+1. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+2. Selecione **fluxos de utilizador (diretivas)** e, em seguida, selecione a *B2C_1_signupsignin1* fluxo de utilizador.
+3. Selecione **layouts de página**e, em **unificado a página de inscrição ou início de sessão**, clique em **Sim** para **utilizar conteúdo da página personalizada**.
+4. Na **URI da página personalizada**, introduza o URI para o *personalizado ui.html* ficheiro que registou anteriormente.
+5. Na parte superior da página, selecione **guardar**.
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo de utilizador
 
-1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador** e selecione o fluxo de utilizador que criou. Por exemplo, *B2C_1_signup_signin*.
+1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador** e selecione o *B2C_1_signupsignin1* fluxo de utilizador.
 2. Na parte superior da página, clique em **executar o fluxo de utilizador**.
 3. Clique nas **executar o fluxo de utilizador** botão.
 
@@ -188,7 +161,7 @@ Neste artigo, aprendeu como:
 
 > [!div class="checklist"]
 > * Criar arquivos de personalização da interface do Usuário
-> * Criar um fluxo de inscrição e início de sessão de utilizador que utiliza os ficheiros
+> * O fluxo de utilizador para utilizar os ficheiros de atualização
 > * Testar a interface do Usuário personalizada
 
 > [!div class="nextstepaction"]

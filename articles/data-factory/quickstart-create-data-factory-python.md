@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7d456ed76ea425f8870b2045283df5cc307d05fd
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302481"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745253"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Criar uma fábrica de dados e um pipeline com o Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     pip install azure-mgmt-datafactory
     ```
 
-    O [Python SDK do Data Factory](https://github.com/Azure/azure-sdk-for-python) suporta o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+    O [Python SDK do Data Factory](https://github.com/Azure/azure-sdk-for-python) suporta o Python 2.7, 3.3, 3.4, 3.5, 3.6 e 3.7.
 
 ## <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
 

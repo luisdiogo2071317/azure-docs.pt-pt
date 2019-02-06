@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 6015d226bce578661816bd0f934f7818746b4c3b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507761"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756874"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -105,7 +105,7 @@ Agora tem de configurar a aplicação de funções para ligar à Conta de armaze
 
 ## <a name="configure-the-function-app"></a>Configurar a aplicação de funções
 
-A função precisa da cadeia de ligação para ligar à Conta de armazenamento de blobs. O código de função que implementar no Azure no passo seguinte procura a cadeia de ligação na definição da aplicação myblobstorage_STORAGE e procura o nome do contentor da imagem da miniatura na definição da aplicação myContainerName. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Configure as definições da aplicação com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+A função precisa da cadeia de ligação para ligar à Conta de armazenamento de blobs. O código de função que implementar no Azure no passo seguinte procura a cadeia de ligação na definição da aplicação myblobstorage_STORAGE e procura o nome do contentor da imagem da miniatura na definição da aplicação myContainerName. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account). Configure as definições da aplicação com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 Nos seguintes comandos da CLI, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou no tutorial anterior.
 
@@ -128,7 +128,7 @@ Agora, pode implementar um projeto de código de função nesta aplicação de f
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-O redimensionamento do script (.csx) do C# de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+O redimensionamento do script (.csx) do C# de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
 
 No comando seguinte, `<function_app>` é o nome da aplicação de funções que criou anteriormente.
 
@@ -137,7 +137,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-A função de redimensionamento do Node.js de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
+A função de redimensionamento do Node.js de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 No comando seguinte, `<function_app>` é o nome da aplicação de funções que criou anteriormente.
 

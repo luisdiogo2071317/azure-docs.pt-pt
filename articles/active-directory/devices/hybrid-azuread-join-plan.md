@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4c5742f8133b5915b7c838888f9887482ac5627e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695360"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746426"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -111,7 +111,7 @@ Se sua organização precisar de acesso à Internet através de um proxy de saí
 
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
 
-Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, deve considerar remover esse Estado antes de ativar a associação ao Azure AD híbrido. O estado duplo de um dispositivo para ser ambos, associação do Azure AD híbrido e o Azure AD registado não é suportado. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
+Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, é altamente recomendável remover esse Estado antes de ativar a associação ao Azure AD híbrido. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo: 
  - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido. 
  - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001
 
@@ -148,17 +148,17 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
  Se instalar a versão necessária do Azure AD Connect não é uma opção para si, veja [como configurar manualmente o registo de dispositivos](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte de ID de início de sessão alternativo na associação ao Azure AD híbrido
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Suporte de UPN do AD no local na associação ao Azure AD híbrido
 
-Associação com o Windows 10 Hybrid Azure AD fornece suporte limitado para [alternativo IDs de início de sessão](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de início de sessão alternativo, [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipos de início de sessão alternativo IDs que pode existir no seu ambiente:
+Às vezes, o ambiente AD UPNs poderiam ser diferentes da sua UPNs do AD do Azure. Nesses casos, associação ao Windows 10 híbrido do Azure AD fornece suporte limitado para locais UPNs AD com base na [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), tipo de domínio e versão do Windows 10. Existem dois tipos de locais UPNs do AD que podem existir no seu ambiente:
 
- - ID de início de sessão alternativo encaminhável: Um ID de início de sessão alternativo encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal, contoso.org e contoso.co.uk são domínios válidos pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - UPN encaminhável: Um UPN encaminhável tem um domínio verificado válido, o que está registado com uma entidade de registo do domínio. Por exemplo, se contoso.com é o domínio principal no Azure AD, contoso.org é o domínio principal no local AD pertencentes a Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - ID de início de sessão alternativo não encaminháveis: Um ID de início de sessão alternativo não encaminháveis internos não tem um domínio verificado. É aplicável apenas dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio principal, contoso. local não é um domínio verificável na internet, mas é utilizado na rede da Contoso.
+ - UPN não encaminháveis internos: Um UPN não encaminháveis internos não tem um domínio verificado. É aplicável apenas dentro da rede privada da sua organização. Por exemplo, se contoso.com é o domínio principal no Azure AD, contoso. local é o domínio principal no AD no local, mas não é um domínio verificável na internet e somente usados dentro da Contoso da rede.
  
-A tabela seguinte fornece detalhes sobre o suporte para qualquer um destes IDs de início de sessão alternativo no Windows 10 a associação do Azure AD híbrido
+A tabela seguinte fornece detalhes sobre o suporte para esses locais UPNs AD na associação ao Windows 10 híbrido do Azure AD
 
-|Tipo de ID de início de sessão alternativo|Tipo de domínio|Versão do Windows 10|Descrição|
+|Tipo de locais UPN do AD|Tipo de domínio|Versão do Windows 10|Descrição|
 |-----|-----|-----|-----|
 |Encaminhável|Federado |Da versão 1703|Disponível em geral|
 |Encaminhável|Gerido|Versão 1709|Atualmente em pré-visualização privada. Não é suportada do Azure AD SSPR |

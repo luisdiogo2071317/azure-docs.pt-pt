@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aa272c126e06b758dc3903a8ec71b7043491057
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f57175598d3d63afcc7fd050fe5aaedd62e778fe
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017655"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746409"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mover dados de um servidor SFTP com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-sftp-connector.md)
 > * [Versão 2 (versão atual)](../connector-sftp.md)
 
@@ -32,7 +32,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 O Data factory suporta, atualmente, apenas mover dados de um servidor SFTP para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um servidor SFTP. Ele oferece suporte tanto no local e servidores SFTP na cloud.
 
 > [!NOTE]
-> Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline. 
+> Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Cenários suportados e tipos de autenticação
 Pode utilizar este conector SFTP para copiar dados a partir **ambos os servidores SFTP e servidores SFTP no local da cloud**. **Básica** e **SshPublicKey** tipos de autenticação são suportados quando ligar ao servidor SFTP.
@@ -54,7 +54,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | tipo | A propriedade de tipo deve ser definida como `Sftp`. |Sim |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
 | porta |Porta em que o servidor SFTP está a escutar. O valor predefinido é: 21 |Não |
-| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Básica**, **SshPublicKey**. <br><br> Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
+| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
 | skipHostKeyValidation | Especifique se pretende ignorar a validação da chave de anfitrião. | Não. O valor predefinido: Falso |
 | hostKeyFingerprint | Especifique a impressão digital da chave de anfitrião. | Sim se o `skipHostKeyValidation` é definido como false.  |
 | gatewayName |Nome do Gateway de gestão de dados para ligar a um servidor SFTP no local. | Sim se copiam dados a partir de um servidor SFTP no local. |
@@ -119,7 +119,7 @@ Para utilizar a autenticação de chave pública SSH, defina `authenticationType
 | o nome de utilizador |Utilizador que tenha acesso ao servidor SFTP |Sim |
 | privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privada pode aceder a esse gateway. | Especifique a `privateKeyPath` ou `privateKeyContent`. <br><br> Aplicam-se apenas quando se copiam dados a partir de um servidor SFTP no local. |
 | privateKeyContent | Uma cadeia de caracteres serializada do conteúdo de chave privada. O Assistente de cópia pode ler o ficheiro de chave privada e extrair o conteúdo da chave privado automaticamente. Se estiver a utilizar qualquer outra ferramenta/SDK, use a propriedade privateKeyPath. | Especifique a `privateKeyPath` ou `privateKeyContent`. |
-| frase de acesso | Especifique a pass frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
+| passPhrase | Especifique a pass frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
 > Conector do SFTP oferece suporte a chave RSA/DSA OpenSSH. Certifique-se de que o conteúdo do ficheiro de chave começa com "---BEGIN [RSA/DSA] PRIVATE KEY---". Se o ficheiro de chave privada é um ficheiro de formato ppk, utilize a ferramenta Putty para converter de .ppk OpenSSH formato.
@@ -205,7 +205,7 @@ Neste exemplo {setor} é substituído pelo valor da variável do sistema SliceSt
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },

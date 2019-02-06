@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158099"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755480"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilize uma VM do Linux atribuído de sistema identidade gerida para aceder ao armazenamento do Azure por meio da chave de acesso
 
@@ -198,4 +198,4 @@ Resposta:
 Neste tutorial aprendeu a utilizar uma identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Armazenamento do Azure através de uma chave de acesso.  Para saber mais sobre as chaves de acesso ao Armazenamento do Azure, veja:
 
 > [!div class="nextstepaction"]
->[Gerir as chaves de acesso ao armazenamento](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Gerir as chaves de acesso ao armazenamento](/azure/storage/common/storage-create-storage-account)

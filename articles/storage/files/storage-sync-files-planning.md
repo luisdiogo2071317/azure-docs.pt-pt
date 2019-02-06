@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452741"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751417"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -251,7 +251,10 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 O Azure File Sync suporta a sincronização apenas com uma partilha de ficheiros do Azure que está na mesma região que o serviço de sincronização de armazenamento.
 
 ### <a name="azure-disaster-recovery"></a>Recuperação após desastre do Azure
-Para proteger contra a perda de uma região do Azure, Azure File Sync integra-se com o [redundância de armazenamento georredundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) opção (GRS). Armazenamento GRS funciona utilizando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual normalmente interage, e o armazenamento na região secundária associada. Em caso de desastre que faz com que uma região do Azure para go temporariamente offline ou permanentemente, a Microsoft irá falhar ao longo do armazenamento para a região emparelhada. 
+Para proteger contra a perda de uma região do Azure, Azure File Sync integra-se com o [redundância de armazenamento georredundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) opção (GRS). Armazenamento GRS funciona utilizando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual normalmente interage, e o armazenamento na região secundária associada. Em caso de desastre que faz com que uma região do Azure para go temporariamente offline ou permanentemente, a Microsoft irá armazenamento de ativação pós-falha para a região emparelhado. 
+
+> [!Warning]  
+> Se estiver a utilizar a partilha de ficheiros do Azure como um ponto final da cloud numa conta de armazenamento GRS, não deve iniciar a ativação pós-falha de conta de armazenamento. Se o fizer, sincronização causa para parar o trabalho e Maio também causará perda de dados inesperado no caso de ficheiros recentemente em camadas. No caso de perda de uma região do Azure, a Microsoft irá acionar a ativação pós-falha a conta de armazenamento de forma que seja compatível com o Azure File Sync.
 
 Para suportar a integração de ativação pós-falha entre o armazenamento georredundante e o Azure File Sync, todas as regiões do Azure File Sync são associadas uma região secundária que corresponde à região secundária utilizada pelo armazenamento. Estes pares são os seguintes:
 

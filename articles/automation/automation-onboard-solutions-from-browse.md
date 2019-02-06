@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062949"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745271"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -68,7 +68,7 @@ A tabela seguinte mostra os mapeamentos suportados:
 |Sudeste da Austrália.|Sudeste da Austrália.|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|Eualeste2|
+|EastUS|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
@@ -76,6 +76,7 @@ A tabela seguinte mostra os mapeamentos suportados:
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|EUA Oeste 2|EUA Oeste 2|
 
 Desmarque a caixa de verificação junto a qualquer máquina virtual que não pretende ativar. Máquinas virtuais que não é possível ativar já estão a ser desmarcadas.
 
@@ -124,13 +125,13 @@ Quando a integração várias máquinas, pode haver máquinas que mostram como *
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para uma área de trabalho diferente: '\<workspaceName\>'.  Alterar a configuração para utilizá-lo para ativar
 
-**Causa**: Este erro mostra que a VM que está a tentar carregar relatórios para outra área de trabalho.
+**Motivo**: Este erro mostra que a VM que está a tentar carregar relatórios para outra área de trabalho.
 
 **Solução**: Clique em **utilização como configuração** para alterar a área de trabalho direcionada de conta de automatização e o Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para uma área de trabalho que não está disponível nesta subscrição
 
-**Causa**: A área de trabalho que a máquina virtual informa ao:
+**Motivo**: A área de trabalho que a máquina virtual informa ao:
 
 * Está numa subscrição diferente, ou
 * Já não existe, ou
@@ -146,13 +147,13 @@ Quando a integração várias máquinas, pode haver máquinas que mostram como *
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Não não possível ativar a VMs clássicas
 
-**Causa**: Máquinas virtuais que utilizam o modelo de implementação clássica não são suportadas.
+**Motivo**: Máquinas virtuais que utilizam o modelo de implementação clássica não são suportadas.
 
 **Solução**: Migre a máquina virtual para o modelo de implementação do resource manager. Para saber como fazer isso, consulte [migrar recursos de modelo de implementação clássica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>VM é parada. (desalocada)
 
-**Causa**: A máquina virtual numa não num **em execução** estado.
+**Motivo**: A máquina virtual numa não num **em execução** estado.
 
 **Solução**: Para carregar uma VM para uma solução de VM tem de executar. Clique nas **iniciar VM** ligação inline para iniciar a VM sem navegar para fora da página.
 

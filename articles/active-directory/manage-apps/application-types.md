@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186982"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755391"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de aplicações
 
@@ -63,15 +63,15 @@ Quando filtrado para **todos os aplicativos**, o **todos os aplicativos** **list
 
 4.  Quando adiciona um novo registo de aplicação através da criação de uma aplicação personalizada desenvolvida utilizando o [Registro do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  Quando adiciona um novo registo de aplicação através da criação de uma aplicação personalizada desenvolvida utilizando o [portal de registo de aplicação V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
+5.  Quando adiciona um novo registo de aplicação através da criação de uma aplicação personalizada desenvolvida utilizando o [portal de registo de aplicação V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
 6.  Quando adiciona uma aplicação esteja a desenvolver com o Visual Studio [métodos de autenticação do ASP.net](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou [serviços ligados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Quando cria um objeto do principal de serviço com o [módulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  Quando [autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) como um administrador para utilizar dados no seu inquilino
+8.  Quando [autorizar uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) como um administrador para utilizar dados no seu inquilino
 
-9.  Quando um [utilizador dá consentimento a uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) para utilizar dados no seu inquilino
+9.  Quando um [utilizador dá consentimento a uma aplicação](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para utilizar dados no seu inquilino
 
 10. Quando ativa determinados serviços que armazenam os dados no seu inquilino. Um exemplo é repor a palavra-passe, que é modelada como política de reposição de um principal de serviço para armazenar a palavra-passe com segurança.
 
@@ -107,7 +107,7 @@ Para **eliminar uma aplicação**, siga estes passos:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento de utilizador futuras para qualquer aplicação
 
-Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não deve consentir, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não deve consentir, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Para **desativar todas as operações de consentimento de utilizador futuras no seu diretório inteiro**, siga estes passos:
 

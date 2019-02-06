@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463740"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755769"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -58,7 +58,7 @@ O algoritmo para determinar a proximidade não é um cálculo simple. Os interva
 
 Aprendizagem ativa está desativada por predefinição. Ativado para ver perguntas sugeridas. 
 
-1. Para ativar o Active Directory de aprendizado no, aceda ao seu **definições do serviço** no portal do QnA Maker, no canto superior direito.  
+1. Para ativar o Active Directory de aprendizado no, clique no seu **Name**, aceda a [ **definições de serviço** ](https://www.qnamaker.ai/UserSettings) no portal do QnA Maker, no canto superior direito.  
 
     ![Na página de definições de serviço, ative aprendizagem ativa](../media/improve-knowledge-base/Endpoint-Keys.png)
 

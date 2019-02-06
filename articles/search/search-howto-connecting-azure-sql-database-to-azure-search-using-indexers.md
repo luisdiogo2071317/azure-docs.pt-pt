@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633032"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752897"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -210,6 +210,9 @@ Para utilizar esta política, criar ou atualizar a sua origem de dados como este
 
 Quando utilizar a política, de controlo de alterações integrado do SQL não especificar uma política de deteção de eliminação de dados separado - esta política não tem suporte incorporado para identificar eliminar linhas. No entanto, para exclusões ser detetado "automagicamente", a chave do documento no seu índice de pesquisa tem de ser o mesmo que a chave primária na tabela de SQL. 
 
+> [!NOTE]  
+> Ao usar [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) para remover um grande número de linhas de uma tabela SQL, o indexador tem de ser [repor](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) para repor a Estado de retirada eliminações de linha de controlo de alterações.
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Política de deteção de alteração do máximo
@@ -285,10 +288,10 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – utilize a repr
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapeamento entre tipos de dados SQL e o Azure Search
 | Tipo de dados SQL | Permitidos os tipos de campo de índice de destino | Notas |
 | --- | --- | --- |
-| bit |Boolean, EDM | |
+| bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
-| número de vírgula flutuante real, |Edm.Double, EDM | |
+| número de vírgula flutuante real, |Edm.Double, Edm.String | |
 | smallmoney, numérica decimal de dinheiro |Edm.String |O Azure Search não suporta a conversão de tipos de decimais em Edm.Double porque isso perderia precisão |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma cadeia de caracteres SQL pode ser utilizada para preencher um campo de Collection(Edm.String) se a cadeia de caracteres representa uma matriz JSON de cadeias de caracteres: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |

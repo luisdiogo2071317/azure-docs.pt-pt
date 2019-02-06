@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b842fb65778d760951affb06eab35f54118557d2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465219"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754409"
 ---
 # <a name="sql-database-application-development-overview"></a>Descrição geral da programação de aplicativo da linha de base de dados SQL
 
 Este artigo explica as considerações básicas que um programador deve conhecer ao escrever códigos para ligar à base de dados SQL do Azure.
 
 > [!TIP]
-> Para obter um tutorial que mostra como criar um servidor, criar uma firewall baseada no servidor, ver propriedades do servidor, ligar com o SQL Server Management Studio, consultar a base de dados mestra, criar uma base de dados de exemplo e uma base de dados em branco, consultar as propriedades da base de dados, ligar com o SQL Server Management Studio e consultar a base de dados de exemplo, veja [Tutorial de Introdução](sql-database-get-started-portal.md).
+> Para obter um tutorial que mostra como criar um servidor, criar uma firewall baseada no servidor, ver propriedades do servidor, ligar com o SQL Server Management Studio, consultar a base de dados mestra, criar uma base de dados de exemplo e uma base de dados em branco, consultar as propriedades da base de dados, ligar com o SQL Server Management Studio e consultar a base de dados de exemplo, veja [Tutorial de Introdução](sql-database-single-database-get-started.md).
 >
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
@@ -51,7 +51,7 @@ A Base de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os
 
 * Mais informações: [Proteger a sua base de dados do SQL](sql-database-security-overview.md).
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 - A Base de Dados SQL do Azure suporta utilizadores e inícios de sessão de autenticação do SQL Server, bem como utilizadores e inícios de sessão de [autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 - Tem de especificar uma base de dados específica, em vez de utilizar a predefinição para a base de dados *mestra*.

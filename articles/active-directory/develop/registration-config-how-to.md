@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: fb5449ec33467a78de0eef7a345b687901063fe1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 85f119b2a0aaa49fa02ad579a89ce2a0b6e72007
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102299"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756293"
 ---
 # <a name="how-to-configure-endpoints"></a>Como configurar pontos finais
 
@@ -36,4 +36,4 @@ Pode encontrar os pontos finais de autenticação para a sua aplicação no [por
 -   Utilizar o ponto final específico para o protocolo de autenticação que estiver a utilizar, em conjunto com o ID da aplicação para a autenticação, crie o pedido específico para a sua aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

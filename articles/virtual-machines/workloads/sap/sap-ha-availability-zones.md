@@ -3,7 +3,7 @@ title: Configurações de carga de trabalho SAP com zonas de disponibilidade do 
 description: Arquitetura de elevada disponibilidade e cenários para utilizar zonas de disponibilidade do Azure do SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56c1ffd314a9a8e9440832b9fd92a51cdaf9f228
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 409a304296d3fdff897a203177e2c150162755c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735656"
+ms.locfileid: "55746222"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho SAP com zonas de disponibilidade do Azure
 
@@ -74,7 +74,7 @@ Para poder decidir em como pode aproveitar as zonas de disponibilidade, terá de
 ### <a name="network-latency-between-zones-and-within-zone"></a>Latência de rede entre zonas e dentro de zona
 Para saber o que é a latência entre as zonas diferentes, terá de:
 
-- Implemente o SKU de VM que pretende utilizar para a sua instância do DBMS em todas as três zonas. Certifique-se de que que [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) é ativada quando efetuar esta medida
+- Implemente o SKU de VM que pretende utilizar para a sua instância do DBMS em todas as três zonas. Certifique-se de que [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) é ativada quando efetuar esta medida
 - Como encontrar duas zonas com a menor latência de rede, implemente outro três VMs do SKU de VM que pretende utilizar como a camada de aplicativo VM entre as três zonas de disponibilidade. Medir a latência de rede em relação a "DBMS VMs' duas em duas zonas 'DBMS' diferentes da sua preferência. 
 - Como uma ferramenta para medir, utilize **niping**. Uma ferramenta do SAP, que funciona conforme descrito nas notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Concentre-se sobre os comandos SAP documentada para medidas de latência. Usando **ping** não é uma ferramenta recomendada desde **ping** não funcionará com o Azure acelerado de caminhos de código de rede.
 

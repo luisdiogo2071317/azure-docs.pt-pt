@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551561"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752777"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs de caixa de dados do Azure
 
@@ -30,7 +30,7 @@ Recomendamos que reveja as informações cuidadosamente antes de ligar ao armaze
 |    Encriptação do serviço para dados Inativos                  |    encriptação AES de 256 bits                             |    encriptação AES de 256 bits |
 |    Tipo de conta de armazenamento                                 |    Contas de armazenamento de Blobs do Azure e para fins gerais    |    Apenas para fins gerais v1|
 |    Nome do blob                                            |    os 1024 carateres (2.048 bytes)                     |    880 carateres (1,760 bytes)|
-|    Tamanho máximo de blob de bloco                              |    4.75 TB (100 MB X 50 000 blocos)                   |    4.75 TB (100 MB x 50 000 blocos) ou posterior do Azure Data Box v 1.7.|
+|    Tamanho máximo de blob de bloco                              |    4.75 TB (100 MB X 50 000 blocos)                   |    4.75 TB (100 MB x 50 000 blocos) ou posterior do Azure Data Box v 1.8.|
 |    Tamanho máximo de blob de página                               |    8 TB                                               |    1 TB                   |
 |    Tamanho de página do blob de página                                  |    512 bytes                                          |    4 KB                   |
 
@@ -38,19 +38,21 @@ Recomendamos que reveja as informações cuidadosamente antes de ligar ao armaze
 
 São suportadas as seguintes versões de APIs de serviço de armazenamento do Azure com o armazenamento de BLOBs de caixa de dados:
 
-Versão de pré-visualização pública (Azure Data Box 1.7 e posteriores)
+Versão de pré-visualização pública (Azure Data Box 1.8 e posteriores)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
-- [07 de 2015-08](/rest/api/storageservices/version-2015-07-08)
+- [2015-07-08](/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](/rest/api/storageservices/version-2015-04-05)
 
 ## <a name="supported-sdk-versions"></a>Versões suportadas do SDK
 
 |     Biblioteca de cliente     |     Versão suportada do armazenamento de BLOBs de caixa de dados     |     Ligação             |     Especificação de ponto final         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
-|    .NET                |    De 6.2.0 para 8.7.0.                         |    Pacote de Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>Versão do GitHub:   https://github.com/Azure/azure-storage-net/releases                                                                      |    ficheiro App. config                 |
+|    .NET                |    De 6.2.0 para 8.7.0.                         |    Pacote de Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>Versão do GitHub:   https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config file                 |
 |    Java                |    De 4.1.0 para 6.1.0                          |    Pacote maven:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-java/releases                                                      |    Configuração de cadeia de ligação         |
 |    Node.js             |    De 1.1.0 para 2.7.0                          |    Ligação do NPM:   https://www.npmjs.com/package/azure-storage   (Por exemplo: executar "npm instalar azure-storage@2.7.0")   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-node/releases                            |    Declaração de instância de serviço    |
 |    C++                 |    De 2.4.0 para 3.1.0                          |    Pacote de Nuget:   https://www.nuget.org/packages/wastorage.v140/   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Configuração de cadeia de ligação         |
@@ -60,15 +62,13 @@ Versão de pré-visualização pública (Azure Data Box 1.7 e posteriores)
 
 ## <a name="supported-azure-client-libraries"></a>Suporte a bibliotecas de cliente do Azure
 
-Para armazenamento de BLOBs de caixa de dados, existem requisitos de sufixo de ponto final específico e bibliotecas de cliente específico.
+Para armazenamento de BLOBs de caixa de dados, existem requisitos de sufixo de ponto final específico e bibliotecas de cliente específico. Os pontos de extremidade de armazenamento de BLOBs de caixa de dados não ter paridade completa com a versão mais recente do API de REST do armazenamento de Blobs do Azure, consulte a [versões suportadas do Azure Data Box 1.8 e posteriores](#supported-api-versions). Para as bibliotecas de cliente de armazenamento, precisa estar atento a versão compatível com a API REST.
 
-As versões suportadas da REST API para o armazenamento de BLOBs de caixa de dados são 2017-04-17, 05-31 de 2016, 2015-12-11, 2015-07-08 e 2015-04-05 para a Azure Data Box versão 1.7 e posteriores. Os pontos de extremidade de armazenamento de BLOBs de caixa de dados não ter paridade completa com a versão mais recente do API de REST do armazenamento de Blobs do Azure. Para as bibliotecas de cliente de armazenamento, precisa estar atento a versão compatível com a API REST.
-
-### <a name="azure-data-box-17-onwards"></a>O Azure Data Box 1.7 e posteriores
+### <a name="azure-data-box-18-onwards"></a>O Azure Data Box 1.8 e posteriores
 
 | Biblioteca de cliente     |Versão suportada do armazenamento de BLOBs de caixa de dados     | Ligação   |     Especificação de ponto final      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    8.7.0                                           |    Pacote de Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>Versão do GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    ficheiro App. config                 |
+|    .NET                |    8.7.0                                           |    Pacote de Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>Versão do GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config file                 |
 |    Java                |    6.1.0                                           |    Pacote maven:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Configuração de cadeia de ligação         |
 |    Node.js             |    2.7.0                                           |    Ligação do NPM:   https://www.npmjs.com/package/azure-storage   (Executar: instalar o npm azure-storage@2.7.0)   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Declaração de instância de serviço    |
 |    C++                 |    3.1.0                                           |    Pacote de Nuget:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Configuração de cadeia de ligação         |

@@ -4,15 +4,15 @@ description: Saiba como comprar capacidade do Azure Cosmos DB reservadas para po
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454103"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745950"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Capacidade de Cosmos DB reservada do Azure abrange o débito aprovisionado para 
 Pode comprar o Azure Cosmos DB reservado capacidade dos [portal do Azure](https://portal.azure.com). Comprar capacidade de reserva:
 
 * Tem de estar na função de proprietário para, pelo menos, uma empresa ou uma subscrição pay as you go.  
-* Para subscrições Enterprise, compras de reserva do Azure tem de estar ativadas no [portal EA](https://ea.azure.com/).  
+* Para subscrições Enterprise, **adicionar as instâncias reservadas** tem de estar ativada no [portal EA](https://ea.azure.com). Em alternativa, se essa definição estiver desativada, tem de ser um administrador de EA da subscrição.
 * Para o programa de fornecedor de soluções Cloud (CSP), apenas os agentes de administrador ou agentes de vendas podem comprar capacidade reservada do Azure Cosmos DB.
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinar a taxa de transferência necessária antes da compra
@@ -53,8 +53,8 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
    |Campo  |Descrição  |
    |---------|---------|
    |Name   |    Nome da reserva. Este campo é preenchido automaticamente com `CosmosDB_Reservation_<timeStamp>`. Pode fornecer um nome diferente ao criar a reserva. Ou pode alterá-lo Depois da reserva é criada.      |
-   |Subscrição  |   Capacidade de reserva de subscrição que é utilizada para pagar o Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado na cobrar os custos à cabeça. O tipo de subscrição tem de ser um dos seguintes procedimentos: <br/><br/>  [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (número da oferta: MS-AZR-0017P): Para uma subscrição Enterprise, os encargos são deduzidos da saldo de alocação monetária a inscrição ou cobrados como utilização excedente. <br/><br/> [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) (número da oferta: MS-AZR-0003P): Para obter uma subscrição pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.    |
-   |Âmbito   |   Opção que controla o número de subscrições, pode utilizar o benefício de faturação associado com a reserva. Este também controla a forma como a reserva se aplica às subscrições específicas.   <br/><br/>  Se selecionou **subscrição individual**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada. <br/><br/>  Se selecionou **partilhado**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB, que são executados em qualquer subscrição com o contexto de faturação. O contexto de faturação é baseado na forma como se inscreveu no Azure. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de desenvolvimento/teste) na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.  <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade de reserva.  |
+   |Subscrição  |   Capacidade de reserva de subscrição que é utilizada para pagar o Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado na cobrar os custos à cabeça. O tipo de subscrição tem de ser um dos seguintes procedimentos: <br/><br/>  Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P): Para uma subscrição Enterprise, os encargos são deduzidos da saldo de alocação monetária a inscrição ou cobrados como utilização excedente. <br/><br/> Pay as you go (números da oferta: MS-AZR-0003P or MS-AZR-0023P): Para obter uma subscrição pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.    |
+   |Âmbito   |   Opção que controla o número de subscrições, pode utilizar o benefício de faturação associado com a reserva. Este também controla a forma como a reserva se aplica às subscrições específicas.   <br/><br/>  Se selecionou **subscrição individual**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada. <br/><br/>  Se selecionou **partilhado**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB, que são executados em qualquer subscrição com o contexto de faturação. O contexto de faturação é baseado na forma como se inscreveu no Azure. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.  <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade de reserva.  |
    |Tipo de capacidade reservada   |  Débito aprovisionado como unidades de pedido.|
    |Unidades de capacidade reservadas  |      Quantidade de débito que pretende reservar. Pode calcular esse valor por determinar o débito necessário para todos os seus recursos de Cosmos DB (por exemplo, bancos de dados ou contentores) por região. , Em seguida, multiplique isso pelo número de regiões que irá associar-se a sua base de dados do Cosmos DB.  <br/><br/> Por exemplo: Se tiver cinco regiões com 1 milhão RU/seg em cada região, selecione 5 milhões de RU/seg para a compra de capacidade de reserva.    |
    |Termo  |   Um ano ou três anos.   |

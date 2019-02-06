@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098702"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745722"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -74,8 +74,10 @@ Em seguida, alerta seria executar a consulta a cada 5 minutos, com 30 minutos de
 
 ### <a name="metric-measurement-alert-rules"></a>Regras de alerta de medida da métrica
 
-- **Medida da métrica** regras de alerta criar um alerta para cada objeto numa consulta com um valor que excede um limiar especificado.  Eles têm as seguintes diferenças distintas de **número de resultados** regras de alerta.
+**Medida da métrica** regras de alerta criar um alerta para cada objeto numa consulta com um valor que excede um limiar especificado.  Eles têm as seguintes diferenças distintas de **número de resultados** regras de alerta.
+
 - **Função de agregação**: Determina o cálculo que é executado e, potencialmente, com um numérico campo a agregar.  Por exemplo, **count ()** devolve o número de registos na consulta, **avg(CounterValue)** devolve a média do campo CounterValue ao longo do intervalo. Função de agregação na consulta tem de ser com o nome/chamado: AggregatedValue e fornecer um valor numérico. 
+
 - **Campo de grupo**: É criado um registo com um valor agregado para cada instância deste campo e pode ser gerado um alerta para cada um.  Por exemplo, se quiser gerar um alerta para cada computador, usaria **por computador**. No caso de existirem vários campos de grupo especificado na consulta de alerta, o utilizador pode especificar que campo a ser utilizado para ordenar resultados utilizando o **agregada no** parâmetro (metricColumn)
 
     > [!NOTE]

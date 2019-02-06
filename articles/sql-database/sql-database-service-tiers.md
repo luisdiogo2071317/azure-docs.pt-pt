@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: f2e330f37c823b0815558bbc8ea10fb58439e043
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/05/2019
+ms.openlocfilehash: c62be5041792690f023361da6254157aed1beeb2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509308"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749057"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -28,17 +28,17 @@ Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dad
 
 Diferentes modelos de compras estão disponíveis em modelos de implementação de base de dados do Azure SQL:
 
-- [Bases de dados únicas](sql-database-single-databases-manage.md) e [conjuntos elásticos](sql-database-elastic-pool.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferecem ambos [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [baseado em vCore modelo de compra](sql-database-service-tiers-vcore.md). 
-- [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+- O [base de dados individual](sql-database-single-databases-manage.md) e [conjunto elástico](sql-database-elastic-pool.md) opções de implementação na [SQL Database do Azure](sql-database-technical-overview.md) oferecem ambos o [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+- O [instância gerida](sql-database-managed-instance.md) só oferece a opção de implementação na base de dados do Azure SQL a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Bases de dados de grande escala (pré-visualização)](sql-database-service-tier-hyperscale.md) estão em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore.
+> O [camada de serviços de hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md) está em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore.
 
 O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compras.
 
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
-|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Ideal para clientes que desejam simples, pré-configurado opções de recursos.|
+|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Ideal para clientes que desejam simples, pré-configurado opções de recursos.|
 |modelo baseado em vCore|Este modelo permite-lhe escolher independentemente a recursos de computação e armazenamento. Ele também permite-lhe utilizar o Azure Hybrid Benefit para o SQL Server para obter poupanças de custos.|Melhor para os clientes que o valor de flexibilidade, controlo e transparência.|
 ||||  
 
@@ -46,7 +46,7 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência de consumo de recursos individuais e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [ instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). Para bases de dados individuais, também pode escolher o [Hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md) escalão de serviço.
+Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência de consumo de recursos individuais e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) camadas para de serviço [bases de dados únicas](sql-database-single-database-scale.md), [ conjuntos elásticos](sql-database-elastic-pool.md), e [instâncias geridas](sql-database-managed-instance.md). Para bases de dados individuais, também pode escolher o [camada de serviços de hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que escolha os recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. No modelo de compra baseado em vCore, os clientes pagam pelo:
 
@@ -55,14 +55,15 @@ O modelo de compra baseado em vCore permite que escolha os recursos de computaç
 - Armazenamento de cópias de segurança (RA-GRS)
 
 > [!IMPORTANT]
-> Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância gerida, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
-> **Limitações de região:** O modelo de compra baseado em vCore ainda não está disponível nas seguintes regiões: Europa Ocidental, sul do França Central, do Reino Unido, oeste do Reino Unido e Sudeste da Austrália.
+> Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para moreinformation sobre as cobranças de instância gerida, veja [instâncias geridas](sql-database-managed-instance.md).
+> **Limitações de região:** Para a lista atualizada de regiões suportadas, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+.
 
 Se a sua base de dados ou conjunto elástico consome mais de 300 conversão de DTU para vCore pode reduzir o custo. Pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de DTU para o modelo de vCore, selecione o tamanho de computação com a seguinte regra geral: cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore na camada de fins gerais; cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore na camada de negócio críticos.
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
-As unidades de transação de base de dados (DTU) representa uma medida combinada de CPU, memória, lê e escreve. O modelo de compra baseado em DTU oferece um conjunto de pacotes de recursos de computação pré-configurados e armazenamento para impulsionar diferentes níveis de desempenho do aplicativo incluído. Os clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos a cada mês, pode encontrar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre **básica**, **padrão**, e **Premium** escalões de serviço para ambos [bases de dadosúnicas](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Este modelo de compra não está disponível no [instâncias geridas](sql-database-managed-instance.md).
+As unidades de transação de base de dados (DTU) representa uma medida combinada de CPU, memória, lê e escreve. O modelo de compra baseado em DTU oferece um conjunto de pacotes de recursos de computação pré-configurados e armazenamento para impulsionar diferentes níveis de desempenho do aplicativo incluído. Os clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos a cada mês, pode encontrar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre **básica**, **padrão**, e **premium** escalões de serviço para ambos [bases de dadosúnicas](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Este modelo de compra não está disponível no [instâncias geridas](sql-database-managed-instance.md).
 
 ### <a name="database-transaction-units-dtus"></a>Unidades de transação de base de dados (DTUs)
 
@@ -72,7 +73,7 @@ Para uma base de dados num específico de computação tamanho dentro de um [esc
 
 DTUs são mais úteis para compreender o nível relativo de recursos entre bases de dados SQL do Azure em diferentes tamanhos de computação e de escalões de serviço. Por exemplo, duplicar as DTUs aumentando o tamanho de computação de uma base de dados equivale a duplicar o conjunto de recursos disponíveis para essa base de dados. Por exemplo, uma base de dados Premium P11 com 1750 DTUs fornece 350 x mais potência de computação de DTUs do que uma base de dados básica com cinco DTUs.  
 
-Para obter informações mais aprofundadas sobre o consumo de recursos (DTUS) da sua carga de trabalho, utilize [do Azure SQL Database Query Performance Insight](sql-database-query-performance.md) para:
+Para obter informações mais aprofundadas sobre o consumo de recursos (DTUS) da sua carga de trabalho, utilize [consultar informações de desempenho](sql-database-query-performance.md) para:
 
 - Identificar as consultas principais por contagem de CPU/duração/execução que potencialmente pode ser otimizada para um melhor desempenho. Por exemplo, uma consulta de intensiva de e/s pode beneficiar do uso da opção [técnicas de otimização de memória](sql-database-in-memory.md) para garantir uma melhor utilização da memória disponível numa determinada camada de serviço e tamanho de computação.
 - Desagregar os detalhes de uma consulta, ver o texto e o histórico de utilização de recursos.
@@ -88,7 +89,7 @@ Podem ser adicionais mais eDTUs a um conjunto existente sem qualquer período de
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessárias para uma carga de trabalho
 
-Se pretender migrar a carga de trabalho de uma máquina virtual do SQL Server ou no local existente para a Base de Dados SQL do Azure, pode utilizar a [Calculadora de DTUs](http://dtucalculator.azurewebsites.net/) para se aproximar do número de DTUs necessárias. Para uma carga de trabalho de base de dados do Azure SQL existente, pode usar [SQL Database Query Performance Insight](sql-database-query-performance.md) para compreender o consumo de recursos de base de dados (DTUs) para obter informações mais aprofundadas sobre para otimizar a sua carga de trabalho. Também pode utilizar o [sys resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV para ver o consumo de recursos para a última hora. Em alternativa, a exibição de catálogo [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) mostra o consumo de recursos para os últimos 14 dias, mas a uma fidelidade inferior das médias de cinco minutos.
+Se estiver à procura para migrar um existente no local ou o SQL Server a carga de trabalho de máquina virtual para a base de dados do Azure SQL, pode utilizar o [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessários. Para uma carga de trabalho de base de dados do Azure SQL existente, pode usar [consultar informações de desempenho](sql-database-query-performance.md) para compreender o consumo de recursos de base de dados (DTUs) para obter informações mais aprofundadas sobre para otimizar a sua carga de trabalho. Também pode utilizar o [sys resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV para ver o consumo de recursos para a última hora. Em alternativa, a exibição de catálogo [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) mostra o consumo de recursos para os últimos 14 dias, mas a uma fidelidade inferior das médias de cinco minutos.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que tiram partido de um conjunto elástico de recursos
 

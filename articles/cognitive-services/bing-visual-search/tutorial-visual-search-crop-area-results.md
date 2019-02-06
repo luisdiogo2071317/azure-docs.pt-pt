@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 2ec4810b6ac01eca17186f4b8d2e8c2959292b8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66012e22b4e3e512751711ea399b8add006fb717
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187900"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756398"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem com o SDK de pesquisa Visual do Bing paraC#
 
@@ -113,4 +113,4 @@ Obter os URLs da imagem atual requer uma conversão que lê um `ActionType` como
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](tutorial-bing-visual-search-single-page-app.md)
 
-[Resposta da Pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Resposta da Pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

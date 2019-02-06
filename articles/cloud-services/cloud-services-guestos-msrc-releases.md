@@ -11,36 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/22/2019
+ms.date: 2/5/2019
 ms.author: raiye
-ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4c1b1b376493c77ae0f197d800ee0d00434b19c6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828456"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752114"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
-
->[!NOTE]
->O sistema operacional convidado de Janeiro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Janeiro. Esta lista está sujeita a alterações.
 
 ## <a name="january-2019-guest-os"></a>SO de convidado de Janeiro de 2019
 
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Segurança do Windows 10 | 6.3 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480961] | Segurança do Windows 10 | 5.27 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480964] | Segurança do Windows | 4.62 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480972] | Segurança do Windows | 3.69 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480960] | Segurança do Windows | 2.82 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480056] | Segurança do .net | 6.3 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480074] | Segurança do .net 4.x | 4.62 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480075] | Segurança do .net 4.x | 3.69 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480076] | Segurança do .net 4.x | 2.82 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480086] | Segurança do .net 3.x | 4.62 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480083] | Segurança do .net 3.x | 3.69 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480085] | Segurança do .net 3.x | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | 8 de Janeiro de 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de Janeiro de 2019 |
 | N/A | [4471318] | Rollup de Dezembro sem segurança | 2.82 | 11 de Dezembro de 2018 |
 | N/A | [4470641] | Agregação de não-segurança de Dezembro .NET 3.x | 2.82 | 11 de Dezembro de 2018 |
@@ -52,10 +51,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4470630] | Agregação de não-segurança de Dezembro .NET 3.x | 4.62 | 11 de Dezembro de 2018 |
 | N/A | [4470622] | Agregação de não-segurança de Dezembro .NET 4.x | 4.62 | 11 de Dezembro de 2018 |
 
+[4480116]: http://support.microsoft.com/kb/4480116
 [4480961]: http://support.microsoft.com/kb/4480961
 [4480964]: http://support.microsoft.com/kb/4480964
 [4480972]: http://support.microsoft.com/kb/4480972
 [4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
 [4480074]: http://support.microsoft.com/kb/4480074
 [4480075]: http://support.microsoft.com/kb/4480075
 [4480076]: http://support.microsoft.com/kb/4480076

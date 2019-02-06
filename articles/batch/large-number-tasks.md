@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: b2daba1e20431edae5aacc8295fdc542d1e73d33
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3e20aeb0e21eca5e4ac25206d638036f94a58202
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460510"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749700"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Submeta um grande número de tarefas para uma tarefa do Batch
 
@@ -37,8 +37,8 @@ O tamanho máximo da coleção de tarefas que podem ser adicionados numa única 
 * As seguintes APIs do Batch limitar a coleção que pretende **100 tarefas**. O limite pode ser menor, dependendo do tamanho das tarefas - por exemplo, se as tarefas têm um grande número de arquivos de recursos ou variáveis de ambiente.
 
     * [API REST](/rest/api/batchservice/task/addcollection)
-    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [API do Node.js](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [API do Node.js](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   Ao usar essas APIs, terá de fornecer a lógica para dividir o número de tarefas para satisfazer o limite de coleção e lidar com erros e repetições em caso de falha de adição de tarefas. Se uma coleção de tarefas é demasiado grande para adicionar, a solicitação gera um erro e deve ser repetida novamente com menos de tarefas.
 
@@ -55,7 +55,7 @@ Ele pode demorar algum tempo para adicionar uma grande coleção de tarefas para
 
 * **Tamanho de tarefas** -adicionar tarefas grandes demora mais tempo do que adicionar menores. Para reduzir o tamanho de cada tarefa numa coleção, pode simplificar a linha de comandos de tarefas, reduzir o número de variáveis de ambiente ou lidar com os requisitos para a execução da tarefa de forma mais eficiente. Por exemplo, em vez de usar um grande número de ficheiros de recursos, instale as dependências de tarefas com um [tarefa de início](batch-api-basics.md#start-task) no conjunto ou utilize um [pacote de aplicação](batch-application-packages.md) ou [contentor do Docker](batch-docker-container-workloads.md).
 
-* **Número de operações simultâneas** - consoante a API do Batch, débito de aumento, aumentando o número máximo de operações simultâneas pelo cliente do Batch. Configurar esta definição através da [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) propriedade na API do .NET, ou o `threads` parâmetro de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)na extensão do SDK de Python do Batch. (Esta propriedade não está disponível no SDK do Python nativo do Batch.) Por predefinição, esta propriedade é definida como 1, mas configurá-lo superior para melhorar o débito de operações. Alternar o débito de maior consumo de largura de banda e um desempenho de CPU. Aumenta a taxa de transferência de tarefa, até 100 vezes a `MaxDegreeOfParallelism` ou `threads`. Na prática, deve definir o número de operações simultâneas inferior a 100. 
+* **Número de operações simultâneas** - consoante a API do Batch, débito de aumento, aumentando o número máximo de operações simultâneas pelo cliente do Batch. Configurar esta definição através da [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) propriedade na API do .NET, ou o `threads` parâmetro de métodos como [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)na extensão do SDK de Python do Batch. (Esta propriedade não está disponível no SDK do Python nativo do Batch.) Por predefinição, esta propriedade é definida como 1, mas configurá-lo superior para melhorar o débito de operações. Alternar o débito de maior consumo de largura de banda e um desempenho de CPU. Aumenta a taxa de transferência de tarefa, até 100 vezes a `MaxDegreeOfParallelism` ou `threads`. Na prática, deve definir o número de operações simultâneas inferior a 100. 
  
   A extensão de CLI do Azure Batch com modelos do Batch aumenta o número de operações simultâneas automaticamente com base no número de núcleos disponíveis, mas esta propriedade não é configurável na CLI. 
 
@@ -155,7 +155,7 @@ tasks=list()
 
 ```
 
-Adicionar a coleção de tarefas utilizando [add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Definir o `threads` parâmetro para aumentar o número de operações simultâneas:
+Adicionar a coleção de tarefas utilizando [add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Definir o `threads` parâmetro para aumentar o número de operações simultâneas:
 
 ```python
 try:

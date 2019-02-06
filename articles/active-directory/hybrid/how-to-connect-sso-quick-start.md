@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5eb8f291b0f27518203c45e8c30c3994780e30ef
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487137"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755473"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -164,14 +164,6 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Navegue até **configuração do usuário** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer** > **painel de controlo da Internet** > **página segurança** > **zona de Intranet**. Em seguida, selecione **permitir atualizações à barra de estado por meio de script**.
-
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Ativar a definição de política e, em seguida, selecione **OK**.
-
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>Considerações de browser
 

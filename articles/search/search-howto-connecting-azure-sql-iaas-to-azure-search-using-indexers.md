@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2efc0b76c8556894119ed3f6dd216234414cf313
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732367"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751383"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma ligação a partir de um indexador de Azure Search para o SQL Server numa VM do Azure
 Conforme observado na [ligar o Azure SQL Database para a Azure Search utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), criação de indexadores contra **do SQL Server em VMs do Azure** (ou **VMs do SQL Azure** para abreviar) é suportada pelo Azure Search, mas há alguns pré-requisitos relacionados à segurança para cuidar do primeiro. 
 
 Ligações a partir do Azure Search para o SQL Server numa VM é uma ligação de internet pública. Todas as medidas de segurança que pode normalmente seguir para que estas ligações se aplicam aqui também:
 
-+ Obter um certificado de um [fornecedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio completamente qualificado da VM do Azure.
++ Obter um certificado de um [fornecedor de autoridade de certificação](https://en.wikipedia.org/wiki/Certificate_authority#Providers) para o nome de domínio completamente qualificado da instância do SQL Server na VM do Azure.
 + Instalar o certificado na VM e, em seguida, ativar e configurar ligações encriptadas na VM com as instruções neste artigo.
 
 ## <a name="enable-encrypted-connections"></a>Ativar ligações encriptadas
@@ -29,8 +29,9 @@ O Azure Search necessita de um canal criptografado para todos os pedidos de inde
 
 1. Verifique as propriedades do certificado para verificar que o nome do requerente é o nome de domínio completamente qualificado (FQDN) da VM do Azure. Pode usar uma ferramenta como CertUtils ou o snap-in de certificados para ver as propriedades. Pode obter o FQDN da secção de Essentials do painel de serviço da VM, além da **etiqueta de nome DNS/endereço IP público** campo a [portal do Azure](https://portal.azure.com/).
    
-   * Para as VMs criadas com a mais recente **Resource Manager** modelo, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`. 
-   * Para VMs anteriores criadas como um **clássica** VM, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`. 
+   * Para as VMs criadas com a mais recente **Resource Manager** modelo, o FQDN é formatado como `<your-VM-name>.<region>.cloudapp.azure.com`
+   * Para VMs anteriores criadas como um **clássica** VM, o FQDN é formatado como `<your-cloud-service-name.cloudapp.net>`.
+
 2. Configure o SQL Server para utilizar o certificado com o Editor de registo (regedit). 
    
     Embora o Gestor de configuração do SQL Server, muitas vezes, é utilizado para esta tarefa, não é possível usá-lo para este cenário. Ele não localizará o certificado importado porque o FQDN da VM no Azure não corresponde ao FQDN conforme determinado pela VM (identifica o domínio como o computador local ou o domínio de rede ao qual está associado). Quando os nomes não correspondem, use regedit para especificar o certificado.
@@ -41,9 +42,11 @@ O Azure Search necessita de um canal criptografado para todos os pedidos de inde
    * Defina o valor do **certificado** chave para o **thumbprint** do certificado SSL que importou para a VM.
      
      Existem várias formas de obter o thumbprint, algumas melhor do que outros. Se copiá-lo a partir da **certificados** snap-in no MMC, provavelmente selecionará um caráter de líderes do setor invisível [conforme descrito neste artigo de suporte](https://support.microsoft.com/kb/2023869/), que resulta num erro ao tentar uma conexão . Existem várias soluções para corrigir este problema. O mais fácil é RETROCESSO sobre e, em seguida, volte a escrever o primeiro caráter de thumbprint para remover o caractere à esquerda no campo valor da chave no regedit. Em alternativa, pode utilizar uma ferramenta de diferente para copiar o thumbprint.
+
 3. Conceder permissões para a conta de serviço. 
    
     Certifique-se de que a conta de serviço do SQL Server é concedida permissão apropriada na chave privada do certificado SSL. Se ignorar este passo, o SQL Server não será iniciada. Pode utilizar o **certificados** snap-in ou **CertUtils** para esta tarefa.
+    
 4. Reinicie o serviço do SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188614"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747514"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -90,7 +90,7 @@ Para criar um ASE de ILB:
 
 8. Selecione **OK** e, em seguida, selecione **Criar**.
 
-    ! [Criação do ASE] [1]
+    ![Criação do ASE][1]
 
 No painel **Rede Virtual**, existe uma opção **Configuração de Rede Virtual**. Pode utilizá-la para selecionar um VIP Externo ou um VIP Interno. A predefinição é **Externo**. Se selecionar **Externo**, o seu ASE utiliza um VIP acessível pela Internet. Se selecionar **Interno**, o seu ASE está configurado com um ILB num endereço IP na sua VNet.
 
@@ -119,7 +119,7 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 1. Selecione **Criar**. Se pretender que a aplicação apareça no dashboard, selecione o **afixar ao dashboard** caixa de verificação.
 
-    ! [Criação do plano do serviço de aplicações] [2]
+    ![Criação do plano do Serviço de Aplicações][2]
 
     Em **Nome da aplicação**, o nome de domínio é atualizado para refletir o domínio do seu ASE.
 
@@ -129,7 +129,7 @@ Um ASE de ILB é ligeiramente diferente do ASE não ILB. Como já foi mencionado
 
 Depois de criar o ASE, o nome de domínio mostra o domínio que especificou. Um novo item aparece no **definição** menu chamado **certificado ILB**. O ASE é criado com um certificado que não especifica o domínio do ASE de ILB. Se utilizar o ASE com esse certificado, o seu browser indicará que é inválido. Este certificado torna mais fácil testar o HTTPS, mas é preciso carregar o seu próprio certificado que está associado ao seu domínio do ASE de ILB. Este passo é necessário, independentemente de o seu certificado ser autoassinado ou adquirido junto de uma autoridade de certificação.
 
-! [Nome de domínio do ASE de ILB] [3]
+![Nome de domínio do ASE de ILB][3]
 
 O ASE de ILB precisa de um certificado SSL válido. Utilize autoridades de certificação internas, compre um certificado junto de um emissor externo ou utilize um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado têm de ser configurados corretamente:
 
@@ -150,7 +150,7 @@ Se pretender criar um certificado autoassinado, pode utilizar os comandos do Pow
 
 O certificado gerado por estes comandos do PowerShell é assinalado pelos browsers porque o certificado não foi criado por uma autoridade de certificação que se encontra na cadeia de certificação dos browsers. Para obter um certificado em que o seu browser confie, obtenha-o junto de uma autoridade de certificação comercial na cadeia de certificação do seu browser. 
 
-! [Defina o certificado ILB] [4]
+![Definir o certificado ILB][4]
 
 Para carregar os seus próprios certificados e testar o acesso:
 
@@ -180,7 +180,7 @@ Para carregar os seus próprios certificados e testar o acesso:
 
     O endereço IP para o ILB está listado em **Endereços IP**. Esta lista também inclui os endereços IP utilizados pelo VIP externo e para o tráfego de gestão de entrada.
 
-    ! [Endereço IP do ILB] [5]
+    ![Endereço IP do ILB][5]
 
 ## <a name="web-jobs-functions-and-the-ilb-ase"></a>WebJobs, Funções e o ASE de ILB ##
 
@@ -223,8 +223,13 @@ Para obter mais informações sobre como configurar o ASE de ILB com um disposit
 
 * Para começar a utilizar ASEs, veja [Introdução aos ambientes de Serviço de Aplicações][Intro].
  
+
 <!--Image references-->
-[1]:./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: [3] do./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png:. / Media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-Certificate.png [4]:./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5 ]:./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
+[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
+[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
+[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
+[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md

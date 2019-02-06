@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232486"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747480"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -61,7 +61,7 @@ Se ainda não tem uma referência no SDK do Application Insights:
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *NODE. js:* `var applicationInsights = require("applicationinsights");`
+    *Node.js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Obter uma instância de TelemetryClient
 
@@ -1002,7 +1002,7 @@ Pode escrever código para processar a telemetria antes do envio do SDK. O proce
 
 [Adicionar propriedades](../../azure-monitor/app/api-filtering-sampling.md#add-properties) à telemetria implementando `ITelemetryInitializer`. Por exemplo, pode adicionar números de versão ou valores que são calculadas a partir de outras propriedades.
 
-[Filtragem](../../azure-monitor/app/api-filtering-sampling.md#filtering) pode modificar ou eliminar telemetria antes do envio do SDK ao implementar `ITelemetryProcesor`. Controlar o que é enviado ou eliminado, mas a considerar para o efeito sobre as suas métricas. Dependendo de como descartar itens, poderá perder a capacidade de navegar entre os itens relacionados.
+[Filtragem](../../azure-monitor/app/api-filtering-sampling.md#filtering) pode modificar ou eliminar telemetria antes do envio do SDK ao implementar `ITelemetryProcessor`. Controlar o que é enviado ou eliminado, mas a considerar para o efeito sobre as suas métricas. Dependendo de como descartar itens, poderá perder a capacidade de navegar entre os itens relacionados.
 
 [Amostragem](../../azure-monitor/app/api-filtering-sampling.md) é uma solução em pacote para reduzir o volume de dados que são enviados a partir da sua aplicação para o portal. Ele faz isso sem afetar as métricas apresentadas. E ele faz isso sem afetar a capacidade de diagnosticar problemas ao navegar entre os itens relacionados, tais como exceções, pedidos e vistas de página.
 
@@ -1130,7 +1130,7 @@ Se definir qualquer um destes valores por conta própria, considere remover a li
 * **InstrumentationKey**: O recurso do Application Insights no Azure, onde a telemetria são apresentados. Ele é normalmente escolhido do applicationinsights. config.
 * **Localização**: A localização geográfica do dispositivo.
 * **Operação**: Nas aplicações web, a solicitação HTTP atual. Outros tipos de aplicação, pode definir esta opção para agrupar eventos em conjunto.
-  * **ID**: Um valor gerado que correlaciona eventos diferentes, para que quando inspecionar qualquer evento na pesquisa de diagnósticos, pode encontrar itens relacionados.
+  * **Id**: Um valor gerado que correlaciona eventos diferentes, para que quando inspecionar qualquer evento na pesquisa de diagnósticos, pode encontrar itens relacionados.
   * **Nome**: Um identificador, geralmente, o URL da solicitação HTTP.
   * **SyntheticSource**: Se não for nulo ou vazio, uma cadeia que indica que a origem do pedido foi identificada como um teste de robô ou web. Por predefinição, esta é excluída da cálculos no Explorador de métricas.
 * **Propriedades**: Propriedades que são enviadas com todos os dados de telemetria. Pode ser substituído no Roteiro * chamadas individuais.

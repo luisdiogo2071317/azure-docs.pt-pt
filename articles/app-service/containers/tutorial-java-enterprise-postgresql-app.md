@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539728"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747021"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Criar uma aplicação de web de Java EE e Postgres no Azure
 
-Neste tutorial mostram-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](https://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações para Linux](app-service-linux-intro.md).
+Neste tutorial mostram-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](https://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações no Linux](app-service-linux-intro.md).
 
 Neste tutorial, vai aprender a:
 > [!div class="checklist"]
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Atualizar o Maven POM
 
-Atualize o POM Maven com o desejado nome e grupo de recursos do seu serviço de aplicações. Estes valores serão ser injetados no plug-in do Azure, o que é mais abaixo na _pom_ ficheiro. Não é necessário criar o plano do serviço de aplicações ou a instância previamente. O plug-in do Maven irá criar o grupo de recursos e o serviço de aplicações, caso ainda não exista.
+Atualize o plug-in do Maven do Azure com o desejado nome e grupo de recursos do seu serviço de aplicações. Não é necessário criar o plano do serviço de aplicações ou a instância previamente. O plug-in do Maven irá criar o grupo de recursos e o serviço de aplicações, caso ainda não exista. 
 
-Pode rolar para baixo para o `<plugins>` secção do _pom_ para inspecionar o plug-in do Azure. A secção do `<plugin>` configuração no _pom_ para o azure-webapp-maven-Plug-in deve incluir a seguinte configuração:
+Pode rolar para baixo para o `<plugins>` secção do _pom_, 200, para fazer as alterações de linha. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-Substitua os marcadores de posição pelos seus nomes de recursos desejados:
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+Substitua `YOUR_APP_NAME` e `YOUR_RESOURCE_GROUP` com os nomes do seu grupo de serviço de aplicações e recursos.
 
 ## <a name="build-and-deploy-the-application"></a>Criar e implementar a aplicação
 
@@ -139,12 +123,27 @@ Agora, faremos algumas alterações para a aplicação de Java para ativá-la ut
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Adicionar credenciais de Postgres para o POM
 
-Na _pom_ substitua os valores de marcador de posição pelo seu nome de servidor Postgres, o nome de início de sessão de administrador e a palavra-passe. Estes valores serão ser injetados como variáveis de ambiente na sua instância do serviço de aplicações quando implementar novamente o aplicativo.
+Na _pom_, substitua os valores de marcador de posição com iniciais maiúsculas com o nome do servidor Postgres, o nome de início de sessão de administrador e a palavra-passe. Estes campos são dentro do plug-in do Azure Maven. (Não se esqueça de substituir `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, e `YOUR_PG_PASSWORD` no `<value>` etiquetas... não está dentro do `<name>` etiquetas!)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Atualizar a transação de Java API
@@ -161,10 +160,10 @@ Em seguida, é necessário editar nossa configuração de transação de Java AP
 
 Antes de implantar nosso aplicativo reconfigurado, podemos tem de atualizar o servidor de aplicações WildFly com o módulo de Postgres e as respetivas dependências. Para configurar o servidor, precisamos quatro arquivos no `wildfly_config/` diretório:
 
-- **postgresql 42.2.5.jar**: Este ficheiro. JAR é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
-- **postgres-Module. XML**: Esse arquivo XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
-- **jboss_cli_commands.CL**: Este ficheiro contém comandos de configuração que serão executados para a CLI JBoss. Os comandos adicionar o módulo de Postgres para o servidor de aplicações WildFly, fornecem as credenciais, declare um nome JNDI, defina o limiar de tempo limite, etc. Se não estiver familiarizado com a CLI JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.SH**: Por fim, este script de shell será executado sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos `jboss_cli_commands.cli` para a CLI JBoss.
+- **postgresql-42.2.5.jar**: Este ficheiro. JAR é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
+- **postgres-module.xml**: Esse arquivo XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
+- **jboss_cli_commands.cl**: Este ficheiro contém comandos de configuração que serão executados para a CLI JBoss. Os comandos adicionar o módulo de Postgres para o servidor de aplicações WildFly, fornecem as credenciais, declare um nome JNDI, defina o limiar de tempo limite, etc. Se não estiver familiarizado com a CLI JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.sh**: Por fim, este script de shell será executado sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos `jboss_cli_commands.cli` para a CLI JBoss.
 
 Sugerimos altamente ler o conteúdo desses arquivos, especialmente _jboss_cli_commands.cli_.
 

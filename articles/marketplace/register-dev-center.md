@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179842"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755531"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -78,7 +78,7 @@ Para ajudar a verificar o que não esteja conectado numa conta pessoal do browse
     | Modelo de faturação | Passos Seguintes |  
     |:--- |:--- |  
     | Gratuito | Aceda ao Portal de parceiro de Cloud.<ul> <li>Para publicar no Azure Marketplace, visite o Portal do Cloud Partner página localizada em [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Comercial (transact) | Atualize informações da sua conta.<ul> <li>Para obter mais informações sobre como adicionar informações de conta, visite o [como informações de banco de adicionar e imposto sobre](#how-to-add-bank-and-tax-information) secção.</li> </ul> |  
+    | Comercial (transact) | Atualize informações da sua conta.<ul> <li>Para obter mais informações sobre como adicionar informações de conta, visite o [como informações de banco de adicionar e imposto sobre](#add-bank-information) secção.</li> </ul> |  
 
     *   Um exemplo de uma oferta comercial é uma oferta VM com o modelo de faturação de hora a hora.  
 
@@ -146,7 +146,7 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 > Publicador que está a publicar no Transact listagem Tipo: VM, as aplicações do Azure: modelos de soluções e aplicações geridas.  
 
 *   **Por que é necessária uma conta Dev Center?**
-> Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
+> Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 *   **Como posso começar a utilizar com o registo de centro de desenvolvimento?**
 > Para evitar a duplicação, certifique-se de que sua empresa ainda não tiver uma conta do Dev Center registrada. Precisa estar conectado com a conta Microsoft que pretende associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, pode criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) para iniciar sessão e registar, aceda a https://dev.windows.com/en-us/registration?accountProgram=Azure
@@ -184,7 +184,7 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 > Atribuir um nome de empresa temporário, contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e os documentos de registo de negócios de fornecê-los.
 
 *   **Como posso adicionar as minhas informações fiscais e dividendos?**
-> Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
 *   **Pode alterar a conta de início de sessão da Microsoft do Centro de desenvolvimento?**
 > Não. Depois de criar um centro de desenvolvimento, não é possível alterar a conta do proprietário. Tinha que começar tudo de novo com uma conta do Dev Center totalmente nova com a conta Microsoft pretendida.

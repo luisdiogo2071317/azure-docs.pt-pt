@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b4eaa6080f3ff238ffeb26e442c5d694c38c0c1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496336"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756687"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -140,7 +140,7 @@ As utilizações possíveis da lista * são mostradas na tabela seguinte.
 
 Para determinar que tipos de recursos tem uma operação de lista, tem as seguintes opções:
 
-* Ver os [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Ver os [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts).
 * Utilize o [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) cmdlet do PowerShell. O exemplo seguinte obtém todas as operações de lista para contas de armazenamento:
 
   ```powershell

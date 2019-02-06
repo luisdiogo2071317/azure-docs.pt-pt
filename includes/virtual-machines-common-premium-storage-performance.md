@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553401"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757591"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Conceber o Elevado Desempenho
 
@@ -116,16 +116,16 @@ A melhor forma de medir os requisitos de desempenho do seu aplicativo, é usar f
 
 Os contadores de PerfMon estão disponíveis para o processador, memória e cada disco lógico e o disco físico do seu servidor. Ao utilizar discos de armazenamento premium com uma VM, os contadores de disco físico são para cada disco de armazenamento premium e os contadores de disco lógico são para cada volume criado nos discos de armazenamento premium. Tem de capturar os valores para os discos que alojam a carga de trabalho de aplicação. Se existir um mapeamento um-para-um entre discos lógicos e físicos, pode consultar os contadores de discos físicos; caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização da CPU e disco. O relatório de utilização do disco fornece estatísticas por dispositivo físico ou partição. Se tiver um servidor de base de dados com seus dados e de registo em discos separados, recolha estes dados para os dois discos. Tabela a seguir descreve os contadores de discos, processador e memória:
 
-| Contador | Descrição | PerfMon | iostat |
+| Contador | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou transações por segundo** |Número de pedidos de e/s emitida para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |tps <br> r/s <br> w/s |
 | **Leituras de disco e gravações** |% de leituras e escrever operações executadas no disco. |% De tempo de leitura de disco <br> % De tempo de escrita de disco |r/s <br> w/s |
 | **Débito** |Quantidade de dados lidas ou escritas para o disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
 | **Latência** |Tempo total para concluir um pedido de e/s de disco. |Média disco seg/leitura <br> Média disco seg/escritas |await <br> svctm |
-| **Tamanho de e/s** |O tamanho de e/s pedidos de problemas para os discos de armazenamento. |Bytes de média de disco/leitura <br> Disco de média de Bytes/escrita |avgrq sz |
-| **Profundidade de fila** |Número de e/s pendentes pedidos à espera para ser lidas ou escritas no disco de armazenamento. |Comprimento de fila de disco atual |avgqu sz |
+| **Tamanho de e/s** |O tamanho de e/s pedidos de problemas para os discos de armazenamento. |Bytes de média de disco/leitura <br> Disco de média de Bytes/escrita |avgrq-sz |
+| **Profundidade de fila** |Número de e/s pendentes pedidos à espera para ser lidas ou escritas no disco de armazenamento. |Comprimento de fila de disco atual |avgqu-sz |
 | **Máx. Memória** |Quantidade de memória necessária para executar a aplicação sem problemas |% Bytes dedicados em utilização |Utilizar vmstat |
-| **Máx. CPU** |Quantidade de CPU necessária para executar a aplicação sem problemas |% Tempo do processador |% util |
+| **Máx. CPU** |Quantidade de CPU necessária para executar a aplicação sem problemas |% Tempo do processador |%util |
 
 Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
@@ -198,8 +198,8 @@ Alta de dimensionamento de VMs estão disponíveis em tamanhos diferentes com um
 
 | Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco VM | Um máximo de Discos de dados | Tamanho da cache | IOPS | Limites de e/s de Cache de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |SO = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB por segundo |4000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |SO = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2.000 MB por segundo |5000 IOPS e 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB por segundo |4000 IOPS e 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2.000 MB por segundo |5000 IOPS e 50 MB por segundo |
 
 Para ver uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que pode satisfazer e dimensionar-se aos seus requisitos de desempenho do aplicativo desejado. Além disso, tenha em conta considerações importantes sobre a seguir ao escolher tamanhos de VM.
 
@@ -281,7 +281,7 @@ Seguem-se as definições de cache de disco recomendado para discos de dados,
 | ReadOnly |Configure o cache do anfitrião como só de leitura para os discos só de leitura e de leitura / escrita. |
 | Leitura/Escrita |Configure o cache do anfitrião como ReadWrite apenas se o seu aplicativo manipula corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
-*Só de leitura*  
+*ReadOnly*  
 Ao configurar a colocação em cache em dados de armazenamento Premium discos de só de leitura, pode obter a baixa latência de leitura e obter muito elevada IOPS de leitura e de débito para a sua aplicação. Isso é devido a duas razões,
 
 1. Leituras efetuada a partir de cache, o que está na memória da VM e local SSD, são muito mais rápidas do que de leituras de disco de dados, que é o armazenamento de Blobs do Azure.  
@@ -411,27 +411,27 @@ Execute os passos abaixo para entender cache
 
 1. Criar duas especificações de acesso com valores apresentados abaixo,
 
-   | Nome | Tamanho do pedido | % Aleatório | % De leitura |
+   | Name | Tamanho do pedido | % Aleatório | % De leitura |
    | --- | --- | --- | --- |
    | RandomWrites\_1 MB |1MB |100 |0 |
-   | RandomReads\_1 MB |1MB |100 |100 |
+   | RandomReads\_1MB |1MB |100 |100 |
 1. Execute o teste de Iometer para inicializar o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste de "Tempo de execução" para 2hrs na guia "Configuração de teste".
 
-   | Cenário | Volume de destino | Nome | Duração |
+   | Cenário | Volume de destino | Name | Duração |
    | --- | --- | --- | --- |
    | Inicialize o disco de Cache |CacheReads |RandomWrites\_1 MB |2hrs |
 1. Execute o teste de Iometer para aquecer o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste de "Tempo de execução" para 2hrs na guia "Configuração de teste".
 
-   | Cenário | Volume de destino | Nome | Duração |
+   | Cenário | Volume de destino | Name | Duração |
    | --- | --- | --- | --- |
-   | Quente no disco de Cache |CacheReads |RandomReads\_1 MB |2hrs |
+   | Quente no disco de Cache |CacheReads |RandomReads\_1MB |2hrs |
 
 Depois do disco de cache é preparado, prossiga com os cenários de teste listados abaixo. Para executar o teste de Iometer, utilize, pelo menos, três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade de fila e selecione uma das especificações de teste guardado, conforme mostrado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e débito ao executar estes testes. Para todos os cenários, são utilizados um tamanho de e/s pequeno de 8KB e uma profundidade de fila de alta de 128.
 
-| Cenário de teste | Volume de destino | Nome | Resultado |
+| Cenário de teste | Volume de destino | Name | Resultado |
 | --- | --- | --- | --- |
-| Um máximo de IOPS de leitura |CacheReads |RandomWrites\_8K |50 000 IOPS |
-| Um máximo de IOPS de escrita |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
+| Um máximo de IOPS de leitura |CacheReads |RandomWrites\_8K |50,000 IOPS |
+| Um máximo de IOPS de escrita |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
 | Um máximo de IOPS combinada |CacheReads |RandomWrites\_8K |100 000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Um máximo de MB/seg de leitura |CacheReads |RandomWrites\_64K |524 MB/seg |
@@ -464,7 +464,7 @@ Nós usaremos quatro threads de trabalho para orientar operações de escrita e 
 *Máximo IOPS de escrita*  
 Crie o ficheiro de tarefa com especificações seguintes para obter o máximo IOPS de escrita. Nomeie-o "fiowrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -504,7 +504,7 @@ Enquanto executa o teste, será capaz de ver o número de escrever IOPS a VM e f
 *IOPS de leitura do máximo*  
 Crie o ficheiro de tarefa com especificações seguintes para obter o máximo IOPS de leitura. Nomeie-o "fioread.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -544,7 +544,7 @@ Enquanto executa o teste, será capaz de ver o número de ler IOPS a VM e fornec
 *IOPS máxima leitura e escrita*  
 Criar o ficheiro de tarefa com o seguinte combinado de especificações para obter o máximo IOPS de escrita e leitura. Nomeie-o "fioreadwrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -605,7 +605,7 @@ Para obter o máximo combinado de leitura e escrita a taxa de transferência, ut
 
 Saiba mais sobre o armazenamento Premium do Azure:
 
-* [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads (Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure)](../articles/virtual-machines/windows/premium-storage.md)  
 
 Para usuários do SQL Server, leia os artigos sobre melhores práticas de desempenho para o SQL Server:
 

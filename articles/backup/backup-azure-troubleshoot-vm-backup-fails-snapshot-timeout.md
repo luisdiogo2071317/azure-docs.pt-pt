@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0869786b2aa6c604ee59deb0f5a5fbc27b9ce3bf
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104240"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751570"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -64,7 +64,7 @@ Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repi
 **Código de erro**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: Cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
 
-Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) ou através do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou através do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
 
@@ -121,7 +121,7 @@ Atualmente o Azure Backup suporta discos de Standard SSD apenas para os cofres q
 
 Sua tarefa de cópia de segurança recente falhou porque existe uma tarefa de cópia de segurança existente em curso. Não é possível iniciar uma nova tarefa de cópia de segurança até que seja concluída a tarefa atual. Certifique-se de que a operação de cópia de segurança atualmente em curso é concluída antes de acionar ou outro operações de cópia de segurança de agendamento. Para verificar o estado de tarefas de cópia de segurança, execute os passos abaixo:
 
-1. Inicie sessão no portal do Azure, clique em **todos os serviços**. Escreva os serviços de recuperação e clique em **cofres dos serviços de recuperação**. É apresentada a lista dos cofres dos serviços de recuperação.
+1. Inicie sessão no portal do Azure e clique em **All services** (Todos os serviços). Escreva Serviços de Recuperação e clique em **Cofres dos Serviços de Recuperação**. É apresentada a lista dos cofres dos serviços de recuperação.
 2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual a cópia de segurança está configurada.
 3. No menu do dashboard do cofre, clique em **tarefas de cópia de segurança** apresenta todas as tarefas de cópia de segurança.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091611"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749219"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar ativação pós-falha em vários pontos finais da CDN do Azure com o Gestor de tráfego do Azure
 
@@ -42,7 +42,7 @@ Crie duas ou mais perfis de CDN do Azure e pontos de extremidade com provedores 
 ## <a name="set-up-azure-traffic-manager"></a>Configure o Gestor de tráfego do Azure
 Criar um perfil do Gestor de tráfego do Azure e configurar o balanceamento de carga entre os pontos finais CDN. 
 
-1. Criar um perfil do Gestor de tráfego do Azure ao seguir os passos em [criar um perfil do Gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Criar um perfil do Gestor de tráfego do Azure ao seguir os passos em [criar um perfil do Gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     Para **método de encaminhamento**, selecione **prioridade**.
 

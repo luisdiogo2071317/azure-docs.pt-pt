@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 12c71086509b0c7017b8326c46ed4a31270ef261
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657387"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751910"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -172,7 +172,7 @@ Este problema pode ocorrer devido a um problema com a instalação do VMware Pow
 
 Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: Não havia nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
 
-Verifique se estiver a executar a versão mais recente da aplicação recoletora, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Verifique se estiver a executar a versão mais recente da aplicação recoletora, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 Se o problema ainda acontece na versão mais recente, é possível porque a máquina do recoletor não consegue resolver o nome do servidor vCenter especificado ou a porta especificada está errada. Por predefinição, que, se a porta não for especificada, o recoletor irá tentar ligar para o número da porta 443.
 

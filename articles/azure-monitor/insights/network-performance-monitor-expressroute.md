@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188780"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747463"
 ---
 # <a name="expressroute-monitor"></a>Monitor do ExpressRoute
 
@@ -118,23 +118,12 @@ Pode ver os códigos de notificação e definir alertas nos mesmos via **LogAnal
 
 | Código de notificação (Logs) | Descrição |
 | --- | --- |
-| 5101 | Sub-interfaces/mostra latência elevada da Microsoft Edge |
-| 5102 | Sub-interfaces do Microsoft Edge está a remover o pacote | 
-| 5103 | Gateway do ExpressRoute está em mau estado de funcionamento | 
-| 5201 | A ligação do fornecedor de serviço mostra latência elevada |
-| 5202 | Pacotes não estão a fluir do circuito do ExpressRoute pretendido |
-| 5301 | O router de limite de cliente mostra latência elevada | 
-| 5302 | A latência é provocada por dispositivo/ligação no ambiente do cliente. O problema não parece ser no circuito de ExpressRoute | 
 | 5501 | Não é possível percorrer a ligação secundária do circuito do ExpressRoute |
 | 5502 | Não é possível percorrer a ligação primária do circuito do ExpressRoute |
 | 5503 | Foi encontrado nenhum circuito para a subscrição ligada à área de trabalho | 
-| 5506 | Utilização é atingir a capacidade máxima | 
-| 5507 | A utilização é baixa |
 | 5508 | Não é possível determinar se tráfego passa através de quaisquer circuitos para o caminho |
 | 5510 | O tráfego não passa pelo circuito pretendido | 
 | 5511 | O tráfego não passa através da rede virtual pretendida | 
-| 5512 | Não é possível determinar se o tráfego passa pelo circuito pretendido |
-
 
 **Circuito está inativo.** Monitor de desempenho de rede notifica-o assim que a conectividade entre a recursos no local e redes virtuais do Azure é perdida. Esta notificação ajuda-o a tomar medidas proativas, antes de receber os escalonamentos de usuário e reduzir o tempo de inatividade.
 

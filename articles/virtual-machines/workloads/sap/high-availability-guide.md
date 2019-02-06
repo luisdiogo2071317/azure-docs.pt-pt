@@ -3,26 +3,25 @@ title: Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver | Doc
 description: Guia de elevada disponibilidade para SAP NetWeaver em máquinas de virtuais do Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 12/07/2016
-ms.author: goraco
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 01/24/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 691bb0c5ea6d84bd67b8b1b1fd5a05c25f75ba40
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1cc322c0c303fec05c628915741dd32ea2ad5208
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437033"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747701"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure
 
@@ -187,7 +186,6 @@ ms.locfileid: "54437033"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -473,7 +471,7 @@ Estes artigos abrangem implementações de SAP no Azure:
 
 Estas notas de SAP estão relacionadas ao tópico de SAP no Azure:
 
-| Número de nota | Cargo |
+| Número de nota | Título |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e o dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -871,7 +869,7 @@ Para definir endereços de IP de DNS necessários, siga os passos abaixo.
 2.  Selecione as definições com base no tipo de rede que tiver. Para obter mais informações, consulte os seguintes recursos:
     * [Conectividade de rede da empresa (em vários locais)][planning-guide-2.2]: Adicione os endereços IP dos servidores DNS no local.  
     Pode ampliar servidores DNS no local para as máquinas virtuais que estão em execução no Azure. Nesse cenário, pode adicionar os endereços IP das máquinas virtuais do Azure no qual executa o serviço DNS.
-    * [Implementação apenas na cloud][planning-guide-2.1]: Implemente uma máquina virtual adicional na mesma instância de rede Virtual que funciona como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que configurou para executar o serviço DNS.
+    * Para implementações isoladas no Azure: Implemente uma máquina virtual adicional na mesma instância de rede Virtual que funciona como um servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que configurou para executar o serviço DNS.
 
     ![Figura 12: Configurar servidores DNS para rede Virtual do Azure][sap-ha-guide-figure-3001]
 
@@ -1020,7 +1018,7 @@ Se pretender utilizar números diferentes para as instâncias de SAP ASCS ou SCS
 1.  No portal do Azure, selecione  **< *SID*> Balanceador de carga - lb - ascs** > **regras de balanceamento de carga**.
 2.  Todas as regras que pertencem à instância do SAP ASCS ou SCS de balanceamento de carga, altere estes valores:
 
-  * Nome
+  * Name
   * Porta
   * Porta de back-end
 
@@ -1050,7 +1048,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância do
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** Alterar o primeiro parâmetro de TCP/IP_
@@ -1061,7 +1059,7 @@ Em seguida, adicione este entradas de Registro do Windows em ambos os nós de cl
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** Altere o segundo parâmetro de TCP/IP_

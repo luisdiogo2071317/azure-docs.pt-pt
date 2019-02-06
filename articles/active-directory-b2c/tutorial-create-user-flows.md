@@ -1,5 +1,5 @@
 ---
-title: Tutorial - criar fluxos de utilizador no Azure Active Directory B2C | Documentos da Microsoft
+title: Tutorial - criar fluxos de utilizador - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como criar fluxos de utilizador para as suas aplicações no Azure Active Directory B2C no portal do Azure.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845607"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750295"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizador no Azure Active Directory B2C
 
@@ -39,29 +39,30 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O fluxo de utilizador de inscrição e início de sessão lida com experiências de inscrição e início de sessão com uma configuração única. Os utilizadores da sua aplicação são liderados para baixo o caminho certo dependendo do contexto.
 
-1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 
     ![Mude para o diretório da subscrição](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-3. No menu da esquerda, selecione **fluxos de utilizador**e, em seguida, selecione **novo fluxo de utilizador**.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+4. No menu da esquerda, selecione **fluxos de utilizador**e, em seguida, selecione **novo fluxo de utilizador**.
 
     ![Selecione o novo fluxo de utilizador](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. Selecione o **inscrição e início de sessão** fluxo de utilizador no separador recomendado.
+5. Selecione o **inscrição e início de sessão** fluxo de utilizador no separador recomendado.
 
     ![Selecione o fluxo de utilizador de inscrição e início de sessão](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. Introduza um **nome** para o fluxo de utilizador. Por exemplo, *signupsignin1*.
-6. Para **fornecedores de identidade**, selecione **inscrição de E-Mail**.
+6. Introduza um **nome** para o fluxo de utilizador. Por exemplo, *signupsignin1*.
+7. Para **fornecedores de identidade**, selecione **inscrição de E-Mail**.
 
     ![Defina as propriedades de fluxo](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. Para **atributos de utilizador e afirmações**, escolha as afirmações e atributos que pretende recolher e a enviar do usuário durante a inscrição. Por exemplo, seleccione **mostrar mais**e, em seguida, escolha **país/região**, **nome a apresentar**, e **Código Postal**. Clique em **OK**.
+8. Para **atributos de utilizador e afirmações**, escolha as afirmações e atributos que pretende recolher e a enviar do usuário durante a inscrição. Por exemplo, seleccione **mostrar mais**e, em seguida, escolha **país/região**, **nome a apresentar**, e **Código Postal**. Clique em **OK**.
 
     ![Selecione os atributos e afirmações](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. Clique em **criar** para adicionar o fluxo de utilizador. Um prefixo de *B2C_1* automaticamente é acrescentado ao nome.
+9. Clique em **criar** para adicionar o fluxo de utilizador. Um prefixo de *B2C_1* automaticamente é acrescentado ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de utilizador
 
@@ -123,4 +124,4 @@ Neste artigo, aprendeu como:
 > * Criar um fluxo de utilizador de reposição de palavra-passe
 
 > [!div class="nextstepaction"]
-> [Personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Adicionar fornecedores de identidade às suas aplicações no Azure Active Directory B2C](tutorial-add-identity-providers.md)

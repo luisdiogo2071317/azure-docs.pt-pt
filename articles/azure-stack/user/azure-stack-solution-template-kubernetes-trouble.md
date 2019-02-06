@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663419"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752301"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
 
@@ -53,7 +53,7 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
 
 2. Criar a VM de implementação e extensão de script personalizado.
     -  Criar a implementação da VM do Linux com a imagem do Linux marketplace **Ubuntu Server 16.04-LTS**.
-    -  Download e execute a extensão de script de cliente do marketplace. O script é **Script personalizado para Linux 2.0**.
+    -  Transfira e execute a extensão de script personalizado do marketplace. O script é **Script personalizado para Linux 2.0**.
     -  Execute o script personalizado do DVM. O script realiza as seguintes tarefas:
         1. Obtém o ponto final da Galeria a partir do ponto de final de metadados do Azure Resource Manager.
         2. Obtém o ID de recurso do Active Directory a partir do ponto de final de metadados do Azure Resource Manager.
@@ -61,7 +61,7 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
         4. Implementa o motor de ACS para o cluster de Kubernetes e guarda o perfil de cloud do Azure Stack para `/etc/kubernetes/azurestackcloud.json`.
 3. Crie as VMs principais.
 
-4. Transferir e executar extensões de script de cliente.
+4. Transferir e executar as extensões de script personalizado.
 
 5. Execute o script principal.
 
@@ -75,7 +75,7 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
         3. Inicia o serviço de scheduler.
 6. Crie agente de VMs.
 
-7. Download e execute a extensão de script de cliente.
+7. Transfira e execute a extensão de script personalizado.
 
 7. Execute o script de agente. O script personalizado do agente faz as seguintes tarefas:
     - Instala etcd

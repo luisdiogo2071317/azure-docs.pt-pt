@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452860"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754605"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configure uma identidade comum na máquina de Virtual de ciência de dados
 
@@ -31,7 +31,7 @@ Active Directory é um fornecedor de identidade populares e é suportado no Azur
 
 Se já tiver o Active Directory para gerir as identidades, pode utilizá-lo como o fornecedor de identidade comum. Se não tiver o Active Directory, pode executar uma instância do Active Directory no Azure através de um serviço chamado [do Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-A documentação para [do Azure AD](https://docs.microsoft.com/azure/active-directory/) fornece detalhadas [instruções de gestão](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), incluindo a ligação do Azure AD para o seu diretório no local, se tiver uma. 
+A documentação para [do Azure AD](https://docs.microsoft.com/azure/active-directory/) fornece detalhadas [instruções de gestão](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), incluindo a ligação do Azure AD para o seu diretório no local, se tiver uma. 
 
 Este artigo descreve os passos para configurar um serviço de domínio do Active Directory totalmente gerido no Azure com o Azure AD DS. Em seguida, pode associar seu DSVMs ao domínio gerido do Active Directory para permitir aos utilizadores aceder a um conjunto de DSVMs (e outros recursos do Azure), utilizando uma conta de utilizador comum e as credenciais. 
 

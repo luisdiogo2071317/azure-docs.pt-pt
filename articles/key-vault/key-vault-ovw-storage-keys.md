@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b6dc0a63340fee03b34f4c5b6eca8ff011d6b178
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210680"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744184"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -52,8 +52,9 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
 1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter o ID de recurso da conta de armazenamento, que pretende gerir
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Campo de ID de cópia fora o resultado do comando acima
     
 2. Obter serviço do Azure Key Vault do ID aplicação principal 
 
@@ -74,13 +75,16 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     No caso do utilizador não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, os passos abaixo defina as permissões para a sua conta para se certificar de que pode gerir todas as permissões de armazenamento no Key Vault.
+    
  > [!NOTE] 
-    No caso de que o utilizador não tem permissões para a conta de armazenamento, vamos primeiro, obtenha o Id de objeto do utilizador
+ > No caso de que o utilizador não tem permissões para a conta de armazenamento, vamos primeiro, obtenha o Id de objeto do utilizador
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Como aceder à sua conta de armazenamento com tokens SAS
@@ -91,9 +95,9 @@ Na abaixo da secção, demonstramos como obter a sua chave de conta de armazenam
 
 > [!NOTE] 
   Existem 3 formas de autenticar para o Key Vault, como pode ler no [conceitos básicos](key-vault-whatis.md#basic-concepts)
-- Utilizar a identidade de serviço gerida (altamente recomendado)
-- Com o Principal de serviço e certificado 
-- Com o Principal de serviço e a palavra-passe (não recomendado)
+> - Utilizar a identidade de serviço gerida (altamente recomendado)
+> - Com o Principal de serviço e certificado 
+> - Com o Principal de serviço e a palavra-passe (não recomendado)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
