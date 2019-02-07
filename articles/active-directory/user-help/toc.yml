@@ -48,24 +48,25 @@ items:
   - name: Descrição geral
     href: user-help-auth-app-overview.md
   - name: Transferir e instalar a aplicação
-    href: microsoft-authenticator-app-how-to.md
+    href: user-help-auth-app-download-install.md
   - name: Adicionar descrição geral das contas
-    href: microsoft-authenticator-app-add-accounts-overview.md
+    href: user-help-auth-app-add-account-overview.md
     items:
     - name: Adicionar uma conta escolar ou profissional
-      href: microsoft-authenticator-app-add-work-account.md
+      href: user-help-auth-app-add-work-school-account.md
     - name: Adicionar uma conta Microsoft pessoal
-      href: microsoft-authenticator-app-add-personal-account.md
+      href: user-help-auth-app-add-personal-ms-account.md
     - name: Adicionar uma conta que não seja da Microsoft
-      href: microsoft-authenticator-app-add-non-microsoft-account.md
+      href: user-help-auth-app-add-non-ms-account.md
     - name: Adicionar manualmente uma conta
-      href: microsoft-authenticator-app-add-account-manual.md
+      href: user-help-auth-app-add-account-manual.md
+    expanded: true
   - name: Iniciar sessão utilizando a aplicação Microsoft Authenticator
-    href: microsoft-authenticator-app-phone-signin-faq.md
+    href: user-help-auth-app-sign-in.md
   - name: Efetuar cópia de segurança e recuperar as suas contas
-    href: microsoft-authenticator-app-backup-and-recovery.md
+    href: user-help-auth-app-backup-recovery.md
   - name: FAQ
-    href: microsoft-authenticator-app-faq.md
+    href: user-help-auth-app-faq.md
 - name: Ajuda do portal das Minhas Aplicações
   items:
   - name: Descrição geral
@@ -84,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Resolução de problemas de mensagem "Não consegue chegar lá"
     href: user-help-device-remediation.md
-ms.openlocfilehash: ed41c40adc0d09d60f43cf3826c6bb84a464c31f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755276"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816055"
