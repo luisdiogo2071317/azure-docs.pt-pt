@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ec180b40e52c5702495a0124bf8ae33d2dc24a1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820934"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização privada)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager (pré-visualização privada)
 
 Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de implementação, terá de criar dois modelos:
 
@@ -129,7 +129,7 @@ Ambas as versões (1.0.0.0 e 1.0.0.1) destinam-se à [implementação de revisõ
 
 Os artefactos do modelo são utilizados pelo modelo de topologia de serviço e os artefactos binários são utilizados pelo modelo de lançamento. Tanto o modelo de topologia, como o modelo de lançamento, definem um recurso do Azure de origem de artefactos, que é um recurso utilizado para apontar o Resource Manager para os artefactos de modelo e binários utilizados na implementação. Para simplificar o tutorial, é utilizada uma conta de armazenamento para armazenar os dois tipos de artefactos. Ambas as origens dos artefactos apontam para a mesma conta de armazenamento.
 
-1. Crie uma conta do Storage do Azure. Para obter as instruções, veja [Início Rápido: Carregar, transferir e listar blobs através do portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+1. Crie uma conta do Storage do Azure. Para obter instruções, consulte [início rápido: Carregar, transferir e listar blobs através do portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 2. Crie um contentor de blobs na conta de armazenamento.
 3. Copie as duas pastas (“binaries” e “templates”) e os conteúdos das mesmas para o contentor de blobs. O [Explorador de Armazenamento do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) suporta a funcionalidade de arrastar e largar.
 4. Obtenha a localização SAS do contentor com as instruções seguintes:
@@ -172,15 +172,15 @@ O modelo contém os parâmetros seguintes:
 
 ![Parâmetros do modelo de topologia do tutorial Gestor de Implementações do Azure](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
 
-- **namePrefix**: este prefixo é utilizado para criar os nomes dos recursos do Gestor de Implementações. Por exemplo, se for utilizado o prefixo “jdoe”, o nome da topologia de serviço será **jdoe**ServiceTopology.  Os nomes dos recursos são definidos na secção de variáveis deste modelo.
-- **azureResourcelocation**: para simplificar o tutorial, todos os recursos partilham esta localização, salvo indicação em contrário. Atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos **E.U.A. Central** ou nos **E.U.A. Leste 2**.
-- **artifactSourceSASLocation**: o URI de SAS para o contentor de blobs no qual os ficheiros de modelo da unidade de serviço e de parâmetros são armazenados para a implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
-- **templateArtifactRoot**: o caminho de deslocamento do contentor de blobs no qual os modelos e os parâmetros são armazenados. O valor predefinido é **templates/1.0.0.0**. Não altere este valor, a menos que pretenda alterar a estrutura de pastas explicada em [Preparar os artefactos](#prepare-the-artifacts). Neste tutorial, são utilizados caminhos relativos.  O caminho completo é construído mediante a concatenação de **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (ou **parametersArtifactSourceRelativePath**).
-- **targetSubscriptionID**: o ID de subscrição na qual os recursos do Gestor de Implementações vão ser implementados e faturados. Utilize o ID da sua subscrição neste tutorial.
+- **namePrefix**: Este prefixo é utilizado para criar os nomes dos recursos do Gestor de implementação. Por exemplo, se for utilizado o prefixo “jdoe”, o nome da topologia de serviço será **jdoe**ServiceTopology.  Os nomes dos recursos são definidos na secção de variáveis deste modelo.
+- **azureResourcelocation**: Para simplificar o tutorial, todos os recursos partilham esta localização, a menos que é especificado de outra forma. Atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos **E.U.A. Central** ou nos **E.U.A. Leste 2**.
+- **artifactSourceSASLocation**: O URI de SAS para o contentor de BLOBs onde os arquivos de modelo e parâmetros de unidade de serviço são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
+- **templateArtifactRoot**: O caminho de deslocamento do contentor de BLOBs onde estão armazenados os parâmetros e modelos. O valor predefinido é **templates/1.0.0.0**. Não altere este valor, a menos que pretenda alterar a estrutura de pastas explicada em [Preparar os artefactos](#prepare-the-artifacts). Neste tutorial, são utilizados caminhos relativos.  O caminho completo é construído mediante a concatenação de **artifactSourceSASLocation**, **templateArtifactRoot** e **templateArtifactSourceRelativePath** (ou **parametersArtifactSourceRelativePath**).
+- **targetSubscriptionID**: O ID de subscrição ao qual o implementação do Gestor de recursos vão ser implementado e cobrados. Utilize o ID da sua subscrição neste tutorial.
 
 ### <a name="the-variables"></a>As variáveis
 
-A secção de variáveis define os nomes dos recursos, as localizações do Azure para ambos os serviços, **Service WUS** e **Service EUS**, e os caminhos dos artefactos:
+A secção de variáveis define os nomes dos recursos, as localizações do Azure para os dois serviços: **Serviço WUS** e **serviço EUS**e os caminhos de artefacto:
 
 ![Variáveis do modelo de topologia do tutorial Gestor de Implementações do Azure](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
@@ -199,7 +199,7 @@ A captura de ecrã seguinte só mostra algumas partes dos serviços de topologia
 ![Topologia de serviço de recursos do modelo de topologia do tutorial Gestor de Implementações do Azure](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-resources-service-topology.png)
 
 - **artifactSourceId** é utilizado para associar o recurso da origem do artefacto ao recurso da topologia de serviço.
-- **dependsOn**: todos os recursos da topologia de serviço dependem do recurso de origem do artefacto.
+- **dependsOn**: Todos os recursos de topologia de serviço dependem do recurso de origem do artefacto.
 - **artifacts** aponta para os artefactos do modelo.  Utilizam-se caminhos relativos aqui. O caminho completo é construído mediante a concatenação de artifactSourceSASLocation (definido na origem do artefacto), artifactRoot (definido na origem do artefacto) e templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
 
 > [!NOTE]
@@ -212,11 +212,11 @@ Vai criar um ficheiro de parâmetros que é utilizado com o modelo de topologia.
 1. Abra **\ADMTemplates\CreateADMServiceTopology.Parameters** no Visual Studio Code ou noutro editor de texto.
 2. Preencha os valores dos parâmetros:
 
-    - **namePrefix**: introduza uma cadeia com 4 a 5 carateres. Este prefixo é utilizado para criar nomes de recursos do Azure exclusivos.
-    - **azureResourceLocation**: se não estiver familiarizado com as localizações do Azure, utilize **centralus** neste tutorial.
-    - **artifactSourceSASLocation**: introduza o URI de SAS para o diretório de raiz (o contentor de blobs) no qual os ficheiros do modelo de unidade de serviço e dos parâmetros são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
-    - **templateArtifactRoot**: a não ser que altere a estrutura de pastas dos artefactos, utilize **templates/1.0.0.0** neste tutorial.
-    - **targetScriptionID**: introduza o ID de subscrição do Azure.
+    - **namePrefix**: Introduza uma cadeia de caracteres com caracteres de 4 a 5. Este prefixo é utilizado para criar nomes de recursos do Azure exclusivos.
+    - **azureResourceLocation**: Se não estiver familiarizado com localizações do Azure, utilize **centralus** neste tutorial.
+    - **artifactSourceSASLocation**: Introduza o URI de SAS para o diretório de raiz (o contentor de BLOBs) onde os arquivos de modelo e parâmetros de unidade de serviço são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
+    - **templateArtifactRoot**: A menos que altere a estrutura de pastas dos artefatos, utilize **templates/1.0.0.0** neste tutorial.
+    - **targetScriptionID**: Introduza o ID de subscrição do Azure.
 
 > [!IMPORTANT]
 > O modelo de topologia e o modelo de lançamento partilham alguns parâmetros. Esses parâmetros têm de ter os mesmos valores. Os parâmetros são **namePrefix**, **azureResourceLocation** e **artifactSourceSASLocation** (ambas as origens dos artefactos partilham a mesma conta de armazenamento neste tutorial).
@@ -231,11 +231,11 @@ O modelo contém os parâmetros seguintes:
 
 ![Parâmetros do modelo de lançamento do tutorial Gestor de Implementações do Azure](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
-- **namePrefix**: este prefixo é utilizado para criar os nomes dos recursos do Gestor de Implementações. Por exemplo, se utilizar o prefixo "jdoe", o nome do lançamento seria **jdoe**Rollout.  Os nomes são definidos na secção de variáveis do modelo.
-- **azureResourcelocation**: para simplificar este tutorial, todos os recursos do Gestor de Implementações partilham esta localização, salvo indicação em contrário. Atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos **E.U.A. Central** ou nos **E.U.A. Leste 2**.
-- **artifactSourceSASLocation**: o URI de SAS para o diretório de raiz (o contentor de blobs) no qual os ficheiros do modelo de unidade de serviço e dos parâmetros são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
-- **binaryArtifactRoot**: o valor predefinido é **binaries/1.0.0.0**. Não altere este valor, a menos que pretenda alterar a estrutura de pastas explicada em [Preparar os artefactos](#prepare-the-artifacts). Neste tutorial, são utilizados caminhos relativos.  O caminho completo é construído mediante a concatenação de **artifactSourceSASLocation**, **binaryArtifactRoot** e **deployPackageUri**, este último especificado em CreateWebApplicationParameters.json.  Veja [Preparar os artefactos](#prepare-the-artifacts).
-- **managedIdentityID**: a identidade gerida atribuída pelo utilizador que realiza as ações de implementação. Veja [Criar a identidade gerida atribuída pelo utilizador](#create-the-user-assigned-managed-identity).
+- **namePrefix**: Este prefixo é utilizado para criar os nomes dos recursos do Gestor de implementação. Por exemplo, se utilizar o prefixo "jdoe", o nome do lançamento seria **jdoe**Rollout.  Os nomes são definidos na secção de variáveis do modelo.
+- **azureResourcelocation**: Para simplificar o tutorial, todos os recursos do Gestor de implementação partilham esta localização, a menos que é especificado de outra forma. Atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos **E.U.A. Central** ou nos **E.U.A. Leste 2**.
+- **artifactSourceSASLocation**: O URI de SAS para o diretório de raiz (o contentor de BLOBs) onde os arquivos de modelo e parâmetros de unidade de serviço são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
+- **binaryArtifactRoot**:  O valor predefinido é **binaries/1.0.0.0**. Não altere este valor, a menos que pretenda alterar a estrutura de pastas explicada em [Preparar os artefactos](#prepare-the-artifacts). Neste tutorial, são utilizados caminhos relativos.  O caminho completo é construído mediante a concatenação de **artifactSourceSASLocation**, **binaryArtifactRoot** e **deployPackageUri**, este último especificado em CreateWebApplicationParameters.json.  Veja [Preparar os artefactos](#prepare-the-artifacts).
+- **managedIdentityID**: Identidade de gerida atribuído ao utilizador que executa as ações de implementação. Veja [Criar a identidade gerida atribuída pelo utilizador](#create-the-user-assigned-managed-identity).
 
 ### <a name="the-variables"></a>As variáveis
 
@@ -259,10 +259,10 @@ A captura de ecrã seguinte só mostra algumas partes da definição de lançame
 
 ![Lançamento de recursos do modelo de lançamento do tutorial Gestor de Implementações do Azure](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-rollout.png)
 
-- **dependsOn**: o recurso de lançamento depende no recurso de origem do artefacto e dos eventuais passos definidos.
+- **dependsOn**: O recurso de implementação depende do recurso de origem de artefacto e qualquer um dos passos definidos.
 - **artifactSourceId**: utilizado para associar o recurso de origem do artefacto ao recurso de lançamento.
 - **targetServiceTopologyId**: utilizado para associar o recurso de topologia de serviço ao recurso de lançamento.
-- **deploymentTargetId**: é o ID do recurso de unidade de serviço do recurso de topologia de serviço.
+- **deploymentTargetId**: É o ID de recurso de unidade de serviço do recurso de topologia de serviço.
 - **preDeploymentSteps** e **postDeploymentSteps**: contêm os passos do lançamento. No modelo, é chamado um passo de espera.
 - **dependsOnStepGroups**: configure as dependências entre os grupos de passos.
 
@@ -273,11 +273,11 @@ Vai criar um ficheiro de parâmetros que é utilizado com o modelo de lançament
 1. Abra **\ADMTemplates\CreateADMRollout.Parameters** no Visual Studio Code ou em qualquer editor de texto.
 2. Preencha os valores dos parâmetros:
 
-    - **namePrefix**: introduza uma cadeia com 4 a 5 carateres. Este prefixo é utilizado para criar nomes de recursos do Azure exclusivos.
-    - **azureResourceLocation**: atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos **E.U.A. Central** ou nos **E.U.A. Leste 2**.
-    - **artifactSourceSASLocation**: introduza o URI de SAS para o diretório de raiz (o contentor de blobs) no qual os ficheiros do modelo de unidade de serviço e dos parâmetros são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
-    - **binaryArtifactRoot**: a não ser que altere a estrutura de pastas dos artefactos, utilize **binaries/1.0.0.0** neste tutorial.
-    - **managedIdentityID**: introduza a identidade gerida atribuída pelo utilizador. Veja [Criar a identidade gerida atribuída pelo utilizador](#create-the-user-assigned-managed-identity). A sintaxe é:
+    - **namePrefix**: Introduza uma cadeia de caracteres com caracteres de 4 a 5. Este prefixo é utilizado para criar nomes de recursos do Azure exclusivos.
+    - **azureResourceLocation**: Atualmente, os recursos do Gestor de Implementações o Azure só podem ser criados nos E.U.A. Central ou nos **E.U.A. Leste 2**.
+    - **artifactSourceSASLocation**: Introduza o URI de SAS para o diretório de raiz (o contentor de BLOBs) onde os arquivos de modelo e parâmetros de unidade de serviço são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
+    - **binaryArtifactRoot**: A menos que altere a estrutura de pastas dos artefatos, utilize **binaries/1.0.0.0** neste tutorial.
+    - **managedIdentityID**: Introduza a identidade gerida atribuído ao utilizador. Veja [Criar a identidade gerida atribuída pelo utilizador](#create-the-user-assigned-managed-identity). A sintaxe é:
 
         ```
         "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userassignedidentities/<ManagedIdentityName>"
@@ -336,7 +336,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
         -Name $rolloutName
     ```
 
-    Ante de poder executar este cmdlet, têm de ser instalados os cmdlets do PowerShell do Gestor de Implementações. Veja [Pré-requisitos](#prerequisite).
+    Ante de poder executar este cmdlet, têm de ser instalados os cmdlets do PowerShell do Gestor de Implementações. Consulte os pré-requisitos.
 
     O exemplo seguinte mostra o estado da execução:
     

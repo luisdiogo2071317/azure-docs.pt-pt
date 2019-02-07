@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fb9725e18c53e9d42ae51418a1eb614aaa10fd12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157333"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816786"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ A secção seguinte fornece detalhes sobre como pesquisar e obter registos e mod
 * [Procurar um registo pelo Id](#lookingup)
 * [Lidando com consultas sem tipo](#untypedqueries)
 * [Inserção de dados](#inserting)
-* [A atualizar dados](#updating)
+* A atualizar dados
 * [A eliminação de dados](#deleting)
 * [Resolução de conflitos e a simultaneidade otimista](#optimisticconcurrency)
 * [Ligação a uma Interface de utilizador do Windows](#binding)
@@ -138,7 +138,7 @@ Esta secção descreve como emitir consultas para o back-end aplicação móvel,
 > Um tamanho de página baseadas em servidor é imposto para impedir que todas as linhas que está a ser devolvido.  Paginação impede a afetar negativamente o serviço de pedidos de padrão para grandes conjuntos de dados.  Para devolver mais do que 50 linhas, utilize o `Skip` e `Take` método, conforme descrito na [devolve os dados nas páginas](#paging).
 
 ### <a name="filtering"></a>Como: Filtrar dados devolvidos
-O código a seguir ilustra como filtrar dados, incluindo um `Where` cláusula numa consulta. Devolve todos os itens a partir `todoTable` cujo `Complete` propriedade é igual a `false`. O [onde] função aplica-se uma linha de filtragem de predicado para a consulta com base na tabela.
+O código a seguir ilustra como filtrar dados, incluindo um `Where` cláusula numa consulta. Devolve todos os itens a partir `todoTable` cujo `Complete` propriedade é igual a `false`. O [Where] função aplica-se uma linha de filtragem de predicado para a consulta com base na tabela.
 
 ```csharp
 // This query filters out completed TodoItems and items without a timestamp.
@@ -218,7 +218,7 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Como: Devolve os dados nas páginas
-Por predefinição, o back-end devolve apenas as 50 primeiras linhas. Pode aumentar o número de linhas retornados ao chamar o [tirar] método. Uso `Take` juntamente com o [ignorar] método para pedir um específico "page" do conjunto total de dados devolvido pela consulta. A consulta seguinte, quando executada, devolve os itens de três principais na tabela.
+Por predefinição, o back-end devolve apenas as 50 primeiras linhas. Pode aumentar o número de linhas retornados ao chamar o [Take] método. Uso `Take` juntamente com o [ignorar] método para pedir um específico "page" do conjunto total de dados devolvido pela consulta. A consulta seguinte, quando executada, devolve os itens de três principais na tabela.
 
 ```csharp
 // Define a filtered query that returns the top 3 items.
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 Se estiver a enviar para o WNS, deverá [obter um SID do pacote Microsoft Store](#package-sid).  Para obter mais informações sobre as aplicações do Windows, incluindo como registar a registos de modelo, consulte [Adicionar notificações push à aplicação].
 
 Não é suportada a solicitação de etiquetas do cliente.  Pedidos de etiqueta estão silenciosamente ignorados do registo.
-Se pretender registar o seu dispositivo com etiquetas, crie uma API personalizada que utiliza a API de Hubs de notificação para efetuar o registo em seu nome.  [Chamar a API personalizada](#customapi) em vez do `RegisterNativeAsync()` método.
+Se pretender registar o seu dispositivo com etiquetas, crie uma API personalizada que utiliza a API de Hubs de notificação para efetuar o registo em seu nome.  Chamar a API personalizada em vez do `RegisterNativeAsync()` método.
 
 ### <a name="package-sid"></a>Como: Obter um SID do pacote Microsoft Store
 Um SID do pacote é necessária para ativar notificações de push nas aplicações da Microsoft Store.  Para receber um SID do pacote, registe a aplicação com a Microsoft Store.
@@ -1062,12 +1062,12 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[tirar]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
 [Selecionar]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Ignorar]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[onde]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portal do Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx

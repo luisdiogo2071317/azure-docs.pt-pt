@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457552"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752250"
 documentType: LandingData
 title: Documentação da Base de Dados SQL do Azure
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
-  description: A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados de elevado desempenho, fiável e segura que pode utilizar para criar aplicações e sites com base em dados na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.
+  description: A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) de fins gerais baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados na cloud de elevado desempenho, fiável e segura que pode utilizar para criar aplicações e sites com base em dados na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.
   aside:
     image:
       alt: 
@@ -106,10 +106,10 @@ sections:
     rows:
     - title: Criar base de dados individual
       values:
-      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-single-database-get-started
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
     - title: Criar instância gerida
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
@@ -118,33 +118,10 @@ sections:
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Criar conjunto elástico
       values:
-      - href: 
+      - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: Dimensionar uma base de dados individual
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: Dimensionar um conjunto elástico
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: Dimensionar uma instância gerida
-      values:
-      - href: 
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-      - href: 
-    - title: Configurar rede do Azure para a Instância Gerida
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -152,6 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: Comece a utilizar a <a href="/azure/sql-database/sql-database-quickstart-guide">Base de dados singleton</a> e a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Instância Gerida</a> com os nossos guias de início rápido.
     - html: Criar e estruturar o esquema de uma nova base de dados individual com o <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> ou <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrar uma base de dados existente para o Azure com o <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">RESTAURO da Base de Dados</a>, o <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Assistente de Migração de Dados</a> ou a <a href="/azure/sql-database/sql-database-import">Importação BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteger a sua Base de Dados SQL</a>

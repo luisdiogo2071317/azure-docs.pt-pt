@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094251"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813811"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -28,7 +28,7 @@ As ferramentas de núcleo das funções do Azure permite-lhe desenvolver e testa
 
 Existem duas versões de ferramentas de núcleo de funções do Azure. A versão que utilizar depende do seu ambiente de desenvolvimento local [escolha da linguagem](supported-languages.md)e o nível de suporte necessário:
 
-+ [Versão 1.x](#v1): suporta a versão 1.x do runtime. Esta versão das ferramentas só é suportado em computadores Windows e é instalado a partir um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm). Com esta versão, pode criar funções em linguagens experimentais que não são suportadas oficialmente. Para obter mais informações, consulte [idiomas suportados nas funções do Azure](supported-languages.md)
++ Versão 1.x: suporta a versão 1.x do runtime. Esta versão das ferramentas só é suportado em computadores Windows e é instalado a partir um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm). Com esta versão, pode criar funções em linguagens experimentais que não são suportadas oficialmente. Para obter mais informações, consulte [idiomas suportados nas funções do Azure](supported-languages.md)
 
 + [Versão 2.x](#v2): suporta [versão 2.x do runtime](functions-versions.md). Esta versão suporta [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Utiliza os gestores de pacotes específicos da plataforma ou npm para instalação.
 

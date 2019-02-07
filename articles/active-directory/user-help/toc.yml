@@ -56,11 +56,10 @@ items:
       href: microsoft-authenticator-app-add-work-account.md
     - name: Adicionar uma conta Microsoft pessoal
       href: microsoft-authenticator-app-add-personal-account.md
-    - name: Adicionar uma conta que não seja da Microsoft pessoal
+    - name: Adicionar uma conta que não seja da Microsoft
       href: microsoft-authenticator-app-add-non-microsoft-account.md
     - name: Adicionar manualmente uma conta
       href: microsoft-authenticator-app-add-account-manual.md
-    expanded: true
   - name: Iniciar sessão utilizando a aplicação Microsoft Authenticator
     href: microsoft-authenticator-app-phone-signin-faq.md
   - name: Efetuar cópia de segurança e recuperar as suas contas
@@ -85,9 +84,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Resolução de problemas de mensagem "Não consegue chegar lá"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ed41c40adc0d09d60f43cf3826c6bb84a464c31f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904102"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755276"
