@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: d56c44e299125b6b7d8aff429aa6352b8e653a16
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508662"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822379"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutorial de início rápido para o R de linguagem de programação para o Azure Machine Learning Studio
 
@@ -745,7 +745,7 @@ O `ts.detrend()` função abaixo executa ambas estas operações. As seguintes d
 
 Há uma pouco estejam a acontecer no `ts.detrend()` função. A maioria desse código está a verificar para potenciais problemas com os argumentos ou lidar com exceções, o que ainda podem surgir durante as computações. Apenas algumas linhas desse código, na verdade, fazem os cálculos.
 
-Já abordamos a um exemplo de programação de defesa no [transformações de valor](#valuetransformations). Ambos os blocos de computação serão encapsulados num wrapper `tryCatch()`. Para alguns erros faz sentido para retornar o vetor de entrada original e, em outros casos, posso retornar um vetor de zeros.  
+Já abordamos a um exemplo de programação de defesa nas transformações de valor. Ambos os blocos de computação serão encapsulados num wrapper `tryCatch()`. Para alguns erros faz sentido para retornar o vetor de entrada original e, em outros casos, posso retornar um vetor de zeros.  
 
 Observe que a regressão linear utilizada para anular a fins de tendência é uma regressão da série de tempo. A variável de previsão é um objeto de série de tempo.  
 

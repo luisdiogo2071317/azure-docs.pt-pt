@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: a68ffb867a738e11c9895416bbdf2009b268c0c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 69ae32f63005d3d5ea83dce5aa349bb6c0c92e0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155816"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Server
 
@@ -215,7 +215,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no servidor da Tableau. Precisa de aprovisionar todos os utilizadores no servidor Tableau. 
 
-Esse nome de utilizador do utilizador deve corresponder ao valor que tiver configurado no atributo personalizado do Azure AD **nome de utilizador**. Com o mapeamento correto a integração deve funcionar [configuração do Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+Esse nome de utilizador do utilizador deve corresponder ao valor que tiver configurado no atributo personalizado do Azure AD **nome de utilizador**. Com o mapeamento correto, a integração deve trabalhar Configuring Azure AD Single Sign-On.
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o administrador de servidor da Tableau na sua organização.

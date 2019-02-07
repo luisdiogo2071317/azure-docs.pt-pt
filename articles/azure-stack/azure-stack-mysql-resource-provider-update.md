@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817296"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Atualizar o fornecedor de recursos do MySQL 
 
@@ -30,7 +30,7 @@ Um novo MySQL adaptador do fornecedor de recursos pode ser liberado quando cria 
 
 A partir da versão de versão 1.1.33.0 de fornecedor de recursos do MySQL, as atualizações são cumulativas e não precisam ser instalados na ordem em que foram lançadas; enquanto está a partir da versão 1.1.24.0 ou posterior. Por exemplo, se estiver a executar a versão 1.1.24.0 do fornecedor de recursos do MySQL, em seguida, pode atualizar para a versão 1.1.33.0 ou mais tarde sem a necessidade de instalar primeiro a versão 1.1.30.0. Para rever as versões do fornecedor de recursos disponíveis e a versão do Azure Stack, só são suportados em, consulte a lista de versões no [implementar os pré-requisitos do fornecedor de recursos](./azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
-Para atualizar do fornecedor de recursos que utiliza a **UpdateMySQLProvider.ps1** script. O processo é semelhante para o processo usado para instalar um fornecedor de recursos, conforme descrito no [implementar o fornecedor de recursos](#deploy-the-resource-provider) seção deste artigo. O script está incluído no download do fornecedor de recursos. 
+Para atualizar do fornecedor de recursos que utiliza a **UpdateMySQLProvider.ps1** script. O processo é semelhante ao processo utilizado para instalar um fornecedor de recursos, conforme descrito na implementar a secção de fornecedor de recursos deste artigo. O script está incluído no download do fornecedor de recursos. 
 
  > [!IMPORTANT]
  > Antes de atualizar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.

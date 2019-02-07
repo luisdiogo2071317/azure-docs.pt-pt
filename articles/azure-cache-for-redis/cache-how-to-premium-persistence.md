@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
-ms.openlocfilehash: 60f9baf7fb54706dc9d31c6920c0df24173d7b35
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 903fd465ce2a88e94b821c9a1b4c6c531083180a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105851"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819064"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Este artigo descreve como configurar a persistência na versão premium Cache do Azure para a instância de Redis.
@@ -133,7 +133,7 @@ Para a persistência de RDB e AOF:
 * Se tiver dimensionado para um tamanho mais pequeno, e não existir espaço suficiente no tamanho mais pequeno para conter todos os dados da última cópia de segurança, serão expulso chaves durante o processo de restauro, normalmente, a utilização a [allkeys lru](https://redis.io/topics/lru-cache) política de expulsão.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de cópia de segurança de RDB depois de criar a cache?
-Sim, pode alterar a frequência de cópia de segurança para a persistência de RDB no **persistência de dados de Redis** painel. Para obter instruções, consulte [persistência de Redis configurar](#configure-redis-persistence).
+Sim, pode alterar a frequência de cópia de segurança para a persistência de RDB no **persistência de dados de Redis** painel. Para obter instruções, consulte Configurar Redis persistência.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Por que se eu tiver uma frequência de cópia de segurança de RDB de 60 minutos há mais de 60 minutos entre as cópias de segurança?
 O intervalo de frequência de cópia de segurança de persistência de RDB não inicia até que o processo de cópia de segurança anterior seja concluída com êxito. Se a frequência de cópia de segurança é 60 minutos e demora um processo de cópia de segurança 15 minutos para concluir com êxito, a próxima cópia de segurança não inicia até 75 minutos após a hora de início da cópia de segurança anterior.

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9a48127b6a3093c616f08171dd87f9c3e9b45cc9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 61752ad9feda7ad6b8d91f1b996b68f27f24b2c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664095"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821988"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -499,7 +499,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-example).
 
-Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attribute).
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte o acionador - atributos.
 
 ## <a name="output---configuration"></a>Saída - configuração
 

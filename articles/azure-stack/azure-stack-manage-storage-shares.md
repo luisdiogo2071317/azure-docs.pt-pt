@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819523"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack 
 
@@ -51,7 +51,7 @@ Uma vez que as partilhas do serviço de armazenamento são para utilização exc
 
 Partilhas em volumes de armazenar dados de inquilino. Dados de inquilinos incluem blobs de páginas, blobs de blocos, acrescentar blobs, tabelas, filas, bases de dados e relacionadas com arquivos de metadados. Como os objetos de armazenamento (blobs, etc.) individualmente estão contidos dentro de uma única partilha, o tamanho máximo de cada objeto não pode exceder o tamanho de uma partilha. O tamanho máximo de novos objetos depende na capacidade que permanece num compartilhamento como espaço não utilizado quando esse novo objeto é criado.
 
-Quando uma partilha é baixa no espaço livre e ações para [reclamar](#reclaim-capacity) espaço não for concluída com êxito ou está disponível, o operador de cloud do Azure Stack pode [migrar](#migrate-a-container-between) os contentores de BLOBs a partir de uma partilha para outro.
+Quando uma partilha é baixa no espaço livre e ações para [recuperar](#reclaim-capacity) espaço não for concluída com êxito ou está disponível, o operador de cloud do Azure Stack pode migrar os contentores de BLOBs a partir de uma partilha para outro.
 
 - Para obter mais informações sobre contentores e blobs, veja [armazenamento de BLOBs](azure-stack-key-features.md#blob-storage) nos principais recursos e conceitos no Azure Stack.
 - Para obter informações sobre o funcionam de utilizadores de inquilino com o armazenamento de BLOBs no Azure Stack, veja [serviços de armazenamento do Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).

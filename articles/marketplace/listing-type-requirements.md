@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264687"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818537"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos de listando tipo  
 Os requisitos de conteúdo técnicos e marketing variam de acordo com a loja, o tipo de oferta e o tipo de lista. Reveja as seguintes especificações para verificar a sua conformidade.  
@@ -64,17 +64,17 @@ A listagem Tipo de lista inclui os seguintes tipos de oferta sobre as lojas no m
 
 | Tipo de oferta | Loja | Detalhes |  
 |:---        |:---        |:---     |  
-| Serviços de Consultoria | AppSource | [Requisitos: AppSource: Lista de: Serviços de consultoria](#requirements-appsource-list-consulting-services) |  
-| Serviços de Consultoria | Azure Marketplace | [Requisitos: Azure Marketplace: Lista de: Serviços de consultoria](#requirements-azure-marketplace-list-consulting-services) |  
+| Serviços de Consultoria | AppSource | Requisitos: AppSource: Lista de: Serviços de Consultoria |  
+| Serviços de Consultoria | Azure Marketplace | Requisitos: Azure Marketplace: Lista de: Serviços de Consultoria |  
 | Contactar-me | AppSource | [](#) |  
-| Contactar-me | Azure Marketplace | [Requisitos: AppSource: Lista de: Contactar-Me](#requirements-azure-marketplace-list-contact-me) |  
+| Contactar-me | Azure Marketplace | Requisitos: AppSource: Lista de: Contactar-me |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requisitos: AppSource: Lista de: Serviço de consultoria  
 
 | Requisitos | Detalhes |  
 |:--- |:--- |  
 | Características da oferta de serviço | O serviço de consultoria têm de cumprir os seguintes critérios.<ul> <li>Fornecer um compromisso de escopo fixo, duração foi corrigido, com preços fixos (ou gratuito).</li> <li>Orientar principalmente para pré-vendas.</li> <li>Limite de um único cliente.</li> <li>Conduzir no site.</li> </ul> |  
-| Requisitos de parceiros dos serviços de consultoria | Cumpre os critérios na área de relevante para o seu serviço.<table><tr><th>Área de Solução</th><th>Critérios</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Tem a competência Silver ou Gold Cloud Customer Relationship Management.</td></tr><tr><td>Dynamics 365 para finanças e operações, Enterprise edition</td><td>Ter competência Silver ou Gold Enterprise Resource Planning e a receita de suas operações na cloud em 12 meses de US $25.000 ou mais à direita.</td></tr><tr><td>Dynamics 365 para finanças e operações, Business edition</td><td>Servir como fornecedor de serviços Cloud (CSP) ou o parceiro de registo Digital (DPOR) para um ou mais clientes.</td></tr><tr><td>Power BI</td><td>Cumprem os critérios de parceiro de solução.</td></tr><tr><td>PowerApps</td><td>Ter uma solução de Showcase de parceiros.</td></tr></table><ul> <li>Para obter mais informações sobre a gestão de relação do cliente, visite a Cloud Customer Relationship Management página localizada em [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Para obter mais informações sobre o planeamento de recursos, visite o Enterprise Resource Planning, página localizada em [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Para obter mais informações sobre o CSP, visite o fornecedor de serviços Cloud página localizada em [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Para obter mais informações sobre como DPOR, visite o parceiro Digital de registo e a página de associação de parceiro localizado em [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Para obter mais informações sobre critérios de parceiro de solução, visite a descrição de geral do parceiro de solução e documento incentivos localizado em [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Para obter mais informações sobre o showcase de parceiros, visite o Showcase de parceiros página localizada em [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Requisitos de parceiros dos serviços de consultoria | Cumpre os critérios na área de relevante para o seu serviço.<table><tr><th>Área de Solução</th><th>Critérios</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Tem a competência Silver ou Gold Cloud Customer Relationship Management.</td></tr><tr><td>Dynamics 365 para finanças e operações, Enterprise edition</td><td>Ter competência Silver ou Gold Enterprise Resource Planning e a receita de suas operações na cloud em 12 meses de US $25.000 ou mais à direita.</td></tr><tr><td>Dynamics 365 para finanças e operações, Business edition</td><td>Servir como fornecedor de serviços Cloud (CSP) ou o parceiro de registo Digital (DPOR) para um ou mais clientes.</td></tr><tr><td>Power BI</td><td>Cumprem os critérios de parceiro de solução.</td></tr><tr><td>PowerApps</td><td>Ter uma solução de Showcase de parceiros.</td></tr></table><ul> <li>Para obter mais informações sobre a gestão de relação do cliente, visite a Cloud Customer Relationship Management página localizada em [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Para obter mais informações sobre o planeamento de recursos, visite o Enterprise Resource Planning, página localizada em [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Para obter mais informações sobre o CSP, visite o fornecedor de serviços Cloud página localizada em [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>Para obter mais informações sobre como DPOR, visite o parceiro Digital de registo e a página de associação de parceiro localizado em [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Para obter mais informações sobre critérios de parceiro de solução, visite a descrição de geral do parceiro de solução e documento incentivos localizado em [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>Para obter mais informações sobre o showcase de parceiros, visite o Showcase de parceiros página localizada em [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### <a name="requirements-azure-marketplace-list-consulting-service"></a>Requisitos: Azure Marketplace: Lista de: Serviço de consultoria  
 
@@ -91,11 +91,11 @@ A listagem Tipo de lista inclui os seguintes tipos de oferta sobre as lojas no m
 
 | Tipo de oferta | Loja | Detalhes |  
 |:---        |:---        |:---     |  
-| Gratuitos / avaliação SaaS | AppSource | [Requisitos de tipo de listagem: Trial](#listing-type-requirements-trial) |  
-| Gratuitos / avaliação SaaS | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Avaliação gratuita / avaliação SaaS](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Demo interativa | AppSource | [Requisitos de tipo de listagem: Trial](#listing-type-requirements-trial) |  
+| Gratuitos / avaliação SaaS | AppSource | Requisitos de tipo de listagem: Avaliação |  
+| Gratuitos / avaliação SaaS | Azure Marketplace | Requisitos: Azure Marketplace: Versão de avaliação: Avaliação gratuita / avaliação SaaS |  
+| Demo interativa | AppSource | Requisitos de tipo de listagem: Avaliação |  
 | Demo interativa | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Demonstração interativa](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Versão de teste | AppSource | [Requisitos de tipo de listagem: Trial](#listing-type-requirements-trial) |  
+| Versão de teste | AppSource | Requisitos de tipo de listagem: Avaliação |  
 | Versão de teste | Azure Marketplace | [Requisitos: Azure Marketplace: Versão de avaliação: Versão de teste](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requisitos: Azure Marketplace: Avaliação  
@@ -133,8 +133,8 @@ A listagem Tipo de lista inclui os seguintes tipos de oferta sobre as lojas no m
 
 | Tipo de oferta | Loja | Detalhes |   
 |:---        |:---        | :--- |  
-| Aplicações do Azure: Aplicação gerida | Azure Marketplace | [Requisitos: Azure Marketplace: Transact: Aplicações do Azure: Aplicação gerida](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Aplicações do Azure: Modelo de solução | Azure Marketplace | [Requisitos: Azure Marketplace: Transact: Aplicações do Azure: Modelo de solução](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Aplicações do Azure: Aplicação gerida | Azure Marketplace | Requisitos: Azure Marketplace: Transact: Aplicações do Azure: Aplicação gerida |  
+| Aplicações do Azure: Modelo de solução | Azure Marketplace | Requisitos: Azure Marketplace: Transact: Aplicações do Azure: Modelo de solução |  
 | Contentores | Azure Marketplace | [Requisitos: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | Aplicação SaaS  | Azure Marketplace | [Requisitos: Azure Marketplace: Transact: Aplicação SaaS](#requirements-azure-marketplace-transact-saas-app) |  
 | Máquina virtual | Azure Marketplace | [Requisitos: Azure Marketplace: Transact: Máquina virtual](#requirements-azure-marketplace-transact-virtual-machine) |  
